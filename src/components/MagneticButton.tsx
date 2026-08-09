@@ -31,7 +31,13 @@ export default function MagneticButton({ children, className = '', strength = 0.
   };
 
   const inner = href ? (
-    <a href={href} onClick={onClick ? (e) => { e.preventDefault(); onClick(); } : undefined} className={className}>
+    <a
+      href={href}
+      onClick={onClick ? (e) => { e.preventDefault(); onClick(); } : undefined}
+      target={href.startsWith('http') ? '_blank' : undefined}
+      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+      className={className}
+    >
       {children}
     </a>
   ) : (

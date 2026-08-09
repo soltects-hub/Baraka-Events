@@ -26,7 +26,7 @@ export default function About() {
         aria-hidden
         className="pointer-events-none absolute top-2 left-0 whitespace-nowrap font-display text-[20vw] leading-none text-stroke opacity-25 select-none md:top-6"
       >
-        Baraka — Barkat — Baraka
+        Baraka — Baraka — Baraka
       </motion.div>
 
       <div className="relative mx-auto grid max-w-[1400px] gap-16 px-6 md:px-10 lg:grid-cols-2 lg:gap-24">
@@ -58,12 +58,12 @@ export default function About() {
           <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-gold">The House of Baraka</p>
           <RevealText
             as="h2"
-            text="Where barkat meets brilliance."
+            text="Where Baraka meets brilliance."
             className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
           />
           <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-cream/65 md:text-lg">
             <p>
-              Baraka — barkat, the blessing — is the promise woven into every event we create.
+              Baraka — the blessing — is the promise woven into every event we create.
               For over a decade, our atelier has transformed Lahore's most treasured occasions
               into enduring memories — from the historic havelis of the Walled City to the
               grand marquees of DHA and the rooftops of Gulberg.

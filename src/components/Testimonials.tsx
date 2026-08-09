@@ -39,7 +39,7 @@ export default function Testimonials() {
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-[120px]"
-        style={{ background: 'radial-gradient(circle, #c8a45d 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
         <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Kind Words</p>

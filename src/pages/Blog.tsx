@@ -19,7 +19,7 @@ export default function Blog() {
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full opacity-15 blur-[130px]"
-          style={{ background: 'radial-gradient(circle, #c8a45d 0%, transparent 65%)' }}
+          style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
         />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <motion.p

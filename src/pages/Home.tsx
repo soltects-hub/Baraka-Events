@@ -8,8 +8,12 @@ import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import About from '../components/About';
 import StickyServices from '../components/StickyServices';
+import BrandsMarquee from '../components/BrandsMarquee';
+import MenuCarousel from '../components/MenuCarousel';
+import TextStrips from '../components/TextStrips';
 import DollyZoom from '../components/DollyZoom';
 import HorizontalPortfolio from '../components/HorizontalPortfolio';
+import DesignStudio from '../components/DesignStudio';
 import DepthFlythrough from '../components/DepthFlythrough';
 import Gallery from '../components/Gallery';
 import Process from '../components/Process';
@@ -17,6 +21,7 @@ import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
+import LocationMap from '../components/LocationMap';
 
 let hasLoadedOnce = false;
 
@@ -55,15 +60,20 @@ export default function Home() {
         <Marquee />
         <About />
         <StickyServices />
+        <BrandsMarquee />
         <DollyZoom />
         <HorizontalPortfolio />
+        <DesignStudio />
+        <TextStrips />
         <DepthFlythrough />
         <Gallery />
+        <MenuCarousel />
         <Process />
         <Team />
         <Testimonials />
         <FAQ />
         <Contact />
+        <LocationMap />
       </main>
     </>
   );

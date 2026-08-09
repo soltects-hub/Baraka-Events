@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import RevealText from './RevealText';
+import LoopRail from './LoopRail';
 
 const members = [
   {
@@ -34,9 +34,7 @@ const members = [
   },
 ];
 
-const comingSoon = [
-  { role: 'Creative Director', n: '06' },
-];
+const comingSoon = [{ role: 'Creative Director', n: '06' }];
 
 export default function Team() {
   return (
@@ -45,83 +43,75 @@ export default function Team() {
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-15 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #c8a45d 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="mb-16 flex flex-col items-start justify-between gap-6 md:mb-20 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-14 md:flex-row md:items-end">
           <div>
             <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">The Atelier</p>
             <RevealText
               as="h2"
-              text="The faces behind the barkat"
-              className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
+              text="The faces behind Baraka"
+              className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
             />
           </div>
-          <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60">
-            A small, obsessive team. Each production is led personally &mdash;
-            never handed down, never phoned in.
+          <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 md:text-right">
+            A small, obsessive team. The rail drifts on its own &mdash; hover to pause,
+            drag to explore by hand.
           </p>
         </div>
+      </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
+      {/* auto-looping portrait rail */}
+      <div className="px-6 md:px-10">
+        <LoopRail speed={40}>
           {members.map((m, i) => (
-            <motion.article
+            <article
               key={m.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.9, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative"
+              className="group relative w-[74vw] shrink-0 select-none sm:w-[340px] md:w-[360px]"
             >
               <div className="relative overflow-hidden rounded-sm">
                 <img
                   src={m.image}
                   alt={`${m.name} \u2014 ${m.role} at Baraka Events`}
                   loading="lazy"
-                  className="aspect-[3/4] w-full object-cover grayscale-[0.35] transition-all duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] group-hover:grayscale-0"
+                  draggable={false}
+                  className="aspect-[3/4] w-full object-cover grayscale-0 transition-all duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] lg:grayscale-[0.35] lg:group-hover:grayscale-0"
                 />
-                {/* warm grade + bottom gradient */}
                 <div className="pointer-events-none absolute inset-0 bg-gold/10 mix-blend-overlay" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
 
-                {/* index chip */}
                 <div className="absolute right-5 top-5 rounded-full border border-white/15 bg-ink/40 px-3.5 py-1 font-display text-sm italic text-gold backdrop-blur-md">
                   {String(i + 1).padStart(2, '0')}
                 </div>
 
-                {/* name plate */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
                   <p className="mb-1.5 text-[10px] uppercase tracking-[0.35em] text-gold">{m.role}</p>
-                  <h3 className="font-display text-2xl font-light text-cream md:text-3xl">{m.name}</h3>
-                  <p className="mt-3 max-h-0 overflow-hidden text-[13px] font-light leading-relaxed text-cream/70 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-h-40 group-hover:opacity-100">
+                  <h3 className="font-display text-2xl font-light md:text-3xl">{m.name}</h3>
+                  <p className="mt-3 max-h-40 overflow-hidden text-[13px] font-light leading-relaxed text-cream/70 opacity-100 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-40 lg:group-hover:opacity-100">
                     {m.bio}
                   </p>
                 </div>
 
-                {/* gold frame on hover */}
                 <div className="pointer-events-none absolute inset-3 border border-gold/0 transition-colors duration-700 group-hover:border-gold/35" />
               </div>
-            </motion.article>
+            </article>
           ))}
 
-          {/* the two seats still to be announced */}
-          {comingSoon.map((c, i) => (
-            <motion.div
+          {comingSoon.map((c) => (
+            <div
               key={c.n}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.9, delay: (members.length + i) * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex aspect-[3/4] flex-col items-center justify-center overflow-hidden rounded-sm border border-dashed border-white/12 bg-ink-2/60 lg:aspect-auto"
+              className="relative flex w-[74vw] shrink-0 select-none flex-col items-center justify-center overflow-hidden rounded-sm border border-dashed border-white/12 bg-ink-2/60 sm:w-[340px] md:w-[360px]"
+              style={{ aspectRatio: '3/4' }}
             >
               <span className="font-display text-lg italic text-gold/60">{c.n}</span>
               <p className="mt-3 text-[10px] uppercase tracking-[0.35em] text-cream/45">{c.role}</p>
               <p className="mt-2 font-display text-xl italic text-cream/35">Announcing soon</p>
               <div className="mt-5 h-[1px] w-10 bg-gold/30" />
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </LoopRail>
       </div>
     </section>
   );

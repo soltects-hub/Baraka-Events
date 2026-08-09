@@ -27,12 +27,12 @@ const projects = [
     stat: '90 guests · sunset to sunrise',
   },
   {
-    title: 'Shalimar Vows',
-    category: 'Garden Shaadi',
-    location: 'Mughal Gardens, Shalimar, Lahore',
+    title: 'The Summit Dinner',
+    category: 'Corporate Event',
+    location: 'Grand Ballroom, Gulberg, Lahore',
     year: '2023',
     image: '/media/portfolio-4.jpg',
-    stat: '150 guests · under the stars',
+    stat: '800 executives · awards night',
   },
 ];
 
@@ -105,7 +105,10 @@ export default function HorizontalPortfolio() {
           </div>
 
           {projects.map((p, i) => (
-            <div key={p.title} className="group relative w-[85vw] shrink-0 overflow-hidden rounded-sm md:w-[58vw] lg:w-[48vw]">
+            <div
+              key={p.title}
+              className="group relative w-[85vw] shrink-0 overflow-hidden rounded-sm transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(255,150,11,0.08)] md:w-[58vw] lg:w-[48vw]"
+            >
               <div className="relative h-[62vh] overflow-hidden md:h-[70vh]">
                 <motion.img
                   src={p.image}

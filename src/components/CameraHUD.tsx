@@ -6,7 +6,7 @@ export default function CameraHUD({ visible }: { visible: boolean }) {
   const velocity = useVelocity(scrollY);
   const [tc, setTc] = useState('00:00:00:00');
   const [mm, setMm] = useState(24);
-  const [scene, setScene] = useState('01 · ESTABLISHING — THE MONUMENT');
+  const [scene, setScene] = useState('01 · ESTABLISHING — THE STAGE');
   const [rolling, setRolling] = useState(false);
   const stopTimer = useRef<number>(0);
 

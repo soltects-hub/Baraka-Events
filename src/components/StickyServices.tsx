@@ -52,9 +52,9 @@ export default function StickyServices() {
               key={s.image}
               src={s.image}
               alt={s.title}
-              initial={{ opacity: 0, scale: 1.12 }}
-              animate={{ opacity: 0.32, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 1.12, rotateY: 4 }}
+              animate={{ opacity: 0.32, scale: 1, rotateY: 0 }}
+              exit={{ opacity: 0, scale: 0.96, rotateY: -4 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-0 h-full w-full object-cover"
             />

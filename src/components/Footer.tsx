@@ -1,4 +1,5 @@
 import { useSectionNav } from '../lib/useSectionNav';
+import NeonWordmark from './NeonWordmark';
 
 const nav = [
   { label: 'About', href: '#about' },
@@ -11,11 +12,11 @@ const nav = [
 ];
 
 const socials = [
-  { label: 'WhatsApp', href: 'https://wa.link/yiogfm' },
-  { label: 'Facebook', href: 'https://facebook.com/Barakaeventsofficial' },
-  { label: 'Instagram', href: 'https://instagram.com/Barakaeventsofficial' },
-  { label: 'YouTube', href: 'https://youtube.com/@Barakaeventsofficial' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/Barakaeventsofficial' },
+  { label: 'WhatsApp', href: 'https://wa.link/yiogfm', color: '#25D366' },
+  { label: 'Facebook', href: 'https://facebook.com/Barakaeventsofficial', color: '#1877F2' },
+  { label: 'Instagram', href: 'https://instagram.com/Barakaeventsofficial', color: '#E4405F' },
+  { label: 'YouTube', href: 'https://youtube.com/@Barakaeventsofficial', color: '#FF0000' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/Barakaeventsofficial', color: '#0A66C2' },
 ];
 
 export default function Footer() {
@@ -48,7 +49,14 @@ export default function Footer() {
                 <a href="tel:+923139999039" className="gold-underline hover:text-cream">+92 313 9999039</a>
               </p>
               <p className="max-w-xs leading-relaxed">
-                LG 13A, Big City Plaza, Liberty Roundabout,<br />Main Boulevard, Gulberg III, Lahore
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Big%20City%20Plaza%2C%20Liberty%20Roundabout%2C%20Main%20Boulevard%2C%20Gulberg%20III%2C%20Lahore%2C%20Pakistan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gold-underline hover:text-cream"
+                >
+                  LG 13A, Big City Plaza, Liberty Roundabout,<br />Main Boulevard, Gulberg III, Lahore
+                </a>
               </p>
             </div>
           </div>
@@ -79,7 +87,8 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
+                    style={{ '--brand': s.color } as React.CSSProperties}
+                    className="gold-underline text-sm font-light text-cream/70 transition-colors duration-300 hover:text-[color:var(--brand)]"
                   >
                     {s.label}
                   </a>
@@ -90,16 +99,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div
-          aria-hidden
-          className="pointer-events-none mt-16 select-none overflow-hidden text-center font-display text-[18vw] leading-[0.85] text-stroke opacity-30"
-        >
-          BARAKA
-        </div>
+      </div>
+
+      {/* full-bleed neon wordmark */}
+      <NeonWordmark />
+
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[11px] font-light tracking-wide text-cream/35 md:flex-row">
           <span>&copy; {new Date().getFullYear()} Baraka Events. All rights reserved.</span>
-          <span>Crafted with barkat &mdash; in Lahore, for Lahore</span>
+          <span>Crafted with Baraka &mdash; in Lahore, for Lahore</span>
         </div>
       </div>
     </footer>

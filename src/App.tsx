@@ -4,6 +4,7 @@ import { SmoothScrollProvider, useLenis } from './lib/scroll';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import SmokeCursor from './components/SmokeCursor';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -33,6 +34,7 @@ export default function App() {
           </Routes>
           <Footer />
           <WhatsAppButton />
+          <SmokeCursor />
         </div>
       </SmoothScrollProvider>
     </BrowserRouter>

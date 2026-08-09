@@ -47,7 +47,7 @@ export default function Hero({ started }: { started: boolean }) {
   const approachO = useTransform(p, [0.18, 0.28, 0.85, 0.96], [0, 1, 1, 0]);
 
   return (
-    <section id="top" ref={ref} data-scene="01 · ESTABLISHING — THE MONUMENT" className="relative h-[340vh]">
+    <section id="top" ref={ref} data-scene="01 · ESTABLISHING — THE STAGE" className="relative h-[340vh]">
       <div className="sticky top-0 h-screen overflow-hidden bg-ink">
         {/* night atmosphere */}
         <div
@@ -55,32 +55,32 @@ export default function Hero({ started }: { started: boolean }) {
           style={{ background: 'radial-gradient(ellipse at 50% 30%, #191308 0%, #050505 75%)' }}
         />
 
-        {/* the logo as a BUILDING — camera dollies toward it */}
+        {/* the empty stage — camera dollies toward the light */}
         <div className="absolute inset-0" style={{ perspective: '1200px' }}>
           <motion.div
-            style={{ scale: monScale, rotateX: monRotX, opacity: monOpacity, transformOrigin: '50% 64%' }}
+            style={{ scale: monScale, rotateX: monRotX, opacity: monOpacity, transformOrigin: '50% 56%' }}
             className="absolute inset-0 will-change-transform"
           >
             <img
-              src="/media/logo-monument.jpg"
-              alt="The Baraka monogram as a monumental gold building at night"
+              src="/media/hero-arrival.jpg"
+              alt="Stage production under construction — beams of light cutting through a dark venue"
               className="h-full w-full object-cover"
-              style={{ objectPosition: '50% 62%' }}
+              style={{ objectPosition: '50% 45%' }}
             />
             <motion.div style={{ opacity: monDim }} className="absolute inset-0 bg-ink" />
           </motion.div>
         </div>
 
-        {/* the gate — final approach into the glowing doorway */}
+        {/* into the light — warm spotlights in haze */}
         <motion.div
-          style={{ opacity: gateOpacity, scale: gateScale, filter: gateFilter, transformOrigin: '50% 55%' }}
+          style={{ opacity: gateOpacity, scale: gateScale, filter: gateFilter, transformOrigin: '42% 30%' }}
           className="absolute inset-0 will-change-transform"
         >
           <img
-            src="/media/logo-gate.jpg"
-            alt="Golden archway entrance carved into the monument"
+            src="/media/hero-inside.jpg"
+            alt="Warm spotlights glowing through stage haze"
             className="h-full w-full object-cover"
-            style={{ objectPosition: '50% 55%' }}
+            style={{ objectPosition: '42% 30%' }}
           />
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Hero({ started }: { started: boolean }) {
 
         {/* through-the-door flash + hard cut */}
         <motion.div
-          style={{ opacity: flashOpacity, background: 'radial-gradient(circle at 50% 52%, #fff6e0 0%, #e2c78f 34%, rgba(200,164,93,0.4) 68%, transparent 100%)' }}
+          style={{ opacity: flashOpacity, background: 'radial-gradient(circle at 50% 52%, #fff6e0 0%, #ffb763 34%, rgba(255,150,11,0.4) 68%, transparent 100%)' }}
           className="pointer-events-none absolute inset-0 z-20"
         />
         <motion.div style={{ opacity: cutOpacity }} className="pointer-events-none absolute inset-0 z-20 bg-ink" />
@@ -101,77 +101,73 @@ export default function Hero({ started }: { started: boolean }) {
         <motion.div style={{ height: barH }} className="absolute inset-x-0 top-0 z-30 bg-black" />
         <motion.div style={{ height: barH }} className="absolute inset-x-0 bottom-0 z-30 bg-black" />
 
-        {/* floating 3D emblem + headline — flies past the lens on scroll */}
+        {/* headline — flies past the lens on scroll */}
         <motion.div
           style={{ pointerEvents: pe }}
-          className="relative z-10 flex h-full flex-col items-center justify-center gap-5 px-6 text-center md:gap-6"
+          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
         >
           <motion.div style={{ scale: logoScale, opacity: logoOpacity, filter: logoFilter }} className="will-change-transform">
-            <motion.img
-              src="/media/logo.png"
-              alt="Baraka Events"
-              initial={{ opacity: 0, y: 40, scale: 0.85 }}
-              animate={started ? { opacity: 1, y: [0, -10, 0], scale: 1 } : {}}
-              transition={{
-                opacity: { duration: 1.4, delay: 0.5 },
-                scale: { duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] },
-                y: { duration: 6, delay: 1.9, repeat: Infinity, ease: 'easeInOut' },
-              }}
-              className="w-[52vw] max-w-[300px] md:w-[24vw] md:max-w-[360px]"
-              style={{ filter: 'drop-shadow(0 24px 60px rgba(200,164,93,0.35)) drop-shadow(0 6px 18px rgba(0,0,0,0.6))' }}
-            />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="text-[10px] uppercase tracking-[0.5em] text-gold md:text-xs"
+            >
+              Event Design &amp; Production &mdash; Gulberg, Lahore
+            </motion.p>
+
+            <h1 className="mt-5 font-display font-light leading-[1.06] text-cream">
+              <span className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
+                <motion.span
+                  className="block text-[11vw] sm:text-[8.5vw] md:text-[6vw]"
+                  initial={{ y: '110%' }}
+                  animate={started ? { y: '0%' } : {}}
+                  transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  Lahore celebrates.
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
+                <motion.span
+                  className="block text-[11vw] sm:text-[8.5vw] md:text-[6vw]"
+                  initial={{ y: '110%' }}
+                  animate={started ? { y: '0%' } : {}}
+                  transition={{ duration: 1.2, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  We <em className="italic text-gold-soft">orchestrate</em>.
+                </motion.span>
+              </span>
+            </h1>
           </motion.div>
 
           <motion.div style={{ opacity: uiOpacity, y: uiY, scale: uiScale }} className="flex flex-col items-center will-change-transform">
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={started ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 1 }}
-              className="text-[10px] uppercase tracking-[0.5em] text-gold md:text-xs"
-            >
-              Lahore's Luxury Event Atelier
-            </motion.p>
-
-            <h1 className="mt-4 font-display font-light leading-[1.05] text-cream">
-              <span className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
-                <motion.span
-                  className="block text-[9vw] sm:text-[7.5vw] md:text-[4.6vw]"
-                  initial={{ y: '110%' }}
-                  animate={started ? { y: '0%' } : {}}
-                  transition={{ duration: 1.2, delay: 1.15, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  Crafting <em className="italic text-gold-soft">Extraordinary</em> Experiences
-                </motion.span>
-              </span>
-            </h1>
-
-            <motion.p
               initial={{ opacity: 0, y: 24 }}
               animate={started ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 1.5 }}
-              className="mt-5 max-w-md text-sm font-light leading-relaxed text-cream/70 md:max-w-xl md:text-base"
+              transition={{ duration: 1, delay: 1.4 }}
+              className="mt-6 max-w-md text-sm font-light leading-relaxed text-cream/70 md:max-w-xl md:text-base"
             >
-              From mehndi to walima, baraat to boardroom — Baraka Events designs Lahore's most
-              unforgettable shaadis, corporate galas and private celebrations.
+              Weddings, corporate functions and private evenings &mdash; planned end to end
+              by one team that has done it 450 times. You host. We handle the rest.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={started ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 1.7 }}
+              transition={{ duration: 1, delay: 1.6 }}
               className="mt-8 flex flex-col items-center gap-4 sm:flex-row"
             >
               <MagneticButton
                 onClick={() => lenis?.scrollTo('#contact', { duration: 1.8 })}
                 className="rounded-full bg-gold px-9 py-4 text-[12px] font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03]"
               >
-                Begin Your Story
+                Plan Your Event
               </MagneticButton>
               <MagneticButton
                 onClick={() => lenis?.scrollTo('#portfolio', { duration: 1.8 })}
                 className="rounded-full border border-cream/25 bg-white/5 px-9 py-4 text-[12px] uppercase tracking-[0.25em] text-cream backdrop-blur-md transition-colors duration-300 hover:border-gold hover:text-gold"
               >
-                View Portfolio
+                See Our Work
               </MagneticButton>
             </motion.div>
           </motion.div>

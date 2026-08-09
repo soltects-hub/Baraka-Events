@@ -77,7 +77,7 @@ export default function DepthFlythrough() {
           style={{ opacity: glow }}
           className="pointer-events-none absolute left-1/2 top-1/2 h-[70vh] w-[70vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[130px]"
         >
-          <div className="h-full w-full rounded-full" style={{ background: 'radial-gradient(circle, #c8a45d 0%, transparent 65%)' }} />
+          <div className="h-full w-full rounded-full" style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }} />
         </motion.div>
 
         {/* the corridor of plates — scroll flies the camera through them */}
