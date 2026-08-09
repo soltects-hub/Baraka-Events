@@ -1,0 +1,107 @@
+import { useSectionNav } from '../lib/useSectionNav';
+
+const nav = [
+  { label: 'About', href: '#about' },
+  { label: 'Experiences', href: '#experiences' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Team', href: '#team' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const socials = [
+  { label: 'WhatsApp', href: 'https://wa.link/yiogfm' },
+  { label: 'Facebook', href: 'https://facebook.com/Barakaeventsofficial' },
+  { label: 'Instagram', href: 'https://instagram.com/Barakaeventsofficial' },
+  { label: 'YouTube', href: 'https://youtube.com/@Barakaeventsofficial' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/Barakaeventsofficial' },
+];
+
+export default function Footer() {
+  const go = useSectionNav();
+
+  return (
+    <footer className="relative overflow-hidden border-t border-white/5 bg-ink pt-20 pb-14 lg:pb-10">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="grid gap-14 md:grid-cols-[2fr_1fr_1fr]">
+          <div>
+            <a
+              href="/"
+              onClick={(e) => { e.preventDefault(); go('/'); }}
+              className="inline-flex items-center gap-4"
+            >
+              <img src="/media/logo.png" alt="Baraka Events logo" className="h-14 w-auto" loading="lazy" />
+              <span className="font-display text-3xl tracking-[0.18em] text-cream">
+                BARAKA<span className="text-gold">.</span>
+              </span>
+            </a>
+            <p className="mt-5 max-w-sm text-sm font-light leading-relaxed text-cream/50">
+              Lahore's luxury event atelier &mdash; crafting shaadis, corporate events and
+              private celebrations of extraordinary beauty, in the heart of Punjab.
+            </p>
+            <div className="mt-6 space-y-2 text-sm font-light text-cream/55">
+              <p>
+                <a href="mailto:Booking@barakaevents.com" className="gold-underline hover:text-cream">Booking@barakaevents.com</a>
+              </p>
+              <p>
+                <a href="tel:+923139999039" className="gold-underline hover:text-cream">+92 313 9999039</a>
+              </p>
+              <p className="max-w-xs leading-relaxed">
+                LG 13A, Big City Plaza, Liberty Roundabout,<br />Main Boulevard, Gulberg III, Lahore
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/40">Navigate</h4>
+            <ul className="space-y-3">
+              {nav.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href.startsWith('#') ? '/' + l.href : l.href}
+                    onClick={(e) => { e.preventDefault(); go(l.href); }}
+                    className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/40">Follow</h4>
+            <ul className="space-y-3">
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-[11px] font-light tracking-wide text-cream/35">@Barakaeventsofficial</p>
+          </div>
+        </div>
+
+        <div
+          aria-hidden
+          className="pointer-events-none mt-16 select-none overflow-hidden text-center font-display text-[18vw] leading-[0.85] text-stroke opacity-30"
+        >
+          BARAKA
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[11px] font-light tracking-wide text-cream/35 md:flex-row">
+          <span>&copy; {new Date().getFullYear()} Baraka Events. All rights reserved.</span>
+          <span>Crafted with barkat &mdash; in Lahore, for Lahore</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
