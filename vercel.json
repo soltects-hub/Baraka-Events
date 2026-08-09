@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/baraka-site.zip",
+      "headers": [
+        { "key": "Content-Type", "value": "application/zip" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"baraka-site.zip\"" }
+      ]
+    }
+  ]
+}
