@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { SmoothScrollProvider, useLenis } from './lib/scroll';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -34,6 +35,7 @@ export default function App() {
           <Footer />
           <WhatsAppButton />
         </div>
+        <Analytics />
       </SmoothScrollProvider>
     </BrowserRouter>
   );
