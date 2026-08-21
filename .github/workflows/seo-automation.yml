@@ -46,6 +46,9 @@ jobs:
       - name: Verify Google Cloud authentication
         run: gcloud auth list
 
+      - name: TEMP DIAGNOSTIC - check Vertex AI API enablement (Priority 3 investigation, to be removed)
+        run: gcloud services list --filter="name:aiplatform.googleapis.com" --format="table(name,state)" || echo "gcloud services list failed (see above)"
+
       - name: Run lint
         run: npm run lint
 
