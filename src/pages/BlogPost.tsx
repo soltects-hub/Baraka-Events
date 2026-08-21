@@ -4,17 +4,51 @@ import { motion } from 'framer-motion';
 import { getPost, posts } from '../lib/posts';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
+import {
+  useSEO,
+  seoConfig,
+  routes,
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+  applyStructuredData,
+  composeSchemaGraph,
+} from '../seo';
 
 export default function BlogPost() {
   const { slug } = useParams();
   const post = slug ? getPost(slug) : undefined;
   const go = useSectionNav();
 
+  useSEO({
+    title: post ? `${post.title} \u2014 The Baraka Journal` : 'The Baraka Journal',
+    description: post?.excerpt ?? seoConfig.site.description,
+    canonical: post ? routes.blogPost(post.slug) : routes.blog,
+    image: post?.image,
+    imageAlt: post?.imageAlt,
+    type: post ? 'article' : 'website',
+    publishedDate: post?.publishedISO,
+  });
+
   useEffect(() => {
-    if (post) {
-      document.title = `${post.title} \u2014 The Baraka Journal`;
-      window.scrollTo(0, 0);
-    }
+    if (!post) return;
+    window.scrollTo(0, 0);
+    applyStructuredData(
+      composeSchemaGraph([
+        generateArticleSchema({
+          title: post.title,
+          description: post.excerpt,
+          image: post.image,
+          imageAlt: post.imageAlt,
+          publishedDate: post.publishedISO,
+          slug: post.slug,
+        }),
+        generateBreadcrumbSchema([
+          { name: 'Home', url: seoConfig.site.url },
+          { name: 'Blog', url: `${seoConfig.site.url}${routes.blog}` },
+          { name: post.title, url: `${seoConfig.site.url}${routes.blogPost(post.slug)}` },
+        ]),
+      ])
+    );
   }, [post]);
 
   if (!post) return <Navigate to="/blog" replace />;
