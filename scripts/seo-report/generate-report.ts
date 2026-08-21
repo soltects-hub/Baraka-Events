@@ -9,6 +9,13 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { REPORTS_DIR, isoDate } from './config';
 import type { PageRow, QueryRow, SearchConsoleReportData } from './types';
+import { classifyUrls } from './legacy-urls';
+import type { Decision } from './decide-action';
+
+function readJsonIfExists<T>(path: string): T | null {
+  if (!existsSync(path)) return null;
+  return JSON.parse(readFileSync(path, 'utf8'));
+}
 
 const DECLINE_THRESHOLD = -0.2; // flag a >=20% drop
 const GROWTH_THRESHOLD = 0.2; // flag a >=20% gain
@@ -280,9 +287,95 @@ function renderFullReport(data: SearchConsoleReportData): string {
   }
   lines.push('');
 
+  const indexedCount = (data.urlInspections ?? []).filter((u) => (u.coverageState ?? '').toLowerCase().includes('indexed') && !(u.coverageState ?? '').toLowerCase().includes('not')).length;
+  lines.push('## Indexed pages');
+  lines.push('');
+  lines.push(`${indexedCount}/${(data.urlInspections ?? []).length} inspected site URLs are indexed by Google.`);
+  lines.push('');
+
+  const allSeenUrls = [...current.topPages.map((p) => p.page), ...previous.topPages.map((p) => p.page), ...(data.sitemaps ?? []).map((s) => s.path)];
+  const legacyClassified = classifyUrls(allSeenUrls).filter((r) => r.classification !== 'current-valid');
+  lines.push('## Legacy URL audit (Phase 1 — classification only, nothing auto-applied)');
+  lines.push('');
+  if (legacyClassified.length === 0) {
+    lines.push('No legacy/historical URLs observed in this run\'s Search Console data.');
+  } else {
+    const bySpam = legacyClassified.filter((r) => r.classification === 'spam-410');
+    const byRedirect = legacyClassified.filter((r) => r.classification === 'redirect-candidate');
+    const byInvestigate = legacyClassified.filter((r) => r.classification === 'investigate');
+    if (bySpam.length > 0) {
+      lines.push(`**Spam/malware-pattern URLs (recommend 410, never redirect):**`);
+      for (const r of bySpam) lines.push(`- \`${r.url}\` — ${r.reason}`);
+      lines.push('');
+    }
+    if (byRedirect.length > 0) {
+      lines.push(`**Legacy content with a clear redirect target (human review before implementing):**`);
+      for (const r of byRedirect) lines.push(`- \`${r.url}\` → \`${r.proposedTarget}\` — ${r.reason}`);
+      lines.push('');
+    }
+    if (byInvestigate.length > 0) {
+      lines.push(`**Needs human investigation (no automatic action taken):**`);
+      for (const r of byInvestigate) lines.push(`- \`${r.url}\` — ${r.investigationNote ?? r.reason}`);
+      lines.push('');
+    }
+  }
+
+  const decision = readJsonIfExists<Decision>(resolve(process.cwd(), REPORTS_DIR, 'decision-latest.json'));
+  const contentProposal = readJsonIfExists<{ status: string; reason?: string; post?: { title: string; slug: string }; requiredSecret?: string }>(
+    resolve(process.cwd(), REPORTS_DIR, 'content-proposal-latest.json')
+  );
+  lines.push('## Content decision & publishing');
+  lines.push('');
+  if (decision) {
+    lines.push(`**Decision:** ${decision.action} (target: ${decision.target})`);
+    for (const r of decision.reasoning) lines.push(`  - ${r}`);
+  } else {
+    lines.push('No decision recorded this run.');
+  }
+  lines.push('');
+  if (contentProposal) {
+    if (contentProposal.status === 'generated' && contentProposal.post) {
+      lines.push(`**Content published/proposed:** "${contentProposal.post.title}" (\`/blog/${contentProposal.post.slug}\`) — see this run's pull request.`);
+    } else if (contentProposal.status === 'blocked') {
+      lines.push(`**Content generation blocked:** ${contentProposal.reason} (requires secret: \`${contentProposal.requiredSecret}\`)`);
+    } else if (contentProposal.status === 'skipped') {
+      lines.push(`**Content generation skipped:** ${contentProposal.reason}`);
+    } else if (contentProposal.status === 'error') {
+      lines.push(`**Content generation failed:** ${contentProposal.reason}`);
+    }
+  }
+  lines.push('');
+
+  const keywordHistory = readJsonIfExists<{ topicCluster: string; bucket: string; keyword: string; position: number }[]>(resolve(process.cwd(), REPORTS_DIR, 'keyword-history.json'));
+  if (keywordHistory && keywordHistory.length > 0) {
+    const today = isoDate(new Date());
+    const todayRows = (keywordHistory as unknown as { date: string }[]).filter((h) => h.date === today) as unknown as typeof keywordHistory;
+    lines.push('## Keyword opportunity classification (Phase 9)');
+    lines.push('');
+    lines.push('| Bucket | Count | Meaning |');
+    lines.push('|---|---|---|');
+    const bucketMeaning: Record<string, string> = {
+      defend: 'positions 1-3 — protect current ranking',
+      'optimize-aggressively': 'positions 4-10 — push for page 1 top spots',
+      strengthen: 'positions 11-20 — needs stronger page/internal links',
+      'improve-topical-authority': 'positions 21-50 — needs broader topical coverage',
+      evaluate: 'position 50+ — evaluate intent/content fit',
+    };
+    for (const bucket of Object.keys(bucketMeaning)) {
+      const count = todayRows.filter((r) => r.bucket === bucket).length;
+      if (count > 0) lines.push(`| ${bucket} | ${count} | ${bucketMeaning[bucket]} |`);
+    }
+    lines.push('');
+    lines.push('_Buckets reflect real Search Console position data for keywords in the topical map that matched a real query today — never a projection or a ranking guarantee._');
+    lines.push('');
+  }
+
   lines.push('## Recommended actions');
   lines.push('');
   for (const action of recommendedActions) lines.push(`- ${action}`);
+  if (decision && decision.action !== 'do-nothing') {
+    lines.push(`- Next recommended action: **${decision.action}** — ${decision.reasoning[0] ?? ''}`);
+  }
   lines.push('');
 
   lines.push('---');

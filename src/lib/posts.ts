@@ -1,6 +1,8 @@
 export interface PostBlock {
   h?: string;
   p?: string;
+  /** Optional inline "Related reading" links shown after this paragraph. */
+  related?: { text: string; slug: string }[];
 }
 
 export interface Post {
@@ -156,4 +158,21 @@ export const posts: Post[] = [
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+/**
+ * Related posts, topic-matched by category first (same "Venues", "Design",
+ * "Corporate" etc.), then filled with the most recent remaining posts.
+ * Previously this was just "the first 3 other posts by array order" —
+ * topic-matching makes internal linking meaningfully relevant instead of
+ * arbitrary, for every post automatically (existing and future).
+ */
+export function getRelatedPosts(slug: string, limit = 3): Post[] {
+  const current = getPost(slug);
+  const others = posts.filter((p) => p.slug !== slug);
+  if (!current) return others.slice(0, limit);
+
+  const sameCategory = others.filter((p) => p.category === current.category);
+  const rest = others.filter((p) => p.category !== current.category);
+  return [...sameCategory, ...rest].slice(0, limit);
 }
