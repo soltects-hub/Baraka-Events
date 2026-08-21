@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
-import { useLenis } from '../lib/scroll';
+import { useLenis } from '../lib/useLenis';
 import { useSEO, routes, generateOrganizationSchema, generateWebsiteSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 import Preloader from '../components/Preloader';
 import CameraHUD from '../components/CameraHUD';

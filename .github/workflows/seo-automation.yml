@@ -43,5 +43,12 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Verify build output
-        run: test -d dist && echo "Build successful"
+      - name: Verify build and SEO output
+        run: |
+          test -d dist
+          test -f dist/index.html
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          test -f dist/googlebc2c622c6923c88b.html
+          python3 -c "import xml.etree.ElementTree as ET; ET.parse('dist/sitemap.xml')"
+          echo "Build succeeded and SEO artifacts (robots.txt, sitemap.xml, GSC verification file) are present and valid"
