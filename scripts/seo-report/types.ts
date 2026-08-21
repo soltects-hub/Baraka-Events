@@ -32,6 +32,10 @@ export interface UrlInspectionResult {
   indexingState: string | null;
   lastCrawlTime: string | null;
   pageFetchState: string | null;
+  /** The canonical URL this site declares (via <link rel="canonical">) for this page, per Google. */
+  userCanonical: string | null;
+  /** The canonical URL Google actually selected — may differ from userCanonical, which is the real signal for canonicalization/redirect problems. */
+  googleCanonical: string | null;
   error?: string;
 }
 

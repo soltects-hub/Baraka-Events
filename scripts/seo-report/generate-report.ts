@@ -156,6 +156,26 @@ function renderFullReport(data: SearchConsoleReportData): string {
   for (const u of badInspections) {
     technicalIssues.push(`\`${u.url}\`: coverage state is "${u.coverageState}" (verdict: ${u.verdict ?? 'unknown'}).`);
   }
+  // A host mismatch between the declared canonical and Google's selected canonical is
+  // the single highest-signal indicator of a domain/redirect misconfiguration (e.g.
+  // www vs. apex) — surface it as its own critical technical issue, not just a coverage state.
+  for (const u of data.urlInspections ?? []) {
+    if (u.googleCanonical && u.userCanonical && u.googleCanonical !== u.userCanonical) {
+      try {
+        const userHost = new URL(u.userCanonical).host;
+        const googleHost = new URL(u.googleCanonical).host;
+        if (userHost !== googleHost) {
+          technicalIssues.push(
+            `CRITICAL: \`${u.url}\` declares canonical host "${userHost}" but Google selected a different host "${googleHost}" as canonical (${u.googleCanonical}) — likely a www/apex domain misconfiguration outside this repo (DNS or Vercel domain settings).`
+          );
+        } else {
+          technicalIssues.push(`\`${u.url}\` declared canonical (${u.userCanonical}) differs from Google-selected canonical (${u.googleCanonical}).`);
+        }
+      } catch {
+        technicalIssues.push(`\`${u.url}\` declared canonical (${u.userCanonical}) differs from Google-selected canonical (${u.googleCanonical}).`);
+      }
+    }
+  }
   const inspectionErrors = (data.urlInspections ?? []).filter((u) => u.error);
   for (const u of inspectionErrors) {
     technicalIssues.push(`URL inspection failed for \`${u.url}\`: ${u.error}`);
@@ -265,10 +285,10 @@ function renderFullReport(data: SearchConsoleReportData): string {
   if (!data.urlInspections || data.urlInspections.length === 0) {
     lines.push('Not collected this run.');
   } else {
-    lines.push('| URL | Coverage state | Verdict | Last crawl |');
-    lines.push('|---|---|---|---|');
+    lines.push('| URL | Coverage state | Verdict | Last crawl | User canonical | Google canonical |');
+    lines.push('|---|---|---|---|---|---|');
     for (const u of data.urlInspections) {
-      lines.push(`| ${u.url} | ${u.coverageState ?? (u.error ? 'error' : 'unknown')} | ${u.verdict ?? '—'} | ${u.lastCrawlTime ?? '—'} |`);
+      lines.push(`| ${u.url} | ${u.coverageState ?? (u.error ? 'error' : 'unknown')} | ${u.verdict ?? '—'} | ${u.lastCrawlTime ?? '—'} | ${u.userCanonical ?? '—'} | ${u.googleCanonical ?? '—'} |`);
     }
   }
   lines.push('');

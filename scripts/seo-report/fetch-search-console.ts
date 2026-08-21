@@ -59,6 +59,8 @@ interface UrlInspectionResponse {
       indexingState?: string;
       lastCrawlTime?: string;
       pageFetchState?: string;
+      userCanonical?: string;
+      googleCanonical?: string;
     };
   };
 }
@@ -140,6 +142,8 @@ async function inspectUrl(url: string): Promise<UrlInspectionResult> {
       indexingState: null,
       lastCrawlTime: null,
       pageFetchState: null,
+      userCanonical: null,
+      googleCanonical: null,
       error: `${result.status}: ${result.message}`,
     };
   }
@@ -152,6 +156,8 @@ async function inspectUrl(url: string): Promise<UrlInspectionResult> {
     indexingState: idx?.indexingState ?? null,
     lastCrawlTime: idx?.lastCrawlTime ?? null,
     pageFetchState: idx?.pageFetchState ?? null,
+    userCanonical: idx?.userCanonical ?? null,
+    googleCanonical: idx?.googleCanonical ?? null,
   };
 }
 
