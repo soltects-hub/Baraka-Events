@@ -3,11 +3,27 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { posts } from '../lib/posts';
 import RevealText from '../components/RevealText';
+import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 export default function Blog() {
+  useSEO({
+    title: 'The Baraka Journal \u2014 Wedding & Event Insights from Lahore',
+    description:
+      'Venue intelligence, design direction and honest planning advice for Lahore\u2019s weddings and events, written by the Baraka Events production team.',
+    canonical: routes.blog,
+  });
+
   useEffect(() => {
-    document.title = 'The Baraka Journal \u2014 Wedding & Event Insights from Lahore';
     window.scrollTo(0, 0);
+    applyStructuredData(
+      composeSchemaGraph([
+        generateWebsiteSchema(),
+        generateBreadcrumbSchema([
+          { name: 'Home', url: seoConfig.site.url },
+          { name: 'Blog', url: `${seoConfig.site.url}${routes.blog}` },
+        ]),
+      ])
+    );
   }, []);
 
   const [featured, ...rest] = posts;

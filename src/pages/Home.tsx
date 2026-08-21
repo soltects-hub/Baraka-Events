@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { useLenis } from '../lib/scroll';
+import { useSEO, routes, generateOrganizationSchema, generateWebsiteSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 import Preloader from '../components/Preloader';
 import CameraHUD from '../components/CameraHUD';
 import Hero from '../components/Hero';
@@ -30,8 +31,17 @@ export default function Home() {
   const lenis = useLenis();
   const { hash } = useLocation();
 
+  useSEO({
+    title: "Baraka Events \u2014 Lahore's Luxury Event Atelier",
+    description:
+      "Baraka Events is a full-service event management and production company in Lahore, Pakistan, crafting luxury shaadis, mehndi nights, corporate galas and private celebrations from concept to execution.",
+    canonical: routes.home,
+  });
+
   useEffect(() => {
-    document.title = "Baraka Events \u2014 Lahore's Luxury Event Atelier";
+    applyStructuredData(
+      composeSchemaGraph([generateOrganizationSchema(), generateWebsiteSchema()])
+    );
   }, []);
 
   // arriving from another page with a #section target

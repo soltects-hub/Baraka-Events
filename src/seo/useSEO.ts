@@ -16,6 +16,13 @@ export interface SEOMetadata {
   publishedDate?: string;
   modifiedDate?: string;
   author?: string;
+  /** Set true for pages that must not be indexed (e.g. 404). */
+  noindex?: boolean;
+}
+
+function absoluteUrl(url: string): string {
+  if (/^https?:\/\//i.test(url)) return url;
+  return `${seoConfig.site.url}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 
 export function useSEO(metadata: SEOMetadata) {
@@ -29,6 +36,7 @@ export function useSEO(metadata: SEOMetadata) {
     publishedDate,
     modifiedDate,
     author,
+    noindex = false,
   } = metadata;
 
   useEffect(() => {
@@ -53,22 +61,27 @@ export function useSEO(metadata: SEOMetadata) {
       el.content = content;
     };
 
+    const canonicalUrl = canonical ? absoluteUrl(canonical) : getCurrentUrl();
+    const absoluteImage = absoluteUrl(image);
+
     // Standard meta tags
     updateMetaTag('description', description);
+    updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
 
     // Open Graph tags
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:type', type, true);
-    updateMetaTag('og:image', image, true);
+    updateMetaTag('og:site_name', seoConfig.site.name, true);
+    updateMetaTag('og:image', absoluteImage, true);
     updateMetaTag('og:image:alt', imageAlt, true);
-    updateMetaTag('og:url', canonical || getCurrentUrl(), true);
+    updateMetaTag('og:url', canonicalUrl, true);
 
     // Twitter Card tags
     updateMetaTag('twitter:card', 'summary_large_image');
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
-    updateMetaTag('twitter:image', image);
+    updateMetaTag('twitter:image', absoluteImage);
 
     // Article-specific tags
     if (type === 'article') {
@@ -84,7 +97,6 @@ export function useSEO(metadata: SEOMetadata) {
     }
 
     // Canonical URL
-    const canonicalUrl = canonical || getCurrentUrl();
     let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
@@ -92,7 +104,7 @@ export function useSEO(metadata: SEOMetadata) {
       document.head.appendChild(canonicalLink);
     }
     canonicalLink.href = canonicalUrl;
-  }, [title, description, canonical, image, imageAlt, type, publishedDate, modifiedDate, author]);
+  }, [title, description, canonical, image, imageAlt, type, publishedDate, modifiedDate, author, noindex]);
 }
 
 function getCurrentUrl(): string {

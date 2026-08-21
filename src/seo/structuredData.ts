@@ -5,8 +5,9 @@
 
 import { seoConfig } from './seoConfig';
 
-interface StructuredDataOptions {
-  id?: string;
+function absoluteUrl(url: string): string {
+  if (/^https?:\/\//i.test(url)) return url;
+  return `${seoConfig.site.url}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 
 /**
@@ -74,7 +75,7 @@ export function generateArticleSchema(metadata: {
     description: metadata.description,
     image: {
       '@type': 'ImageObject',
-      url: metadata.image,
+      url: absoluteUrl(metadata.image),
       name: metadata.imageAlt,
     },
     datePublished: metadata.publishedDate,
@@ -104,7 +105,7 @@ export function generateArticleSchema(metadata: {
  */
 export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
   const breadcrumbList = items.map((item, index) => ({
-    '@type': 'BreadcrumbItem',
+    '@type': 'ListItem',
     position: index + 1,
     name: item.name,
     item: item.url,

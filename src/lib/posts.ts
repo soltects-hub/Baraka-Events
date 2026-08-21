@@ -9,6 +9,8 @@ export interface Post {
   excerpt: string;
   category: string;
   date: string;
+  /** ISO 8601 date (year-month precision, matching the editorial `date` field above). */
+  publishedISO: string;
   readTime: string;
   image: string;
   imageAlt: string;
@@ -23,6 +25,7 @@ export const posts: Post[] = [
       'From Walled City havelis to DHA\u2019s grandest marquees \u2014 our producers rank the venues that photograph like cinema and host like royalty.',
     category: 'Venues',
     date: 'March 2025',
+    publishedISO: '2025-03',
     readTime: '7 min read',
     image: '/media/portfolio-1.jpg',
     imageAlt: 'Grand Pakistani wedding reception in a historic Lahore haveli courtyard',
@@ -46,6 +49,7 @@ export const posts: Post[] = [
       'Genda phool maximalism, vintage truck-art brights, monochrome ivory \u2014 the mehndi moods defining this wedding season, from our design floor.',
     category: 'Design',
     date: 'March 2025',
+    publishedISO: '2025-03',
     readTime: '6 min read',
     image: '/media/gallery-4.jpg',
     imageAlt: 'Outdoor mehndi dinner under string lights and marigold garlands',
@@ -69,6 +73,7 @@ export const posts: Post[] = [
       'A transparent, line-item look at real wedding budgets \u2014 venue, decor, catering, film \u2014 and where smart families spend versus save.',
     category: 'Planning',
     date: 'February 2025',
+    publishedISO: '2025-02',
     readTime: '8 min read',
     image: '/media/wedding-1.jpg',
     imageAlt: 'Luxurious golden nikkah stage with cascading roses and candles',
@@ -91,6 +96,7 @@ export const posts: Post[] = [
       'The reception is the finale \u2014 the night of the couple\u2019s first entrance as a married pair. Here is how Lahore is staging it this season.',
     category: 'Design',
     date: 'February 2025',
+    publishedISO: '2025-02',
     readTime: '5 min read',
     image: '/media/gallery-1.jpg',
     imageAlt: 'Opulent rose and marigold floral arrangements in a shaadi reception venue',
@@ -111,6 +117,7 @@ export const posts: Post[] = [
       'Launches, summits and award nights \u2014 a producer\u2019s field guide to venues, AV, guest flow and the details that make executives look brilliant.',
     category: 'Corporate',
     date: 'January 2025',
+    publishedISO: '2025-01',
     readTime: '6 min read',
     image: '/media/portfolio-2.jpg',
     imageAlt: 'Dramatic corporate launch stage with golden LED screen in Lahore',
@@ -131,6 +138,7 @@ export const posts: Post[] = [
       'The groom\u2019s procession is pure theatre \u2014 and theatre rewards direction. How we choreograph baraats that stop traffic and start tears.',
     category: 'Traditions',
     date: 'January 2025',
+    publishedISO: '2025-01',
     readTime: '5 min read',
     image: '/media/gallery-6.jpg',
     imageAlt: 'Dhol drummers performing at a baraat celebration under golden confetti',
