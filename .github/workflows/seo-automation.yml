@@ -5,13 +5,22 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    # 03:00 UTC = ~08:00 Pakistan Standard Time (UTC+5, no DST) — before the business day starts.
+    - cron: '0 3 * * *'
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
+  # Lint + build validation. Runs on every push/PR to main and on manual dispatch.
+  # Intentionally does NOT run on `schedule` — that trigger is for seo-report below.
   seo-automation:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -52,3 +61,86 @@ jobs:
           test -f dist/googlebc2c622c6923c88b.html
           python3 -c "import xml.etree.ElementTree as ET; ET.parse('dist/sitemap.xml')"
           echo "Build succeeded and SEO artifacts (robots.txt, sitemap.xml, GSC verification file) are present and valid"
+
+  # Daily SEO intelligence report from Google Search Console. Runs on the cron
+  # schedule above, and can be run on demand via workflow_dispatch.
+  #
+  # This job NEVER pushes to main directly: on a successful data run it proposes
+  # the report via a pull request (peter-evans/create-pull-request, using the
+  # default GITHUB_TOKEN — no extra secret). On an auth/permission failure it
+  # fails the run loudly instead of opening a PR, so a persistent problem shows
+  # up as a red workflow run every day rather than a daily duplicate PR.
+  seo-report:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    env:
+      # Job-level env so it can be read via the `env` context in a step's `if:` —
+      # the `secrets` context itself isn't available there.
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: baraka-events-seo-automation
+          workload_identity_provider: projects/226411024335/locations/global/workloadIdentityPools/github-actions/providers/github-actions
+          service_account: baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com
+
+      - name: Collect Search Console data
+        id: fetch
+        continue-on-error: true
+        env:
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL }}
+        run: npm run seo:fetch
+
+      - name: Generate SEO report
+        run: npm run seo:report
+
+      - name: AI-assisted executive summary (optional)
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: npm run seo:ai-summary
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-report-${{ github.run_id }}
+          path: reports/seo/
+          retention-days: 90
+
+      - name: Open PR with the SEO report
+        if: steps.fetch.outcome == 'success'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore(seo): daily SEO report'
+          title: 'SEO Report — ${{ github.run_id }}'
+          body: |
+            Automated daily SEO report generated from live Google Search Console
+            data (see `reports/seo/latest.md`). This PR only ever adds/updates
+            report files — no site code, content, or configuration is changed
+            by this job. Review the report and merge to keep it in the repo's
+            history, or close without merging.
+          branch: seo-report/${{ github.run_id }}
+          add-paths: reports/seo/
+          delete-branch: true
+
+      - name: Fail the run if Search Console data could not be collected
+        if: steps.fetch.outcome == 'failure'
+        run: |
+          echo "::error::Search Console data collection failed. See the uploaded 'seo-report-${{ github.run_id }}' artifact (reports/seo/latest.md) for the exact cause and the manual fix required."
+          exit 1
