@@ -202,3 +202,72 @@ jobs:
         run: |
           echo "::error::A content update was proposed but did not pass build/verify/QA — no PR was opened. See the uploaded artifact for details. This is expected safety behavior, not a pipeline bug."
           exit 1
+
+  # TEMPORARY, to be removed once this run's evidence is captured. Proves the
+  # create-new-article content-generation path (real Claude API call, now
+  # with images made fully optional) works end-to-end, using a safe,
+  # non-production mock decision targeting a real, non-cannibalizing
+  # keyword cluster. This job has its own throwaway checkout: it never
+  # touches src/lib/posts.ts, never builds, never opens a PR — the proposal
+  # is only written inside this job and uploaded as an artifact.
+  seo-content-path-test:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write a safe mock 'new-article' decision (test only, never committed)
+        run: |
+          mkdir -p reports/seo
+          node -e "
+            const fs = require('fs');
+            const decision = {
+              action: 'new-article',
+              target: 'Aqeeqah',
+              cluster: 'Aqeeqah',
+              proposedUrl: '/blog/aqeeqah-celebration-planning-lahore',
+              reasoning: ['TEMPORARY DIAGNOSTIC: mock decision used only to prove the create-new-article content path works end-to-end without publishing anything.'],
+              evidence: {},
+            };
+            fs.writeFileSync('reports/seo/decision-latest.json', JSON.stringify(decision, null, 2));
+          "
+
+      - name: Generate content proposal (real Claude API call)
+        run: npm run seo:generate-content
+
+      - name: Show proposal summary (structure only — no secret, no full body)
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = JSON.parse(fs.readFileSync('reports/seo/content-proposal-latest.json', 'utf8'));
+            console.log('status:', p.status);
+            if (p.status === 'generated') {
+              console.log('title:', p.post.title);
+              console.log('slug:', p.post.slug);
+              console.log('blocks:', p.post.blocks.length);
+              console.log('has image:', p.post.image !== undefined);
+              console.log('model:', p.model);
+            } else {
+              console.log('reason:', p.reason);
+            }
+          "
+
+      - name: Upload proposal artifact (evidence only — never applied, built, or opened as a PR)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-path-test-proposal-${{ github.run_id }}
+          path: reports/seo/content-proposal-latest.json
+          retention-days: 7

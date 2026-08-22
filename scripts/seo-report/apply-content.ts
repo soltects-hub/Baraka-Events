@@ -34,9 +34,7 @@ function serializePost(post: Post): string {
     date: ${JSON.stringify(post.date)},
     publishedISO: ${JSON.stringify(post.publishedISO)},
     readTime: ${JSON.stringify(post.readTime)},
-    image: ${JSON.stringify(post.image)},
-    imageAlt: ${JSON.stringify(post.imageAlt)},
-    blocks: [
+${post.image !== undefined ? `    image: ${JSON.stringify(post.image)},\n` : ''}${post.imageAlt !== undefined ? `    imageAlt: ${JSON.stringify(post.imageAlt)},\n` : ''}    blocks: [
 ${serializeBlocks(post.blocks)}
     ],
   },`;

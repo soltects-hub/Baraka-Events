@@ -61,8 +61,8 @@ export function generateWebsiteSchema() {
 export function generateArticleSchema(metadata: {
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   publishedDate: string;
   modifiedDate?: string;
   author?: string;
@@ -73,11 +73,15 @@ export function generateArticleSchema(metadata: {
     '@type': 'BlogPosting',
     headline: metadata.title,
     description: metadata.description,
-    image: {
-      '@type': 'ImageObject',
-      url: absoluteUrl(metadata.image),
-      name: metadata.imageAlt,
-    },
+    ...(metadata.image
+      ? {
+          image: {
+            '@type': 'ImageObject',
+            url: absoluteUrl(metadata.image),
+            name: metadata.imageAlt,
+          },
+        }
+      : {}),
     datePublished: metadata.publishedDate,
     dateModified: metadata.modifiedDate || metadata.publishedDate,
     author: {

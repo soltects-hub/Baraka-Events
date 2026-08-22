@@ -182,8 +182,7 @@ async function main() {
     date: now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
     publishedISO,
     readTime: article.readTime,
-    image: image.image,
-    imageAlt: image.imageAlt,
+    ...(image ? { image: image.image, imageAlt: image.imageAlt } : {}),
     blocks: article.blocks,
   };
 

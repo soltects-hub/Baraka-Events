@@ -14,8 +14,9 @@ export interface Post {
   /** ISO 8601 date (year-month precision, matching the editorial `date` field above). */
   publishedISO: string;
   readTime: string;
-  image: string;
-  imageAlt: string;
+  /** Optional — a new article may publish without one; see article-images.ts. */
+  image?: string;
+  imageAlt?: string;
   blocks: PostBlock[];
 }
 
