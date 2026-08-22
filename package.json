@@ -18,7 +18,8 @@
     "preview": "vite preview",
     "seo:fetch": "tsx scripts/seo-report/fetch-search-console.ts",
     "seo:report": "tsx scripts/seo-report/generate-report.ts",
-    "seo:ai-summary": "tsx scripts/seo-report/ai-summary.ts"
+    "seo:ai-summary": "tsx scripts/seo-report/ai-summary.ts",
+    "seo:ai:test": "tsx scripts/seo-report/test-ollama.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
@@ -36,7 +37,6 @@
     "webgl-fluid": "^0.4.0"
   },
   "devDependencies": {
-    "@anthropic-ai/sdk": "^0.120.0",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",

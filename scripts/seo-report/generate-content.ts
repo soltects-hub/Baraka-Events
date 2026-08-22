@@ -1,11 +1,13 @@
 /**
  * Executes a 'new-article' decision from decide-action.ts by generating a
- * full content package via the Claude API — ONLY when ANTHROPIC_API_KEY is
- * configured. If it isn't, this writes a clear "skipped, secret required"
- * record instead of pretending to generate anything, and exits 0 (this is
- * an expected, reportable state, not a failure).
+ * full content package via a local/remote Ollama instance — ONLY when
+ * Ollama is actually reachable at OLLAMA_BASE_URL. If it isn't, this writes
+ * a clear "blocked, AI backend unreachable" record instead of pretending to
+ * generate anything, and exits 0 (this is an expected, reportable state,
+ * not a failure — no paid API and no API key are required by this pipeline
+ * at all).
  *
- * The system prompt hard-grounds Claude in verified real facts about Baraka
+ * The prompt hard-grounds the model in verified real facts about Baraka
  * Events (services, service area, positioning, published stats) and
  * forbids fabricating anything not provided — prices beyond the qualitative
  * range already public, testimonials, client names, awards, or statistics.
@@ -18,6 +20,7 @@ import { resolve } from 'node:path';
 import { posts, type Post, type PostBlock } from '../../src/lib/posts';
 import { REPORTS_DIR } from './config';
 import { pickImageForCluster } from './article-images';
+import { generateWithOllama, getOllamaBaseUrl, getOllamaModel, isOllamaReachable, OllamaError } from './ollama-client';
 import type { Decision } from './decide-action';
 
 const decisionPath = resolve(process.cwd(), REPORTS_DIR, 'decision-latest.json');
@@ -61,6 +64,36 @@ function existingPostSummaries(): string {
   return posts.map((p) => `- ${p.slug} (${p.category}): "${p.title}" — ${p.excerpt}`).join('\n');
 }
 
+/**
+ * Open models are chattier than Claude about strict "JSON only" instructions
+ * — they sometimes wrap the object in a ```json fence or add a stray
+ * sentence before/after it. Strip a fence if present, then fall back to the
+ * first balanced {...} span in the text, so a well-formed JSON object
+ * surrounded by extra text still parses instead of hard-failing QA.
+ */
+function extractJson(text: string): string {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const candidate = (fenced ? fenced[1] : text).trim();
+  try {
+    JSON.parse(candidate);
+    return candidate;
+  } catch {
+    // fall through to brace-matching below
+  }
+
+  const start = candidate.indexOf('{');
+  if (start === -1) return candidate;
+  let depth = 0;
+  for (let i = start; i < candidate.length; i++) {
+    if (candidate[i] === '{') depth++;
+    else if (candidate[i] === '}') {
+      depth--;
+      if (depth === 0) return candidate.slice(start, i + 1);
+    }
+  }
+  return candidate;
+}
+
 function buildPrompt(decision: Decision, keywords: string[]): string {
   return `You are writing ONE new blog article for the Baraka Events website (barakaevents.com), a Lahore luxury event-design atelier.
 
@@ -76,7 +109,7 @@ ${existingPostSummaries()}
 
 Write in the same voice as the existing articles: confident, editorial, specific to Lahore, produced by people who actually run these events — never generic AI filler ("In today's fast-paced world...", "When it comes to..."). Ground every claim in the verified facts above or in genuinely useful, general event-planning knowledge that doesn't require inventing Baraka-specific data.
 
-Respond with ONLY a single JSON object (no markdown fences, no commentary) matching exactly this shape:
+Respond with ONLY a single JSON object — no markdown code fences, no \`\`\`json wrapper, no commentary before or after it — matching exactly this shape:
 {
   "slug": "kebab-case-slug",
   "title": "Compelling, specific title, 45-65 characters",
@@ -115,13 +148,19 @@ async function main() {
     return;
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+  const baseUrl = getOllamaBaseUrl();
+  const model = getOllamaModel();
+  const reachable = await isOllamaReachable();
+  if (!reachable) {
     const skip = {
       status: 'blocked',
-      reason: 'Decision was "new-article" but content generation was skipped: ANTHROPIC_API_KEY is not configured.',
-      requiredSecret: 'ANTHROPIC_API_KEY',
-      howToFix: 'Add an ANTHROPIC_API_KEY repository secret (Settings → Secrets and variables → Actions → New repository secret) with a valid Anthropic API key. No other configuration is required — this script already gates on its presence.',
+      reason: `Decision was "new-article" but content generation was skipped: no Ollama server is reachable at ${baseUrl}.`,
+      requiredService: 'Ollama',
+      howToFix:
+        `Install and start Ollama, pull the "${model}" model, and make sure it is reachable at OLLAMA_BASE_URL (default http://localhost:11434). ` +
+        'GitHub-hosted runners cannot reach a laptop\'s localhost — unattended generation in CI requires either a reachable remote Ollama server (set the OLLAMA_BASE_URL repository variable) or a self-hosted runner with Ollama installed. See SEO_AUTOMATION.md. No paid API key is required.',
+      ollamaBaseUrl: baseUrl,
+      ollamaModel: model,
       decision,
     };
     writeFileSync(proposalPath, JSON.stringify(skip, null, 2));
@@ -133,26 +172,19 @@ async function main() {
   const keywordMap: KeywordMap = JSON.parse(readFileSync(keywordMapPath, 'utf8'));
   const clusterKeywords = keywordMap.keywords.filter((k) => k.topicCluster === decision.cluster).map((k) => k.keyword).slice(0, 15);
 
-  const { default: Anthropic } = await import('@anthropic-ai/sdk');
-  const client = new Anthropic({ apiKey });
-
-  const response = await client.messages.create({
-    model: 'claude-opus-5',
-    max_tokens: 8000,
-    output_config: { effort: 'medium' },
-    messages: [{ role: 'user', content: buildPrompt(decision, clusterKeywords) }],
-  });
-
-  const textBlock = response.content.find((b): b is Anthropic.TextBlock => b.type === 'text');
-  if (!textBlock) {
-    throw new Error(`No text content in Claude response (stop_reason: ${response.stop_reason}).`);
+  let responseText: string;
+  try {
+    responseText = await generateWithOllama(buildPrompt(decision, clusterKeywords));
+  } catch (err) {
+    if (err instanceof OllamaError) throw new Error(`Ollama content generation failed: ${err.message}`);
+    throw err;
   }
 
   let article: GeneratedArticle;
   try {
-    article = JSON.parse(textBlock.text.trim());
+    article = JSON.parse(extractJson(responseText));
   } catch {
-    throw new Error(`Claude response was not valid JSON: ${textBlock.text.slice(0, 500)}`);
+    throw new Error(`Ollama response was not valid JSON: ${responseText.slice(0, 500)}`);
   }
 
   if (posts.some((p) => p.slug === article.slug)) {
@@ -190,8 +222,8 @@ async function main() {
     status: 'generated',
     decision,
     post: newPost,
-    model: response.model,
-    usage: response.usage,
+    model,
+    ollamaBaseUrl: baseUrl,
   };
   writeFileSync(proposalPath, JSON.stringify(proposal, null, 2));
   console.log(`Content proposal generated: "${newPost.title}" (${newPost.slug})`);

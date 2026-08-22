@@ -88,9 +88,17 @@ jobs:
       pull-requests: write
       id-token: write
     env:
-      # Job-level env so it can be read via the `env` context in a step's `if:` —
-      # the `secrets` context itself isn't available there.
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # No paid AI API or API key is used anywhere in this pipeline. Content
+      # generation and the optional AI summary talk to Ollama — an
+      # open-source, self-hosted model server — configured entirely via
+      # these two non-secret repository variables (unset = the scripts'
+      # built-in defaults: http://localhost:11434 and "qwen3"). A
+      # GitHub-hosted runner cannot reach a laptop's own localhost, so
+      # unattended generation here requires OLLAMA_BASE_URL to point at a
+      # reachable server, or this job to run on a self-hosted runner with
+      # Ollama installed — see SEO_AUTOMATION.md.
+      OLLAMA_BASE_URL: ${{ vars.OLLAMA_BASE_URL }}
+      OLLAMA_MODEL: ${{ vars.OLLAMA_MODEL }}
 
     steps:
       - name: Checkout
@@ -132,15 +140,24 @@ jobs:
         continue-on-error: true
         run: npm run seo:keyword-performance
 
-      - name: Generate content proposal if warranted (Phase 4, gated on ANTHROPIC_API_KEY)
+      - name: Report whether an Ollama AI backend is reachable (informational only)
+        continue-on-error: true
+        run: |
+          node -e "
+            fetch((process.env.OLLAMA_BASE_URL || 'http://localhost:11434') + '/api/tags', { signal: AbortSignal.timeout(5000) })
+              .then((r) => console.log(r.ok ? 'Ollama is reachable — content generation and the AI summary step can run for real.' : 'Ollama responded with HTTP ' + r.status + ' — treating as unreachable.'))
+              .catch(() => console.log('No Ollama server reachable at ' + (process.env.OLLAMA_BASE_URL || 'http://localhost:11434') + ' from this runner. This is expected unless OLLAMA_BASE_URL points at a reachable server, or this job runs on a self-hosted runner with Ollama installed. Content generation and the AI summary step will skip gracefully — the rest of the pipeline (Search Console, decision engine, report, sitemap) is unaffected.'));
+          "
+
+      - name: Generate content proposal if warranted (Phase 4, gated on Ollama reachability)
         continue-on-error: true
         run: npm run seo:generate-content
 
       - name: Generate SEO report (Phase 10)
         run: npm run seo:report
 
-      - name: AI-assisted executive summary (optional)
-        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+      - name: AI-assisted executive summary (optional, gated on Ollama reachability)
+        continue-on-error: true
         run: npm run seo:ai-summary
 
       - name: Apply content proposal to src/lib/posts.ts if one was generated
