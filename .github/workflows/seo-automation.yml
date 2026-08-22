@@ -74,7 +74,14 @@ jobs:
   # PR rather than opening a second one). On an auth/data/QA failure it fails
   # the run loudly instead of opening a PR.
   seo-report:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # Manual dispatch only runs this job from `main`: create-pull-request
+    # defaults a new PR's base to whatever ref the workflow ran on, and the
+    # branch name below is date-based (one per day) — dispatching from a
+    # feature branch would either corrupt today's real main-based PR or spin
+    # up a stray duplicate with the wrong base. Testing branch-specific
+    # changes to this job should use the seo-content-path-test job below
+    # instead, which never opens a PR.
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     permissions:
       contents: write
