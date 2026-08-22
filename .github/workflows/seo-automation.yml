@@ -46,7 +46,7 @@ jobs:
       - name: Verify Google Cloud authentication
         run: gcloud auth list
 
-      - name: TEMP DIAGNOSTIC - re-check IAM bindings and Vertex AI API state (to be removed)
+      - name: TEMP DIAGNOSTIC - re-check IAM bindings and attempt a real Vertex AI Imagen call (to be removed)
         run: |
           echo "--- IAM bindings for the automation service account on this project ---"
           gcloud projects get-iam-policy baraka-events-seo-automation \
@@ -55,6 +55,28 @@ jobs:
             --format="table(bindings.role)" || echo "get-iam-policy failed (see above)"
           echo "--- serviceusage / Vertex AI API enablement ---"
           gcloud services list --filter="name:aiplatform.googleapis.com" --format="table(name,state)" || echo "services list failed (see above)"
+          echo "--- Real minimal Vertex AI Imagen predict call (proves actual usage permission, not just API enablement) ---"
+          TOKEN=$(gcloud auth print-access-token)
+          HTTP_STATUS=$(curl -s -o /tmp/imagen-response.json -w "%{http_code}" \
+            "https://us-central1-aiplatform.googleapis.com/v1/projects/baraka-events-seo-automation/locations/us-central1/publishers/google/models/imagen-3.0-generate-001:predict" \
+            -H "Authorization: Bearer ${TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d '{"instances":[{"prompt":"a single red rose, minimal test image"}],"parameters":{"sampleCount":1}}')
+          echo "HTTP status: ${HTTP_STATUS}"
+          node -e "
+            const fs = require('fs');
+            try {
+              const data = JSON.parse(fs.readFileSync('/tmp/imagen-response.json', 'utf8'));
+              if (data.predictions) {
+                console.log('SUCCESS: received', data.predictions.length, 'prediction(s) — Vertex AI Imagen call worked for real.');
+              } else {
+                console.log('Response body (no predictions key):');
+                console.log(JSON.stringify(data, null, 2).slice(0, 2000));
+              }
+            } catch (e) {
+              console.log('Could not parse response as JSON:', e.message);
+            }
+          "
 
       - name: Run lint
         run: npm run lint
