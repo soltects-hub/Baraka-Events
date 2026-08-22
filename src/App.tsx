@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { SmoothScrollProvider, useLenis } from './lib/scroll';
+import { SmoothScrollProvider } from './lib/scroll';
+import { useLenis } from './lib/useLenis';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';

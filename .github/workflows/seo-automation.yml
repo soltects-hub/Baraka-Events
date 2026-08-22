@@ -5,13 +5,22 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    # 03:00 UTC = ~08:00 Pakistan Standard Time (UTC+5, no DST) — before the business day starts.
+    - cron: '0 3 * * *'
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
+  # Lint + build validation. Runs on every push/PR to main and on manual dispatch.
+  # Intentionally does NOT run on `schedule` — that trigger is for seo-report below.
   seo-automation:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -43,5 +52,153 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Verify build output
-        run: test -d dist && echo "Build successful"
+      - name: Verify build and SEO output
+        run: |
+          test -d dist
+          test -f dist/index.html
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          test -f dist/googlebc2c622c6923c88b.html
+          python3 -c "import xml.etree.ElementTree as ET; ET.parse('dist/sitemap.xml')"
+          npm run seo:verify-sitemap
+          echo "Build succeeded and SEO artifacts (robots.txt, sitemap.xml, GSC verification file) are present and valid"
+
+  # Daily SEO growth loop: Search Console -> analysis -> decision -> optional
+  # evidence-based content -> QA -> PR. Runs on the cron schedule above, and
+  # can be run on demand via workflow_dispatch.
+  #
+  # This job NEVER pushes to main directly and NEVER auto-merges anything: on
+  # a successful, QA-passed run it proposes everything (the report, and any
+  # content change) via a single pull request. It creates at most ONE such PR
+  # per day (branch name is date-based, so a same-day re-run updates the same
+  # PR rather than opening a second one). On an auth/data/QA failure it fails
+  # the run loudly instead of opening a PR.
+  seo-report:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    env:
+      # Job-level env so it can be read via the `env` context in a step's `if:` —
+      # the `secrets` context itself isn't available there.
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: baraka-events-seo-automation
+          workload_identity_provider: projects/226411024335/locations/global/workloadIdentityPools/github-actions/providers/github-actions
+          service_account: baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com
+
+      - name: Compute today's date (for a stable, idempotent daily branch/PR name)
+        id: date
+        run: echo "today=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Collect Search Console data
+        id: fetch
+        continue-on-error: true
+        env:
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL }}
+        run: npm run seo:fetch
+
+      - name: Decide next action (Phase 3 decision engine)
+        id: decide
+        continue-on-error: true
+        run: npm run seo:decide
+
+      - name: Track keyword performance (Phase 9)
+        continue-on-error: true
+        run: npm run seo:keyword-performance
+
+      - name: Generate content proposal if warranted (Phase 4, gated on ANTHROPIC_API_KEY)
+        continue-on-error: true
+        run: npm run seo:generate-content
+
+      - name: Generate SEO report (Phase 10)
+        run: npm run seo:report
+
+      - name: AI-assisted executive summary (optional)
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: npm run seo:ai-summary
+
+      - name: Apply content proposal to src/lib/posts.ts if one was generated
+        id: apply
+        continue-on-error: true
+        run: npm run seo:apply-content
+
+      - name: Build website (also regenerates sitemap.xml if content was added)
+        id: build
+        continue-on-error: true
+        run: npm run build
+
+      - name: Verify build and SEO output
+        id: verify
+        continue-on-error: true
+        run: |
+          test -d dist
+          test -f dist/sitemap.xml
+          npm run seo:verify-sitemap
+
+      - name: SEO QA gate (Phase 7 — blocks the PR on any failure)
+        id: qa
+        continue-on-error: true
+        run: npm run seo:qa
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-report-${{ github.run_id }}
+          path: reports/seo/
+          retention-days: 90
+
+      - name: Open PR with the SEO report and any content update
+        if: steps.fetch.outcome == 'success' && steps.build.outcome == 'success' && steps.verify.outcome == 'success' && steps.qa.outcome == 'success'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore(seo): daily SEO report and evidence-based updates'
+          title: 'SEO growth loop — ${{ steps.date.outputs.today }}'
+          body: |
+            Automated daily SEO run: Search Console analysis, deterministic
+            decision, and (only when the evidence supported it and QA passed)
+            one content update. See `reports/seo/latest.md` for the full
+            report, what was decided and why, and exactly what Search Console
+            data supports it. `src/lib/posts.ts` and `public/sitemap.xml` are
+            only touched if a new article was generated and passed every
+            Phase 7 QA check (title/meta/canonical/H1/headings/internal
+            links/image/alt/structured data/duplicate-content/cannibalization
+            checks). Nothing else is ever changed by this job, and this PR is
+            never merged automatically.
+          branch: seo-report/${{ steps.date.outputs.today }}
+          add-paths: |
+            reports/seo/
+            src/lib/posts.ts
+            public/sitemap.xml
+          delete-branch: true
+
+      - name: Fail the run if Search Console data could not be collected
+        if: steps.fetch.outcome == 'failure'
+        run: |
+          echo "::error::Search Console data collection failed. See the uploaded 'seo-report-${{ github.run_id }}' artifact (reports/seo/latest.md) for the exact cause and the manual fix required."
+          exit 1
+
+      - name: Fail the run if a content update was generated but failed QA/build
+        if: steps.fetch.outcome == 'success' && (steps.build.outcome == 'failure' || steps.verify.outcome == 'failure' || steps.qa.outcome == 'failure')
+        run: |
+          echo "::error::A content update was proposed but did not pass build/verify/QA — no PR was opened. See the uploaded artifact for details. This is expected safety behavior, not a pipeline bug."
+          exit 1

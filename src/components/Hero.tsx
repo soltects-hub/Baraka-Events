@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
-import { useLenis } from '../lib/scroll';
+import { useLenis } from '../lib/useLenis';
 import MagneticButton from './MagneticButton';
 
 /**

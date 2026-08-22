@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useLenis } from './scroll';
+import { useLenis } from './useLenis';
 
 /**
  * Navigate to a section anchor (works from any route) or a route path.

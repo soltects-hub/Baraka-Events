@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getPost, posts } from '../lib/posts';
+import { getPost, getRelatedPosts } from '../lib/posts';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import {
@@ -53,7 +53,7 @@ export default function BlogPost() {
 
   if (!post) return <Navigate to="/blog" replace />;
 
-  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const related = getRelatedPosts(post.slug);
 
   return (
     <main className="bg-ink">
@@ -95,16 +95,30 @@ export default function BlogPost() {
               {b.h}
             </motion.h2>
           ) : (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 text-[15px] font-light leading-[1.9] text-cream/75 md:text-base"
-            >
-              {b.p}
-            </motion.p>
+            <Fragment key={i}>
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-10%' }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-6 text-[15px] font-light leading-[1.9] text-cream/75 md:text-base"
+              >
+                {b.p}
+              </motion.p>
+              {b.related && b.related.length > 0 && (
+                <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-cream/40">
+                  Related:{' '}
+                  {b.related.map((r, ri) => (
+                    <span key={r.slug}>
+                      {ri > 0 && ' · '}
+                      <Link to={`/blog/${r.slug}`} className="gold-underline text-gold hover:text-gold-soft">
+                        {r.text}
+                      </Link>
+                    </span>
+                  ))}
+                </p>
+              )}
+            </Fragment>
           )
         )}
 

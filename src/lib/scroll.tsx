@@ -1,15 +1,19 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useSyncExternalStore, type ReactNode } from 'react';
 import Lenis from 'lenis';
-
-const LenisContext = createContext<Lenis | null>(null);
-
-export function useLenis() {
-  return useContext(LenisContext);
-}
+import { LenisContext } from './useLenis';
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
-  const [lenis, setLenis] = useState<Lenis | null>(null);
+  const lenisRef = useRef<Lenis | null>(null);
   const rafId = useRef<number>(0);
+  const listeners = useRef(new Set<() => void>());
+
+  const subscribe = useCallback((onStoreChange: () => void) => {
+    listeners.current.add(onStoreChange);
+    return () => listeners.current.delete(onStoreChange);
+  }, []);
+  const getSnapshot = useCallback(() => lenisRef.current, []);
+
+  const lenis = useSyncExternalStore(subscribe, getSnapshot);
 
   useEffect(() => {
     const instance = new Lenis({
@@ -17,7 +21,8 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       wheelMultiplier: 1,
       touchMultiplier: 1.4,
     });
-    setLenis(instance);
+    lenisRef.current = instance;
+    listeners.current.forEach((notify) => notify());
 
     const raf = (time: number) => {
       instance.raf(time);
@@ -28,6 +33,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelAnimationFrame(rafId.current);
       instance.destroy();
+      lenisRef.current = null;
     };
   }, []);
 

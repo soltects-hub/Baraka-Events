@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { useLenis } from '../lib/scroll';
+import { useLenis } from '../lib/useLenis';
 import { useSectionNav } from '../lib/useSectionNav';
 import MagneticButton from './MagneticButton';
 

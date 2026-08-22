@@ -6,15 +6,21 @@
 export const seoConfig = {
   site: {
     name: 'Baraka Events',
-    url: 'https://barakaevents.com',
+    // Real Search Console data (URL Inspection) confirms Google selects
+    // https://www.barakaevents.com/ as the canonical host — the apex domain
+    // barakaevents.com is not attached to the Vercel project and redirects
+    // to www at the DNS/registrar level. Every canonical/OG/sitemap URL must
+    // match the host that's actually served, or Google keeps treating pages
+    // as redirects instead of indexing them.
+    url: 'https://www.barakaevents.com',
     locale: 'en_US',
     description:
       "Baraka Events crafts Lahore's most extraordinary luxury shaadis, mehndi nights, corporate galas and private celebrations. Full-service event design and production.",
   },
   organization: {
     name: 'Baraka Events',
-    url: 'https://barakaevents.com',
-    logo: 'https://barakaevents.com/favicon.svg',
+    url: 'https://www.barakaevents.com',
+    logo: 'https://www.barakaevents.com/favicon.svg',
     address: {
       streetAddress: 'LG 13A, Big City Plaza, Liberty Roundabout',
       addressLocality: 'Lahore',
@@ -38,7 +44,7 @@ export const seoConfig = {
     facebook: 'Barakaeventsofficial',
     instagram: 'Barakaeventsofficial',
   },
-  defaultImage: 'https://barakaevents.com/media/portfolio-1.jpg',
+  defaultImage: 'https://www.barakaevents.com/media/portfolio-1.jpg',
   defaultImageAlt: 'Baraka Events - Luxury Event Production in Lahore',
 };
 
