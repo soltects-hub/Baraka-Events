@@ -77,9 +77,10 @@ function main() {
     }
   }
 
-  // Image
-  if (!post.image.startsWith('/media/')) errors.push(`Image path "${post.image}" is not a real site asset under /media/.`);
-  if (!post.imageAlt.trim()) errors.push('Image alt text is empty.');
+  // Image — optional. AI image generation is never used, so a post may
+  // legitimately publish without one; only validate format when present.
+  if (post.image !== undefined && !post.image.startsWith('/media/')) errors.push(`Image path "${post.image}" is not a real site asset under /media/.`);
+  if (post.image !== undefined && !post.imageAlt?.trim()) errors.push('Image is set but alt text is empty.');
 
   // Structured data — must build without throwing and carry required fields.
   try {

@@ -60,7 +60,7 @@ export default function BlogPost() {
       {/* hero */}
       <section className="relative flex min-h-[62vh] items-end overflow-hidden pt-32 md:min-h-[70vh]">
         <div className="absolute inset-0">
-          <img src={post.image} alt={post.imageAlt} className="h-full w-full object-cover" />
+          {post.image && <img src={post.image} alt={post.imageAlt} className="h-full w-full object-cover" />}
           <div className="absolute inset-0 bg-ink/55" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
         </div>
@@ -148,7 +148,7 @@ export default function BlogPost() {
           {related.map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden rounded-sm border border-white/8 bg-ink-2">
               <div className="relative h-44 overflow-hidden">
-                <img src={p.image} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
+                {p.image && <img src={p.image} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />}
               </div>
               <div className="p-5">
                 <span className="text-[10px] uppercase tracking-[0.3em] text-gold">{p.category}</span>

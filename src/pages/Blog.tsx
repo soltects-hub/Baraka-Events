@@ -72,11 +72,13 @@ export default function Blog() {
         >
           <Link to={`/blog/${featured.slug}`} className="group grid gap-0 overflow-hidden rounded-sm border border-white/8 bg-ink-2 lg:grid-cols-[1.4fr_1fr]">
             <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[440px]">
-              <img
-                src={featured.image}
-                alt={featured.imageAlt}
-                className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-              />
+              {featured.image && (
+                <img
+                  src={featured.image}
+                  alt={featured.imageAlt}
+                  className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink-2" />
               <span className="absolute left-5 top-5 rounded-full border border-gold/40 bg-ink/50 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-gold backdrop-blur-md">
                 Featured
@@ -116,12 +118,14 @@ export default function Blog() {
             >
               <Link to={`/blog/${post.slug}`} className="group block overflow-hidden rounded-sm border border-white/8 bg-ink-2">
                 <div className="relative h-52 overflow-hidden md:h-56">
-                  <img
-                    src={post.image}
-                    alt={post.imageAlt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-                  />
+                  {post.image && (
+                    <img
+                      src={post.image}
+                      alt={post.imageAlt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
                 </div>
                 <div className="p-6">

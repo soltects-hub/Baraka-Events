@@ -15,6 +15,14 @@ mechanism. See "Phases 1-2 and 4-10" below for what's new; Phases 3, 6-ish
 and the safety table have been updated to match. Nothing here changes how
 content is *published* — a human still has to review and merge every PR.
 
+**Update (Ollama instead of Anthropic):** AI content generation and the
+optional AI summary no longer use the Anthropic API or any paid API — they
+now run against an open-source model (Qwen3 by default) via
+[Ollama](https://ollama.com). No API key of any kind is used anywhere in
+this pipeline. See Phase 4 below for full details, including the important
+limitation that GitHub-hosted runners cannot reach a laptop's own
+`localhost`.
+
 ## What already existed (not duplicated here)
 
 Before this pipeline, the repo already had:
@@ -30,7 +38,7 @@ a daily schedule on top of that — it does not re-implement any of it.
 ## Two jobs, one workflow file
 
 - **`seo-automation`** (pre-existing, extended) — `npm ci && npm run lint && npm run build` plus a check that `dist/` contains `index.html`, `robots.txt`, `sitemap.xml`, and the Search Console verification file. Runs on push to `main`, on pull requests into `main` (newly added), and on manual dispatch. Does **not** run on the daily schedule.
-- **`seo-report`** (new) — collects Search Console data, generates a Markdown report, optionally asks Claude to summarize it, uploads everything as a workflow artifact, and opens a pull request with the report file. Runs on the daily cron schedule and on manual dispatch. Never runs on push/PR (it has nothing to validate).
+- **`seo-report`** (new) — collects Search Console data, generates a Markdown report, optionally asks an open-source model (via Ollama) to summarize it, uploads everything as a workflow artifact, and opens a pull request with the report file. Runs on the daily cron schedule and on manual dispatch. Never runs on push/PR (it has nothing to validate).
 
 Both jobs authenticate to Google Cloud the same way: `google-github-actions/auth@v3` with the existing Workload Identity Federation provider — **no service-account JSON key exists anywhere in this repository or its history**, and this pipeline does not introduce one.
 
@@ -161,14 +169,103 @@ Every decision is written to `reports/seo/decision-latest.json` with its
 full reasoning, and appears in the daily report's "Content decision &
 publishing" section.
 
-## Phase 4 — AI analysis (optional, off by default)
+## Phase 4 — AI analysis (Ollama, open-source, optional, off when unreachable)
 
-No AI API was already configured anywhere in this repository (confirmed by inspection — there was nothing to reuse). This pipeline adds one optional step, `scripts/seo-report/ai-summary.ts`, using the official `@anthropic-ai/sdk` and the `claude-opus-5` model.
+**No paid AI API and no API key are used anywhere in this pipeline.** AI
+analysis and content generation talk to [Ollama](https://ollama.com) — an
+open-source, self-hosted model server — via `scripts/seo-report/ollama-client.ts`.
+The default model is **Qwen3** (`qwen3`).
 
-- **Required secret:** `ANTHROPIC_API_KEY` (Settings → Secrets and variables → Actions → Secrets — this one *is* sensitive). **Not currently set** — the step is skipped until it is.
-- **Without the secret**, the step logs why it's skipping and exits `0`. The deterministic report is complete and useful on its own; the workflow is fully functional without this step.
-- **With the secret**, it sends the already-generated Markdown report to Claude with a system prompt that explicitly forbids inventing any metric, page, or query not already in that report, and forbids proposing specific content changes — its only job is to prioritize what's already there into a short executive summary. The result is appended as a new section, clearly labeled as AI-generated, with every fact traceable back to the sections above it.
-- If the request fails for any reason, the deterministic report is left untouched and the step logs the error — it never blocks or corrupts the real data.
+### Configuration
+
+Two non-secret repository **variables** (Settings → Secrets and variables →
+Actions → Variables — neither is sensitive, so neither belongs in Secrets):
+
+| Variable | Default if unset | Meaning |
+|---|---|---|
+| `OLLAMA_BASE_URL` | `http://localhost:11434` | Where Ollama is listening. |
+| `OLLAMA_MODEL` | `qwen3` | Which pulled model to use. |
+
+An optional `OLLAMA_TIMEOUT_MS` environment variable (default `120000`)
+controls the per-request timeout for the scripts below.
+
+### Two supported execution modes
+
+- **Mode A — local:** Ollama running on the same machine that runs the
+  scripts (`http://localhost:11434`, the default). This is how local
+  development and `npm run seo:ai:test` are normally used.
+- **Mode B — remote:** Ollama running on a separate, reachable
+  machine/server, referenced only through `OLLAMA_BASE_URL`. Never hardcode
+  a public host anywhere in this repo — remote access is opt-in,
+  configured per-environment via the repository variable above.
+
+### GitHub Actions cannot reach your laptop
+
+**This is the critical limitation to understand.** A GitHub-hosted runner
+is a separate, ephemeral machine in GitHub's cloud — it has no network path
+to `localhost:11434` on your own computer, no matter how the workflow is
+written. So:
+
+- If `OLLAMA_BASE_URL` is unset (or still points at `localhost`) when the
+  `seo-report` job runs on a GitHub-hosted runner, **content generation and
+  the AI summary step will correctly report Ollama as unreachable and skip
+  themselves gracefully** — this is by design, not a bug. Nothing else in
+  the pipeline (Search Console fetch, the decision engine, the deterministic
+  report, sitemap regeneration, SEO QA) is affected; it never fails the run
+  and never fabricates content.
+- **True unattended, 24/7 generation from GitHub Actions requires one of:**
+  1. Set `OLLAMA_BASE_URL` to a real, reachable Ollama server you host
+     yourself (a small always-on VM/box running Ollama with the model
+     pulled, reachable from the internet or from GitHub's runner IP ranges).
+  2. Run the `seo-report` job on a **self-hosted runner** — a machine you
+     control (which can be the same machine running Ollama) — instead of
+     `ubuntu-latest`. Neither is configured today; both are deliberate
+     infrastructure decisions outside what this repo can do on its own.
+
+### Local development / testing
+
+1. [Install Ollama](https://ollama.com/download).
+2. Pull the model: `ollama pull qwen3`.
+3. Start Ollama (usually already running as a background service after
+   install; otherwise `ollama serve`).
+4. Configure environment variables (only needed if not using the defaults):
+   ```
+   OLLAMA_BASE_URL=http://localhost:11434
+   OLLAMA_MODEL=qwen3
+   ```
+5. Run the connectivity test: `npm run seo:ai:test`. This is a safe,
+   standalone diagnostic — it never touches `src/lib/posts.ts`, never runs
+   QA, and never opens a PR. If Ollama is reachable, it sends one tiny real
+   prompt and validates the response. If Ollama is **not** installed or
+   running, it does not fake success — it runs a deterministic mock test of
+   the client's own logic instead and says plainly that real connectivity
+   requires installing Ollama.
+6. Run the full local pipeline the same way as before (`npm run seo:fetch`
+   → `npm run seo:decide` → `npm run seo:generate-content` → ... — see
+   Phase 8) once real Search Console credentials and a running Ollama are
+   both available locally.
+
+### When Ollama is unavailable
+
+- `scripts/seo-report/generate-content.ts`: if the decision was
+  `new-article` but no Ollama server is reachable, it writes
+  `{status: "blocked", requiredService: "Ollama", howToFix: ...}` instead of
+  pretending to generate anything — reported plainly in the daily report's
+  "Content decision & publishing" section. No secret is required at all; it
+  is purely a reachability question.
+- `scripts/seo-report/ai-summary.ts`: if unreachable, it logs why and exits
+  `0` without touching the deterministic report — exactly the same graceful
+  behavior the Anthropic-backed version had for a missing API key.
+
+### Response format robustness
+
+Open models are noticeably chattier than a hosted API about "JSON only"
+instructions — they sometimes wrap a response in a ` ```json ` fence or add
+a stray sentence around it. `generate-content.ts` strips a code fence if
+present and falls back to extracting the first balanced `{...}` object in
+the text, so a well-formed JSON object surrounded by incidental text still
+parses instead of hard-failing the run. A genuinely malformed response
+still throws a clear error, same as before.
 
 ## Phase 4 (continued) — evidence-based content generation
 
@@ -177,18 +274,19 @@ only ever runs after `decide-action.ts`, and only ever *does* anything when
 the decision was `new-article`. Otherwise it writes a `{status: "skipped"}`
 record and exits `0` — a no-op, not a failure.
 
-- **Required secret:** `ANTHROPIC_API_KEY` (same one Phase 4's executive
-  summary uses). **If it isn't set**, the script writes
-  `{status: "blocked", requiredSecret: "ANTHROPIC_API_KEY", howToFix: ...}`
-  instead of pretending to generate anything — this is reported plainly in
-  the daily report's "Content decision & publishing" section.
-- **If it is set**, it calls the Claude API (`claude-opus-5`) with a system
-  prompt hard-grounded in verified real facts about Baraka Events (services,
-  service area, positioning, published stats — see `VERIFIED_FACTS` in the
-  script), the target topic cluster's real keywords, and every existing
-  post's title/excerpt (so it can't duplicate their angle). It is explicitly
-  forbidden from inventing prices beyond the qualitative range already
-  public, testimonials, client names, awards, or statistics.
+- **Requires:** a reachable Ollama server (see Phase 4 above). **If none is
+  reachable**, the script writes `{status: "blocked", requiredService:
+  "Ollama", howToFix: ...}` instead of pretending to generate anything —
+  this is reported plainly in the daily report's "Content decision &
+  publishing" section. No API key of any kind is required.
+- **If Ollama is reachable**, it calls the configured model (Qwen3 by
+  default) with a prompt hard-grounded in verified real facts about Baraka
+  Events (services, service area, positioning, published stats — see
+  `VERIFIED_FACTS` in the script), the target topic cluster's real
+  keywords, and every existing post's title/excerpt (so it can't duplicate
+  their angle). It is explicitly forbidden from inventing prices beyond the
+  qualitative range already public, testimonials, client names, awards, or
+  statistics.
 - Output reuses the **existing** `Post` data model in `src/lib/posts.ts`
   exactly (title, excerpt, category, blocks of `{h}`/`{p}` pairs, an FAQ
   section as more `{h}`/`{p}` pairs) — this is not a parallel content
@@ -207,9 +305,12 @@ content generation today — that's the engine correctly refusing to write
 content nobody can find yet, not a gap in the pipeline. The full
 generate→apply→typecheck→QA chain was verified locally end-to-end against a
 realistic mock proposal (a full nikkah-themed article, insertion, `tsc -b`,
-and every QA check) — all passed. The one thing that could not be tested
-(no `ANTHROPIC_API_KEY` available in the build/test environment) is the
-literal Claude API network call itself; everything around it is proven.
+and every QA check) — all passed. The Ollama client itself was verified
+with `npm run seo:ai:test`'s deterministic mock path (no Ollama installation
+was available in the environment this migration was built/tested in); the
+literal network call to a running Ollama server has not been exercised —
+see the final report in the PR that introduced this migration for the exact
+current status.
 
 ## Phase 5 — images (no image-generation API connected — documented, not faked)
 
@@ -263,7 +364,7 @@ Two mechanisms, both real and shipped:
 
 `scripts/seo-report/qa-check.ts` (`npm run seo:qa`) runs after
 `apply-content.ts` and the production build, checking the **real, final**
-state of `src/lib/posts.ts` — not the raw Claude output. It is a no-op
+state of `src/lib/posts.ts` — not the raw model output. It is a no-op
 (`status: "skipped"`, exits 0) whenever no content was generated that day. When
 content *was* generated, it checks: title length, meta-description
 (`excerpt`) length, slug format and uniqueness, heading structure (≥1 H2, no
@@ -338,7 +439,7 @@ Vercel already deploys this site from GitHub on every push to `main` (confirmed:
 | Rule | How it's enforced here |
 |---|---|
 | No service-account JSON key | Both jobs use `google-github-actions/auth@v3` with the existing WIF provider only. |
-| No committed credentials | Nothing in this pipeline writes a secret to disk or to git; `ANTHROPIC_API_KEY` only ever exists as a GitHub Actions secret injected into job env. |
+| No committed credentials | Nothing in this pipeline writes a secret to disk or to git. AI generation uses no API key at all — `OLLAMA_BASE_URL`/`OLLAMA_MODEL` are plain, non-sensitive repository variables. |
 | No exposed Search Console credentials | Only aggregate metrics (clicks/impressions/CTR/position/coverage state) are ever written to the report — no raw API tokens are logged anywhere. |
 | No visual/design changes | This pipeline never touches components, styling, animation, or the Hero. It only adds scripts, a workflow, data/report files, and — only via a QA-passed content PR — new entries in `posts.ts`. |
 | No URL rewrites without redirects | `vercel.json` is not touched; the legacy URL audit (Phase 1) only classifies and recommends, never implements. |
@@ -357,7 +458,7 @@ Vercel already deploys this site from GitHub on every push to `main` (confirmed:
 
 - [ ] Enable the **Google Search Console API** on the `baraka-events-seo-automation` GCP project (if not already enabled).
 - [ ] Add `baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com` as a **Restricted** user on the `https://barakaevents.com/` property in Search Console.
-- [ ] *(Optional)* Add an `ANTHROPIC_API_KEY` repository secret to enable the AI executive-summary step **and** evidence-based content generation (Phase 4).
+- [ ] *(Optional)* Host a reachable Ollama server (or a self-hosted GitHub Actions runner with Ollama installed) and set the `OLLAMA_BASE_URL`/`OLLAMA_MODEL` repository variables to enable the AI executive-summary step **and** evidence-based content generation from GitHub Actions (Phase 4). No API key is required — without this, both steps skip gracefully and the rest of the pipeline is unaffected.
 - [ ] *(Only if the property is verified as a Domain property, not URL-prefix)* Add a `SEARCH_CONSOLE_SITE_URL` repository **variable** set to `sc-domain:barakaevents.com`.
 - [ ] *(Optional, future)* Enable Vertex AI (`aiplatform.googleapis.com`) + grant the service account `roles/aiplatform.user` if real image generation is wanted (Phase 5).
 
