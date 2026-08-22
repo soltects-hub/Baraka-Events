@@ -46,6 +46,16 @@ jobs:
       - name: Verify Google Cloud authentication
         run: gcloud auth list
 
+      - name: TEMP DIAGNOSTIC - re-check IAM bindings and Vertex AI API state (to be removed)
+        run: |
+          echo "--- IAM bindings for the automation service account on this project ---"
+          gcloud projects get-iam-policy baraka-events-seo-automation \
+            --flatten="bindings[].members" \
+            --filter="bindings.members:baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com" \
+            --format="table(bindings.role)" || echo "get-iam-policy failed (see above)"
+          echo "--- serviceusage / Vertex AI API enablement ---"
+          gcloud services list --filter="name:aiplatform.googleapis.com" --format="table(name,state)" || echo "services list failed (see above)"
+
       - name: Run lint
         run: npm run lint
 
