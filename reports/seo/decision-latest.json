@@ -1,0 +1,46 @@
+{
+  "action": "fix-indexing",
+  "target": "site-wide indexing",
+  "reasoning": [
+    "Only 0/8 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).",
+    "Publishing new content before fixing discoverability would waste effort — indexing is the dominant blocker right now."
+  ],
+  "evidence": {
+    "indexedCount": 0,
+    "totalInspected": 8,
+    "coverageStates": [
+      {
+        "url": "https://barakaevents.com/",
+        "coverageState": "Page with redirect"
+      },
+      {
+        "url": "https://barakaevents.com/blog",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/mehndi-themes-lahore-loves",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/luxury-shaadi-cost-lahore",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/walima-decor-trends-2025",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/corporate-gala-lahore-checklist",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/perfect-baraat-guide",
+        "coverageState": "URL is unknown to Google"
+      }
+    ]
+  }
+}
