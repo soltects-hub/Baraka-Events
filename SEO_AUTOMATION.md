@@ -29,9 +29,15 @@ real, live-verified path (see Phase 4 below):
 GitHub Actions → Tailscale (ephemeral node) → owner's machine → AnythingLLM → Ollama → Qwen3:8b
 ```
 
-Verified live end-to-end via a real `workflow_dispatch`: the GitHub Actions
-runner joined the tailnet, reached AnythingLLM, authenticated, and received
-a real Qwen3:8b response through workspace chat.
+Verified live via a real `workflow_dispatch`: the GitHub Actions runner
+joined the tailnet, reached AnythingLLM, authenticated, and received a real
+Qwen3:8b response through workspace chat for a trivial connectivity-test
+prompt. A full article-length generation is not yet confirmed working
+end-to-end — AnythingLLM currently reports it cannot reach its own Ollama
+backend on the owner's machine, a local infrastructure issue outside this
+repo's code; see the "Real-world test note" and "If Tailscale or
+AnythingLLM are unreachable" sections in Phase 4 below for the full
+history and the specific error.
 
 ## What already existed (not duplicated here)
 
@@ -261,6 +267,19 @@ Nothing else in the pipeline (Search Console fetch, the decision engine,
 the deterministic report, sitemap regeneration, SEO QA) is affected either
 way.
 
+A distinct failure mode: Tailscale connects and AnythingLLM authenticates
+and accepts the request, but AnythingLLM itself cannot reach **its own**
+Ollama backend. This surfaces as an HTTP 200/500-range JSON body with
+`"type": "abort"` and an explicit
+`"Your Ollama instance could not be reached or is not responding..."`
+error — `anythingllm-client.ts` surfaces this as a normal
+`AnythingLLMError` (the `Generate content proposal` step fails loudly with
+`continue-on-error: true`, so the rest of the pipeline still runs). This is
+entirely local to the owner's machine and cannot be diagnosed or fixed
+remotely; check on that machine that the Ollama service is actually
+running, that the `qwen3:8b` model is pulled, and that AnythingLLM's own
+LLM provider settings point at the correct Ollama URL/port.
+
 ### Local development / testing
 
 Local testing against the real instance requires the same Tailscale
@@ -330,14 +349,44 @@ record and exits `0` — a no-op, not a failure.
 **Real-world test note:** this repo's real current decision is
 `fix-indexing` (see Phase 3 above), so the live daily run does not reach
 content generation today — that's the engine correctly refusing to write
-content nobody can find yet, not a gap in the pipeline. The full
-generate→apply→typecheck→QA chain was verified twice: locally end-to-end
-against a mock AnythingLLM server (matching the real, live-confirmed
-response shape, including a `<think>` block and a markdown-fenced JSON
-body, to prove the client's stripping/extraction logic), and for real via a
-temporary `workflow_dispatch` job that joined the real Tailscale tailnet
-and generated one real article draft through the real AnythingLLM/Qwen3:8b
-instance (never applied, built, or opened as a PR).
+content nobody can find yet, not a gap in the pipeline. The
+generate→apply→typecheck→QA chain was verified locally end-to-end against a
+mock AnythingLLM server (matching the real, live-confirmed response shape,
+including a `<think>` block and a markdown-fenced JSON body, to prove the
+client's stripping/extraction logic).
+
+A real, full-length article-generation call was also attempted three times
+via a temporary `workflow_dispatch` job (joining the real Tailscale
+tailnet, running the actual `generate-content.ts` prompt against the real
+AnythingLLM instance). The first two attempts found and fixed real bugs in
+this pipeline's own code — not the integration's premise:
+1. The client's default request timeout (180s) was long enough for a
+   trivial connectivity-test prompt but not for a full multi-section
+   article on a local, CPU/GPU-bound Qwen3:8b (a thinking model that emits
+   a `<think>` block before its real answer). Raised to 900s.
+2. Node's *built-in* global `fetch` is powered by an internal copy of
+   undici that can be a different version than the npm `undici` package —
+   passing an npm-installed `Agent` as fetch's `dispatcher` option threw.
+   Fixed by using `undici`'s own `fetch()` alongside its own `Agent`
+   (pinned to `undici@^6.28.0`, since the current major version requires
+   Node ≥22.19 and this pipeline's CI runs Node 20).
+
+With both fixed, the third attempt ran the real request for its full
+~10 minutes with Tailscale, network, and AnythingLLM authentication all
+healthy — confirming those parts of the integration work correctly — but
+AnythingLLM itself returned a structured error:
+`"Your Ollama instance could not be reached or is not responding. Please
+make sure it is running the API server and your connection information is
+correct in AnythingLLM."` This is a fault inside the owner's own
+AnythingLLM ↔ Ollama connection on their local machine, not anything this
+repo's code, GitHub Actions, or the Tailscale link can fix or diagnose
+further remotely — see "If Tailscale or AnythingLLM are unreachable" above
+for the equivalent manual troubleshooting checklist (the same idea applies
+one layer deeper: confirm Ollama itself is running and that AnythingLLM's
+own LLM provider settings point at it correctly). Once Ollama is confirmed
+healthy on that machine, a fresh `workflow_dispatch` of the `seo-report`
+job (or a repeat of the same temporary diagnostic) is the way to get final,
+live confirmation of a complete real Qwen3:8b article generation.
 
 ## Phase 5 — images (no image-generation API connected — documented, not faked)
 
