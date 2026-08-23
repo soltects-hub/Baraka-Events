@@ -226,3 +226,113 @@ jobs:
         run: |
           echo "::error::A content update was proposed but did not pass build/verify/QA — no PR was opened. See the uploaded artifact for details. This is expected safety behavior, not a pipeline bug."
           exit 1
+
+  # TEMPORARY — to be removed once real connectivity/generation evidence is
+  # captured. Proves GitHub Actions -> Tailscale -> the user's own 24/7
+  # Windows machine -> AnythingLLM -> Ollama -> Qwen3:8b works end-to-end,
+  # using one harmless test prompt. Joins the private tailnet only for this
+  # job's duration (ephemeral node) — AnythingLLM is never exposed publicly,
+  # no router ports are opened. Never touches src/lib/posts.ts, never
+  # builds, never opens a PR. Never prints the OAuth secret or API key.
+  anythingllm-connectivity-test:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
+      - name: Connectivity + auth + generation test against AnythingLLM
+        env:
+          ANYTHINGLLM_API_KEY: ${{ secrets.ANYTHINGLLM_API_KEY }}
+        run: |
+          cat > /tmp/allm-diagnostic.mjs <<'SCRIPT'
+          const BASE = 'http://100.125.143.58:3001';
+          const KEY = process.env.ANYTHINGLLM_API_KEY;
+
+          async function main() {
+            let pingOk = false;
+            try {
+              const r = await fetch(BASE + '/api/ping', { signal: AbortSignal.timeout(10000) });
+              pingOk = r.ok;
+            } catch (e) {
+              console.log('Ping request failed:', e.message);
+            }
+            console.log('AnythingLLM reachable:', pingOk ? 'YES' : 'NO');
+            if (!pingOk) { process.exitCode = 1; return; }
+
+            for (const path of ['/api/docs/json', '/api/docs/swagger.json', '/api/openapi.json']) {
+              try {
+                const r = await fetch(BASE + path, { signal: AbortSignal.timeout(10000) });
+                console.log('Docs spec check', path, '->', r.status);
+              } catch (e) {
+                console.log('Docs spec check', path, '-> request failed:', e.message);
+              }
+            }
+
+            let workspaces = [];
+            try {
+              const r = await fetch(BASE + '/api/v1/workspaces', {
+                headers: { Authorization: 'Bearer ' + KEY },
+                signal: AbortSignal.timeout(10000),
+              });
+              console.log('AnythingLLM authentication:', r.ok ? 'YES' : 'NO', '(HTTP ' + r.status + ')');
+              if (!r.ok) { process.exitCode = 1; return; }
+              const data = await r.json();
+              workspaces = data.workspaces || [];
+              console.log('Workspaces found:', workspaces.length, workspaces.map((w) => w.slug).join(', '));
+            } catch (e) {
+              console.log('AnythingLLM authentication: NO (request failed:', e.message + ')');
+              process.exitCode = 1;
+              return;
+            }
+
+            let slug = workspaces.find((w) => w.slug === 'baraka-seo')?.slug || workspaces[0]?.slug;
+            if (!slug) {
+              console.log('No workspace found — creating one named "baraka-seo".');
+              const r = await fetch(BASE + '/api/v1/workspace/new', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + KEY },
+                body: JSON.stringify({ name: 'baraka-seo' }),
+                signal: AbortSignal.timeout(10000),
+              });
+              console.log('Workspace creation:', r.ok ? 'YES' : 'NO', '(HTTP ' + r.status + ')');
+              if (!r.ok) { process.exitCode = 1; return; }
+              const data = await r.json();
+              slug = data.workspace?.[0]?.slug || data.workspace?.slug;
+            }
+            console.log('Using workspace:', slug);
+            if (!slug) { process.exitCode = 1; return; }
+
+            console.log('Ollama model configured: qwen3:8b');
+            try {
+              const r = await fetch(BASE + '/api/v1/workspace/' + slug + '/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + KEY },
+                body: JSON.stringify({
+                  message: 'Return valid JSON containing exactly: {"status": "ok", "model": "qwen3:8b"} and nothing else.',
+                  mode: 'chat',
+                }),
+                signal: AbortSignal.timeout(150000),
+              });
+              console.log('Chat HTTP status:', r.status);
+              const data = await r.json();
+              console.log('Response type:', data.type);
+              console.log('Response text (first 400 chars):', String(data.textResponse || data.error || '').slice(0, 400));
+            } catch (e) {
+              console.log('Generation request failed:', e.message);
+              process.exitCode = 1;
+            }
+          }
+
+          main();
+          SCRIPT
+          node /tmp/allm-diagnostic.mjs
