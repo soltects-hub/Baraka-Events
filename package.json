@@ -19,7 +19,7 @@
     "seo:fetch": "tsx scripts/seo-report/fetch-search-console.ts",
     "seo:report": "tsx scripts/seo-report/generate-report.ts",
     "seo:ai-summary": "tsx scripts/seo-report/ai-summary.ts",
-    "seo:ai:test": "tsx scripts/seo-report/test-ollama.ts"
+    "seo:ai:test": "tsx scripts/seo-report/test-anythingllm.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",

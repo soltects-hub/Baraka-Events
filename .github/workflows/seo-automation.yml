@@ -88,17 +88,18 @@ jobs:
       pull-requests: write
       id-token: write
     env:
-      # No paid AI API or API key is used anywhere in this pipeline. Content
-      # generation and the optional AI summary talk to Ollama — an
-      # open-source, self-hosted model server — configured entirely via
-      # these two non-secret repository variables (unset = the scripts'
-      # built-in defaults: http://localhost:11434 and "qwen3"). A
-      # GitHub-hosted runner cannot reach a laptop's own localhost, so
-      # unattended generation here requires OLLAMA_BASE_URL to point at a
-      # reachable server, or this job to run on a self-hosted runner with
-      # Ollama installed — see SEO_AUTOMATION.md.
-      OLLAMA_BASE_URL: ${{ vars.OLLAMA_BASE_URL }}
-      OLLAMA_MODEL: ${{ vars.OLLAMA_MODEL }}
+      # No paid AI API is used anywhere in this pipeline. Content generation
+      # and the optional AI summary talk to the site owner's own AnythingLLM
+      # instance (backed by Ollama/Qwen3:8b), reached over a private
+      # Tailscale tailnet this job joins below — never exposed publicly, no
+      # router ports opened. ANYTHINGLLM_BASE_URL/ANYTHINGLLM_WORKSPACE_SLUG
+      # are non-secret repository variables (unset = the scripts' built-in
+      # defaults, matching the real, live-verified instance). If Tailscale
+      # or AnythingLLM are unreachable for any reason, content generation
+      # and the AI summary skip gracefully — see SEO_AUTOMATION.md.
+      ANYTHINGLLM_BASE_URL: ${{ vars.ANYTHINGLLM_BASE_URL }}
+      ANYTHINGLLM_WORKSPACE_SLUG: ${{ vars.ANYTHINGLLM_WORKSPACE_SLUG }}
+      ANYTHINGLLM_API_KEY: ${{ secrets.ANYTHINGLLM_API_KEY }}
 
     steps:
       - name: Checkout
@@ -120,6 +121,20 @@ jobs:
           workload_identity_provider: projects/226411024335/locations/global/workloadIdentityPools/github-actions/providers/github-actions
           service_account: baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com
 
+      # Ephemeral node, joined only for this job's duration. Lets this job
+      # reach the site owner's own 24/7 AnythingLLM/Ollama machine without
+      # ever exposing it publicly. If this fails or the required secrets
+      # aren't configured, the job continues — content generation and the
+      # AI summary just skip gracefully below (Search Console/decision/
+      # report/sitemap are unaffected).
+      - name: Connect to Tailscale
+        continue-on-error: true
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
       - name: Compute today's date (for a stable, idempotent daily branch/PR name)
         id: date
         run: echo "today=$(date -u +%F)" >> "$GITHUB_OUTPUT"
@@ -140,23 +155,24 @@ jobs:
         continue-on-error: true
         run: npm run seo:keyword-performance
 
-      - name: Report whether an Ollama AI backend is reachable (informational only)
+      - name: Report whether AnythingLLM is reachable (informational only)
         continue-on-error: true
         run: |
           node -e "
-            fetch((process.env.OLLAMA_BASE_URL || 'http://localhost:11434') + '/api/tags', { signal: AbortSignal.timeout(5000) })
-              .then((r) => console.log(r.ok ? 'Ollama is reachable — content generation and the AI summary step can run for real.' : 'Ollama responded with HTTP ' + r.status + ' — treating as unreachable.'))
-              .catch(() => console.log('No Ollama server reachable at ' + (process.env.OLLAMA_BASE_URL || 'http://localhost:11434') + ' from this runner. This is expected unless OLLAMA_BASE_URL points at a reachable server, or this job runs on a self-hosted runner with Ollama installed. Content generation and the AI summary step will skip gracefully — the rest of the pipeline (Search Console, decision engine, report, sitemap) is unaffected.'));
+            const base = process.env.ANYTHINGLLM_BASE_URL || 'http://100.125.143.58:3001';
+            fetch(base + '/api/ping', { signal: AbortSignal.timeout(5000) })
+              .then((r) => console.log(r.ok ? 'AnythingLLM is reachable — content generation and the AI summary step can run for real.' : 'AnythingLLM responded with HTTP ' + r.status + ' — treating as unreachable.'))
+              .catch(() => console.log('AnythingLLM at ' + base + ' is not reachable from this runner. This is expected if the Tailscale connection above did not succeed (see its logs) or the required secrets are not configured. Content generation and the AI summary step will skip gracefully — the rest of the pipeline (Search Console, decision engine, report, sitemap) is unaffected.'));
           "
 
-      - name: Generate content proposal if warranted (Phase 4, gated on Ollama reachability)
+      - name: Generate content proposal if warranted (Phase 4, gated on AnythingLLM reachability)
         continue-on-error: true
         run: npm run seo:generate-content
 
       - name: Generate SEO report (Phase 10)
         run: npm run seo:report
 
-      - name: AI-assisted executive summary (optional, gated on Ollama reachability)
+      - name: AI-assisted executive summary (optional, gated on AnythingLLM reachability)
         continue-on-error: true
         run: npm run seo:ai-summary
 
@@ -227,21 +243,28 @@ jobs:
           echo "::error::A content update was proposed but did not pass build/verify/QA — no PR was opened. See the uploaded artifact for details. This is expected safety behavior, not a pipeline bug."
           exit 1
 
-  # TEMPORARY — to be removed once real connectivity/generation evidence is
-  # captured. Proves GitHub Actions -> Tailscale -> the user's own 24/7
-  # Windows machine -> AnythingLLM -> Ollama -> Qwen3:8b works end-to-end,
-  # using one harmless test prompt. Joins the private tailnet only for this
-  # job's duration (ephemeral node) — AnythingLLM is never exposed publicly,
-  # no router ports are opened. Never touches src/lib/posts.ts, never
-  # builds, never opens a PR. Never prints the OAuth secret or API key.
-  anythingllm-connectivity-test:
+  # TEMPORARY — to be removed once real evidence is captured. Proves the
+  # actual production content-generation code path (generate-content.ts's
+  # real prompt + JSON extraction + AnythingLLM client) works end-to-end
+  # against the real AnythingLLM/Qwen3:8b instance, using a safe,
+  # non-cannibalizing mock decision. Joins the tailnet only for this job's
+  # duration. Never touches src/lib/posts.ts, never builds, never opens a
+  # PR — stops right after generate-content.ts writes its proposal file.
+  anythingllm-content-path-test:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Connect to Tailscale
         uses: tailscale/github-action@v3
@@ -250,89 +273,48 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
 
-      - name: Connectivity + auth + generation test against AnythingLLM
+      - name: Write a safe mock 'new-article' decision (test only, never committed)
+        run: |
+          mkdir -p reports/seo
+          node -e "
+            const fs = require('fs');
+            const decision = {
+              action: 'new-article',
+              target: 'Aqeeqah',
+              cluster: 'Aqeeqah',
+              proposedUrl: '/blog/aqeeqah-celebration-planning-lahore',
+              reasoning: ['TEMPORARY DIAGNOSTIC: mock decision used only to prove the real content-generation path works end-to-end through AnythingLLM/Qwen3:8b without publishing anything.'],
+              evidence: {},
+            };
+            fs.writeFileSync('reports/seo/decision-latest.json', JSON.stringify(decision, null, 2));
+          "
+
+      - name: Generate content proposal (real AnythingLLM/Qwen3:8b call)
         env:
           ANYTHINGLLM_API_KEY: ${{ secrets.ANYTHINGLLM_API_KEY }}
+        run: npm run seo:generate-content
+
+      - name: Show proposal summary (structure only — no secret, no full body)
         run: |
-          cat > /tmp/allm-diagnostic.mjs <<'SCRIPT'
-          const BASE = 'http://100.125.143.58:3001';
-          const KEY = process.env.ANYTHINGLLM_API_KEY;
-
-          async function main() {
-            let pingOk = false;
-            try {
-              const r = await fetch(BASE + '/api/ping', { signal: AbortSignal.timeout(10000) });
-              pingOk = r.ok;
-            } catch (e) {
-              console.log('Ping request failed:', e.message);
+          node -e "
+            const fs = require('fs');
+            const p = JSON.parse(fs.readFileSync('reports/seo/content-proposal-latest.json', 'utf8'));
+            console.log('status:', p.status);
+            if (p.status === 'generated') {
+              console.log('title:', p.post.title);
+              console.log('slug:', p.post.slug);
+              console.log('blocks:', p.post.blocks.length);
+              console.log('has image:', p.post.image !== undefined);
+              console.log('model:', p.model);
+            } else {
+              console.log('reason:', p.reason);
             }
-            console.log('AnythingLLM reachable:', pingOk ? 'YES' : 'NO');
-            if (!pingOk) { process.exitCode = 1; return; }
+          "
 
-            for (const path of ['/api/docs/json', '/api/docs/swagger.json', '/api/openapi.json']) {
-              try {
-                const r = await fetch(BASE + path, { signal: AbortSignal.timeout(10000) });
-                console.log('Docs spec check', path, '->', r.status);
-              } catch (e) {
-                console.log('Docs spec check', path, '-> request failed:', e.message);
-              }
-            }
-
-            let workspaces = [];
-            try {
-              const r = await fetch(BASE + '/api/v1/workspaces', {
-                headers: { Authorization: 'Bearer ' + KEY },
-                signal: AbortSignal.timeout(10000),
-              });
-              console.log('AnythingLLM authentication:', r.ok ? 'YES' : 'NO', '(HTTP ' + r.status + ')');
-              if (!r.ok) { process.exitCode = 1; return; }
-              const data = await r.json();
-              workspaces = data.workspaces || [];
-              console.log('Workspaces found:', workspaces.length, workspaces.map((w) => w.slug).join(', '));
-            } catch (e) {
-              console.log('AnythingLLM authentication: NO (request failed:', e.message + ')');
-              process.exitCode = 1;
-              return;
-            }
-
-            let slug = workspaces.find((w) => w.slug === 'baraka-seo')?.slug || workspaces[0]?.slug;
-            if (!slug) {
-              console.log('No workspace found — creating one named "baraka-seo".');
-              const r = await fetch(BASE + '/api/v1/workspace/new', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + KEY },
-                body: JSON.stringify({ name: 'baraka-seo' }),
-                signal: AbortSignal.timeout(10000),
-              });
-              console.log('Workspace creation:', r.ok ? 'YES' : 'NO', '(HTTP ' + r.status + ')');
-              if (!r.ok) { process.exitCode = 1; return; }
-              const data = await r.json();
-              slug = data.workspace?.[0]?.slug || data.workspace?.slug;
-            }
-            console.log('Using workspace:', slug);
-            if (!slug) { process.exitCode = 1; return; }
-
-            console.log('Ollama model configured: qwen3:8b');
-            try {
-              const r = await fetch(BASE + '/api/v1/workspace/' + slug + '/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + KEY },
-                body: JSON.stringify({
-                  message: 'Return valid JSON containing exactly: {"status": "ok", "model": "qwen3:8b"} and nothing else.',
-                  mode: 'chat',
-                }),
-                signal: AbortSignal.timeout(150000),
-              });
-              console.log('Chat HTTP status:', r.status);
-              const data = await r.json();
-              console.log('Response type:', data.type);
-              console.log('Response text (first 400 chars):', String(data.textResponse || data.error || '').slice(0, 400));
-            } catch (e) {
-              console.log('Generation request failed:', e.message);
-              process.exitCode = 1;
-            }
-          }
-
-          main();
-          SCRIPT
-          node /tmp/allm-diagnostic.mjs
+      - name: Upload proposal artifact (evidence only — never applied, built, or opened as a PR)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anythingllm-content-path-test-${{ github.run_id }}
+          path: reports/seo/content-proposal-latest.json
+          retention-days: 7

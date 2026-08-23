@@ -1,11 +1,11 @@
 /**
  * Executes a 'new-article' decision from decide-action.ts by generating a
- * full content package via a local/remote Ollama instance — ONLY when
- * Ollama is actually reachable at OLLAMA_BASE_URL. If it isn't, this writes
- * a clear "blocked, AI backend unreachable" record instead of pretending to
- * generate anything, and exits 0 (this is an expected, reportable state,
- * not a failure — no paid API and no API key are required by this pipeline
- * at all).
+ * full content package via the user's own AnythingLLM instance (reached
+ * over a private Tailscale tailnet, backed by Ollama/Qwen3) — ONLY when
+ * AnythingLLM is actually reachable at ANYTHINGLLM_BASE_URL. If it isn't,
+ * this writes a clear "blocked, AI backend unreachable" record instead of
+ * pretending to generate anything, and exits 0 (this is an expected,
+ * reportable state, not a failure — no paid API is used by this pipeline).
  *
  * The prompt hard-grounds the model in verified real facts about Baraka
  * Events (services, service area, positioning, published stats) and
@@ -20,7 +20,7 @@ import { resolve } from 'node:path';
 import { posts, type Post, type PostBlock } from '../../src/lib/posts';
 import { REPORTS_DIR } from './config';
 import { pickImageForCluster } from './article-images';
-import { generateWithOllama, getOllamaBaseUrl, getOllamaModel, isOllamaReachable, OllamaError } from './ollama-client';
+import { generateWithAnythingLLM, getAnythingLLMBaseUrl, getAnythingLLMWorkspaceSlug, isAnythingLLMReachable, AnythingLLMError } from './anythingllm-client';
 import type { Decision } from './decide-action';
 
 const decisionPath = resolve(process.cwd(), REPORTS_DIR, 'decision-latest.json');
@@ -148,19 +148,19 @@ async function main() {
     return;
   }
 
-  const baseUrl = getOllamaBaseUrl();
-  const model = getOllamaModel();
-  const reachable = await isOllamaReachable();
+  const baseUrl = getAnythingLLMBaseUrl();
+  const workspace = getAnythingLLMWorkspaceSlug();
+  const reachable = await isAnythingLLMReachable();
   if (!reachable) {
     const skip = {
       status: 'blocked',
-      reason: `Decision was "new-article" but content generation was skipped: no Ollama server is reachable at ${baseUrl}.`,
-      requiredService: 'Ollama',
+      reason: `Decision was "new-article" but content generation was skipped: AnythingLLM is not reachable at ${baseUrl}.`,
+      requiredService: 'AnythingLLM',
       howToFix:
-        `Install and start Ollama, pull the "${model}" model, and make sure it is reachable at OLLAMA_BASE_URL (default http://localhost:11434). ` +
-        'GitHub-hosted runners cannot reach a laptop\'s localhost — unattended generation in CI requires either a reachable remote Ollama server (set the OLLAMA_BASE_URL repository variable) or a self-hosted runner with Ollama installed. See SEO_AUTOMATION.md. No paid API key is required.',
-      ollamaBaseUrl: baseUrl,
-      ollamaModel: model,
+        `Make sure the AnythingLLM host (${baseUrl}) is running and this job has joined the Tailscale tailnet that can reach it. ` +
+        'GitHub-hosted runners cannot reach a private machine without joining its tailnet first — see the Tailscale connection step earlier in this job, and SEO_AUTOMATION.md. No paid API key is required (AnythingLLM runs its own local Ollama/Qwen3 model).',
+      anythingLLMBaseUrl: baseUrl,
+      anythingLLMWorkspace: workspace,
       decision,
     };
     writeFileSync(proposalPath, JSON.stringify(skip, null, 2));
@@ -174,9 +174,9 @@ async function main() {
 
   let responseText: string;
   try {
-    responseText = await generateWithOllama(buildPrompt(decision, clusterKeywords));
+    responseText = await generateWithAnythingLLM(buildPrompt(decision, clusterKeywords));
   } catch (err) {
-    if (err instanceof OllamaError) throw new Error(`Ollama content generation failed: ${err.message}`);
+    if (err instanceof AnythingLLMError) throw new Error(`AnythingLLM content generation failed: ${err.message}`);
     throw err;
   }
 
@@ -184,7 +184,7 @@ async function main() {
   try {
     article = JSON.parse(extractJson(responseText));
   } catch {
-    throw new Error(`Ollama response was not valid JSON: ${responseText.slice(0, 500)}`);
+    throw new Error(`AnythingLLM response was not valid JSON: ${responseText.slice(0, 500)}`);
   }
 
   if (posts.some((p) => p.slug === article.slug)) {
@@ -222,8 +222,9 @@ async function main() {
     status: 'generated',
     decision,
     post: newPost,
-    model,
-    ollamaBaseUrl: baseUrl,
+    model: 'qwen3:8b (via AnythingLLM)',
+    anythingLLMBaseUrl: baseUrl,
+    anythingLLMWorkspace: workspace,
   };
   writeFileSync(proposalPath, JSON.stringify(proposal, null, 2));
   console.log(`Content proposal generated: "${newPost.title}" (${newPost.slug})`);
