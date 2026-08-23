@@ -58,5 +58,65 @@
     "clicks": 0,
     "impressions": 3,
     "bucket": "evaluate"
+  },
+  {
+    "date": "2026-08-23",
+    "keyword": "birthday event Lahore",
+    "topicCluster": "Milestone Birthdays",
+    "matchedQuery": "birthday events lahore",
+    "position": 50.333333333333336,
+    "clicks": 0,
+    "impressions": 3,
+    "bucket": "evaluate"
+  },
+  {
+    "date": "2026-08-23",
+    "keyword": "birthday event venues Lahore",
+    "topicCluster": "Milestone Birthdays",
+    "matchedQuery": "birthday events lahore",
+    "position": 50.333333333333336,
+    "clicks": 0,
+    "impressions": 3,
+    "bucket": "evaluate"
+  },
+  {
+    "date": "2026-08-23",
+    "keyword": "birthday party planner Lahore",
+    "topicCluster": "Milestone Birthdays",
+    "matchedQuery": "birthday events lahore",
+    "position": 50.333333333333336,
+    "clicks": 0,
+    "impressions": 3,
+    "bucket": "evaluate"
+  },
+  {
+    "date": "2026-08-23",
+    "keyword": "birthday party planner venues Lahore",
+    "topicCluster": "Milestone Birthdays",
+    "matchedQuery": "birthday events lahore",
+    "position": 50.333333333333336,
+    "clicks": 0,
+    "impressions": 3,
+    "bucket": "evaluate"
+  },
+  {
+    "date": "2026-08-23",
+    "keyword": "milestone birthday celebration Lahore",
+    "topicCluster": "Milestone Birthdays",
+    "matchedQuery": "birthday events lahore",
+    "position": 50.333333333333336,
+    "clicks": 0,
+    "impressions": 3,
+    "bucket": "evaluate"
+  },
+  {
+    "date": "2026-08-23",
+    "keyword": "milestone birthday celebration venues Lahore",
+    "topicCluster": "Milestone Birthdays",
+    "matchedQuery": "birthday events lahore",
+    "position": 50.333333333333336,
+    "clicks": 0,
+    "impressions": 3,
+    "bucket": "evaluate"
   }
 ]
