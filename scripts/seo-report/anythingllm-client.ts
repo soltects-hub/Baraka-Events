@@ -15,8 +15,18 @@
  *                                 confirmed to exist on the live instance)
  *   ANYTHINGLLM_API_KEY        — required secret; requests without it fail
  *                                 with 403 (confirmed live)
- *   ANYTHINGLLM_TIMEOUT_MS     — default 180000 (article generation is
- *                                 slower than a one-line connectivity check)
+ *   ANYTHINGLLM_TIMEOUT_MS     — default 900000 (15 min). A full article
+ *                                 generation on a local, CPU/GPU-bound
+ *                                 Qwen3:8b — a thinking model that emits a
+ *                                 <think> reasoning block before the actual
+ *                                 answer — took over 3 minutes for the real
+ *                                 multi-section article prompt in live
+ *                                 testing (confirmed via a real
+ *                                 workflow_dispatch run whose request timed
+ *                                 out at the old 180000ms default with
+ *                                 Tailscale/auth/network otherwise healthy),
+ *                                 so a short connectivity-check timeout is
+ *                                 not long enough for real generation.
  *
  * No value from this file is ever logged. The API key must only ever be
  * injected via the ANYTHINGLLM_API_KEY GitHub Actions secret.
@@ -24,7 +34,7 @@
 
 export const DEFAULT_ANYTHINGLLM_BASE_URL = 'http://100.125.143.58:3001';
 export const DEFAULT_ANYTHINGLLM_WORKSPACE_SLUG = 'my-workspace';
-const DEFAULT_TIMEOUT_MS = 180_000;
+const DEFAULT_TIMEOUT_MS = 900_000;
 
 export function getAnythingLLMBaseUrl(): string {
   return process.env.ANYTHINGLLM_BASE_URL?.trim() || DEFAULT_ANYTHINGLLM_BASE_URL;
