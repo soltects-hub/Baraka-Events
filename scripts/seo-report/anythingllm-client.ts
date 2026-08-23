@@ -30,7 +30,28 @@
  *
  * No value from this file is ever logged. The API key must only ever be
  * injected via the ANYTHINGLLM_API_KEY GitHub Actions secret.
+ *
+ * Node's built-in global fetch is undici under the hood, and undici's
+ * default Agent enforces its own headersTimeout/bodyTimeout of
+ * 300_000ms (5 min) — independent of any AbortSignal passed to fetch().
+ * Confirmed live: a real article-generation request failed with a
+ * generic "fetch failed" at ~302s (not our own AbortController's longer
+ * timeout, and not the specific "timed out after Xms" message that
+ * produces), while Tailscale/auth/network were otherwise healthy.
+ * AnythingLLM's chat endpoint doesn't send response headers until
+ * generation is fully done, so a slow local model can easily exceed
+ * undici's 5-minute default before it exceeds ours.
+ *
+ * The fix is the `undici` package's own fetch()+Agent, not Node's
+ * built-in global fetch with an externally-constructed dispatcher:
+ * confirmed locally that passing an npm-installed Agent as the
+ * `dispatcher` option to Node's *built-in* fetch throws
+ * ("InvalidArgumentError: invalid onRequestStart method") because
+ * Node's internal bundled undici and the npm undici package can be
+ * different versions with incompatible internals. Using undici's own
+ * fetch alongside its own Agent keeps both on the same implementation.
  */
+import { fetch as undiciFetch, Agent } from 'undici';
 
 export const DEFAULT_ANYTHINGLLM_BASE_URL = 'http://100.125.143.58:3001';
 export const DEFAULT_ANYTHINGLLM_WORKSPACE_SLUG = 'my-workspace';
@@ -115,14 +136,20 @@ export async function generateWithAnythingLLM(prompt: string, options: AnythingL
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  // Give undici's own dispatcher timeouts generous headroom beyond our
+  // AbortController's timeoutMs, so a real slow generation still fails with
+  // our specific, actionable "timed out after Xms" message below instead of
+  // a generic dispatcher-level error.
+  const dispatcher = new Agent({ headersTimeout: timeoutMs + 30_000, bodyTimeout: timeoutMs + 30_000 });
 
-  let res: Response;
+  let res: Awaited<ReturnType<typeof undiciFetch>>;
   try {
-    res = await fetch(`${baseUrl}/api/v1/workspace/${encodeURIComponent(slug)}/chat`, {
+    res = await undiciFetch(`${baseUrl}/api/v1/workspace/${encodeURIComponent(slug)}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({ message, mode: 'chat' }),
       signal: controller.signal,
+      dispatcher,
     });
   } catch (err) {
     if (err instanceof Error && err.name === 'AbortError') {
