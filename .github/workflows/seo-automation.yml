@@ -242,3 +242,111 @@ jobs:
         run: |
           echo "::error::A content update was proposed but did not pass build/verify/QA — no PR was opened. See the uploaded artifact for details. This is expected safety behavior, not a pipeline bug."
           exit 1
+
+  # TEMPORARY — to be removed once real evidence is captured. Now that
+  # Ollama is confirmed healthy on the owner's machine, this proves the
+  # FULL real content pipeline (not just generation): generate ->
+  # apply-content -> build -> verify -> SEO QA, using the real
+  # AnythingLLM/Qwen3:8b instance and the exact same scripts the real
+  # seo-report job above calls. Uses a safe, non-cannibalizing mock
+  # 'new-article' decision (the real decision engine currently and
+  # correctly says fix-indexing based on real Search Console data — this
+  # is only to force the content path for testing, not something ever
+  # done in the real daily job). Never commits, pushes, or opens a PR —
+  # the PR step itself (peter-evans/create-pull-request@v7) is unchanged
+  # from what already opened PR #7 for real for the deterministic report.
+  anythingllm-full-pipeline-test:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
+      - name: Write a safe mock 'new-article' decision (test only, never committed)
+        run: |
+          mkdir -p reports/seo
+          node -e "
+            const fs = require('fs');
+            const decision = {
+              action: 'new-article',
+              target: 'Aqeeqah',
+              cluster: 'Aqeeqah',
+              proposedUrl: '/blog/aqeeqah-celebration-planning-lahore',
+              reasoning: ['TEMPORARY DIAGNOSTIC: mock decision used only to prove the full real content pipeline (generate -> apply -> build -> QA) works end-to-end through AnythingLLM/Qwen3:8b without publishing anything.'],
+              evidence: {},
+            };
+            fs.writeFileSync('reports/seo/decision-latest.json', JSON.stringify(decision, null, 2));
+          "
+
+      - name: Generate content proposal (real AnythingLLM/Qwen3:8b call)
+        id: generate
+        env:
+          ANYTHINGLLM_API_KEY: ${{ secrets.ANYTHINGLLM_API_KEY }}
+        run: npm run seo:generate-content
+
+      - name: Show proposal summary (structure only — no secret, no full body)
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = JSON.parse(fs.readFileSync('reports/seo/content-proposal-latest.json', 'utf8'));
+            console.log('status:', p.status);
+            if (p.status === 'generated') {
+              console.log('title:', p.post.title);
+              console.log('slug:', p.post.slug);
+              console.log('blocks:', p.post.blocks.length);
+              console.log('has image:', p.post.image !== undefined);
+              console.log('model:', p.model);
+            } else {
+              console.log('reason:', p.reason);
+            }
+          "
+
+      - name: Apply content proposal to src/lib/posts.ts (test checkout only — never committed or pushed)
+        id: apply
+        run: npm run seo:apply-content
+
+      - name: Build website (also regenerates sitemap.xml)
+        id: build
+        run: npm run build
+
+      - name: Verify build and SEO output
+        run: |
+          test -d dist
+          test -f dist/sitemap.xml
+          npm run seo:verify-sitemap
+
+      - name: SEO QA gate (Phase 7 — the same gate that blocks the real PR)
+        id: qa
+        run: npm run seo:qa
+
+      - name: Report full-pipeline result
+        if: always()
+        run: |
+          echo "generate: ${{ steps.generate.outcome }}"
+          echo "apply: ${{ steps.apply.outcome }}"
+          echo "build: ${{ steps.build.outcome }}"
+          echo "qa: ${{ steps.qa.outcome }}"
+
+      - name: Upload proposal artifact (evidence only — never applied to main, never opened as a PR)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anythingllm-full-pipeline-test-${{ github.run_id }}
+          path: reports/seo/content-proposal-latest.json
+          retention-days: 7
