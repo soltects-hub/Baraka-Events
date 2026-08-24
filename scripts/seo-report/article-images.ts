@@ -30,7 +30,13 @@ export const ARTICLE_IMAGES: ArticleImageOption[] = [
   { image: '/media/design-1.jpg', imageAlt: 'Keynote Hall — 3D visualization by Baraka Events', themes: ['Corporate Summit & Conference', 'Corporate Product Launch'] },
 ];
 
-export function pickImageForCluster(cluster: string): ArticleImageOption {
-  const match = ARTICLE_IMAGES.find((img) => img.themes.includes(cluster));
-  return match ?? ARTICLE_IMAGES[0];
+/**
+ * Returns a thematically-matched real site image, or undefined if none of
+ * the whitelisted images genuinely fit this cluster. There is no generic
+ * fallback — publishing without an image is preferred over attaching an
+ * irrelevant one (images are optional across the whole pipeline; see
+ * qa-check.ts and src/lib/posts.ts).
+ */
+export function pickImageForCluster(cluster: string): ArticleImageOption | undefined {
+  return ARTICLE_IMAGES.find((img) => img.themes.includes(cluster));
 }

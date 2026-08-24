@@ -1,23 +1,38 @@
 /**
  * Executes a 'new-article' decision from decide-action.ts by generating a
- * full content package via the Claude API — ONLY when ANTHROPIC_API_KEY is
- * configured. If it isn't, this writes a clear "skipped, secret required"
- * record instead of pretending to generate anything, and exits 0 (this is
- * an expected, reportable state, not a failure).
+ * full content package via the user's own AnythingLLM instance (reached
+ * over a private Tailscale tailnet, backed by Ollama/Qwen3) — ONLY when
+ * AnythingLLM is actually reachable at ANYTHINGLLM_BASE_URL. If it isn't,
+ * this writes a clear "blocked, AI backend unreachable" record instead of
+ * pretending to generate anything, and exits 0 (this is an expected,
+ * reportable state, not a failure — no paid API is used by this pipeline).
  *
- * The system prompt hard-grounds Claude in verified real facts about Baraka
+ * The prompt hard-grounds the model in verified real facts about Baraka
  * Events (services, service area, positioning, published stats) and
  * forbids fabricating anything not provided — prices beyond the qualitative
  * range already public, testimonials, client names, awards, or statistics.
  * Output reuses the *existing* Post data model (src/lib/posts.ts) exactly —
  * this is not a parallel content system, it's one more entry in the same
  * array the site already renders from.
+ *
+ * The prompt ends with `/no_think` — Qwen3's chat template supports this as
+ * a per-turn switch to skip its extended <think> reasoning phase. Real live
+ * testing (four separate workflow_dispatch runs against the real
+ * AnythingLLM/Qwen3:8b instance) showed AnythingLLM reporting "Ollama could
+ * not be reached" at a strikingly consistent ~10-minute mark each time —
+ * strong evidence of a timeout on AnythingLLM's own side that thinking-mode
+ * generation (which can run to several thousand hidden reasoning tokens
+ * before the real answer) was exceeding. Disabling thinking mode and
+ * tightening the requested article length (4-5 sections instead of 4-7)
+ * both reduce total generation time without touching the article's
+ * required substance or this pipeline's timeout/QA/safety behavior.
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { posts, type Post, type PostBlock } from '../../src/lib/posts';
 import { REPORTS_DIR } from './config';
 import { pickImageForCluster } from './article-images';
+import { generateWithAnythingLLM, getAnythingLLMBaseUrl, getAnythingLLMWorkspaceSlug, isAnythingLLMReachable, AnythingLLMError } from './anythingllm-client';
 import type { Decision } from './decide-action';
 
 const decisionPath = resolve(process.cwd(), REPORTS_DIR, 'decision-latest.json');
@@ -61,6 +76,36 @@ function existingPostSummaries(): string {
   return posts.map((p) => `- ${p.slug} (${p.category}): "${p.title}" — ${p.excerpt}`).join('\n');
 }
 
+/**
+ * Open models are chattier than Claude about strict "JSON only" instructions
+ * — they sometimes wrap the object in a ```json fence or add a stray
+ * sentence before/after it. Strip a fence if present, then fall back to the
+ * first balanced {...} span in the text, so a well-formed JSON object
+ * surrounded by extra text still parses instead of hard-failing QA.
+ */
+function extractJson(text: string): string {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const candidate = (fenced ? fenced[1] : text).trim();
+  try {
+    JSON.parse(candidate);
+    return candidate;
+  } catch {
+    // fall through to brace-matching below
+  }
+
+  const start = candidate.indexOf('{');
+  if (start === -1) return candidate;
+  let depth = 0;
+  for (let i = start; i < candidate.length; i++) {
+    if (candidate[i] === '{') depth++;
+    else if (candidate[i] === '}') {
+      depth--;
+      if (depth === 0) return candidate.slice(start, i + 1);
+    }
+  }
+  return candidate;
+}
+
 function buildPrompt(decision: Decision, keywords: string[]): string {
   return `You are writing ONE new blog article for the Baraka Events website (barakaevents.com), a Lahore luxury event-design atelier.
 
@@ -76,7 +121,9 @@ ${existingPostSummaries()}
 
 Write in the same voice as the existing articles: confident, editorial, specific to Lahore, produced by people who actually run these events — never generic AI filler ("In today's fast-paced world...", "When it comes to..."). Ground every claim in the verified facts above or in genuinely useful, general event-planning knowledge that doesn't require inventing Baraka-specific data.
 
-Respond with ONLY a single JSON object (no markdown fences, no commentary) matching exactly this shape:
+Keep it concise — 4-5 total H2 sections (not more), each with 1-2 short paragraphs of 2-4 sentences. Concise and well-edited beats long and padded; do not pad sections just to fill space.
+
+Respond with ONLY a single JSON object — no markdown code fences, no \`\`\`json wrapper, no commentary before or after it — matching exactly this shape:
 {
   "slug": "kebab-case-slug",
   "title": "Compelling, specific title, 45-65 characters",
@@ -87,7 +134,7 @@ Respond with ONLY a single JSON object (no markdown fences, no commentary) match
     { "p": "Opening paragraph, no heading." },
     { "h": "First H2 heading" },
     { "p": "Paragraph text." },
-    ... 4-7 total H2 sections, each with 1-2 paragraphs ...,
+    ... 4-5 total H2 sections, each with 1-2 short paragraphs ...,
     { "h": "FAQ" },
     { "p": "Q: A realistic question a Lahore client would ask. A: A grounded answer using only verified facts or general planning knowledge." },
     { "p": "Q: Second question. A: Second answer." },
@@ -95,7 +142,9 @@ Respond with ONLY a single JSON object (no markdown fences, no commentary) match
   ]
 }
 
-Do not include an "image" or "imageAlt" field — those are assigned separately from a verified image library.`;
+Do not include an "image" or "imageAlt" field — those are assigned separately from a verified image library.
+
+/no_think`;
 }
 
 async function main() {
@@ -115,13 +164,19 @@ async function main() {
     return;
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+  const baseUrl = getAnythingLLMBaseUrl();
+  const workspace = getAnythingLLMWorkspaceSlug();
+  const reachable = await isAnythingLLMReachable();
+  if (!reachable) {
     const skip = {
       status: 'blocked',
-      reason: 'Decision was "new-article" but content generation was skipped: ANTHROPIC_API_KEY is not configured.',
-      requiredSecret: 'ANTHROPIC_API_KEY',
-      howToFix: 'Add an ANTHROPIC_API_KEY repository secret (Settings → Secrets and variables → Actions → New repository secret) with a valid Anthropic API key. No other configuration is required — this script already gates on its presence.',
+      reason: `Decision was "new-article" but content generation was skipped: AnythingLLM is not reachable at ${baseUrl}.`,
+      requiredService: 'AnythingLLM',
+      howToFix:
+        `Make sure the AnythingLLM host (${baseUrl}) is running and this job has joined the Tailscale tailnet that can reach it. ` +
+        'GitHub-hosted runners cannot reach a private machine without joining its tailnet first — see the Tailscale connection step earlier in this job, and SEO_AUTOMATION.md. No paid API key is required (AnythingLLM runs its own local Ollama/Qwen3 model).',
+      anythingLLMBaseUrl: baseUrl,
+      anythingLLMWorkspace: workspace,
       decision,
     };
     writeFileSync(proposalPath, JSON.stringify(skip, null, 2));
@@ -133,26 +188,19 @@ async function main() {
   const keywordMap: KeywordMap = JSON.parse(readFileSync(keywordMapPath, 'utf8'));
   const clusterKeywords = keywordMap.keywords.filter((k) => k.topicCluster === decision.cluster).map((k) => k.keyword).slice(0, 15);
 
-  const { default: Anthropic } = await import('@anthropic-ai/sdk');
-  const client = new Anthropic({ apiKey });
-
-  const response = await client.messages.create({
-    model: 'claude-opus-5',
-    max_tokens: 8000,
-    output_config: { effort: 'medium' },
-    messages: [{ role: 'user', content: buildPrompt(decision, clusterKeywords) }],
-  });
-
-  const textBlock = response.content.find((b): b is Anthropic.TextBlock => b.type === 'text');
-  if (!textBlock) {
-    throw new Error(`No text content in Claude response (stop_reason: ${response.stop_reason}).`);
+  let responseText: string;
+  try {
+    responseText = await generateWithAnythingLLM(buildPrompt(decision, clusterKeywords));
+  } catch (err) {
+    if (err instanceof AnythingLLMError) throw new Error(`AnythingLLM content generation failed: ${err.message}`);
+    throw err;
   }
 
   let article: GeneratedArticle;
   try {
-    article = JSON.parse(textBlock.text.trim());
+    article = JSON.parse(extractJson(responseText));
   } catch {
-    throw new Error(`Claude response was not valid JSON: ${textBlock.text.slice(0, 500)}`);
+    throw new Error(`AnythingLLM response was not valid JSON: ${responseText.slice(0, 500)}`);
   }
 
   if (posts.some((p) => p.slug === article.slug)) {
@@ -182,8 +230,7 @@ async function main() {
     date: now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
     publishedISO,
     readTime: article.readTime,
-    image: image.image,
-    imageAlt: image.imageAlt,
+    ...(image ? { image: image.image, imageAlt: image.imageAlt } : {}),
     blocks: article.blocks,
   };
 
@@ -191,8 +238,9 @@ async function main() {
     status: 'generated',
     decision,
     post: newPost,
-    model: response.model,
-    usage: response.usage,
+    model: 'qwen3:8b (via AnythingLLM)',
+    anythingLLMBaseUrl: baseUrl,
+    anythingLLMWorkspace: workspace,
   };
   writeFileSync(proposalPath, JSON.stringify(proposal, null, 2));
   console.log(`Content proposal generated: "${newPost.title}" (${newPost.slug})`);

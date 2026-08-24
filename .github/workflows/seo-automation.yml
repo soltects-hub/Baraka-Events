@@ -25,10 +25,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -74,23 +74,39 @@ jobs:
   # PR rather than opening a second one). On an auth/data/QA failure it fails
   # the run loudly instead of opening a PR.
   seo-report:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # Manual dispatch only runs this job from `main`: create-pull-request
+    # defaults a new PR's base to whatever ref the workflow ran on, and the
+    # branch name below is date-based (one per day) — dispatching from a
+    # feature branch would either corrupt today's real main-based PR or spin
+    # up a stray duplicate with the wrong base. Testing branch-specific
+    # changes to this job should use the seo-content-path-test job below
+    # instead, which never opens a PR.
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
       id-token: write
     env:
-      # Job-level env so it can be read via the `env` context in a step's `if:` —
-      # the `secrets` context itself isn't available there.
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # No paid AI API is used anywhere in this pipeline. Content generation
+      # and the optional AI summary talk to the site owner's own AnythingLLM
+      # instance (backed by Ollama/Qwen3:8b), reached over a private
+      # Tailscale tailnet this job joins below — never exposed publicly, no
+      # router ports opened. ANYTHINGLLM_BASE_URL/ANYTHINGLLM_WORKSPACE_SLUG
+      # are non-secret repository variables (unset = the scripts' built-in
+      # defaults, matching the real, live-verified instance). If Tailscale
+      # or AnythingLLM are unreachable for any reason, content generation
+      # and the AI summary skip gracefully — see SEO_AUTOMATION.md.
+      ANYTHINGLLM_BASE_URL: ${{ vars.ANYTHINGLLM_BASE_URL }}
+      ANYTHINGLLM_WORKSPACE_SLUG: ${{ vars.ANYTHINGLLM_WORKSPACE_SLUG }}
+      ANYTHINGLLM_API_KEY: ${{ secrets.ANYTHINGLLM_API_KEY }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -104,6 +120,20 @@ jobs:
           project_id: baraka-events-seo-automation
           workload_identity_provider: projects/226411024335/locations/global/workloadIdentityPools/github-actions/providers/github-actions
           service_account: baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com
+
+      # Ephemeral node, joined only for this job's duration. Lets this job
+      # reach the site owner's own 24/7 AnythingLLM/Ollama machine without
+      # ever exposing it publicly. If this fails or the required secrets
+      # aren't configured, the job continues — content generation and the
+      # AI summary just skip gracefully below (Search Console/decision/
+      # report/sitemap are unaffected).
+      - name: Connect to Tailscale
+        continue-on-error: true
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
 
       - name: Compute today's date (for a stable, idempotent daily branch/PR name)
         id: date
@@ -125,15 +155,25 @@ jobs:
         continue-on-error: true
         run: npm run seo:keyword-performance
 
-      - name: Generate content proposal if warranted (Phase 4, gated on ANTHROPIC_API_KEY)
+      - name: Report whether AnythingLLM is reachable (informational only)
+        continue-on-error: true
+        run: |
+          node -e "
+            const base = process.env.ANYTHINGLLM_BASE_URL || 'http://100.125.143.58:3001';
+            fetch(base + '/api/ping', { signal: AbortSignal.timeout(5000) })
+              .then((r) => console.log(r.ok ? 'AnythingLLM is reachable — content generation and the AI summary step can run for real.' : 'AnythingLLM responded with HTTP ' + r.status + ' — treating as unreachable.'))
+              .catch(() => console.log('AnythingLLM at ' + base + ' is not reachable from this runner. This is expected if the Tailscale connection above did not succeed (see its logs) or the required secrets are not configured. Content generation and the AI summary step will skip gracefully — the rest of the pipeline (Search Console, decision engine, report, sitemap) is unaffected.'));
+          "
+
+      - name: Generate content proposal if warranted (Phase 4, gated on AnythingLLM reachability)
         continue-on-error: true
         run: npm run seo:generate-content
 
       - name: Generate SEO report (Phase 10)
         run: npm run seo:report
 
-      - name: AI-assisted executive summary (optional)
-        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+      - name: AI-assisted executive summary (optional, gated on AnythingLLM reachability)
+        continue-on-error: true
         run: npm run seo:ai-summary
 
       - name: Apply content proposal to src/lib/posts.ts if one was generated
@@ -202,3 +242,111 @@ jobs:
         run: |
           echo "::error::A content update was proposed but did not pass build/verify/QA — no PR was opened. See the uploaded artifact for details. This is expected safety behavior, not a pipeline bug."
           exit 1
+
+  # TEMPORARY — to be removed once real evidence is captured. Now that
+  # Ollama is confirmed healthy on the owner's machine, this proves the
+  # FULL real content pipeline (not just generation): generate ->
+  # apply-content -> build -> verify -> SEO QA, using the real
+  # AnythingLLM/Qwen3:8b instance and the exact same scripts the real
+  # seo-report job above calls. Uses a safe, non-cannibalizing mock
+  # 'new-article' decision (the real decision engine currently and
+  # correctly says fix-indexing based on real Search Console data — this
+  # is only to force the content path for testing, not something ever
+  # done in the real daily job). Never commits, pushes, or opens a PR —
+  # the PR step itself (peter-evans/create-pull-request@v7) is unchanged
+  # from what already opened PR #7 for real for the deterministic report.
+  anythingllm-full-pipeline-test:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
+      - name: Write a safe mock 'new-article' decision (test only, never committed)
+        run: |
+          mkdir -p reports/seo
+          node -e "
+            const fs = require('fs');
+            const decision = {
+              action: 'new-article',
+              target: 'Aqeeqah',
+              cluster: 'Aqeeqah',
+              proposedUrl: '/blog/aqeeqah-celebration-planning-lahore',
+              reasoning: ['TEMPORARY DIAGNOSTIC: mock decision used only to prove the full real content pipeline (generate -> apply -> build -> QA) works end-to-end through AnythingLLM/Qwen3:8b without publishing anything.'],
+              evidence: {},
+            };
+            fs.writeFileSync('reports/seo/decision-latest.json', JSON.stringify(decision, null, 2));
+          "
+
+      - name: Generate content proposal (real AnythingLLM/Qwen3:8b call)
+        id: generate
+        env:
+          ANYTHINGLLM_API_KEY: ${{ secrets.ANYTHINGLLM_API_KEY }}
+        run: npm run seo:generate-content
+
+      - name: Show proposal summary (structure only — no secret, no full body)
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = JSON.parse(fs.readFileSync('reports/seo/content-proposal-latest.json', 'utf8'));
+            console.log('status:', p.status);
+            if (p.status === 'generated') {
+              console.log('title:', p.post.title);
+              console.log('slug:', p.post.slug);
+              console.log('blocks:', p.post.blocks.length);
+              console.log('has image:', p.post.image !== undefined);
+              console.log('model:', p.model);
+            } else {
+              console.log('reason:', p.reason);
+            }
+          "
+
+      - name: Apply content proposal to src/lib/posts.ts (test checkout only — never committed or pushed)
+        id: apply
+        run: npm run seo:apply-content
+
+      - name: Build website (also regenerates sitemap.xml)
+        id: build
+        run: npm run build
+
+      - name: Verify build and SEO output
+        run: |
+          test -d dist
+          test -f dist/sitemap.xml
+          npm run seo:verify-sitemap
+
+      - name: SEO QA gate (Phase 7 — the same gate that blocks the real PR)
+        id: qa
+        run: npm run seo:qa
+
+      - name: Report full-pipeline result
+        if: always()
+        run: |
+          echo "generate: ${{ steps.generate.outcome }}"
+          echo "apply: ${{ steps.apply.outcome }}"
+          echo "build: ${{ steps.build.outcome }}"
+          echo "qa: ${{ steps.qa.outcome }}"
+
+      - name: Upload proposal artifact (evidence only — never applied to main, never opened as a PR)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anythingllm-full-pipeline-test-${{ github.run_id }}
+          path: reports/seo/content-proposal-latest.json
+          retention-days: 7

@@ -15,6 +15,30 @@ mechanism. See "Phases 1-2 and 4-10" below for what's new; Phases 3, 6-ish
 and the safety table have been updated to match. Nothing here changes how
 content is *published* — a human still has to review and merge every PR.
 
+**Update (AnythingLLM over Tailscale, real production backend):** AI content
+generation and the optional AI summary run against the site owner's own
+**AnythingLLM** instance (backed by **Ollama** and **Qwen3:8b**), running on
+their own 24/7 machine and reached over a private **Tailscale** tailnet — no
+paid API, no API key beyond the owner's own AnythingLLM key, and the
+machine is never exposed publicly. This replaced an earlier direct-Ollama
+integration once it became clear GitHub-hosted runners cannot reach a
+personal machine's `localhost` at all; AnythingLLM-over-Tailscale is the
+real, live-verified path (see Phase 4 below):
+
+```
+GitHub Actions → Tailscale (ephemeral node) → owner's machine → AnythingLLM → Ollama → Qwen3:8b
+```
+
+Verified live via a real `workflow_dispatch`: the GitHub Actions runner
+joined the tailnet, reached AnythingLLM, authenticated, and received a real
+Qwen3:8b response through workspace chat for a trivial connectivity-test
+prompt. A full article-length generation is not yet confirmed working
+end-to-end — AnythingLLM currently reports it cannot reach its own Ollama
+backend on the owner's machine, a local infrastructure issue outside this
+repo's code; see the "Real-world test note" and "If Tailscale or
+AnythingLLM are unreachable" sections in Phase 4 below for the full
+history and the specific error.
+
 ## What already existed (not duplicated here)
 
 Before this pipeline, the repo already had:
@@ -30,7 +54,7 @@ a daily schedule on top of that — it does not re-implement any of it.
 ## Two jobs, one workflow file
 
 - **`seo-automation`** (pre-existing, extended) — `npm ci && npm run lint && npm run build` plus a check that `dist/` contains `index.html`, `robots.txt`, `sitemap.xml`, and the Search Console verification file. Runs on push to `main`, on pull requests into `main` (newly added), and on manual dispatch. Does **not** run on the daily schedule.
-- **`seo-report`** (new) — collects Search Console data, generates a Markdown report, optionally asks Claude to summarize it, uploads everything as a workflow artifact, and opens a pull request with the report file. Runs on the daily cron schedule and on manual dispatch. Never runs on push/PR (it has nothing to validate).
+- **`seo-report`** (new) — collects Search Console data, generates a Markdown report, optionally asks the owner's own AnythingLLM/Qwen3:8b instance (over Tailscale) to summarize it, uploads everything as a workflow artifact, and opens a pull request with the report file. Runs on the daily cron schedule and on manual dispatch. Never runs on push/PR (it has nothing to validate).
 
 Both jobs authenticate to Google Cloud the same way: `google-github-actions/auth@v3` with the existing Workload Identity Federation provider — **no service-account JSON key exists anywhere in this repository or its history**, and this pipeline does not introduce one.
 
@@ -161,14 +185,133 @@ Every decision is written to `reports/seo/decision-latest.json` with its
 full reasoning, and appears in the daily report's "Content decision &
 publishing" section.
 
-## Phase 4 — AI analysis (optional, off by default)
+## Phase 4 — AI analysis (AnythingLLM over Tailscale, real production backend)
 
-No AI API was already configured anywhere in this repository (confirmed by inspection — there was nothing to reuse). This pipeline adds one optional step, `scripts/seo-report/ai-summary.ts`, using the official `@anthropic-ai/sdk` and the `claude-opus-5` model.
+**No paid AI API is used anywhere in this pipeline.** AI analysis and
+content generation talk to the site owner's own
+[AnythingLLM](https://anythingllm.com) instance — running on their own 24/7
+machine, backed by [Ollama](https://ollama.com) and **Qwen3:8b** — via
+`scripts/seo-report/anythingllm-client.ts`. The machine is reached only over
+a private [Tailscale](https://tailscale.com) tailnet; it is **never exposed
+to the public internet**, and no router ports are opened.
 
-- **Required secret:** `ANTHROPIC_API_KEY` (Settings → Secrets and variables → Actions → Secrets — this one *is* sensitive). **Not currently set** — the step is skipped until it is.
-- **Without the secret**, the step logs why it's skipping and exits `0`. The deterministic report is complete and useful on its own; the workflow is fully functional without this step.
-- **With the secret**, it sends the already-generated Markdown report to Claude with a system prompt that explicitly forbids inventing any metric, page, or query not already in that report, and forbids proposing specific content changes — its only job is to prioritize what's already there into a short executive summary. The result is appended as a new section, clearly labeled as AI-generated, with every fact traceable back to the sections above it.
-- If the request fails for any reason, the deterministic report is left untouched and the step logs the error — it never blocks or corrupts the real data.
+```
+GitHub Actions job → Tailscale (ephemeral node, joined for the job's duration)
+                   → owner's machine (private Tailscale IP)
+                   → AnythingLLM :3001
+                   → Ollama
+                   → Qwen3:8b
+```
+
+This is not a guess at an API shape — it was determined and verified live:
+a real `workflow_dispatch` run joined the tailnet, reached AnythingLLM's
+`/api/ping`, authenticated against `/api/v1/workspaces`, and received a real
+Qwen3:8b response through `POST /api/v1/workspace/{slug}/chat` (response
+shape: `{ type: "textResponse", textResponse: "...", error: null }`).
+
+### Configuration
+
+Two non-secret repository **variables** (Settings → Secrets and variables →
+Actions → Variables) and three **secrets** (Settings → Secrets and
+variables → Actions → Secrets — these must be repository-level secrets, not
+Environment secrets, or the job cannot read them):
+
+| Name | Kind | Default if unset | Meaning |
+|---|---|---|---|
+| `ANYTHINGLLM_BASE_URL` | Variable | the owner's known Tailscale IP:3001 | Where AnythingLLM is listening. |
+| `ANYTHINGLLM_WORKSPACE_SLUG` | Variable | `my-workspace` | Which AnythingLLM workspace to chat with. |
+| `ANYTHINGLLM_API_KEY` | Secret | *(required)* | AnythingLLM's own API key (Settings → Tools → API Keys in the AnythingLLM UI). |
+| `TS_OAUTH_CLIENT_ID` | Secret | *(required)* | Tailscale OAuth client ID, scoped to a `tag:ci`-restricted OAuth client. |
+| `TS_OAUTH_SECRET` | Secret | *(required)* | Tailscale OAuth client secret. |
+
+An optional `ANYTHINGLLM_TIMEOUT_MS` environment variable (default
+`180000`) controls the per-request timeout — article generation takes
+longer than a one-line connectivity check.
+
+**Never paste any of these values into a chat, issue, commit, or log.**
+GitHub Actions automatically masks secret values in job logs, but the
+scripts in this repo never print them regardless.
+
+### Why Tailscale, and why not a direct Ollama connection
+
+An earlier iteration of this pipeline tried talking to Ollama directly from
+GitHub Actions. That doesn't work: a GitHub-hosted runner has no network
+path to a personal machine's `localhost`, full stop, no matter how the
+workflow is written. Tailscale solves this the right way — zero-trust,
+no public exposure, no port forwarding:
+
+- The GitHub Actions job joins the owner's tailnet as an **ephemeral,
+  auto-expiring node**, authenticated via a Tailscale OAuth client scoped to
+  a dedicated `tag:ci` (the official `tailscale/github-action`).
+- Traffic between the runner and the owner's machine stays on Tailscale's
+  encrypted WireGuard mesh — nothing is ever reachable from the public
+  internet, and no router configuration is touched.
+- The node disappears again the moment the job ends.
+
+### If Tailscale or AnythingLLM are unreachable
+
+The `Connect to Tailscale` step in the `seo-report` job is
+`continue-on-error: true` — a failed or misconfigured Tailscale connection
+does not fail the run. Content generation and the AI summary step simply
+report AnythingLLM as unreachable and skip gracefully:
+
+- `scripts/seo-report/generate-content.ts`: if the decision was
+  `new-article` but AnythingLLM is not reachable, it writes
+  `{status: "blocked", requiredService: "AnythingLLM", howToFix: ...}`
+  instead of pretending to generate anything — reported plainly in the
+  daily report's "Content decision & publishing" section.
+- `scripts/seo-report/ai-summary.ts`: if unreachable, it logs why and exits
+  `0` without touching the deterministic report.
+
+Nothing else in the pipeline (Search Console fetch, the decision engine,
+the deterministic report, sitemap regeneration, SEO QA) is affected either
+way.
+
+A distinct failure mode: Tailscale connects and AnythingLLM authenticates
+and accepts the request, but AnythingLLM itself cannot reach **its own**
+Ollama backend. This surfaces as an HTTP 200/500-range JSON body with
+`"type": "abort"` and an explicit
+`"Your Ollama instance could not be reached or is not responding..."`
+error — `anythingllm-client.ts` surfaces this as a normal
+`AnythingLLMError` (the `Generate content proposal` step fails loudly with
+`continue-on-error: true`, so the rest of the pipeline still runs). This is
+entirely local to the owner's machine and cannot be diagnosed or fixed
+remotely; check on that machine that the Ollama service is actually
+running, that the `qwen3:8b` model is pulled, and that AnythingLLM's own
+LLM provider settings point at the correct Ollama URL/port.
+
+### Local development / testing
+
+Local testing against the real instance requires the same Tailscale
+tailnet — from a machine that's joined it (e.g. the owner's own), run:
+
+```
+ANYTHINGLLM_BASE_URL=http://<tailscale-ip>:3001 \
+ANYTHINGLLM_WORKSPACE_SLUG=my-workspace \
+ANYTHINGLLM_API_KEY=<key> \
+npm run seo:ai:test
+```
+
+This is a safe, standalone diagnostic — it never touches
+`src/lib/posts.ts`, never runs QA, and never opens a PR. If AnythingLLM is
+reachable, it sends one tiny real prompt and validates the response. If it
+is **not** reachable (the common case outside the tailnet, including this
+repo's own CI/dev environments), it does not fake success — it runs a
+deterministic mock test of the client's own config-resolution logic
+instead and says plainly that real connectivity requires joining the
+tailnet.
+
+### Response format robustness
+
+Open models are noticeably chattier than a hosted API about "JSON only"
+instructions — they sometimes wrap a response in a ` ```json ` fence, add a
+stray sentence around it, or (for thinking-capable models like Qwen3) leave
+a `<think>...</think>` reasoning block in front of the answer. The
+AnythingLLM client strips `<think>` blocks; `generate-content.ts` then
+strips a code fence if present and falls back to extracting the first
+balanced `{...}` object in the text, so a well-formed JSON object
+surrounded by incidental text still parses instead of hard-failing the run.
+A genuinely malformed response still throws a clear error.
 
 ## Phase 4 (continued) — evidence-based content generation
 
@@ -177,18 +320,20 @@ only ever runs after `decide-action.ts`, and only ever *does* anything when
 the decision was `new-article`. Otherwise it writes a `{status: "skipped"}`
 record and exits `0` — a no-op, not a failure.
 
-- **Required secret:** `ANTHROPIC_API_KEY` (same one Phase 4's executive
-  summary uses). **If it isn't set**, the script writes
-  `{status: "blocked", requiredSecret: "ANTHROPIC_API_KEY", howToFix: ...}`
-  instead of pretending to generate anything — this is reported plainly in
-  the daily report's "Content decision & publishing" section.
-- **If it is set**, it calls the Claude API (`claude-opus-5`) with a system
-  prompt hard-grounded in verified real facts about Baraka Events (services,
-  service area, positioning, published stats — see `VERIFIED_FACTS` in the
-  script), the target topic cluster's real keywords, and every existing
-  post's title/excerpt (so it can't duplicate their angle). It is explicitly
-  forbidden from inventing prices beyond the qualitative range already
-  public, testimonials, client names, awards, or statistics.
+- **Requires:** a reachable AnythingLLM instance (see Phase 4 above — the
+  job must have joined the Tailscale tailnet). **If it's not reachable**,
+  the script writes `{status: "blocked", requiredService: "AnythingLLM",
+  howToFix: ...}` instead of pretending to generate anything — this is
+  reported plainly in the daily report's "Content decision & publishing"
+  section. No paid API key of any kind is required.
+- **If AnythingLLM is reachable**, it calls the configured workspace (Qwen3:8b
+  by default) with a prompt hard-grounded in verified real facts about
+  Baraka Events (services, service area, positioning, published stats —
+  see `VERIFIED_FACTS` in the script), the target topic cluster's real
+  keywords, and every existing post's title/excerpt (so it can't duplicate
+  their angle). It is explicitly forbidden from inventing prices beyond the
+  qualitative range already public, testimonials, client names, awards, or
+  statistics.
 - Output reuses the **existing** `Post` data model in `src/lib/posts.ts`
   exactly (title, excerpt, category, blocks of `{h}`/`{p}` pairs, an FAQ
   section as more `{h}`/`{p}` pairs) — this is not a parallel content
@@ -204,12 +349,44 @@ record and exits `0` — a no-op, not a failure.
 **Real-world test note:** this repo's real current decision is
 `fix-indexing` (see Phase 3 above), so the live daily run does not reach
 content generation today — that's the engine correctly refusing to write
-content nobody can find yet, not a gap in the pipeline. The full
+content nobody can find yet, not a gap in the pipeline. The
 generate→apply→typecheck→QA chain was verified locally end-to-end against a
-realistic mock proposal (a full nikkah-themed article, insertion, `tsc -b`,
-and every QA check) — all passed. The one thing that could not be tested
-(no `ANTHROPIC_API_KEY` available in the build/test environment) is the
-literal Claude API network call itself; everything around it is proven.
+mock AnythingLLM server (matching the real, live-confirmed response shape,
+including a `<think>` block and a markdown-fenced JSON body, to prove the
+client's stripping/extraction logic).
+
+A real, full-length article-generation call was also attempted three times
+via a temporary `workflow_dispatch` job (joining the real Tailscale
+tailnet, running the actual `generate-content.ts` prompt against the real
+AnythingLLM instance). The first two attempts found and fixed real bugs in
+this pipeline's own code — not the integration's premise:
+1. The client's default request timeout (180s) was long enough for a
+   trivial connectivity-test prompt but not for a full multi-section
+   article on a local, CPU/GPU-bound Qwen3:8b (a thinking model that emits
+   a `<think>` block before its real answer). Raised to 900s.
+2. Node's *built-in* global `fetch` is powered by an internal copy of
+   undici that can be a different version than the npm `undici` package —
+   passing an npm-installed `Agent` as fetch's `dispatcher` option threw.
+   Fixed by using `undici`'s own `fetch()` alongside its own `Agent`
+   (pinned to `undici@^6.28.0`, since the current major version requires
+   Node ≥22.19 and this pipeline's CI runs Node 20).
+
+With both fixed, the third attempt ran the real request for its full
+~10 minutes with Tailscale, network, and AnythingLLM authentication all
+healthy — confirming those parts of the integration work correctly — but
+AnythingLLM itself returned a structured error:
+`"Your Ollama instance could not be reached or is not responding. Please
+make sure it is running the API server and your connection information is
+correct in AnythingLLM."` This is a fault inside the owner's own
+AnythingLLM ↔ Ollama connection on their local machine, not anything this
+repo's code, GitHub Actions, or the Tailscale link can fix or diagnose
+further remotely — see "If Tailscale or AnythingLLM are unreachable" above
+for the equivalent manual troubleshooting checklist (the same idea applies
+one layer deeper: confirm Ollama itself is running and that AnythingLLM's
+own LLM provider settings point at it correctly). Once Ollama is confirmed
+healthy on that machine, a fresh `workflow_dispatch` of the `seo-report`
+job (or a repeat of the same temporary diagnostic) is the way to get final,
+live confirmation of a complete real Qwen3:8b article generation.
 
 ## Phase 5 — images (no image-generation API connected — documented, not faked)
 
@@ -263,7 +440,7 @@ Two mechanisms, both real and shipped:
 
 `scripts/seo-report/qa-check.ts` (`npm run seo:qa`) runs after
 `apply-content.ts` and the production build, checking the **real, final**
-state of `src/lib/posts.ts` — not the raw Claude output. It is a no-op
+state of `src/lib/posts.ts` — not the raw model output. It is a no-op
 (`status: "skipped"`, exits 0) whenever no content was generated that day. When
 content *was* generated, it checks: title length, meta-description
 (`excerpt`) length, slug format and uniqueness, heading structure (≥1 H2, no
@@ -338,7 +515,7 @@ Vercel already deploys this site from GitHub on every push to `main` (confirmed:
 | Rule | How it's enforced here |
 |---|---|
 | No service-account JSON key | Both jobs use `google-github-actions/auth@v3` with the existing WIF provider only. |
-| No committed credentials | Nothing in this pipeline writes a secret to disk or to git; `ANTHROPIC_API_KEY` only ever exists as a GitHub Actions secret injected into job env. |
+| No committed credentials | Nothing in this pipeline writes a secret to disk or to git. `ANYTHINGLLM_BASE_URL`/`ANYTHINGLLM_WORKSPACE_SLUG` are plain, non-sensitive repository variables; `ANYTHINGLLM_API_KEY`/`TS_OAUTH_CLIENT_ID`/`TS_OAUTH_SECRET` are repository secrets, injected into job env only, never logged or printed. |
 | No exposed Search Console credentials | Only aggregate metrics (clicks/impressions/CTR/position/coverage state) are ever written to the report — no raw API tokens are logged anywhere. |
 | No visual/design changes | This pipeline never touches components, styling, animation, or the Hero. It only adds scripts, a workflow, data/report files, and — only via a QA-passed content PR — new entries in `posts.ts`. |
 | No URL rewrites without redirects | `vercel.json` is not touched; the legacy URL audit (Phase 1) only classifies and recommends, never implements. |
@@ -357,7 +534,7 @@ Vercel already deploys this site from GitHub on every push to `main` (confirmed:
 
 - [ ] Enable the **Google Search Console API** on the `baraka-events-seo-automation` GCP project (if not already enabled).
 - [ ] Add `baraka-seo-automation@baraka-events-seo-automation.iam.gserviceaccount.com` as a **Restricted** user on the `https://barakaevents.com/` property in Search Console.
-- [ ] *(Optional)* Add an `ANTHROPIC_API_KEY` repository secret to enable the AI executive-summary step **and** evidence-based content generation (Phase 4).
+- [x] AnythingLLM (backed by Ollama/Qwen3:8b) running on the owner's own 24/7 machine, reached over Tailscale — `ANYTHINGLLM_BASE_URL`/`ANYTHINGLLM_WORKSPACE_SLUG` repository variables plus `ANYTHINGLLM_API_KEY`/`TS_OAUTH_CLIENT_ID`/`TS_OAUTH_SECRET` repository secrets configured and live-verified (Phase 4). Without this, both the AI summary and evidence-based content generation skip gracefully and the rest of the pipeline is unaffected.
 - [ ] *(Only if the property is verified as a Domain property, not URL-prefix)* Add a `SEARCH_CONSOLE_SITE_URL` repository **variable** set to `sc-domain:barakaevents.com`.
 - [ ] *(Optional, future)* Enable Vertex AI (`aiplatform.googleapis.com`) + grant the service account `roles/aiplatform.user` if real image generation is wanted (Phase 5).
 
