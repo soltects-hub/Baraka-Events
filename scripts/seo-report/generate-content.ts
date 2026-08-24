@@ -14,6 +14,18 @@
  * Output reuses the *existing* Post data model (src/lib/posts.ts) exactly —
  * this is not a parallel content system, it's one more entry in the same
  * array the site already renders from.
+ *
+ * The prompt ends with `/no_think` — Qwen3's chat template supports this as
+ * a per-turn switch to skip its extended <think> reasoning phase. Real live
+ * testing (four separate workflow_dispatch runs against the real
+ * AnythingLLM/Qwen3:8b instance) showed AnythingLLM reporting "Ollama could
+ * not be reached" at a strikingly consistent ~10-minute mark each time —
+ * strong evidence of a timeout on AnythingLLM's own side that thinking-mode
+ * generation (which can run to several thousand hidden reasoning tokens
+ * before the real answer) was exceeding. Disabling thinking mode and
+ * tightening the requested article length (4-5 sections instead of 4-7)
+ * both reduce total generation time without touching the article's
+ * required substance or this pipeline's timeout/QA/safety behavior.
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -109,6 +121,8 @@ ${existingPostSummaries()}
 
 Write in the same voice as the existing articles: confident, editorial, specific to Lahore, produced by people who actually run these events — never generic AI filler ("In today's fast-paced world...", "When it comes to..."). Ground every claim in the verified facts above or in genuinely useful, general event-planning knowledge that doesn't require inventing Baraka-specific data.
 
+Keep it concise — 4-5 total H2 sections (not more), each with 1-2 short paragraphs of 2-4 sentences. Concise and well-edited beats long and padded; do not pad sections just to fill space.
+
 Respond with ONLY a single JSON object — no markdown code fences, no \`\`\`json wrapper, no commentary before or after it — matching exactly this shape:
 {
   "slug": "kebab-case-slug",
@@ -120,7 +134,7 @@ Respond with ONLY a single JSON object — no markdown code fences, no \`\`\`jso
     { "p": "Opening paragraph, no heading." },
     { "h": "First H2 heading" },
     { "p": "Paragraph text." },
-    ... 4-7 total H2 sections, each with 1-2 paragraphs ...,
+    ... 4-5 total H2 sections, each with 1-2 short paragraphs ...,
     { "h": "FAQ" },
     { "p": "Q: A realistic question a Lahore client would ask. A: A grounded answer using only verified facts or general planning knowledge." },
     { "p": "Q: Second question. A: Second answer." },
@@ -128,7 +142,9 @@ Respond with ONLY a single JSON object — no markdown code fences, no \`\`\`jso
   ]
 }
 
-Do not include an "image" or "imageAlt" field — those are assigned separately from a verified image library.`;
+Do not include an "image" or "imageAlt" field — those are assigned separately from a verified image library.
+
+/no_think`;
 }
 
 async function main() {
