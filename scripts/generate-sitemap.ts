@@ -18,15 +18,20 @@ interface SitemapUrl {
   lastmod?: string;
 }
 
+// Static pages don't have a natural per-page "last updated" date the way
+// posts do (post.publishedISO) — bump this when their content meaningfully
+// changes, month precision is enough for a sitemap.
+const staticLastmod = '2026-08';
+
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0' },
-  { path: routes.experiences, changefreq: 'weekly', priority: '0.9' },
-  { path: routes.about, changefreq: 'monthly', priority: '0.8' },
-  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8' },
-  { path: routes.gallery, changefreq: 'weekly', priority: '0.7' },
-  { path: routes.team, changefreq: 'monthly', priority: '0.6' },
-  { path: routes.contact, changefreq: 'monthly', priority: '0.8' },
-  { path: routes.blog, changefreq: 'weekly', priority: '0.8' },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: staticLastmod },
+  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: staticLastmod },
+  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
+  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: staticLastmod },
+  { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
+  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
+  { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
 ];
 
 const postRoutes: SitemapUrl[] = posts.map((post) => ({

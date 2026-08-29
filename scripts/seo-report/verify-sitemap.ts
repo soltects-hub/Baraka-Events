@@ -1,10 +1,10 @@
 /**
  * Defensive CI check: parses the built sitemap.xml and asserts every URL is
- * a real, current route (home, blog index, or an existing post slug) — never
- * a legacy/spam URL, a query string, or a duplicate. This matters more once
- * the content pipeline can add new posts automatically: this is the
- * guardrail that stops a bad post entry from ever reaching the public
- * sitemap undetected.
+ * a real, current route (a static page, blog index, or an existing post
+ * slug) — never a legacy/spam URL, a query string, or a duplicate. This
+ * matters more once the content pipeline can add new posts automatically:
+ * this is the guardrail that stops a bad post entry from ever reaching the
+ * public sitemap undetected.
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -16,9 +16,19 @@ const xml = readFileSync(sitemapPath, 'utf8');
 
 const locs = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
 
+const staticRoutes = [
+  routes.home,
+  routes.about,
+  routes.experiences,
+  routes.portfolio,
+  routes.gallery,
+  routes.team,
+  routes.contact,
+  routes.blog,
+];
+
 const expected = new Set<string>([
-  `${seoConfig.site.url}${routes.home}`,
-  `${seoConfig.site.url}${routes.blog}`,
+  ...staticRoutes.map((r) => `${seoConfig.site.url}${r}`),
   ...posts.map((p) => `${seoConfig.site.url}${routes.blogPost(p.slug)}`),
 ]);
 
@@ -42,7 +52,7 @@ for (const loc of locs) {
     errors.push(`URL contains a query string or fragment (not allowed in sitemap): ${loc}`);
   }
   if (!expected.has(loc)) {
-    errors.push(`URL is not a known current route (home, /blog, or a real post slug): ${loc}`);
+    errors.push(`URL is not a known current route (a static page, /blog, or a real post slug): ${loc}`);
   }
 }
 
