@@ -46,7 +46,7 @@ export default function Contact() {
               { label: 'Atelier', value: 'LG 13A, Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III', href: undefined },
             ].map((c) => (
               <div key={c.label} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
-                <span className="w-16 shrink-0 text-[10px] uppercase tracking-[0.3em] text-cream/40">{c.label}</span>
+                <span className="w-16 shrink-0 text-[10px] uppercase tracking-[0.3em] text-cream/60">{c.label}</span>
                 {c.href ? (
                   <a href={c.href} className="gold-underline font-display text-lg text-cream md:text-xl">{c.value}</a>
                 ) : (
@@ -58,7 +58,7 @@ export default function Contact() {
 
           {/* socials */}
           <div className="mt-10">
-            <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-cream/40">Follow @Barakaeventsofficial</p>
+            <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-cream/60">Follow @Barakaeventsofficial</p>
             <div className="flex flex-wrap items-center gap-3">
               {[
                 {

@@ -106,7 +106,7 @@ export default function BlogPost() {
                 {b.p}
               </motion.p>
               {b.related && b.related.length > 0 && (
-                <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-cream/40">
+                <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-cream/60">
                   Related:{' '}
                   {b.related.map((r, ri) => (
                     <span key={r.slug}>

@@ -85,7 +85,7 @@ export default function LocationMap() {
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="border-l border-gold/40 pl-5"
             >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-cream/40">{f.k}</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-cream/60">{f.k}</p>
               <p className="mt-2 text-sm font-light leading-relaxed text-cream/75">{f.v}</p>
             </motion.div>
           ))}

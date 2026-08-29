@@ -131,7 +131,7 @@ export default function TeamCarousel3D() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="mt-6 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/40">
+        <div className="mt-6 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/60">
           <span className="text-gold">{String(active + 1).padStart(2, '0')}</span>
           <span className="h-[1px] w-10 bg-white/15" />
           <span>{String(n).padStart(2, '0')}</span>

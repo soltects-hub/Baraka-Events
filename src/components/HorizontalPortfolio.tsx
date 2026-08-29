@@ -99,7 +99,7 @@ export default function HorizontalPortfolio() {
               birthday, an awards dinner in Gulberg — different briefs, same production
               discipline behind each one.
             </p>
-            <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/40">
+            <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/60">
               <span>Scroll</span>
               <motion.span animate={{ x: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="text-gold">⟶</motion.span>
             </div>

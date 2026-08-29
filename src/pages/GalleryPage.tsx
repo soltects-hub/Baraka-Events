@@ -148,7 +148,7 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
         </button>
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/40">
+      <div className="mt-8 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/60">
         <span className="text-gold">{String(active + 1).padStart(2, '0')}</span>
         <span className="h-[1px] w-10 bg-white/15" />
         <span>{String(items.length).padStart(2, '0')}</span>

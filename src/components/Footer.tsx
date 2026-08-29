@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/40">Navigate</h4>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/60">Navigate</p>
             <ul className="space-y-3">
               {nav.map((l) => (
                 <li key={l.href}>
@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/40">Follow</h4>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/60">Follow</p>
             <ul className="space-y-3">
               {socials.map((s) => (
                 <li key={s.label}>
