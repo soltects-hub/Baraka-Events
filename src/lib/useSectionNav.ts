@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLenis } from './useLenis';
+import { revealAllLazyMounts } from '../components/LazyMount';
 
 /**
  * Navigate to a section anchor (works from any route) or a route path.
@@ -17,7 +18,8 @@ export function useSectionNav() {
     (href: string) => {
       if (href.startsWith('#')) {
         if (location.pathname === '/') {
-          lenis?.scrollTo(href, { duration: 1.6 });
+          revealAllLazyMounts();
+          requestAnimationFrame(() => lenis?.scrollTo(href, { duration: 1.6 }));
         } else {
           navigate('/' + href);
         }

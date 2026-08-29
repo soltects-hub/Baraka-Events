@@ -8,6 +8,7 @@ import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import About from '../components/About';
 import FAQ, { faqs } from '../components/FAQ';
+import LazyMount, { revealAllLazyMounts } from '../components/LazyMount';
 
 // Everything below the first couple of screens is code-split: these
 // sections aren't needed for the initial paint, and splitting them into
@@ -51,6 +52,7 @@ export default function Home() {
   // arriving from another page with a #section target
   useEffect(() => {
     if (loaded && hash && lenis) {
+      revealAllLazyMounts();
       const t = setTimeout(() => lenis.scrollTo(hash, { duration: 1.4 }), 350);
       return () => clearTimeout(t);
     }
@@ -72,49 +74,77 @@ export default function Home() {
         <Hero started={loaded} />
         <Marquee />
         <About />
-        <Suspense fallback={null}>
-          <StickyServices />
-        </Suspense>
-        <Suspense fallback={null}>
-          <BrandsMarquee />
-        </Suspense>
-        <Suspense fallback={null}>
-          <DollyZoom />
-        </Suspense>
+        <LazyMount anchorId="experiences">
+          <Suspense fallback={null}>
+            <StickyServices />
+          </Suspense>
+        </LazyMount>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <BrandsMarquee />
+          </Suspense>
+        </LazyMount>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <DollyZoom />
+          </Suspense>
+        </LazyMount>
+        {/* Not lazy-mounted: Hero's "See Our Work" button jumps straight to
+            #portfolio the instant the page loads, before any scrolling. */}
         <Suspense fallback={null}>
           <HorizontalPortfolio />
         </Suspense>
-        <Suspense fallback={null}>
-          <DesignStudio />
-        </Suspense>
-        <Suspense fallback={null}>
-          <TextStrips />
-        </Suspense>
-        <Suspense fallback={null}>
-          <DepthFlythrough />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Gallery />
-        </Suspense>
-        <Suspense fallback={null}>
-          <MenuCarousel />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Process />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Team />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Testimonials />
-        </Suspense>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <DesignStudio />
+          </Suspense>
+        </LazyMount>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <TextStrips />
+          </Suspense>
+        </LazyMount>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <DepthFlythrough />
+          </Suspense>
+        </LazyMount>
+        <LazyMount anchorId="gallery">
+          <Suspense fallback={null}>
+            <Gallery />
+          </Suspense>
+        </LazyMount>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <MenuCarousel />
+          </Suspense>
+        </LazyMount>
+        <LazyMount anchorId="process">
+          <Suspense fallback={null}>
+            <Process />
+          </Suspense>
+        </LazyMount>
+        <LazyMount anchorId="team">
+          <Suspense fallback={null}>
+            <Team />
+          </Suspense>
+        </LazyMount>
+        <LazyMount anchorId="testimonials">
+          <Suspense fallback={null}>
+            <Testimonials />
+          </Suspense>
+        </LazyMount>
         <FAQ />
+        {/* Not lazy-mounted: Hero and Navbar's "Book Consultation" buttons
+            jump straight to #contact the instant the page loads. */}
         <Suspense fallback={null}>
           <Contact />
         </Suspense>
-        <Suspense fallback={null}>
-          <LocationMap />
-        </Suspense>
+        <LazyMount>
+          <Suspense fallback={null}>
+            <LocationMap />
+          </Suspense>
+        </LazyMount>
       </main>
     </>
   );

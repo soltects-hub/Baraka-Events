@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLenis } from '../lib/useLenis';
 import MagneticButton from './MagneticButton';
 import RevealText from './RevealText';
+import { revealAllLazyMounts } from './LazyMount';
 
 const SLIDES = [
   { src: '/media/hero-arrival.jpg', alt: 'Event hall set up for a wedding reception in Lahore' },
@@ -104,12 +105,18 @@ export default function Hero({ started }: { started: boolean }) {
           className="mt-8 flex flex-col items-start gap-4 sm:flex-row"
         >
           <MagneticButton
-            onClick={() => lenis?.scrollTo('#contact', { duration: 1.8 })}
+            onClick={() => {
+              revealAllLazyMounts();
+              requestAnimationFrame(() => lenis?.scrollTo('#contact', { duration: 1.8 }));
+            }}
           >
             Plan Your Event
           </MagneticButton>
           <MagneticButton
-            onClick={() => lenis?.scrollTo('#portfolio', { duration: 1.8 })}
+            onClick={() => {
+              revealAllLazyMounts();
+              requestAnimationFrame(() => lenis?.scrollTo('#portfolio', { duration: 1.8 }));
+            }}
           >
             See Our Work
           </MagneticButton>
