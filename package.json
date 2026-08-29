@@ -21,6 +21,8 @@
     "seo:ai-summary": "tsx scripts/seo-report/ai-summary.ts"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
     "@tailwindcss/vite": "^4.2.1",
     "adm-zip": "^0.6.0",
     "archiver": "^8.0.0",
@@ -33,6 +35,7 @@
     "react-router-dom": "^7.13.1",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.2.1",
+    "three": "^0.185.1",
     "webgl-fluid": "^0.4.0"
   },
   "devDependencies": {

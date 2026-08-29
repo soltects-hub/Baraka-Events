@@ -20,6 +20,12 @@ interface SitemapUrl {
 
 const staticRoutes: SitemapUrl[] = [
   { path: routes.home, changefreq: 'weekly', priority: '1.0' },
+  { path: routes.experiences, changefreq: 'weekly', priority: '0.9' },
+  { path: routes.about, changefreq: 'monthly', priority: '0.8' },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8' },
+  { path: routes.gallery, changefreq: 'weekly', priority: '0.7' },
+  { path: routes.team, changefreq: 'monthly', priority: '0.6' },
+  { path: routes.contact, changefreq: 'monthly', priority: '0.8' },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8' },
 ];
 

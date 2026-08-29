@@ -15,7 +15,7 @@ export const seoConfig = {
     url: 'https://www.barakaevents.com',
     locale: 'en_US',
     description:
-      "Baraka Events crafts Lahore's most extraordinary luxury shaadis, mehndi nights, corporate galas and private celebrations. Full-service event design and production.",
+      'Baraka Events is an event planning and management company based in Gulberg III, Lahore. We plan weddings, mehndi and baraat functions, corporate events and private celebrations across the city.',
   },
   organization: {
     name: 'Baraka Events',
@@ -45,11 +45,17 @@ export const seoConfig = {
     instagram: 'Barakaeventsofficial',
   },
   defaultImage: 'https://www.barakaevents.com/media/portfolio-1.jpg',
-  defaultImageAlt: 'Baraka Events - Luxury Event Production in Lahore',
+  defaultImageAlt: 'Baraka Events - Event Planning and Production in Lahore',
 };
 
 export const routes = {
   home: '/',
+  about: '/about',
+  experiences: '/experiences',
+  portfolio: '/portfolio',
+  gallery: '/gallery',
+  team: '/team',
+  contact: '/contact',
   blog: '/blog',
   blogPost: (slug: string) => `/blog/${slug}`,
 };

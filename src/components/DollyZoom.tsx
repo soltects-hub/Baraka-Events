@@ -1,106 +1,164 @@
-import { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValueEvent } from 'framer-motion';
+import { useRef, useState, type MouseEvent as ReactMouseEvent, type TouchEvent as ReactTouchEvent } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import RevealText from './RevealText';
+
+const BEFORE_IMAGE = '/media/setup-before.jpg';
+const AFTER_IMAGE = '/media/setup-after.jpg';
 
 /**
- * The Vertigo Shot — scroll performs a Hitchcock dolly-zoom:
- * the background lens breathes wider (FOV expands) while the subject
- * holds its frame, then a rack-focus pulls the quote into sharpness.
+ * Hover-mask before/after: the "before" shot is the base layer, and the
+ * "after" shot is revealed only inside a soft circular mask that tracks
+ * the cursor (or finger). Move the pointer to see the finished setup
+ * wherever it goes, instead of dragging a fixed divider.
  */
 export default function DollyZoom() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: p } = useScroll({ target: ref, offset: ['start start', 'end end'] });
+  const [hasHovered, setHasHovered] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
-  // background: focal length stretches — the vertigo
-  const bgScale = useTransform(p, [0, 0.75], [1.05, 1.8]);
-  const bgBlur = useTransform(p, [0.52, 0.78], [0, 12]);
-  const bgFilter = useMotionTemplate`blur(${bgBlur}px)`;
+  const mx = useMotionValue(0.5);
+  const my = useMotionValue(0.5);
+  const sx = useSpring(mx, { stiffness: 260, damping: 32, mass: 0.5 });
+  const sy = useSpring(my, { stiffness: 260, damping: 32, mass: 0.5 });
 
-  // subject: holds nearly constant — the camera dollies back as it zooms in
-  const subjScale = useTransform(p, [0, 0.7], [1.14, 0.96]);
-  const subjY = useTransform(p, [0, 0.7], [30, -20]);
-  const subjOpacity = useTransform(p, [0.55, 0.75], [1, 0]);
-  const subjBlur = useTransform(p, [0.55, 0.75], [0, 10]);
-  const subjFilter = useMotionTemplate`blur(${subjBlur}px)`;
+  // same cursor position drives a subtle whole-frame 3D tilt — the frame
+  // reads as one solid pane of glass, not a flat image
+  const rotateX = useTransform(sy, [0, 100], [5, -5]);
+  const rotateY = useTransform(sx, [0, 100], [-7, 7]);
 
-  // rack focus: quote arrives from out-of-focus (after the subject has gone)
-  const quoteOpacity = useTransform(p, [0.68, 0.85], [0, 1]);
-  const quoteScale = useTransform(p, [0.68, 0.94], [0.9, 1]);
-  const quoteBlur = useTransform(p, [0.68, 0.86], [10, 0]);
-  const quoteFilter = useMotionTemplate`blur(${quoteBlur}px)`;
+  const radiusTarget = useMotionValue(0);
+  const radius = useSpring(radiusTarget, { stiffness: 110, damping: 22, mass: 0.7 });
 
-  const barH = useTransform(p, [0, 0.22], ['0vh', '11vh']);
-  const labelOpacity = useTransform(p, [0, 0.08, 0.5, 0.6], [0, 1, 1, 0]);
+  const setFromClient = (clientX: number, clientY: number) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    mx.set(((clientX - rect.left) / rect.width) * 100);
+    my.set(((clientY - rect.top) / rect.height) * 100);
+  };
 
-  const focal = useTransform(p, [0, 0.75], [32, 85]);
-  const [mm, setMm] = useState(32);
-  useMotionValueEvent(focal, 'change', (v) => setMm(Math.round(v)));
+  const onMouseMove = (e: ReactMouseEvent) => setFromClient(e.clientX, e.clientY);
+
+  const onMouseEnter = () => {
+    setHasHovered(true);
+    setIsHovering(true);
+    radiusTarget.set(30);
+  };
+
+  const onMouseLeave = () => {
+    setIsHovering(false);
+    radiusTarget.set(0);
+    mx.set(50);
+    my.set(50);
+  };
+
+  const onTouchStart = (e: ReactTouchEvent) => {
+    const t = e.touches[0];
+    if (!t) return;
+    setHasHovered(true);
+    setIsHovering(true);
+    setFromClient(t.clientX, t.clientY);
+    radiusTarget.set(30);
+  };
+
+  const onTouchMove = (e: ReactTouchEvent) => {
+    const t = e.touches[0];
+    if (!t) return;
+    setFromClient(t.clientX, t.clientY);
+  };
+
+  const onTouchEnd = () => {
+    setIsHovering(false);
+    radiusTarget.set(0);
+    mx.set(50);
+    my.set(50);
+  };
+
+  // circle's radius must be a length, not a percentage — vw keeps it a
+  // true circle (unlike ellipse %, which would distort on this wide box).
+  // A wide black→transparent gap (25%→100%) is what makes the edge feel
+  // like a soft spreading glow instead of a coin with a blurry rim.
+  const maskImage = useTransform([sx, sy, radius], (latest) => {
+    const [xv, yv, rv] = latest as [number, number, number];
+    return `radial-gradient(circle ${rv}vw at ${xv}% ${yv}%, black 25%, transparent 100%)`;
+  });
 
   return (
-    <section ref={ref} data-scene="04 · THE VERTIGO SHOT" className="relative h-[320vh] bg-ink">
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        {/* background plate — FOV expands under scroll */}
-        <motion.div style={{ scale: bgScale, filter: bgFilter }} className="absolute inset-0 will-change-transform">
-          <img
-            src="/media/gallery-3.jpg"
-            alt="Golden fireworks over a grand Pakistani shaadi celebration"
-            className="h-full w-full object-cover"
-            loading="lazy"
+    <section data-scene="04 · BEFORE & AFTER — THE TRANSFORMATION" className="relative overflow-hidden bg-ink py-28 md:py-40">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-10 blur-[130px]"
+        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+      />
+
+      <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Before &amp; After</p>
+          <RevealText
+            as="h2"
+            text="The same room, before and after we build."
+            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
           />
-        </motion.div>
-        <div className="absolute inset-0 bg-ink/55" />
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse at center, transparent 35%, rgba(5,5,5,0.7) 100%)' }}
-        />
-
-        {/* letterbox */}
-        <motion.div style={{ height: barH }} className="absolute inset-x-0 top-0 z-30 bg-black" />
-        <motion.div style={{ height: barH }} className="absolute inset-x-0 bottom-0 z-30 bg-black" />
-
-        {/* the subject — held steady while the world stretches behind it */}
-        <motion.figure
-          style={{ scale: subjScale, y: subjY, opacity: subjOpacity, filter: subjFilter }}
-          className="relative z-10 w-[58vw] max-w-[320px] will-change-transform md:w-[26vw] md:max-w-[380px]"
-        >
-          <div className="border border-gold/40 bg-ink/30 p-2 backdrop-blur-sm md:p-3">
-            <img
-              src="/media/wedding-2.jpg"
-              alt="Pakistani bride and groom on a luxury shaadi stage"
-              className="aspect-[3/4] w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <figcaption className="mt-4 text-center text-[10px] uppercase tracking-[0.35em] text-cream/55">
-            The subject never moves. The world does.
-          </figcaption>
-        </motion.figure>
-
-        {/* rack focus — the quote sharpens into frame */}
-        <motion.div
-          style={{ opacity: quoteOpacity, scale: quoteScale, filter: quoteFilter }}
-          className="absolute z-20 max-w-3xl px-6 text-center will-change-transform"
-        >
-          <p className="font-display text-3xl font-light leading-snug text-cream md:text-5xl">
-            “We don't plan events.<br />
-            We <em className="italic text-gold-soft">direct moments</em> people never forget.”
+          <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
+            Move your cursor over the photo to reveal the finished setup.
           </p>
-          <p className="mt-6 text-[11px] uppercase tracking-[0.4em] text-cream/60">— The Baraka Atelier</p>
-        </motion.div>
+        </div>
 
-        {/* shot metadata */}
-        <motion.div
-          style={{ opacity: labelOpacity }}
-          className="absolute left-1/2 top-[13vh] z-20 -translate-x-1/2 text-center"
+        {/* ambient lift shadow — grows softer/warmer on hover, like the
+            frame is rising off the page toward the light */}
+        <div
+          className="mx-auto w-full max-w-[1100px] rounded-md transition-[box-shadow] duration-500 ease-out"
+          style={{
+            perspective: 1600,
+            boxShadow: isHovering
+              ? '0 40px 90px -20px rgba(0,0,0,0.65), 0 0 70px -10px rgba(255,150,11,0.28)'
+              : '0 25px 60px -20px rgba(0,0,0,0.55)',
+          }}
         >
-          <p className="whitespace-nowrap text-[10px] uppercase tracking-[0.5em] text-gold">The Vertigo Shot</p>
-        </motion.div>
-        <div className="absolute bottom-[13vh] right-6 z-20 hidden text-right md:right-10 md:block">
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/50">{mm}mm — dolly zoom</div>
-          <div className="mt-1.5 h-[2px] w-28 bg-white/10">
+          {/* animated conic-gradient ring — a thin rotating gold seam,
+              1px of real border rather than a decorative overlay */}
+          <div className="animated-border-ring rounded-md p-px">
             <motion.div
-              style={{ width: useTransform(p, [0, 0.75], ['0%', '100%']) }}
-              className="h-full bg-gold"
-            />
+              ref={ref}
+              onMouseMove={onMouseMove}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              style={{ touchAction: 'pan-y', rotateX, rotateY, transformStyle: 'preserve-3d' }}
+              whileHover={{ scale: 1.006 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              className="group relative aspect-[1672/941] w-full touch-none select-none overflow-hidden rounded-md bg-ink"
+            >
+              {/* BEFORE — base layer, always visible */}
+              <img
+                src={BEFORE_IMAGE}
+                alt="The same stage empty, before setup begins"
+                draggable={false}
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+              />
+
+              {/* AFTER — revealed only inside the cursor-tracked mask */}
+              <motion.div
+                aria-hidden
+                style={{ WebkitMaskImage: maskImage, maskImage }}
+                className="pointer-events-none absolute inset-0"
+              >
+                <img
+                  src={AFTER_IMAGE}
+                  alt="Event stage fully produced, with lighting, décor and table settings"
+                  draggable={false}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </motion.div>
+
+              {/* one-time hint, fades out after first interaction */}
+              {!hasHovered && (
+                <span className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-ink/60 px-5 py-2 text-[10px] uppercase tracking-[0.3em] text-cream/70 backdrop-blur-md">
+                  Hover to reveal
+                </span>
+              )}
+            </motion.div>
           </div>
         </div>
       </div>

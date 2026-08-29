@@ -3,33 +3,33 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 
 const projects = [
   {
-    title: 'The Chaudhry Shaadi',
-    category: 'Luxury Wedding',
-    location: 'Haveli Barood Khana, Lahore',
+    title: 'A Four-Function Wedding',
+    category: 'Wedding',
+    location: 'A restored haveli, Walled City, Lahore',
     year: '2025',
     image: '/media/portfolio-1.jpg',
     stat: '600 guests · 4 functions',
   },
   {
-    title: 'Aurum Product Launch',
+    title: 'A National Product Launch',
     category: 'Corporate Event',
-    location: 'Expo Centre, Johar Town, Lahore',
+    location: 'A conference venue, Johar Town, Lahore',
     year: '2024',
     image: '/media/portfolio-2.jpg',
     stat: '1,200 guests · national livestream',
   },
   {
-    title: 'Androon at Fifty',
+    title: 'A Rooftop Birthday',
     category: 'Private Celebration',
-    location: 'Rooftop Haveli, Walled City, Lahore',
+    location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
     image: '/media/portfolio-3.jpg',
     stat: '90 guests · sunset to sunrise',
   },
   {
-    title: 'The Summit Dinner',
+    title: 'A Corporate Awards Night',
     category: 'Corporate Event',
-    location: 'Grand Ballroom, Gulberg, Lahore',
+    location: 'A grand ballroom, Gulberg, Lahore',
     year: '2023',
     image: '/media/portfolio-4.jpg',
     stat: '800 executives · awards night',
@@ -92,11 +92,12 @@ export default function HorizontalPortfolio() {
           <div className="flex w-[85vw] shrink-0 flex-col justify-center md:w-[38vw]">
             <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-gold">Selected Work</p>
             <h2 className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl">
-              A portfolio of<br /><em className="italic text-gold-soft">unforgettable</em> nights
+              Four events,<br /><em className="italic text-gold-soft">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
-              The camera pans. Four productions, one beloved city — from the havelis of
-              the Walled City to the gardens of Shalimar — one uncompromising standard.
+              A wedding in the Walled City, a product launch in Johar Town, a rooftop
+              birthday, an awards dinner in Gulberg — different briefs, same production
+              discipline behind each one.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/40">
               <span>Scroll</span>

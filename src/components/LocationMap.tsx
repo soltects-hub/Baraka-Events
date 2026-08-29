@@ -3,11 +3,12 @@ import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 
 const ADDRESS = 'LG 13A, Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III, Lahore';
-const MAP_QUERY = encodeURIComponent('Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III, Lahore, Pakistan');
+const MAP_COORDS = '31.5104519,74.3401031';
+const MAP_PLACE_URL = 'https://maps.app.goo.gl/iXCcf5Ko2GKd6vjk7';
 
 export default function LocationMap() {
   return (
-    <section id="location" data-scene="13 \u00b7 WIDE SHOT \u2014 FIND US" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
+    <section id="location" data-scene="13 · WIDE SHOT — FIND US" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-0 h-[400px] w-[700px] rounded-full opacity-10 blur-[130px]"
@@ -29,8 +30,7 @@ export default function LocationMap() {
               {ADDRESS}. Walk-ins welcome &mdash; but a booked consultation gets the chai ready before you arrive.
             </p>
             <MagneticButton
-              href={`https://www.google.com/maps/dir/?api=1&destination=${MAP_QUERY}`}
-              className="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-[12px] font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03]"
+              href={MAP_PLACE_URL}
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.8">
                 <path d="M9.5 14.5L21 3l-6.5 18-2.5-8-8-2.5 5.5-6z" strokeLinecap="round" strokeLinejoin="round" transform="rotate(8 12 12)" />
@@ -56,7 +56,7 @@ export default function LocationMap() {
 
           <iframe
             title="Baraka Events office location — Big City Plaza, Gulberg III, Lahore"
-            src={`https://www.google.com/maps?q=${MAP_QUERY}&z=16&output=embed`}
+            src={`https://www.google.com/maps?q=${MAP_COORDS}&z=17&output=embed`}
             className="h-[380px] w-full border-0 saturate-100 contrast-[1.05] transition-[filter] duration-700 md:h-[480px] lg:saturate-[0.35] lg:group-hover:saturate-100"
             loading="lazy"
             allowFullScreen
@@ -73,9 +73,9 @@ export default function LocationMap() {
         {/* quick facts */}
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {[
-            { k: 'Landmark', v: 'Liberty Roundabout \u2014 opposite Liberty Market' },
-            { k: 'Hours', v: 'Mon\u2013Sat \u00b7 11:00 AM \u2013 8:00 PM' },
-            { k: 'Parking', v: 'Big City Plaza basement \u2014 validated for clients' },
+            { k: 'Landmark', v: 'Liberty Roundabout — opposite Liberty Market' },
+            { k: 'Hours', v: 'Mon\u2013Sat · 11:00 AM \u2013 8:00 PM' },
+            { k: 'Parking', v: 'Big City Plaza basement — validated for clients' },
           ].map((f, i) => (
             <motion.div
               key={f.k}

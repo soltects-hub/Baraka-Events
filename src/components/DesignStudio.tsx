@@ -7,21 +7,21 @@ const designs = [
     n: '01',
     title: 'Keynote Hall',
     type: 'Conference Stage Concept',
-    spec: '40ft LED wall \u00b7 1,000 pax \u00b7 broadcast-ready',
+    spec: '40ft LED wall · 1,000 pax · broadcast-ready',
     image: '/media/design-1.jpg',
   },
   {
     n: '02',
     title: 'The Ring Gala',
     type: 'Corporate Dinner Concept',
-    spec: 'Suspended light rings \u00b7 60 tables \u00b7 centre stage',
+    spec: 'Suspended light rings · 60 tables · centre stage',
     image: '/media/design-2.jpg',
   },
   {
     n: '03',
     title: 'Launch Monolith',
     type: 'Product Reveal Concept',
-    spec: 'Curved LED \u00b7 mirror floor \u00b7 reveal choreography',
+    spec: 'Curved LED · mirror floor · reveal choreography',
     image: '/media/design-3.jpg',
   },
 ];
@@ -69,7 +69,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
             src={d.image}
-            alt={`${d.title} \u2014 ${d.type} 3D visualization by Baraka Events`}
+            alt={`${d.title} — ${d.type} 3D visualization by Baraka Events`}
             loading="lazy"
             draggable={false}
             className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
@@ -110,7 +110,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
 
 export default function DesignStudio() {
   return (
-    <section id="studio" data-scene="05A \u00b7 PREVIS \u2014 THE DESIGN STUDIO" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="studio" data-scene="05A · PREVIS — THE DESIGN STUDIO" className="relative overflow-hidden bg-ink py-28 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-1/4 h-[400px] w-[600px] rounded-full opacity-10 blur-[130px]"
@@ -128,9 +128,9 @@ export default function DesignStudio() {
             />
           </div>
           <p className="max-w-md text-sm font-light leading-relaxed text-cream/60 lg:text-right lg:justify-self-end">
-            Every Baraka conference and gala is designed in photorealistic 3D first
-            &mdash; you approve the exact stage, lighting and room before a single
-            truss is bolted. No surprises on show day.
+            Every conference and gala is designed in 3D first. You see and approve
+            the stage, lighting and room layout before anything is built, so there
+            are no surprises on the day.
           </p>
         </div>
 

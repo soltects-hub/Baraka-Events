@@ -46,7 +46,8 @@ export default function SmokeCursor() {
             BLOOM: false,
             SUNRAYS: false,
           });
-        } catch {
+        } catch (err) {
+          console.error('[SmokeCursor] init failed:', err);
           return; // WebGL unavailable — silently skip
         }
 

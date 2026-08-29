@@ -72,7 +72,7 @@ const menu: MenuCard[] = [
     items: [
       { name: 'Kashmiri Chai Station', desc: 'Pink tea, crushed pistachio' },
       { name: 'Doodh Patti', desc: 'Karak, served in clay cups' },
-      { name: 'Fresh Juice Bar', desc: 'Seasonal \u2014 anaar, mausambi, mango' },
+      { name: 'Fresh Juice Bar', desc: 'Seasonal — anaar, mausambi, mango' },
       { name: 'Signature Mocktails', desc: 'Falsa fizz, peach iced tea' },
     ],
   },
@@ -80,7 +80,7 @@ const menu: MenuCard[] = [
 
 export default function MenuCarousel() {
   return (
-    <section id="menu" data-scene="07A \u00b7 TASTING MENU \u2014 THE DASTARKHWAN" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
+    <section id="menu" data-scene="07A · TASTING MENU — THE DASTARKHWAN" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-0 h-[400px] w-[700px] rounded-full opacity-10 blur-[130px]"

@@ -4,30 +4,30 @@ import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-
 const services = [
   {
     index: '01',
-    title: 'Luxury Shaadis',
-    tagline: 'Vows written in gold',
+    title: 'Weddings',
+    tagline: 'Every function, one plan',
     description:
-      'From the first dholki to the final rukhsati, we orchestrate weddings of rare beauty. Venue curation, couture stage design, culinary direction and guest logistics — every function of your shaadi conducted with a single, unwavering vision: yours.',
+      'Mehndi, baraat, nikkah and walima planned as one production instead of four separate events. We handle venue selection, stage and floral design, catering coordination and guest logistics, so the story stays consistent from the first night to the last.',
     image: '/media/wedding-2.jpg',
-    details: ['Mehndi · Baraat · Nikkah · Walima', 'Destination & Multi-Day Shaadis', 'Couture Floral & Stage Design'],
+    details: ['Mehndi · Baraat · Nikkah · Walima', 'Destination & Multi-Day Weddings', 'Stage, Floral & Lighting Design'],
   },
   {
     index: '02',
     title: 'Corporate Events',
-    tagline: 'Business, elevated to theatre',
+    tagline: 'Built to run on schedule',
     description:
-      'Product launches, executive summits and awards galas engineered to command attention — across Lahore\u2019s finest hotels, expo halls and private venues. We fuse brand storytelling with cinematic staging, precision AV and flawless hospitality.',
+      "Product launches, executive summits and award nights for brands that cannot afford a technical delay. We handle stage design, AV, run-of-show timing and hospitality across Lahore's hotels, expo halls and private venues.",
     image: '/media/corporate-1.jpg',
-    details: ['Launches, Galas & Summits', 'Brand Environments & Stage Design', 'VIP & Executive Hospitality'],
+    details: ['Launches, Summits & Award Nights', 'Stage Design & AV Production', 'Guest & Executive Hospitality'],
   },
   {
     index: '03',
     title: 'Private Celebrations',
-    tagline: 'Intimacy, perfected',
+    tagline: 'Sized to the guest list',
     description:
-      'Milestone birthdays, aqeeqahs, anniversaries and mehfils designed around the people who matter most. Discreet, personal and exquisitely detailed — celebrations that feel like the best night of your life, because they are.',
+      'Birthdays, aqeeqahs, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty. A smaller guest list gets more design detail per guest, not less.',
     image: '/media/private-1.jpg',
-    details: ['Milestone Birthdays & Anniversaries', 'Rooftop Dinners & Garden Mehfils', 'Discreet Celebrity & VIP Events'],
+    details: ['Milestone Birthdays & Anniversaries', 'Rooftop Dinners & Garden Mehfils', 'Private & Intimate Gatherings'],
   },
 ];
 

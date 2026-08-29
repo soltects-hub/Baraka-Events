@@ -4,21 +4,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 const testimonials = [
   {
     quote:
-      'Baraka turned our shaadi into cinema. Guests still talk about the moment the baraat entered under a canopy of marigolds and the courtyard filled with candlelight. Every promise was kept — and then exceeded.',
-    name: 'Ayesha & Bilal R.',
-    role: 'Shaadi, Haveli Barood Khana, Lahore',
+      "My sister's wedding was recently, and although I checked many online event planners, my communication was with Baraka Events. They managed our Mehndi function as well as the Barat very professionally. We didn't face any kind of tension, and the decor was extremely beautiful.",
+    name: 'Noreiz Ahmad',
+    role: 'Google review — Mehndi & Barat, Lahore',
   },
   {
-    quote:
-      'Our product launch needed to feel like a world premiere, and it did. Flawless staging, immaculate timing, and a guest experience our board is still referencing a year later.',
-    name: 'Amna Sheikh',
-    role: 'CMO, Aurum Technologies, Lahore',
+    quote: 'My birthday experience with Baraka Events was excellent, they did an amazing job.',
+    name: 'Noman Khan',
+    role: 'Google review — birthday celebration',
   },
   {
-    quote:
-      'For my father\u2019s 70th, they created an evening so personal it brought the whole family to tears. Discreet, gracious, and absurdly well organised. Simply the best in Lahore.',
-    name: 'Hassan M.',
-    role: 'Private Celebration, Gulberg, Lahore',
+    quote: 'Had a great experience over here.',
+    name: 'Almas Kousar',
+    role: 'Google review',
   },
 ];
 
@@ -62,7 +60,7 @@ export default function Testimonials() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <blockquote className="font-display text-xl font-light leading-snug text-cream sm:text-2xl md:text-4xl">
-                “{t.quote}”
+                &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-8">
                 <div className="text-sm uppercase tracking-[0.25em] text-gold">{t.name}</div>

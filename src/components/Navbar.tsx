@@ -5,13 +5,14 @@ import { useSectionNav } from '../lib/useSectionNav';
 import MagneticButton from './MagneticButton';
 
 const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Experiences', href: '#experiences' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Team', href: '#team' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Experiences', href: '/experiences' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -73,7 +74,7 @@ export default function Navbar() {
             ))}
             <MagneticButton
               onClick={() => go('#contact')}
-              className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-5 py-2.5 text-[12px] uppercase tracking-[0.16em] text-gold backdrop-blur-md transition-colors duration-300 hover:bg-gold hover:text-ink xl:px-6 xl:tracking-[0.22em]"
+              size="sm"
             >
               Book Consultation
             </MagneticButton>

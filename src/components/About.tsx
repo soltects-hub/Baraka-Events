@@ -3,10 +3,10 @@ import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motio
 import RevealText from './RevealText';
 
 const stats = [
-  { value: '450+', label: 'Events Produced' },
-  { value: '120+', label: 'Lahore Venues' },
-  { value: '12', label: 'Years of Craft' },
-  { value: '98%', label: 'Client Return Rate' },
+  { value: 'Full-Service', label: 'Planning & Production' },
+  { value: 'One Team', label: 'Start to Finish' },
+  { value: 'Lahore-Wide', label: 'Venues & Vendors' },
+  { value: 'Direct Line', label: 'To Your Coordinator' },
 ];
 
 export default function About() {
@@ -35,7 +35,7 @@ export default function About() {
             <motion.img
               style={{ y: imgY, scale: 1.15 }}
               src="/media/about.jpg"
-              alt="Henna-decorated hands arranging a marigold garland on a luxury shaadi table"
+              alt="Henna-decorated hands arranging a marigold garland on a wedding table"
               className="h-[520px] w-full object-cover md:h-[640px]"
               loading="lazy"
             />
@@ -46,7 +46,7 @@ export default function About() {
           >
             <img
               src="/media/wedding-1.jpg"
-              alt="Luxurious nikkah stage with golden backdrop and cascading roses"
+              alt="Nikkah stage with a gold backdrop and floral arrangements"
               className="h-64 w-full object-cover"
               loading="lazy"
             />
@@ -58,21 +58,22 @@ export default function About() {
           <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-gold">The House of Baraka</p>
           <RevealText
             as="h2"
-            text="Where Baraka meets brilliance."
+            text="We don't just plan your event. We run it."
             className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
           />
           <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-cream/65 md:text-lg">
             <p>
-              Baraka — the blessing — is the promise woven into every event we create.
-              For over a decade, our atelier has transformed Lahore's most treasured occasions
-              into enduring memories — from the historic havelis of the Walled City to the
-              grand marquees of DHA and the rooftops of Gulberg.
+              Baraka Events is an event planning and management company based in Gulberg,
+              Lahore. We plan and produce weddings, corporate events and private
+              celebrations across the city — from the havelis of the Walled City to the
+              marquees of DHA and the ballrooms of Gulberg.
             </p>
             <p>
-              From week-long shaadis — mehndi, baraat, nikkah and walima — to thousand-guest
-              corporate galas, we blend Mughal-inspired staging, couture florals, immersive
-              lighting and world-class mehmaan nawazi into experiences that feel effortless —
-              because behind the scenes, nothing is left to chance.
+              A shaadi means mehndi, baraat, nikkah and walima planned as one continuous
+              production, not four separate bookings. A corporate event means stage design,
+              lighting and hospitality handled by people who also do this for weddings, so
+              nothing feels improvised. Either way, the same team stays with you from the
+              first meeting to the last guest leaving.
             </p>
           </div>
 

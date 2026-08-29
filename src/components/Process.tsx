@@ -6,27 +6,27 @@ const steps = [
   {
     n: '01',
     title: 'Discovery',
-    text: 'A private consultation where we listen — to your story, your guests, your ambitions. We map the emotional arc of your event before a single vendor is called.',
+    text: 'A first conversation about your guest count, budget range, dates and what you actually want the day to feel like. This shapes everything that follows.',
   },
   {
     n: '02',
     title: 'Concept & Design',
-    text: 'Moodboards become blueprints. Our designers craft a complete visual identity: spatial design, florals, lighting, typography, tablescapes and scent.',
+    text: 'We put together a design direction for the space — layout, florals, lighting, stage and table setup. You see and approve it before any vendor is booked.',
   },
   {
     n: '03',
-    title: 'Curation',
-    text: 'We assemble a hand-picked ensemble of the region\u2019s finest — chefs, musicians, artisans and technicians — each briefed to the same exacting standard.',
+    title: 'Vendor Coordination',
+    text: 'We bring in caterers, musicians, decor teams and technicians from our own network, or work with vendors you already trust and hold them to the same brief.',
   },
   {
     n: '04',
     title: 'Production',
-    text: 'Timelines to the minute. Contingencies for the contingencies. Rehearsals, load-ins and technical runs so the day itself unfolds without a visible seam.',
+    text: 'A detailed run-of-show with timings and backup plans. Rehearsals, load-ins and technical checks happen before the event, not during it.',
   },
   {
     n: '05',
     title: 'The Event',
-    text: 'You arrive as a guest at your own celebration. Our team conducts everything invisibly, so all you experience is the magic — never the machinery.',
+    text: 'On the day, our team handles vendor calls, timing and problem-solving so you do not have to. You attend your own event as a guest, not a project manager.',
   },
 ];
 
@@ -42,13 +42,13 @@ export default function Process() {
           <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">The Method</p>
           <RevealText
             as="h2"
-            text="Five acts. One flawless performance."
+            text="How a Baraka event actually comes together"
             className="font-display text-4xl font-light leading-[1.12] text-cream md:text-6xl"
           />
           <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
-            Great events look effortless because the process behind them is anything but.
-            This is how a Baraka production comes to life — from the first conversation
-            to the final candle.
+            Five stages, from the first conversation to the event itself. Nothing here
+            is improvised — it is the same process whether the guest count is fifty
+            or fifteen hundred.
           </p>
         </div>
 

@@ -2,22 +2,21 @@ import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 
 /**
- * Pakistani professional brands that have trusted Baraka for corporate events.
- * Rendered as elegant typographic wordmarks in a continuous slide.
+ * TODO: swap this list for Baraka's real named corporate clients once
+ * supplied — this placeholder deliberately avoids inventing brand names.
+ * Same scrolling-wordmark treatment either way.
  */
 const brands = [
-  { name: 'Khaadi', style: 'font-display font-semibold tracking-[0.08em]' },
-  { name: 'Gul Ahmed', style: 'font-display italic font-medium' },
-  { name: 'HBL', style: 'font-body font-semibold tracking-[0.35em]' },
-  { name: 'Jazz', style: 'font-body font-medium lowercase tracking-tight' },
-  { name: 'Packages Mall', style: 'font-body font-light uppercase tracking-[0.25em]' },
-  { name: 'Nishat', style: 'font-display font-medium tracking-[0.12em]' },
-  { name: 'Sapphire', style: 'font-display italic font-light tracking-[0.06em]' },
-  { name: 'Engro', style: 'font-body font-semibold uppercase tracking-[0.2em]' },
-  { name: 'Bank Alfalah', style: 'font-body font-medium tracking-[0.1em]' },
-  { name: 'Servis', style: 'font-body font-semibold uppercase tracking-[0.3em]' },
-  { name: 'Interwood', style: 'font-body font-light uppercase tracking-[0.22em]' },
-  { name: 'Fatima Group', style: 'font-display font-medium tracking-[0.1em]' },
+  { name: 'Product Launches', style: 'font-display font-semibold tracking-[0.08em]' },
+  { name: 'Award Nights', style: 'font-display italic font-medium' },
+  { name: 'Annual Dinners', style: 'font-body font-semibold tracking-[0.35em]' },
+  { name: 'conferences', style: 'font-body font-medium lowercase tracking-tight' },
+  { name: 'Executive Summits', style: 'font-body font-light uppercase tracking-[0.25em]' },
+  { name: 'Brand Activations', style: 'font-display font-medium tracking-[0.12em]' },
+  { name: 'Leadership Offsites', style: 'font-display italic font-light tracking-[0.06em]' },
+  { name: 'AGMs', style: 'font-body font-semibold uppercase tracking-[0.2em]' },
+  { name: 'Client Dinners', style: 'font-body font-medium tracking-[0.1em]' },
+  { name: 'Team Celebrations', style: 'font-body font-semibold uppercase tracking-[0.3em]' },
 ];
 
 export default function BrandsMarquee() {
@@ -26,10 +25,10 @@ export default function BrandsMarquee() {
   return (
     <section data-scene="03A · TITLE CARDS — TRUSTED BY" className="relative overflow-hidden bg-ink py-20 md:py-28">
       <div className="mx-auto mb-12 max-w-[1400px] px-6 text-center md:px-10">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Trusted By</p>
+        <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Corporate Work</p>
         <RevealText
           as="h2"
-          text="Pakistan's finest brands celebrate with us"
+          text="The kinds of corporate events we run"
           className="font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
         />
       </div>
@@ -58,7 +57,7 @@ export default function BrandsMarquee() {
       </div>
 
       <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-cream/30">
-        Corporate galas · launches · annual dinners — produced for Pakistan's leading names
+        Corporate events produced across Lahore, from small leadership dinners to full-scale launches
       </p>
     </section>
   );

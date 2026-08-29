@@ -24,13 +24,13 @@ export default function Contact() {
           <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Book a Consultation</p>
           <RevealText
             as="h2"
-            text="Let's begin something extraordinary."
+            text="Tell us what you're planning."
             className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
           />
           <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-cream/65 md:text-base">
-            Tell us about the occasion you're dreaming of — a shaadi, a launch, a milestone.
-            A senior member of our atelier will respond within one business day to arrange
-            your private consultation — in person or by video, entirely complimentary.
+            A wedding, a corporate event, a private celebration: tell us the basics
+            and we will get back to you within one business day to arrange a free
+            consultation, in person or by video.
           </p>
 
           <div className="mt-12 space-y-5">
@@ -161,10 +161,10 @@ export default function Contact() {
                     <label htmlFor="type" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Event Type</label>
                     <select id="type" required defaultValue="" className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
                       <option value="" disabled>Select an occasion</option>
-                      <option>Luxury Shaadi (Mehndi · Nikkah · Walima)</option>
+                      <option>Wedding (Mehndi · Baraat · Nikkah · Walima)</option>
                       <option>Corporate Event</option>
                       <option>Private Celebration</option>
-                      <option>Destination Shaadi</option>
+                      <option>Destination-Style Wedding</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -186,7 +186,7 @@ export default function Contact() {
                 <div className="pt-2">
                   <MagneticButton
                     type="submit"
-                    className="w-full rounded-full bg-gold px-9 py-4 text-[12px] font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.02] sm:w-auto"
+                    className="w-full sm:w-auto"
                   >
                     Request Consultation
                   </MagneticButton>

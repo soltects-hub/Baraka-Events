@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { useLenis } from '../lib/useLenis';
 import { useSEO, routes, generateOrganizationSchema, generateWebsiteSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 import Preloader from '../components/Preloader';
-import CameraHUD from '../components/CameraHUD';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import About from '../components/About';
@@ -32,9 +31,9 @@ export default function Home() {
   const { hash } = useLocation();
 
   useSEO({
-    title: "Baraka Events \u2014 Lahore's Luxury Event Atelier",
+    title: 'Baraka Events Lahore \u2014 Best Event Planner for Luxury Weddings',
     description:
-      "Baraka Events is a full-service event management and production company in Lahore, Pakistan, crafting luxury shaadis, mehndi nights, corporate galas and private celebrations from concept to execution.",
+      'Baraka Events Lahore \u2014 the best event planner in Lahore for luxury weddings, corporate events, decor services and venue booking, based in Gulberg III.',
     canonical: routes.home,
   });
 
@@ -64,7 +63,6 @@ export default function Home() {
           />
         )}
       </AnimatePresence>
-      <CameraHUD visible={loaded} />
       <main>
         <Hero started={loaded} />
         <Marquee />

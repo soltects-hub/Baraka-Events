@@ -1,119 +1,246 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionTemplate, type MotionValue } from 'framer-motion';
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent } from 'react';
+import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useTransform, type MotionValue } from 'framer-motion';
 
-interface LayerCfg {
+interface ArchiveItem {
   src: string;
   alt: string;
-  ox: number; // horizontal offset from lens axis (vw)
-  oy: number; // vertical offset (vh)
-  w: string;
-  ar: string;
-  win: [number, number]; // scroll window: far -> past the lens
-  caption: string;
+  category: string;
+  title: string;
+  location: string;
 }
 
-const layers: LayerCfg[] = [
-  { src: '/media/gallery-1.jpg', alt: 'Rose and marigold centerpieces in a shaadi venue', ox: -23, oy: -9, w: 'w-[54vw] md:w-[30vw]', ar: 'aspect-[4/3]', win: [0.02, 0.4], caption: 'Nikkah stage florals — Lahore' },
-  { src: '/media/gallery-2.jpg', alt: 'Ivory and gold wedding cake with mithai', ox: 23, oy: 9, w: 'w-[40vw] md:w-[20vw]', ar: 'aspect-[3/4]', win: [0.1, 0.48], caption: 'The cake & mithai reveal' },
-  { src: '/media/gallery-6.jpg', alt: 'Dhol drummers at a baraat celebration', ox: -20, oy: 12, w: 'w-[50vw] md:w-[27vw]', ar: 'aspect-[4/3]', win: [0.2, 0.58], caption: 'Dhol at midnight — the baraat arrives' },
-  { src: '/media/wedding-1.jpg', alt: 'Golden nikkah stage with candles', ox: 24, oy: -11, w: 'w-[44vw] md:w-[24vw]', ar: 'aspect-[4/3]', win: [0.3, 0.68], caption: 'Candlelight, 214 of 600' },
-  { src: '/media/gallery-5.jpg', alt: 'Marigold and jasmine garlands on a brass pedestal', ox: -25, oy: -2, w: 'w-[38vw] md:w-[19vw]', ar: 'aspect-[3/4]', win: [0.4, 0.78], caption: 'Marigold couture' },
-  { src: '/media/private-1.jpg', alt: 'Mehndi night dancing and celebration', ox: 21, oy: 10, w: 'w-[48vw] md:w-[26vw]', ar: 'aspect-[4/3]', win: [0.48, 0.86], caption: 'Mehndi night' },
+/**
+ * Swap or extend this list to change what appears in the archive — the
+ * gallery itself doesn't care how many items there are.
+ */
+const items: ArchiveItem[] = [
+  { src: '/media/portfolio-1.jpg', alt: 'Wedding staged across a restored haveli in the Walled City', category: 'Wedding', title: 'A Four-Function Wedding', location: 'Walled City, Lahore' },
+  { src: '/media/corporate-1.jpg', alt: 'Corporate product launch stage', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
+  { src: '/media/portfolio-3.jpg', alt: 'Rooftop birthday celebration in the Walled City', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
+  { src: '/media/wedding-2.jpg', alt: 'Garden nikkah and walima at a private estate', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
+  { src: '/media/showcase-1.jpg', alt: 'Concert-grade stage and lighting rig', category: 'Live Production', title: 'Concert-Grade Stage & Light', location: 'Lahore' },
+  { src: '/media/portfolio-4.jpg', alt: 'Corporate awards night in a Gulberg ballroom', category: 'Corporate Event', title: 'An Awards Night', location: 'Gulberg, Lahore' },
+  { src: '/media/private-1.jpg', alt: 'Evening lounge setup for a private celebration', category: 'Private Celebration', title: 'An Evening Lounge Setup', location: 'Lahore' },
 ];
 
-/** A plate suspended in z-space; the scroll-camera flies toward and past it. */
-function FlyLayer({ p, cfg }: { p: MotionValue<number>; cfg: LayerCfg }) {
-  const [a, b] = cfg.win;
-  const scale = useTransform(p, [a, b], [0.08, 2.7]);
-  const x = useTransform(p, [a, b], [`${cfg.ox * 0.22}vw`, `${cfg.ox * 2.3}vw`]);
-  const y = useTransform(p, [a, b], [`${cfg.oy * 0.22}vh`, `${cfg.oy * 2.3}vh`]);
-  const opacity = useTransform(p, [a, a + 0.07, b - 0.08, b], [0, 1, 1, 0]);
-  const blur = useTransform(p, [a, a + 0.1, b - 0.12, b], [6, 0, 0, 16]);
-  const filter = useMotionTemplate`blur(${blur}px)`;
+const DRAG_SENSITIVITY = 0.35;
+const WHEEL_SENSITIVITY = 0.28;
+
+/** Smaller radius/card on narrow screens so the side images still peek
+ * into view instead of being pushed entirely off-frame. */
+function ringDimsFor(width: number) {
+  if (width < 640) return { cardW: 148, radius: 210, perspective: 900 };
+  if (width < 1024) return { cardW: 200, radius: 340, perspective: 1200 };
+  return { cardW: 260, radius: 480, perspective: 1600 };
+}
+
+function useRingDims() {
+  const [dims, setDims] = useState(() => ringDimsFor(typeof window !== 'undefined' ? window.innerWidth : 1280));
+  useEffect(() => {
+    const onResize = () => setDims(ringDimsFor(window.innerWidth));
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  return dims;
+}
+
+function wrapIndex(i: number, n: number) {
+  return ((i % n) + n) % n;
+}
+
+/** The exact rotation value (mod 360, nearest to `current`) that puts item `i` front-and-center. */
+function targetRotationFor(i: number, angleStep: number, current: number) {
+  const base = -i * angleStep;
+  const k = Math.round((current - base) / 360);
+  return base + k * 360;
+}
+
+function RingCard({
+  item,
+  index,
+  angleStep,
+  rotation,
+  cardW,
+  radius,
+}: {
+  item: ArchiveItem;
+  index: number;
+  angleStep: number;
+  rotation: MotionValue<number>;
+  cardW: number;
+  radius: number;
+}) {
+  const baseAngle = index * angleStep;
+
+  const transform = useTransform(rotation, (r) => {
+    const raw = baseAngle + r;
+    const norm = ((raw % 360) + 540) % 360 - 180;
+    const facing = Math.cos((norm * Math.PI) / 180);
+    const scale = 0.62 + 0.4 * Math.max(0, facing);
+    return `translate(-50%, -50%) rotateY(${raw}deg) translateZ(${radius}px) scale(${scale})`;
+  });
+
+  const filter = useTransform(rotation, (r) => {
+    const raw = baseAngle + r;
+    const norm = ((raw % 360) + 540) % 360 - 180;
+    const facing = Math.cos((norm * Math.PI) / 180);
+    return `brightness(${(0.4 + 0.6 * Math.max(0, facing)).toFixed(3)})`;
+  });
+
+  const zIndex = useTransform(rotation, (r) => {
+    const raw = baseAngle + r;
+    const norm = ((raw % 360) + 540) % 360 - 180;
+    return Math.round(100 - Math.abs(norm));
+  });
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <motion.div style={{ scale, x, y, opacity, filter }} className={`${cfg.w} will-change-transform`}>
-        <div className="overflow-hidden rounded-sm border border-white/10 shadow-2xl shadow-black/60">
-          <img src={cfg.src} alt={cfg.alt} className={`${cfg.ar} w-full object-cover`} loading="lazy" />
-        </div>
-        <p className="mt-2.5 text-[9px] uppercase tracking-[0.3em] text-cream/50 md:text-[10px]">{cfg.caption}</p>
-      </motion.div>
-    </div>
+    <motion.div
+      style={{ position: 'absolute', left: '50%', top: '50%', width: cardW, transform, filter, zIndex }}
+      className="pointer-events-none"
+    >
+      <div className="aspect-[3/4] overflow-hidden rounded-sm border border-gold/25">
+        <img
+          src={item.src}
+          alt={item.alt}
+          loading="lazy"
+          draggable={false}
+          className="h-full w-full object-cover [image-rendering:auto]"
+        />
+      </div>
+    </motion.div>
   );
 }
 
 export default function DepthFlythrough() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: p } = useScroll({ target: ref, offset: ['start start', 'end end'] });
+  const n = items.length;
+  const angleStep = 360 / n;
 
-  // handheld drift — the camera is alive
-  const sway = useTransform(p, [0, 0.5, 1], [-1.4, 1, -0.5]);
-  const glow = useTransform(p, [0, 0.5, 1], [0.08, 0.32, 0.12]);
+  const rotation = useMotionValue(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const { cardW, radius, perspective } = useRingDims();
 
-  // title flies past the lens first
-  const tScale = useTransform(p, [0, 0.15], [1, 3]);
-  const tOpacity = useTransform(p, [0.04, 0.15], [1, 0]);
-  const tBlur = useTransform(p, [0.04, 0.15], [0, 16]);
-  const tFilter = useMotionTemplate`blur(${tBlur}px)`;
+  const dragStartX = useRef(0);
+  const dragStartRotation = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // destination text resolves at the end of the flight
-  const eOpacity = useTransform(p, [0.8, 0.9], [0, 1]);
-  const eScale = useTransform(p, [0.8, 0.97], [0.55, 1]);
-  const eBlur = useTransform(p, [0.8, 0.92], [8, 0]);
-  const eFilter = useMotionTemplate`blur(${eBlur}px)`;
+  const settle = (i: number) => {
+    const target = targetRotationFor(i, angleStep, rotation.get());
+    animate(rotation, target, { type: 'spring', stiffness: 120, damping: 20, mass: 0.8 });
+  };
 
-  const railW = useTransform(p, [0, 1], ['0%', '100%']);
+  const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    dragStartX.current = e.clientX;
+    dragStartRotation.current = rotation.get();
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    const dx = e.clientX - dragStartX.current;
+    rotation.set(dragStartRotation.current + dx * DRAG_SENSITIVITY);
+  };
+
+  const endDrag = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const nearest = Math.round(-rotation.get() / angleStep);
+    settle(wrapIndex(nearest, n));
+  };
+
+  const goTo = (i: number) => settle(i);
+
+  // horizontal wheel/trackpad gestures rotate the gallery; ordinary
+  // vertical mouse-wheel scroll is left completely alone, so the page's
+  // own (Lenis-driven) scroll is never intercepted.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      rotation.set(rotation.get() - e.deltaX * WHEEL_SENSITIVITY);
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, [rotation]);
+
+  useMotionValueEvent(rotation, 'change', (r) => {
+    if (isDragging) return;
+    const nearest = wrapIndex(Math.round(-r / angleStep), n);
+    setActiveIndex((prev) => (prev === nearest ? prev : nearest));
+  });
+
+  const onKeyDown = (e: ReactKeyboardEvent) => {
+    if (e.key === 'ArrowLeft') goTo(wrapIndex(activeIndex - 1, n));
+    if (e.key === 'ArrowRight') goTo(wrapIndex(activeIndex + 1, n));
+  };
+
+  const active = items[activeIndex];
 
   return (
-    <section ref={ref} data-scene="06 · DOLLY IN — THE ARCHIVE" className="relative h-[420vh] bg-ink">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* atmosphere */}
+    <section data-scene="06 · THE ARCHIVE" className="relative overflow-hidden bg-ink py-28 md:py-40">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-[130px]"
+        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+      />
+
+      <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="mb-14 text-center md:mb-20">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.5em] text-gold">Scroll = Camera</p>
+          <h2 className="font-display text-4xl font-light text-cream md:text-6xl">
+            Enter the <em className="italic text-gold-soft">archive</em>
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
+            A selection of celebrations, productions and experiences we&rsquo;ve brought to life.
+          </p>
+        </div>
+
         <div
-          className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse at 50% 55%, #14110b 0%, #050505 70%)' }}
-        />
-        <motion.div
-          style={{ opacity: glow }}
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[70vh] w-[70vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[130px]"
+          ref={containerRef}
+          role="group"
+          aria-label="Project archive, use arrow keys or drag to browse"
+          tabIndex={0}
+          onKeyDown={onKeyDown}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+          style={{ perspective, touchAction: 'pan-y' }}
+          className={`relative mx-auto h-[260px] max-w-[1200px] touch-none select-none outline-none sm:h-[340px] md:h-[440px] ${
+            isDragging ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
         >
-          <div className="h-full w-full rounded-full" style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }} />
-        </motion.div>
-
-        {/* the corridor of plates — scroll flies the camera through them */}
-        <motion.div style={{ rotate: sway }} className="pointer-events-none absolute inset-0 will-change-transform">
-          {layers.map((cfg) => (
-            <FlyLayer key={cfg.src} p={p} cfg={cfg} />
-          ))}
-        </motion.div>
-
-        {/* gate title — flies past first */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <motion.div style={{ scale: tScale, opacity: tOpacity, filter: tFilter }} className="px-6 text-center will-change-transform">
-            <p className="mb-4 text-[10px] uppercase tracking-[0.5em] text-gold">Scroll = Camera</p>
-            <h2 className="font-display text-4xl font-light text-cream md:text-6xl">
-              Enter the <em className="italic text-gold-soft">archive</em>
-            </h2>
-          </motion.div>
-        </div>
-
-        {/* arrival */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <motion.div style={{ opacity: eOpacity, scale: eScale, filter: eFilter }} className="max-w-2xl px-6 text-center will-change-transform">
-            <p className="font-display text-3xl font-light leading-snug text-cream md:text-5xl">
-              Twelve years. <em className="italic text-gold-soft">Four hundred fifty</em> evenings.
-            </p>
-            <p className="mt-5 text-[11px] uppercase tracking-[0.4em] text-cream/55">Every one of them lives here</p>
-            <div className="mx-auto mt-6 h-[1px] w-16 bg-gold/60" />
-          </motion.div>
-        </div>
-
-        {/* flight instrumentation */}
-        <div className="absolute bottom-[4.5rem] left-1/2 z-20 flex w-56 -translate-x-1/2 flex-col items-center gap-2 md:bottom-16">
-          <span className="text-[9px] uppercase tracking-[0.4em] text-cream/40">Dolly in</span>
-          <div className="h-[2px] w-full bg-white/10">
-            <motion.div style={{ width: railW }} className="h-full bg-gold" />
+          <div style={{ transformStyle: 'preserve-3d' }} className="absolute inset-0">
+            {items.map((item, i) => (
+              <RingCard key={item.src} item={item} index={i} angleStep={angleStep} rotation={rotation} cardW={cardW} radius={radius} />
+            ))}
           </div>
+        </div>
+
+        <div className="mt-10 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream/35 md:mt-14">
+          <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-gold" strokeWidth="1.5">
+            <path d="M7 11.5V6a1.5 1.5 0 0 1 3 0v4.5M10 10.5V5a1.5 1.5 0 0 1 3 0v5.5M13 10.5V6a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2 5.5-5 5.5s-4.5-1.5-5.5-4L4.2 11a1.4 1.4 0 0 1 2.4-1.4l1.4 2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Drag to explore
+        </div>
+
+        <div className="relative mx-auto mt-8 max-w-xl text-center md:mt-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.title}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{active.category}</p>
+              <h3 className="mt-3 font-display text-2xl font-light text-cream md:text-3xl">{active.title}</h3>
+              <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-cream/45">{active.location}</p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

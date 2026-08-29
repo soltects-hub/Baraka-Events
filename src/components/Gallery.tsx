@@ -48,7 +48,7 @@ const frames = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" data-scene="07 \u00b7 SHOWREEL \u2014 IN PRODUCTION" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="gallery" data-scene="07 · SHOWREEL — IN PRODUCTION" className="relative overflow-hidden bg-ink py-28 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-1/3 h-[400px] w-[600px] rounded-full opacity-10 blur-[130px]"
@@ -83,7 +83,7 @@ export default function Gallery() {
               <div className="relative h-[420px] overflow-hidden md:h-[480px]">
                 <img
                   src={f.src}
-                  alt={`${f.title} \u2014 ${f.caption}`}
+                  alt={`${f.title} — ${f.caption}`}
                   draggable={false}
                   loading="lazy"
                   className="h-full w-full object-cover grayscale-0 transition-all duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05] lg:grayscale-[0.25] lg:group-hover:grayscale-0"
@@ -91,7 +91,7 @@ export default function Gallery() {
                 {/* minimalist grade */}
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
 
-                {/* index \u2014 top left, editorial */}
+                {/* index — top left, editorial */}
                 <span className="absolute left-6 top-6 font-display text-sm italic text-gold">{f.n}</span>
 
                 {/* thin frame line on hover */}

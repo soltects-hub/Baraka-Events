@@ -133,7 +133,6 @@ export default function BlogPost() {
           <div className="mt-7">
             <MagneticButton
               onClick={() => go('#contact')}
-              className="rounded-full bg-gold px-9 py-4 text-[12px] font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03]"
             >
               Book Consultation
             </MagneticButton>

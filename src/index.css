@@ -1,15 +1,43 @@
 @import "tailwindcss";
 
+/* Slowly rotating conic-gradient border ring (Before/After frame).
+   Degrades gracefully to a static gradient in browsers without @property. */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.animated-border-ring {
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0%,
+    rgba(255, 150, 11, 0.9) 8%,
+    transparent 20%,
+    transparent 50%,
+    rgba(255, 150, 11, 0.45) 60%,
+    transparent 72%
+  );
+  animation: border-spin 8s linear infinite;
+}
+
 @theme {
   --color-ink: #050505;
   --color-ink-2: #0b0b0b;
   --color-ink-3: #121210;
   --color-gold: #ff960b;
-  --color-gold-soft: #ffb763;
-  --color-cream: #f3ecdd;
-  --color-mist: #9a948a;
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Jost", "Avenir Next", sans-serif;
+  --color-gold-soft: #ff960b;
+  --color-cream: #f5f5f5;
+  --color-mist: #a8a8a8;
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-serif-display: "Playfair Display", "Georgia", serif;
 }
 
 html {
@@ -62,45 +90,31 @@ h1, h2, h3, h4 {
   background: #ff960b;
 }
 
-.grain::after {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
-  z-index: 90;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain-shift 0.9s steps(4) infinite;
-}
-
-@keyframes grain-shift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-2%, 1.5%); }
-  50% { transform: translate(1.5%, -2%); }
-  75% { transform: translate(-1%, -1%); }
-  100% { transform: translate(0, 0); }
-}
-
 .text-stroke {
   -webkit-text-stroke: 1px rgba(255, 150, 11, 0.45);
   color: transparent;
 }
 
-/* Footer neon wordmark — base outline + cursor-lit layer */
+/* Footer neon wordmark — base outline + cursor-lit layer.
+   Outline uses an SVG feMorphology filter (see NeonWordmark.tsx) rather
+   than -webkit-text-stroke, which renders faceted, slightly blocky
+   corners at this font size — the filter gives a clean vector edge. */
+.font-serif-display {
+  font-family: var(--font-serif-display);
+}
 .neon-base {
-  -webkit-text-stroke: 1px rgba(255, 150, 11, 0.28);
-  color: transparent;
+  /* opaque so the filter's SourceAlpha has real glyph-shaped alpha to
+     dilate — the filter's feMerge only outputs the outline layer, so
+     this fill color itself never actually shows */
+  color: #ff960b;
+  filter: url(#neon-outline-base);
 }
 .neon-lit {
-  color: #ff960b;
-  -webkit-text-stroke: 1px #ffb763;
-  text-shadow:
-    0 0 8px rgba(255, 150, 11, 0.9),
-    0 0 24px rgba(255, 150, 11, 0.6),
-    0 0 60px rgba(255, 150, 11, 0.4),
-    0 0 120px rgba(255, 150, 11, 0.25);
+  background-image: linear-gradient(180deg, #ffcf8a 0%, #ff960b 45%, #c9660a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: url(#neon-outline-lit);
   animation: neon-flicker 3.2s ease-in-out infinite;
 }
 
@@ -111,6 +125,25 @@ h1, h2, h3, h4 {
   94% { opacity: 1; }
   96% { opacity: 0.9; }
   97% { opacity: 1; }
+}
+
+@keyframes ground-glow-pulse {
+  0%, 100% { opacity: 0.55; transform: translateY(0) scaleX(1); }
+  50% { opacity: 0.85; transform: translateY(-4%) scaleX(1.04); }
+}
+
+@keyframes smoke-drift-a {
+  0% { transform: translate(0, 6%) scale(0.9); opacity: 0; }
+  15% { opacity: 0.22; }
+  55% { opacity: 0.16; }
+  100% { transform: translate(6%, -60%) scale(1.3); opacity: 0; }
+}
+
+@keyframes smoke-drift-b {
+  0% { transform: translate(0, 10%) scale(0.8); opacity: 0; }
+  20% { opacity: 0.16; }
+  60% { opacity: 0.1; }
+  100% { transform: translate(-8%, -55%) scale(1.25); opacity: 0; }
 }
 
 .gold-underline {
@@ -135,8 +168,4 @@ h1, h2, h3, h4 {
 
 input, textarea, select {
   outline: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .grain::after { animation: none; }
 }

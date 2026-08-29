@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const PHRASES = ['Crafting Extraordinary Experiences', 'Baraka Events', 'Lahore', 'Shaadis · Galas · Celebrations'];
+const PHRASES = ['Event Planning & Management', 'Baraka Events', 'Lahore', 'Weddings · Corporate · Private'];
 
 function StripContent({ dark }: { dark: boolean }) {
   const row = [...PHRASES, ...PHRASES, ...PHRASES];

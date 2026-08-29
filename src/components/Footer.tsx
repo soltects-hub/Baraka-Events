@@ -2,12 +2,13 @@ import { useSectionNav } from '../lib/useSectionNav';
 import NeonWordmark from './NeonWordmark';
 
 const nav = [
-  { label: 'About', href: '#about' },
-  { label: 'Experiences', href: '#experiences' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Team', href: '#team' },
+  { label: 'About', href: '/about' },
+  { label: 'Experiences', href: '/experiences' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '#faq' },
 ];
 
@@ -38,8 +39,8 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-sm text-sm font-light leading-relaxed text-cream/50">
-              Lahore's luxury event atelier &mdash; crafting shaadis, corporate events and
-              private celebrations of extraordinary beauty, in the heart of Punjab.
+              An event planning and management company based in Gulberg, Lahore.
+              We plan weddings, corporate events and private celebrations across the city.
             </p>
             <div className="mt-6 space-y-2 text-sm font-light text-cream/55">
               <p>
@@ -50,7 +51,7 @@ export default function Footer() {
               </p>
               <p className="max-w-xs leading-relaxed">
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Big%20City%20Plaza%2C%20Liberty%20Roundabout%2C%20Main%20Boulevard%2C%20Gulberg%20III%2C%20Lahore%2C%20Pakistan"
+                  href="https://maps.app.goo.gl/iXCcf5Ko2GKd6vjk7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="gold-underline hover:text-cream"

@@ -23,5 +23,8 @@ export default defineConfig(async ({ mode }) => {
     plugins,
     envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
     define: processEnvDefines,
+    server: {
+      port: process.env.PORT ? Number(process.env.PORT) : 5173,
+    },
   };
 })
