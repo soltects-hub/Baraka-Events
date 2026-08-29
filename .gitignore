@@ -9,6 +9,10 @@ dist-ssr/
 .DS_Store
 *.local
 
+# Env
+.env
+.env.local
+
 # Vite
 .vite-source-tags.js
 

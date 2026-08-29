@@ -6,8 +6,14 @@ import MagneticButton from './MagneticButton';
 const inputClass =
   'w-full rounded-sm border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-light text-cream placeholder:text-cream/30 backdrop-blur-md transition-colors duration-300 focus:border-gold/60';
 
+// Set in Vercel (and .env for local testing) as VITE_FORMSPREE_ENDPOINT,
+// e.g. https://formspree.io/f/xxxxxxxx — sign up at formspree.io, create a
+// form, and use the endpoint it gives you. Without it the form has nowhere
+// real to send submissions, so it fails loudly instead of faking success.
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined;
+
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const bgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
@@ -118,7 +124,7 @@ export default function Contact() {
 
         <div className="rounded-md border border-white/10 bg-ink/50 p-7 backdrop-blur-2xl md:p-10">
           <AnimatePresence mode="wait">
-            {sent ? (
+            {status === 'sent' ? (
               <motion.div
                 key="done"
                 initial={{ opacity: 0, y: 30 }}
@@ -140,26 +146,49 @@ export default function Contact() {
               <motion.form
                 key="form"
                 exit={{ opacity: 0, y: -20 }}
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  setSent(true);
+                  if (!FORMSPREE_ENDPOINT) {
+                    console.error('[Contact] VITE_FORMSPREE_ENDPOINT is not set — form has nowhere to send submissions.');
+                    setStatus('error');
+                    return;
+                  }
+                  setStatus('submitting');
+                  try {
+                    const form = e.currentTarget;
+                    const res = await fetch(FORMSPREE_ENDPOINT, {
+                      method: 'POST',
+                      body: new FormData(form),
+                      headers: { Accept: 'application/json' },
+                    });
+                    if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+                    setStatus('sent');
+                    // The one real conversion moment: a consultation request
+                    // actually reached us, not just a page view or a click.
+                    window.gtag?.('event', 'conversion', {
+                      send_to: 'AW-18325184018/dHKFCNioieccEJK8kKJE',
+                    });
+                  } catch (err) {
+                    console.error('[Contact] submission failed:', err);
+                    setStatus('error');
+                  }
                 }}
                 className="space-y-5"
               >
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label htmlFor="name" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Full Name</label>
-                    <input id="name" required placeholder="Ayesha Khan" className={inputClass} />
+                    <input id="name" name="name" required placeholder="Ayesha Khan" className={inputClass} />
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Email</label>
-                    <input id="email" type="email" required placeholder="you@email.com" className={inputClass} />
+                    <input id="email" name="email" type="email" required placeholder="you@email.com" className={inputClass} />
                   </div>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label htmlFor="type" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Event Type</label>
-                    <select id="type" required defaultValue="" className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
+                    <select id="type" name="eventType" required defaultValue="" className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
                       <option value="" disabled>Select an occasion</option>
                       <option>Wedding (Mehndi · Baraat · Nikkah · Walima)</option>
                       <option>Corporate Event</option>
@@ -170,25 +199,34 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="date" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Preferred Date</label>
-                    <input id="date" type="date" className={`${inputClass} [color-scheme:dark]`} />
+                    <input id="date" name="preferredDate" type="date" className={`${inputClass} [color-scheme:dark]`} />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Tell Us Your Vision</label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     required
                     placeholder="Guest count, functions, venue ideas, atmosphere — anything that inspires you…"
                     className={`${inputClass} resize-none`}
                   />
                 </div>
+                {status === 'error' && (
+                  <p className="text-sm font-light text-red-400">
+                    Something went wrong sending your request. Please try again, or reach us directly at{' '}
+                    <a href="tel:+923139999039" className="underline">+92 313 9999039</a> or{' '}
+                    <a href="https://wa.link/yiogfm" target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
+                  </p>
+                )}
                 <div className="pt-2">
                   <MagneticButton
                     type="submit"
+                    disabled={status === 'submitting'}
                     className="w-full sm:w-auto"
                   >
-                    Request Consultation
+                    {status === 'submitting' ? 'Sending…' : 'Request Consultation'}
                   </MagneticButton>
                 </div>
               </motion.form>

@@ -9,6 +9,7 @@ interface Props {
   href?: string;
   type?: 'button' | 'submit';
   size?: 'sm' | 'md';
+  disabled?: boolean;
 }
 
 export default function MagneticButton({
@@ -19,6 +20,7 @@ export default function MagneticButton({
   href,
   type = 'button',
   size = 'md',
+  disabled = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -40,7 +42,7 @@ export default function MagneticButton({
 
   const sizeClass = size === 'sm' ? 'px-5 py-2.5 text-[12px]' : 'px-9 py-4 text-[12px]';
 
-  const buttonClass = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-gold font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03] ${sizeClass} ${className}`;
+  const buttonClass = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-gold font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 ${sizeClass} ${className}`;
 
   return (
     <motion.div
@@ -61,7 +63,7 @@ export default function MagneticButton({
           {children}
         </a>
       ) : (
-        <button type={type} onClick={onClick} className={buttonClass}>
+        <button type={type} onClick={onClick} disabled={disabled} className={buttonClass}>
           {children}
         </button>
       )}

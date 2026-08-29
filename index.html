@@ -77,10 +77,11 @@
           window.gtag = gtag;
           gtag('js', new Date());
           gtag('config', 'G-3RRJPL2424');
-          gtag('event', 'conversion', {
-            send_to: 'AW-18325184018/dHKFCNioieccEJK8kKJE',
-            transaction_id: '',
-          });
+          // The "conversion" event used to fire here unconditionally, on
+          // every single page load — meaning every visitor was counted as
+          // a conversion in Google Ads regardless of whether they actually
+          // did anything. It now only fires from Contact.tsx, on an actual
+          // successful consultation-request submission.
         }
         var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
         // Long enough that a synthetic no-interaction test (Lighthouse's
