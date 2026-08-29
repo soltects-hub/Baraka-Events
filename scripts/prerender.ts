@@ -30,7 +30,6 @@
 import { spawn, type ChildProcess } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import puppeteer from 'puppeteer';
 import { posts } from '../src/lib/posts';
 import { routes } from '../src/seo';
 
@@ -38,8 +37,35 @@ const PORT = 4319;
 const ORIGIN = `http://localhost:${PORT}`;
 const DIST = resolve(process.cwd(), 'dist');
 
+// Vercel's build container is a minimal image missing the shared libraries
+// (libnspr4, libnss3, ...) puppeteer's own downloaded Chrome needs, so its
+// binary fails to launch there ("error while loading shared libraries").
+// @sparticuz/chromium ships a Chromium build compiled specifically to run
+// in that kind of minimal serverless environment; use it (via puppeteer-core)
+// there, and the full local `puppeteer` package everywhere else (i.e. a
+// developer running `npm run build` on their own machine).
+async function launchBrowser() {
+  const commonArgs = ['--disable-setuid-sandbox', '--no-sandbox'];
+  if (process.env.VERCEL) {
+    const [{ default: puppeteerCore }, { default: chromium }] = await Promise.all([
+      import('puppeteer-core'),
+      import('@sparticuz/chromium'),
+    ]);
+    return puppeteerCore.launch({
+      args: [...chromium.args, ...commonArgs],
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+  const { default: puppeteer } = await import('puppeteer');
+  return puppeteer.launch({
+    headless: true,
+    args: [...commonArgs, '--use-gl=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
+  });
+}
+
 // Static file name each route is written to, resolved against `vercel.json`'s
-// `cleanUrls: true` (so `/about` <-> `dist/about.html`, `/blog/x` <->
+// explicit rewrites (so `/about` <-> `dist/about.html`, `/blog/x` <->
 // `dist/blog/x.html`). Home is handled separately at the very end so every
 // other route's navigation is served the plain, unmodified vite-built shell
 // while it's being captured, not a half-finished prerender pass.
@@ -140,16 +166,7 @@ async function main() {
   try {
     await waitForServer(ORIGIN);
 
-    browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--use-gl=swiftshader',
-        '--enable-unsafe-swiftshader',
-        '--ignore-gpu-blocklist',
-      ],
-    });
+    browser = (await launchBrowser()) as import('puppeteer').Browser;
 
     for (const path of routePaths) {
       try {
