@@ -2,12 +2,12 @@
   "action": "fix-indexing",
   "target": "site-wide indexing",
   "reasoning": [
-    "Only 0/8 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).",
+    "Only 0/18 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).",
     "Publishing new content before fixing discoverability would waste effort — indexing is the dominant blocker right now."
   ],
   "evidence": {
     "indexedCount": 0,
-    "totalInspected": 8,
+    "totalInspected": 18,
     "coverageStates": [
       {
         "url": "https://barakaevents.com/",
@@ -15,6 +15,46 @@
       },
       {
         "url": "https://barakaevents.com/blog",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/best-event-planner-lahore-baraka-events",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/baraka-events-management-how-we-work",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/baraka-events-corporate-events-lahore",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/baraka-events-venue-booking-guide",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/baraka-events-decor-services-lahore",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/baraka-events-lahore-gulberg",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/destination-style-shaadi-lahore-trend",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
         "coverageState": "URL is unknown to Google"
       },
       {
