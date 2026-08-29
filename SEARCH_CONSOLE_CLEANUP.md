@@ -43,3 +43,35 @@ Google associates all of this with the domain's trust signals. Leftover spam sit
 ## What does *not* need fixing here
 
 The current site (this repo) is clean — it only generates and submits the one legitimate `sitemap.xml`, and nothing in the codebase references or serves any of the spam paths above. This is purely a Search Console configuration cleanup, not a code issue.
+
+## Separate issue: real blog pages Google hasn't indexed yet
+
+Unrelated to the spam cleanup above — the merged SEO reports also show 14 real blog posts plus `/blog` itself sitting at **"URL is unknown to Google"** (i.e., never crawled/indexed at all, not blocked or penalized — just not yet discovered). This is normal for a site that migrated/relaunched recently, but it won't resolve on its own quickly without a nudge.
+
+**Fix — submit each URL for indexing:**
+1. In Search Console, go to **URL Inspection** (top search bar).
+2. Paste each URL below, one at a time, and click **Request Indexing** once the inspection finishes:
+
+```
+https://www.barakaevents.com/blog
+https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events
+https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026
+https://www.barakaevents.com/blog/baraka-events-management-how-we-work
+https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore
+https://www.barakaevents.com/blog/baraka-events-venue-booking-guide
+https://www.barakaevents.com/blog/baraka-events-decor-services-lahore
+https://www.barakaevents.com/blog/baraka-events-lahore-gulberg
+https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026
+https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend
+https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan
+https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025
+https://www.barakaevents.com/blog/mehndi-themes-lahore-loves
+https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore
+https://www.barakaevents.com/blog/walima-decor-trends-2025
+https://www.barakaevents.com/blog/corporate-gala-lahore-checklist
+https://www.barakaevents.com/blog/perfect-baraat-guide
+```
+
+3. Google caps indexing requests per day (usually ~10-12 for a normal property) — if it stops accepting more, just come back the next day and finish the rest.
+4. This is a nudge, not a guarantee — Google still decides independently whether to actually index each page. Submitting doesn't hurt and typically does speed things up within days to a couple of weeks.
+5. New blog posts published going forward will show the same "unknown" state until submitted the same way, or until Google's normal crawl catches up via the sitemap on its own (slower, but automatic).
