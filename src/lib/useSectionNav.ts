@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLenis } from './useLenis';
-import { revealAllLazyMounts } from '../components/LazyMount';
+import { revealAllLazyMounts } from './lazyMountRegistry';
 
 /**
  * Navigate to a section anchor (works from any route) or a route path.

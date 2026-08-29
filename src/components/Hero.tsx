@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLenis } from '../lib/useLenis';
 import MagneticButton from './MagneticButton';
 import RevealText from './RevealText';
-import { revealAllLazyMounts } from './LazyMount';
+import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
 
 const SLIDES = [
   { src: '/media/hero-arrival.webp', alt: 'Event hall set up for a wedding reception in Lahore' },

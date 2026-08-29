@@ -1,16 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-
-const revealFns = new Set<() => void>();
-
-/**
- * Force every deferred section to mount right now. Call this before jumping
- * to a hash target (e.g. "#contact") that sits below still-collapsed
- * sections — otherwise the page's current height understates its real
- * height, and the scroll lands short of the intended section.
- */
-export function revealAllLazyMounts() {
-  revealFns.forEach((reveal) => reveal());
-}
+import { registerLazyMount } from '../lib/lazyMountRegistry';
 
 /**
  * Doesn't render children until the wrapper scrolls within `rootMargin` of
@@ -42,13 +31,10 @@ export default function LazyMount({
   useEffect(() => {
     if (visible) return;
 
-    const reveal = () => setVisible(true);
-    revealFns.add(reveal);
+    const unregister = registerLazyMount(() => setVisible(true));
 
     const el = ref.current;
-    if (!el) return () => {
-      revealFns.delete(reveal);
-    };
+    if (!el) return unregister;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -62,7 +48,7 @@ export default function LazyMount({
     observer.observe(el);
 
     return () => {
-      revealFns.delete(reveal);
+      unregister();
       observer.disconnect();
     };
   }, [visible, rootMargin]);

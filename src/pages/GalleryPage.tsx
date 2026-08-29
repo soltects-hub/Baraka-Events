@@ -49,8 +49,6 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<CarouselPhoto | null>(null);
 
-  useEffect(() => setActive(0), [items]);
-
   const next = () => setActive((i) => wrapIndex(i + 1, items.length));
   const prev = () => setActive((i) => wrapIndex(i - 1, items.length));
 

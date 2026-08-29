@@ -7,8 +7,10 @@ import Preloader from '../components/Preloader';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import About from '../components/About';
-import FAQ, { faqs } from '../components/FAQ';
-import LazyMount, { revealAllLazyMounts } from '../components/LazyMount';
+import FAQ from '../components/FAQ';
+import { faqs } from '../lib/faqs';
+import LazyMount from '../components/LazyMount';
+import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
 
 // Everything below the first couple of screens is code-split: these
 // sections aren't needed for the initial paint, and splitting them into
