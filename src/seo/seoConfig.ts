@@ -58,4 +58,6 @@ export const routes = {
   contact: '/contact',
   blog: '/blog',
   blogPost: (slug: string) => `/blog/${slug}`,
+  services: '/services',
+  servicePage: (slug: string) => `/services/${slug}`,
 };

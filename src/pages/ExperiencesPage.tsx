@@ -30,8 +30,11 @@ const experiences = [
       { h: 'Wedding Stage & Decor Design', p: 'Stage design, floral programs and lighting planned as one visual system by our own wedding decorators, rather than assembled piecemeal from separate rental catalogues.' },
     ],
     related: [
-      { text: 'Mehndi themes we’re designing this season', to: '/blog/mehndi-themes-lahore-loves' },
-      { text: 'See wedding decor in the gallery', to: '/gallery' },
+      { text: 'Full wedding planning & management', to: '/services/wedding-planning' },
+      { text: 'Nikkah', to: '/services/nikkah-events' },
+      { text: 'Mehndi', to: '/services/mehndi-events' },
+      { text: 'Baraat', to: '/services/barat-events' },
+      { text: 'Walima', to: '/services/walima-events' },
     ],
   },
   {
@@ -48,8 +51,8 @@ const experiences = [
       { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, handled by the same corporate event organizer team behind our larger productions.' },
     ],
     related: [
+      { text: 'Corporate event management service', to: '/services/corporate-events' },
       { text: 'Our corporate event checklist', to: '/blog/corporate-gala-lahore-checklist' },
-      { text: 'See recent productions', to: '/portfolio' },
     ],
   },
   {
@@ -66,6 +69,8 @@ const experiences = [
       { h: 'Bridal & Baby Showers', p: 'Smaller guest lists and the kind of personal detail a good bridal shower planner focuses on — the same care carries over to baby showers.' },
     ],
     related: [
+      { text: 'Engagement event planning', to: '/services/engagement-events' },
+      { text: 'Birthday party planning', to: '/services/birthday-events' },
       { text: 'Read about intimate celebrations', to: '/blog/micro-weddings-intimate-celebrations-pakistan' },
     ],
   },
@@ -147,6 +152,16 @@ export default function ExperiencesPage() {
             Whether it is a week-long wedding, a corporate launch or a milestone
             birthday, we plan and produce the event as one project, not a checklist
             of separate vendors.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+            className="mt-4 text-[12px] uppercase tracking-[0.2em]"
+          >
+            <Link to="/services" className="gold-underline text-cream/55 hover:text-gold">
+              See every individual service &rarr;
+            </Link>
           </motion.p>
         </div>
       </section>

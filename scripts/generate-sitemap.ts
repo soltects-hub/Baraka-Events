@@ -9,6 +9,7 @@
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { posts } from '../src/lib/posts';
+import { services } from '../src/lib/services';
 import { seoConfig, routes } from '../src/seo';
 
 interface SitemapUrl {
@@ -32,6 +33,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: staticLastmod },
 ];
 
 const postRoutes: SitemapUrl[] = posts.map((post) => ({
@@ -41,7 +43,14 @@ const postRoutes: SitemapUrl[] = posts.map((post) => ({
   lastmod: post.publishedISO,
 }));
 
-const urls = [...staticRoutes, ...postRoutes];
+const serviceRoutes: SitemapUrl[] = services.map((service) => ({
+  path: routes.servicePage(service.slug),
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: staticLastmod,
+}));
+
+const urls = [...staticRoutes, ...postRoutes, ...serviceRoutes];
 
 const body = urls
   .map((u) => {

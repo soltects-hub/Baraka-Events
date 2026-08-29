@@ -20,6 +20,8 @@ const TeamPage = lazy(() => import('./pages/TeamPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const ServicesIndexPage = lazy(() => import('./pages/ServicesIndexPage'));
+const ServicePage = lazy(() => import('./pages/ServicePage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function ScrollRestore() {
@@ -63,6 +65,8 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/services" element={<ServicesIndexPage />} />
+              <Route path="/services/:slug" element={<ServicePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

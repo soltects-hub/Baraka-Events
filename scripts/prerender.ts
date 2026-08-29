@@ -31,6 +31,7 @@ import { spawn, type ChildProcess } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { posts } from '../src/lib/posts';
+import { services } from '../src/lib/services';
 import { routes } from '../src/seo';
 
 const PORT = 4319;
@@ -83,7 +84,9 @@ const routePaths: string[] = [
   routes.team,
   routes.contact,
   routes.blog,
+  routes.services,
   ...posts.map((p) => routes.blogPost(p.slug)),
+  ...services.map((s) => routes.servicePage(s.slug)),
   routes.home, // last — see outputPathFor note above
 ];
 

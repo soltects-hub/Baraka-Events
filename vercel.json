@@ -8,6 +8,8 @@
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/services/:slug", "destination": "/services/:slug.html" },
     { "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
   ],
   "headers": [

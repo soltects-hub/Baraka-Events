@@ -9,6 +9,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { posts } from '../../src/lib/posts';
+import { services } from '../../src/lib/services';
 import { seoConfig, routes } from '../../src/seo';
 
 const sitemapPath = resolve(process.cwd(), 'dist/sitemap.xml');
@@ -25,11 +26,13 @@ const staticRoutes = [
   routes.team,
   routes.contact,
   routes.blog,
+  routes.services,
 ];
 
 const expected = new Set<string>([
   ...staticRoutes.map((r) => `${seoConfig.site.url}${r}`),
   ...posts.map((p) => `${seoConfig.site.url}${routes.blogPost(p.slug)}`),
+  ...services.map((s) => `${seoConfig.site.url}${routes.servicePage(s.slug)}`),
 ]);
 
 const errors: string[] = [];

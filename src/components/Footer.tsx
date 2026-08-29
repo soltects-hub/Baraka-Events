@@ -4,6 +4,7 @@ import { WHATSAPP_URL } from '../lib/whatsapp';
 
 const nav = [
   { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
   { label: 'Experiences', href: '/experiences' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Gallery', href: '/gallery' },
