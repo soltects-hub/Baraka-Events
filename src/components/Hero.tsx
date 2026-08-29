@@ -6,8 +6,8 @@ import RevealText from './RevealText';
 import { revealAllLazyMounts } from './LazyMount';
 
 const SLIDES = [
-  { src: '/media/hero-arrival.jpg', alt: 'Event hall set up for a wedding reception in Lahore' },
-  { src: '/media/hero-inside.jpg', alt: 'Candlelit aisle leading to a decorated wedding stage' },
+  { src: '/media/hero-arrival.webp', alt: 'Event hall set up for a wedding reception in Lahore' },
+  { src: '/media/hero-inside.webp', alt: 'Candlelit aisle leading to a decorated wedding stage' },
 ];
 
 const SLIDE_DURATION = 6000;

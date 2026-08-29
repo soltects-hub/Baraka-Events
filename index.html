@@ -22,16 +22,73 @@
     <meta name="google-site-verification" content="6mCGG-XgxDxvyLRmRODUtm41vF6G9rCz_YwISNIumSY" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TZXGXW98');</script>
-<!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-3RRJPL2424"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-3RRJPL2424'); </script>
-  <!-- Event snippet for Purchase conversion page --> <script> gtag('event', 'conversion', { 'send_to': 'AW-18325184018/dHKFCNioieccEJK8kKJE', 'transaction_id': '' // 'new_customer': true /* calculate dynamically, populate with true/false */, }); </script>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+      />
+    </noscript>
+    <script>
+      // Analytics/tag scripts are not needed for the first paint and cost
+      // real main-thread time to parse — load them on the visitor's first
+      // interaction (or a short fallback delay) instead of unconditionally
+      // on every page load.
+      (function () {
+        var started = false;
+        function loadTags() {
+          if (started) return;
+          started = true;
+          events.forEach(function (evt) {
+            window.removeEventListener(evt, loadTags);
+          });
+          clearTimeout(fallback);
+
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-TZXGXW98');
+
+          var gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-3RRJPL2424';
+          document.head.appendChild(gtagScript);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-3RRJPL2424');
+          gtag('event', 'conversion', {
+            send_to: 'AW-18325184018/dHKFCNioieccEJK8kKJE',
+            transaction_id: '',
+          });
+        }
+        var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+        var fallback = setTimeout(loadTags, 4000);
+        events.forEach(function (evt) {
+          window.addEventListener(evt, loadTags, { passive: true });
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
