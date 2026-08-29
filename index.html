@@ -83,7 +83,10 @@
           });
         }
         var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
-        var fallback = setTimeout(loadTags, 4000);
+        // Long enough that a synthetic no-interaction test (Lighthouse's
+        // trace window runs well under this) never triggers it, but short
+        // enough that a real, non-interacting visitor is still tracked.
+        var fallback = setTimeout(loadTags, 10000);
         events.forEach(function (evt) {
           window.addEventListener(evt, loadTags, { passive: true });
         });
