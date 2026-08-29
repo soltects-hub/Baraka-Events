@@ -374,7 +374,10 @@ export const posts: Post[] = [
       { h: 'Mughal maximal' },
       { p: 'The counter-movement: deep emeralds and rubies, gold-leaf frames, scalloped arches receding in layers, tuberose and red rose by the thousand. In a haveli or a high-ceilinged marquee it creates the sensation of walking into a miniature painting.' },
       { h: 'The detail everyone underestimates' },
-      { p: 'The entrance corridor. Guests form their impression of the entire night in the thirty steps between the car and the hall \u2014 which is why our designers spend disproportionate budget and rehearsal time on that first passage of scent, light and sound.' },
+      {
+        p: 'The entrance corridor. Guests form their impression of the entire night in the thirty steps between the car and the hall \u2014 which is why our designers spend disproportionate budget and rehearsal time on that first passage of scent, light and sound.',
+        related: [{ text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' }],
+      },
     ],
   },
   {
@@ -416,7 +419,98 @@ export const posts: Post[] = [
       { h: 'Layer the sound' },
       { p: 'One dhol is noise; a directed ensemble is cinema. We open with a single distant drummer as the convoy turns in, layer the full troupe at the gate, then hand off to the sound system precisely as the groom crosses the threshold \u2014 a crescendo, not a collision.' },
       { h: 'Protect the entrance shot' },
-      { p: 'The single most-rewatched clip of the entire shaadi is the couple\u2019s first walk. We choreograph a clean corridor, brief the family on where to stand, and give the film team a locked, lit lane. Thirty seconds of order buys a lifetime of rewatching.' },
+      {
+        p: 'The single most-rewatched clip of the entire shaadi is the couple\u2019s first walk. We choreograph a clean corridor, brief the family on where to stand, and give the film team a locked, lit lane. Thirty seconds of order buys a lifetime of rewatching.',
+        related: [{ text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' }],
+      },
+    ],
+  },
+  {
+    slug: 'walima-reception-planning-guide',
+    title: 'How to Plan a Walima Reception in Lahore',
+    excerpt:
+      'The walima is the last function and the most photographed \u2014 here is the guest list, venue, catering and run-of-show order that keeps it from feeling like an afterthought to the baraat.',
+    category: 'Planning',
+    date: 'August 2026',
+    publishedISO: '2026-08',
+    readTime: '7 min read',
+    image: '/media/gallery-2.jpg',
+    imageAlt: 'Ivory and gold wedding cake with a mithai display at a Lahore walima reception',
+    blocks: [
+      {
+        p: 'The walima is hosted by the groom\u2019s family, it is the most formally photographed night of the wedding, and it is also the function families most often under-plan \u2014 by the time it arrives, everyone is exhausted from the mehndi and baraat and tempted to treat it as a smaller repeat of what came before. It deserves its own plan, on its own timeline.',
+      },
+      { h: 'Start with the guest list, not the venue' },
+      {
+        p: 'Walima guest lists in Lahore are frequently larger than the baraat\u2019s \u2014 colleagues, extended family and family friends who were not part of the smaller functions are invited here specifically. Lock a realistic number before touring a single hall. A venue chosen for its looks and then found to seat two hundred fewer than the actual list is the single most common walima planning mistake we see.',
+      },
+      { h: 'Lock the venue eight to ten months out' },
+      {
+        p: 'Winter weekends \u2014 October through March \u2014 are Lahore\u2019s walima season, and the halls with real capacity and backup power book that far ahead. Booking eight to ten months out routinely gets better rates and included hours than a family negotiating the same venue for a date six weeks away.',
+      },
+      { h: 'Build the evening around a real run of show' },
+      {
+        p: 'A walima that runs well follows a simple order: guest arrival and reception line, seated dinner service, the couple\u2019s entrance and stage moment, cake cutting, and a clear closing cue so the evening does not simply trail off. Write the actual clock times against each stage and share it with the venue, the caterer and the photography team \u2014 not just the family.',
+      },
+      { h: 'Decor with its own identity' },
+      {
+        p: 'The walima should read as a distinct night from the mehndi and the baraat, not a smaller version of either. Most Lahore walimas lean toward pastel minimal or a more formal, jewel-toned palette \u2014 the point is a deliberate choice, not whatever decor pieces happened to be left over from the earlier functions.',
+        related: [{ text: 'Walima Decor in 2025: From Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' }],
+      },
+      { h: 'Catering is the largest single line item' },
+      {
+        p: 'Budget for it accordingly: a formal multi-course service or live counters, a realistic waiter-to-table ratio so plates do not sit half-cleared for twenty minutes, and dietary accommodations confirmed with the caterer in writing, not verbally on the day. Families who cut corners here are the ones fielding complaints about the wedding for years afterward \u2014 nobody remembers the stage backdrop as clearly as they remember cold food.',
+      },
+      {
+        p: 'Planned as its own production instead of an afterthought, the walima closes a Pakistani wedding the way it should: unhurried, well-fed, and photographed at its best.',
+        related: [{ text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' }],
+      },
+    ],
+  },
+  {
+    slug: 'wedding-timeline-mehndi-to-walima',
+    title: 'Wedding Event Timeline: From Mehndi to Walima',
+    excerpt:
+      'A Pakistani wedding is four productions run back to back, not one event. Here is the week-by-week and night-by-night timeline that keeps a multi-function shaadi from colliding into itself.',
+    category: 'Planning',
+    date: 'August 2026',
+    publishedISO: '2026-08',
+    readTime: '8 min read',
+    image: '/media/gallery-3.jpg',
+    imageAlt: 'Fireworks over a grand Pakistani wedding celebration marking the final night',
+    blocks: [
+      {
+        p: 'A full Pakistani wedding is not one event with several parts \u2014 it is four separate productions, each with its own vendors, decor and mood, run inside a single week. The hardest part of planning one is rarely any individual function; it is the sequencing, and the handoffs between nights that get missed when each function is planned in isolation.',
+      },
+      { h: 'Twelve months out: lock the skeleton first' },
+      {
+        p: 'Set dates for every function together \u2014 mehndi, baraat and nikkah, walima, and any separate dholki or nikkah-only night \u2014 before booking any single venue. Families who lock the baraat date first and then scramble to fit a walima hall around it routinely end up with a longer, more expensive gap between functions than planned.',
+      },
+      { h: 'The typical week' },
+      {
+        p: 'The most common Lahore sequence runs mehndi two to three days before the baraat, nikkah either on the baraat night itself or a day or two earlier in a smaller ceremony, and the walima one to two days after the baraat \u2014 enough time for the family to recover and the venue to reset, not so much that momentum is lost.',
+      },
+      { h: 'Mehndi night' },
+      {
+        p: 'The least formal and most physically active function \u2014 dancing, dholki, bright colour \u2014 typically starting in the early evening with no need to rush guests out early. Because it is the loosest night on the calendar, it is also where run-of-show discipline slips first; a mehndi that runs ninety minutes long pushes every vendor call time behind it for the rest of the week.',
+      },
+      { h: 'Baraat and nikkah' },
+      {
+        p: 'The groom\u2019s procession and the ceremony itself are the emotional peak of the week, and timing the arrival correctly \u2014 after golden hour, before dinner impatience sets in \u2014 matters more here than on any other night.',
+        related: [{ text: 'The Perfect Baraat: Timing, Dhol and the Grand Entrance', slug: 'perfect-baraat-guide' }],
+      },
+      { h: 'Walima' },
+      {
+        p: 'The closing night, hosted by the groom\u2019s family and usually the most formally photographed \u2014 it earns its own guest list, its own decor identity and its own run of show rather than inheriting whatever is left over from the baraat.',
+        related: [{ text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' }],
+      },
+      { h: 'Where timelines actually break' },
+      {
+        p: 'Almost never on the night itself \u2014 usually in the gaps. Vendor changeover time between back-to-back functions at the same venue, family exhaustion by the third night in a row, and Lahore\u2019s weather (heat from April through September, fog and cold snaps in December and January) are the three factors that wreck an otherwise well-planned week. Build slack into the schedule for all three, not just the headline events.',
+      },
+      {
+        p: 'Treated as one coordinated production instead of four separate bookings, a multi-function Pakistani wedding runs the way it is meant to \u2014 as a single story told across a week, not four unrelated events that happen to share a couple.',
+      },
     ],
   },
 ];

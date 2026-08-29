@@ -144,4 +144,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.barakaevents.com/blog/walima-reception-planning-guide</loc>
+    <lastmod>2026-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima</loc>
+    <lastmod>2026-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
