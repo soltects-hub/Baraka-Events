@@ -19,7 +19,21 @@ export default function SmokeCursor() {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    import('webgl-fluid')
+    // Deferred: this is a purely decorative accent, not part of the
+    // initial view. Starting the WebGL context + shader compilation only
+    // once the browser is idle (or after a short fallback delay) keeps it
+    // off the critical initial-render path instead of competing with it.
+    const idle =
+      window.requestIdleCallback?.bind(window) ?? ((cb: () => void) => window.setTimeout(cb, 1200));
+    const cancelIdle = window.cancelIdleCallback?.bind(window) ?? window.clearTimeout.bind(window);
+
+    const idleHandle = idle(() => {
+      if (cancelled) return;
+      startFluid();
+    });
+
+    const startFluid = () => {
+      import('webgl-fluid')
       .then(({ default: WebglFluid }) => {
         if (cancelled) return;
 
@@ -91,9 +105,11 @@ export default function SmokeCursor() {
         };
       })
       .catch(() => {});
+    };
 
     return () => {
       cancelled = true;
+      cancelIdle(idleHandle);
       cleanup?.();
     };
   }, []);

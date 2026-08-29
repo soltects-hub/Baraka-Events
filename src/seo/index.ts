@@ -10,6 +10,8 @@ export {
   generateWebsiteSchema,
   generateArticleSchema,
   generateBreadcrumbSchema,
+  generateFAQSchema,
+  generateServiceSchema,
   applyStructuredData,
   composeSchemaGraph,
 } from './structuredData';

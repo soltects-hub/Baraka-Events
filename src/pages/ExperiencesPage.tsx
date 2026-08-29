@@ -1,9 +1,19 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
-import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import {
+  useSEO,
+  seoConfig,
+  routes,
+  generateWebsiteSchema,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+  applyStructuredData,
+  composeSchemaGraph,
+} from '../seo';
 
 const experiences = [
   {
@@ -15,9 +25,13 @@ const experiences = [
       'A Lahori wedding is rarely one event — it is mehndi, baraat, nikkah and walima, often across several days and venues. We plan each function on its own terms while keeping the design and logistics consistent across all of them, so the whole week feels like one wedding, not four separate bookings.',
     points: [
       { h: 'Mehndi Planning & Decoration', p: 'Floral staging, dholki arrangements and a colour palette that sets the tone for the rest of the week. We brief florists early in the day so everything is fresh by the time guests arrive in the evening.' },
-      { h: 'Baraat & Nikkah Coordination', p: 'Timing the groom’s arrival, dhol formations and the nikkah stage setup so the sequence runs smoothly instead of turning into a parking and scheduling scramble.' },
+      { h: 'Baraat (Barat) & Nikkah (Nikah) Coordination', p: 'Timing the groom’s arrival, dhol formations and the nikkah stage setup so the sequence runs smoothly instead of turning into a parking and scheduling scramble.' },
       { h: 'Walima Hosting & Decor', p: 'A more formal register for the closing function: refined florals, curated lighting and a hosting standard suited to the largest guest list of the week.' },
-      { h: 'Wedding Stage & Decor Design', p: 'Stage design, floral programs and lighting planned as one visual system rather than assembled piecemeal from separate rental catalogues.' },
+      { h: 'Wedding Stage & Decor Design', p: 'Stage design, floral programs and lighting planned as one visual system by our own wedding decorators, rather than assembled piecemeal from separate rental catalogues.' },
+    ],
+    related: [
+      { text: 'Mehndi themes we’re designing this season', to: '/blog/mehndi-themes-lahore-loves' },
+      { text: 'See wedding decor in the gallery', to: '/gallery' },
     ],
   },
   {
@@ -31,7 +45,11 @@ const experiences = [
       { h: 'Product Launches', p: 'Stage design and AV built for a reveal that has to land in one take, including for a live broadcast or press attendance.' },
       { h: 'Conference & Summit Management', p: 'Seating, sightlines and delegate flow planned for rooms ranging from 100 to over 1,000 attendees.' },
       { h: 'Annual Dinners & Award Nights', p: 'Full production from arrival to closing act, for companies that want one team accountable for the whole evening.' },
-      { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, handled with the same coordination as our larger corporate productions.' },
+      { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, handled by the same corporate event organizer team behind our larger productions.' },
+    ],
+    related: [
+      { text: 'Our corporate event checklist', to: '/blog/corporate-gala-lahore-checklist' },
+      { text: 'See recent productions', to: '/portfolio' },
     ],
   },
   {
@@ -44,8 +62,11 @@ const experiences = [
     points: [
       { h: 'Birthday Party Planning', p: 'From a themed party for a child to a milestone fiftieth, we handle decor, entertainment and catering as one coordinated plan.' },
       { h: 'Anniversary Events', p: 'Built around how the couple actually wants the evening to feel, from the venue down to the toast timing.' },
-      { h: 'Engagement Celebrations', p: 'A tone that sits between a family gathering and the formality of a nikkah, styled to set up the wedding that follows.' },
-      { h: 'Bridal & Baby Showers', p: 'Smaller guest lists, personal styling and the kind of detail that shows up in photos rather than in the budget.' },
+      { h: 'Engagement Celebrations', p: 'A tone that sits between a family gathering and the formality of a nikkah, styled by our engagement planning team to set up the wedding that follows.' },
+      { h: 'Bridal & Baby Showers', p: 'Smaller guest lists and the kind of personal detail a good bridal shower planner focuses on — the same care carries over to baby showers.' },
+    ],
+    related: [
+      { text: 'Read about intimate celebrations', to: '/blog/micro-weddings-intimate-celebrations-pakistan' },
     ],
   },
   {
@@ -60,11 +81,12 @@ const experiences = [
       { h: 'Live Sound Direction', p: 'Audio mixed properly rather than left to whatever the venue provides, whether it is a concert floor or a live qawwali set on a wedding stage.' },
       { h: 'Rigging & Technical Production', p: 'Certified rigs and backup power for any live event where a mid-show technical failure is not an option.' },
     ],
+    related: [{ text: 'See our production work', to: '/gallery' }],
   },
 ];
 
 const areas = [
-  'Gulberg', 'DHA', 'Model Town', 'Johar Town', 'Bahria Town', 'Cantt', 'Walled City', 'Liberty Roundabout',
+  'Gulberg', 'DHA Lahore', 'Model Town', 'Johar Town', 'Bahria Town Lahore', 'Lahore Cantt', 'Walled City', 'Liberty Roundabout',
 ];
 
 export default function ExperiencesPage() {
@@ -86,6 +108,9 @@ export default function ExperiencesPage() {
           { name: 'Home', url: seoConfig.site.url },
           { name: 'Experiences', url: `${seoConfig.site.url}${routes.experiences}` },
         ]),
+        ...experiences.map((exp) =>
+          generateServiceSchema({ name: exp.title, description: exp.intro, url: `${routes.experiences}#${exp.id}` })
+        ),
       ])
     );
   }, []);
@@ -171,6 +196,15 @@ export default function ExperiencesPage() {
                 </div>
               ))}
             </div>
+            {exp.related && exp.related.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/8 pt-5 text-[11px] uppercase tracking-[0.2em]">
+                {exp.related.map((r) => (
+                  <Link key={r.to} to={r.to} className="gold-underline text-cream/55 hover:text-gold">
+                    {r.text} &rarr;
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       ))}

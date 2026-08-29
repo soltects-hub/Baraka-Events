@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RevealText from './RevealText';
 
-const faqs = [
+export const faqs = [
   {
     q: 'How early should I book a wedding planner in Lahore?',
     a: 'For a full multi-function wedding — mehndi, baraat, nikkah and walima — book 9 to 12 months ahead if you want your first choice of venue and date, especially in wedding season (October to March). For a single function or a smaller private event, 2 to 4 months is usually enough. If your date is closer than that, contact us anyway — we can often still make it work.',

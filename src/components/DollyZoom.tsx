@@ -135,6 +135,7 @@ export default function DollyZoom() {
                 src={BEFORE_IMAGE}
                 alt="The same stage empty, before setup begins"
                 draggable={false}
+                loading="lazy"
                 className="pointer-events-none absolute inset-0 h-full w-full object-cover"
               />
 
@@ -148,6 +149,7 @@ export default function DollyZoom() {
                   src={AFTER_IMAGE}
                   alt="Event stage fully produced, with lighting, décor and table settings"
                   draggable={false}
+                  loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </motion.div>

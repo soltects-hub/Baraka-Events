@@ -30,6 +30,17 @@ export function generateOrganizationSchema() {
       postalCode: seoConfig.organization.address.postalCode,
       addressCountry: seoConfig.organization.address.addressCountry,
     },
+    // Matches the areas already named in the site's own "Where We Work"
+    // content (ExperiencesPage) — not a claim beyond what's published.
+    areaServed: [
+      'Lahore',
+      'Gulberg',
+      'DHA Lahore',
+      'Model Town',
+      'Johar Town',
+      'Bahria Town Lahore',
+      'Lahore Cantt',
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: seoConfig.organization.contact.telephone,
@@ -38,6 +49,47 @@ export function generateOrganizationSchema() {
       email: seoConfig.organization.contact.email,
     },
     sameAs: seoConfig.organization.sameAs,
+  };
+}
+
+/**
+ * FAQPage schema — pass the same Q&A pairs already rendered on-page.
+ * Never write copy here; this only mirrors visible content into markup.
+ */
+export function generateFAQSchema(faqs: { q: string; a: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  };
+}
+
+/**
+ * Service schema for one offering (Wedding Planning, Corporate Events,
+ * etc.) — links back to the Organization as provider rather than
+ * repeating its details.
+ */
+export function generateServiceSchema(service: { name: string; description: string; url: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: service.name,
+    name: service.name,
+    description: service.description,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: seoConfig.organization.name,
+      url: seoConfig.organization.url,
+    },
+    areaServed: 'Lahore, Pakistan',
+    url: absoluteUrl(service.url),
   };
 }
 
