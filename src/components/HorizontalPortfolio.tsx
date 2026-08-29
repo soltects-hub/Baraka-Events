@@ -7,7 +7,7 @@ const projects = [
     category: 'Wedding',
     location: 'A restored haveli, Walled City, Lahore',
     year: '2025',
-    image: '/media/portfolio-1.jpg',
+    image: '/media/portfolio-1.webp',
     stat: '600 guests · 4 functions',
   },
   {

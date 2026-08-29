@@ -17,7 +17,7 @@ const photos: { src: string; alt: string; category: (typeof categories)[number] 
   { src: '/media/wedding-2.jpg', alt: 'Bride and groom on a wedding stage in Lahore', category: 'Weddings' },
   { src: '/media/gallery-3.jpg', alt: 'Fireworks over a grand Pakistani shaadi celebration in Lahore', category: 'Weddings' },
   { src: '/media/about.jpg', alt: 'Henna-decorated hands arranging a marigold garland for a wedding', category: 'Weddings' },
-  { src: '/media/portfolio-1.jpg', alt: 'Grand wedding reception in a historic Lahore haveli courtyard', category: 'Weddings' },
+  { src: '/media/portfolio-1.webp', alt: 'Grand wedding reception in a historic Lahore haveli courtyard', category: 'Weddings' },
   { src: '/media/showcase-1.jpg', alt: 'Full-scale concert-grade stage and lighting rig, live event management Lahore', category: 'Corporate & Live' },
   { src: '/media/showcase-2.jpg', alt: 'Conference floor seating and sightlines for 1,200 delegates', category: 'Corporate & Live' },
   { src: '/media/showcase-3.jpg', alt: 'Live sound direction and audio engineering for a corporate event', category: 'Corporate & Live' },
