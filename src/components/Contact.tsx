@@ -22,7 +22,7 @@ export default function Contact() {
   return (
     <section id="contact" ref={ref} data-scene="12 · FINAL FRAME — CONTACT" className="relative overflow-hidden py-28 md:py-40">
       <motion.div style={{ y: bgY }} className="absolute inset-[-15%]">
-        <img src="/media/gallery-4.jpg" alt="" aria-hidden className="h-full w-full object-cover" loading="lazy" />
+        <img src="/media/gallery-4.webp" alt="" aria-hidden className="h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-ink/88" />
       </motion.div>
 

@@ -45,7 +45,7 @@ export default function About() {
             className="absolute -right-4 bottom-[-60px] z-20 hidden w-[45%] overflow-hidden rounded-sm border-4 border-ink shadow-2xl md:block"
           >
             <img
-              src="/media/wedding-1.jpg"
+              src="/media/wedding-1.webp"
               alt="Nikkah stage with a gold backdrop and floral arrangements"
               className="h-64 w-full object-cover"
               loading="lazy"

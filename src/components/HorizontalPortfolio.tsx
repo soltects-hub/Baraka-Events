@@ -15,7 +15,7 @@ const projects = [
     category: 'Corporate Event',
     location: 'A conference venue, Johar Town, Lahore',
     year: '2024',
-    image: '/media/portfolio-2.jpg',
+    image: '/media/portfolio-2.webp',
     stat: '1,200 guests · national livestream',
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     category: 'Private Celebration',
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
-    image: '/media/portfolio-3.jpg',
+    image: '/media/portfolio-3.webp',
     stat: '90 guests · sunset to sunrise',
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     category: 'Corporate Event',
     location: 'A grand ballroom, Gulberg, Lahore',
     year: '2023',
-    image: '/media/portfolio-4.jpg',
+    image: '/media/portfolio-4.webp',
     stat: '800 executives · awards night',
   },
 ];

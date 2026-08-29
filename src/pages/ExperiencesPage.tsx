@@ -20,7 +20,7 @@ const experiences = [
     id: 'weddings',
     tag: 'Weddings',
     title: 'Wedding Planning and Management in Lahore',
-    image: '/media/wedding-1.jpg',
+    image: '/media/wedding-1.webp',
     intro:
       'A Lahori wedding is rarely one event — it is mehndi, baraat, nikkah and walima, often across several days and venues. We plan each function on its own terms while keeping the design and logistics consistent across all of them, so the whole week feels like one wedding, not four separate bookings.',
     points: [
@@ -41,7 +41,7 @@ const experiences = [
     id: 'corporate',
     tag: 'Corporate Events',
     title: 'Corporate Event Management in Lahore',
-    image: '/media/corporate-1.jpg',
+    image: '/media/corporate-1.webp',
     intro:
       'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule, with no visible technical issues in front of clients, media or leadership.',
     points: [
@@ -59,7 +59,7 @@ const experiences = [
     id: 'private',
     tag: 'Private Celebrations',
     title: 'Private Event Planning for Birthdays, Anniversaries and Engagements',
-    image: '/media/private-1.jpg',
+    image: '/media/private-1.webp',
     intro:
       'Birthdays, anniversaries, engagements and family milestones, planned with the guest list and budget actually in mind, not scaled down from a wedding template.',
     points: [
@@ -78,7 +78,7 @@ const experiences = [
     id: 'live',
     tag: 'Live Shows & Concerts',
     title: 'Live Event and Concert Production',
-    image: '/media/showcase-1.jpg',
+    image: '/media/showcase-1.webp',
     intro:
       'Stage, sound and lighting production for ticketed and private concerts, run by the same technical crew that handles our wedding and corporate stages.',
     points: [

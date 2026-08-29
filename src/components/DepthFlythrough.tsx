@@ -15,12 +15,12 @@ interface ArchiveItem {
  */
 const items: ArchiveItem[] = [
   { src: '/media/portfolio-1.webp', alt: 'Wedding staged across a restored haveli in the Walled City', category: 'Wedding', title: 'A Four-Function Wedding', location: 'Walled City, Lahore' },
-  { src: '/media/corporate-1.jpg', alt: 'Corporate product launch stage', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
-  { src: '/media/portfolio-3.jpg', alt: 'Rooftop birthday celebration in the Walled City', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
-  { src: '/media/wedding-2.jpg', alt: 'Garden nikkah and walima at a private estate', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
-  { src: '/media/showcase-1.jpg', alt: 'Concert-grade stage and lighting rig', category: 'Live Production', title: 'Concert-Grade Stage & Light', location: 'Lahore' },
-  { src: '/media/portfolio-4.jpg', alt: 'Corporate awards night in a Gulberg ballroom', category: 'Corporate Event', title: 'An Awards Night', location: 'Gulberg, Lahore' },
-  { src: '/media/private-1.jpg', alt: 'Evening lounge setup for a private celebration', category: 'Private Celebration', title: 'An Evening Lounge Setup', location: 'Lahore' },
+  { src: '/media/corporate-1.webp', alt: 'Corporate product launch stage', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
+  { src: '/media/portfolio-3.webp', alt: 'Rooftop birthday celebration in the Walled City', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
+  { src: '/media/wedding-2.webp', alt: 'Garden nikkah and walima at a private estate', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
+  { src: '/media/showcase-1.webp', alt: 'Concert-grade stage and lighting rig', category: 'Live Production', title: 'Concert-Grade Stage & Light', location: 'Lahore' },
+  { src: '/media/portfolio-4.webp', alt: 'Corporate awards night in a Gulberg ballroom', category: 'Corporate Event', title: 'An Awards Night', location: 'Gulberg, Lahore' },
+  { src: '/media/private-1.webp', alt: 'Evening lounge setup for a private celebration', category: 'Private Celebration', title: 'An Evening Lounge Setup', location: 'Lahore' },
 ];
 
 const DRAG_SENSITIVITY = 0.35;

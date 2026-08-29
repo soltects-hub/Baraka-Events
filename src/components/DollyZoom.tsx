@@ -2,8 +2,8 @@ import { useRef, useState, type MouseEvent as ReactMouseEvent, type TouchEvent a
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
-const BEFORE_IMAGE = '/media/setup-before.jpg';
-const AFTER_IMAGE = '/media/setup-after.jpg';
+const BEFORE_IMAGE = '/media/setup-before.webp';
+const AFTER_IMAGE = '/media/setup-after.webp';
 
 /**
  * Hover-mask before/after: the "before" shot is the base layer, and the

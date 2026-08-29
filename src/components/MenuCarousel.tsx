@@ -15,7 +15,7 @@ const menu: MenuCard[] = [
     index: '01',
     title: 'Live BBQ Station',
     urdu: 'Angeethi',
-    image: '/media/gallery-6.jpg',
+    image: '/media/gallery-6.webp',
     accent: 'Charcoal-fired, carved to order',
     items: [
       { name: 'Seekh Kebab', desc: 'Hand-minced beef, charred over coals' },
@@ -28,7 +28,7 @@ const menu: MenuCard[] = [
     index: '02',
     title: 'The Grand Mains',
     urdu: 'Khaas Khaanay',
-    image: '/media/wedding-1.jpg',
+    image: '/media/wedding-1.webp',
     accent: 'The heart of every shaadi dastarkhwan',
     items: [
       { name: 'Mutton Qorma', desc: 'Slow-cooked in desi ghee, shahi style' },
@@ -41,7 +41,7 @@ const menu: MenuCard[] = [
     index: '03',
     title: 'Continental & Fusion',
     urdu: 'Jadeed Zaiqay',
-    image: '/media/corporate-1.jpg',
+    image: '/media/corporate-1.webp',
     accent: 'For the modern mehmaan',
     items: [
       { name: 'Herb-Crusted Chicken Roast', desc: 'Rosemary jus, roast vegetables' },
@@ -54,7 +54,7 @@ const menu: MenuCard[] = [
     index: '04',
     title: 'Desserts & Mithai',
     urdu: 'Meethas',
-    image: '/media/gallery-2.jpg',
+    image: '/media/gallery-2.webp',
     accent: 'The sweetest farewell',
     items: [
       { name: 'Shahi Kheer', desc: 'Clay-pot rice pudding, pistachio' },
@@ -67,7 +67,7 @@ const menu: MenuCard[] = [
     index: '05',
     title: 'Chai & Beverages',
     urdu: 'Mashroobat',
-    image: '/media/gallery-4.jpg',
+    image: '/media/gallery-4.webp',
     accent: 'From doodh patti to mocktails',
     items: [
       { name: 'Kashmiri Chai Station', desc: 'Pink tea, crushed pistachio' },

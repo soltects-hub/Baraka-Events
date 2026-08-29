@@ -8,21 +8,21 @@ const designs = [
     title: 'Keynote Hall',
     type: 'Conference Stage Concept',
     spec: '40ft LED wall · 1,000 pax · broadcast-ready',
-    image: '/media/design-1.jpg',
+    image: '/media/design-1.webp',
   },
   {
     n: '02',
     title: 'The Ring Gala',
     type: 'Corporate Dinner Concept',
     spec: 'Suspended light rings · 60 tables · centre stage',
-    image: '/media/design-2.jpg',
+    image: '/media/design-2.webp',
   },
   {
     n: '03',
     title: 'Launch Monolith',
     type: 'Product Reveal Concept',
     spec: 'Curved LED · mirror floor · reveal choreography',
-    image: '/media/design-3.jpg',
+    image: '/media/design-3.webp',
   },
 ];
 

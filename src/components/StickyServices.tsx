@@ -8,7 +8,7 @@ const services = [
     tagline: 'Every function, one plan',
     description:
       'Mehndi, baraat, nikkah and walima planned as one production instead of four separate events. We handle venue selection, stage and floral design, catering coordination and guest logistics, so the story stays consistent from the first night to the last.',
-    image: '/media/wedding-2.jpg',
+    image: '/media/wedding-2.webp',
     details: ['Mehndi · Baraat · Nikkah · Walima', 'Destination & Multi-Day Weddings', 'Stage, Floral & Lighting Design'],
   },
   {
@@ -17,7 +17,7 @@ const services = [
     tagline: 'Built to run on schedule',
     description:
       "Product launches, executive summits and award nights for brands that cannot afford a technical delay. We handle stage design, AV, run-of-show timing and hospitality across Lahore's hotels, expo halls and private venues.",
-    image: '/media/corporate-1.jpg',
+    image: '/media/corporate-1.webp',
     details: ['Launches, Summits & Award Nights', 'Stage Design & AV Production', 'Guest & Executive Hospitality'],
   },
   {
@@ -26,7 +26,7 @@ const services = [
     tagline: 'Sized to the guest list',
     description:
       'Birthdays, aqeeqahs, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty. A smaller guest list gets more design detail per guest, not less.',
-    image: '/media/private-1.jpg',
+    image: '/media/private-1.webp',
     details: ['Milestone Birthdays & Anniversaries', 'Rooftop Dinners & Garden Mehfils', 'Private & Intimate Gatherings'],
   },
 ];

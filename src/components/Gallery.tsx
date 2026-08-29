@@ -3,42 +3,42 @@ import LoopRail from './LoopRail';
 
 const frames = [
   {
-    src: '/media/showcase-1.jpg',
+    src: '/media/showcase-1.webp',
     n: '01',
     category: 'Live Productions',
     title: 'Full-scale stage & light',
     caption: 'Concert-grade rigs, engineered in-house',
   },
   {
-    src: '/media/showcase-2.jpg',
+    src: '/media/showcase-2.webp',
     n: '02',
     category: 'Conferences',
     title: 'The summit floor',
     caption: 'Seating, sightlines and flow for 1,200',
   },
   {
-    src: '/media/showcase-3.jpg',
+    src: '/media/showcase-3.webp',
     n: '03',
     category: 'Sound Direction',
     title: 'Mixed to the decibel',
     caption: 'Live audio engineered, never left to chance',
   },
   {
-    src: '/media/showcase-4.jpg',
+    src: '/media/showcase-4.webp',
     n: '04',
     category: 'Corporate Galas',
     title: 'The gala floor',
     caption: 'Intelligent lighting choreographed to the minute',
   },
   {
-    src: '/media/showcase-5.jpg',
+    src: '/media/showcase-5.webp',
     n: '05',
     category: 'Hospitality',
     title: 'First impressions',
     caption: 'Reception service trained to five-star standard',
   },
   {
-    src: '/media/showcase-6.jpg',
+    src: '/media/showcase-6.webp',
     n: '06',
     category: 'Technical',
     title: 'Rigging & truss',

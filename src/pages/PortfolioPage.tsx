@@ -21,7 +21,7 @@ const projects = [
     category: 'Corporate Event',
     location: 'A conference venue, Johar Town, Lahore',
     year: '2024',
-    image: '/media/portfolio-2.jpg',
+    image: '/media/portfolio-2.webp',
     stat: '1,200 guests · national livestream',
     summary:
       'A broadcast-ready product reveal for 1,200 attendees, produced for a live national stream with no room for technical delay. Stage, lighting cues and the reveal sequence were rehearsed in advance.',
@@ -31,7 +31,7 @@ const projects = [
     category: 'Private Celebration',
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
-    image: '/media/portfolio-3.jpg',
+    image: '/media/portfolio-3.webp',
     stat: '90 guests · sunset to sunrise',
     summary:
       'An intimate milestone birthday built around a rooftop view of the old city skyline: candlelight, a live qawwali set and a menu built around the guest of honor’s preferences.',
@@ -41,7 +41,7 @@ const projects = [
     category: 'Corporate Event',
     location: 'A grand ballroom, Gulberg, Lahore',
     year: '2023',
-    image: '/media/portfolio-4.jpg',
+    image: '/media/portfolio-4.webp',
     stat: '800 executives · awards night',
     summary:
       'An annual awards dinner for 800 executives, produced with a full stage build, custom lighting design and a run-of-show timed across a three-hour program.',
@@ -51,7 +51,7 @@ const projects = [
     category: 'Wedding',
     location: 'A private estate, DHA, Lahore',
     year: '2023',
-    image: '/media/wedding-2.jpg',
+    image: '/media/wedding-2.webp',
     stat: '450 guests · destination-style wedding',
     summary:
       'A garden nikkah and walima built for a family who wanted a destination-wedding feeling without leaving Lahore: Mughal-inspired archways, water-channel lighting and a marquee built for the site.',
@@ -61,7 +61,7 @@ const projects = [
     category: 'Private Celebration',
     location: 'A private residence, Gulberg, Lahore',
     year: '2023',
-    image: '/media/private-1.jpg',
+    image: '/media/private-1.webp',
     stat: '60 guests · milestone anniversary',
     summary:
       'An anniversary dinner for close family and friends: a single long table, live strings and lighting built to flatter the room rather than perform.',
