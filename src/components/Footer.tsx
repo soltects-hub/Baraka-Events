@@ -1,5 +1,6 @@
 import { useSectionNav } from '../lib/useSectionNav';
 import NeonWordmark from './NeonWordmark';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 
 const nav = [
   { label: 'About', href: '/about' },
@@ -13,7 +14,7 @@ const nav = [
 ];
 
 const socials = [
-  { label: 'WhatsApp', href: 'https://wa.link/yiogfm', color: '#25D366' },
+  { label: 'WhatsApp', href: WHATSAPP_URL, color: '#25D366' },
   { label: 'Facebook', href: 'https://facebook.com/Barakaeventsofficial', color: '#1877F2' },
   { label: 'Instagram', href: 'https://instagram.com/Barakaeventsofficial', color: '#E4405F' },
   { label: 'YouTube', href: 'https://youtube.com/@Barakaeventsofficial', color: '#FF0000' },

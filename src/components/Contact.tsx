@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 
 const inputClass =
   'w-full rounded-sm border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-light text-cream placeholder:text-cream/30 backdrop-blur-md transition-colors duration-300 focus:border-gold/60';
@@ -63,7 +64,7 @@ export default function Contact() {
               {[
                 {
                   label: 'WhatsApp',
-                  href: 'https://wa.link/yiogfm',
+                  href: WHATSAPP_URL,
                   color: '#25D366',
                   icon: (
                     <path d="M16.04 4C9.4 4 4 9.36 4 15.96c0 2.11.56 4.16 1.62 5.97L4 28l6.22-1.6a12.1 12.1 0 0 0 5.81 1.47h.01c6.63 0 12.03-5.36 12.03-11.96C28.07 9.36 22.67 4 16.04 4zm0 21.85h-.01a10.1 10.1 0 0 1-5.13-1.4l-.37-.22-3.69.95.99-3.58-.24-.37a9.85 9.85 0 0 1-1.53-5.27c0-5.5 4.5-9.97 10-9.97 2.67 0 5.18 1.04 7.07 2.92a9.86 9.86 0 0 1 2.93 7.06c0 5.5-4.51 9.88-10.02 9.88zm5.5-7.4c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.59-.5-.51-.68-.52l-.58-.01c-.2 0-.53.07-.8.37-.28.3-1.05 1.03-1.05 2.5 0 1.48 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.11 4.52.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35z" />
@@ -217,7 +218,7 @@ export default function Contact() {
                   <p className="text-sm font-light text-red-400">
                     Something went wrong sending your request. Please try again, or reach us directly at{' '}
                     <a href="tel:+923139999039" className="underline">+92 313 9999039</a> or{' '}
-                    <a href="https://wa.link/yiogfm" target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
                   </p>
                 )}
                 <div className="pt-2">

@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import SmokeCursor from './components/SmokeCursor';
 import Home from './pages/Home';
+import { generateOrganizationSchema, applyStructuredData } from './seo';
 
 // Every other route is code-split: a first-time visit to "/" (by far the
 // most common entry point) should not have to fetch/parse the JS for
@@ -31,11 +32,24 @@ function ScrollRestore() {
   return null;
 }
 
+function OrganizationSchema() {
+  // Mounted once at the app root (not per-page) so the business's NAP/entity
+  // data — the actual fix for Phase 8 — is present on every route, not just
+  // the homepage. Each page still applies its own page-specific schema
+  // (WebSite, Breadcrumb, Article, FAQ...) under a separate DOM id, so the
+  // two never collide.
+  useEffect(() => {
+    applyStructuredData(generateOrganizationSchema(), 'ld-organization');
+  }, []);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <SmoothScrollProvider>
         <ScrollRestore />
+        <OrganizationSchema />
         <div>
           <Navbar />
           <Suspense fallback={<div className="min-h-screen bg-ink" />}>

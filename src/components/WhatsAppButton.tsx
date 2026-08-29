@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-
-const WHATSAPP_URL = 'https://wa.link/yiogfm';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (

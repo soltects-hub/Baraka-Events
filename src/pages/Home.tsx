@@ -2,7 +2,7 @@ import { Suspense, lazy, useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { useLenis } from '../lib/useLenis';
-import { useSEO, routes, generateOrganizationSchema, generateWebsiteSchema, generateFAQSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { useSEO, routes, generateWebsiteSchema, generateFAQSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 import Preloader from '../components/Preloader';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
@@ -46,9 +46,9 @@ export default function Home() {
   });
 
   useEffect(() => {
-    applyStructuredData(
-      composeSchemaGraph([generateOrganizationSchema(), generateWebsiteSchema(), generateFAQSchema(faqs)])
-    );
+    // Organization/LocalBusiness schema is applied once, sitewide, in App.tsx
+    // (see OrganizationSchema) — this only needs what's specific to Home.
+    applyStructuredData(composeSchemaGraph([generateWebsiteSchema(), generateFAQSchema(faqs)]));
   }, []);
 
   // arriving from another page with a #section target
