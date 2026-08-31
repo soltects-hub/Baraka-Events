@@ -17,6 +17,7 @@
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { routes, seoConfig } from '../../src/seo';
+import { services } from '../../src/lib/services';
 
 type FunnelStage = 'awareness' | 'consideration' | 'decision';
 type ContentType = 'blog-post' | 'service-section' | 'faq-entry';
@@ -43,6 +44,8 @@ interface Cluster {
   contentType: ContentType;
   /** Existing post slug this cluster maps to, if any — grounds cannibalization checks. */
   existingSlug: string | null;
+  /** Existing /services/:slug page this cluster maps to, if any — same cannibalization treatment as existingSlug. */
+  existingServiceSlug?: string;
   /** One-line note on what real site content this cluster is grounded in. */
   evidence: string;
   /** Core seed phrases for this cluster (the "thing" being searched for). */
@@ -122,20 +125,22 @@ const clusters: Cluster[] = [
   // ---- New clusters — real Baraka services with no dedicated content yet ----
   {
     name: 'Nikkah',
-    proposedUrl: routes.blogPost('nikkah-ceremony-planning-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('nikkah-events'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'StickyServices.tsx details: "Mehndi · Baraat · Nikkah · Walima"',
+    existingServiceSlug: 'nikkah-events',
+    evidence: 'Dedicated page shipped: /services/nikkah-events (StickyServices.tsx details: "Mehndi · Baraat · Nikkah · Walima")',
     seeds: ['nikkah ceremony', 'nikkah stage', 'nikkah venue', 'nikkah decor'],
     modifiers: ['{seed} ideas', '{seed} in Lahore', 'best {seed} 2025', 'simple {seed} setup', 'luxury {seed}'],
     basePriority: 'high',
   },
   {
     name: 'Engagement / Mangni',
-    proposedUrl: routes.blogPost('engagement-mangni-ideas-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('engagement-events'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'Reasonable extension of "Luxury Shaadis" multi-function coverage (Mehndi/Baraat/Nikkah/Walima) — mangni is a standard pre-wedding function in the same funnel.',
+    existingServiceSlug: 'engagement-events',
+    evidence: 'Dedicated page shipped: /services/engagement-events',
     seeds: ['engagement decor', 'mangni function', 'ring ceremony', 'engagement party'],
     modifiers: ['{seed} ideas', '{seed} Lahore', 'best {seed} themes', 'luxury {seed} setup'],
     basePriority: 'medium',
@@ -152,20 +157,22 @@ const clusters: Cluster[] = [
   },
   {
     name: 'Corporate Product Launch',
-    proposedUrl: routes.blogPost('product-launch-event-production-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('corporate-events'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'StickyServices.tsx detail: "Launches, Galas & Summits", "Brand Environments & Stage Design"',
+    existingServiceSlug: 'corporate-events',
+    evidence: 'Dedicated page shipped: /services/corporate-events covers "Product Launches" explicitly',
     seeds: ['product launch event', 'brand launch event', 'launch event production'],
     modifiers: ['{seed} Lahore', 'best {seed} company', '{seed} ideas', 'corporate {seed} checklist'],
     basePriority: 'medium',
   },
   {
     name: 'Corporate Summit & Conference',
-    proposedUrl: routes.blogPost('corporate-summit-conference-planning-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('corporate-events'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'StickyServices.tsx detail: "Launches, Galas & Summits"',
+    existingServiceSlug: 'corporate-events',
+    evidence: 'Dedicated page shipped: /services/corporate-events covers "Conferences & Summits" explicitly',
     seeds: ['corporate summit', 'business conference', 'executive summit'],
     modifiers: ['{seed} planning Lahore', 'best {seed} venues', '{seed} production company Lahore'],
     basePriority: 'low',
@@ -182,10 +189,11 @@ const clusters: Cluster[] = [
   },
   {
     name: 'Milestone Birthdays',
-    proposedUrl: routes.blogPost('milestone-birthday-events-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('birthday-events'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'StickyServices.tsx detail: "Milestone Birthdays & Anniversaries"; real Search Console query "birthday events lahore" (impressions, 0 clicks) confirms live demand.',
+    existingServiceSlug: 'birthday-events',
+    evidence: 'Dedicated page shipped: /services/birthday-events; real Search Console query "birthday events lahore" (impressions, 0 clicks) confirms live demand — this cluster is exactly why the page was prioritized.',
     seeds: ['birthday event', 'birthday party planner', 'milestone birthday celebration'],
     modifiers: ['{seed} Lahore', 'best {seed} company', 'luxury {seed} ideas', '{seed} venues Lahore'],
     basePriority: 'high',
@@ -222,30 +230,32 @@ const clusters: Cluster[] = [
   },
   {
     name: 'Event Decor & Floral Design',
-    proposedUrl: routes.blogPost('luxury-event-decor-floral-design-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('event-decoration'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'StickyServices.tsx detail: "Couture Floral & Stage Design"; distinct from mehndi/walima-specific decor posts — general decor/floral capability page.',
+    existingServiceSlug: 'event-decoration',
+    evidence: 'Dedicated page shipped: /services/event-decoration; distinct from mehndi/walima-specific decor posts — general decor/floral capability page.',
     seeds: ['event decor', 'floral design', 'stage design'],
     modifiers: ['{seed} Lahore', 'best {seed} company', 'luxury {seed} ideas', '{seed} for weddings'],
     basePriority: 'medium',
   },
   {
     name: 'Event Lighting & Production',
-    proposedUrl: routes.blogPost('event-lighting-av-production-lahore'),
-    contentType: 'blog-post',
+    proposedUrl: routes.servicePage('event-decoration'),
+    contentType: 'service-section',
     existingSlug: null,
-    evidence: 'FAQ.tsx: "technical production"; StickyServices.tsx "Brand Environments & Stage Design"',
+    existingServiceSlug: 'event-decoration',
+    evidence: 'Dedicated page shipped: /services/event-decoration covers "Lighting Design" explicitly (FAQ.tsx: "technical production"; StickyServices.tsx "Brand Environments & Stage Design")',
     seeds: ['event lighting design', 'AV production company', 'stage lighting for weddings'],
     modifiers: ['{seed} Lahore', 'best {seed}', '{seed} for corporate events'],
     basePriority: 'low',
   },
   {
     name: 'Event Planner (brand/category)',
-    proposedUrl: routes.home,
+    proposedUrl: routes.services,
     contentType: 'service-section',
     existingSlug: null,
-    evidence: 'Homepage #experiences section covers all three service pillars; a navigational/brand-category term belongs on the homepage, not a new thin page.',
+    evidence: 'Dedicated /services hub page shipped (own SEO title: "Event Planning Services in Lahore") — a stronger, more topically-focused target for this category term than the homepage.',
     seeds: ['event planner', 'event management company', 'event planning company'],
     modifiers: ['best {seed} in Lahore', '{seed} in {loc}', 'top {seed} Lahore'],
     locations: LAHORE_AREAS,
@@ -253,10 +263,11 @@ const clusters: Cluster[] = [
   },
   {
     name: 'Wedding Planner (brand/category)',
-    proposedUrl: routes.home,
+    proposedUrl: routes.servicePage('wedding-planning'),
     contentType: 'service-section',
     existingSlug: null,
-    evidence: 'Homepage #experiences "Luxury Shaadis" pillar; brand-category navigational term.',
+    existingServiceSlug: 'wedding-planning',
+    evidence: 'Dedicated page shipped: /services/wedding-planning (own SEO title: "Wedding Planning & Management in Lahore") is a near-exact match for this cluster\'s seeds — stronger target than the homepage.',
     seeds: ['wedding planner', 'shaadi planner'],
     modifiers: ['best {seed} in Lahore', '{seed} in {loc}', 'top {seed} Lahore'],
     locations: LAHORE_AREAS,
@@ -264,10 +275,11 @@ const clusters: Cluster[] = [
   },
   {
     name: 'Corporate Event Planner (brand/category)',
-    proposedUrl: routes.home,
+    proposedUrl: routes.servicePage('corporate-events'),
     contentType: 'service-section',
     existingSlug: null,
-    evidence: 'Homepage #experiences "Corporate Events" pillar; brand-category navigational term.',
+    existingServiceSlug: 'corporate-events',
+    evidence: 'Dedicated page shipped: /services/corporate-events — stronger, topically-focused target than the homepage.',
     seeds: ['corporate event planner', 'corporate event company'],
     modifiers: ['best {seed} in Lahore', '{seed} in {loc}', 'top {seed} Lahore'],
     locations: LAHORE_AREAS,
@@ -360,9 +372,16 @@ function intentFor(modifier: string, cluster: Cluster): { intent: string; funnel
 }
 
 function cannibalizationFor(cluster: Cluster): { risk: CannibalizationRisk; competing: string | null } {
-  if (!cluster.existingSlug) return { risk: 'none', competing: null };
-  const competing = `${seoConfig.site.url}${routes.blogPost(cluster.existingSlug)}`;
-  return { risk: 'medium', competing };
+  if (cluster.existingSlug) {
+    return { risk: 'medium', competing: `${seoConfig.site.url}${routes.blogPost(cluster.existingSlug)}` };
+  }
+  if (cluster.existingServiceSlug) {
+    if (!services.some((s) => s.slug === cluster.existingServiceSlug)) {
+      throw new Error(`Cluster "${cluster.name}" references unknown service slug "${cluster.existingServiceSlug}" — check src/lib/services.ts.`);
+    }
+    return { risk: 'medium', competing: `${seoConfig.site.url}${routes.servicePage(cluster.existingServiceSlug)}` };
+  }
+  return { risk: 'none', competing: null };
 }
 
 function priorityFor(base: Priority, funnel: FunnelStage): Priority {

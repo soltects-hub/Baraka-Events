@@ -17,6 +17,7 @@
  */
 import { routes } from '../../src/seo';
 import { posts } from '../../src/lib/posts';
+import { services } from '../../src/lib/services';
 
 export type LegacyUrlClassification =
   | 'current-valid' // matches an existing real route — not legacy at all
@@ -51,20 +52,29 @@ const KNOWN_REDIRECT_CANDIDATES: Record<string, string> = {
   '/about-us/': '/#about',
   '/contact-us/': '/#contact',
   '/gallery/': '/#gallery',
-  '/corporate-event-planner/': '/#experiences',
-  '/event-planner/': '/#experiences',
-  '/wedding-planner/': '/#experiences',
+  // Updated once /services/* shipped (2026-08-31): a dedicated, topically-focused
+  // page is a better redirect target than a homepage anchor for these three —
+  // see vercel.json for the actual implemented 301s.
+  '/corporate-event-planner/': routes.servicePage('corporate-events'),
+  '/event-planner/': routes.services,
+  '/wedding-planner/': routes.servicePage('wedding-planning'),
+  '/birthday-planners/': routes.servicePage('birthday-events'),
 };
 
 /** URLs known to need human investigation rather than an automatic rule. */
-const KNOWN_INVESTIGATE: Record<string, string> = {
-  '/birthday-planners/':
-    'Real search demand exists ("birthday events lahore" appears in current-period queries). Private Celebrations already covers milestone birthdays, but there is no dedicated page. Consider: (a) a redirect to /#experiences now, or (b) a dedicated birthday-events content page later (see keyword map) — a human should decide based on demand, not this script.',
-};
+const KNOWN_INVESTIGATE: Record<string, string> = {};
 
 function currentValidPaths(): Set<string> {
-  const paths = new Set<string>([routes.home, routes.blog, '/robots.txt', '/sitemap.xml', '/googlebc2c622c6923c88b.html']);
+  const paths = new Set<string>([
+    routes.home,
+    routes.blog,
+    routes.services,
+    '/robots.txt',
+    '/sitemap.xml',
+    '/googlebc2c622c6923c88b.html',
+  ]);
   for (const post of posts) paths.add(routes.blogPost(post.slug));
+  for (const service of services) paths.add(routes.servicePage(service.slug));
   return paths;
 }
 

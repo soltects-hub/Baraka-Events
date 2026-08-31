@@ -1,4 +1,9 @@
 {
+  "redirects": [
+    { "source": "/wedding-planner/", "destination": "/services/wedding-planning", "statusCode": 301 },
+    { "source": "/corporate-event-planner/", "destination": "/services/corporate-events", "statusCode": 301 },
+    { "source": "/birthday-planners/", "destination": "/services/birthday-events", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
     { "source": "/experiences", "destination": "/experiences.html" },
