@@ -15,7 +15,7 @@ const menu: MenuCard[] = [
     index: '01',
     title: 'Live BBQ Station',
     urdu: 'Angeethi',
-    image: '/media/gallery-6.webp',
+    image: '/media/bbq-station.webp',
     accent: 'Charcoal-fired, carved to order',
     items: [
       { name: 'Seekh Kebab', desc: 'Hand-minced beef, charred over coals' },
