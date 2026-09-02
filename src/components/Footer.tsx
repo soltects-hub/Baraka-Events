@@ -109,7 +109,7 @@ export default function Footer() {
 
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[11px] font-light tracking-wide text-cream/35 md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[11px] font-light tracking-wide text-cream/60 md:flex-row">
           <span>&copy; {new Date().getFullYear()} Baraka Events. All rights reserved.</span>
           <span>Crafted with Baraka &mdash; in Lahore, for Lahore</span>
         </div>

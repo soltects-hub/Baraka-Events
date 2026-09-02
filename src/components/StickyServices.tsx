@@ -121,7 +121,7 @@ export default function StickyServices() {
               <div key={sv.index} className="flex items-center gap-4">
                 <span
                   className={`text-[11px] uppercase tracking-[0.3em] transition-all duration-500 ${
-                    i === active ? 'text-gold' : 'text-cream/30'
+                    i === active ? 'text-gold' : 'text-cream/60'
                   }`}
                 >
                   {sv.title}
