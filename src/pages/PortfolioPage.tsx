@@ -31,7 +31,7 @@ const projects = [
     category: 'Private Celebration',
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
-    image: '/media/portfolio-3.webp',
+    image: '/media/rooftop-birthday.webp',
     stat: '90 guests · sunset to sunrise',
     summary:
       'An intimate milestone birthday built around a rooftop view of the old city skyline: candlelight, a live qawwali set and a menu built around the guest of honor’s preferences.',

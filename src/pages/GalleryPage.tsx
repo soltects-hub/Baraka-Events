@@ -27,7 +27,7 @@ const photos: { src: string; alt: string; category: (typeof categories)[number] 
   { src: '/media/corporate-1.webp', alt: 'Corporate event management stage set in Lahore', category: 'Corporate & Live' },
   { src: '/media/portfolio-2.webp', alt: 'Corporate product launch on stage at Expo Centre Lahore', category: 'Corporate & Live' },
   { src: '/media/portfolio-4.webp', alt: 'Corporate awards dinner in a Gulberg grand ballroom', category: 'Corporate & Live' },
-  { src: '/media/portfolio-3.webp', alt: 'Private rooftop birthday celebration in the Walled City, Lahore', category: 'Private' },
+  { src: '/media/rooftop-birthday.webp', alt: 'Private rooftop birthday celebration in the Walled City, Lahore', category: 'Private' },
   { src: '/media/design-1.webp', alt: 'Keynote conference stage concept render, 3D event design Lahore', category: 'Design Concepts' },
   { src: '/media/design-2.webp', alt: 'Corporate dinner concept render with suspended light rings', category: 'Design Concepts' },
   { src: '/media/design-3.webp', alt: 'Product reveal stage concept render with curved LED wall', category: 'Design Concepts' },
