@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
 import { members } from '../lib/team';
 
 const CARD_W = 220;
@@ -29,6 +29,11 @@ export default function TeamCarousel3D() {
   const current = items[active];
   const isComingSoon = !current.image;
 
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
+    if (info.offset.x < -60) next();
+    else if (info.offset.x > 60) prev();
+  };
+
   return (
     <div
       className="relative mx-auto max-w-[1200px] px-6 md:px-10"
@@ -42,8 +47,16 @@ export default function TeamCarousel3D() {
         style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
       />
 
-      {/* 3D ring */}
-      <div className="relative h-[300px] sm:h-[360px] md:h-[420px]" style={{ perspective: '1800px' }}>
+      {/* 3D ring — draggable left/right to step through members, same
+          swipe-to-step gesture as the Gallery page's photo carousel */}
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.15}
+        onDragEnd={handleDragEnd}
+        className="relative h-[300px] select-none cursor-grab active:cursor-grabbing sm:h-[360px] md:h-[420px]"
+        style={{ perspective: '1800px' }}
+      >
         <div
           className="absolute left-1/2 top-1/2 h-0 w-0"
           style={{
@@ -111,7 +124,7 @@ export default function TeamCarousel3D() {
         >
           &#10095;
         </button>
-      </div>
+      </motion.div>
 
       {/* caption panel — the active member's details, fixed and readable */}
       <div className="relative mx-auto mt-10 max-w-xl text-center">

@@ -23,7 +23,7 @@ export default function Team() {
           </div>
           <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 md:text-right">
             A small team that works on every event together. Hover to pause the
-            carousel, or click a face to bring it forward.
+            carousel, drag left or right to browse, or click a face to bring it forward.
           </p>
         </div>
       </div>
