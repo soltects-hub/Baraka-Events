@@ -77,7 +77,7 @@ export default function HorizontalPortfolio() {
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         {/* pan-head readout */}
         <div className="absolute right-6 top-24 z-20 hidden items-center gap-3 md:right-10 md:flex">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/45">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/60">
             pan {panDeg > 0 ? '+' : ''}{panDeg}°
           </span>
           <div className="relative h-[1px] w-20 bg-white/15">

@@ -83,7 +83,7 @@ export default function Blog() {
               </span>
             </div>
             <div className="flex flex-col justify-center p-7 md:p-10">
-              <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/45">
+              <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60">
                 <span className="text-gold">{featured.category}</span>
                 <span className="h-1 w-1 rounded-full bg-cream/25" />
                 <span>{featured.date}</span>
@@ -125,7 +125,7 @@ export default function Blog() {
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/45">
+                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60">
                     <span className="text-gold">{post.category}</span>
                     <span className="h-1 w-1 rounded-full bg-cream/25" />
                     <span>{post.readTime}</span>

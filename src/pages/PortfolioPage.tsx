@@ -152,7 +152,7 @@ export default function PortfolioPage() {
                 </span>
               </div>
               <div className="p-7 md:p-8">
-                <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/45">
+                <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60">
                   <span className="text-gold">{p.category}</span>
                   <span className="h-1 w-1 rounded-full bg-cream/25" />
                   <span>{p.location}</span>

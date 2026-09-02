@@ -238,7 +238,7 @@ export default function DepthFlythrough() {
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{active.category}</p>
               <h3 className="mt-3 font-display text-2xl font-light text-cream md:text-3xl">{active.title}</h3>
-              <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-cream/45">{active.location}</p>
+              <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-cream/60">{active.location}</p>
             </motion.div>
           </AnimatePresence>
         </div>
