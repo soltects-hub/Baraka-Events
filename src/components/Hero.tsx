@@ -71,18 +71,18 @@ export default function Hero({ started }: { started: boolean }) {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={started ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="text-[10px] uppercase tracking-[0.5em] text-gold md:text-xs"
         >
           Event Design &amp; Production &mdash; Gulberg, Lahore
         </motion.p>
 
         <h1 className="mt-5 max-w-3xl font-display font-light leading-[1.06] text-cream text-[13vw] sm:text-[9vw] md:text-[6vw]">
-          <RevealText as="span" text="Weddings, corporate events," delay={0.5} className="block text-cream" />
+          <RevealText as="span" text="Weddings, corporate events," delay={0.2} className="block text-cream" />
           <RevealText
             as="span"
             text="private celebrations."
-            delay={0.7}
+            delay={0.35}
             className="block italic text-gold-soft"
           />
         </h1>
@@ -90,7 +90,7 @@ export default function Hero({ started }: { started: boolean }) {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={started ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1.1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-6 max-w-md text-sm font-light leading-relaxed text-cream/75 md:max-w-xl md:text-base"
         >
           From mehndi and baraat to product launches and milestone birthdays, we handle
@@ -101,7 +101,7 @@ export default function Hero({ started }: { started: boolean }) {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={started ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1.3 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
           className="mt-8 flex flex-col items-start gap-4 sm:flex-row"
         >
           <MagneticButton
@@ -127,7 +127,7 @@ export default function Hero({ started }: { started: boolean }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={started ? { opacity: 1 } : {}}
-        transition={{ delay: 1.8, duration: 1 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <motion.svg
