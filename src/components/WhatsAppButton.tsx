@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -36,7 +36,7 @@ export default function WhatsAppButton() {
     <>
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             ref={panelRef}
             role="dialog"
             aria-label="Chat with Baraka Events on WhatsApp"
@@ -94,11 +94,11 @@ export default function WhatsAppButton() {
                 Online<span className="mx-2">|</span>Privacy Policy
               </p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 
-      <motion.button
+      <m.button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label="Chat with Baraka Events on WhatsApp"
@@ -121,7 +121,7 @@ export default function WhatsAppButton() {
           {!open && <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/40 [animation-duration:2.2s]" />}
           <AnimatePresence mode="wait" initial={false}>
             {open ? (
-              <motion.span
+              <m.span
                 key="close"
                 initial={{ opacity: 0, rotate: -45 }}
                 animate={{ opacity: 1, rotate: 0 }}
@@ -130,9 +130,9 @@ export default function WhatsAppButton() {
                 className="relative text-2xl leading-none text-white"
               >
                 &#10005;
-              </motion.span>
+              </m.span>
             ) : (
-              <motion.span
+              <m.span
                 key="icon"
                 initial={{ opacity: 0, rotate: 45 }}
                 animate={{ opacity: 1, rotate: 0 }}
@@ -141,11 +141,11 @@ export default function WhatsAppButton() {
                 className="relative"
               >
                 <WhatsAppIcon className="h-7 w-7 fill-white" />
-              </motion.span>
+              </m.span>
             )}
           </AnimatePresence>
         </span>
-      </motion.button>
+      </m.button>
     </>
   );
 }

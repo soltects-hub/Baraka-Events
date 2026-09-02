@@ -1,5 +1,5 @@
 import { useRef, type MouseEvent, type TouchEvent } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const WORD = 'BARAKA';
 
@@ -166,7 +166,7 @@ export default function NeonWordmark() {
             so the glow has room to fade out instead of being clipped;
             the inner row is inset back by the same fixed amount so the
             letters still land exactly on top of the base layer. */}
-        <motion.div
+        <m.div
           aria-hidden
           style={{ WebkitMaskImage: maskImage, maskImage }}
           className="pointer-events-none absolute -inset-x-[6vw] -inset-y-[40vw]"
@@ -184,7 +184,7 @@ export default function NeonWordmark() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

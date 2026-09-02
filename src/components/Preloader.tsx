@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 const words = ['Mehndi', 'Baraat', 'Nikkah', 'Walima', 'Baraka'];
 
@@ -28,7 +28,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
   }, [index, onDone]);
 
   return (
-    <motion.div
+    <m.div
       className="fixed inset-0 z-[200] flex items-center justify-center bg-ink"
       animate={exit ? { y: '-100%' } : { y: 0 }}
       transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
@@ -37,7 +37,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
         <div className="h-[1px] w-16 bg-gold/60" />
         <div className="h-[3.2rem] overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.span
+            <m.span
               key={index}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
@@ -46,17 +46,17 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
               className="block font-display text-4xl md:text-5xl italic text-cream"
             >
               {words[index]}
-            </motion.span>
+            </m.span>
           </AnimatePresence>
         </div>
         <div className="h-[1px] w-16 bg-gold/60" />
       </div>
-      <motion.div
+      <m.div
         className="absolute bottom-0 left-0 h-[2px] bg-gold"
         initial={{ width: '0%' }}
         animate={{ width: '100%' }}
         transition={{ duration: 1, ease: 'linear' }}
       />
-    </motion.div>
+    </m.div>
   );
 }

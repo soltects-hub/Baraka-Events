@@ -1,5 +1,5 @@
 import { useRef, type ReactNode, type MouseEvent as ReactMouseEvent } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { m, useMotionValue, useSpring } from 'framer-motion';
 
 interface Props {
   children: ReactNode;
@@ -45,7 +45,7 @@ export default function MagneticButton({
   const buttonClass = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-gold font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 ${sizeClass} ${className}`;
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -67,6 +67,6 @@ export default function MagneticButton({
           {children}
         </button>
       )}
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { SmoothScrollProvider } from './lib/scroll';
 import { useLenis } from './lib/useLenis';
 import Navbar from './components/Navbar';
@@ -49,32 +50,41 @@ function OrganizationSchema() {
 export default function App() {
   return (
     <BrowserRouter>
-      <SmoothScrollProvider>
-        <ScrollRestore />
-        <OrganizationSchema />
-        <div>
-          <Navbar />
-          <Suspense fallback={<div className="min-h-screen bg-ink" />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/experiences" element={<ExperiencesPage />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
-              <Route path="/gallery" element={<GalleryPage />} />
-              <Route path="/team" element={<TeamPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/services" element={<ServicesIndexPage />} />
-              <Route path="/services/:slug" element={<ServicePage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-          <Footer />
-          <WhatsAppButton />
-          <SmokeCursor />
-        </div>
-      </SmoothScrollProvider>
+      {/* Home's LCP-critical components (Hero, Preloader, RevealText,
+          MagneticButton, Navbar) use `m` instead of `motion` so the main
+          bundle only needs this smaller synchronous feature set rather than
+          framer-motion's full animation engine (which still loads normally,
+          just as part of whichever lazy route chunk actually uses `motion`
+          directly). `strict` is intentionally off — most page-specific
+          components still use `motion` and continue to work unchanged. */}
+      <LazyMotion features={domAnimation}>
+        <SmoothScrollProvider>
+          <ScrollRestore />
+          <OrganizationSchema />
+          <div>
+            <Navbar />
+            <Suspense fallback={<div className="min-h-screen bg-ink" />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/experiences" element={<ExperiencesPage />} />
+                <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/team" element={<TeamPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/services" element={<ServicesIndexPage />} />
+                <Route path="/services/:slug" element={<ServicePage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+            <Footer />
+            <WhatsAppButton />
+            <SmokeCursor />
+          </div>
+        </SmoothScrollProvider>
+      </LazyMotion>
     </BrowserRouter>
   );
 }

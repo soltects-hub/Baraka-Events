@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { m, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useLenis } from '../lib/useLenis';
 import { useSectionNav } from '../lib/useSectionNav';
 import MagneticButton from './MagneticButton';
@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
+      <m.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -85,15 +85,15 @@ export default function Navbar() {
             aria-label="Toggle menu"
             className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full border border-white/10 bg-white/5 backdrop-blur-md lg:hidden"
           >
-            <motion.span animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
-            <motion.span animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
+            <m.span animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
+            <m.span animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
           </button>
         </div>
-      </motion.header>
+      </m.header>
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
             animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
             exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
@@ -103,7 +103,7 @@ export default function Navbar() {
             <div className="flex flex-col gap-2">
               {links.map((l, i) => (
                 <div key={l.href} className="overflow-hidden">
-                  <motion.a
+                  <m.a
                     href={l.href.startsWith('#') ? '/' + l.href : l.href}
                     initial={{ y: '110%' }}
                     animate={{ y: 0 }}
@@ -113,11 +113,11 @@ export default function Navbar() {
                     className="block font-display text-4xl text-cream transition-colors hover:text-gold sm:text-5xl"
                   >
                     {l.label}
-                  </motion.a>
+                  </m.a>
                 </div>
               ))}
             </div>
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -125,8 +125,8 @@ export default function Navbar() {
               className="mt-12 text-sm uppercase tracking-[0.25em] text-mist"
             >
               Booking@barakaevents.com
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useLenis } from '../lib/useLenis';
 import MagneticButton from './MagneticButton';
 import RevealText from './RevealText';
@@ -28,7 +28,7 @@ export default function Hero() {
       {/* auto-sliding banner */}
       <div className="absolute inset-0">
         <AnimatePresence initial={false}>
-          <motion.div
+          <m.div
             key={slide}
             initial={{ x: '100%' }}
             animate={{ x: '0%' }}
@@ -41,7 +41,7 @@ export default function Hero() {
               alt={SLIDES[slide].alt}
               className="h-full w-full object-cover contrast-[1.08] saturate-[1.15]"
             />
-          </motion.div>
+          </m.div>
         </AnimatePresence>
         {/* legibility gradient — kept light so the photo stays bright, not dim */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/10" />
@@ -73,14 +73,14 @@ export default function Hero() {
           Lighthouse's LCP timing, which ignores occlusion by another
           element, no longer counts the Preloader's gate against this text. */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-6 pt-24 md:px-10">
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-[10px] uppercase tracking-[0.5em] text-gold md:text-xs"
         >
           Event Design &amp; Production &mdash; Gulberg, Lahore
-        </motion.p>
+        </m.p>
 
         <h1 className="mt-5 max-w-3xl font-display font-light leading-[1.06] text-cream text-[13vw] sm:text-[9vw] md:text-[6vw]">
           <RevealText as="span" text="Weddings, corporate events," delay={0.2} className="block text-cream" />
@@ -92,7 +92,7 @@ export default function Hero() {
           />
         </h1>
 
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -101,9 +101,9 @@ export default function Hero() {
           From mehndi and baraat to product launches and milestone birthdays, we handle
           the planning, the vendors and the schedule — so you get to actually attend
           your own event.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
@@ -125,17 +125,17 @@ export default function Hero() {
           >
             See Our Work
           </MagneticButton>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* scroll cue */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
-        <motion.svg
+        <m.svg
           viewBox="0 0 24 24"
           className="h-5 w-5 stroke-cream/50"
           fill="none"
@@ -144,8 +144,8 @@ export default function Hero() {
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
         >
           <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </motion.svg>
-      </motion.div>
+        </m.svg>
+      </m.div>
     </section>
   );
 }

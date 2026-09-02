@@ -5,17 +5,20 @@ import { useLenis } from '../lib/useLenis';
 import { useSEO, routes, generateWebsiteSchema, generateFAQSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 import Preloader from '../components/Preloader';
 import Hero from '../components/Hero';
-import Marquee from '../components/Marquee';
-import About from '../components/About';
-import FAQ from '../components/FAQ';
 import { faqs } from '../lib/faqs';
 import LazyMount from '../components/LazyMount';
 import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
 
-// Everything below the first couple of screens is code-split: these
-// sections aren't needed for the initial paint, and splitting them into
-// separate chunks breaks up what was previously one very long main-thread
-// task into many small ones the browser can interleave with rendering.
+// Everything below Hero is code-split: none of it is needed for the
+// initial paint, and splitting it into separate chunks breaks up what was
+// previously one very long main-thread task into many small ones the
+// browser can interleave with rendering. Marquee/About/FAQ used to be
+// bundled eagerly with Hero (no stated reason) — pulling them into this
+// list shrank the main chunk further, since none of them are above the
+// fold.
+const Marquee = lazy(() => import('../components/Marquee'));
+const About = lazy(() => import('../components/About'));
+const FAQ = lazy(() => import('../components/FAQ'));
 const StickyServices = lazy(() => import('../components/StickyServices'));
 const BrandsMarquee = lazy(() => import('../components/BrandsMarquee'));
 const MenuCarousel = lazy(() => import('../components/MenuCarousel'));
@@ -74,8 +77,16 @@ export default function Home() {
       </AnimatePresence>
       <main>
         <Hero />
-        <Marquee />
-        <About />
+        <LazyMount rootMargin="300% 0px">
+          <Suspense fallback={null}>
+            <Marquee />
+          </Suspense>
+        </LazyMount>
+        <LazyMount anchorId="about" rootMargin="300% 0px">
+          <Suspense fallback={null}>
+            <About />
+          </Suspense>
+        </LazyMount>
         <LazyMount anchorId="experiences">
           <Suspense fallback={null}>
             <StickyServices />
@@ -136,7 +147,11 @@ export default function Home() {
             <Testimonials />
           </Suspense>
         </LazyMount>
-        <FAQ />
+        <LazyMount anchorId="faq">
+          <Suspense fallback={null}>
+            <FAQ />
+          </Suspense>
+        </LazyMount>
         {/* Not lazy-mounted: Hero and Navbar's "Book Consultation" buttons
             jump straight to #contact the instant the page loads. */}
         <Suspense fallback={null}>

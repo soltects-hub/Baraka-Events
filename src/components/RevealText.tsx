@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 
 interface Props {
   text: string;
@@ -20,7 +20,7 @@ export default function RevealText({ text, className = '', delay = 0, as = 'span
       <span ref={ref} className="inline">
         {words.map((word, i) => (
           <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]">
-            <motion.span
+            <m.span
               className="inline-block will-change-transform"
               initial={{ y: '110%', rotate: 4 }}
               animate={inView ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 4 }}
@@ -28,7 +28,7 @@ export default function RevealText({ text, className = '', delay = 0, as = 'span
             >
               {word}
               {i < words.length - 1 ? '\u00A0' : ''}
-            </motion.span>
+            </m.span>
           </span>
         ))}
       </span>
