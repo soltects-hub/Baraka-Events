@@ -141,7 +141,7 @@ export default function DesignStudio() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-3 text-center">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-cream/35">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-cream/60">
             Concept renders delivered within 7 days of your brief
           </p>
           <div className="h-[1px] w-16 bg-gold/40" />

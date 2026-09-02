@@ -46,7 +46,7 @@ export default function BrandsMarquee() {
           {row.map((b, i) => (
             <div key={i} className="flex items-center gap-14 md:gap-20">
               <span
-                className={`${b.style} text-xl text-cream/35 transition-colors duration-500 hover:text-gold md:text-2xl`}
+                className={`${b.style} text-xl text-cream/60 transition-colors duration-500 hover:text-gold md:text-2xl`}
               >
                 {b.name}
               </span>
@@ -56,7 +56,7 @@ export default function BrandsMarquee() {
         </motion.div>
       </div>
 
-      <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-cream/30">
+      <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-cream/60">
         Corporate events produced across Lahore, from small leadership dinners to full-scale launches
       </p>
     </section>

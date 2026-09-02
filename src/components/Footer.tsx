@@ -98,7 +98,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[11px] font-light tracking-wide text-cream/35">@Barakaeventsofficial</p>
+            <p className="mt-5 text-[11px] font-light tracking-wide text-cream/60">@Barakaeventsofficial</p>
           </div>
         </div>
 

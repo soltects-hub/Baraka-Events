@@ -101,7 +101,7 @@ export default function MenuCarousel() {
             <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 md:text-right">
               Our signature catering menus, always in motion &mdash; hover to pause, drag to browse.
             </p>
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream/35">
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream/60">
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-gold" strokeWidth="1.5">
                 <path d="M7 11.5V6a1.5 1.5 0 0 1 3 0v4.5M10 10.5V5a1.5 1.5 0 0 1 3 0v5.5M13 10.5V6a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2 5.5-5 5.5s-4.5-1.5-5.5-4L4.2 11a1.4 1.4 0 0 1 2.4-1.4l1.4 2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -158,7 +158,7 @@ export default function MenuCarousel() {
         </LoopRail>
       </div>
 
-      <p className="mt-10 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-cream/30">
+      <p className="mt-10 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-cream/60">
         Full tasting sessions arranged at your consultation &middot; custom menus for every function
       </p>
     </section>
