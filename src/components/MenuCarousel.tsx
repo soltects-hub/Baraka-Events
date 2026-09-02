@@ -67,7 +67,7 @@ const menu: MenuCard[] = [
     index: '05',
     title: 'Chai & Beverages',
     urdu: 'Mashroobat',
-    image: '/media/gallery-4.webp',
+    image: '/media/chai-beverages.webp',
     accent: 'From doodh patti to mocktails',
     items: [
       { name: 'Kashmiri Chai Station', desc: 'Pink tea, crushed pistachio' },
