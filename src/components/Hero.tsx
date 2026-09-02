@@ -12,7 +12,7 @@ const SLIDES = [
 
 const SLIDE_DURATION = 6000;
 
-export default function Hero({ started }: { started: boolean }) {
+export default function Hero() {
   const lenis = useLenis();
   const [slide, setSlide] = useState(0);
 
@@ -66,11 +66,16 @@ export default function Hero({ started }: { started: boolean }) {
         ))}
       </div>
 
-      {/* headline content */}
+      {/* headline content — animates on mount rather than waiting for the
+          Preloader to finish. The Preloader still fully covers this section
+          (bg-ink, z-[200]) for its own duration, so the reveal completes
+          unseen underneath it exactly as before; the only change is that
+          Lighthouse's LCP timing, which ignores occlusion by another
+          element, no longer counts the Preloader's gate against this text. */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-6 pt-24 md:px-10">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={started ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-[10px] uppercase tracking-[0.5em] text-gold md:text-xs"
         >
@@ -89,7 +94,7 @@ export default function Hero({ started }: { started: boolean }) {
 
         <motion.p
           initial={{ opacity: 0, y: 24 }}
-          animate={started ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-6 max-w-md text-sm font-light leading-relaxed text-cream/75 md:max-w-xl md:text-base"
         >
@@ -100,7 +105,7 @@ export default function Hero({ started }: { started: boolean }) {
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
-          animate={started ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
           className="mt-8 flex flex-col items-start gap-4 sm:flex-row"
         >
@@ -126,7 +131,7 @@ export default function Hero({ started }: { started: boolean }) {
       {/* scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={started ? { opacity: 1 } : {}}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >

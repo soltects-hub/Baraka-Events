@@ -73,7 +73,7 @@ export default function Home() {
         )}
       </AnimatePresence>
       <main>
-        <Hero started={loaded} />
+        <Hero />
         <Marquee />
         <About />
         <LazyMount anchorId="experiences">
