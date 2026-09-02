@@ -23,6 +23,17 @@ export default defineConfig(async ({ mode }) => {
     plugins,
     envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
     define: processEnvDefines,
+    build: {
+      // Vite's default modulePreload injects a <link rel="modulepreload">
+      // for every chunk reachable from the entry — including the ~20
+      // below-fold sections that LazyMount deliberately defers until
+      // scrolled near. That made the browser fetch and parse all of them
+      // during the initial load anyway, fighting the Hero-critical path
+      // for network and main-thread time for no benefit (nothing needs
+      // them yet). Disabling it lets those chunks load lazily, via their
+      // own dynamic import(), only once actually mounted.
+      modulePreload: false,
+    },
     server: {
       port: process.env.PORT ? Number(process.env.PORT) : 5173,
     },
