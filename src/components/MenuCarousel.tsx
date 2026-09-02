@@ -28,7 +28,7 @@ const menu: MenuCard[] = [
     index: '02',
     title: 'The Grand Mains',
     urdu: 'Khaas Khaanay',
-    image: '/media/wedding-1.webp',
+    image: '/media/grand-mains.webp',
     accent: 'The heart of every shaadi dastarkhwan',
     items: [
       { name: 'Mutton Qorma', desc: 'Slow-cooked in desi ghee, shahi style' },
