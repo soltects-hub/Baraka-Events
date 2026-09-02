@@ -41,7 +41,7 @@ const menu: MenuCard[] = [
     index: '03',
     title: 'Continental & Fusion',
     urdu: 'Jadeed Zaiqay',
-    image: '/media/corporate-1.webp',
+    image: '/media/continental-fusion.webp',
     accent: 'For the modern mehmaan',
     items: [
       { name: 'Herb-Crusted Chicken Roast', desc: 'Rosemary jus, roast vegetables' },
