@@ -54,7 +54,7 @@ const menu: MenuCard[] = [
     index: '04',
     title: 'Desserts & Mithai',
     urdu: 'Meethas',
-    image: '/media/gallery-2.webp',
+    image: '/media/desserts-mithai.webp',
     accent: 'The sweetest farewell',
     items: [
       { name: 'Shahi Kheer', desc: 'Clay-pot rice pudding, pistachio' },
