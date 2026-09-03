@@ -21,6 +21,43 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'luxury-event-catering-menu-lahore',
+    title: 'Luxury Wedding Catering in Lahore: Menus, Costs and Live Stations',
+    excerpt:
+      'A practical guide to wedding catering in Lahore: menu structure, live stations, per-guest costs, and what to ask a caterer before you book.',
+    category: 'Catering',
+    date: 'September 2026',
+    publishedISO: '2026-09',
+    readTime: '7 min read',
+    image: '/media/grand-mains.webp',
+    imageAlt: 'A Lahori wedding dastarkhwan of biryani, mutton qorma and beef nihari served at a Baraka Events walima',
+    blocks: [
+      { p: 'Ask ten Lahori families what they remember from a wedding six months later, and at least half will mention the food before the decor. Catering is the only part of a shaadi every single guest personally experiences — hundreds of people who never look closely at the floral work will absolutely notice if the biryani was dry or the buffet ran short of nihari by ten o’clock. That is exactly why we treat the menu as production, not procurement.' },
+      { h: 'Where catering actually sits in a wedding budget' },
+      { p: 'Catering typically claims twenty-five to thirty-five percent of total wedding spend in Lahore, depending on guest count and menu ambition — often the single largest line item on its own for bigger guest lists. Getting that share right matters more than almost any other budget decision, because it is also the line item with the least room for a bad surprise on the night itself.' },
+      { h: 'How we structure a Lahore wedding dastarkhwan' },
+      { p: 'Our own tasting menu at Baraka Events is built as five distinct stations rather than one long buffet table: a live BBQ station finishing seekh kebab, chicken malai boti and mutton chops to order; the grand mains — mutton qorma, chicken biryani and beef nihari, the dishes every Lahori guest actually came for; a continental and fusion counter for the modern mehmaan who wants a lighter plate; desserts and mithai to close; and a chai and beverages station that keeps the evening moving once the main service winds down. Five stations, each staffed and timed separately, rather than one kitchen trying to hold six cuisines at once.' },
+      { h: 'Live stations vs. plated service: which suits your event' },
+      { p: 'Live stations work best for a mehndi or a large baraat crowd that is moving, dancing and eating in shifts — guests serve themselves at their own pace, and the theatre of a live grill or wok station becomes part of the entertainment. A formal walima with assigned seating usually calls for plated or family-style service instead, timed against the run-of-show so the couple’s entrance and cake-cutting never collide with dinner. Most of the weddings we produce use both: live stations for the mehndi and baraat, a more composed plated or buffet service for the walima.' },
+      { h: 'What headcount does to a menu' },
+      { p: 'A sixty-guest nikkah and a six-hundred-guest walima are not the same catering brief scaled up — they are different problems. Below roughly 150 guests, live stations and a tighter menu of six to eight dishes let every guest actually taste everything on offer. Past 300 guests, service speed becomes the real design constraint: enough buffet lines or waiter coverage that the queue at the biryani station never becomes the story of the evening. We plan station count and staffing against guest count before we plan the menu itself, not after.' },
+      { h: 'What to ask a caterer before you book' },
+      { p: 'Get dietary accommodations — vegetarian, no-beef, allergy requirements — confirmed in writing, not verbally on the day; it is the single most common source of last-minute complaints families deal with. Ask what happens if a live station runs low during peak service, and whether backup trays are held in reserve. Confirm whether service staff are the caterer’s own trained team or day-hired labour, since that difference shows up immediately in how smoothly plates move. And taste the actual menu three to four weeks out, not three months out, so what you approve is close to what actually gets served.' },
+      { h: 'FAQs: Wedding Catering in Lahore' },
+      { p: 'How much of a Lahore wedding budget should go to catering? Most families spend twenty-five to thirty-five percent of the total wedding budget on catering, depending on guest count and how many live stations or specialty courses are included.' },
+      { p: 'Should the mehndi, baraat and walima all have the same menu? No — most Lahore weddings vary the menu across functions, with livelier live stations for the mehndi and baraat and a more formal plated or buffet service for the walima.' },
+      { p: 'Can Baraka Events coordinate a caterer we’ve already chosen? Yes. We regularly build the run-of-show around a family’s own trusted caterer, timing meal service against the rest of the evening rather than replacing vendors you already like.' },
+      {
+        p: 'Does Baraka Events handle catering directly, or just coordination? Both. We offer in-house culinary and menu direction — including the live BBQ, grand mains, continental and fusion, and dessert stations described above — and we coordinate an outside caterer just as readily if that is what a family prefers.',
+        related: [
+          { text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' },
+          { text: 'What a Luxury Shaadi in Lahore Actually Costs', slug: 'luxury-shaadi-cost-lahore' },
+        ],
+      },
+      { p: 'Whichever format fits your guest list, the same rule applies across every wedding we produce in Lahore: the menu is planned like a production, priced like a line item and rehearsed like the rest of the run-of-show — because a cold plate at ten o’clock is the one mistake at a shaadi nobody forgets.' },
+    ],
+  },
+  {
     slug: 'best-event-planner-lahore-baraka-events',
     title: 'Why Baraka Events Is the Best Event Planner in Lahore',
     excerpt:
