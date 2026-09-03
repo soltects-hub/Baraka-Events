@@ -20,7 +20,7 @@ export const seoConfig = {
   organization: {
     name: 'Baraka Events',
     url: 'https://www.barakaevents.com',
-    logo: 'https://www.barakaevents.com/favicon.svg',
+    logo: 'https://www.barakaevents.com/web-app-manifest-512x512.png',
     address: {
       streetAddress: 'LG 13A, Big City Plaza, Liberty Roundabout',
       addressLocality: 'Lahore',
