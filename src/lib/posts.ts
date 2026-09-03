@@ -27,6 +27,45 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'how-to-choose-wedding-venue-lahore-guide',
+    title: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide',
+    excerpt:
+      'Guest count, season, budget and the questions to ask before you sign — a practical framework for choosing a wedding venue in Lahore.',
+    category: 'Venues',
+    date: 'September 4, 2026',
+    publishedISO: '2026-09-04',
+    readTime: '7 min read',
+    image: '/media/hero-arrival.webp',
+    imageAlt: 'Event hall set up for a wedding reception in Lahore',
+    blocks: [
+      { p: 'Most Lahore families choose a wedding venue backwards — they fall for a hall on Instagram, then try to make their guest list, season and budget fit around it. That order produces the two complaints we hear most often after the fact: the venue felt too tight or too empty, and the final bill had nothing to do with the number that was quoted in the first meeting. Choosing the venue last, after everything else is decided, avoids both.' },
+      { h: 'Start with the guest list, not the venue list' },
+      { p: 'Lock a realistic headcount before touring a single hall. A venue that photographs beautifully at half capacity can feel like a warehouse with three hundred guests in it, or airless and cramped with six hundred squeezed into a room built for four. Round the number up slightly for a baraat or walima, where late RSVPs and plus-ones are the norm rather than the exception, and ask every venue for its actual seated and standing capacity — not the number on its marketing brochure.' },
+      { h: 'Let the season pick indoor or outdoor for you' },
+      { p: 'Lahore’s outdoor gardens and haveli courtyards are unbeatable from October through March, when golden-hour light and cool evenings do half the design work for free. From April through September, the same spaces become a liability without serious cooling and shade infrastructure — and a family that insists on an outdoor June wedding needs to budget for that infrastructure specifically, not assume the venue already has it. If the date is fixed and falls in the hot months, an indoor or covered venue is usually the safer decision, not the compromise.' },
+      { h: 'Match the venue type to the wedding you’re actually planning' },
+      {
+        p: 'A restored haveli in the Walled City gives a nikkah real historical weight but limited parking and tighter load-in access for vendors. Gulberg’s banquet complexes and five-star ballrooms trade some of that character for convenience — better for guest lists heavy on elderly relatives or out-of-town mehmaan. DHA and Bahria Town’s purpose-built marquees offer the most creative freedom for a custom-built stage concept, and Lahore’s gardens deliver the most romantic outdoor nikkah setting in the right season. None of these is universally “best” — each solves a different brief.',
+        related: [{ text: 'The 10 Most Beautiful Wedding Venues in Lahore for 2025', slug: 'top-wedding-venues-lahore-2025' }],
+      },
+      { h: 'Get a real number before you fall in love with a venue' },
+      { p: 'Venue rental is typically twenty to twenty-five percent of a full wedding budget, but the number that actually matters is the total cost once catering minimums, decor restrictions and overtime charges are added — figures that rarely appear on the first quote. Ask directly whether the venue requires you to use its in-house caterer, what the minimum guest-count charge is regardless of actual attendance, and what an extra hour past the contracted time costs. These three numbers, not the base rental figure, are usually where budgets go wrong.' },
+      { h: 'The logistics most families forget to check' },
+      { p: 'Backup power that has actually been tested, not just promised, matters more than any decor feature once load-shedding hits mid-reception. Loading access for a decor and catering team moving truckloads of equipment can make or break a haveli or garden venue with a narrow entrance. And parking capacity should be checked against your real guest count, not the venue’s stated lot size — a shortfall here becomes the first thing every guest experiences, before they have even seen the stage.' },
+      { h: 'Questions to ask before you sign' },
+      { p: 'Get the cancellation and rescheduling terms in writing, not described verbally during the tour. Ask what happens if a load-shedding outage or monsoon downpour disrupts an outdoor function — is there a covered fallback included, or is that the family’s problem to solve. Confirm whether outside decor and lighting vendors are permitted, since some venues restrict this to push their own in-house teams. And walk the space at the actual time of day your function will run, not during a daytime site visit, since a hall that looks perfect at 11am can read completely differently under evening lighting.' },
+      { h: 'FAQs: Choosing a Wedding Venue in Lahore' },
+      { p: 'How far in advance should we book a wedding venue in Lahore? Eight to twelve months out for winter weekends (October to March), which is when Lahore’s best venues sell out first. Summer dates and weekdays can often still be booked two to four months out.' },
+      { p: 'How many guests can a typical Lahore marquee or banquet hall hold? It varies enormously by venue — from intimate halls seating under two hundred to purpose-built marquees in DHA and Bahria Town that comfortably handle over a thousand. Always confirm actual seated capacity against your guest list rather than relying on a venue’s advertised maximum.' },
+      { p: 'Is an outdoor garden venue a safe choice for a Lahore wedding? Yes, from October through March. Outside that window, an outdoor venue needs a real covered and cooled fallback plan, not an assumption that the weather will cooperate.' },
+      {
+        p: 'Can Baraka Events help us choose and book a venue, not just decorate it? Yes — venue selection and booking is one of our core services, and we shortlist venues against your actual guest count, budget and season before a single tour happens.',
+        related: [{ text: 'Baraka Events Venue Booking: How the Process Actually Works', slug: 'baraka-events-venue-booking-guide' }],
+      },
+      { p: 'Chosen in this order — guest list, season, venue type, real budget, logistics — the venue stops being the first decision that constrains every other one, and becomes the last piece that fits everything else you have already planned.' },
+    ],
+  },
+  {
     slug: 'luxury-event-catering-menu-lahore',
     title: 'Luxury Wedding Catering in Lahore: Menus, Costs and Live Stations',
     excerpt:
