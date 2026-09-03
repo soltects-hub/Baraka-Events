@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-31T15:09:55.325Z",
+  "generatedAt": "2026-09-03T23:45:43.257Z",
   "methodology": "Topic-cluster keyword research: seed terms x intent modifiers, grounded in Baraka Events' real published services (StickyServices.tsx, MenuCarousel.tsx), real FAQ-stated service areas (FAQ.tsx), and existing blog content (src/lib/posts.ts). No search-volume data source is connected to this project — searchVolume is always \"unavailable\", never estimated.",
   "clusterCount": 28,
-  "keywordCount": 332,
+  "keywordCount": 341,
   "keywords": [
     {
       "keyword": "anniversary party ideas Lahore",
@@ -3987,6 +3987,114 @@
       "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
       "cannibalizationRisk": "medium",
       "searchVolume": "unavailable"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable",
+      "keyword": "wedding event planner Lahore",
+      "topicCluster": "Wedding Planner (brand/category)",
+      "proposedUrl": "/services/wedding-planning",
+      "existingCompetingPage": "https://www.barakaevents.com/services/wedding-planning"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable",
+      "keyword": "wedding event management Lahore",
+      "topicCluster": "Wedding Planner (brand/category)",
+      "proposedUrl": "/services/wedding-planning",
+      "existingCompetingPage": "https://www.barakaevents.com/services/wedding-planning"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable",
+      "keyword": "luxury wedding planner Lahore",
+      "topicCluster": "Wedding Planner (brand/category)",
+      "proposedUrl": "/services/wedding-planning",
+      "existingCompetingPage": "https://www.barakaevents.com/services/wedding-planning"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable",
+      "keyword": "event planners in Lahore",
+      "topicCluster": "Event Planner (brand/category)",
+      "proposedUrl": "/services",
+      "existingCompetingPage": "https://www.barakaevents.com/services"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable",
+      "keyword": "wedding decorators in Lahore",
+      "topicCluster": "Event Decor & Floral Design",
+      "proposedUrl": "/services/event-decoration",
+      "existingCompetingPage": "https://www.barakaevents.com/services/event-decoration"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "low",
+      "searchVolume": "unavailable",
+      "keyword": "mehndi planner in Lahore",
+      "topicCluster": "Mehndi",
+      "proposedUrl": "/services/mehndi-events",
+      "existingCompetingPage": "https://www.barakaevents.com/services/mehndi-events"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "low",
+      "searchVolume": "unavailable",
+      "keyword": "barat planner in Lahore",
+      "topicCluster": "Baraat",
+      "proposedUrl": "/services/barat-events",
+      "existingCompetingPage": "https://www.barakaevents.com/services/barat-events"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "low",
+      "searchVolume": "unavailable",
+      "keyword": "walima planner in Lahore",
+      "topicCluster": "Walima",
+      "proposedUrl": "/services/walima-events",
+      "existingCompetingPage": "https://www.barakaevents.com/services/walima-events"
+    },
+    {
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "contentType": "service-section",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable",
+      "keyword": "birthday event planner in Lahore",
+      "topicCluster": "Milestone Birthdays",
+      "proposedUrl": "/services/birthday-events",
+      "existingCompetingPage": "https://www.barakaevents.com/services/birthday-events"
     }
   ]
 }

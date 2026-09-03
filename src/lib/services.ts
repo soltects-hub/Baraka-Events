@@ -33,9 +33,9 @@ export const services: Service[] = [
     slug: 'wedding-planning',
     tag: 'Weddings',
     title: 'Wedding Planning & Management in Lahore',
-    seoTitle: 'Wedding Planning & Management in Lahore | Baraka Events',
+    seoTitle: 'Wedding Planner & Wedding Planning in Lahore | Baraka Events',
     seoDescription:
-      'Full-service wedding planning in Lahore covering mehndi, baraat, nikkah and walima as one coordinated project, from venue and vendors to a line-item quote.',
+      'Baraka Events is a luxury wedding planner and wedding event management company in Lahore, covering mehndi, baraat, nikkah and walima as one coordinated project, from venue and vendors to a line-item quote.',
     image: '/media/wedding-2.webp',
     imageAlt: 'Bride and groom on a wedding stage in Lahore',
     intro:
@@ -89,9 +89,9 @@ export const services: Service[] = [
     slug: 'event-decoration',
     tag: 'Design & Decor',
     title: 'Event Decoration & Design in Lahore',
-    seoTitle: 'Event Decoration & Design Services in Lahore | Baraka Events',
+    seoTitle: 'Wedding Decorators & Event Decoration in Lahore | Baraka Events',
     seoDescription:
-      'Stage design, florals and lighting for weddings and events in Lahore, including 3D concept renders before your event, available with or without full planning.',
+      'Wedding decorators and event decoration in Lahore — stage design, florals and lighting, including 3D concept renders before your event, available with or without full planning.',
     image: '/media/design-1.webp',
     imageAlt: 'Keynote conference stage concept render, 3D event design Lahore',
     intro:
@@ -117,9 +117,9 @@ export const services: Service[] = [
     slug: 'corporate-events',
     tag: 'Corporate',
     title: 'Corporate Event Management in Lahore',
-    seoTitle: 'Corporate Event Management Company in Lahore | Baraka Events',
+    seoTitle: 'Corporate Event Planner & Management Company in Lahore | Baraka Events',
     seoDescription:
-      'Corporate event management in Lahore for product launches, conferences, annual dinners and AGMs, produced by an in-house technical and hospitality team.',
+      'Corporate event planner and event management company in Lahore for product launches, conferences, annual dinners and AGMs, produced by an in-house technical and hospitality team.',
     image: '/media/corporate-1.webp',
     imageAlt: 'Corporate event management stage set in Lahore',
     intro:
@@ -173,9 +173,9 @@ export const services: Service[] = [
     slug: 'mehndi-events',
     tag: 'Weddings',
     title: 'Mehndi Night Planning in Lahore',
-    seoTitle: 'Mehndi Night Planning & Decoration in Lahore | Baraka Events',
+    seoTitle: 'Mehndi Planner & Decoration in Lahore | Baraka Events',
     seoDescription:
-      'Mehndi night planning in Lahore: floral and dholki staging, colour palette and evening lighting design that sets the tone for the rest of the wedding week.',
+      'Mehndi planner in Lahore for floral and dholki staging, colour palette and evening lighting design that sets the tone for the rest of the wedding week.',
     image: '/media/gallery-5.webp',
     imageAlt: 'Marigold and jasmine garlands, mehndi decoration Lahore',
     intro:
@@ -201,9 +201,9 @@ export const services: Service[] = [
     slug: 'barat-events',
     tag: 'Weddings',
     title: 'Baraat Planning in Lahore',
-    seoTitle: 'Baraat Planning in Lahore | Baraka Events',
+    seoTitle: 'Baraat Planner in Lahore | Baraka Events',
     seoDescription:
-      'Baraat planning in Lahore: groom’s arrival timing, dhol and procession coordination, and guest parking logistics, so the entrance runs on schedule.',
+      'Baraat planner in Lahore for groom’s arrival timing, dhol and procession coordination, and guest parking logistics, so the entrance runs on schedule.',
     image: '/media/gallery-6.webp',
     imageAlt: 'Dhol drummers leading a baraat procession at a Lahore shaadi',
     intro:
@@ -229,9 +229,9 @@ export const services: Service[] = [
     slug: 'walima-events',
     tag: 'Weddings',
     title: 'Walima Reception Planning in Lahore',
-    seoTitle: 'Walima Reception Planning in Lahore | Baraka Events',
+    seoTitle: 'Walima Planner & Reception Planning in Lahore | Baraka Events',
     seoDescription:
-      'Walima reception planning in Lahore: formal stage and floral design, catering coordination and guest flow for the wedding week’s largest, most photographed function.',
+      'Walima planner in Lahore for formal stage and floral design, catering coordination and guest flow for the wedding week’s largest, most photographed function.',
     image: '/media/gallery-2.webp',
     imageAlt: 'Ivory and gold wedding cake with mithai display, Lahore wedding decor',
     intro:
@@ -285,9 +285,9 @@ export const services: Service[] = [
     slug: 'birthday-events',
     tag: 'Private Celebrations',
     title: 'Birthday Party Planning in Lahore',
-    seoTitle: 'Birthday Party Planning in Lahore | Baraka Events',
+    seoTitle: 'Birthday Event Planner in Lahore | Baraka Events',
     seoDescription:
-      'Birthday party planning in Lahore, from themed children’s parties to milestone adult birthdays, with decor, entertainment and catering handled as one plan.',
+      'Birthday event planner in Lahore, from themed children’s parties to milestone adult birthdays, with decor, entertainment and catering handled as one plan.',
     image: '/media/portfolio-3.webp',
     imageAlt: 'Rooftop birthday celebration in the Walled City, Lahore',
     intro:

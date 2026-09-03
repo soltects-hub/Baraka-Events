@@ -19,9 +19,9 @@ export default function ServicesIndexPage() {
   const go = useSectionNav();
 
   useSEO({
-    title: 'Event Planning Services in Lahore | Baraka Events',
+    title: 'Event Planner in Lahore | Event Management Company | Baraka Events',
     description:
-      'Every event service Baraka Events offers in Lahore: wedding planning, event management and decoration, corporate events, and each individual wedding function — nikkah, mehndi, baraat and walima.',
+      'Baraka Events is an event planner in Lahore and full-service event management company: wedding planning, event decoration, corporate events, and each individual wedding function — nikkah, mehndi, baraat and walima.',
     canonical: routes.services,
   });
 
@@ -69,9 +69,10 @@ export default function ServicesIndexPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
           >
-            From full wedding planning down to a single function, and from full event
-            management to decoration alone — each service below can be booked on its
-            own or as part of a larger project.
+            As an event planner in Lahore, we cover everything from full wedding
+            planning down to a single function; as an event management company, we
+            take on corporate work of any scale. Each service below can be booked on
+            its own or as part of a larger project.
           </motion.p>
         </div>
       </section>
