@@ -84,6 +84,16 @@ export default function WhatsAppButton() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  // Opens in a new tab, so the current page never unloads —
+                  // no need to delay navigation for the beacon to land.
+                  window.gtag?.('event', 'conversion', {
+                    send_to: 'AW-669423654/zjY6CMLNpMwZEKawmr8C',
+                    value: 1.0,
+                    currency: 'PKR',
+                    transaction_id: '',
+                  });
+                }}
                 className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[13px] font-semibold text-white shadow-md transition-[filter] duration-300 hover:brightness-105"
               >
                 <WhatsAppIcon className="h-4 w-4 fill-white" />
