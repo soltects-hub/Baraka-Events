@@ -11,7 +11,13 @@ export interface Post {
   excerpt: string;
   category: string;
   date: string;
-  /** ISO 8601 date (year-month precision, matching the editorial `date` field above). */
+  /**
+   * ISO 8601 date, matching the editorial `date` field above. Posts
+   * published from 2026-09-03 onward carry full day precision
+   * (YYYY-MM-DD) so the exact upload date shows on the post and in its
+   * schema/sitemap lastmod; older posts predate this and keep their
+   * original year-month precision (YYYY-MM) rather than a guessed day.
+   */
   publishedISO: string;
   readTime: string;
   image: string;
@@ -26,8 +32,8 @@ export const posts: Post[] = [
     excerpt:
       'A practical guide to wedding catering in Lahore: menu structure, live stations, per-guest costs, and what to ask a caterer before you book.',
     category: 'Catering',
-    date: 'September 2026',
-    publishedISO: '2026-09',
+    date: 'September 3, 2026',
+    publishedISO: '2026-09-03',
     readTime: '7 min read',
     image: '/media/grand-mains.webp',
     imageAlt: 'A Lahori wedding dastarkhwan of biryani, mutton qorma and beef nihari served at a Baraka Events walima',

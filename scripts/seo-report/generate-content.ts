@@ -161,7 +161,9 @@ async function main() {
 
   const image = pickImageForCluster(decision.cluster ?? '');
   const now = new Date();
-  const publishedISO = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
+  // Day precision (not just year-month) so the actual upload date shows on
+  // the post and in its Article schema / sitemap lastmod.
+  const publishedISO = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}-${String(now.getUTCDate()).padStart(2, '0')}`;
 
   const relatedForLinking = posts.filter((p) => p.category === article.category).slice(0, 2);
   if (relatedForLinking.length > 0) {
@@ -179,7 +181,7 @@ async function main() {
     title: article.title,
     excerpt: article.excerpt,
     category: article.category,
-    date: now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+    date: now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
     publishedISO,
     readTime: article.readTime,
     image: image.image,
