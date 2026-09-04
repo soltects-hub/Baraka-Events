@@ -27,6 +27,53 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'farmhouse-wedding-raiwind-road-lahore',
+    title: 'Farmhouse Weddings on Raiwind Road: What to Know Before You Book',
+    excerpt:
+      'Space, cost and the logistics that are different on a farmhouse lawn — a practical guide to planning a Raiwind Road wedding.',
+    category: 'Venues',
+    date: 'September 4, 2026',
+    publishedISO: '2026-09-04',
+    readTime: '6 min read',
+    image: '/media/gallery-3.webp',
+    imageAlt: 'Outdoor evening wedding celebration with fireworks at a Lahore farmhouse venue',
+    blocks: [
+      { p: 'Ask a Lahori family why they chose a farmhouse on Raiwind Road over a banquet hall in DHA or Gulberg, and the answer is almost always the same: space. A farmhouse lawn gives you room a purpose-built hall simply cannot — for a five-hundred-guest baraat, a car park that does not spill onto the main road, or a stage concept too large for any indoor ceiling. That extra space comes with a different set of planning questions than a city venue, and most families only discover them after they have already signed the booking.' },
+      { h: 'Why Raiwind Road specifically' },
+      { p: 'Raiwind Road has become Lahore’s farmhouse corridor for a simple reason: land here is more affordable than anywhere inside DHA or Gulberg, so the lawns are larger and the rental rates are lower per square foot even on a big guest list. The tradeoff is distance — most farmhouses sit twenty to forty minutes from central Lahore depending on traffic, further than a Gulberg or MM Alam venue for guests coming from the city. For a family prioritising scale and an open-air setting over a short commute, it is usually the right trade.' },
+      {
+        h: 'A farmhouse is raw land, not a finished venue',
+        p: 'The single biggest difference from a hall booking: a banquet complex comes with a roof, flooring, air conditioning and often a stage already built in. A farmhouse lawn comes with none of that. Everything — the marquee or tent structure, flooring, seating, cooling or heating, and often the stage shell itself — has to be built for your date and struck afterward. That is a real cost most first-time farmhouse bookers do not budget for, and it is also where a wedding decorator earns their fee: designing a tented structure is a different discipline than dressing a room that already exists.',
+        related: [{ text: 'Baraka Events Decor Services in Lahore: Every Style We Design', slug: 'baraka-events-decor-services-lahore' }],
+      },
+      { h: 'What a farmhouse lawn actually solves' },
+      { p: 'Guest capacity is the main draw — most Raiwind Road farmhouses comfortably handle guest lists that would feel impossible indoors, which is why they are a common choice for a baraat or walima with an extended-family invite list running into the hundreds. The open lawn also gives a designer room for a genuinely large-scale stage or entrance concept without fighting a low ceiling or load-bearing pillars, and outdoor space for a dhol procession or fireworks that an indoor hall could never accommodate.' },
+      { h: 'The season question matters even more here' },
+      {
+        p: 'Everything our venue guide says about Lahore’s outdoor season applies to a farmhouse lawn with less margin for error, because there is no indoor fallback built in. October through March is the safe window — cool evenings and no monsoon risk. Booking a farmhouse for a summer date without a fully covered, cooled tent structure is the single most common regret we hear about after the fact.',
+        related: [{ text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' }],
+      },
+      { h: 'Logistics that are different out here' },
+      { p: 'Backup power is not optional at a farmhouse the way it might be at a grid-connected city hall — confirm the generator capacity in writing and ask when it was last load-tested, not just whether one exists. Road access for decor and catering trucks should be checked in person, since some farmhouse driveways were built for cars, not the heavy vehicles a full production requires. And because many farmhouses do not have an in-house catering kitchen the way a hotel does, confirm whether your caterer needs to bring a self-contained setup, and factor that into their quote.' },
+      { h: 'The real cost picture' },
+      {
+        p: 'The lawn rental itself is often genuinely cheaper than an equivalent-capacity DHA or Gulberg hall, but tenting, flooring, generator hire and cooling or heating for the structure add back a meaningful part of that saving — sometimes most of it, on a large guest list. Ask for the all-in number, not just the venue rental figure, before comparing a farmhouse quote against a banquet hall quote.',
+        related: [{ text: 'Luxury Wedding Catering in Lahore: Menus, Costs and Live Stations', slug: 'luxury-event-catering-menu-lahore' }],
+      },
+      { h: 'Questions to ask before you book' },
+      { p: 'Get the generator capacity and a recent load-test date in writing. Ask whether tenting, flooring and basic lighting infrastructure are included in the rental or billed separately. Confirm road and gate access against the actual size of your vendor trucks, not just guest cars. And ask what the venue’s rain or extreme-heat contingency looks like — a farmhouse without a real answer to that question is a risk on any date outside the winter window.' },
+      { h: 'FAQs: Farmhouse Weddings on Raiwind Road' },
+      { p: 'How far is Raiwind Road from central Lahore? Roughly twenty to forty minutes from DHA or Gulberg depending on traffic and time of day — worth factoring into guest transport planning, especially for elderly relatives.' },
+      { p: 'How many guests can a Raiwind Road farmhouse hold? It varies by property, but the open lawns typically accommodate guest lists well beyond what a comparable indoor hall could seat, which is the main reason large baraats and walimas book them.' },
+      { p: 'Is a farmhouse only suitable for outdoor functions? No — most are booked with a full tent or marquee structure built over the lawn, which effectively creates a covered, climate-controlled indoor space for the event.' },
+      {
+        p: 'Can Baraka Events plan a farmhouse wedding end-to-end, not just decorate it? Yes — venue selection, the tenting and structure plan, vendor logistics and day-of coordination are all part of our wedding planning service, whether the venue is a city hall or a Raiwind Road lawn.',
+        related: [{ text: 'Baraka Events Venue Booking: How the Process Actually Works', slug: 'baraka-events-venue-booking-guide' }],
+      },
+      { p: 'A farmhouse on Raiwind Road buys you space no city hall can match — the planning simply has to account for everything that space doesn’t come with built in.' },
+    ],
+  },
+  {
     slug: 'how-to-choose-wedding-venue-lahore-guide',
     title: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide',
     excerpt:

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-03T23:45:43.257Z",
+  "generatedAt": "2026-09-04T16:38:48.775Z",
   "methodology": "Topic-cluster keyword research: seed terms x intent modifiers, grounded in Baraka Events' real published services (StickyServices.tsx, MenuCarousel.tsx), real FAQ-stated service areas (FAQ.tsx), and existing blog content (src/lib/posts.ts). No search-volume data source is connected to this project — searchVolume is always \"unavailable\", never estimated.",
-  "clusterCount": 28,
-  "keywordCount": 341,
+  "clusterCount": 32,
+  "keywordCount": 357,
   "keywords": [
     {
       "keyword": "anniversary party ideas Lahore",
@@ -384,7 +384,7 @@
       "contentType": "faq-entry",
       "priority": "low",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -396,7 +396,7 @@
       "contentType": "faq-entry",
       "priority": "low",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -408,7 +408,7 @@
       "contentType": "faq-entry",
       "priority": "low",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -420,7 +420,7 @@
       "contentType": "faq-entry",
       "priority": "low",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -432,7 +432,7 @@
       "contentType": "faq-entry",
       "priority": "low",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -444,7 +444,7 @@
       "contentType": "faq-entry",
       "priority": "low",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1524,7 +1524,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1536,7 +1536,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1548,7 +1548,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1560,7 +1560,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1572,7 +1572,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1584,7 +1584,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1596,7 +1596,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1608,7 +1608,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1620,7 +1620,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1632,7 +1632,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1644,7 +1644,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1656,7 +1656,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1920,7 +1920,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1932,7 +1932,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1944,7 +1944,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1956,7 +1956,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1968,7 +1968,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1980,7 +1980,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -1992,7 +1992,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2004,7 +2004,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2016,7 +2016,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2028,7 +2028,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2040,7 +2040,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2052,7 +2052,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2064,7 +2064,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2076,7 +2076,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2088,7 +2088,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2100,7 +2100,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2112,7 +2112,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2124,7 +2124,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2136,7 +2136,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2148,7 +2148,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -2160,7 +2160,7 @@
       "contentType": "service-section",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/services",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3000,7 +3000,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3012,7 +3012,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3024,7 +3024,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3036,7 +3036,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3048,7 +3048,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "consideration",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3060,7 +3060,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3072,7 +3072,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "consideration",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3084,7 +3084,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -3096,7 +3096,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "consideration",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -4095,6 +4095,198 @@
       "topicCluster": "Milestone Birthdays",
       "proposedUrl": "/services/birthday-events",
       "existingCompetingPage": "https://www.barakaevents.com/services/birthday-events"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "event planner in Johar Town Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Johar Town Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "wedding venue in Johar Town Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Johar Town Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "awareness",
+      "searchVolume": "unavailable",
+      "keyword": "event management company in Johar Town",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Johar Town Venue & Events",
+      "proposedUrl": "/services",
+      "priority": "low",
+      "existingCompetingPage": "https://www.barakaevents.com/services",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "event planner in Cantt Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Cantt Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "wedding venue in Cantt Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Cantt Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "awareness",
+      "searchVolume": "unavailable",
+      "keyword": "event management company in Cantt",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Cantt Venue & Events",
+      "proposedUrl": "/services",
+      "priority": "low",
+      "existingCompetingPage": "https://www.barakaevents.com/services",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "event planner in Wapda Town Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Wapda Town Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "wedding venue in Wapda Town Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Wapda Town Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "awareness",
+      "searchVolume": "unavailable",
+      "keyword": "event management company in Wapda Town",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Wapda Town Venue & Events",
+      "proposedUrl": "/services",
+      "priority": "low",
+      "existingCompetingPage": "https://www.barakaevents.com/services",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "event planner in Valencia Town Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Valencia Town Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "decision",
+      "searchVolume": "unavailable",
+      "keyword": "wedding venue in Valencia Town Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Valencia Town Venue & Events",
+      "proposedUrl": "/blog/top-wedding-venues-lahore-2025",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "service-section",
+      "targetFunnelStage": "awareness",
+      "searchVolume": "unavailable",
+      "keyword": "event management company in Valencia Town",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Valencia Town Venue & Events",
+      "proposedUrl": "/services",
+      "priority": "low",
+      "existingCompetingPage": "https://www.barakaevents.com/services",
+      "cannibalizationRisk": "low"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "consideration",
+      "searchVolume": "unavailable",
+      "keyword": "how much does a wedding planner cost in Lahore",
+      "searchIntent": "informational — researching before deciding",
+      "topicCluster": "Shaadi Budget & Cost",
+      "proposedUrl": "/blog/luxury-shaadi-cost-lahore",
+      "priority": "high",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+      "cannibalizationRisk": "none"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "consideration",
+      "searchVolume": "unavailable",
+      "keyword": "how much does an event planner charge in Lahore",
+      "searchIntent": "informational — researching before deciding",
+      "topicCluster": "Shaadi Budget & Cost",
+      "proposedUrl": "/blog/luxury-shaadi-cost-lahore",
+      "priority": "medium",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+      "cannibalizationRisk": "none"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "awareness",
+      "searchVolume": "unavailable",
+      "keyword": "is a wedding planner worth it in Lahore",
+      "searchIntent": "informational — researching before deciding",
+      "topicCluster": "Booking Timelines & Planning Process",
+      "proposedUrl": "/",
+      "priority": "low",
+      "existingCompetingPage": "https://www.barakaevents.com/",
+      "cannibalizationRisk": "none"
+    },
+    {
+      "contentType": "blog-post",
+      "targetFunnelStage": "awareness",
+      "searchVolume": "unavailable",
+      "keyword": "what does a wedding planner do in Lahore",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Booking Timelines & Planning Process",
+      "proposedUrl": "/",
+      "priority": "low",
+      "existingCompetingPage": "https://www.barakaevents.com/",
+      "cannibalizationRisk": "none"
     }
   ]
 }
