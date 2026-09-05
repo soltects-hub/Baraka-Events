@@ -4,16 +4,17 @@
  * Search Console access is per-property, and a property can be verified either
  * as a URL-prefix property ("https://www.barakaevents.com/") or a Domain
  * property ("sc-domain:barakaevents.com") — these are different identifiers to
- * the API even though they cover the same site. Default to the URL-prefix form
- * for the canonical host (the apex barakaevents.com is not attached to the
- * Vercel project and permanently redirects to www — every URL Inspection this
- * automation ever ran against the apex came back "Page with redirect" or
- * "URL is unknown to Google" for exactly that reason, even though Google's own
- * response data confirms www is the canonical host it actually crawls). Let
- * this be overridden via SEARCH_CONSOLE_SITE_URL without touching code, in
- * case the property was verified as a Domain property instead.
+ * the API even though they cover the same site. The only property that existed
+ * before 2026-09 was a URL-prefix property for the bare apex
+ * ("https://barakaevents.com/") — a domain that isn't attached to the Vercel
+ * project at all and permanently redirects to www, so it could never see the
+ * real site's pages no matter what was submitted to it. Replaced with a Domain
+ * property ("sc-domain:barakaevents.com", DNS-verified) so one property covers
+ * apex, www, and http/https together going forward. Override via
+ * SEARCH_CONSOLE_SITE_URL without touching code if the property setup changes
+ * again.
  */
-export const SITE_URL = process.env.SEARCH_CONSOLE_SITE_URL || 'https://www.barakaevents.com/';
+export const SITE_URL = process.env.SEARCH_CONSOLE_SITE_URL || 'sc-domain:barakaevents.com';
 
 export const PRODUCTION_ORIGIN = 'https://www.barakaevents.com';
 
