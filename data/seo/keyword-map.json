@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-05T10:44:57.015Z",
+  "generatedAt": "2026-09-05T16:20:38.577Z",
   "methodology": "Topic-cluster keyword research: seed terms x intent modifiers, grounded in Baraka Events' real published services (StickyServices.tsx, MenuCarousel.tsx), real FAQ-stated service areas (FAQ.tsx), and existing blog content (src/lib/posts.ts). No search-volume data source is connected to this project — searchVolume is always \"unavailable\", never estimated.",
-  "clusterCount": 32,
-  "keywordCount": 357,
+  "clusterCount": 33,
+  "keywordCount": 366,
   "keywords": [
     {
       "keyword": "anniversary party ideas Lahore",
@@ -4287,6 +4287,114 @@
       "priority": "low",
       "existingCompetingPage": "https://www.barakaevents.com/",
       "cannibalizationRisk": "none"
+    },
+    {
+      "keyword": "rukhsati ceremony Lahore",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "medium",
+      "targetFunnelStage": "awareness",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "rukhsati planning Lahore",
+      "searchIntent": "informational — researching before deciding",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "medium",
+      "targetFunnelStage": "consideration",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "rukhsati ideas Lahore",
+      "searchIntent": "informational — researching before deciding",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "low",
+      "targetFunnelStage": "awareness",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "rukhsati traditions Pakistan",
+      "searchIntent": "informational — general research",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "low",
+      "targetFunnelStage": "awareness",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "how to plan rukhsati",
+      "searchIntent": "informational — researching before deciding",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "medium",
+      "targetFunnelStage": "consideration",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "best rukhsati decor Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "rukhsati doli decoration Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "medium",
+      "targetFunnelStage": "decision",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "rukhsati planner Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
+    },
+    {
+      "keyword": "best rukhsati planner Lahore",
+      "searchIntent": "commercial investigation — comparing providers/venues",
+      "topicCluster": "Rukhsati",
+      "proposedUrl": "/blog/rukhsati-ceremony-planning-lahore",
+      "contentType": "blog-post",
+      "priority": "high",
+      "targetFunnelStage": "decision",
+      "existingCompetingPage": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "cannibalizationRisk": "none",
+      "searchVolume": "unavailable"
     }
   ]
 }

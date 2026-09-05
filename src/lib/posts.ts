@@ -27,6 +27,44 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'rukhsati-ceremony-planning-lahore',
+    title: 'Rukhsati Planning in Lahore: Timing, Staging and What to Expect',
+    excerpt:
+      'A practical, respectful guide to planning a rukhsati in Lahore — timing it against the baraat or walima, staging the farewell, and what most families overlook.',
+    category: 'Traditions',
+    date: 'September 5, 2026',
+    publishedISO: '2026-09-05',
+    readTime: '5 min read',
+    image: '/media/wedding-2.webp',
+    imageAlt: 'Elegant wedding reception decor at a private Lahore estate',
+    blocks: [
+      { p: 'Most of a Lahori wedding week is planned around production — stages, menus, guest counts. The rukhsati is different. It is a few minutes, not a function, and it is usually the most emotional part of the entire week: the moment a bride formally leaves her parents’ home. It gets far less planning attention than the mehndi or the walima, which is exactly why it is worth thinking through in advance.' },
+      { h: 'What rukhsati actually is' },
+      { p: 'Rukhsati means departure, or sending off. It marks the bride leaving her parental home to begin her life with her husband’s family — practically, a farewell moment with her parents and siblings; symbolically, the close of one chapter and the start of another. In many families a Quran is held over the bride’s head as she steps out, a gesture of blessing and protection for the journey ahead. Exactly how it is observed varies by family, and that variation is normal, not something to standardise.' },
+      { h: 'Same day as the baraat, or a separate morning' },
+      { p: 'There are two common patterns. Some families hold the rukhsati at the very end of the baraat itself, once the nikkah and the evening’s functions are done — the bride leaves that same night. Others treat it as its own quieter event the following morning, giving the family a separate, less crowded moment before the walima. Neither is more correct than the other; the decision usually comes down to how emotionally intense the family wants the baraat night itself to be, and whether they would rather have that farewell witnessed by the full guest list or kept to close family.' },
+      { h: 'Staging the farewell properly' },
+      {
+        p: 'The rukhsati needs a clear, uncluttered space — a doorway, a car or doli, somewhere the moment does not compete with departing guests or breakdown crews already dismantling the stage. If a car or doli is being decorated, that needs to be arranged and parked in position well before the moment itself, not sorted out while family members are already standing around waiting. And if a photographer is capturing it, give them a fixed sightline in advance — this is not a moment anyone wants to reshoot.',
+        related: [{ text: 'The Perfect Baraat: Timing, Dhol and the Grand Entrance', slug: 'perfect-baraat-guide' }],
+      },
+      { h: 'Who needs to actually be there' },
+      { p: 'Unlike a wedding function built for a large guest list, the rukhsati is built around a small number of specific people — parents, siblings, close family — who need to be positioned and ready at the right moment, not scattered across the venue. Someone on the planning side should know exactly who these people are ahead of time and be responsible for finding them when the moment comes, rather than hoping everyone happens to be nearby.' },
+      { h: 'What families tend to get wrong' },
+      { p: 'The most common mistake is letting the schedule run so far behind that the rukhsati gets rushed or squeezed in as an afterthought once half the guests have already left — exactly the kind of run-of-show slippage that starts elsewhere in the evening and compounds by the time it reaches the last moment of the night. The second is not deciding in advance whether it is happening that night or the next morning, which leaves tired, emotional family members making a logistics decision on the spot.' },
+      { h: 'Questions to ask your planner' },
+      { p: 'Ask whether the rukhsati is explicitly built into the day’s run-of-show with its own time slot, not left to happen whenever the evening winds down. Ask who is responsible for having the car or doli decorated and positioned in advance. And if the family has not yet decided between a same-night or next-morning rukhsati, ask your planner to walk through both so the decision gets made ahead of time, not in the moment.' },
+      { h: 'FAQs: Rukhsati Planning in Lahore' },
+      { p: 'Does the rukhsati always happen right after the baraat? No — some families hold it at the end of the baraat night, others treat it as a separate, quieter event the next morning. Both are common; deciding in advance which one your family wants is what actually matters.' },
+      { p: 'What is the significance of the Quran being held over the bride during rukhsati? In many families it is a gesture of blessing and protection as the bride begins her new life — the specific practice and its meaning can vary by family and tradition.' },
+      {
+        p: 'Can Baraka Events help plan and stage the rukhsati moment? Yes — building it into the day’s run-of-show, coordinating car or doli decor, and making sure the space and the right family members are ready at the right time is part of how we plan a full wedding week, not a separate add-on.',
+        related: [{ text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' }],
+      },
+      { p: 'Everything else in a wedding week can be rehearsed. The rukhsati cannot — which is exactly why it deserves a plan, not just a hope that it goes smoothly.' },
+    ],
+  },
+  {
     slug: 'destination-multi-day-shaadi-lahore',
     title: 'Destination & Multi-Day Shaadi Planning: A Practical Guide',
     excerpt:
