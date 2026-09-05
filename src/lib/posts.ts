@@ -27,6 +27,45 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'aqeeqah-celebration-planning-lahore',
+    title: 'Aqeeqah Celebration Planning in Lahore: What to Know',
+    excerpt:
+      'A practical guide to hosting an Aqeeqah in Lahore — timing, guest-list size, catering and decor, and keeping the celebration personal, not just decorative.',
+    category: 'Traditions',
+    date: 'September 5, 2026',
+    publishedISO: '2026-09-05',
+    readTime: '5 min read',
+    image: '/media/rooftop-birthday.webp',
+    imageAlt: 'Private family celebration setup in Lahore',
+    blocks: [
+      { p: 'An Aqeeqah used to mean a small gathering at home — family, a shared meal, and not much more planning than that. For a lot of Lahore families today it still is exactly that, and there is nothing wrong with keeping it simple. But we are also seeing more families treat it as a proper hosted celebration — a decorated space, a catering plan, guests arriving to something that has clearly been thought through. Both are the same occasion; the difference is just how much is planned in advance.' },
+      { h: 'What an Aqeeqah celebration actually involves' },
+      { p: 'At its core, an Aqeeqah marks the arrival of a newborn — traditionally paired with the baby’s naming and the hair-shaving ritual, followed by sharing a meal with family, friends and often the wider community. The planning side we get involved in is everything around that: the space the family and guests actually sit in, the food that gets served, and the small details — a welcome sign with the baby’s name, a soft colour palette — that make it feel intentional rather than assembled last-minute.' },
+      { h: 'Timing: more flexible than most families assume' },
+      { p: 'The Aqeeqah is traditionally observed on the seventh day after birth, though plenty of families move it later once the mother has recovered and out-of-town relatives can actually travel in. If you are planning to host rather than keep it purely at home, build in that flexibility from the start — a decorator or caterer who needs three weeks’ notice is the wrong fit for an event whose date can shift by days depending on the baby and the mother’s recovery.' },
+      { h: 'Guest list and scale' },
+      { p: 'Most Aqeeqah celebrations we help with sit closer to a milestone birthday in scale than a wedding function — usually close family, a smaller circle of friends, and sometimes neighbours or colleagues if the family wants a wider gathering. That smaller scale is an advantage, not a limitation: it means more design attention per guest, and a setup that can genuinely be turned around on short notice.' },
+      { h: 'Venue and decor: home comfort or a rented space' },
+      {
+        p: 'Plenty of families host at home, and a good decorator should be able to transform a lounge or lawn without needing to relocate anyone. Others prefer a small rented hall or rooftop, mainly for guest parking and space rather than because home does not feel right. Either way, the decor language we lean toward for an Aqeeqah is softer than a wedding’s — pastel florals, the baby’s name worked into the signage or backdrop, and lighting that reads as warm rather than dramatic.',
+        related: [{ text: 'Baraka Events Decor Services in Lahore: Every Style We Design', slug: 'baraka-events-decor-services-lahore' }],
+      },
+      { h: 'Catering: coordinating the meal around the tradition' },
+      { p: 'Traditionally, the meat from the Aqeeqah is shared among family, friends and those in need, and many families combine this with a proper hosted meal for the guests who attend the celebration itself. If you are hosting a sit-down or buffet component alongside the traditional sharing, that is a timing question as much as a menu one — coordinating when the meal is actually served against the rest of the afternoon or evening, so nothing feels rushed or out of order.' },
+      { h: 'Questions to ask before booking a decorator or caterer' },
+      { p: 'Ask directly whether the vendor can work with a flexible date, since that is the one thing that makes an Aqeeqah different from almost every other celebration on this journal. Confirm guest-count flexibility too — newborn schedules mean headcounts can shift close to the date. And ask what is actually included in a "celebration package" versus billed separately, since décor, catering and seating are sometimes bundled and sometimes not.' },
+      { h: 'FAQs: Aqeeqah Celebrations in Lahore' },
+      { p: 'When is an Aqeeqah traditionally held? On the seventh day after the baby’s birth, though many families move the celebration later to accommodate the mother’s recovery and travelling relatives.' },
+      { p: 'How many guests attend a typical Aqeeqah celebration? It varies by family, but most of the celebrations we help plan are closer in scale to a milestone birthday than a wedding function — often close family and a smaller circle of friends.' },
+      { p: 'Is an Aqeeqah only a religious observance, or is it also a hosted event? Both, and they are not in conflict. The naming, hair-shaving and sharing of the meat are the tradition itself; the decorated space and hosted meal are simply how many families choose to welcome guests to it.' },
+      { p: 'Can Baraka Events help plan and decorate an Aqeeqah celebration? Yes — it falls under our private celebrations work alongside birthdays, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty.' },
+      {
+        p: 'Simple at home or fully hosted, an Aqeeqah only needs one thing to go right: guests arriving to a space that feels ready, so the day stays about the baby rather than the logistics.',
+        related: [{ text: 'The Rise of Micro-Weddings and Intimate Celebrations in Pakistan', slug: 'micro-weddings-intimate-celebrations-pakistan' }],
+      },
+    ],
+  },
+  {
     slug: 'farmhouse-wedding-raiwind-road-lahore',
     title: 'Farmhouse Weddings on Raiwind Road: What to Know Before You Book',
     excerpt:
@@ -41,8 +80,8 @@ export const posts: Post[] = [
       { p: 'Ask a Lahori family why they chose a farmhouse on Raiwind Road over a banquet hall in DHA or Gulberg, and the answer is almost always the same: space. A farmhouse lawn gives you room a purpose-built hall simply cannot — for a five-hundred-guest baraat, a car park that does not spill onto the main road, or a stage concept too large for any indoor ceiling. That extra space comes with a different set of planning questions than a city venue, and most families only discover them after they have already signed the booking.' },
       { h: 'Why Raiwind Road specifically' },
       { p: 'Raiwind Road has become Lahore’s farmhouse corridor for a simple reason: land here is more affordable than anywhere inside DHA or Gulberg, so the lawns are larger and the rental rates are lower per square foot even on a big guest list. The tradeoff is distance — most farmhouses sit twenty to forty minutes from central Lahore depending on traffic, further than a Gulberg or MM Alam venue for guests coming from the city. For a family prioritising scale and an open-air setting over a short commute, it is usually the right trade.' },
+      { h: 'A farmhouse is raw land, not a finished venue' },
       {
-        h: 'A farmhouse is raw land, not a finished venue',
         p: 'The single biggest difference from a hall booking: a banquet complex comes with a roof, flooring, air conditioning and often a stage already built in. A farmhouse lawn comes with none of that. Everything — the marquee or tent structure, flooring, seating, cooling or heating, and often the stage shell itself — has to be built for your date and struck afterward. That is a real cost most first-time farmhouse bookers do not budget for, and it is also where a wedding decorator earns their fee: designing a tented structure is a different discipline than dressing a room that already exists.',
         related: [{ text: 'Baraka Events Decor Services in Lahore: Every Style We Design', slug: 'baraka-events-decor-services-lahore' }],
       },

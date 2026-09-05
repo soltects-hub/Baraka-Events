@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T16:38:48.775Z",
+  "generatedAt": "2026-09-05T08:10:26.089Z",
   "methodology": "Topic-cluster keyword research: seed terms x intent modifiers, grounded in Baraka Events' real published services (StickyServices.tsx, MenuCarousel.tsx), real FAQ-stated service areas (FAQ.tsx), and existing blog content (src/lib/posts.ts). No search-volume data source is connected to this project — searchVolume is always \"unavailable\", never estimated.",
   "clusterCount": 32,
   "keywordCount": 357,
@@ -120,7 +120,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "consideration",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -132,7 +132,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -144,7 +144,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "consideration",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -156,7 +156,7 @@
       "contentType": "blog-post",
       "priority": "medium",
       "targetFunnelStage": "awareness",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -168,7 +168,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
@@ -180,7 +180,7 @@
       "contentType": "blog-post",
       "priority": "high",
       "targetFunnelStage": "decision",
-      "existingCompetingPage": null,
+      "existingCompetingPage": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
       "cannibalizationRisk": "none",
       "searchVolume": "unavailable"
     },
