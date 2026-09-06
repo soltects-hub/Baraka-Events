@@ -30,6 +30,13 @@ export function generateOrganizationSchema() {
       postalCode: seoConfig.organization.address.postalCode,
       addressCountry: seoConfig.organization.address.addressCountry,
     },
+    // Same coordinates already used for the embedded map on the Contact
+    // page (LocationMap.tsx) — not a new claim, just mirrored into schema.
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 31.5104519,
+      longitude: 74.3401031,
+    },
     // Matches the areas already named in the site's own "Where We Work"
     // content (ExperiencesPage) — not a claim beyond what's published.
     areaServed: [

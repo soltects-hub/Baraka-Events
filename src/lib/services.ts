@@ -54,6 +54,8 @@ export const services: Service[] = [
     relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'event-decoration'],
     relatedLinks: [
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
+      { text: 'Farmhouse weddings on Raiwind Road', to: '/blog/farmhouse-wedding-raiwind-road-lahore' },
+      { text: 'Destination & multi-day shaadi planning', to: '/blog/destination-multi-day-shaadi-lahore' },
       { text: 'See wedding decor in the gallery', to: '/gallery' },
     ],
   },
@@ -223,6 +225,7 @@ export const services: Service[] = [
     relatedLinks: [
       { text: 'The perfect baraat: timing, dhol and the grand entrance', to: '/blog/perfect-baraat-guide' },
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
+      { text: 'Rukhsati planning: timing, staging and what to expect', to: '/blog/rukhsati-ceremony-planning-lahore' },
     ],
   },
   {
@@ -306,6 +309,8 @@ export const services: Service[] = [
     relatedServices: ['engagement-events', 'event-decoration'],
     relatedLinks: [
       { text: 'Read about intimate celebrations', to: '/blog/micro-weddings-intimate-celebrations-pakistan' },
+      { text: 'Anniversary parties, garden mehfils and rooftop dinners', to: '/blog/anniversary-celebration-ideas-lahore' },
+      { text: 'Aqeeqah celebration planning in Lahore', to: '/blog/aqeeqah-celebration-planning-lahore' },
       { text: 'See our gallery', to: '/gallery' },
     ],
   },
