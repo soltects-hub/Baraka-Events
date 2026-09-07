@@ -86,6 +86,12 @@
           // a conversion in Google Ads regardless of whether they actually
           // did anything. It now only fires from Contact.tsx, on an actual
           // successful consultation-request submission.
+
+          var metricoolPixel = document.createElement('img');
+          metricoolPixel.src = 'https://tracker.metricool.com/c3po.jpg?hash=facf08482e43eb7a9348fd9b5ede6e4';
+          metricoolPixel.alt = '';
+          metricoolPixel.style.display = 'none';
+          document.body.appendChild(metricoolPixel);
         }
         var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
         // Long enough that a synthetic no-interaction test (Lighthouse's
