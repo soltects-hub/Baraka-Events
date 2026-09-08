@@ -1,6 +1,12 @@
+import { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
+import { isStoreLocatorConfigured } from '../lib/storeLocatorConfig';
+
+// Code-split: with no Maps key configured this chunk is never requested, so the
+// locator costs nothing on a page already carrying a heavy LCP.
+const StoreLocator = lazy(() => import('./StoreLocator'));
 
 const ADDRESS = 'LG 13A, Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III, Lahore';
 const MAP_COORDS = '31.5104519,74.3401031';
@@ -54,20 +60,35 @@ export default function LocationMap() {
           <span className="pointer-events-none absolute bottom-4 left-4 z-10 h-6 w-6 border-b border-l border-gold/50" />
           <span className="pointer-events-none absolute bottom-4 right-4 z-10 h-6 w-6 border-b border-r border-gold/50" />
 
-          <iframe
-            title="Baraka Events office location — Big City Plaza, Gulberg III, Lahore"
-            src={`https://www.google.com/maps?q=${MAP_COORDS}&z=17&output=embed`}
-            className="h-[380px] w-full border-0 saturate-100 contrast-[1.05] transition-[filter] duration-700 md:h-[480px] lg:saturate-[0.35] lg:group-hover:saturate-100"
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          {/* The Store Locator replaces the plain embed only once a Maps API key
+              and Map ID are configured; otherwise the keyless iframe below keeps
+              working exactly as before. */}
+          {isStoreLocatorConfigured() ? (
+            <Suspense
+              fallback={<div className="h-[380px] w-full bg-ink-3 md:h-[480px]" aria-hidden />}
+            >
+              <StoreLocator />
+            </Suspense>
+          ) : (
+            <iframe
+              title="Baraka Events office location — Big City Plaza, Gulberg III, Lahore"
+              src={`https://www.google.com/maps?q=${MAP_COORDS}&z=17&output=embed`}
+              className="h-[380px] w-full border-0 saturate-100 contrast-[1.05] transition-[filter] duration-700 md:h-[480px] lg:saturate-[0.35] lg:group-hover:saturate-100"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          )}
 
           {/* address chip on the map */}
+          {/* The locator renders its own address panel; showing this chip on top
+              of it would duplicate the address and cover the map controls. */}
+          {!isStoreLocatorConfigured() && (
           <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 w-[calc(100%-3rem)] max-w-md -translate-x-1/2 rounded-sm border border-white/10 bg-ink/85 px-5 py-4 text-center backdrop-blur-xl md:bottom-8">
             <p className="text-[10px] uppercase tracking-[0.3em] text-gold">Baraka Events &mdash; Head Office</p>
             <p className="mt-1.5 text-[13px] font-light leading-snug text-cream/80">{ADDRESS}</p>
           </div>
+          )}
         </motion.div>
 
         {/* quick facts */}

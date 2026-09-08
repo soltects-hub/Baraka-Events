@@ -169,3 +169,28 @@ h1, h2, h3, h4 {
 input, textarea, select {
   outline: none;
 }
+
+/* Google Maps Store Locator (src/components/StoreLocator.tsx).
+   The Extended Component Library ships a light, Roboto-and-blue theme; these
+   custom properties are its documented theming API, so the locator inherits
+   Baraka's ink/gold palette and display face instead of looking like a demo
+   embed dropped into the page. Only renders when a Maps key is configured. */
+.baraka-locator gmpx-store-locator {
+  width: 100%;
+  height: 100%;
+  --gmpx-color-surface: var(--color-ink-2);
+  --gmpx-color-on-surface: var(--color-cream);
+  --gmpx-color-on-surface-variant: rgb(245 245 245 / 0.6);
+  --gmpx-color-primary: var(--color-gold);
+  --gmpx-color-on-primary: var(--color-ink);
+  --gmpx-color-outline: rgb(255 255 255 / 0.12);
+  --gmpx-fixed-panel-width-row-layout: 22em;
+  --gmpx-fixed-panel-height-column-layout: 45%;
+  --gmpx-font-family-base: 'Inter', system-ui, sans-serif;
+  --gmpx-font-family-headings: 'Oswald', system-ui, sans-serif;
+  --gmpx-font-size-base: 0.875rem;
+  --gmpx-hours-color-open: #4ade80;
+  --gmpx-hours-color-closed: #f87171;
+  --gmpx-rating-color: var(--color-gold);
+  --gmpx-rating-color-empty: rgb(255 255 255 / 0.18);
+}
