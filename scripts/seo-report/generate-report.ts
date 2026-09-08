@@ -209,6 +209,17 @@ function renderFullReport(data: SearchConsoleReportData): string {
       );
     }
   }
+  // Inspections that failed outright are a different problem from inspections
+  // that came back with a bad coverage state, and hiding the first behind the
+  // second is how "zero indexed" got mistaken for a fact about the live site.
+  const erroredInspections = (data.urlInspections ?? []).filter((u) => u.error);
+  if (erroredInspections.length > 0 && erroredInspections.length === (data.urlInspections ?? []).length) {
+    technicalIssues.push(
+      `**No usable indexing data:** all ${erroredInspections.length} URL Inspection calls failed — ` +
+        `e.g. \`${erroredInspections[0].error}\`. Nothing in this report describes whether the live pages are indexed.`
+    );
+  }
+
   const badInspections = (data.urlInspections ?? []).filter(
     (u) => !u.error && u.coverageState && !/submitted and indexed/i.test(u.coverageState) && !isExpectedApexRedirect(u)
   );

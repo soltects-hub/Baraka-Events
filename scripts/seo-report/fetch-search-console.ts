@@ -151,13 +151,28 @@ async function fetchSitemaps(): Promise<{ sitemaps: SitemapStatus[]; error?: Api
  * first because URL Inspection is quota-limited and truncation should drop blog
  * posts, not money pages.
  */
-function allSiteUrls(): string[] {
+/**
+ * Which origin the inspected URLs must sit on, given the property in use.
+ *
+ * URL Inspection only accepts URLs inside the property: a Domain property
+ * covers every subdomain, so it can and should inspect the real www pages,
+ * but a URL-prefix property covers only its exact prefix. Asking the apex
+ * URL-prefix property about https://www... returns
+ * "403: the inspected URL is not part of this property" for every URL — which
+ * is what the first run after the fallback landed did, 39 times.
+ */
+function inspectionOrigin(property: string): string {
+  if (property.startsWith('sc-domain:')) return PRODUCTION_ORIGIN;
+  return property.replace(/\/+$/, '');
+}
+
+function allSiteUrls(origin: string): string[] {
   return [
-    `${PRODUCTION_ORIGIN}${routes.home}`,
-    `${PRODUCTION_ORIGIN}${routes.services}`,
-    ...services.map((s) => `${PRODUCTION_ORIGIN}${routes.servicePage(s.slug)}`),
-    `${PRODUCTION_ORIGIN}${routes.blog}`,
-    ...posts.map((p) => `${PRODUCTION_ORIGIN}${routes.blogPost(p.slug)}`),
+    `${origin}${routes.home}`,
+    `${origin}${routes.services}`,
+    ...services.map((s) => `${origin}${routes.servicePage(s.slug)}`),
+    `${origin}${routes.blog}`,
+    ...posts.map((p) => `${origin}${routes.blogPost(p.slug)}`),
   ];
 }
 
@@ -339,7 +354,15 @@ async function main() {
   // otherwise we already know it's a permissions problem and 8 more failing
   // calls add nothing.
   if (!currentTotals.error && !sitemapResult.error) {
-    const urls = allSiteUrls();
+    const origin = inspectionOrigin(activeSiteUrl);
+    if (origin !== PRODUCTION_ORIGIN) {
+      console.warn(
+        `::warning::Inspecting ${origin} URLs because the active property is a URL-prefix property. ` +
+          `That host only redirects to ${PRODUCTION_ORIGIN}, so these results say nothing about whether the real ` +
+          `pages are indexed. Grant the service account access to a Domain property to inspect the live site.`
+      );
+    }
+    const urls = allSiteUrls(origin);
     data.urlInspections = [];
     for (const url of urls) {
       // Sequential on purpose: URL Inspection has a modest per-minute quota and
