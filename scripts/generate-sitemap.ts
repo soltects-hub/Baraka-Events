@@ -24,21 +24,29 @@ interface SitemapUrl {
 // changes, month precision is enough for a sitemap.
 const staticLastmod = '2026-09';
 
-// /services was rewritten from a thin card grid into a full landing page for
-// the "event planner in Lahore" head term. Give it a day-precision lastmod so
-// the change is an unambiguous recrawl signal rather than a month rollover.
-const servicesLastmod = '2026-09-08';
+// Day-precision lastmod for the pages actually edited in the page-2 -> page-1
+// pass on 2026-09-09: the homepage and /services H1s, and the four service
+// pages that absorbed 301 equity from the legacy blog URLs and were expanded
+// from ~200 to ~500-650 words. Everything untouched keeps month precision, so
+// lastmod stays a real signal rather than a blanket timestamp.
+const editedLastmod = '2026-09-09';
+const EDITED_SERVICE_SLUGS = new Set([
+  'wedding-planning',
+  'event-management',
+  'event-decoration',
+  'corporate-events',
+]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: staticLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: editedLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: staticLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: staticLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
-  { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: servicesLastmod },
+  { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: editedLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: editedLastmod },
 ];
 
 const postRoutes: SitemapUrl[] = posts.map((post) => ({
@@ -52,7 +60,7 @@ const serviceRoutes: SitemapUrl[] = services.map((service) => ({
   path: routes.servicePage(service.slug),
   changefreq: 'monthly',
   priority: '0.8',
-  lastmod: staticLastmod,
+  lastmod: EDITED_SERVICE_SLUGS.has(service.slug) ? editedLastmod : staticLastmod,
 }));
 
 const urls = [...staticRoutes, ...postRoutes, ...serviceRoutes];

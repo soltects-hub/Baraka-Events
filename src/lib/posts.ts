@@ -39,6 +39,97 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'event-planning-cost-budget-lahore',
+    title: 'What Event Planning in Lahore Costs, and How to Spend Less',
+    excerpt:
+      'What actually drives the price of an event in Lahore, where the money really goes, and the honest ways to spend less without the day looking cheaper.',
+    category: 'Planning',
+    date: '9 September 2026',
+    publishedISO: '2026-09-09',
+    readTime: '9 min read',
+    image: '/media/setup-before.webp',
+    imageAlt: 'Empty Lahore banquet hall with a bare stage and truss before decor is installed',
+    blocks: [
+      {
+        p: 'Almost everyone searching for an affordable event planner in Lahore is really asking two questions at once: what does this normally cost, and am I about to be overcharged. Both are fair. The problem is that the honest answer to the first one is a range wide enough to be useless on its own, and the only way to make it useful is to break the number apart. This is what actually sits inside an event quote in Lahore, which parts move, and where cutting genuinely works versus where it just makes the day look thinner.',
+      },
+      { h: 'Why nobody publishes a price list' },
+      {
+        p: 'A 150-guest nikkah at a hall in Johar Town and an 800-guest walima at a five-star in Gulberg are not the same product with a different number attached. They differ in venue tier, per-head catering, how much staging and floral is built, how many crew are on site and for how long. Any planner publishing one flat package price is either quoting for the cheapest possible version of it, or padding for the most expensive. Neither tells you what your event costs.',
+      },
+      { h: 'The five lines that make up almost every quote' },
+      {
+        p: 'Venue. Catering, quoted per head. Decor, meaning stage, floral and furniture. Lighting and sound. And the planner fee. Photography usually sits alongside as a sixth. If a quote arrives as one lump sum, ask for it split into those lines before you compare it to anything, because a single number hides which part is expensive. It is also the fastest way to spot a quote that has quietly bundled the planner fee into an inflated per-head rate.',
+        related: [
+          { text: 'What a Luxury Shaadi in Lahore Actually Costs in 2025', slug: 'luxury-shaadi-cost-lahore' },
+        ],
+      },
+      { h: 'Guest count moves more money than any other decision' },
+      {
+        p: 'Catering is per head, so every extra fifty guests is a fixed multiplier on the largest single line in the budget. Guest count also drags the venue up a tier once you cross what a room can hold, and it pushes seating, service staff and washroom provision with it. Cutting a guest list by fifty typically saves more than every decor compromise you could make combined, and it is the one lever most families refuse to touch first. If the budget genuinely does not work, this is where to look before anywhere else.',
+      },
+      { h: 'Where you can genuinely save' },
+      {
+        p: 'Date and season are the biggest free lever, and we cover that below. Beyond that: choose a venue whose own architecture does some of the work, so you are not paying to hide a plain room. Concentrate floral volume where people actually stand and photograph, which is the stage and the entrance, rather than spreading it thinly everywhere. Use fewer, larger installations instead of many small ones, because labour scales with the number of pieces. Take a weekday or an afternoon slot. And book a single function properly rather than four functions cheaply.',
+        related: [
+          { text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' },
+        ],
+      },
+      { h: 'Where saving usually backfires' },
+      {
+        p: 'Lighting is the classic false economy. It is invisible in a quote and decisive in every photograph, and a beautifully decorated room lit badly photographs worse than a simple room lit well. Sound is the second: an underpowered system in a large hall means guests at the back hear nothing and the speeches land flat. The third is on-site staffing, because the savings are real and so is the outcome, which is that you spend your own event chasing vendors. If something has to give, give on quantity of decor before you give on any of these three.',
+        related: [
+          { text: 'Event Decoration & Design in Lahore', to: '/services/event-decoration' },
+        ],
+      },
+      { h: 'Season changes the price more than anything you choose' },
+      {
+        p: 'Peak wedding season in Lahore compresses everything from roughly November through March, and every vendor in the city knows it. The same venue, caterer and decor team cost meaningfully more on a December Saturday than on an off-season weekday, purely because of demand. If your date is flexible at all, moving it is the single largest saving available to you, and it costs you nothing in quality. It is also why booking early matters more for price than for availability.',
+        related: [
+          { text: 'Outdoor Weddings in Lahore: Picking the Right Month and Setup', slug: 'outdoor-garden-wedding-lahore-guide' },
+        ],
+      },
+      { h: 'What a very cheap quote usually means' },
+      {
+        p: 'Unusually low quotes in this market are rarely fraud. They are almost always a narrower scope than you assumed. Common versions: the per-head rate covers a shorter menu than the one you were shown, decor is priced for a smaller stage than the venue actually needs, lighting is a token rig rather than a designed one, or the planner is a coordinator on the day only with no vendor management before it. None of that is dishonest if it is written down. It becomes a problem when the scope is verbal and the invoice is not.',
+      },
+      { h: 'How to compare two quotes properly' },
+      {
+        p: 'Put them side by side on the five lines above and check that each line covers the same thing. Confirm the per-head menu in writing, not in conversation. Ask what the decor number assumes about stage size. Ask how many crew are on site and for how many hours. Ask what happens to the price if the guest count moves by fifty in either direction, because it will. The cheaper quote is only cheaper if it survives those five questions.',
+        related: [
+          { text: 'How to Choose the Top Event Planner in Lahore', slug: 'top-event-planner-lahore-checklist-2026' },
+        ],
+      },
+      { h: 'Booking only the part you need' },
+      {
+        p: 'The cheapest useful thing a planner can sell you is often not full planning. If you have already chosen a venue and a caterer, day-of management alone gets you the run-of-show and vendor supervision without paying for decisions you have already made. If you only need the room to look right, decor can be booked on its own. Being told which of those you actually need is worth more than a discount on the one you did not.',
+        related: [
+          { text: 'Event Management in Lahore', to: '/services/event-management' },
+        ],
+      },
+      { h: 'FAQs: Event Planning Costs in Lahore' },
+      { h: 'How much does an event planner in Lahore charge?' },
+      {
+        p: 'It depends on whether you are buying full planning, day-of management or decor alone, and on how many functions are involved. Reputable planners quote against your actual brief rather than publishing a package price. What you should insist on is that the fee appears as its own line, separate from venue, catering and decor, so you can see what the planning itself costs.',
+      },
+      { h: 'Is it cheaper to plan the event myself?' },
+      {
+        p: 'On paper, yes, you save the fee. In practice it depends on whether you have vendor relationships and time. Self-planning tends to cost more on individual vendor rates and less on fees, and the gap narrows the larger the event gets. For a single small function it is often genuinely cheaper. For a multi-function week across venues it usually is not.',
+      },
+      { h: 'What is the cheapest month for a wedding in Lahore?' },
+      {
+        p: 'Anything outside the November to March peak. Summer is the least contested and the cheapest, with the obvious trade-off that outdoor functions become difficult and indoor cooling becomes essential. Late spring and early autumn are the usual compromise between price and comfort.',
+      },
+      { h: 'Can you work to a fixed budget?' },
+      {
+        p: 'Yes, and it is easier than working to a vague one. Give us the number you actually have rather than a number you hope to negotiate down from, and we will show you what it buys across the five lines and where the trade-offs sit. A fixed budget stated up front is not a constraint on the design; it is what makes the design decisions obvious.',
+        related: [
+          { text: 'Why Baraka Events Is the Best Event Planner in Lahore', slug: 'best-event-planner-lahore-baraka-events' },
+        ],
+      },
+    ],
+  },
+  {
     slug: 'outdoor-garden-wedding-lahore-guide',
     title: 'Outdoor Weddings in Lahore: Picking the Right Month and Setup',
     excerpt:

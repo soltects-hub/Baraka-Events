@@ -23,6 +23,7 @@ export const postServiceLinks: Record<string, string> = {
   'viral-pakistani-wedding-trends-2026': 'wedding-planning',
   'baraka-events-venue-booking-guide': 'wedding-planning',
   'outdoor-garden-wedding-lahore-guide': 'event-decoration',
+  'event-planning-cost-budget-lahore': 'event-management',
 
   // Individual functions
   'mehndi-themes-lahore-loves': 'mehndi-events',

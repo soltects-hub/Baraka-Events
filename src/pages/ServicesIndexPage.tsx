@@ -133,7 +133,7 @@ export default function ServicesIndexPage() {
           </motion.p>
           <RevealText
             as="h1"
-            text="Every service, planned by one team."
+            text="Every service, from one event planner in Lahore."
             className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
           />
           <motion.p

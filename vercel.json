@@ -183,12 +183,12 @@
     },
     {
       "source": "/blog/cheap-event-planners-in-lahore",
-      "destination": "/blog/luxury-shaadi-cost-lahore",
+      "destination": "/blog/event-planning-cost-budget-lahore",
       "statusCode": 301
     },
     {
       "source": "/blog/cheap-event-planners-in-lahore/",
-      "destination": "/blog/luxury-shaadi-cost-lahore",
+      "destination": "/blog/event-planning-cost-budget-lahore",
       "statusCode": 301
     },
     {
@@ -238,6 +238,36 @@
     },
     {
       "source": "/legal/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/ultimate-guide-event-planners-lahore-pakistan",
+      "destination": "/blog/top-event-planner-lahore-checklist-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/ultimate-guide-event-planners-lahore-pakistan/",
+      "destination": "/blog/top-event-planner-lahore-checklist-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/disclaimer",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/disclaimer/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-conditions",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-conditions/",
       "destination": "/",
       "statusCode": 301
     }

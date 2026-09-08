@@ -83,10 +83,10 @@ export default function Hero() {
         </m.p>
 
         <h1 className="mt-5 max-w-3xl font-display font-light leading-[1.06] text-cream text-[13vw] sm:text-[9vw] md:text-[6vw]">
-          <RevealText as="span" text="Weddings, corporate events," delay={0.2} className="block text-cream" />
+          <RevealText as="span" text="Event planners in Lahore." delay={0.2} className="block text-cream" />
           <RevealText
             as="span"
-            text="private celebrations."
+            text="Weddings, corporate, private."
             delay={0.35}
             className="block italic text-gold-soft"
           />
