@@ -1,8 +1,20 @@
+/**
+ * An inline "Related" link under a paragraph. Give it either a post `slug`
+ * (resolved as /blog/<slug>) or a full `to` path — `to` exists so a post can
+ * link up to a service page. Until it was added, link equity only ever flowed
+ * from services down into the blog and never back to the commercial pages.
+ */
+export interface PostRelatedLink {
+  text: string;
+  slug?: string;
+  to?: string;
+}
+
 export interface PostBlock {
   h?: string;
   p?: string;
   /** Optional inline "Related reading" links shown after this paragraph. */
-  related?: { text: string; slug: string }[];
+  related?: PostRelatedLink[];
 }
 
 export interface Post {
@@ -26,6 +38,97 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+  {
+    slug: 'outdoor-garden-wedding-lahore-guide',
+    title: 'Outdoor Weddings in Lahore: Picking the Right Month and Setup',
+    excerpt:
+      'Which months suit an open-air wedding in Lahore, what a draped garden setup actually needs, and the logistics most couples only find out about too late.',
+    category: 'Venues',
+    date: '8 September 2026',
+    publishedISO: '2026-09-08',
+    readTime: '8 min read',
+    image: '/media/portfolio-1.webp',
+    imageAlt:
+      'Open-air evening wedding in a lit Lahore courtyard, chandeliers and guest tables under the night sky',
+    blocks: [
+      {
+        p: 'An open-air wedding is the setup almost every couple in Lahore asks about first, and the one most likely to be quietly talked out of by a venue that would rather sell you the hall. The instinct is right — a lawn under drape and warm light photographs better than any banquet room in this city. But an outdoor function is a production job, not a booking. The sky is free; everything the sky does not provide has to be brought in, powered, levelled and made safe.',
+      },
+      { h: 'The months that actually work' },
+      {
+        p: 'Lahore gives you a genuinely comfortable outdoor window roughly from mid-October into late November, and again from late February through March. May to August is not a debate — afternoon heat well past 40°C, and evenings that stay uncomfortable long after sunset. July and August add monsoon rain, which is not a light drizzle you decorate around. If your date falls in that band, an outdoor ceremony with an indoor dinner is a far better plan than pretending the lawn will hold.',
+        related: [
+          { text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' },
+        ],
+      },
+      { h: 'December and January are peak season and the hardest outdoors' },
+      {
+        p: 'This is the part that surprises people. Peak shaadi season sits squarely in the months when Lahore is coldest and its air is at its worst. Smog season runs roughly November through January, and on bad days the air quality is genuinely hazardous rather than merely unpleasant — elderly guests and children feel it first. Dense winter fog does the rest: it strands guests driving in from out of town, it swallows uplighting, and it puts a grey cast over photographs that no amount of editing fully removes. None of this makes a December outdoor wedding impossible. It makes it a decision you should take deliberately, with heaters, an enclosed fallback and a realistic view of arrival times, rather than one you drift into because the date was available.',
+      },
+      { h: 'Lawn, farmhouse or courtyard — three different builds' },
+      {
+        p: 'A hotel or marquee lawn usually comes with power, parking, kitchens and washrooms already solved, and you are mostly buying decor on top. A farmhouse out along Raiwind or Bedian is raw ground: beautiful, private, and you are bringing in everything including generators, lighting, washrooms and often the kitchen. A heritage courtyard sits between the two — walls, floor and character already there, with real constraints on rigging and load-in. The design brief looks similar in all three cases; the budget and the crew size do not.',
+        related: [
+          { text: 'Farmhouse Weddings on Raiwind Road: What to Know Before You Book', slug: 'farmhouse-wedding-raiwind-road-lahore' },
+          { text: 'The 10 Most Beautiful Wedding Venues in Lahore for 2025', slug: 'top-wedding-venues-lahore-2025' },
+        ],
+      },
+      { h: 'What a draped canopy setup actually involves' },
+      {
+        p: 'The look most couples send us — a white canopy over the lawn, floral columns, fabric swagged overhead, chandeliers hanging inside it — is a structure before it is a decoration. It needs a frame rated for the span, ballast or proper anchoring, and someone who has thought about wind. A drape ceiling is a sail: a gust that would be nothing against a wall will lift an under-anchored canopy. Fabric also has to be kept well clear of gas heaters, which is exactly the season when both appear together. Ask who is building the structure, what it is anchored to, and what wind speed it is rated for. A decorator who cannot answer that is selling you fabric, not a canopy.',
+        related: [
+          { text: 'Event Decoration & Design in Lahore', to: '/services/event-decoration' },
+        ],
+      },
+      { h: 'Lighting is the whole event, and it needs its own power' },
+      {
+        p: 'Outdoors after sunset there is no ambient light. Whatever you hang is the only thing anyone sees, and string lights alone will not expose faces properly — they read beautifully in a wide shot and leave your photographer fighting for every portrait. A workable rig layers three things: decorative light you can see in frame, warm functional light on faces and the stage, and path lighting so nobody crosses a dark lawn in heels. All of it needs power that was sized for it, plus a backup generator that can carry lighting and sound together. Running a full outdoor rig off the venue\'s house supply is the single most common way an outdoor wedding goes dark mid-function.',
+      },
+      { h: 'The ground causes more problems than the sky' },
+      {
+        p: 'Grass is uneven and heels sink into it. A dance floor needs a level subfloor, not just a mat thrown on turf. Cable runs across a lawn have to be matted or buried or someone will trip on them in the dark. And in the cooler months, dew starts settling on everything well before the evening ends — chairs, table linen, the hems of expensive clothes. Late-evening winter functions outdoors need either covered seating or an honest plan to move guests inside for dinner.',
+      },
+      { h: 'Guest comfort: heat, cold and mosquitoes' },
+      {
+        p: 'Outdoor guest comfort is unglamorous and it is what people actually remember. Patio heaters for winter evenings, placed where they warm seating rather than the open lawn, and far enough from drape. Fans or misting for the shoulder months. Mosquito treatment of the grounds a few hours before guests arrive, which matters enormously near water features and after rain, and which is routinely forgotten. Washroom provision at a farmhouse, sized for the actual guest count rather than optimistically. These line items are cheap relative to the decor budget and they decide whether people stay to the end.',
+      },
+      { h: 'A rain plan that is a plan, not a hope' },
+      {
+        p: 'A real contingency has a trigger and a deadline: who decides, based on what forecast, by what time, and what physically happens when the call is made. That usually means a covered structure already standing rather than one promised on the day, or a booked indoor space at the same venue. It also means knowing how long your crew needs to move a function, because that number decides how early the call has to come. "We will see on the day" is not a plan; by the time it is obviously raining, it is far too late to build anything.',
+      },
+      { h: 'What actually drives the cost' },
+      {
+        p: 'Outdoor setups vary too much for a published price to mean anything, but the cost drivers are consistent and you can ask about each one directly. Structure and drape scale with covered area. Florals scale with volume, not with the number of arrangements. Lighting scales with the size of the rig and how much power it needs. A raw farmhouse adds generators, washrooms and often a full kitchen build. Labour scales with load-in time, and a canopy build is a multi-day job where a hall is a single afternoon. When you get a quote, ask for those as separate lines. If they arrive as one number, you cannot tell what you are actually paying for or where you have room to trade.',
+        related: [
+          { text: 'What a Luxury Shaadi in Lahore Actually Costs in 2025', slug: 'luxury-shaadi-cost-lahore' },
+        ],
+      },
+      { h: 'One thing worth confirming yourself' },
+      {
+        p: 'Punjab has, at various points, regulated wedding catering and the hours marriage halls may operate, and those rules have been amended more than once. Whatever anyone tells you from memory, confirm the current position with your venue in writing before you finalise a timeline — particularly if you are planning a late finish outdoors. It is a five-minute question that occasionally saves a very expensive misunderstanding.',
+      },
+      { h: 'FAQs: Outdoor and Garden Weddings in Lahore' },
+      { h: 'What is the best month for an outdoor wedding in Lahore?' },
+      {
+        p: 'Mid-October to late November is the most reliable window, with late February and March a close second. Both give you comfortable evenings without peak smog. December and January are the busiest wedding months but the hardest outdoors, because of cold, fog and air quality.',
+      },
+      { h: 'Is an outdoor wedding more expensive than a banquet hall?' },
+      {
+        p: 'Usually yes, and the gap widens the rawer the site is. A hotel lawn with power and kitchens already in place can be close to hall pricing. A farmhouse where you bring in generators, lighting, washrooms and a kitchen is meaningfully more, and the extra sits mostly in infrastructure and labour rather than in anything guests see.',
+      },
+      { h: 'What happens if it rains on the day?' },
+      {
+        p: 'That depends entirely on what you booked. A covered structure already standing, or an indoor space held at the same venue, means you move and carry on. Without one of those, there is no good answer on the day — which is why the contingency has to be part of the original booking rather than a conversation you have that afternoon.',
+      },
+      { h: 'Can you build a canopy setup at any farmhouse?' },
+      {
+        p: 'Most of them, but it depends on ground conditions, access for trucks, how much power can be brought in, and whether the site drains. We survey the site before quoting rather than after, because those four things change the price more than the design does.',
+        related: [
+          { text: 'Walima Decor in 2025: From Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' },
+        ],
+      },
+    ],
+  },
   {
     slug: 'rukhsati-ceremony-planning-lahore',
     title: 'Rukhsati Planning in Lahore: Timing, Staging and What to Expect',
@@ -465,7 +568,7 @@ export const posts: Post[] = [
         p: 'Whatever the palette — truck-art brights, ivory monochrome, deep Mughal jewel tones — our decor services never let the mehndi look like the walima. Two distinct nights, two distinct worlds, is the standard every Baraka Events decor project is designed against.',
         related: [
           { text: 'Seven Mehndi Themes Lahore Cannot Get Enough Of', slug: 'mehndi-themes-lahore-loves' },
-          { text: 'Walima Decor in 2025: Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' },
+          { text: 'Walima Decor in 2025: From Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' },
         ],
       },
     ],

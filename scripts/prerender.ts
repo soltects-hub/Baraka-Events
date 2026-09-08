@@ -70,13 +70,22 @@ async function launchBrowser() {
 // `dist/blog/x.html`). Home is handled separately at the very end so every
 // other route's navigation is served the plain, unmodified vite-built shell
 // while it's being captured, not a half-finished prerender pass.
+// Any path matching no real route falls through React Router's `*` case to
+// NotFound. Vercel serves `dist/404.html` with an actual 404 status for paths
+// that match no file, so capturing that route here is what stops a wrong URL
+// (or one of the thousands of dead URLs left over from the domain's previous
+// WordPress site) from returning HTTP 200 and a full copy of the homepage.
+const NOT_FOUND_ROUTE = '/__not-found';
+
 function outputPathFor(path: string): string {
   if (path === '/') return resolve(DIST, 'index.html');
+  if (path === NOT_FOUND_ROUTE) return resolve(DIST, '404.html');
   const clean = path.replace(/^\/|\/$/g, '');
   return resolve(DIST, `${clean}.html`);
 }
 
 const routePaths: string[] = [
+  NOT_FOUND_ROUTE,
   routes.about,
   routes.experiences,
   routes.portfolio,

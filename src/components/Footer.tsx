@@ -1,6 +1,7 @@
 import { useSectionNav } from '../lib/useSectionNav';
 import NeonWordmark from './NeonWordmark';
 import { WHATSAPP_URL } from '../lib/whatsapp';
+import { services } from '../lib/services';
 
 const nav = [
   { label: 'About', href: '/about' },
@@ -28,7 +29,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/5 bg-ink pt-20 pb-14 lg:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid gap-14 md:grid-cols-[2fr_1fr_1fr]">
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
           <div>
             <a
               href="/"
@@ -75,6 +76,30 @@ export default function Footer() {
                     className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
                   >
                     {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Every service page used to be reachable only from /services, which
+              left the site's ten most commercial URLs with a single internal
+              link each. Listing them here gives each one a link from every
+              page on the site. */}
+          <div>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/60">Services</p>
+            <ul className="space-y-3">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <a
+                    href={`/services/${s.slug}`}
+                    onClick={(e) => { e.preventDefault(); go(`/services/${s.slug}`); }}
+                    className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
+                  >
+                    {/* s.tag repeats across services ("Weddings" covers five of
+                        them), so the page title minus the city gives each link
+                        distinct, descriptive anchor text. */}
+                    {s.title.replace(/ in Lahore$/, '')}
                   </a>
                 </li>
               ))}

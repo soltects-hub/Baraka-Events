@@ -7,6 +7,10 @@ import MagneticButton from './MagneticButton';
 const links = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
+  // The ten /services/* pages are the commercial core of the site, but
+  // "Services" was missing from the header entirely — the hub and all ten
+  // child pages hung off a single footer link.
+  { label: 'Services', href: '/services' },
   { label: 'Experiences', href: '/experiences' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Gallery', href: '/gallery' },

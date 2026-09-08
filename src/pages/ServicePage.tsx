@@ -133,8 +133,11 @@ export default function ServicePage() {
 
         {/* CTA */}
         <div className="mt-16 rounded-sm border border-gold/25 bg-ink-2 p-8 text-center md:p-10">
+          {/* This used to interpolate service.tag, which rendered as
+              "Planning your corporate?" and "Planning your weddings?" on two
+              of the money pages. ctaSubject is the event noun instead. */}
           <p className="font-display text-2xl font-light text-cream md:text-3xl">
-            Planning your <em className="italic text-gold-soft">{service.tag.toLowerCase()}</em>?
+            Planning your <em className="italic text-gold-soft">{service.ctaSubject}</em>?
           </p>
           <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-cream/60">
             Book a complimentary consultation with our atelier in Gulberg, or reach us directly for a quote.

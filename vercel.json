@@ -1,8 +1,26 @@
 {
+  "trailingSlash": false,
   "redirects": [
+    { "source": "/wedding-planner", "destination": "/services/wedding-planning", "statusCode": 301 },
     { "source": "/wedding-planner/", "destination": "/services/wedding-planning", "statusCode": 301 },
+    { "source": "/wedding-planning", "destination": "/services/wedding-planning", "statusCode": 301 },
+    { "source": "/wedding-planning/", "destination": "/services/wedding-planning", "statusCode": 301 },
+    { "source": "/corporate-event-planner", "destination": "/services/corporate-events", "statusCode": 301 },
     { "source": "/corporate-event-planner/", "destination": "/services/corporate-events", "statusCode": 301 },
-    { "source": "/birthday-planners/", "destination": "/services/birthday-events", "statusCode": 301 }
+    { "source": "/birthday-planners", "destination": "/services/birthday-events", "statusCode": 301 },
+    { "source": "/birthday-planners/", "destination": "/services/birthday-events", "statusCode": 301 },
+    { "source": "/contact-us", "destination": "/contact", "statusCode": 301 },
+    { "source": "/contact-us/", "destination": "/contact", "statusCode": 301 },
+    { "source": "/about-us", "destination": "/about", "statusCode": 301 },
+    { "source": "/about-us/", "destination": "/about", "statusCode": 301 },
+    { "source": "/our-services", "destination": "/services", "statusCode": 301 },
+    { "source": "/our-services/", "destination": "/services", "statusCode": 301 },
+    { "source": "/event-planner", "destination": "/services", "statusCode": 301 },
+    { "source": "/event-planner/", "destination": "/services", "statusCode": 301 },
+    { "source": "/event-management", "destination": "/services/event-management", "statusCode": 301 },
+    { "source": "/event-management/", "destination": "/services/event-management", "statusCode": 301 },
+    { "source": "/event-decoration", "destination": "/services/event-decoration", "statusCode": 301 },
+    { "source": "/event-decoration/", "destination": "/services/event-decoration", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
@@ -14,8 +32,7 @@
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
     { "source": "/services", "destination": "/services.html" },
-    { "source": "/services/:slug", "destination": "/services/:slug.html" },
-    { "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
+    { "source": "/services/:slug", "destination": "/services/:slug.html" }
   ],
   "headers": [
     {
@@ -34,7 +51,7 @@
         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://formspree.io https://*.doubleclick.net https://*.googleadservices.com https://www.google.com; frame-src https://www.google.com https://www.googletagmanager.com https://*.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.doubleclick.net https://analytics.tiktok.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://formspree.io https://*.doubleclick.net https://*.googleadservices.com https://www.google.com https://analytics.tiktok.com https://*.tiktok.com; frame-src https://www.google.com https://www.googletagmanager.com https://*.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'self'; upgrade-insecure-requests"
         }
       ]
     }

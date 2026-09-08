@@ -8,6 +8,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { posts } from '../../src/lib/posts';
+import { services } from '../../src/lib/services';
 import { generateArticleSchema } from '../../src/seo';
 import { REPORTS_DIR } from './config';
 
@@ -73,7 +74,20 @@ function main() {
   // Internal links
   for (const b of post.blocks) {
     for (const link of b.related ?? []) {
-      if (!posts.some((p) => p.slug === link.slug)) errors.push(`Internal link points to non-existent slug "${link.slug}".`);
+      // A related link is either a post slug or a full `to` path (used to
+      // link up to a /services/* page). Validate whichever form it uses.
+      if (link.to) {
+        const serviceMatch = /^\/services\/(.+)$/.exec(link.to);
+        if (serviceMatch) {
+          if (!services.some((s) => s.slug === serviceMatch[1])) {
+            errors.push(`Internal link points to non-existent service "${link.to}".`);
+          }
+        } else if (!link.to.startsWith('/')) {
+          errors.push(`Internal link "${link.to}" is not a site-relative path.`);
+        }
+      } else if (!posts.some((p) => p.slug === link.slug)) {
+        errors.push(`Internal link points to non-existent slug "${link.slug}".`);
+      }
     }
   }
 

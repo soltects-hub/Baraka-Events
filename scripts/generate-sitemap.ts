@@ -22,7 +22,12 @@ interface SitemapUrl {
 // Static pages don't have a natural per-page "last updated" date the way
 // posts do (post.publishedISO) — bump this when their content meaningfully
 // changes, month precision is enough for a sitemap.
-const staticLastmod = '2026-08';
+const staticLastmod = '2026-09';
+
+// /services was rewritten from a thin card grid into a full landing page for
+// the "event planner in Lahore" head term. Give it a day-precision lastmod so
+// the change is an unambiguous recrawl signal rather than a month rollover.
+const servicesLastmod = '2026-09-08';
 
 const staticRoutes: SitemapUrl[] = [
   { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: staticLastmod },
@@ -33,7 +38,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: staticLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: servicesLastmod },
 ];
 
 const postRoutes: SitemapUrl[] = posts.map((post) => ({

@@ -2,6 +2,8 @@ import { Fragment, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getPost, getRelatedPosts } from '../lib/posts';
+import { getService } from '../lib/services';
+import { postServiceLinks } from '../lib/postService';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import {
@@ -17,6 +19,7 @@ import {
 export default function BlogPost() {
   const { slug } = useParams();
   const post = slug ? getPost(slug) : undefined;
+  const linkedService = post ? getService(postServiceLinks[post.slug] ?? '') : undefined;
   const go = useSectionNav();
 
   useSEO({
@@ -109,9 +112,9 @@ export default function BlogPost() {
                 <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-cream/60">
                   Related:{' '}
                   {b.related.map((r, ri) => (
-                    <span key={r.slug}>
+                    <span key={r.to ?? r.slug}>
                       {ri > 0 && ' · '}
-                      <Link to={`/blog/${r.slug}`} className="gold-underline text-gold hover:text-gold-soft">
+                      <Link to={r.to ?? `/blog/${r.slug}`} className="gold-underline text-gold hover:text-gold-soft">
                         {r.text}
                       </Link>
                     </span>
@@ -120,6 +123,21 @@ export default function BlogPost() {
               )}
             </Fragment>
           )
+        )}
+
+        {/* The service this post maps to. Posts used to link only to other
+            posts, so nothing in the blog ever pointed back at a commercial
+            page. */}
+        {linkedService && (
+          <p className="mt-12 border-t border-white/8 pt-6 text-[12px] uppercase tracking-[0.15em] text-cream/60">
+            Our service:{' '}
+            <Link
+              to={routes.servicePage(linkedService.slug)}
+              className="gold-underline text-gold hover:text-gold-soft"
+            >
+              {linkedService.title}
+            </Link>
+          </p>
         )}
 
         {/* CTA */}
