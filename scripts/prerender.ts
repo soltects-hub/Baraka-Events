@@ -130,6 +130,38 @@ async function scrollThroughPage(page: import('puppeteer').Page) {
   });
 }
 
+/**
+ * index.html defers GTM, GA4, Google Ads, Metricool and the TikTok pixel until
+ * the visitor's first interaction (or a 10s fallback), to keep them off the
+ * critical path. scrollThroughPage() above dispatches real scroll events, which
+ * trips exactly that listener — so the tags get injected into the DOM mid-capture
+ * and then baked into every prerendered file.
+ *
+ * That had two effects on the live site: the deferral was defeated (every page
+ * shipped the tag scripts in its static HTML and loaded them during first paint),
+ * and each tag then loaded a second time when the runtime IIFE fired, putting two
+ * Metricool pixels and two TikTok SDK copies on the page and double-counting hits.
+ *
+ * Removing the injected nodes before capture leaves the inline loader untouched,
+ * so the tags load once, at runtime, the way they were designed to.
+ */
+async function stripInjectedTagScripts(page: import('puppeteer').Page) {
+  const removed = await page.evaluate(() => {
+    const selector = [
+      'script[src*="googletagmanager.com"]',
+      'script[src*="google-analytics.com"]',
+      'script[src*="googleadservices.com"]',
+      'script[src*="analytics.tiktok.com"]',
+      'script[src*="doubleclick.net"]',
+      'img[src*="tracker.metricool.com"]',
+    ].join(',');
+    const nodes = Array.from(document.querySelectorAll(selector));
+    nodes.forEach((n) => n.remove());
+    return nodes.length;
+  });
+  if (removed > 0) console.log(`    stripped ${removed} injected tag node(s) before capture`);
+}
+
 async function prerenderRoute(browser: import('puppeteer').Browser, path: string): Promise<void> {
   const page = await browser.newPage();
   try {
@@ -140,6 +172,8 @@ async function prerenderRoute(browser: import('puppeteer').Browser, path: string
     await new Promise((r) => setTimeout(r, 2800));
     await scrollThroughPage(page);
     await new Promise((r) => setTimeout(r, 400));
+
+    await stripInjectedTagScripts(page);
 
     const html = await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML);
 
