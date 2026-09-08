@@ -2,6 +2,15 @@ name: Baraka Events SEO Automation
 
 on:
   workflow_dispatch:
+    inputs:
+      remediate_sitemaps:
+        description: 'Also clean up Search Console sitemaps (submit the www sitemap, delete the 2 spam feeds left over from the WordPress compromise). Needs the service account to be an Owner/Full user on the property.'
+        type: boolean
+        default: false
+      remediate_dry_run:
+        description: 'Print the sitemap remediation plan without changing anything'
+        type: boolean
+        default: true
   push:
     branches:
       - main
@@ -108,6 +117,16 @@ jobs:
       - name: Compute today's date (for a stable, idempotent daily branch/PR name)
         id: date
         run: echo "today=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      # One-shot hygiene, opt-in via workflow_dispatch. Runs BEFORE the data
+      # collection below so the same run's report reflects the cleaned-up
+      # sitemap list. Never runs on the cron schedule.
+      - name: Remediate Search Console sitemaps (manual, opt-in)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.remediate_sitemaps }}
+        continue-on-error: true
+        env:
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL }}
+        run: npm run seo:remediate-sitemaps ${{ inputs.remediate_dry_run && '-- --dry-run' || '' }}
 
       - name: Collect Search Console data
         id: fetch

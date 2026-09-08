@@ -8,25 +8,45 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { posts } from '../../src/lib/posts';
+import { services } from '../../src/lib/services';
 import { routes } from '../../src/seo';
-import { SITE_URL, PRODUCTION_ORIGIN, REPORTS_DIR, computePeriods, isoDate } from './config';
+import {
+  SITE_URL,
+  SITE_URL_SOURCE,
+  PROPERTY_FALLBACKS,
+  PRODUCTION_ORIGIN,
+  REPORTS_DIR,
+  computePeriods,
+  isoDate,
+} from './config';
 import {
   apiRequest,
   checkAuthAvailable,
+  listAccessibleProperties,
   searchAnalyticsUrl,
   sitemapsUrl,
   URL_INSPECTION_URL,
 } from './search-console-client';
 import type {
+  AccessibleProperty,
   ApiError,
   PageRow,
+  PropertyResolution,
   QueryRow,
   SearchConsoleReportData,
   SearchTotals,
   SitemapStatus,
   UrlInspectionResult,
 } from './types';
+
+/**
+ * The property every API call in this run uses. Resolved once in main() against
+ * what the service account can actually read, rather than trusting the
+ * configured value — see resolveProperty().
+ */
+let activeSiteUrl = SITE_URL;
 
 interface RawRow {
   keys?: string[];
@@ -66,7 +86,7 @@ interface UrlInspectionResponse {
 }
 
 async function queryTotals(startDate: string, endDate: string): Promise<{ totals: SearchTotals; error?: ApiError }> {
-  const result = await apiRequest<SearchAnalyticsResponse>(searchAnalyticsUrl(SITE_URL), 'POST', {
+  const result = await apiRequest<SearchAnalyticsResponse>(searchAnalyticsUrl(activeSiteUrl), 'POST', {
     startDate,
     endDate,
     dimensions: [],
@@ -82,7 +102,7 @@ async function queryByDimension(
   dimension: 'query' | 'page',
   rowLimit = 25
 ): Promise<{ rows: Array<{ key: string } & SearchTotals>; error?: ApiError }> {
-  const result = await apiRequest<SearchAnalyticsResponse>(searchAnalyticsUrl(SITE_URL), 'POST', {
+  const result = await apiRequest<SearchAnalyticsResponse>(searchAnalyticsUrl(activeSiteUrl), 'POST', {
     startDate,
     endDate,
     dimensions: [dimension],
@@ -103,7 +123,7 @@ function toTotals(r: RawRow): SearchTotals {
 }
 
 async function fetchSitemaps(): Promise<{ sitemaps: SitemapStatus[]; error?: ApiError }> {
-  const result = await apiRequest<SitemapsListResponse>(sitemapsUrl(SITE_URL), 'GET');
+  const result = await apiRequest<SitemapsListResponse>(sitemapsUrl(activeSiteUrl), 'GET');
   if (!result.ok) return { sitemaps: [], error: { status: result.status, message: result.message } };
   const sitemaps = (result.data.sitemap ?? []).map((s) => ({
     path: s.path,
@@ -122,16 +142,98 @@ async function fetchSitemaps(): Promise<{ sitemaps: SitemapStatus[]; error?: Api
   return { sitemaps };
 }
 
+/**
+ * URLs to run through URL Inspection, most commercially important first.
+ *
+ * The service pages were missing entirely until now — the list only covered the
+ * homepage, /blog and the posts — so the report could never say anything about
+ * whether the pages the business actually sells from were indexed. They go
+ * first because URL Inspection is quota-limited and truncation should drop blog
+ * posts, not money pages.
+ */
 function allSiteUrls(): string[] {
-  const urls = [`${PRODUCTION_ORIGIN}${routes.home}`, `${PRODUCTION_ORIGIN}${routes.blog}`];
-  for (const post of posts) urls.push(`${PRODUCTION_ORIGIN}${routes.blogPost(post.slug)}`);
-  return urls;
+  return [
+    `${PRODUCTION_ORIGIN}${routes.home}`,
+    `${PRODUCTION_ORIGIN}${routes.services}`,
+    ...services.map((s) => `${PRODUCTION_ORIGIN}${routes.servicePage(s.slug)}`),
+    `${PRODUCTION_ORIGIN}${routes.blog}`,
+    ...posts.map((p) => `${PRODUCTION_ORIGIN}${routes.blogPost(p.slug)}`),
+  ];
+}
+
+/**
+ * Decide which property to query, given what the service account can read.
+ *
+ * A Search Console property grant is per-property: being added to
+ * "https://barakaevents.com/" conveys nothing for "sc-domain:barakaevents.com".
+ * When the configured property changed on 2026-09-05 the service account had no
+ * grant on the new one, every call started returning 403, and because the old
+ * auth check only proved a token could be minted, the run still reported
+ * "auth ok" and simply produced nothing for three days.
+ *
+ * So: list the real grants, use the configured property if it is among them,
+ * otherwise fall back to the best one that is — loudly — rather than going dark.
+ */
+export function chooseProperty(accessible: AccessibleProperty[]): PropertyResolution {
+  const resolution: PropertyResolution = {
+    requested: SITE_URL,
+    requestedFrom: SITE_URL_SOURCE,
+    resolved: null,
+    usedFallback: false,
+    accessible,
+  };
+
+  const readable = new Set(
+    accessible.filter((p) => p.permissionLevel !== 'siteUnverifiedUser').map((p) => p.siteUrl)
+  );
+
+  if (readable.has(SITE_URL)) {
+    resolution.resolved = SITE_URL;
+    return resolution;
+  }
+
+  const fallback = PROPERTY_FALLBACKS.find((p) => readable.has(p));
+  if (fallback) {
+    resolution.resolved = fallback;
+    resolution.usedFallback = true;
+    resolution.problem =
+      `Configured property "${SITE_URL}" (from ${SITE_URL_SOURCE}) is not readable by this service account. ` +
+      `Fell back to "${fallback}". Grant the service account access to "${SITE_URL}" in Search Console ` +
+      `(Settings > Users and permissions > Add user), or set the SEARCH_CONSOLE_SITE_URL repository variable to a property that is granted.`;
+    return resolution;
+  }
+
+  resolution.problem =
+    `No usable Search Console property. Configured "${SITE_URL}" (from ${SITE_URL_SOURCE}) is not readable, ` +
+    `and neither is any known fallback. Properties this service account can read: ` +
+    `${accessible.length ? accessible.map((p) => `${p.siteUrl} (${p.permissionLevel})`).join(', ') : 'NONE'}. ` +
+    `Fix: in Search Console, open the property, then Settings > Users and permissions > Add user, ` +
+    `and add the service account as an Owner or Full user.`;
+  return resolution;
+}
+
+async function resolveProperty(): Promise<{ resolution: PropertyResolution; error?: ApiError }> {
+  const listed = await listAccessibleProperties();
+
+  if (!listed.ok) {
+    const resolution = chooseProperty([]);
+    resolution.problem =
+      `Could not list Search Console properties (${listed.status}: ${listed.message}). ` +
+      `The service account may not be granted on any property, or the Search Console API may be disabled on the GCP project.`;
+    return { resolution, error: { status: listed.status, message: listed.message } };
+  }
+
+  const accessible: AccessibleProperty[] = (listed.data.siteEntry ?? []).map((s) => ({
+    siteUrl: s.siteUrl,
+    permissionLevel: s.permissionLevel,
+  }));
+  return { resolution: chooseProperty(accessible) };
 }
 
 async function inspectUrl(url: string): Promise<UrlInspectionResult> {
   const result = await apiRequest<UrlInspectionResponse>(URL_INSPECTION_URL, 'POST', {
     inspectionUrl: url,
-    siteUrl: SITE_URL,
+    siteUrl: activeSiteUrl,
   });
   if (!result.ok) {
     return {
@@ -187,6 +289,31 @@ async function main() {
     return;
   }
 
+  // Holding a token is not the same as being allowed to read a property, and
+  // conflating the two is what let this run silently produce nothing.
+  const { resolution, error: propertyError } = await resolveProperty();
+  data.property = resolution;
+  if (propertyError) errors.push(propertyError);
+
+  if (!resolution.resolved) {
+    mkdirSync(resolve(process.cwd(), REPORTS_DIR), { recursive: true });
+    const outPath = resolve(process.cwd(), REPORTS_DIR, `data-${isoDate(new Date())}.json`);
+    writeFileSync(outPath, JSON.stringify(data, null, 2));
+    writeFileSync(resolve(process.cwd(), REPORTS_DIR, 'data-latest.json'), JSON.stringify(data, null, 2));
+    console.error(`::error::${resolution.problem}`);
+    process.exitCode = 1;
+    return;
+  }
+
+  activeSiteUrl = resolution.resolved;
+  data.siteUrl = activeSiteUrl;
+  if (resolution.problem) console.error(`::warning::${resolution.problem}`);
+  console.log(
+    `Search Console property: ${activeSiteUrl}` +
+      (resolution.usedFallback ? ` (FALLBACK — configured "${resolution.requested}" is not accessible)` : '') +
+      ` | readable properties: ${resolution.accessible.map((p) => p.siteUrl).join(', ') || 'none'}`
+  );
+
   const [currentTotals, previousTotals, currentQueries, currentPages, previousPages, sitemapResult] = await Promise.all([
     queryTotals(current.startDate, current.endDate),
     queryTotals(previous.startDate, previous.endDate),
@@ -235,7 +362,15 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('Unexpected failure collecting Search Console data:', err);
-  process.exitCode = 1;
-});
+// Only run when invoked as the entrypoint, so chooseProperty() can be imported
+// and tested without the import firing a whole Search Console collection run
+// (and overwriting the last good data file).
+const invokedDirectly =
+  process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('Unexpected failure collecting Search Console data:', err);
+    process.exitCode = 1;
+  });
+}

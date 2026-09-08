@@ -14,7 +14,31 @@
  * SEARCH_CONSOLE_SITE_URL without touching code if the property setup changes
  * again.
  */
-export const SITE_URL = process.env.SEARCH_CONSOLE_SITE_URL || 'sc-domain:barakaevents.com';
+const SITE_URL_OVERRIDE = (process.env.SEARCH_CONSOLE_SITE_URL ?? '').trim();
+
+export const SITE_URL = SITE_URL_OVERRIDE || 'sc-domain:barakaevents.com';
+
+/**
+ * Where SITE_URL came from. The CI job passes
+ * `SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL }}`, so a stale
+ * repository variable silently wins over the value in this file — worth
+ * recording in the report so the two can never be confused again.
+ */
+export const SITE_URL_SOURCE: 'SEARCH_CONSOLE_SITE_URL' | 'default' =
+  SITE_URL_OVERRIDE ? 'SEARCH_CONSOLE_SITE_URL' : 'default';
+
+/**
+ * Properties to fall back to, best first, if SITE_URL turns out not to be
+ * readable. The Domain property is preferred because it covers apex, www and
+ * both protocols at once; the apex URL-prefix property is last because it only
+ * ever sees a host that redirects, which is what made the automation report
+ * "URL is unknown to Google" for every real page for months.
+ */
+export const PROPERTY_FALLBACKS = [
+  'sc-domain:barakaevents.com',
+  'https://www.barakaevents.com/',
+  'https://barakaevents.com/',
+];
 
 export const PRODUCTION_ORIGIN = 'https://www.barakaevents.com';
 

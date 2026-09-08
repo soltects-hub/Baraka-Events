@@ -8,7 +8,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { REPORTS_DIR, isoDate } from './config';
-import type { PageRow, QueryRow, SearchConsoleReportData } from './types';
+import type { PageRow, QueryRow, SearchConsoleReportData, UrlInspectionResult } from './types';
 import { classifyUrls } from './legacy-urls';
 import type { Decision } from './decide-action';
 
@@ -22,6 +22,44 @@ const GROWTH_THRESHOLD = 0.2; // flag a >=20% gain
 const MIN_CLICKS_FOR_TREND = 5; // ignore noise from near-zero-traffic pages
 const LOW_CTR_THRESHOLD = 0.02; // 2%
 const MIN_IMPRESSIONS_FOR_OPPORTUNITY = 10;
+
+/**
+ * True for any sitemap registered on the property that is not one this site
+ * publishes. The domain previously ran a compromised WordPress install, and the
+ * spam feeds submitted then are still registered; they are worth calling out on
+ * every report until someone deletes them.
+ */
+/**
+ * True when an inspection result is the apex host correctly redirecting to www.
+ *
+ * Google documents "Page with redirect" as meaning "a non-canonical URL that
+ * redirects to another page... this URL will not be indexed" — which is the
+ * right outcome for barakaevents.com, not a defect. Reporting it as a technical
+ * issue every day is how the real problem stayed buried: the automation was
+ * inspecting apex URLs that were never supposed to be indexed, and reading the
+ * result as "the site is not indexed".
+ */
+function isExpectedApexRedirect(u: UrlInspectionResult): boolean {
+  if (!/page with redirect/i.test(u.coverageState ?? '')) return false;
+  try {
+    const inspected = new URL(u.url);
+    if (inspected.hostname !== 'barakaevents.com') return false;
+    if (!u.googleCanonical) return false;
+    return new URL(u.googleCanonical).hostname === 'www.barakaevents.com';
+  } catch {
+    return false;
+  }
+}
+
+function isForeignSitemap(path: string): boolean {
+  try {
+    const u = new URL(path);
+    const isOurHost = u.hostname === 'barakaevents.com' || u.hostname === 'www.barakaevents.com';
+    return !isOurHost || u.pathname !== '/sitemap.xml' || u.search !== '';
+  } catch {
+    return true;
+  }
+}
 
 function pct(n: number): string {
   return `${n >= 0 ? '+' : ''}${(n * 100).toFixed(1)}%`;
@@ -142,6 +180,14 @@ function renderFullReport(data: SearchConsoleReportData): string {
     .sort((a, b) => b.impressions - a.impressions);
 
   const technicalIssues: string[] = [];
+
+  // The property the run actually used, and whether it was the one configured.
+  // A silent fallback here means the daily numbers are for a different property
+  // than anyone thinks, so it belongs at the top of the technical list.
+  if (data.property?.problem) {
+    technicalIssues.push(`**Search Console property:** ${data.property.problem}`);
+  }
+
   for (const sm of data.sitemaps ?? []) {
     if (sm.errors > 0 || sm.warnings > 0) {
       technicalIssues.push(`Sitemap \`${sm.path}\`: ${sm.errors} error(s), ${sm.warnings} warning(s).`);
@@ -149,9 +195,22 @@ function renderFullReport(data: SearchConsoleReportData): string {
     if (sm.isPending) {
       technicalIssues.push(`Sitemap \`${sm.path}\` is still pending processing by Google.`);
     }
+    // Anything registered that is not this site's own sitemap.xml is leftover
+    // from the WordPress compromise this domain went through in 2025 (spam
+    // feeds like /wp-links-opmll.php?s=s&t=1... were submitted in Nov 2025).
+    // They index nothing and should be deleted from the property by hand.
+    if (isForeignSitemap(sm.path)) {
+      technicalIssues.push(
+        `**Remove spam sitemap:** \`${sm.path}\` is not this site's sitemap — it is residue from the previous ` +
+          `WordPress compromise (submitted ${sm.lastSubmitted?.slice(0, 10) ?? 'unknown'}, ` +
+          `${sm.contents.reduce((n, c) => n + c.submitted, 0)} URLs submitted, ` +
+          `${sm.contents.reduce((n, c) => n + c.indexed, 0)} indexed). ` +
+          `Delete it in Search Console > Sitemaps.`
+      );
+    }
   }
   const badInspections = (data.urlInspections ?? []).filter(
-    (u) => !u.error && u.coverageState && !/submitted and indexed/i.test(u.coverageState)
+    (u) => !u.error && u.coverageState && !/submitted and indexed/i.test(u.coverageState) && !isExpectedApexRedirect(u)
   );
   for (const u of badInspections) {
     technicalIssues.push(`\`${u.url}\`: coverage state is "${u.coverageState}" (verdict: ${u.verdict ?? 'unknown'}).`);
@@ -207,6 +266,22 @@ function renderFullReport(data: SearchConsoleReportData): string {
   lines.push('');
   lines.push(`Site: \`${data.siteUrl}\` · Current period: ${periods.current.startDate} to ${periods.current.endDate} (28 days) · Compared to: ${periods.previous.startDate} to ${periods.previous.endDate}`);
   lines.push('');
+
+  // Say plainly which property produced these numbers. A run that quietly used
+  // a different property than the configured one is the difference between
+  // "the site has no traffic" and "we asked the wrong property".
+  if (data.property) {
+    const p = data.property;
+    lines.push(
+      `Property queried: \`${p.resolved ?? 'none'}\`` +
+        (p.usedFallback ? ` — **fallback**, configured \`${p.requested}\` (from ${p.requestedFrom}) is not readable` : ` (configured via ${p.requestedFrom})`)
+    );
+    lines.push('');
+    lines.push(
+      `Service-account access: ${p.accessible.length ? p.accessible.map((a) => `\`${a.siteUrl}\` (${a.permissionLevel})`).join(', ') : '**none**'}`
+    );
+    lines.push('');
+  }
 
   lines.push('## Overview');
   lines.push('');

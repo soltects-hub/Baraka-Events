@@ -18,6 +18,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "seo:fetch": "tsx scripts/seo-report/fetch-search-console.ts",
+    "seo:remediate-sitemaps": "tsx scripts/seo-report/remediate-sitemaps.ts",
     "seo:report": "tsx scripts/seo-report/generate-report.ts",
     "seo:ai-summary": "tsx scripts/seo-report/ai-summary.ts"
   },
