@@ -143,15 +143,6 @@ async function fetchSitemaps(): Promise<{ sitemaps: SitemapStatus[]; error?: Api
 }
 
 /**
- * URLs to run through URL Inspection, most commercially important first.
- *
- * The service pages were missing entirely until now — the list only covered the
- * homepage, /blog and the posts — so the report could never say anything about
- * whether the pages the business actually sells from were indexed. They go
- * first because URL Inspection is quota-limited and truncation should drop blog
- * posts, not money pages.
- */
-/**
  * Which origin the inspected URLs must sit on, given the property in use.
  *
  * URL Inspection only accepts URLs inside the property: a Domain property
@@ -166,6 +157,15 @@ function inspectionOrigin(property: string): string {
   return property.replace(/\/+$/, '');
 }
 
+/**
+ * URLs to run through URL Inspection, most commercially important first.
+ *
+ * The service pages were missing entirely until now — the list only covered the
+ * homepage, /blog and the posts — so the report could never say anything about
+ * whether the pages the business actually sells from were indexed. They go
+ * first because URL Inspection is quota-limited and truncation should drop blog
+ * posts, not money pages.
+ */
 function allSiteUrls(origin: string): string[] {
   return [
     `${origin}${routes.home}`,
@@ -332,9 +332,14 @@ async function main() {
   const [currentTotals, previousTotals, currentQueries, currentPages, previousPages, sitemapResult] = await Promise.all([
     queryTotals(current.startDate, current.endDate),
     queryTotals(previous.startDate, previous.endDate),
-    queryByDimension(current.startDate, current.endDate, 'query', 25),
-    queryByDimension(current.startDate, current.endDate, 'page', 25),
-    queryByDimension(previous.startDate, previous.endDate, 'page', 25),
+    queryByDimension(current.startDate, current.endDate, 'query', 100),
+    // Pages are pulled deep on purpose. At 25 rows the report could not see the
+    // legacy URLs Google still has impressions for — the ones whose slugs are
+    // the money terms ("best-event-planner-in-lahore" and friends) — so a
+    // batch of them was left 404ing after the soft-404 fix without anyone
+    // noticing. These rows are what the redirect audit reads.
+    queryByDimension(current.startDate, current.endDate, 'page', 500),
+    queryByDimension(previous.startDate, previous.endDate, 'page', 500),
     fetchSitemaps(),
   ]);
 

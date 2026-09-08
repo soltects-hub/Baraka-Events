@@ -1,54 +1,322 @@
 {
   "trailingSlash": false,
   "redirects": [
-    { "source": "/wedding-planner", "destination": "/services/wedding-planning", "statusCode": 301 },
-    { "source": "/wedding-planner/", "destination": "/services/wedding-planning", "statusCode": 301 },
-    { "source": "/wedding-planning", "destination": "/services/wedding-planning", "statusCode": 301 },
-    { "source": "/wedding-planning/", "destination": "/services/wedding-planning", "statusCode": 301 },
-    { "source": "/corporate-event-planner", "destination": "/services/corporate-events", "statusCode": 301 },
-    { "source": "/corporate-event-planner/", "destination": "/services/corporate-events", "statusCode": 301 },
-    { "source": "/birthday-planners", "destination": "/services/birthday-events", "statusCode": 301 },
-    { "source": "/birthday-planners/", "destination": "/services/birthday-events", "statusCode": 301 },
-    { "source": "/contact-us", "destination": "/contact", "statusCode": 301 },
-    { "source": "/contact-us/", "destination": "/contact", "statusCode": 301 },
-    { "source": "/about-us", "destination": "/about", "statusCode": 301 },
-    { "source": "/about-us/", "destination": "/about", "statusCode": 301 },
-    { "source": "/our-services", "destination": "/services", "statusCode": 301 },
-    { "source": "/our-services/", "destination": "/services", "statusCode": 301 },
-    { "source": "/event-planner", "destination": "/services", "statusCode": 301 },
-    { "source": "/event-planner/", "destination": "/services", "statusCode": 301 },
-    { "source": "/event-management", "destination": "/services/event-management", "statusCode": 301 },
-    { "source": "/event-management/", "destination": "/services/event-management", "statusCode": 301 },
-    { "source": "/event-decoration", "destination": "/services/event-decoration", "statusCode": 301 },
-    { "source": "/event-decoration/", "destination": "/services/event-decoration", "statusCode": 301 }
+    {
+      "source": "/wedding-planner",
+      "destination": "/services/wedding-planning",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-planner/",
+      "destination": "/services/wedding-planning",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-planning",
+      "destination": "/services/wedding-planning",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-planning/",
+      "destination": "/services/wedding-planning",
+      "statusCode": 301
+    },
+    {
+      "source": "/corporate-event-planner",
+      "destination": "/services/corporate-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/corporate-event-planner/",
+      "destination": "/services/corporate-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/birthday-planners",
+      "destination": "/services/birthday-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/birthday-planners/",
+      "destination": "/services/birthday-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-services",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-services/",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/event-planner",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/event-planner/",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/event-management",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/event-management/",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/event-decoration",
+      "destination": "/services/event-decoration",
+      "statusCode": 301
+    },
+    {
+      "source": "/event-decoration/",
+      "destination": "/services/event-decoration",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/baraka-events-lahore-event-planner",
+      "destination": "/blog/best-event-planner-lahore-baraka-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/baraka-events-lahore-event-planner/",
+      "destination": "/blog/best-event-planner-lahore-baraka-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-event-planner-in-lahore",
+      "destination": "/blog/best-event-planner-lahore-baraka-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-event-planner-in-lahore/",
+      "destination": "/blog/best-event-planner-lahore-baraka-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-event-planner-in-lahore-guide",
+      "destination": "/blog/top-event-planner-lahore-checklist-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-event-planner-in-lahore-guide/",
+      "destination": "/blog/top-event-planner-lahore-checklist-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/baraka-events-best-event-management-company-in-lahore",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/baraka-events-best-event-management-company-in-lahore/",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-event-management-company-lahore",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-event-management-company-lahore/",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/luxury-event-management-pakistan",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/luxury-event-management-pakistan/",
+      "destination": "/services/event-management",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/corporate-event-management-companies-in-lahore",
+      "destination": "/services/corporate-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/corporate-event-management-companies-in-lahore/",
+      "destination": "/services/corporate-events",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/corporate-event-floral-decor-lahore",
+      "destination": "/services/event-decoration",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/corporate-event-floral-decor-lahore/",
+      "destination": "/services/event-decoration",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/cheap-event-planners-in-lahore",
+      "destination": "/blog/luxury-shaadi-cost-lahore",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/cheap-event-planners-in-lahore/",
+      "destination": "/blog/luxury-shaadi-cost-lahore",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/cheap-event-planners-in-lahore-gulberg",
+      "destination": "/blog/baraka-events-lahore-gulberg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/cheap-event-planners-in-lahore-gulberg/",
+      "destination": "/blog/baraka-events-lahore-gulberg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/event-planning-trends-lahore-baraka-events",
+      "destination": "/blog/viral-pakistani-wedding-trends-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/event-planning-trends-lahore-baraka-events/",
+      "destination": "/blog/viral-pakistani-wedding-trends-2026",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/event-season-in-pakistan-wedding-corporate-event-management-baraka-events",
+      "destination": "/blog/outdoor-garden-wedding-lahore-guide",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/event-season-in-pakistan-wedding-corporate-event-management-baraka-events/",
+      "destination": "/blog/outdoor-garden-wedding-lahore-guide",
+      "statusCode": 301
+    },
+    {
+      "source": "/coming-soon",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/coming-soon/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/legal",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/legal/",
+      "destination": "/",
+      "statusCode": 301
+    }
   ],
   "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/experiences", "destination": "/experiences.html" },
-    { "source": "/portfolio", "destination": "/portfolio.html" },
-    { "source": "/gallery", "destination": "/gallery.html" },
-    { "source": "/team", "destination": "/team.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
-    { "source": "/services", "destination": "/services.html" },
-    { "source": "/services/:slug", "destination": "/services/:slug.html" }
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/experiences",
+      "destination": "/experiences.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery.html"
+    },
+    {
+      "source": "/team",
+      "destination": "/team.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/services/:slug",
+      "destination": "/services/:slug.html"
+    }
   ],
   "headers": [
     {
       "source": "/baraka-site.zip",
       "headers": [
-        { "key": "Content-Type", "value": "application/zip" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"baraka-site.zip\"" }
+        {
+          "key": "Content-Type",
+          "value": "application/zip"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"baraka-site.zip\""
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.doubleclick.net https://analytics.tiktok.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://formspree.io https://*.doubleclick.net https://*.googleadservices.com https://www.google.com https://analytics.tiktok.com https://*.tiktok.com; frame-src https://www.google.com https://www.googletagmanager.com https://*.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'self'; upgrade-insecure-requests"
