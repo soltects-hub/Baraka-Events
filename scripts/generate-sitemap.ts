@@ -30,11 +30,20 @@ const staticLastmod = '2026-09';
 // from ~200 to ~500-650 words. Everything untouched keeps month precision, so
 // lastmod stays a real signal rather than a blanket timestamp.
 const editedLastmod = '2026-09-09';
+// All ten now carry day-precision: the first four were expanded on the
+// page-2 pass, the remaining six (the individual wedding functions plus
+// birthdays) in the follow-up that took them from ~200 to ~500-660 words.
 const EDITED_SERVICE_SLUGS = new Set([
   'wedding-planning',
   'event-management',
   'event-decoration',
   'corporate-events',
+  'nikkah-events',
+  'mehndi-events',
+  'barat-events',
+  'walima-events',
+  'engagement-events',
+  'birthday-events',
 ]);
 
 const staticRoutes: SitemapUrl[] = [
