@@ -32,6 +32,18 @@ export const seoConfig = {
       email: 'Booking@barakaevents.com',
       telephone: '+92 313 9999039',
     },
+    // The Google Maps place link already used as the "Get Directions" href in
+    // LocationMap.tsx (CID 0xc453244142e6eefe) — single-sourced here so the
+    // structured-data hasMap property can never drift from what the page
+    // actually links to.
+    mapUrl: 'https://maps.app.goo.gl/iXCcf5Ko2GKd6vjk7',
+    // Real hours, already published as visible text in LocationMap.tsx's
+    // "quick facts" row — mirrored here, not a new claim.
+    openingHours: {
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '11:00',
+      closes: '20:00',
+    },
     sameAs: [
       'https://instagram.com/Barakaeventsofficial',
       'https://facebook.com/Barakaeventsofficial',

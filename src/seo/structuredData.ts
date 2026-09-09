@@ -11,17 +11,28 @@ function absoluteUrl(url: string): string {
 }
 
 /**
- * Organization schema for Baraka Events
+ * Stable identifier for the Baraka Events entity, referenced by other
+ * schema blocks (see generateWebsiteSchema) so Google's entity graph can
+ * resolve the WebSite and the LocalBusiness as facets of one thing rather
+ * than two separately-guessed entities.
  */
+export const ORGANIZATION_ID = seoConfig.site.url + '/#organization';
+
 export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
+    '@id': ORGANIZATION_ID,
     name: seoConfig.organization.name,
     url: seoConfig.organization.url,
     logo: seoConfig.organization.logo,
     description: seoConfig.site.description,
     image: seoConfig.defaultImage,
+    // Top-level, in addition to contactPoint below — Google's local-business
+    // guidance reads telephone/email at this level for Maps/Local Pack
+    // matching; contactPoint alone is not always picked up the same way.
+    telephone: seoConfig.organization.contact.telephone,
+    email: seoConfig.organization.contact.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: seoConfig.organization.address.streetAddress,
@@ -36,6 +47,17 @@ export function generateOrganizationSchema() {
       '@type': 'GeoCoordinates',
       latitude: 31.5104519,
       longitude: 74.3401031,
+    },
+    // The live Google Maps place this business is already listed under —
+    // ties the site's own entity markup directly to the real GBP/Maps
+    // listing rather than leaving Google to infer the connection.
+    hasMap: seoConfig.organization.mapUrl,
+    // Real hours, already published as visible text in LocationMap.tsx.
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: seoConfig.organization.openingHours.dayOfWeek,
+      opens: seoConfig.organization.openingHours.opens,
+      closes: seoConfig.organization.openingHours.closes,
     },
     // Matches the areas already named in the site's own "Where We Work"
     // content (ExperiencesPage) — not a claim beyond what's published.
@@ -107,10 +129,17 @@ export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    // Stable so the WebSite node stays one entity even though it is currently
+    // emitted on both Home and Contact (see ContactPage.tsx) rather than once.
+    '@id': seoConfig.site.url + '/#website',
     name: seoConfig.site.name,
     url: seoConfig.site.url,
     description: seoConfig.site.description,
     image: seoConfig.defaultImage,
+    // Ties the WebSite to the LocalBusiness entity (ORGANIZATION_ID, applied
+    // sitewide by App.tsx's OrganizationSchema) so Google's entity graph
+    // reads them as one business rather than two independently-guessed ones.
+    publisher: { '@id': ORGANIZATION_ID },
   };
 }
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import Contact from '../components/Contact';
 import LocationMap from '../components/LocationMap';
-import { useSEO, seoConfig, routes, generateOrganizationSchema, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 const reasons = [
   { h: 'Same-Day Response', p: 'A senior member of our atelier replies within one business day — often the same afternoon.' },
@@ -21,9 +21,11 @@ export default function ContactPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // LocalBusiness/Organization schema is already applied sitewide by
+    // App.tsx's OrganizationSchema (and now carries a stable @id) — repeating
+    // it here would just duplicate the same node under a second script tag.
     applyStructuredData(
       composeSchemaGraph([
-        generateOrganizationSchema(),
         generateWebsiteSchema(),
         generateBreadcrumbSchema([
           { name: 'Home', url: seoConfig.site.url },

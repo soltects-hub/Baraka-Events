@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import { isStoreLocatorConfigured } from '../lib/storeLocatorConfig';
+import { seoConfig } from '../seo/seoConfig';
 
 // Code-split: with no Maps key configured this chunk is never requested, so the
 // locator costs nothing on a page already carrying a heavy LCP.
@@ -10,7 +11,10 @@ const StoreLocator = lazy(() => import('./StoreLocator'));
 
 const ADDRESS = 'LG 13A, Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III, Lahore';
 const MAP_COORDS = '31.5104519,74.3401031';
-const MAP_PLACE_URL = 'https://maps.app.goo.gl/iXCcf5Ko2GKd6vjk7';
+// Single-sourced from seoConfig so this button and the structured-data
+// hasMap property (src/seo/structuredData.ts) can never point at two
+// different places.
+const MAP_PLACE_URL = seoConfig.organization.mapUrl;
 
 export default function LocationMap() {
   return (

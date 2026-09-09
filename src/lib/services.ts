@@ -65,7 +65,7 @@ export const services: Service[] = [
       { q: 'Can you work with vendors we have already booked?', a: 'Yes. If your venue, caterer or photographer is already confirmed we work with them rather than replacing them, and hold them to the same run-of-show as everyone else.' },
       { q: 'What is the difference between a wedding planner and a wedding decorator?', a: 'A decorator designs and installs how the event looks. A planner decides venue, budget, vendors and schedule, and holds all of it together across the week. We do both, priced separately, and either can be booked on its own.' },
     ],
-    relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'event-decoration'],
+    relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'engagement-events', 'event-decoration'],
     relatedLinks: [
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
       { text: 'Farmhouse weddings on Raiwind Road', to: '/blog/farmhouse-wedding-raiwind-road-lahore' },
@@ -211,7 +211,7 @@ export const services: Service[] = [
       { q: 'How long does the ceremony itself take?', a: 'The ceremony is short, often under half an hour. What takes time is seating both families, gathering witnesses and the photography afterwards, which is why the schedule around it matters more than the ceremony length.' },
       { q: 'How much does nikkah planning cost in Lahore?', a: 'Less than the other wedding functions in most cases, because the guest list is smaller and the decor is intentionally restrained. Venue and catering drive the number; we quote them as separate lines from the staging.' },
     ],
-    relatedServices: ['barat-events', 'walima-events', 'wedding-planning'],
+    relatedServices: ['barat-events', 'walima-events', 'engagement-events', 'wedding-planning'],
     relatedLinks: [
       { text: 'The perfect baraat: timing, dhol and the grand entrance', to: '/blog/perfect-baraat-guide' },
       { text: 'See wedding decor in the gallery', to: '/gallery' },
