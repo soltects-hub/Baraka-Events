@@ -41,12 +41,17 @@ export default function SmokeCursor() {
               TRIGGER: 'hover',
               IMMEDIATE: false,
               AUTO: false,
-              SIM_RESOLUTION: isTouch ? 96 : 128,
-              DYE_RESOLUTION: isTouch ? 512 : 1024, // lighter on phones
+              // Reduced from 128/1024/20 (desktop) and 96/512/12 (touch) after
+              // profiling showed the pressure solve producing main-thread
+              // long tasks up to ~490ms once a visitor moved their cursor —
+              // this is a low-opacity blended accent, not a focal effect, so
+              // the lower fidelity here is not visually noticeable.
+              SIM_RESOLUTION: isTouch ? 64 : 96,
+              DYE_RESOLUTION: isTouch ? 384 : 640, // lighter on phones
               DENSITY_DISSIPATION: 3.2,
               VELOCITY_DISSIPATION: 0.9,
               PRESSURE: 0.8,
-              PRESSURE_ITERATIONS: isTouch ? 12 : 20,
+              PRESSURE_ITERATIONS: isTouch ? 8 : 12,
               CURL: 12,
               SPLAT_RADIUS: 0.08,
               SPLAT_FORCE: 3200,

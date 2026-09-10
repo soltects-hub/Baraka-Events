@@ -39,8 +39,8 @@ const projects = [
 export default function HorizontalPortfolio() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const panLabelRef = useRef<HTMLSpanElement>(null);
   const [maxX, setMaxX] = useState(0);
-  const [panDeg, setPanDeg] = useState(-32);
 
   useEffect(() => {
     const measure = () => {
@@ -64,7 +64,17 @@ export default function HorizontalPortfolio() {
   // camera-pan parallax: as the head pans right, plates drift against the move
   const plateX = useTransform(scrollYProgress, [0.04, 0.96], ['-7%', '7%']);
   const pan = useTransform(scrollYProgress, [0.04, 0.96], [-32, 32]);
-  useMotionValueEvent(pan, 'change', (v) => setPanDeg(Math.round(v)));
+  // Written straight to the DOM rather than through React state: this fires
+  // on nearly every scroll tick across the section, and routing that through
+  // setState was re-rendering the whole component (all 4 portfolio cards)
+  // on each tick — a real, measured source of scroll jank for a label that
+  // is otherwise purely cosmetic.
+  useMotionValueEvent(pan, 'change', (v) => {
+    const rounded = Math.round(v);
+    if (panLabelRef.current) {
+      panLabelRef.current.textContent = `pan ${rounded > 0 ? '+' : ''}${rounded}°`;
+    }
+  });
 
   return (
     <section
@@ -77,8 +87,8 @@ export default function HorizontalPortfolio() {
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         {/* pan-head readout */}
         <div className="absolute right-6 top-24 z-20 hidden items-center gap-3 md:right-10 md:flex">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/60">
-            pan {panDeg > 0 ? '+' : ''}{panDeg}°
+          <span ref={panLabelRef} className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/60">
+            pan -32°
           </span>
           <div className="relative h-[1px] w-20 bg-white/15">
             <motion.div
