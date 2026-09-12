@@ -166,8 +166,11 @@ export default function Contact() {
                     setStatus('sent');
                     // The one real conversion moment: a consultation request
                     // actually reached us, not just a page view or a click.
+                    // Points at the official Contact conversion action under
+                    // AW-18442458153, replacing the previous GTM-managed
+                    // AW-18325184018 conversion label.
                     window.gtag?.('event', 'conversion', {
-                      send_to: 'AW-18325184018/dHKFCNioieccEJK8kKJE',
+                      send_to: 'AW-18442458153/hs6BCLvMnPUcEKmohtpE',
                     });
                   } catch (err) {
                     console.error('[Contact] submission failed:', err);
