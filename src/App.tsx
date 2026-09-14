@@ -6,7 +6,11 @@ import { useLenis } from './lib/useLenis';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
-import SmokeCursor from './components/SmokeCursor';
+// SmokeCursor (WebGL fluid cursor trail) is intentionally not mounted: it was
+// measured on production as the cause of 100% of main-thread long tasks
+// (951ms blocking across ~15s of normal hover+scroll; 0ms with it disabled).
+// The component file is kept so it can be restored if it is ever made cheap
+// enough — see the commit that removed it for the measurements.
 import Home from './pages/Home';
 import { generateOrganizationSchema, applyStructuredData } from './seo';
 
@@ -81,7 +85,6 @@ export default function App() {
             </Suspense>
             <Footer />
             <WhatsAppButton />
-            <SmokeCursor />
           </div>
         </SmoothScrollProvider>
       </LazyMotion>
