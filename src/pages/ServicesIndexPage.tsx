@@ -140,7 +140,7 @@ export default function ServicesIndexPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             As an event planner in Lahore, we cover everything from full wedding
             planning down to a single function; as an event management company, we
@@ -161,7 +161,7 @@ export default function ServicesIndexPage() {
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to={routes.servicePage(s.slug)} className="group block overflow-hidden rounded-sm border border-white/8 bg-ink-2">
+              <Link to={routes.servicePage(s.slug)} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={s.image}
@@ -176,7 +176,7 @@ export default function ServicesIndexPage() {
                   <h2 className="mt-2 font-display text-xl font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft">
                     {s.title}
                   </h2>
-                  <p className="mt-2 line-clamp-2 text-sm font-light leading-relaxed text-cream/55">{s.intro}</p>
+                  <p className="mt-2 line-clamp-2 text-sm font-light leading-relaxed text-mist">{s.intro}</p>
                 </div>
               </Link>
             </motion.div>
@@ -186,7 +186,7 @@ export default function ServicesIndexPage() {
 
       {/* what an event planner actually does */}
       <section className="mx-auto max-w-[900px] px-6 pb-4 md:px-10">
-        <div className="border-t border-white/8 pt-12">
+        <div className="border-t border-champagne/10 pt-12">
           <h2 className="font-display text-2xl font-light text-cream md:text-3xl">
             What to expect from an event planner in Lahore
           </h2>
@@ -200,7 +200,7 @@ export default function ServicesIndexPage() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <h3 className="font-display text-xl font-light text-gold-soft md:text-2xl">{pt.h}</h3>
-                <p className="mt-2 text-sm font-light leading-relaxed text-cream/65 md:text-base">{pt.p}</p>
+                <p className="mt-2 text-sm font-light leading-relaxed text-mist md:text-base">{pt.p}</p>
               </motion.div>
             ))}
           </div>
@@ -209,9 +209,9 @@ export default function ServicesIndexPage() {
 
       {/* service areas */}
       <section className="mx-auto max-w-[900px] px-6 pb-4 md:px-10">
-        <div className="border-t border-white/8 pt-12">
+        <div className="border-t border-champagne/10 pt-12">
           <h2 className="font-display text-2xl font-light text-cream md:text-3xl">Where we work across Lahore</h2>
-          <p className="mt-4 text-sm font-light leading-relaxed text-cream/65 md:text-base">
+          <p className="mt-4 text-sm font-light leading-relaxed text-mist md:text-base">
             Our office is at Liberty Roundabout in Gulberg III, and we produce events across the whole city —
             including the farmhouse venues out along Raiwind and Bedian Road.
           </p>
@@ -219,7 +219,7 @@ export default function ServicesIndexPage() {
             {SERVICE_AREAS.map((area) => (
               <li
                 key={area}
-                className="rounded-sm border border-white/8 bg-ink-2 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-cream/60"
+                className="rounded-sm border border-champagne/10 bg-ink-2 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mist-dim"
               >
                 {area}
               </li>
@@ -230,17 +230,17 @@ export default function ServicesIndexPage() {
 
       {/* FAQs */}
       <section className="mx-auto max-w-[900px] px-6 pb-20 md:px-10 md:pb-24">
-        <div className="border-t border-white/8 pt-12">
+        <div className="border-t border-champagne/10 pt-12">
           <h2 className="font-display text-2xl font-light text-cream md:text-3xl">Frequently Asked Questions</h2>
           <div className="mt-8 space-y-6">
             {SERVICES_FAQS.map((f) => (
               <div key={f.q}>
                 <h3 className="font-display text-base font-light text-cream md:text-lg">{f.q}</h3>
-                <p className="mt-1.5 text-sm font-light leading-relaxed text-cream/60">{f.a}</p>
+                <p className="mt-1.5 text-sm font-light leading-relaxed text-mist">{f.a}</p>
               </div>
             ))}
           </div>
-          <p className="mt-10 text-[12px] uppercase tracking-[0.15em] text-cream/60">
+          <p className="mt-10 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
             Related:{' '}
             <Link to="/blog/top-event-planner-lahore-checklist-2026" className="gold-underline text-gold hover:text-gold-soft">
               How to choose the top event planner in Lahore

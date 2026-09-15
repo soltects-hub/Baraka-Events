@@ -64,7 +64,7 @@ export default function Testimonials() {
               </blockquote>
               <figcaption className="mt-8">
                 <div className="text-sm uppercase tracking-[0.25em] text-gold">{t.name}</div>
-                <div className="mt-1 text-xs font-light tracking-wide text-cream/50">{t.role}</div>
+                <div className="mt-1 text-xs font-light tracking-wide text-mist">{t.role}</div>
               </figcaption>
             </motion.figure>
           </AnimatePresence>
@@ -80,7 +80,7 @@ export default function Testimonials() {
             >
               <span
                 className={`block h-[2px] rounded-full transition-all duration-500 ${
-                  i === index ? 'w-10 bg-gold' : 'w-5 bg-white/20 group-hover:bg-white/40'
+                  i === index ? 'w-10 bg-gold' : 'w-5 bg-champagne/20 group-hover:bg-champagne/40'
                 }`}
               />
             </button>

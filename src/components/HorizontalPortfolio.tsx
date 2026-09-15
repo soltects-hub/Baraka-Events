@@ -87,10 +87,10 @@ export default function HorizontalPortfolio() {
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         {/* pan-head readout */}
         <div className="absolute right-6 top-24 z-20 hidden items-center gap-3 md:right-10 md:flex">
-          <span ref={panLabelRef} className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/60">
+          <span ref={panLabelRef} className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist-dim">
             pan -32°
           </span>
-          <div className="relative h-[1px] w-20 bg-white/15">
+          <div className="relative h-[1px] w-20 bg-champagne/15">
             <motion.div
               style={{ left: useTransform(scrollYProgress, [0.04, 0.96], ['0%', '100%']) }}
               className="absolute top-1/2 h-2.5 w-[2px] -translate-x-1/2 -translate-y-1/2 bg-gold"
@@ -104,12 +104,12 @@ export default function HorizontalPortfolio() {
             <h2 className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl">
               Four events,<br /><em className="italic text-gold-soft">one standard</em>
             </h2>
-            <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
+            <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
               A wedding in the Walled City, a product launch in Johar Town, a rooftop
               birthday, an awards dinner in Gulberg — different briefs, same production
               discipline behind each one.
             </p>
-            <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/60">
+            <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
               <span>Scroll</span>
               <motion.span animate={{ x: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="text-gold">⟶</motion.span>
             </div>
@@ -129,7 +129,7 @@ export default function HorizontalPortfolio() {
                   className="h-full w-full object-cover will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
-                <div className="absolute right-6 top-6 rounded-full border border-white/15 bg-ink/40 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-cream/80 backdrop-blur-md">
+                <div className="absolute right-6 top-6 rounded-full border border-champagne/20 bg-ink/40 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-cream/80 backdrop-blur-md">
                   {p.year}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-9">
@@ -137,7 +137,7 @@ export default function HorizontalPortfolio() {
                     {String(i + 1).padStart(2, '0')} — {p.category}
                   </p>
                   <h3 className="font-display text-2xl font-light leading-tight text-cream sm:text-3xl md:text-5xl">{p.title}</h3>
-                  <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-light tracking-wide text-cream/60">
+                  <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-light tracking-wide text-mist">
                     <span>{p.location}</span>
                     <span className="hidden h-1 w-1 rounded-full bg-gold/70 sm:block" />
                     <span>{p.stat}</span>
@@ -148,13 +148,13 @@ export default function HorizontalPortfolio() {
           ))}
 
           <div className="flex w-[70vw] shrink-0 flex-col items-center justify-center md:w-[30vw]">
-            <p className="font-display text-3xl italic text-cream/70 md:text-4xl">Yours is next.</p>
+            <p className="font-display text-3xl italic text-mist md:text-4xl">Yours is next.</p>
             <div className="mt-4 h-[1px] w-20 bg-gold/60" />
           </div>
         </motion.div>
 
         <div className="absolute bottom-10 left-6 right-6 md:left-10 md:right-10">
-          <div className="h-[2px] w-full bg-white/10">
+          <div className="h-[2px] w-full bg-champagne/10">
             <motion.div style={{ width: progressWidth }} className="h-full bg-gold" />
           </div>
         </div>

@@ -65,7 +65,7 @@ export default function Gallery() {
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
             />
           </div>
-          <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 md:text-right">
+          <p className="max-w-sm text-sm font-light leading-relaxed text-mist md:text-right">
             Behind every seamless event is serious machinery. The reel never stops
             &mdash; hover to pause, drag to browse.
           </p>
@@ -100,7 +100,7 @@ export default function Gallery() {
                 <figcaption className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
                   <p className="text-[10px] uppercase tracking-[0.35em] text-gold">{f.category}</p>
                   <h3 className="mt-1.5 font-display text-2xl font-light md:text-3xl">{f.title}</h3>
-                  <p className="mt-2 max-h-20 overflow-hidden text-[13px] font-light leading-relaxed text-cream/60 opacity-100 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:opacity-100">
+                  <p className="mt-2 max-h-20 overflow-hidden text-[13px] font-light leading-relaxed text-mist opacity-100 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:opacity-100">
                     {f.caption}
                   </p>
                 </figcaption>

@@ -118,7 +118,7 @@ export default function PortfolioPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             Representative examples of weddings, corporate productions and private
             celebrations across Lahore, each planned by the same team from the first
@@ -137,7 +137,7 @@ export default function PortfolioPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-8%' }}
               transition={{ duration: 0.8, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group overflow-hidden rounded-sm border border-white/8 bg-ink-2"
+              className="group overflow-hidden rounded-sm border border-champagne/10 bg-ink-2"
             >
               <div className="relative h-64 overflow-hidden md:h-72">
                 <img
@@ -147,19 +147,19 @@ export default function PortfolioPage() {
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
-                <span className="absolute right-5 top-5 rounded-full border border-white/15 bg-ink/50 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-cream/70 backdrop-blur-md">
+                <span className="absolute right-5 top-5 rounded-full border border-champagne/20 bg-ink/50 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-mist-dim backdrop-blur-md">
                   {p.year}
                 </span>
               </div>
               <div className="p-7 md:p-8">
-                <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60">
+                <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
                   <span className="text-gold">{p.category}</span>
-                  <span className="h-1 w-1 rounded-full bg-cream/25" />
+                  <span className="h-1 w-1 rounded-full bg-mist-dim" />
                   <span>{p.location}</span>
                 </div>
                 <h2 className="mt-3 font-display text-2xl font-light text-cream md:text-3xl">{p.title}</h2>
                 <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-gold-soft">{p.stat}</p>
-                <p className="mt-4 text-sm font-light leading-relaxed text-cream/60">{p.summary}</p>
+                <p className="mt-4 text-sm font-light leading-relaxed text-mist">{p.summary}</p>
               </div>
             </motion.article>
           ))}
@@ -167,7 +167,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-white/8 bg-ink-2/40 py-24 text-center md:py-32">
+      <section className="border-t border-champagne/10 bg-ink-2/40 py-24 text-center md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <RevealText
             as="h2"

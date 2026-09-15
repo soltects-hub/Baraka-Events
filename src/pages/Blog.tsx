@@ -55,7 +55,7 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             Venue intelligence, design direction and honest planning advice for
             Lahore's weddings and events &mdash; written by the team that produces them.
@@ -70,7 +70,7 @@ export default function Blog() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Link to={`/blog/${featured.slug}`} className="group grid gap-0 overflow-hidden rounded-sm border border-white/8 bg-ink-2 lg:grid-cols-[1.4fr_1fr]">
+          <Link to={`/blog/${featured.slug}`} className="group grid gap-0 overflow-hidden rounded-sm border border-champagne/10 bg-ink-2 lg:grid-cols-[1.4fr_1fr]">
             <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[440px]">
               <img
                 src={featured.image}
@@ -83,17 +83,17 @@ export default function Blog() {
               </span>
             </div>
             <div className="flex flex-col justify-center p-7 md:p-10">
-              <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60">
+              <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
                 <span className="text-gold">{featured.category}</span>
-                <span className="h-1 w-1 rounded-full bg-cream/25" />
+                <span className="h-1 w-1 rounded-full bg-mist-dim" />
                 <span>{featured.date}</span>
-                <span className="h-1 w-1 rounded-full bg-cream/25" />
+                <span className="h-1 w-1 rounded-full bg-mist-dim" />
                 <span>{featured.readTime}</span>
               </div>
               <h2 className="mt-4 font-display text-2xl font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft md:text-4xl">
                 {featured.title}
               </h2>
-              <p className="mt-4 text-sm font-light leading-relaxed text-cream/60 md:text-base">{featured.excerpt}</p>
+              <p className="mt-4 text-sm font-light leading-relaxed text-mist md:text-base">{featured.excerpt}</p>
               <span className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-gold">
                 Read the story
                 <span className="transition-transform duration-300 group-hover:translate-x-2">&#10230;</span>
@@ -114,7 +114,7 @@ export default function Blog() {
               viewport={{ once: true, margin: '-8%' }}
               transition={{ duration: 0.8, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to={`/blog/${post.slug}`} className="group block overflow-hidden rounded-sm border border-white/8 bg-ink-2">
+              <Link to={`/blog/${post.slug}`} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
                 <div className="relative h-52 overflow-hidden md:h-56">
                   <img
                     src={post.image}
@@ -125,15 +125,15 @@ export default function Blog() {
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60">
+                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
                     <span className="text-gold">{post.category}</span>
-                    <span className="h-1 w-1 rounded-full bg-cream/25" />
+                    <span className="h-1 w-1 rounded-full bg-mist-dim" />
                     <span>{post.readTime}</span>
                   </div>
                   <h3 className="mt-3 font-display text-xl font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft md:text-2xl">
                     {post.title}
                   </h3>
-                  <p className="mt-3 line-clamp-3 text-[13px] font-light leading-relaxed text-cream/55">{post.excerpt}</p>
+                  <p className="mt-3 line-clamp-3 text-[13px] font-light leading-relaxed text-mist">{post.excerpt}</p>
                 </div>
               </Link>
             </motion.div>

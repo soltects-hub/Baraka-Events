@@ -85,7 +85,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/65 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             Baraka Events plans and produces weddings, corporate events and private
             celebrations in Lahore. From a mehndi in the Walled City to a corporate
@@ -97,7 +97,7 @@ export default function AboutPage() {
 
       {/* stats */}
       <section className="mx-auto max-w-[1200px] px-6 pb-20 md:px-10">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 border-y border-white/8 py-10 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 border-y border-champagne/10 py-10 md:grid-cols-4">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -134,7 +134,7 @@ export default function AboutPage() {
           <h2 className="font-display text-3xl font-light leading-[1.15] text-cream md:text-4xl">
             Started by people who thought event planning in Lahore could be run more carefully.
           </h2>
-          <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-cream/65 md:text-base">
+          <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-mist md:text-base">
             <p>
               Baraka Events started as a small team of designers and production
               managers based in Gulberg. We plan and produce weddings, corporate
@@ -159,7 +159,7 @@ export default function AboutPage() {
       </section>
 
       {/* values */}
-      <section className="border-t border-white/8 bg-ink-2/40 py-24 md:py-32">
+      <section className="border-t border-champagne/10 bg-ink-2/40 py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Why Baraka</p>
           <RevealText
@@ -179,7 +179,7 @@ export default function AboutPage() {
               >
                 <span className="font-display text-sm italic text-gold/60">{v.n}</span>
                 <h3 className="mt-2 font-display text-xl font-light text-cream md:text-2xl">{v.title}</h3>
-                <p className="mt-3 text-sm font-light leading-relaxed text-cream/60">{v.body}</p>
+                <p className="mt-3 text-sm font-light leading-relaxed text-mist">{v.body}</p>
               </motion.div>
             ))}
           </div>

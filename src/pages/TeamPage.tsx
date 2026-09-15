@@ -63,7 +63,7 @@ export default function TeamPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             A small, obsessive team of designers, producers and coordinators — the same people
             you will speak to at your first consultation are the ones running your event on the
@@ -78,7 +78,7 @@ export default function TeamPage() {
       </section>
 
       {/* expertise */}
-      <section className="border-t border-white/8 bg-ink-2/40 py-24 md:py-32">
+      <section className="border-t border-champagne/10 bg-ink-2/40 py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">How We Work</p>
           <RevealText
@@ -97,7 +97,7 @@ export default function TeamPage() {
                 className="border-l border-gold/30 pl-6"
               >
                 <h3 className="font-display text-xl font-light text-cream md:text-2xl">{e.h}</h3>
-                <p className="mt-3 text-sm font-light leading-relaxed text-cream/60">{e.p}</p>
+                <p className="mt-3 text-sm font-light leading-relaxed text-mist">{e.p}</p>
               </motion.div>
             ))}
           </div>

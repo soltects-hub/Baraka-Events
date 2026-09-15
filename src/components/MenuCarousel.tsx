@@ -98,10 +98,10 @@ export default function MenuCarousel() {
             />
           </div>
           <div className="flex flex-col items-start gap-3 md:items-end">
-            <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 md:text-right">
+            <p className="max-w-sm text-sm font-light leading-relaxed text-mist md:text-right">
               Our signature catering menus, always in motion &mdash; hover to pause, drag to browse.
             </p>
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream/60">
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-gold" strokeWidth="1.5">
                 <path d="M7 11.5V6a1.5 1.5 0 0 1 3 0v4.5M10 10.5V5a1.5 1.5 0 0 1 3 0v5.5M13 10.5V6a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2 5.5-5 5.5s-4.5-1.5-5.5-4L4.2 11a1.4 1.4 0 0 1 2.4-1.4l1.4 2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -117,7 +117,7 @@ export default function MenuCarousel() {
           {menu.map((card) => (
             <article
               key={card.index}
-              className="group relative w-[82vw] shrink-0 select-none overflow-hidden rounded-sm border border-white/8 bg-ink sm:w-[420px]"
+              className="group relative w-[82vw] shrink-0 select-none overflow-hidden rounded-sm border border-champagne/10 bg-ink sm:w-[420px]"
             >
               {/* image header */}
               <div className="relative h-44 overflow-hidden md:h-52">
@@ -143,10 +143,10 @@ export default function MenuCarousel() {
                 <p className="mb-5 font-display text-sm italic text-gold-soft">{card.accent}</p>
                 <ul className="space-y-4">
                   {card.items.map((it) => (
-                    <li key={it.name} className="flex items-baseline justify-between gap-3 border-b border-dotted border-white/10 pb-3">
+                    <li key={it.name} className="flex items-baseline justify-between gap-3 border-b border-dotted border-champagne/12 pb-3">
                       <div>
                         <p className="text-sm font-medium tracking-wide text-cream">{it.name}</p>
-                        <p className="mt-0.5 text-xs font-light text-cream/50">{it.desc}</p>
+                        <p className="mt-0.5 text-xs font-light text-mist">{it.desc}</p>
                       </div>
                       <span className="h-1 w-1 shrink-0 rotate-45 bg-gold/50" />
                     </li>
@@ -158,7 +158,7 @@ export default function MenuCarousel() {
         </LoopRail>
       </div>
 
-      <p className="mt-10 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-cream/60">
+      <p className="mt-10 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-mist-dim">
         Full tasting sessions arranged at your consultation &middot; custom menus for every function
       </p>
     </section>

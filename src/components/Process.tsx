@@ -45,7 +45,7 @@ export default function Process() {
             text="How a Baraka event actually comes together"
             className="font-display text-4xl font-light leading-[1.12] text-cream md:text-6xl"
           />
-          <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
+          <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             Five stages, from the first conversation to the event itself. Nothing here
             is improvised — it is the same process whether the guest count is fifty
             or fifteen hundred.
@@ -53,7 +53,7 @@ export default function Process() {
         </div>
 
         <div ref={ref} className="relative">
-          <div className="absolute left-[19px] top-0 bottom-0 w-[1px] bg-white/10 md:left-[27px]" />
+          <div className="absolute left-[19px] top-0 bottom-0 w-[1px] bg-champagne/10 md:left-[27px]" />
           <motion.div style={{ height: lineHeight }} className="absolute left-[19px] top-0 w-[1px] bg-gold md:left-[27px]" />
 
           <div className="space-y-14 md:space-y-20">
@@ -71,7 +71,7 @@ export default function Process() {
                 </div>
                 <div className="pt-1">
                   <h3 className="font-display text-2xl font-light text-cream md:text-4xl">{step.title}</h3>
-                  <p className="mt-3 max-w-lg text-sm font-light leading-relaxed text-cream/60 md:text-base">{step.text}</p>
+                  <p className="mt-3 max-w-lg text-sm font-light leading-relaxed text-mist md:text-base">{step.text}</p>
                 </div>
               </motion.div>
             ))}

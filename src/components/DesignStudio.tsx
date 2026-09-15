@@ -64,7 +64,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
         onMouseMove={onMove}
         onMouseLeave={reset}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="group relative overflow-hidden rounded-sm border border-white/8 bg-ink-2 will-change-transform"
+        className="group relative overflow-hidden rounded-sm border border-champagne/10 bg-ink-2 will-change-transform"
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
@@ -101,7 +101,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
             </div>
             <span className="font-display text-lg italic text-gold/50">{d.n}</span>
           </div>
-          <p className="mt-3 text-xs font-light tracking-wide text-cream/50">{d.spec}</p>
+          <p className="mt-3 text-xs font-light tracking-wide text-mist">{d.spec}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -127,7 +127,7 @@ export default function DesignStudio() {
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
             />
           </div>
-          <p className="max-w-md text-sm font-light leading-relaxed text-cream/60 lg:text-right lg:justify-self-end">
+          <p className="max-w-md text-sm font-light leading-relaxed text-mist lg:text-right lg:justify-self-end">
             Every conference and gala is designed in 3D first. You see and approve
             the stage, lighting and room layout before anything is built, so there
             are no surprises on the day.
@@ -141,7 +141,7 @@ export default function DesignStudio() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-3 text-center">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-cream/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-mist-dim">
             Concept renders delivered within 7 days of your brief
           </p>
           <div className="h-[1px] w-16 bg-gold/40" />

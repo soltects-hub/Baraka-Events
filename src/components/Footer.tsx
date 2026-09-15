@@ -27,7 +27,7 @@ export default function Footer() {
   const go = useSectionNav();
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/5 bg-ink pt-20 pb-14 lg:pb-10">
+    <footer className="relative overflow-hidden border-t border-champagne/8 bg-ink pt-20 pb-14 lg:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
           <div>
@@ -41,11 +41,11 @@ export default function Footer() {
                 BARAKA<span className="text-gold">.</span>
               </span>
             </a>
-            <p className="mt-5 max-w-sm text-sm font-light leading-relaxed text-cream/50">
+            <p className="mt-5 max-w-sm text-sm font-light leading-relaxed text-mist">
               An event planning and management company based in Gulberg, Lahore.
               We plan weddings, corporate events and private celebrations across the city.
             </p>
-            <div className="mt-6 space-y-2 text-sm font-light text-cream/55">
+            <div className="mt-6 space-y-2 text-sm font-light text-mist">
               <p>
                 <a href="mailto:Booking@barakaevents.com" className="gold-underline hover:text-cream">Booking@barakaevents.com</a>
               </p>
@@ -66,14 +66,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/60">Navigate</p>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-mist-dim">Navigate</p>
             <ul className="space-y-3">
               {nav.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href.startsWith('#') ? '/' + l.href : l.href}
                     onClick={(e) => { e.preventDefault(); go(l.href); }}
-                    className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
+                    className="gold-underline text-sm font-light text-mist hover:text-cream"
                   >
                     {l.label}
                   </a>
@@ -87,14 +87,14 @@ export default function Footer() {
               link each. Listing them here gives each one a link from every
               page on the site. */}
           <div>
-            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/60">Services</p>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-mist-dim">Services</p>
             <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s.slug}>
                   <a
                     href={`/services/${s.slug}`}
                     onClick={(e) => { e.preventDefault(); go(`/services/${s.slug}`); }}
-                    className="gold-underline text-sm font-light text-cream/70 hover:text-cream"
+                    className="gold-underline text-sm font-light text-mist hover:text-cream"
                   >
                     {/* s.tag repeats across services ("Weddings" covers five of
                         them), so the page title minus the city gives each link
@@ -107,7 +107,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-cream/60">Follow</p>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-mist-dim">Follow</p>
             <ul className="space-y-3">
               {socials.map((s) => (
                 <li key={s.label}>
@@ -116,14 +116,14 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ '--brand': s.color } as React.CSSProperties}
-                    className="gold-underline text-sm font-light text-cream/70 transition-colors duration-300 hover:text-[color:var(--brand)]"
+                    className="gold-underline text-sm font-light text-mist transition-colors duration-300 hover:text-[color:var(--brand)]"
                   >
                     {s.label}
                   </a>
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[11px] font-light tracking-wide text-cream/60">@Barakaeventsofficial</p>
+            <p className="mt-5 text-[11px] font-light tracking-wide text-mist">@Barakaeventsofficial</p>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ export default function Footer() {
 
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[11px] font-light tracking-wide text-cream/60 md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-champagne/8 pt-8 text-[11px] font-light tracking-wide text-mist md:flex-row">
           <span>&copy; {new Date().getFullYear()} Baraka Events. All rights reserved.</span>
           <span>Crafted with Baraka &mdash; in Lahore, for Lahore</span>
         </div>

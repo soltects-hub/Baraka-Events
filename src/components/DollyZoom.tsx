@@ -98,7 +98,7 @@ export default function DollyZoom() {
             text="The same room, before and after we build."
             className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
           />
-          <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
+          <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             Move your cursor over the photo to reveal the finished setup.
           </p>
         </div>
@@ -156,7 +156,7 @@ export default function DollyZoom() {
 
               {/* one-time hint, fades out after first interaction */}
               {!hasHovered && (
-                <span className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-ink/60 px-5 py-2 text-[10px] uppercase tracking-[0.3em] text-cream/70 backdrop-blur-md">
+                <span className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-champagne/20 bg-ink/60 px-5 py-2 text-[10px] uppercase tracking-[0.3em] text-mist-dim backdrop-blur-md">
                   Hover to reveal
                 </span>
               )}

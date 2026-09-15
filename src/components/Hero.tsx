@@ -59,7 +59,7 @@ export default function Hero() {
           >
             <span
               className={`block h-[3px] rounded-full transition-all duration-500 ${
-                i === slide ? 'w-8 bg-gold' : 'w-4 bg-white/30 group-hover:bg-white/50'
+                i === slide ? 'w-8 bg-gold' : 'w-4 bg-champagne/30 group-hover:bg-champagne/50'
               }`}
             />
           </button>
@@ -137,7 +137,7 @@ export default function Hero() {
       >
         <m.svg
           viewBox="0 0 24 24"
-          className="h-5 w-5 stroke-cream/50"
+          className="h-5 w-5 stroke-mist"
           fill="none"
           strokeWidth="1.5"
           animate={{ y: [0, 6, 0] }}

@@ -147,7 +147,7 @@ export default function ExperiencesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             Whether it is a week-long wedding, a corporate launch or a milestone
             birthday, we plan and produce the event as one project, not a checklist
@@ -159,7 +159,7 @@ export default function ExperiencesPage() {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="mt-4 text-[12px] uppercase tracking-[0.2em]"
           >
-            <Link to="/services" className="gold-underline text-cream/55 hover:text-gold">
+            <Link to="/services" className="gold-underline text-mist hover:text-gold">
               See every individual service &rarr;
             </Link>
           </motion.p>
@@ -167,13 +167,13 @@ export default function ExperiencesPage() {
       </section>
 
       {/* jump nav */}
-      <nav aria-label="Experience categories" className="border-y border-white/8 bg-ink-2/40">
+      <nav aria-label="Experience categories" className="border-y border-champagne/10 bg-ink-2/40">
         <div className="mx-auto flex max-w-[1200px] flex-wrap gap-x-8 gap-y-3 px-6 py-5 md:px-10">
           {experiences.map((e) => (
             <a
               key={e.id}
               href={`#${e.id}`}
-              className="gold-underline text-[11px] uppercase tracking-[0.25em] text-cream/60 transition-colors hover:text-gold"
+              className="gold-underline text-[11px] uppercase tracking-[0.25em] text-mist-dim transition-colors hover:text-gold"
             >
               {e.tag}
             </a>
@@ -202,19 +202,19 @@ export default function ExperiencesPage() {
           <div className="flex flex-col justify-center">
             <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">{exp.tag}</p>
             <h2 className="font-display text-3xl font-light leading-[1.15] text-cream md:text-4xl">{exp.title}</h2>
-            <p className="mt-5 text-sm font-light leading-relaxed text-cream/65 md:text-base">{exp.intro}</p>
-            <div className="mt-8 space-y-6 border-t border-white/8 pt-6">
+            <p className="mt-5 text-sm font-light leading-relaxed text-mist md:text-base">{exp.intro}</p>
+            <div className="mt-8 space-y-6 border-t border-champagne/10 pt-6">
               {exp.points.map((pt) => (
                 <div key={pt.h}>
                   <h3 className="font-display text-lg font-light text-gold-soft">{pt.h}</h3>
-                  <p className="mt-1.5 text-sm font-light leading-relaxed text-cream/60">{pt.p}</p>
+                  <p className="mt-1.5 text-sm font-light leading-relaxed text-mist">{pt.p}</p>
                 </div>
               ))}
             </div>
             {exp.related && exp.related.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/8 pt-5 text-[11px] uppercase tracking-[0.2em]">
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-champagne/10 pt-5 text-[11px] uppercase tracking-[0.2em]">
                 {exp.related.map((r) => (
-                  <Link key={r.to} to={r.to} className="gold-underline text-cream/55 hover:text-gold">
+                  <Link key={r.to} to={r.to} className="gold-underline text-mist hover:text-gold">
                     {r.text} &rarr;
                   </Link>
                 ))}
@@ -225,7 +225,7 @@ export default function ExperiencesPage() {
       ))}
 
       {/* service areas */}
-      <section className="border-t border-white/8 bg-ink-2/40 py-20 md:py-28">
+      <section className="border-t border-champagne/10 bg-ink-2/40 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Where We Work</p>
           <RevealText
@@ -233,7 +233,7 @@ export default function ExperiencesPage() {
             text="An event planner in Lahore, wherever your event is."
             className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
           />
-          <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-relaxed text-cream/60">
+          <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-relaxed text-mist">
             From Liberty Roundabout to the Walled City, we regularly plan and produce
             events across every major part of the city.
           </p>
@@ -241,7 +241,7 @@ export default function ExperiencesPage() {
             {areas.map((a) => (
               <span
                 key={a}
-                className="rounded-full border border-white/10 px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] text-cream/60"
+                className="rounded-full border border-champagne/12 px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] text-mist-dim"
               >
                 {a}
               </span>

@@ -15,7 +15,7 @@ export default function NotFound() {
       <h1 className="mt-4 font-display text-3xl font-light leading-tight text-cream sm:text-4xl md:text-5xl">
         This page has <em className="italic text-gold-soft">wandered off</em>
       </h1>
-      <p className="mt-4 max-w-md text-sm font-light leading-relaxed text-cream/60">
+      <p className="mt-4 max-w-md text-sm font-light leading-relaxed text-mist">
         The page you're looking for doesn't exist or may have moved. Let's get you back to the atelier.
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -27,7 +27,7 @@ export default function NotFound() {
         </Link>
         <Link
           to="/blog"
-          className="gold-underline text-[12px] uppercase tracking-[0.25em] text-cream/70 hover:text-cream"
+          className="gold-underline text-[12px] uppercase tracking-[0.25em] text-mist-dim hover:text-cream"
         >
           Visit the Journal
         </Link>

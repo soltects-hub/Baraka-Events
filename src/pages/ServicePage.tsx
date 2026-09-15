@@ -64,7 +64,7 @@ export default function ServicePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
         </div>
         <div className="relative mx-auto w-full max-w-[1000px] px-6 pb-14 md:px-10 md:pb-20">
-          <Link to="/services" className="text-[10px] uppercase tracking-[0.3em] text-cream/50 transition-colors hover:text-gold">
+          <Link to="/services" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-gold">
             &#10229; All Services
           </Link>
           <p className="mt-5 text-[11px] uppercase tracking-[0.45em] text-gold">{service.tag}</p>
@@ -88,7 +88,7 @@ export default function ServicePage() {
           {service.intro}
         </motion.p>
 
-        <div className="mt-14 space-y-10 border-t border-white/8 pt-10">
+        <div className="mt-14 space-y-10 border-t border-champagne/10 pt-10">
           {service.included.map((pt) => (
             <motion.div
               key={pt.h}
@@ -98,19 +98,19 @@ export default function ServicePage() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <h2 className="font-display text-xl font-light text-gold-soft md:text-2xl">{pt.h}</h2>
-              <p className="mt-2 text-sm font-light leading-relaxed text-cream/65 md:text-base">{pt.p}</p>
+              <p className="mt-2 text-sm font-light leading-relaxed text-mist md:text-base">{pt.p}</p>
             </motion.div>
           ))}
         </div>
 
         {/* FAQs */}
-        <div className="mt-16 border-t border-white/8 pt-10">
+        <div className="mt-16 border-t border-champagne/10 pt-10">
           <h2 className="font-display text-2xl font-light text-cream md:text-3xl">Frequently Asked Questions</h2>
           <div className="mt-8 space-y-6">
             {service.faqs.map((f) => (
               <div key={f.q}>
                 <h3 className="font-display text-base font-light text-cream md:text-lg">{f.q}</h3>
-                <p className="mt-1.5 text-sm font-light leading-relaxed text-cream/60">{f.a}</p>
+                <p className="mt-1.5 text-sm font-light leading-relaxed text-mist">{f.a}</p>
               </div>
             ))}
           </div>
@@ -118,7 +118,7 @@ export default function ServicePage() {
 
         {/* related reading */}
         {service.relatedLinks.length > 0 && (
-          <p className="mt-10 text-[12px] uppercase tracking-[0.15em] text-cream/60">
+          <p className="mt-10 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
             Related:{' '}
             {service.relatedLinks.map((r, ri) => (
               <span key={r.to}>
@@ -139,7 +139,7 @@ export default function ServicePage() {
           <p className="font-display text-2xl font-light text-cream md:text-3xl">
             Planning your <em className="italic text-gold-soft">{service.ctaSubject}</em>?
           </p>
-          <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-cream/60">
+          <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
             Book a complimentary consultation with our atelier in Gulberg, or reach us directly for a quote.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
@@ -156,7 +156,7 @@ export default function ServicePage() {
           <h3 className="mb-8 font-display text-2xl font-light text-cream md:text-3xl">Related Services</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((s) => (
-              <Link key={s.slug} to={routes.servicePage(s.slug)} className="group block overflow-hidden rounded-sm border border-white/8 bg-ink-2">
+              <Link key={s.slug} to={routes.servicePage(s.slug)} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={s.image}

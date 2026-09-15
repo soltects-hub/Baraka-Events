@@ -36,7 +36,7 @@ export default function LocationMap() {
             />
           </div>
           <div className="flex flex-col items-start gap-5 lg:items-end">
-            <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 lg:text-right">
+            <p className="max-w-sm text-sm font-light leading-relaxed text-mist lg:text-right">
               {ADDRESS}. Walk-ins welcome &mdash; but a booked consultation gets the chai ready before you arrive.
             </p>
             <MagneticButton
@@ -56,7 +56,7 @@ export default function LocationMap() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative overflow-hidden rounded-sm border border-white/10"
+          className="group relative overflow-hidden rounded-sm border border-champagne/12"
         >
           {/* corner brackets — keeps the cinematic frame language */}
           <span className="pointer-events-none absolute left-4 top-4 z-10 h-6 w-6 border-l border-t border-gold/50" />
@@ -88,7 +88,7 @@ export default function LocationMap() {
           {/* The locator renders its own address panel; showing this chip on top
               of it would duplicate the address and cover the map controls. */}
           {!isStoreLocatorConfigured() && (
-          <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 w-[calc(100%-3rem)] max-w-md -translate-x-1/2 rounded-sm border border-white/10 bg-ink/85 px-5 py-4 text-center backdrop-blur-xl md:bottom-8">
+          <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 w-[calc(100%-3rem)] max-w-md -translate-x-1/2 rounded-sm border border-champagne/12 bg-ink/85 px-5 py-4 text-center backdrop-blur-xl md:bottom-8">
             <p className="text-[10px] uppercase tracking-[0.3em] text-gold">Baraka Events &mdash; Head Office</p>
             <p className="mt-1.5 text-[13px] font-light leading-snug text-cream/80">{ADDRESS}</p>
           </div>
@@ -110,7 +110,7 @@ export default function LocationMap() {
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="border-l border-gold/40 pl-5"
             >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-cream/60">{f.k}</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-mist-dim">{f.k}</p>
               <p className="mt-2 text-sm font-light leading-relaxed text-cream/75">{f.v}</p>
             </motion.div>
           ))}

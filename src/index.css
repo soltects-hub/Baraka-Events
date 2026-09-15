@@ -15,26 +15,49 @@
 }
 
 .animated-border-ring {
+  /* a champagne seam with a single flame-hot head — the ring reads as a
+     thin band of light travelling round the frame, not an orange border */
   background: conic-gradient(
     from var(--border-angle),
     transparent 0%,
-    rgba(255, 150, 11, 0.9) 8%,
+    rgba(230, 197, 138, 0.85) 8%,
     transparent 20%,
     transparent 50%,
-    rgba(255, 150, 11, 0.45) 60%,
+    rgba(255, 150, 11, 0.55) 60%,
     transparent 72%
   );
   animation: border-spin 8s linear infinite;
 }
 
 @theme {
-  --color-ink: #050505;
-  --color-ink-2: #0b0b0b;
-  --color-ink-3: #121210;
+  /* Foundation — warm blacks. A hint of brown in every step so the page
+     reads as velvet rather than an unlit OLED panel; the steps are far
+     enough apart that alternating sections are actually distinguishable. */
+  --color-ink: #060504;
+  --color-ink-2: #0c0a08;
+  --color-ink-3: #141110;
+  --color-ink-4: #1e1915;
+  --color-ink-5: #2a241e;
+
+  /* Flame — the one true accent. Reserved for the primary CTA, active
+     states, and a single hot phrase per page; everything else that needs
+     warmth uses champagne or bronze. */
   --color-gold: #ff960b;
-  --color-gold-soft: #ff960b;
-  --color-cream: #f5f5f5;
-  --color-mist: #a8a8a8;
+  --color-gold-hot: #ffb347;
+  --color-gold-deep: #c96f06;
+
+  /* Supporting warm tones, taken from the candlelight in the photography. */
+  --color-champagne: #e6c58a;
+  --color-gold-soft: #e6c58a; /* legacy name — every existing use wanted champagne */
+  --color-ivory: #f3e4c7;
+  --color-bronze: #a8763a;
+  --color-bronze-deep: #6b4a1e;
+
+  /* Text — warm off-whites instead of cool grey-on-black. */
+  --color-cream: #f4eee3;
+  --color-mist: #b9ae9d;
+  --color-mist-dim: #7e7466;
+
   --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-serif-display: "Playfair Display", "Georgia", serif;
@@ -65,14 +88,18 @@ body {
   overflow-x: hidden;
 }
 
-/* Brand accent override — all headings render in the primary orange.
-   Un-layered rule intentionally beats Tailwind utility classes. */
-h1, h2, h3, h4 {
-  color: var(--color-gold);
+@layer base {
+  /* Headings default to warm ivory. Lives in the base layer so a utility
+     class on a specific heading still wins — the old un-layered rule that
+     forced every heading orange silently overrode 20 `text-cream` headings
+     and was the single biggest reason the site read as flat. */
+  h1, h2, h3, h4 {
+    color: var(--color-ivory);
+  }
 }
 
 ::selection {
-  background: var(--color-gold);
+  background: var(--color-champagne);
   color: var(--color-ink);
 }
 
@@ -80,70 +107,140 @@ h1, h2, h3, h4 {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0b0b;
+  background: #0c0a08;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2620;
+  background: #2a241e;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff960b;
+  background: #a8763a;
 }
 
 .text-stroke {
-  -webkit-text-stroke: 1px rgba(255, 150, 11, 0.45);
+  -webkit-text-stroke: 1px rgba(230, 197, 138, 0.5);
   color: transparent;
 }
 
-/* Footer neon wordmark — base outline + cursor-lit layer.
-   Outline uses an SVG feMorphology filter (see NeonWordmark.tsx) rather
-   than -webkit-text-stroke, which renders faceted, slightly blocky
-   corners at this font size — the filter gives a clean vector edge. */
+/* Playfair Display italic is the site's single "emotion" voice: one phrase
+   per headline, in champagne. Oswald ships no italic, so every `italic`
+   display span used to be a browser-synthesised slant. */
 .font-serif-display {
   font-family: var(--font-serif-display);
 }
-.neon-base {
-  /* opaque so the filter's SourceAlpha has real glyph-shaped alpha to
-     dilate — the filter's feMerge only outputs the outline layer, so
-     this fill color itself never actually shows */
-  color: #ff960b;
-  filter: url(#neon-outline-base);
+.accent-serif {
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--color-champagne);
 }
-.neon-lit {
-  background-image: linear-gradient(180deg, #ffcf8a 0%, #ff960b 45%, #c9660a 100%);
+
+/* ---------- light, not colour ----------
+   The few gradients the design allows are all gradients *of light*:
+   a lit phrase, a hairline catching light, a vignette, a top-lit surface. */
+
+.text-flame {
+  background-image: linear-gradient(180deg, #ffb347 0%, #ff960b 58%, #e8890a 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  filter: url(#neon-outline-lit);
-  animation: neon-flicker 3.2s ease-in-out infinite;
 }
 
-@keyframes neon-flicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  93% { opacity: 0.82; }
-  94% { opacity: 1; }
-  96% { opacity: 0.9; }
-  97% { opacity: 1; }
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 197, 138, 0.5), transparent);
+}
+.hairline-flame {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 150, 11, 0), rgba(255, 150, 11, 0.85), rgba(255, 150, 11, 0));
 }
 
-@keyframes ground-glow-pulse {
-  0%, 100% { opacity: 0.55; transform: translateY(0) scaleX(1); }
-  50% { opacity: 0.85; transform: translateY(-4%) scaleX(1.04); }
+.vignette {
+  background: radial-gradient(ellipse 85% 75% at 42% 45%, transparent 30%, rgba(6, 5, 4, 0.72) 100%);
 }
 
-@keyframes smoke-drift-a {
-  0% { transform: translate(0, 6%) scale(0.9); opacity: 0; }
-  15% { opacity: 0.22; }
-  55% { opacity: 0.16; }
-  100% { transform: translate(6%, -60%) scale(1.3); opacity: 0; }
+/* Static film grain — a tiny SVG noise tile, no animation, hero only. */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.045;
 }
 
-@keyframes smoke-drift-b {
-  0% { transform: translate(0, 10%) scale(0.8); opacity: 0; }
-  20% { opacity: 0.16; }
-  60% { opacity: 0.1; }
-  100% { transform: translate(-8%, -55%) scale(1.25); opacity: 0; }
+@layer components {
+  /* Raised surface: a warm ink plate lit from the top edge, sitting in a
+     deep soft shadow. Replaces the 1px white hairline card. */
+  .plate {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0) 38%),
+      var(--color-ink-3);
+    border: 1px solid rgba(230, 197, 138, 0.1);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.035),
+      0 30px 60px -32px rgba(0, 0, 0, 0.85);
+  }
+
+  /* Caption plate for imagery: dark bronze glass that rises from the
+     bottom of a photo. Pure gradient — no backdrop-filter — so it costs
+     nothing on a card that is being scrolled or tilted. */
+  .plate-glass {
+    background:
+      linear-gradient(180deg, rgba(20, 17, 16, 0) 0%, rgba(20, 17, 16, 0.55) 34%, rgba(14, 11, 9, 0.94) 100%),
+      radial-gradient(120% 90% at 50% 100%, rgba(107, 74, 30, 0.35), transparent 62%);
+  }
+
+  /* Image grade: a bronze-tinted duotone at the edges and a foot fade
+     that starts low, so photographs stay in full colour. */
+  .grade {
+    background:
+      linear-gradient(180deg, rgba(6, 5, 4, 0) 58%, rgba(6, 5, 4, 0.82) 100%),
+      radial-gradient(ellipse 90% 80% at 50% 40%, transparent 45%, rgba(6, 5, 4, 0.55) 100%);
+  }
+
+  /* Primary CTA — flame, lit from above, with a soft outer glow and a
+     specular sweep on hover. Dark text: ivory on this orange fails contrast. */
+  .btn-flame {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--color-ink);
+    background-image: linear-gradient(180deg, #ffb347 0%, #ff960b 48%, #e0800a 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 0 0 1px rgba(255, 150, 11, 0.35),
+      0 14px 40px -14px rgba(255, 150, 11, 0.6);
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+  }
+  .btn-flame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.45) 50%, transparent 68%);
+    transform: translateX(-130%);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-flame:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 0 1px rgba(255, 179, 71, 0.55),
+      0 18px 50px -14px rgba(255, 150, 11, 0.8);
+  }
+  .btn-flame:hover::before {
+    transform: translateX(130%);
+  }
+
+  /* Secondary CTA — a ghost pill in champagne that fills with dark bronze. */
+  .btn-ghost {
+    color: var(--color-ivory);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px rgba(230, 197, 138, 0.4);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  }
+  .btn-ghost:hover {
+    background-color: rgba(107, 74, 30, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(230, 197, 138, 0.85);
+  }
 }
 
 .gold-underline {
@@ -156,7 +253,7 @@ h1, h2, h3, h4 {
   bottom: -2px;
   width: 100%;
   height: 1px;
-  background: var(--color-gold);
+  background: var(--color-champagne);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -168,6 +265,25 @@ h1, h2, h3, h4 {
 
 input, textarea, select {
   outline: none;
+}
+
+/* Footer wordmark — champagne hairline outline, lit where the cursor passes.
+   Outline uses an SVG feMorphology filter (see NeonWordmark.tsx) rather
+   than -webkit-text-stroke, which renders faceted, slightly blocky
+   corners at this font size — the filter gives a clean vector edge. */
+.neon-base {
+  /* opaque so the filter's SourceAlpha has real glyph-shaped alpha to
+     dilate — the filter's feMerge only outputs the outline layer, so
+     this fill color itself never actually shows */
+  color: #e6c58a;
+  filter: url(#neon-outline-base);
+}
+.neon-lit {
+  background-image: linear-gradient(180deg, #f3e4c7 0%, #e6c58a 42%, #a8763a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: url(#neon-outline-lit);
 }
 
 /* Google Maps Store Locator (src/components/StoreLocator.tsx).

@@ -5,7 +5,7 @@ import MagneticButton from './MagneticButton';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 
 const inputClass =
-  'w-full rounded-sm border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-light text-cream placeholder:text-cream/30 backdrop-blur-md transition-colors duration-300 focus:border-gold/60';
+  'w-full rounded-sm border border-champagne/12 bg-champagne/[0.04] px-5 py-4 text-sm font-light text-cream placeholder:text-mist-dim backdrop-blur-md transition-colors duration-300 focus:border-gold/60';
 
 // Set in Vercel (and .env for local testing) as VITE_FORMSPREE_ENDPOINT,
 // e.g. https://formspree.io/f/xxxxxxxx — sign up at formspree.io, create a
@@ -34,7 +34,7 @@ export default function Contact() {
             text="Tell us what you're planning."
             className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
           />
-          <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-cream/65 md:text-base">
+          <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             A wedding, a corporate event, a private celebration: tell us the basics
             and we will get back to you within one business day to arrange a free
             consultation, in person or by video.
@@ -47,7 +47,7 @@ export default function Contact() {
               { label: 'Atelier', value: 'LG 13A, Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III', href: undefined },
             ].map((c) => (
               <div key={c.label} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
-                <span className="w-16 shrink-0 text-[10px] uppercase tracking-[0.3em] text-cream/60">{c.label}</span>
+                <span className="w-16 shrink-0 text-[10px] uppercase tracking-[0.3em] text-mist-dim">{c.label}</span>
                 {c.href ? (
                   <a href={c.href} className="gold-underline font-display text-lg text-cream md:text-xl">{c.value}</a>
                 ) : (
@@ -59,7 +59,7 @@ export default function Contact() {
 
           {/* socials */}
           <div className="mt-10">
-            <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-cream/60">Follow @Barakaeventsofficial</p>
+            <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-mist-dim">Follow @Barakaeventsofficial</p>
             <div className="flex flex-wrap items-center gap-3">
               {[
                 {
@@ -112,7 +112,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label={`Baraka Events on ${s.label}`}
                   style={{ '--brand': s.color } as React.CSSProperties}
-                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] backdrop-blur-md transition-all duration-300 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand)]/15 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--brand)_35%,transparent)]"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-champagne/15 bg-champagne/[0.04] backdrop-blur-md transition-all duration-300 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand)]/15 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--brand)_35%,transparent)]"
                 >
                   <svg viewBox="0 0 32 32" className="h-[18px] w-[18px] fill-gold transition-colors duration-300 group-hover:fill-[color:var(--brand)]">
                     {s.icon}
@@ -123,7 +123,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="rounded-md border border-white/10 bg-ink/50 p-7 backdrop-blur-2xl md:p-10">
+        <div className="rounded-md border border-champagne/12 bg-ink/50 p-7 backdrop-blur-2xl md:p-10">
           <AnimatePresence mode="wait">
             {status === 'sent' ? (
               <motion.div
@@ -138,7 +138,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h3 className="font-display text-3xl font-light text-cream">Request received</h3>
-                <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-cream/60">
+                <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-mist">
                   Shukriya — your consultation request is with our atelier.
                   Expect a personal reply within one business day.
                 </p>
@@ -181,17 +181,17 @@ export default function Contact() {
               >
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Full Name</label>
+                    <label htmlFor="name" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Full Name</label>
                     <input id="name" name="name" required placeholder="Ayesha Khan" className={inputClass} />
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Email</label>
+                    <label htmlFor="email" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Email</label>
                     <input id="email" name="email" type="email" required placeholder="you@email.com" className={inputClass} />
                   </div>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="type" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Event Type</label>
+                    <label htmlFor="type" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Event Type</label>
                     <select id="type" name="eventType" required defaultValue="" className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
                       <option value="" disabled>Select an occasion</option>
                       <option>Wedding (Mehndi · Baraat · Nikkah · Walima)</option>
@@ -202,12 +202,12 @@ export default function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="date" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Preferred Date</label>
+                    <label htmlFor="date" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Preferred Date</label>
                     <input id="date" name="preferredDate" type="date" className={`${inputClass} [color-scheme:dark]`} />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-cream/50">Tell Us Your Vision</label>
+                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Tell Us Your Vision</label>
                   <textarea
                     id="message"
                     name="message"

@@ -61,7 +61,7 @@ export default function About() {
             text="We don't just plan your event. We run it."
             className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
           />
-          <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-cream/65 md:text-lg">
+          <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-mist md:text-lg">
             <p>
               Baraka Events is an event planning and management company based in Gulberg,
               Lahore. We plan and produce weddings, corporate events and private

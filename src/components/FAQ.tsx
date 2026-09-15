@@ -18,7 +18,7 @@ export default function FAQ() {
           />
         </div>
 
-        <div className="divide-y divide-white/10 border-y border-white/10">
+        <div className="divide-y divide-champagne/12 border-y border-champagne/12">
           {faqs.map((f, i) => (
             <div key={i}>
               <button
@@ -32,7 +32,7 @@ export default function FAQ() {
                 <motion.span
                   animate={{ rotate: open === i ? 45 : 0 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15"
+                  className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-champagne/20"
                 >
                   <span className="absolute h-[1px] w-3.5 bg-gold" />
                   <span className="absolute h-3.5 w-[1px] bg-gold" />
@@ -47,7 +47,7 @@ export default function FAQ() {
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="max-w-3xl pb-8 text-sm font-light leading-relaxed text-cream/65 md:text-base">{f.a}</p>
+                    <p className="max-w-3xl pb-8 text-sm font-light leading-relaxed text-mist md:text-base">{f.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

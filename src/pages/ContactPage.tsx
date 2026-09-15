@@ -62,7 +62,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             Whether you're comparing event management companies in Lahore or already know
             you want Baraka, the fastest way to find out what's possible for your date and
@@ -78,7 +78,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.1 }}
               >
                 <h2 className="font-display text-lg font-light text-gold-soft">{r.h}</h2>
-                <p className="mt-1.5 text-sm font-light leading-relaxed text-cream/60">{r.p}</p>
+                <p className="mt-1.5 text-sm font-light leading-relaxed text-mist">{r.p}</p>
               </motion.div>
             ))}
           </div>

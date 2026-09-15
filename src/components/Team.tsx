@@ -21,7 +21,7 @@ export default function Team() {
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
             />
           </div>
-          <p className="max-w-sm text-sm font-light leading-relaxed text-cream/60 md:text-right">
+          <p className="max-w-sm text-sm font-light leading-relaxed text-mist md:text-right">
             A small team that works on every event together. Hover to pause the
             carousel, drag left or right to browse, or click a face to bring it forward.
           </p>

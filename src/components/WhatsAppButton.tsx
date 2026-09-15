@@ -44,22 +44,22 @@ export default function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-24 right-5 z-[96] w-[300px] overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:bottom-28 md:right-7"
+            className="fixed bottom-24 right-5 z-[96] w-[300px] overflow-hidden rounded-2xl border border-champagne/12 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:bottom-28 md:right-7"
           >
             {/* header */}
             <div className="relative bg-gradient-to-br from-ink-2 to-ink px-5 py-4">
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close"
-                className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full text-cream/50 transition-colors hover:text-cream"
+                className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full text-mist transition-colors hover:text-cream"
               >
                 &#10005;
               </button>
               <div className="flex items-center gap-3 pr-6">
-                <img src="/media/logo.png" alt="" aria-hidden className="h-9 w-9 shrink-0 rounded-full bg-white/5 object-contain p-1" />
+                <img src="/media/logo.png" alt="" aria-hidden className="h-9 w-9 shrink-0 rounded-full bg-champagne/5 object-contain p-1" />
                 <div>
                   <p className="font-display text-sm tracking-[0.08em] text-cream">Baraka Events</p>
-                  <p className="text-[11px] font-light text-cream/50">Typically replies within minutes</p>
+                  <p className="text-[11px] font-light text-mist">Typically replies within minutes</p>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function WhatsAppButton() {
       >
         {/* label — slides out on hover (desktop) */}
         {!open && (
-          <span className="pointer-events-none mr-3 hidden max-w-0 overflow-hidden whitespace-nowrap rounded-full border border-white/10 bg-ink/80 py-2 text-[11px] uppercase tracking-[0.2em] text-cream/80 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[220px] group-hover:px-5 md:block">
+          <span className="pointer-events-none mr-3 hidden max-w-0 overflow-hidden whitespace-nowrap rounded-full border border-champagne/12 bg-ink/80 py-2 text-[11px] uppercase tracking-[0.2em] text-cream/80 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[220px] group-hover:px-5 md:block">
             Chat with us
           </span>
         )}

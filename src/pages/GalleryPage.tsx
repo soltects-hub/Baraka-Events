@@ -114,7 +114,7 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
                 >
                   <div
                     className={`aspect-[4/5] overflow-hidden rounded-sm border shadow-2xl shadow-black/60 transition-colors duration-300 ${
-                      isCenter ? 'border-gold/50 cursor-zoom-in' : 'border-white/10 cursor-pointer'
+                      isCenter ? 'border-gold/50 cursor-zoom-in' : 'border-champagne/12 cursor-pointer'
                     }`}
                   >
                     <img
@@ -135,22 +135,22 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
         <button
           onClick={prev}
           aria-label="Previous photo"
-          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold sm:left-2 md:left-6"
+          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold sm:left-2 md:left-6"
         >
           &#10094;
         </button>
         <button
           onClick={next}
           aria-label="Next photo"
-          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold sm:right-2 md:right-6"
+          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold sm:right-2 md:right-6"
         >
           &#10095;
         </button>
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-cream/60">
+      <div className="mt-8 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
         <span className="text-gold">{String(active + 1).padStart(2, '0')}</span>
-        <span className="h-[1px] w-10 bg-white/15" />
+        <span className="h-[1px] w-10 bg-champagne/15" />
         <span>{String(items.length).padStart(2, '0')}</span>
       </div>
 
@@ -174,7 +174,7 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
             <button
               onClick={() => setLightbox(null)}
               aria-label="Close"
-              className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-ink/60 text-cream backdrop-blur-md"
+              className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md"
             >
               &#10005;
             </button>
@@ -238,7 +238,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-cream/60 md:text-base"
+            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
             A visual record of Baraka Events&rsquo; wedding decoration, mehndi styling,
             corporate production and private celebrations across Lahore &mdash; drag,
@@ -248,7 +248,7 @@ export default function GalleryPage() {
       </section>
 
       {/* category tabs */}
-      <div className="sticky top-[64px] z-20 border-y border-white/8 bg-ink/85 backdrop-blur-xl md:top-[76px]">
+      <div className="sticky top-[64px] z-20 border-y border-champagne/10 bg-ink/85 backdrop-blur-xl md:top-[76px]">
         <div className="mx-auto flex max-w-[1200px] flex-wrap gap-3 px-6 py-5 md:px-10">
           {categories.map((c) => (
             <button
@@ -257,7 +257,7 @@ export default function GalleryPage() {
               className={`rounded-full border px-5 py-2 text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
                 active === c
                   ? 'border-gold bg-gold text-ink'
-                  : 'border-white/12 text-cream/60 hover:border-gold/50 hover:text-gold'
+                  : 'border-champagne/15 text-mist-dim hover:border-gold/50 hover:text-gold'
               }`}
             >
               {c}
@@ -272,7 +272,7 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-white/8 bg-ink-2/40 py-24 text-center md:py-32">
+      <section className="border-t border-champagne/10 bg-ink-2/40 py-24 text-center md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <RevealText
             as="h2"

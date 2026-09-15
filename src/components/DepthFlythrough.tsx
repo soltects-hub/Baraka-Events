@@ -193,7 +193,7 @@ export default function DepthFlythrough() {
           <h2 className="font-display text-4xl font-light text-cream md:text-6xl">
             Enter the <em className="italic text-gold-soft">archive</em>
           </h2>
-          <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60 md:text-base">
+          <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             A selection of celebrations, productions and experiences we&rsquo;ve brought to life.
           </p>
         </div>
@@ -220,7 +220,7 @@ export default function DepthFlythrough() {
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream/60 md:mt-14">
+        <div className="mt-10 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-mist-dim md:mt-14">
           <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-gold" strokeWidth="1.5">
             <path d="M7 11.5V6a1.5 1.5 0 0 1 3 0v4.5M10 10.5V5a1.5 1.5 0 0 1 3 0v5.5M13 10.5V6a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2 5.5-5 5.5s-4.5-1.5-5.5-4L4.2 11a1.4 1.4 0 0 1 2.4-1.4l1.4 2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -238,7 +238,7 @@ export default function DepthFlythrough() {
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{active.category}</p>
               <h3 className="mt-3 font-display text-2xl font-light text-cream md:text-3xl">{active.title}</h3>
-              <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-cream/60">{active.location}</p>
+              <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-mist-dim">{active.location}</p>
             </motion.div>
           </AnimatePresence>
         </div>

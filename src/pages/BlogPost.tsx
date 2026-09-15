@@ -69,13 +69,13 @@ export default function BlogPost() {
         </div>
         <div className="relative mx-auto w-full max-w-[900px] px-6 pb-14 md:px-10 md:pb-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
-            <Link to="/blog" className="text-[10px] uppercase tracking-[0.3em] text-cream/50 transition-colors hover:text-gold">
+            <Link to="/blog" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-gold">
               &#10229; The Baraka Journal
             </Link>
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/50">
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
               <span className="rounded-full border border-gold/40 bg-ink/40 px-4 py-1.5 text-gold backdrop-blur-md">{post.category}</span>
               <span>{post.date}</span>
-              <span className="h-1 w-1 rounded-full bg-cream/25" />
+              <span className="h-1 w-1 rounded-full bg-mist-dim" />
               <span>{post.readTime}</span>
             </div>
             <h1 className="mt-5 font-display text-3xl font-light leading-[1.12] text-cream sm:text-4xl md:text-6xl">{post.title}</h1>
@@ -109,7 +109,7 @@ export default function BlogPost() {
                 {b.p}
               </motion.p>
               {b.related && b.related.length > 0 && (
-                <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-cream/60">
+                <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
                   Related:{' '}
                   {b.related.map((r, ri) => (
                     <span key={r.to ?? r.slug}>
@@ -129,7 +129,7 @@ export default function BlogPost() {
             posts, so nothing in the blog ever pointed back at a commercial
             page. */}
         {linkedService && (
-          <p className="mt-12 border-t border-white/8 pt-6 text-[12px] uppercase tracking-[0.15em] text-cream/60">
+          <p className="mt-12 border-t border-champagne/10 pt-6 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
             Our service:{' '}
             <Link
               to={routes.servicePage(linkedService.slug)}
@@ -145,7 +145,7 @@ export default function BlogPost() {
           <p className="font-display text-2xl font-light text-cream md:text-3xl">
             Planning something <em className="italic text-gold-soft">extraordinary</em>?
           </p>
-          <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-cream/60">
+          <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
             Book a complimentary consultation with our atelier in Gulberg &mdash; we'll bring the venue intelligence, you bring the vision.
           </p>
           <div className="mt-7">
@@ -163,7 +163,7 @@ export default function BlogPost() {
         <h3 className="mb-8 font-display text-2xl font-light text-cream md:text-3xl">More from the Journal</h3>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((p) => (
-            <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden rounded-sm border border-white/8 bg-ink-2">
+            <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
               <div className="relative h-44 overflow-hidden">
                 <img src={p.image} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
               </div>

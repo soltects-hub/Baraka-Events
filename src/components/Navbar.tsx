@@ -46,7 +46,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          scrolled ? 'py-2.5 bg-ink/70 backdrop-blur-xl border-b border-white/5' : 'py-5 bg-transparent'
+          scrolled ? 'py-2.5 bg-ink/70 backdrop-blur-xl border-b border-champagne/8' : 'py-5 bg-transparent'
         }`}
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">
@@ -71,7 +71,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href.startsWith('#') ? '/' + l.href : l.href}
                 onClick={(e) => { e.preventDefault(); go(l.href); }}
-                className="gold-underline whitespace-nowrap text-[12px] uppercase tracking-[0.16em] text-cream/70 transition-colors hover:text-cream xl:text-[13px] xl:tracking-[0.22em]"
+                className="gold-underline whitespace-nowrap text-[12px] uppercase tracking-[0.16em] text-mist-dim transition-colors hover:text-cream xl:text-[13px] xl:tracking-[0.22em]"
               >
                 {l.label}
               </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
-            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full border border-white/10 bg-white/5 backdrop-blur-md lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full border border-champagne/12 bg-champagne/5 backdrop-blur-md lg:hidden"
           >
             <m.span animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
             <m.span animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />

@@ -81,7 +81,7 @@ export default function StickyServices() {
                     <h3 className="font-display text-4xl font-light text-cream sm:text-5xl md:text-6xl lg:text-7xl">{s.title}</h3>
                   </div>
                   <p className="mt-2.5 font-display text-lg italic text-gold-soft md:text-2xl">{s.tagline}</p>
-                  <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-cream/70 md:text-base">
+                  <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-mist md:text-base">
                     {s.description}
                   </p>
                 </motion.div>
@@ -105,7 +105,7 @@ export default function StickyServices() {
                         hidden: { opacity: 0, x: -20 },
                         show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
                       }}
-                      className="flex items-center gap-4 text-[12px] uppercase tracking-[0.18em] text-cream/60 md:text-[13px] md:tracking-[0.2em]"
+                      className="flex items-center gap-4 text-[12px] uppercase tracking-[0.18em] text-mist-dim md:text-[13px] md:tracking-[0.2em]"
                     >
                       <span className="h-[1px] w-8 shrink-0 bg-gold/60" />
                       {d}
@@ -121,12 +121,12 @@ export default function StickyServices() {
               <div key={sv.index} className="flex items-center gap-4">
                 <span
                   className={`text-[11px] uppercase tracking-[0.3em] transition-all duration-500 ${
-                    i === active ? 'text-gold' : 'text-cream/60'
+                    i === active ? 'text-gold' : 'text-mist-dim'
                   }`}
                 >
                   {sv.title}
                 </span>
-                <div className="relative h-[1px] w-16 bg-white/15">
+                <div className="relative h-[1px] w-16 bg-champagne/15">
                   <motion.div
                     className="absolute inset-y-0 left-0 bg-gold"
                     animate={{ width: i === active ? '100%' : i < active ? '100%' : '0%' }}
@@ -140,7 +140,7 @@ export default function StickyServices() {
 
         <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2 lg:hidden">
           {services.map((_, i) => (
-            <div key={i} className={`h-1 w-8 rounded-full transition-colors duration-500 ${i === active ? 'bg-gold' : 'bg-white/15'}`} />
+            <div key={i} className={`h-1 w-8 rounded-full transition-colors duration-500 ${i === active ? 'bg-gold' : 'bg-champagne/15'}`} />
           ))}
         </div>
       </div>
