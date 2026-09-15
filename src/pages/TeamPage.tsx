@@ -50,14 +50,14 @@ export default function TeamPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             The Atelier
           </motion.p>
           <RevealText
             as="h1"
             text="The people behind every Baraka production."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -80,11 +80,11 @@ export default function TeamPage() {
       {/* expertise */}
       <section className="border-t border-champagne/10 bg-ink-2/40 py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">How We Work</p>
+          <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">How We Work</p>
           <RevealText
             as="h2"
             text="One team, four disciplines, zero handoffs."
-            className="max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+            className="max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
           />
           <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
             {expertise.map((e, i) => (
@@ -94,9 +94,9 @@ export default function TeamPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="border-l border-gold/30 pl-6"
+                className="border-l border-champagne/30 pl-6"
               >
-                <h3 className="font-display text-xl font-light text-cream md:text-2xl">{e.h}</h3>
+                <h3 className="font-display text-xl font-light md:text-2xl">{e.h}</h3>
                 <p className="mt-3 text-sm font-light leading-relaxed text-mist">{e.p}</p>
               </motion.div>
             ))}
@@ -109,7 +109,7 @@ export default function TeamPage() {
         <RevealText
           as="h2"
           text="Ready to meet the team in person?"
-          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
         />
         <div className="mt-8">
           <MagneticButton

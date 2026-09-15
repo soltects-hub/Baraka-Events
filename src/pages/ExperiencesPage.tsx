@@ -134,14 +134,14 @@ export default function ExperiencesPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             What We Plan
           </motion.p>
           <RevealText
             as="h1"
             text="Weddings, corporate events and private celebrations in Lahore."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ export default function ExperiencesPage() {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="mt-4 text-[12px] uppercase tracking-[0.2em]"
           >
-            <Link to="/services" className="gold-underline text-mist hover:text-gold">
+            <Link to="/services" className="gold-underline text-mist hover:text-champagne">
               See every individual service &rarr;
             </Link>
           </motion.p>
@@ -173,7 +173,7 @@ export default function ExperiencesPage() {
             <a
               key={e.id}
               href={`#${e.id}`}
-              className="gold-underline text-[11px] uppercase tracking-[0.25em] text-mist-dim transition-colors hover:text-gold"
+              className="gold-underline text-[11px] uppercase tracking-[0.25em] text-mist-dim transition-colors hover:text-champagne"
             >
               {e.tag}
             </a>
@@ -200,8 +200,8 @@ export default function ExperiencesPage() {
             <img src={exp.image} alt={exp.title} className="h-[340px] w-full object-cover md:h-[460px]" loading="lazy" />
           </motion.div>
           <div className="flex flex-col justify-center">
-            <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">{exp.tag}</p>
-            <h2 className="font-display text-3xl font-light leading-[1.15] text-cream md:text-4xl">{exp.title}</h2>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">{exp.tag}</p>
+            <h2 className="font-display text-3xl font-light leading-[1.15] md:text-4xl">{exp.title}</h2>
             <p className="mt-5 text-sm font-light leading-relaxed text-mist md:text-base">{exp.intro}</p>
             <div className="mt-8 space-y-6 border-t border-champagne/10 pt-6">
               {exp.points.map((pt) => (
@@ -214,7 +214,7 @@ export default function ExperiencesPage() {
             {exp.related && exp.related.length > 0 && (
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-champagne/10 pt-5 text-[11px] uppercase tracking-[0.2em]">
                 {exp.related.map((r) => (
-                  <Link key={r.to} to={r.to} className="gold-underline text-mist hover:text-gold">
+                  <Link key={r.to} to={r.to} className="gold-underline text-mist hover:text-champagne">
                     {r.text} &rarr;
                   </Link>
                 ))}
@@ -227,11 +227,11 @@ export default function ExperiencesPage() {
       {/* service areas */}
       <section className="border-t border-champagne/10 bg-ink-2/40 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Where We Work</p>
+          <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Where We Work</p>
           <RevealText
             as="h2"
             text="An event planner in Lahore, wherever your event is."
-            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
           />
           <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-relaxed text-mist">
             From Liberty Roundabout to the Walled City, we regularly plan and produce
@@ -255,10 +255,11 @@ export default function ExperiencesPage() {
         <RevealText
           as="h2"
           text="Tell us which one you're planning."
-          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
         />
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <MagneticButton
+            variant="ghost"
             onClick={() => sectionNav('/portfolio')}
           >
             See Our Portfolio

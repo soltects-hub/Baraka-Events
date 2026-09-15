@@ -49,8 +49,9 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* generous reserved space per breakpoint so the quote never collides with the dots */}
-        <div className="relative min-h-[340px] sm:min-h-[280px] md:min-h-[240px]">
+        {/* reserved space sized for the longest quote at each breakpoint, so
+            rotating to it never grows the section and shifts the page below */}
+        <div className="relative min-h-[380px] sm:min-h-[330px] md:min-h-[320px]">
           <AnimatePresence mode="wait">
             <motion.figure
               key={index}
@@ -59,7 +60,11 @@ export default function Testimonials() {
               exit={{ opacity: 0, y: -40 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <blockquote className="accent-serif text-2xl leading-[1.3] text-ivory sm:text-3xl md:text-[2.6rem]">
+              <blockquote
+                className={`accent-serif leading-[1.3] text-ivory ${
+                  t.quote.length > 120 ? 'text-xl sm:text-2xl md:text-[2rem]' : 'text-2xl sm:text-3xl md:text-[2.6rem]'
+                }`}
+              >
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-8">

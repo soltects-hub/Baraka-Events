@@ -127,14 +127,14 @@ export default function ServicesIndexPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             Services
           </motion.p>
           <RevealText
             as="h1"
             text="Every service, from one event planner in Lahore."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -161,7 +161,7 @@ export default function ServicesIndexPage() {
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to={routes.servicePage(s.slug)} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
+              <Link to={routes.servicePage(s.slug)} className="group block overflow-hidden plate rounded-sm">
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={s.image}
@@ -169,11 +169,11 @@ export default function ServicesIndexPage() {
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 grade" />
                 </div>
                 <div className="p-6">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-gold">{s.tag}</span>
-                  <h2 className="mt-2 font-display text-xl font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-champagne">{s.tag}</span>
+                  <h2 className="mt-2 font-display text-xl font-light leading-snug transition-colors duration-300 group-hover:text-gold-soft">
                     {s.title}
                   </h2>
                   <p className="mt-2 line-clamp-2 text-sm font-light leading-relaxed text-mist">{s.intro}</p>
@@ -187,7 +187,7 @@ export default function ServicesIndexPage() {
       {/* what an event planner actually does */}
       <section className="mx-auto max-w-[900px] px-6 pb-4 md:px-10">
         <div className="border-t border-champagne/10 pt-12">
-          <h2 className="font-display text-2xl font-light text-cream md:text-3xl">
+          <h2 className="font-display text-2xl font-light md:text-3xl">
             What to expect from an event planner in Lahore
           </h2>
           <div className="mt-10 space-y-10">
@@ -210,7 +210,7 @@ export default function ServicesIndexPage() {
       {/* service areas */}
       <section className="mx-auto max-w-[900px] px-6 pb-4 md:px-10">
         <div className="border-t border-champagne/10 pt-12">
-          <h2 className="font-display text-2xl font-light text-cream md:text-3xl">Where we work across Lahore</h2>
+          <h2 className="font-display text-2xl font-light md:text-3xl">Where we work across Lahore</h2>
           <p className="mt-4 text-sm font-light leading-relaxed text-mist md:text-base">
             Our office is at Liberty Roundabout in Gulberg III, and we produce events across the whole city —
             including the farmhouse venues out along Raiwind and Bedian Road.
@@ -219,7 +219,7 @@ export default function ServicesIndexPage() {
             {SERVICE_AREAS.map((area) => (
               <li
                 key={area}
-                className="rounded-sm border border-champagne/10 bg-ink-2 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mist-dim"
+                className="plate rounded-sm px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mist-dim"
               >
                 {area}
               </li>
@@ -231,11 +231,11 @@ export default function ServicesIndexPage() {
       {/* FAQs */}
       <section className="mx-auto max-w-[900px] px-6 pb-20 md:px-10 md:pb-24">
         <div className="border-t border-champagne/10 pt-12">
-          <h2 className="font-display text-2xl font-light text-cream md:text-3xl">Frequently Asked Questions</h2>
+          <h2 className="font-display text-2xl font-light md:text-3xl">Frequently Asked Questions</h2>
           <div className="mt-8 space-y-6">
             {SERVICES_FAQS.map((f) => (
               <div key={f.q}>
-                <h3 className="font-display text-base font-light text-cream md:text-lg">{f.q}</h3>
+                <h3 className="font-display text-base font-light md:text-lg">{f.q}</h3>
                 <p className="mt-1.5 text-sm font-light leading-relaxed text-mist">{f.a}</p>
               </div>
             ))}
@@ -262,10 +262,10 @@ export default function ServicesIndexPage() {
         <RevealText
           as="h2"
           text="Tell us which one you're planning."
-          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
         />
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <MagneticButton onClick={() => go('/experiences')}>See All Experiences</MagneticButton>
+          <MagneticButton variant="ghost" onClick={() => go('/experiences')}>See All Experiences</MagneticButton>
           <MagneticButton onClick={() => go('#contact')}>Request Consultation</MagneticButton>
         </div>
       </section>

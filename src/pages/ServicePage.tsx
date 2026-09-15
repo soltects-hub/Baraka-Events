@@ -60,18 +60,20 @@ export default function ServicePage() {
       <section className="relative flex min-h-[55vh] items-end overflow-hidden pt-32 md:min-h-[65vh]">
         <div className="absolute inset-0">
           <img src={service.image} alt={service.imageAlt} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-ink/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
+          {/* vignette + foot fade: the photograph stays in colour, the copy
+              sits on the darkened lower third */}
+          <div className="vignette absolute inset-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 via-35% to-ink/35" />
         </div>
         <div className="relative mx-auto w-full max-w-[1000px] px-6 pb-14 md:px-10 md:pb-20">
-          <Link to="/services" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-gold">
+          <Link to="/services" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-champagne">
             &#10229; All Services
           </Link>
-          <p className="mt-5 text-[11px] uppercase tracking-[0.45em] text-gold">{service.tag}</p>
+          <p className="mt-5 text-[11px] uppercase tracking-[0.3em] text-champagne">{service.tag}</p>
           <RevealText
             as="h1"
             text={service.title}
-            className="mt-4 font-display text-3xl font-light leading-[1.1] text-cream sm:text-4xl md:text-6xl"
+            className="mt-4 font-display text-3xl font-light leading-[1.1] sm:text-4xl md:text-6xl"
           />
         </div>
       </section>
@@ -105,11 +107,11 @@ export default function ServicePage() {
 
         {/* FAQs */}
         <div className="mt-16 border-t border-champagne/10 pt-10">
-          <h2 className="font-display text-2xl font-light text-cream md:text-3xl">Frequently Asked Questions</h2>
+          <h2 className="font-display text-2xl font-light md:text-3xl">Frequently Asked Questions</h2>
           <div className="mt-8 space-y-6">
             {service.faqs.map((f) => (
               <div key={f.q}>
-                <h3 className="font-display text-base font-light text-cream md:text-lg">{f.q}</h3>
+                <h3 className="font-display text-base font-light md:text-lg">{f.q}</h3>
                 <p className="mt-1.5 text-sm font-light leading-relaxed text-mist">{f.a}</p>
               </div>
             ))}
@@ -132,20 +134,20 @@ export default function ServicePage() {
         )}
 
         {/* CTA */}
-        <div className="mt-16 rounded-sm border border-gold/25 bg-ink-2 p-8 text-center md:p-10">
+        <div className="plate mt-16 rounded-sm p-8 text-center md:p-10">
           {/* This used to interpolate service.tag, which rendered as
               "Planning your corporate?" and "Planning your weddings?" on two
               of the money pages. ctaSubject is the event noun instead. */}
-          <p className="font-display text-2xl font-light text-cream md:text-3xl">
-            Planning your <em className="italic text-gold-soft">{service.ctaSubject}</em>?
+          <p className="font-display text-2xl font-light md:text-3xl">
+            Planning your <em className="accent-serif">{service.ctaSubject}</em>?
           </p>
           <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
             Book a complimentary consultation with our atelier in Gulberg, or reach us directly for a quote.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <MagneticButton onClick={() => go('#contact')}>Get a Quote</MagneticButton>
-            <MagneticButton href={WHATSAPP_URL}>WhatsApp Us</MagneticButton>
-            <MagneticButton href="tel:+923139999039">Call Now</MagneticButton>
+            <MagneticButton variant="ghost" href={WHATSAPP_URL}>WhatsApp Us</MagneticButton>
+            <MagneticButton variant="ghost" href="tel:+923139999039">Call Now</MagneticButton>
           </div>
         </div>
       </article>
@@ -153,10 +155,10 @@ export default function ServicePage() {
       {/* related services */}
       {related.length > 0 && (
         <section className="mx-auto max-w-[1200px] px-6 pb-28 md:px-10 md:pb-36">
-          <h3 className="mb-8 font-display text-2xl font-light text-cream md:text-3xl">Related Services</h3>
+          <h3 className="mb-8 font-display text-2xl font-light md:text-3xl">Related Services</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((s) => (
-              <Link key={s.slug} to={routes.servicePage(s.slug)} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
+              <Link key={s.slug} to={routes.servicePage(s.slug)} className="group block overflow-hidden plate rounded-sm">
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={s.image}
@@ -166,8 +168,8 @@ export default function ServicePage() {
                   />
                 </div>
                 <div className="p-5">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-gold">{s.tag}</span>
-                  <h4 className="mt-2 font-display text-lg font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-champagne">{s.tag}</span>
+                  <h4 className="mt-2 font-display text-lg font-light leading-snug transition-colors duration-300 group-hover:text-gold-soft">
                     {s.title}
                   </h4>
                 </div>

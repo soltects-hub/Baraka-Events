@@ -49,14 +49,14 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             Contact
           </motion.p>
           <RevealText
             as="h1"
             text="Hire an event planner in Lahore who answers."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}

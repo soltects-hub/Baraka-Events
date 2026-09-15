@@ -114,7 +114,7 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
                 >
                   <div
                     className={`aspect-[4/5] overflow-hidden rounded-sm border shadow-2xl shadow-black/60 transition-colors duration-300 ${
-                      isCenter ? 'border-gold/50 cursor-zoom-in' : 'border-champagne/12 cursor-pointer'
+                      isCenter ? 'border-champagne/50 cursor-zoom-in' : 'border-champagne/12 cursor-pointer'
                     }`}
                   >
                     <img
@@ -135,21 +135,21 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
         <button
           onClick={prev}
           aria-label="Previous photo"
-          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold sm:left-2 md:left-6"
+          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne sm:left-2 md:left-6"
         >
           &#10094;
         </button>
         <button
           onClick={next}
           aria-label="Next photo"
-          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold sm:right-2 md:right-6"
+          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne sm:right-2 md:right-6"
         >
           &#10095;
         </button>
       </div>
 
       <div className="mt-8 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
-        <span className="text-gold">{String(active + 1).padStart(2, '0')}</span>
+        <span className="text-champagne">{String(active + 1).padStart(2, '0')}</span>
         <span className="h-[1px] w-10 bg-champagne/15" />
         <span>{String(items.length).padStart(2, '0')}</span>
       </div>
@@ -162,7 +162,7 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[200] flex cursor-zoom-out items-center justify-center bg-ink/95 p-6 backdrop-blur-xl"
+            className="fixed inset-0 z-[200] flex cursor-zoom-out items-center justify-center bg-ink/95 p-6"
           >
             <motion.img
               initial={{ scale: 0.94 }}
@@ -174,7 +174,7 @@ function Carousel3D({ items }: { items: CarouselPhoto[] }) {
             <button
               onClick={() => setLightbox(null)}
               aria-label="Close"
-              className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md"
+              className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream"
             >
               &#10005;
             </button>
@@ -225,14 +225,14 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             Gallery
           </motion.p>
           <RevealText
             as="h1"
             text="Wedding decoration and event production, in frame."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +248,7 @@ export default function GalleryPage() {
       </section>
 
       {/* category tabs */}
-      <div className="sticky top-[64px] z-20 border-y border-champagne/10 bg-ink/85 backdrop-blur-xl md:top-[76px]">
+      <div className="sticky top-[64px] z-20 border-y border-champagne/10 bg-ink/85 md:top-[76px]">
         <div className="mx-auto flex max-w-[1200px] flex-wrap gap-3 px-6 py-5 md:px-10">
           {categories.map((c) => (
             <button
@@ -257,7 +257,7 @@ export default function GalleryPage() {
               className={`rounded-full border px-5 py-2 text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
                 active === c
                   ? 'border-gold bg-gold text-ink'
-                  : 'border-champagne/15 text-mist-dim hover:border-gold/50 hover:text-gold'
+                  : 'border-champagne/15 text-mist-dim hover:border-champagne/50 hover:text-champagne'
               }`}
             >
               {c}
@@ -277,7 +277,7 @@ export default function GalleryPage() {
           <RevealText
             as="h2"
             text="Like what you see? Let's design yours."
-            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
           />
           <div className="mt-8">
             <MagneticButton

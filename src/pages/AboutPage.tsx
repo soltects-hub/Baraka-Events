@@ -72,14 +72,14 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             About Baraka Events
           </motion.p>
           <RevealText
             as="h1"
             text="An event planning company built on design and follow-through."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-6xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-6xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +106,7 @@ export default function AboutPage() {
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="font-display text-4xl text-gold md:text-5xl">{s.value}</div>
+              <div className="font-display text-4xl text-champagne md:text-5xl">{s.value}</div>
               <div className="mt-2 text-[11px] uppercase tracking-[0.25em] text-mist">{s.label}</div>
             </motion.div>
           ))}
@@ -130,8 +130,8 @@ export default function AboutPage() {
           />
         </motion.div>
         <div className="flex flex-col justify-center">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Our Story</p>
-          <h2 className="font-display text-3xl font-light leading-[1.15] text-cream md:text-4xl">
+          <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Our Story</p>
+          <h2 className="font-display text-3xl font-light leading-[1.15] md:text-4xl">
             Started by people who thought event planning in Lahore could be run more carefully.
           </h2>
           <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-mist md:text-base">
@@ -161,11 +161,11 @@ export default function AboutPage() {
       {/* values */}
       <section className="border-t border-champagne/10 bg-ink-2/40 py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Why Baraka</p>
+          <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Why Baraka</p>
           <RevealText
             as="h2"
             text="What clients notice about working with us"
-            className="max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+            className="max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
           />
           <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
             {values.map((v, i) => (
@@ -175,10 +175,10 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="border-l border-gold/30 pl-6"
+                className="border-l border-champagne/30 pl-6"
               >
-                <span className="font-display text-sm italic text-gold/60">{v.n}</span>
-                <h3 className="mt-2 font-display text-xl font-light text-cream md:text-2xl">{v.title}</h3>
+                <span className="font-display text-sm italic text-champagne/60">{v.n}</span>
+                <h3 className="mt-2 font-display text-xl font-light md:text-2xl">{v.title}</h3>
                 <p className="mt-3 text-sm font-light leading-relaxed text-mist">{v.body}</p>
               </motion.div>
             ))}
@@ -191,10 +191,11 @@ export default function AboutPage() {
         <RevealText
           as="h2"
           text="Meet the team, or start the conversation."
-          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+          className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
         />
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <MagneticButton
+            variant="ghost"
             onClick={() => sectionNav('/team')}
           >
             Meet the Team

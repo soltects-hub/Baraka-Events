@@ -42,14 +42,14 @@ export default function Blog() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             The Baraka Journal
           </motion.p>
           <RevealText
             as="h1"
             text="Notes from the atelier"
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -70,31 +70,31 @@ export default function Blog() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Link to={`/blog/${featured.slug}`} className="group grid gap-0 overflow-hidden rounded-sm border border-champagne/10 bg-ink-2 lg:grid-cols-[1.4fr_1fr]">
+          <Link to={`/blog/${featured.slug}`} className="group grid gap-0 overflow-hidden plate rounded-sm lg:grid-cols-[1.4fr_1fr]">
             <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[440px]">
               <img
                 src={featured.image}
                 alt={featured.imageAlt}
                 className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink-2" />
-              <span className="absolute left-5 top-5 rounded-full border border-gold/40 bg-ink/50 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-gold backdrop-blur-md">
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink-3" />
+              <span className="absolute left-5 top-5 rounded-full border border-champagne/40 bg-ink/75 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-champagne">
                 Featured
               </span>
             </div>
             <div className="flex flex-col justify-center p-7 md:p-10">
               <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-                <span className="text-gold">{featured.category}</span>
+                <span className="text-champagne">{featured.category}</span>
                 <span className="h-1 w-1 rounded-full bg-mist-dim" />
                 <span>{featured.date}</span>
                 <span className="h-1 w-1 rounded-full bg-mist-dim" />
                 <span>{featured.readTime}</span>
               </div>
-              <h2 className="mt-4 font-display text-2xl font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft md:text-4xl">
+              <h2 className="mt-4 font-display text-2xl font-light leading-snug transition-colors duration-300 group-hover:text-gold-soft md:text-4xl">
                 {featured.title}
               </h2>
               <p className="mt-4 text-sm font-light leading-relaxed text-mist md:text-base">{featured.excerpt}</p>
-              <span className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-gold">
+              <span className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-champagne">
                 Read the story
                 <span className="transition-transform duration-300 group-hover:translate-x-2">&#10230;</span>
               </span>
@@ -114,7 +114,7 @@ export default function Blog() {
               viewport={{ once: true, margin: '-8%' }}
               transition={{ duration: 0.8, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to={`/blog/${post.slug}`} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
+              <Link to={`/blog/${post.slug}`} className="group block overflow-hidden plate rounded-sm">
                 <div className="relative h-52 overflow-hidden md:h-56">
                   <img
                     src={post.image}
@@ -122,15 +122,15 @@ export default function Blog() {
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
+                  <div className="absolute inset-0 grade" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-                    <span className="text-gold">{post.category}</span>
+                    <span className="text-champagne">{post.category}</span>
                     <span className="h-1 w-1 rounded-full bg-mist-dim" />
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="mt-3 font-display text-xl font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft md:text-2xl">
+                  <h3 className="mt-3 font-display text-xl font-light leading-snug transition-colors duration-300 group-hover:text-gold-soft md:text-2xl">
                     {post.title}
                   </h3>
                   <p className="mt-3 line-clamp-3 text-[13px] font-light leading-relaxed text-mist">{post.excerpt}</p>

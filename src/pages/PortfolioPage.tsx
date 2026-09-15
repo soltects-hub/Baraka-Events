@@ -105,14 +105,14 @@ export default function PortfolioPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold"
+            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             Portfolio
           </motion.p>
           <RevealText
             as="h1"
             text="A sample of what we've planned and produced."
-            className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function PortfolioPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-8%' }}
               transition={{ duration: 0.8, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group overflow-hidden rounded-sm border border-champagne/10 bg-ink-2"
+              className="group overflow-hidden plate rounded-sm"
             >
               <div className="relative h-64 overflow-hidden md:h-72">
                 <img
@@ -146,19 +146,19 @@ export default function PortfolioPage() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
-                <span className="absolute right-5 top-5 rounded-full border border-champagne/20 bg-ink/50 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-mist-dim backdrop-blur-md">
+                <div className="absolute inset-0 grade" />
+                <span className="absolute right-5 top-5 rounded-full border border-champagne/20 bg-ink/75 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-mist-dim">
                   {p.year}
                 </span>
               </div>
               <div className="p-7 md:p-8">
                 <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-                  <span className="text-gold">{p.category}</span>
+                  <span className="text-champagne">{p.category}</span>
                   <span className="h-1 w-1 rounded-full bg-mist-dim" />
                   <span>{p.location}</span>
                 </div>
-                <h2 className="mt-3 font-display text-2xl font-light text-cream md:text-3xl">{p.title}</h2>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-gold-soft">{p.stat}</p>
+                <h2 className="mt-3 font-display text-2xl font-light md:text-3xl">{p.title}</h2>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-champagne-soft">{p.stat}</p>
                 <p className="mt-4 text-sm font-light leading-relaxed text-mist">{p.summary}</p>
               </div>
             </motion.article>
@@ -172,10 +172,11 @@ export default function PortfolioPage() {
           <RevealText
             as="h2"
             text="See more, or start planning yours."
-            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
           />
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <MagneticButton
+              variant="ghost"
               onClick={() => sectionNav('/gallery')}
             >
               Browse the Gallery

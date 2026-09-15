@@ -64,21 +64,23 @@ export default function BlogPost() {
       <section className="relative flex min-h-[62vh] items-end overflow-hidden pt-32 md:min-h-[70vh]">
         <div className="absolute inset-0">
           <img src={post.image} alt={post.imageAlt} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-ink/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
+          {/* vignette + foot fade: the photograph stays in colour, the copy
+              sits on the darkened lower third */}
+          <div className="vignette absolute inset-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 via-35% to-ink/35" />
         </div>
         <div className="relative mx-auto w-full max-w-[900px] px-6 pb-14 md:px-10 md:pb-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
-            <Link to="/blog" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-gold">
+            <Link to="/blog" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-champagne">
               &#10229; The Baraka Journal
             </Link>
             <div className="mt-5 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-              <span className="rounded-full border border-gold/40 bg-ink/40 px-4 py-1.5 text-gold backdrop-blur-md">{post.category}</span>
+              <span className="rounded-full border border-champagne/40 bg-ink/75 px-4 py-1.5 text-champagne">{post.category}</span>
               <span>{post.date}</span>
               <span className="h-1 w-1 rounded-full bg-mist-dim" />
               <span>{post.readTime}</span>
             </div>
-            <h1 className="mt-5 font-display text-3xl font-light leading-[1.12] text-cream sm:text-4xl md:text-6xl">{post.title}</h1>
+            <h1 className="mt-5 font-display text-3xl font-light leading-[1.12] sm:text-4xl md:text-6xl">{post.title}</h1>
           </motion.div>
         </div>
       </section>
@@ -141,9 +143,9 @@ export default function BlogPost() {
         )}
 
         {/* CTA */}
-        <div className="mt-16 rounded-sm border border-gold/25 bg-ink-2 p-8 text-center md:p-10">
-          <p className="font-display text-2xl font-light text-cream md:text-3xl">
-            Planning something <em className="italic text-gold-soft">extraordinary</em>?
+        <div className="mt-16 rounded-sm border border-champagne/25 bg-ink-2 p-8 text-center md:p-10">
+          <p className="font-display text-2xl font-light md:text-3xl">
+            Planning something <em className="accent-serif">extraordinary</em>?
           </p>
           <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
             Book a complimentary consultation with our atelier in Gulberg &mdash; we'll bring the venue intelligence, you bring the vision.
@@ -160,16 +162,16 @@ export default function BlogPost() {
 
       {/* related */}
       <section className="mx-auto max-w-[1200px] px-6 pb-28 md:px-10 md:pb-36">
-        <h3 className="mb-8 font-display text-2xl font-light text-cream md:text-3xl">More from the Journal</h3>
+        <h3 className="mb-8 font-display text-2xl font-light md:text-3xl">More from the Journal</h3>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((p) => (
-            <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden rounded-sm border border-champagne/10 bg-ink-2">
+            <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden plate rounded-sm">
               <div className="relative h-44 overflow-hidden">
                 <img src={p.image} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
               </div>
               <div className="p-5">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-gold">{p.category}</span>
-                <h4 className="mt-2 font-display text-lg font-light leading-snug text-cream transition-colors duration-300 group-hover:text-gold-soft">{p.title}</h4>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-champagne">{p.category}</span>
+                <h4 className="mt-2 font-display text-lg font-light leading-snug transition-colors duration-300 group-hover:text-gold-soft">{p.title}</h4>
               </div>
             </Link>
           ))}
