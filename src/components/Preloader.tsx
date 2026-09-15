@@ -34,8 +34,8 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
       transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
     >
       <div className="relative flex flex-col items-center gap-6">
-        <div className="h-[1px] w-16 bg-gold/60" />
-        <div className="h-[3.2rem] overflow-hidden">
+        <div aria-hidden className="hairline w-20" />
+        <div className="h-[3.6rem] overflow-hidden">
           <AnimatePresence mode="wait">
             <m.span
               key={index}
@@ -43,18 +43,18 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
               animate={{ y: 0 }}
               exit={{ y: '-100%' }}
               transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="block font-display text-4xl md:text-5xl italic text-cream"
+              className="accent-serif block text-4xl md:text-5xl"
             >
               {words[index]}
             </m.span>
           </AnimatePresence>
         </div>
-        <div className="h-[1px] w-16 bg-gold/60" />
+        <div aria-hidden className="hairline w-20" />
       </div>
       <m.div
-        className="absolute bottom-0 left-0 h-[2px] bg-gold"
-        initial={{ width: '0%' }}
-        animate={{ width: '100%' }}
+        className="hairline-flame absolute bottom-0 left-0 w-full origin-left"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
         transition={{ duration: 1, ease: 'linear' }}
       />
     </m.div>

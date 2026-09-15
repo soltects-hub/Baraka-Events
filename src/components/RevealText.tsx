@@ -7,9 +7,21 @@ interface Props {
   delay?: number;
   as?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
   once?: boolean;
+  /** Word indices that get `highlightClass` — used for the single lit phrase
+   *  in a headline (e.g. a champagne serif word or the one flame word). */
+  highlightWords?: number[];
+  highlightClass?: string;
 }
 
-export default function RevealText({ text, className = '', delay = 0, as = 'span', once = true }: Props) {
+export default function RevealText({
+  text,
+  className = '',
+  delay = 0,
+  as = 'span',
+  once = true,
+  highlightWords = [],
+  highlightClass = '',
+}: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once, margin: '-8% 0px -8% 0px' });
   const words = text.split(' ');
@@ -21,7 +33,7 @@ export default function RevealText({ text, className = '', delay = 0, as = 'span
         {words.map((word, i) => (
           <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]">
             <m.span
-              className="inline-block will-change-transform"
+              className={`inline-block will-change-transform ${highlightWords.includes(i) ? highlightClass : ''}`}
               initial={{ y: '110%', rotate: 4 }}
               animate={inView ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 4 }}
               transition={{ duration: 0.9, delay: delay + i * 0.045, ease: [0.22, 1, 0.36, 1] }}

@@ -9,6 +9,9 @@ interface Props {
   href?: string;
   type?: 'button' | 'submit';
   size?: 'sm' | 'md';
+  /** 'primary' is the flame pill — one per view. 'ghost' is the champagne
+   *  outline for everything that sits next to it. */
+  variant?: 'primary' | 'ghost';
   disabled?: boolean;
 }
 
@@ -20,6 +23,7 @@ export default function MagneticButton({
   href,
   type = 'button',
   size = 'md',
+  variant = 'primary',
   disabled = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +46,11 @@ export default function MagneticButton({
 
   const sizeClass = size === 'sm' ? 'px-5 py-2.5 text-[12px]' : 'px-9 py-4 text-[12px]';
 
-  const buttonClass = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-gold font-medium uppercase tracking-[0.25em] text-ink transition-transform duration-300 hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 ${sizeClass} ${className}`;
+  // Material (colour, glow, sweep) lives in .btn-flame / .btn-ghost in
+  // index.css, which also own the transition so the shadow eases with the
+  // transform instead of snapping.
+  const variantClass = variant === 'ghost' ? 'btn-ghost' : 'btn-flame';
+  const buttonClass = `inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full font-medium uppercase tracking-[0.22em] hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 ${variantClass} ${sizeClass} ${className}`;
 
   return (
     <m.div

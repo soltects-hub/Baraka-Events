@@ -46,7 +46,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          scrolled ? 'py-2.5 bg-ink/70 backdrop-blur-xl border-b border-champagne/8' : 'py-5 bg-transparent'
+          scrolled ? 'py-2.5 bg-ink/72 backdrop-blur-md' : 'py-5 bg-transparent'
         }`}
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">
@@ -61,7 +61,7 @@ export default function Navbar() {
               className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'}`}
             />
             <span className="hidden font-display text-xl tracking-[0.18em] text-cream sm:block lg:hidden xl:block">
-              BARAKA<span className="text-gold">.</span>
+              BARAKA<span className="text-champagne">.</span>
             </span>
           </a>
 
@@ -71,7 +71,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href.startsWith('#') ? '/' + l.href : l.href}
                 onClick={(e) => { e.preventDefault(); go(l.href); }}
-                className="gold-underline whitespace-nowrap text-[12px] uppercase tracking-[0.16em] text-mist-dim transition-colors hover:text-cream xl:text-[13px] xl:tracking-[0.22em]"
+                className="gold-underline whitespace-nowrap text-[12px] uppercase tracking-[0.18em] text-mist transition-colors duration-300 hover:text-ivory xl:text-[13px] xl:tracking-[0.22em]"
               >
                 {l.label}
               </a>
@@ -87,12 +87,17 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
-            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full border border-champagne/12 bg-champagne/5 backdrop-blur-md lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full border border-champagne/15 bg-ink/40 lg:hidden"
           >
             <m.span animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
             <m.span animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
           </button>
         </div>
+        {/* a seam of light along the bottom edge once the bar goes solid */}
+        <div
+          aria-hidden
+          className={`hairline pointer-events-none absolute inset-x-0 bottom-0 transition-opacity duration-700 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
+        />
       </m.header>
 
       <AnimatePresence>
@@ -102,9 +107,19 @@ export default function Navbar() {
             animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
             exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[99] flex flex-col justify-center bg-ink-2 px-8"
+            className="fixed inset-0 z-[99] flex flex-col justify-center overflow-hidden bg-ink-2 px-8"
           >
-            <div className="flex flex-col gap-2">
+            {/* the hero's own photograph, far back, so the menu is a room
+                rather than a flat sheet — already cached by the hero */}
+            <img
+              src="/media/hero-inside.webp"
+              alt=""
+              aria-hidden
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20"
+            />
+            <div aria-hidden className="vignette pointer-events-none absolute inset-0" />
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/60" />
+            <div className="relative flex flex-col gap-2">
               {links.map((l, i) => (
                 <div key={l.href} className="overflow-hidden">
                   <m.a
@@ -114,8 +129,11 @@ export default function Navbar() {
                     exit={{ y: '110%' }}
                     transition={{ duration: 0.6, delay: 0.15 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                     onClick={(e) => { e.preventDefault(); go(l.href); }}
-                    className="block font-display text-4xl text-cream transition-colors hover:text-gold sm:text-5xl"
+                    className="flex items-baseline gap-4 font-display text-4xl text-ivory transition-colors hover:text-champagne sm:text-5xl"
                   >
+                    <span aria-hidden className="accent-serif text-base text-champagne/60">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
                     {l.label}
                   </m.a>
                 </div>
@@ -126,8 +144,9 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-12 text-sm uppercase tracking-[0.25em] text-mist"
+              className="relative mt-12 text-[12px] uppercase tracking-[0.2em] text-mist-dim"
             >
+              <span aria-hidden className="hairline mb-6 block w-16" />
               Booking@barakaevents.com
             </m.div>
           </m.div>

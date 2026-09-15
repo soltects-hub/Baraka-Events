@@ -15,53 +15,73 @@ const SLIDE_DURATION = 6000;
 export default function Hero() {
   const lenis = useLenis();
   const [slide, setSlide] = useState(0);
+  const [reduceMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return;
     const t = setTimeout(() => setSlide((s) => (s + 1) % SLIDES.length), SLIDE_DURATION);
     return () => clearTimeout(t);
-  }, [slide]);
+  }, [slide, reduceMotion]);
 
   return (
     <section id="top" data-scene="01 · ESTABLISHING — THE STAGE" className="relative min-h-screen overflow-hidden bg-ink">
-      {/* auto-sliding banner */}
+      {/* Slides cross-dissolve while the frame drifts in very slowly — a
+          cinema dissolve rather than the previous horizontal push. Opacity
+          and transform only, so both frames stay on the compositor. */}
       <div className="absolute inset-0">
         <AnimatePresence initial={false}>
           <m.div
             key={slide}
-            initial={{ x: '100%' }}
-            animate={{ x: '0%' }}
-            exit={{ x: '-100%' }}
-            transition={{ duration: 1.1, ease: [0.65, 0, 0.35, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.6, ease: [0.65, 0, 0.35, 1] }}
             className="absolute inset-0"
           >
-            <img
+            <m.img
               src={SLIDES[slide].src}
               alt={SLIDES[slide].alt}
-              className="h-full w-full object-cover contrast-[1.08] saturate-[1.15]"
+              initial={{ scale: 1 }}
+              animate={{ scale: reduceMotion ? 1 : 1.06 }}
+              transition={{ duration: 8.5, ease: 'linear' }}
+              className="h-full w-full object-cover will-change-transform"
             />
           </m.div>
         </AnimatePresence>
-        {/* legibility gradient — kept light so the photo stays bright, not dim */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/10" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent md:from-ink/60" />
+
+        {/* Grade, not gradients: a vignette that keeps the centre of the
+            photograph at full colour, a low foot fade for the copy, a light
+            left panel behind the headline, and a warm light-spill so the
+            flame accent lives inside the photo's own light. */}
+        <div className="vignette pointer-events-none absolute inset-0" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/35 via-30% to-transparent to-62%" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/10 via-45% to-transparent" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(60% 50% at 72% 28%, rgba(255,150,11,0.11), transparent 70%)' }}
+        />
+        <div aria-hidden className="grain pointer-events-none absolute inset-0 hidden md:block" />
       </div>
 
-      {/* slide indicators */}
-      <div className="absolute bottom-8 right-6 z-20 flex gap-2.5 md:right-10">
+      {/* slide indicators — the active one fills over the slide's duration */}
+      <div className="absolute bottom-8 right-6 z-20 flex items-center gap-3 md:right-10">
         {SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => setSlide(i)}
             aria-label={`Show slide ${i + 1}`}
-            className="group flex h-6 w-6 items-center justify-center"
+            className="group flex h-6 items-center"
           >
             <span
-              className={`block h-[3px] rounded-full transition-all duration-500 ${
-                i === slide ? 'w-8 bg-gold' : 'w-4 bg-champagne/30 group-hover:bg-champagne/50'
+              className={`relative block h-px overflow-hidden transition-all duration-500 ${
+                i === slide ? 'w-12 bg-champagne/25' : 'w-6 bg-champagne/25 group-hover:bg-champagne/50'
               }`}
-            />
+            >
+              {i === slide && <span key={slide} className="slide-fill absolute inset-0 bg-gold" />}
+            </span>
           </button>
         ))}
       </div>
@@ -77,18 +97,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-[10px] uppercase tracking-[0.5em] text-gold md:text-xs"
+          className="flex items-center gap-4 text-[10px] uppercase tracking-[0.26em] text-champagne md:text-[11px] md:tracking-[0.32em]"
         >
+          <span aria-hidden className="hairline w-7 shrink-0" />
           Event Design &amp; Production &mdash; Gulberg, Lahore
         </m.p>
 
-        <h1 className="mt-5 max-w-3xl font-display font-light leading-[1.06] text-cream text-[13vw] sm:text-[9vw] md:text-[6vw]">
-          <RevealText as="span" text="Event planners in Lahore." delay={0.2} className="block text-cream" />
+        <h1 className="mt-6 max-w-5xl font-display font-light leading-[1.02] [text-wrap:balance] text-[11.5vw] sm:text-[8vw] md:text-[clamp(44px,5.4vw,88px)]">
+          <RevealText as="span" text="Event planners in Lahore." delay={0.2} className="block text-ivory" />
           <RevealText
             as="span"
             text="Weddings, corporate, private."
             delay={0.35}
-            className="block italic text-gold-soft"
+            className="accent-serif block text-[0.82em] leading-[1.15]"
+            highlightWords={[0]}
+            highlightClass="text-ignite"
           />
         </h1>
 
@@ -96,7 +119,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-6 max-w-md text-sm font-light leading-relaxed text-cream/75 md:max-w-xl md:text-base"
+          className="mt-7 max-w-md text-[15px] font-light leading-relaxed text-mist md:max-w-[36ch] md:text-[17px]"
         >
           From mehndi and baraat to product launches and milestone birthdays, we handle
           the planning, the vendors and the schedule — so you get to actually attend
@@ -107,44 +130,42 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-8 flex flex-col items-start gap-4 sm:flex-row"
+          className="mt-9 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center"
         >
           <MagneticButton
             onClick={() => {
               revealAllLazyMounts();
               requestAnimationFrame(() => lenis?.scrollTo('#contact', { duration: 1.8 }));
             }}
+            className="w-full sm:w-auto"
           >
             Plan Your Event
           </MagneticButton>
           <MagneticButton
+            variant="ghost"
+            className="w-full sm:w-auto"
             onClick={() => {
               revealAllLazyMounts();
               requestAnimationFrame(() => lenis?.scrollTo('#portfolio', { duration: 1.8 }));
             }}
           >
             See Our Work
+            <span aria-hidden className="text-champagne">&rarr;</span>
           </MagneticButton>
         </m.div>
       </div>
 
-      {/* scroll cue */}
+      {/* scroll cue — a band of light running down a hairline */}
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        aria-hidden
       >
-        <m.svg
-          viewBox="0 0 24 24"
-          className="h-5 w-5 stroke-mist"
-          fill="none"
-          strokeWidth="1.5"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </m.svg>
+        <span className="block h-12 w-px overflow-hidden bg-champagne/15">
+          <span className="cue-draw block h-full w-full bg-gradient-to-b from-transparent via-champagne to-transparent" />
+        </span>
       </m.div>
     </section>
   );

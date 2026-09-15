@@ -38,7 +38,7 @@ export default function Footer() {
             >
               <img src="/media/logo.png" alt="Baraka Events logo" className="h-14 w-auto" loading="lazy" />
               <span className="font-display text-3xl tracking-[0.18em] text-cream">
-                BARAKA<span className="text-gold">.</span>
+                BARAKA<span className="text-champagne">.</span>
               </span>
             </a>
             <p className="mt-5 max-w-sm text-sm font-light leading-relaxed text-mist">
