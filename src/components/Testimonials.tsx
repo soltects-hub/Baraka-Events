@@ -36,14 +36,14 @@ export default function Testimonials() {
     <section id="testimonials" data-scene="10 · TWO-SHOT — KIND WORDS" className="relative overflow-hidden bg-ink py-28 md:py-40">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-[120px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.2) 0%, transparent 65%)' }}
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Kind Words</p>
+        <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Kind Words</p>
         <div className="mb-10 flex justify-center gap-1.5">
           {[...Array(5)].map((_, i) => (
-            <svg key={i} viewBox="0 0 24 24" className="h-4 w-4 fill-gold">
+            <svg key={i} viewBox="0 0 24 24" className="h-4 w-4 fill-champagne">
               <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z" />
             </svg>
           ))}
@@ -59,11 +59,11 @@ export default function Testimonials() {
               exit={{ opacity: 0, y: -40 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <blockquote className="font-display text-xl font-light leading-snug text-cream sm:text-2xl md:text-4xl">
+              <blockquote className="accent-serif text-2xl leading-[1.3] text-ivory sm:text-3xl md:text-[2.6rem]">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-8">
-                <div className="text-sm uppercase tracking-[0.25em] text-gold">{t.name}</div>
+                <div className="text-sm uppercase tracking-[0.25em] text-champagne">{t.name}</div>
                 <div className="mt-1 text-xs font-light tracking-wide text-mist">{t.role}</div>
               </figcaption>
             </motion.figure>
@@ -80,7 +80,7 @@ export default function Testimonials() {
             >
               <span
                 className={`block h-[2px] rounded-full transition-all duration-500 ${
-                  i === index ? 'w-10 bg-gold' : 'w-5 bg-champagne/20 group-hover:bg-champagne/40'
+                  i === index ? 'w-10 bg-gold' : 'w-5 bg-champagne/25 group-hover:bg-champagne/50'
                 }`}
               />
             </button>

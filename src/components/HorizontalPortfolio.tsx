@@ -100,9 +100,9 @@ export default function HorizontalPortfolio() {
 
         <motion.div ref={trackRef} style={{ x }} className="flex w-max items-stretch gap-6 pl-6 pr-6 md:gap-10 md:pl-10 md:pr-10">
           <div className="flex w-[85vw] shrink-0 flex-col justify-center md:w-[38vw]">
-            <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-gold">Selected Work</p>
-            <h2 className="font-display text-4xl font-light leading-[1.08] text-cream sm:text-5xl md:text-7xl">
-              Four events,<br /><em className="italic text-gold-soft">one standard</em>
+            <p className="mb-5 text-[11px] uppercase tracking-[0.3em] text-champagne">Selected Work</p>
+            <h2 className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl">
+              Four events,<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
               A wedding in the Walled City, a product launch in Johar Town, a rooftop
@@ -111,14 +111,14 @@ export default function HorizontalPortfolio() {
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
               <span>Scroll</span>
-              <motion.span animate={{ x: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="text-gold">⟶</motion.span>
+              <motion.span animate={{ x: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="text-champagne">⟶</motion.span>
             </div>
           </div>
 
           {projects.map((p, i) => (
             <div
               key={p.title}
-              className="group relative w-[85vw] shrink-0 overflow-hidden rounded-sm transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(255,150,11,0.08)] md:w-[58vw] lg:w-[48vw]"
+              className="group relative w-[85vw] shrink-0 overflow-hidden rounded-sm border border-champagne/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] transition-[transform,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-[0_40px_90px_-30px_rgba(0,0,0,0.9),0_0_50px_-10px_rgba(230,197,138,0.12)] md:w-[58vw] lg:w-[48vw]"
             >
               <div className="relative h-[62vh] overflow-hidden md:h-[70vh]">
                 <motion.img
@@ -128,18 +128,23 @@ export default function HorizontalPortfolio() {
                   style={{ x: plateX, scale: 1.18 }}
                   className="h-full w-full object-cover will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
-                <div className="absolute right-6 top-6 rounded-full border border-champagne/20 bg-ink/40 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-cream/80 backdrop-blur-md">
+                <div className="grade absolute inset-0" />
+                <div className="absolute right-6 top-6 rounded-full border border-champagne/25 bg-ink/70 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-ivory/80">
                   {p.year}
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-9">
-                  <p className="mb-2 text-[10px] uppercase tracking-[0.35em] text-gold">
+                  {/* hairline above the caption; lights to flame on hover */}
+                  <span aria-hidden className="relative mb-5 block h-px w-16 overflow-hidden">
+                    <span className="hairline absolute inset-0" />
+                    <span className="hairline-flame absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                  </span>
+                  <p className="mb-2 text-[10px] uppercase tracking-[0.3em] text-champagne">
                     {String(i + 1).padStart(2, '0')} — {p.category}
                   </p>
-                  <h3 className="font-display text-2xl font-light leading-tight text-cream sm:text-3xl md:text-5xl">{p.title}</h3>
+                  <h3 className="font-display text-2xl font-light leading-tight sm:text-3xl md:text-5xl">{p.title}</h3>
                   <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-light tracking-wide text-mist">
                     <span>{p.location}</span>
-                    <span className="hidden h-1 w-1 rounded-full bg-gold/70 sm:block" />
+                    <span className="hidden h-1 w-1 rounded-full bg-bronze sm:block" />
                     <span>{p.stat}</span>
                   </div>
                 </div>
@@ -148,8 +153,8 @@ export default function HorizontalPortfolio() {
           ))}
 
           <div className="flex w-[70vw] shrink-0 flex-col items-center justify-center md:w-[30vw]">
-            <p className="font-display text-3xl italic text-mist md:text-4xl">Yours is next.</p>
-            <div className="mt-4 h-[1px] w-20 bg-gold/60" />
+            <p className="accent-serif text-3xl md:text-4xl">Yours is next.</p>
+            <div aria-hidden className="hairline mt-5 w-24" />
           </div>
         </motion.div>
 

@@ -117,98 +117,120 @@ body {
   background: #a8763a;
 }
 
-.text-stroke {
-  -webkit-text-stroke: 1px rgba(230, 197, 138, 0.5);
-  color: transparent;
-}
-
-/* Playfair Display italic is the site's single "emotion" voice: one phrase
-   per headline, in champagne. Oswald ships no italic, so every `italic`
-   display span used to be a browser-synthesised slant. */
-.font-serif-display {
-  font-family: var(--font-serif-display);
-}
-.accent-serif {
-  font-family: var(--font-serif-display);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.005em;
-  color: var(--color-champagne);
-}
-
-/* ---------- light, not colour ----------
-   The few gradients the design allows are all gradients *of light*:
-   a lit phrase, a hairline catching light, a vignette, a top-lit surface. */
-
-.text-flame {
-  background-image: linear-gradient(180deg, #ffb347 0%, #ff960b 58%, #e8890a 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-/* The one hot word in the hero headline. It reveals in champagne with the
-   rest of the line, then the gradient slides down through it a beat later
-   so the word appears to catch light — background-position on one small
-   text element, nothing else repaints. */
-.text-ignite {
-  background-image: linear-gradient(180deg, #e6c58a 0%, #e6c58a 34%, #ffb347 56%, #ff960b 78%, #e8890a 100%);
-  background-size: 100% 300%;
-  background-position: 0 0;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: ignite 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.35s forwards;
-}
-@keyframes ignite {
-  to {
-    background-position: 0 100%;
+/* Custom display/light utilities live in the components layer so an
+   ordinary utility on the same element (a size, a colour) still wins. */
+@layer components {
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(230, 197, 138, 0.5);
+    color: transparent;
   }
-}
 
-/* Hero slide indicator: a hairline that fills over the slide's duration. */
-.slide-fill {
-  transform-origin: left;
-  animation: slide-fill 6s linear forwards;
-}
-@keyframes slide-fill {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
+  /* Playfair Display italic is the site's single "emotion" voice: one phrase
+     per headline, in champagne. Oswald ships no italic, so every `italic`
+     display span used to be a browser-synthesised slant. */
+  .font-serif-display {
+    font-family: var(--font-serif-display);
+  }
+  .accent-serif {
+    font-family: var(--font-serif-display);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: var(--color-champagne);
+  }
 
-/* Hero scroll cue: a short band of light travelling down a hairline. */
-.cue-draw {
-  animation: cue-draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-@keyframes cue-draw {
-  0% { transform: translateY(-100%); }
-  55%, 100% { transform: translateY(100%); }
-}
+  /* ---------- light, not colour ----------
+     The few gradients the design allows are all gradients *of light*:
+     a lit phrase, a hairline catching light, a vignette, a top-lit surface. */
 
-@media (prefers-reduced-motion: reduce) {
-  .text-ignite { animation: none; background-position: 0 100%; }
-  .slide-fill { animation: none; transform: none; }
-  .cue-draw { animation: none; transform: none; }
-}
+  .text-flame {
+    background-image: linear-gradient(180deg, #ffb347 0%, #ff960b 58%, #e8890a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 
-.hairline {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(230, 197, 138, 0.5), transparent);
-}
-.hairline-flame {
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 150, 11, 0), rgba(255, 150, 11, 0.85), rgba(255, 150, 11, 0));
-}
+  /* The one hot word in the hero headline. It reveals in champagne with the
+     rest of the line, then the gradient slides down through it a beat later
+     so the word appears to catch light — background-position on one small
+     text element, nothing else repaints. */
+  .text-ignite {
+    background-image: linear-gradient(180deg, #e6c58a 0%, #e6c58a 34%, #ffb347 56%, #ff960b 78%, #e8890a 100%);
+    background-size: 100% 300%;
+    background-position: 0 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: ignite 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.35s forwards;
+  }
+  @keyframes ignite {
+    to {
+      background-position: 0 100%;
+    }
+  }
 
-.vignette {
-  background: radial-gradient(ellipse 85% 75% at 42% 45%, transparent 30%, rgba(6, 5, 4, 0.72) 100%);
-}
+  /* Hero slide indicator: a hairline that fills over the slide's duration. */
+  .slide-fill {
+    transform-origin: left;
+    animation: slide-fill 6s linear forwards;
+  }
+  @keyframes slide-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
 
-/* Static film grain — a tiny SVG noise tile, no animation, hero only. */
-.grain {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px 160px;
-  opacity: 0.045;
+  /* Hero scroll cue: a short band of light travelling down a hairline. */
+  .cue-draw {
+    animation: cue-draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  @keyframes cue-draw {
+    0% { transform: translateY(-100%); }
+    55%, 100% { transform: translateY(100%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .text-ignite { animation: none; background-position: 0 100%; }
+    .slide-fill { animation: none; transform: none; }
+    .cue-draw { animation: none; transform: none; }
+  }
+
+  /* Marquee rails run on a CSS animation (off the main thread) and are
+     paused by their component whenever the rail is out of view, so a page
+     with three rails never animates one the visitor cannot see. */
+  .marquee-track {
+    animation: marquee var(--marquee-duration, 32s) linear infinite;
+  }
+  .marquee-track[data-paused='true'] {
+    animation-play-state: paused;
+  }
+  .marquee-reverse {
+    animation-direction: reverse;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(var(--marquee-distance, -50%));
+    }
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(230, 197, 138, 0.5), transparent);
+  }
+  .hairline-flame {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 150, 11, 0), rgba(255, 150, 11, 0.85), rgba(255, 150, 11, 0));
+  }
+
+  .vignette {
+    background: radial-gradient(ellipse 85% 75% at 42% 45%, transparent 30%, rgba(6, 5, 4, 0.72) 100%);
+  }
+
+  /* Static film grain — a tiny SVG noise tile, no animation, hero only. */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    opacity: 0.045;
+  }
 }
 
 @layer components {

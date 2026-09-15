@@ -53,21 +53,22 @@ export default function StickyServices() {
               src={s.image}
               alt={s.title}
               initial={{ opacity: 0, scale: 1.12, rotateY: 4 }}
-              animate={{ opacity: 0.32, scale: 1, rotateY: 0 }}
+              animate={{ opacity: 0.92, scale: 1, rotateY: 0 }}
               exit={{ opacity: 0, scale: 0.96, rotateY: -4 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-0 h-full w-full object-cover"
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-2 via-transparent to-ink/60" />
+          <div className="vignette absolute inset-0" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/65 via-38% to-ink/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-2 via-transparent via-35% to-ink/40" />
         </div>
 
         <div className="relative z-10 mx-auto grid w-full max-w-[1400px] items-center gap-10 px-6 md:px-10 lg:grid-cols-[1fr_auto]">
           <div className="max-w-2xl">
-            <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Signature Experiences</p>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Signature Experiences</p>
             {/* fixed-height stage sized per breakpoint so text never collides */}
-            <div className="relative h-[310px] sm:h-[270px] md:h-[250px]">
+            <div className="relative h-[330px] sm:h-[290px] md:h-[270px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -77,10 +78,18 @@ export default function StickyServices() {
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <div className="flex items-baseline gap-4 md:gap-5">
-                    <span className="font-display text-lg italic text-gold md:text-xl">{s.index}</span>
-                    <h3 className="font-display text-4xl font-light text-cream sm:text-5xl md:text-6xl lg:text-7xl">{s.title}</h3>
+                    <span className="accent-serif text-xl text-champagne/80 md:text-2xl">{s.index}</span>
+                    <h3 className="font-display text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl">{s.title}</h3>
                   </div>
-                  <p className="mt-2.5 font-display text-lg italic text-gold-soft md:text-2xl">{s.tagline}</p>
+                  {/* a band of light drawn under the title on every chapter change */}
+                  <motion.span
+                    aria-hidden
+                    className="hairline-flame mt-3 block w-28 origin-left"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                  <p className="accent-serif mt-3 text-xl md:text-2xl">{s.tagline}</p>
                   <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-mist md:text-base">
                     {s.description}
                   </p>
@@ -105,9 +114,9 @@ export default function StickyServices() {
                         hidden: { opacity: 0, x: -20 },
                         show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
                       }}
-                      className="flex items-center gap-4 text-[12px] uppercase tracking-[0.18em] text-mist-dim md:text-[13px] md:tracking-[0.2em]"
+                      className="flex items-center gap-4 text-[12px] uppercase tracking-[0.18em] text-ivory/80 md:text-[13px] md:tracking-[0.2em]"
                     >
-                      <span className="h-[1px] w-8 shrink-0 bg-gold/60" />
+                      <span className="h-[1px] w-8 shrink-0 bg-champagne/60" />
                       {d}
                     </motion.li>
                   ))}
@@ -121,7 +130,7 @@ export default function StickyServices() {
               <div key={sv.index} className="flex items-center gap-4">
                 <span
                   className={`text-[11px] uppercase tracking-[0.3em] transition-all duration-500 ${
-                    i === active ? 'text-gold' : 'text-mist-dim'
+                    i === active ? 'text-champagne' : 'text-mist-dim'
                   }`}
                 >
                   {sv.title}

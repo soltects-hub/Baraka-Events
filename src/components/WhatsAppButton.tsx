@@ -122,13 +122,13 @@ export default function WhatsAppButton() {
       >
         {/* label — slides out on hover (desktop) */}
         {!open && (
-          <span className="pointer-events-none mr-3 hidden max-w-0 overflow-hidden whitespace-nowrap rounded-full border border-champagne/12 bg-ink/80 py-2 text-[11px] uppercase tracking-[0.2em] text-cream/80 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[220px] group-hover:px-5 md:block">
+          <span className="pointer-events-none mr-3 hidden max-w-0 overflow-hidden whitespace-nowrap rounded-full border border-champagne/12 bg-ink/90 py-2 text-[11px] uppercase tracking-[0.2em] text-ivory/85 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[220px] group-hover:px-5 md:block">
             Chat with us
           </span>
         )}
 
         <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_8px_30px_rgba(37,211,102,0.35)] transition-shadow duration-300 group-hover:shadow-[0_8px_40px_rgba(37,211,102,0.55)]">
-          {!open && <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/40 [animation-duration:2.2s]" />}
+          {!open && <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/30 [animation-duration:3s]" />}
           <AnimatePresence mode="wait" initial={false}>
             {open ? (
               <m.span

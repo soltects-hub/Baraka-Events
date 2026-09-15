@@ -24,7 +24,7 @@ export default function About() {
       <motion.div
         style={{ x: bigWordX }}
         aria-hidden
-        className="pointer-events-none absolute top-2 left-0 whitespace-nowrap font-display text-[20vw] leading-none text-stroke opacity-25 select-none md:top-6"
+        className="pointer-events-none absolute top-2 left-0 whitespace-nowrap font-display text-[20vw] leading-none text-stroke opacity-30 select-none md:top-6"
       >
         Baraka — Baraka — Baraka
       </motion.div>
@@ -39,10 +39,11 @@ export default function About() {
               className="h-[520px] w-full object-cover md:h-[640px]"
               loading="lazy"
             />
+            <div aria-hidden className="vignette pointer-events-none absolute inset-0 opacity-60" />
           </motion.div>
           <motion.div
             style={{ y: img2Y }}
-            className="absolute -right-4 bottom-[-60px] z-20 hidden w-[45%] overflow-hidden rounded-sm border-4 border-ink shadow-2xl md:block"
+            className="absolute -right-4 bottom-[-60px] z-20 hidden w-[45%] overflow-hidden rounded-sm border-4 border-ink shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] md:block"
           >
             <img
               src="/media/wedding-1.webp"
@@ -51,17 +52,19 @@ export default function About() {
               loading="lazy"
             />
           </motion.div>
-          <div className="absolute -left-6 -top-6 h-24 w-24 border-l border-t border-gold/40" />
+          <div className="absolute -left-6 -top-6 h-24 w-24 border-l border-t border-champagne/50" />
         </div>
 
         <div className="flex flex-col justify-center pt-10 lg:pt-0">
-          <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-gold">The House of Baraka</p>
+          <p className="mb-5 text-[11px] uppercase tracking-[0.3em] text-champagne">The House of Baraka</p>
           <RevealText
             as="h2"
             text="We don't just plan your event. We run it."
-            className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
+            className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
+            highlightWords={[6, 7, 8]}
+            highlightClass="accent-serif"
           />
-          <div className="mt-8 space-y-5 text-base font-light leading-relaxed text-mist md:text-lg">
+          <div className="mt-8 space-y-5 text-base font-light leading-[1.75] text-mist md:text-[17px]">
             <p>
               Baraka Events is an event planning and management company based in Gulberg,
               Lahore. We plan and produce weddings, corporate events and private
@@ -86,8 +89,16 @@ export default function About() {
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="font-display text-4xl text-gold md:text-5xl">{s.value}</div>
-                <div className="mt-2 text-[11px] uppercase tracking-[0.25em] text-mist">{s.label}</div>
+                <div className="font-display text-4xl font-light text-champagne md:text-5xl">{s.value}</div>
+                <motion.span
+                  aria-hidden
+                  className="hairline-flame mt-3 block w-12 origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, margin: '-10%' }}
+                  transition={{ duration: 1.1, delay: 0.25 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                />
+                <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-mist-dim">{s.label}</div>
               </motion.div>
             ))}
           </div>

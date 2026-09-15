@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, type ReactNode } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue, useInView } from 'framer-motion';
 
 interface Props {
   children: ReactNode; // one full set of slides
@@ -20,6 +20,10 @@ export default function LoopRail({ children, speed = 45, gapClass = 'gap-6 pr-6 
   const paused = useRef(false);
   const dragging = useRef(false);
   const resumeTimer = useRef(0);
+  // The drift loop only runs while the rail is near the viewport — two of
+  // these rails sit on the homepage and neither needs to animate unseen.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(wrapRef, { margin: '25% 0px 25% 0px' });
 
   useEffect(() => {
     const measure = () => {
@@ -35,7 +39,7 @@ export default function LoopRail({ children, speed = 45, gapClass = 'gap-6 pr-6 
   }, []);
 
   useEffect(() => {
-    if (!setWidth) return;
+    if (!setWidth || !inView) return;
     let raf = 0;
     let last = performance.now();
 
@@ -59,10 +63,11 @@ export default function LoopRail({ children, speed = 45, gapClass = 'gap-6 pr-6 
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [setWidth, speed, x]);
+  }, [setWidth, speed, x, inView]);
 
   return (
     <div
+      ref={wrapRef}
       className="overflow-hidden"
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}

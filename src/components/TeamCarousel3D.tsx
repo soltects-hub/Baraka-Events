@@ -43,8 +43,8 @@ export default function TeamCarousel3D() {
       {/* ambient glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.2) 0%, transparent 65%)' }}
       />
 
       {/* 3D ring — draggable left/right to step through members, same
@@ -92,14 +92,14 @@ export default function TeamCarousel3D() {
               >
                 <div
                   className={`relative aspect-[3/4] overflow-hidden rounded-md border bg-ink-2 transition-colors duration-500 ${
-                    isFront ? 'border-gold shadow-[0_0_70px_rgba(255,150,11,0.5)]' : 'border-champagne/12'
+                    isFront ? 'border-champagne shadow-[0_0_70px_rgba(230,197,138,0.35)]' : 'border-champagne/12'
                   }`}
                 >
                   {m.image ? (
                     <img src={m.image} alt={m.name} draggable={false} className="h-full w-full object-cover" />
                   ) : (
                     <div className="flex h-full w-full flex-col items-center justify-center gap-2 border border-dashed border-champagne/15 bg-ink-2/60">
-                      <span className="font-display text-lg italic text-gold/60">06</span>
+                      <span className="accent-serif text-lg text-champagne/60">06</span>
                     </div>
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" />
@@ -113,14 +113,14 @@ export default function TeamCarousel3D() {
         <button
           onClick={prev}
           aria-label="Previous team member"
-          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold md:-left-4"
+          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne md:-left-4"
         >
           &#10094;
         </button>
         <button
           onClick={next}
           aria-label="Next team member"
-          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/60 text-cream backdrop-blur-md transition-colors hover:border-gold hover:text-gold md:-right-4"
+          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne md:-right-4"
         >
           &#10095;
         </button>
@@ -136,7 +136,7 @@ export default function TeamCarousel3D() {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-[10px] uppercase tracking-[0.35em] text-gold">{current.role}</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">{current.role}</p>
             <h3 className={`mt-2 font-display text-3xl text-cream md:text-4xl ${isComingSoon ? 'italic text-mist' : 'font-light'}`}>
               {current.name}
             </h3>
@@ -145,7 +145,7 @@ export default function TeamCarousel3D() {
         </AnimatePresence>
 
         <div className="mt-6 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
-          <span className="text-gold">{String(active + 1).padStart(2, '0')}</span>
+          <span className="text-champagne">{String(active + 1).padStart(2, '0')}</span>
           <span className="h-[1px] w-10 bg-champagne/15" />
           <span>{String(n).padStart(2, '0')}</span>
         </div>

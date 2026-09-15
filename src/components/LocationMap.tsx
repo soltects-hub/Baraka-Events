@@ -21,18 +21,20 @@ export default function LocationMap() {
     <section id="location" data-scene="13 · WIDE SHOT — FIND US" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-0 top-0 h-[400px] w-[700px] rounded-full opacity-10 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute left-0 top-0 h-[400px] w-[700px] rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.14) 0%, transparent 65%)' }}
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="mb-12 grid items-end gap-8 md:mb-14 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Visit the Atelier</p>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Visit the Atelier</p>
             <RevealText
               as="h2"
               text="Find us in the heart of Gulberg"
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
+              highlightWords={[3, 4, 5]}
+              highlightClass="accent-serif"
             />
           </div>
           <div className="flex flex-col items-start gap-5 lg:items-end">
@@ -56,13 +58,13 @@ export default function LocationMap() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative overflow-hidden rounded-sm border border-champagne/12"
+          className="group relative overflow-hidden rounded-sm border border-champagne/15 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.85)]"
         >
           {/* corner brackets — keeps the cinematic frame language */}
-          <span className="pointer-events-none absolute left-4 top-4 z-10 h-6 w-6 border-l border-t border-gold/50" />
-          <span className="pointer-events-none absolute right-4 top-4 z-10 h-6 w-6 border-r border-t border-gold/50" />
-          <span className="pointer-events-none absolute bottom-4 left-4 z-10 h-6 w-6 border-b border-l border-gold/50" />
-          <span className="pointer-events-none absolute bottom-4 right-4 z-10 h-6 w-6 border-b border-r border-gold/50" />
+          <span className="pointer-events-none absolute left-4 top-4 z-10 h-6 w-6 border-l border-t border-champagne/60" />
+          <span className="pointer-events-none absolute right-4 top-4 z-10 h-6 w-6 border-r border-t border-champagne/60" />
+          <span className="pointer-events-none absolute bottom-4 left-4 z-10 h-6 w-6 border-b border-l border-champagne/60" />
+          <span className="pointer-events-none absolute bottom-4 right-4 z-10 h-6 w-6 border-b border-r border-champagne/60" />
 
           {/* The Store Locator replaces the plain embed only once a Maps API key
               and Map ID are configured; otherwise the keyless iframe below keeps
@@ -77,7 +79,7 @@ export default function LocationMap() {
             <iframe
               title="Baraka Events office location — Big City Plaza, Gulberg III, Lahore"
               src={`https://www.google.com/maps?q=${MAP_COORDS}&z=17&output=embed`}
-              className="h-[380px] w-full border-0 saturate-100 contrast-[1.05] transition-[filter] duration-700 md:h-[480px] lg:saturate-[0.35] lg:group-hover:saturate-100"
+              className="h-[380px] w-full border-0 saturate-100 contrast-[1.05] transition-[filter] duration-700 md:h-[480px] lg:saturate-[0.7] lg:group-hover:saturate-100"
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
@@ -88,8 +90,8 @@ export default function LocationMap() {
           {/* The locator renders its own address panel; showing this chip on top
               of it would duplicate the address and cover the map controls. */}
           {!isStoreLocatorConfigured() && (
-          <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 w-[calc(100%-3rem)] max-w-md -translate-x-1/2 rounded-sm border border-champagne/12 bg-ink/85 px-5 py-4 text-center backdrop-blur-xl md:bottom-8">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-gold">Baraka Events &mdash; Head Office</p>
+          <div className="plate pointer-events-none absolute bottom-6 left-1/2 z-10 w-[calc(100%-3rem)] max-w-md -translate-x-1/2 rounded-sm px-5 py-4 text-center md:bottom-8">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Baraka Events &mdash; Head Office</p>
             <p className="mt-1.5 text-[13px] font-light leading-snug text-cream/80">{ADDRESS}</p>
           </div>
           )}
@@ -108,7 +110,7 @@ export default function LocationMap() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="border-l border-gold/40 pl-5"
+              className="border-l border-champagne/40 pl-5"
             >
               <p className="text-[10px] uppercase tracking-[0.3em] text-mist-dim">{f.k}</p>
               <p className="mt-2 text-sm font-light leading-relaxed text-cream/75">{f.v}</p>

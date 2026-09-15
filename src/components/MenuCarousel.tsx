@@ -83,18 +83,20 @@ export default function MenuCarousel() {
     <section id="menu" data-scene="07A · TASTING MENU — THE DASTARKHWAN" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
       <div
         aria-hidden
-        className="pointer-events-none absolute right-0 top-0 h-[400px] w-[700px] rounded-full opacity-10 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute right-0 top-0 h-[400px] w-[700px] rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.14) 0%, transparent 65%)' }}
       />
 
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="mb-14 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
           <div>
-            <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">The Baraka Kitchen</p>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">The Baraka Kitchen</p>
             <RevealText
               as="h2"
               text="A dastarkhwan worth remembering"
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
+              highlightWords={[2, 3]}
+              highlightClass="accent-serif"
             />
           </div>
           <div className="flex flex-col items-start gap-3 md:items-end">
@@ -102,7 +104,7 @@ export default function MenuCarousel() {
               Our signature catering menus, always in motion &mdash; hover to pause, drag to browse.
             </p>
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-gold" strokeWidth="1.5">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-champagne" strokeWidth="1.5">
                 <path d="M7 11.5V6a1.5 1.5 0 0 1 3 0v4.5M10 10.5V5a1.5 1.5 0 0 1 3 0v5.5M13 10.5V6a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2 5.5-5 5.5s-4.5-1.5-5.5-4L4.2 11a1.4 1.4 0 0 1 2.4-1.4l1.4 2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Drag to explore
@@ -117,7 +119,7 @@ export default function MenuCarousel() {
           {menu.map((card) => (
             <article
               key={card.index}
-              className="group relative w-[82vw] shrink-0 select-none overflow-hidden rounded-sm border border-champagne/10 bg-ink sm:w-[420px]"
+              className="plate group relative w-[82vw] shrink-0 select-none overflow-hidden rounded-sm sm:w-[420px]"
             >
               {/* image header */}
               <div className="relative h-44 overflow-hidden md:h-52">
@@ -128,19 +130,19 @@ export default function MenuCarousel() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-                <span className="absolute left-5 top-5 rounded-full border border-gold/40 bg-ink/50 px-4 py-1.5 font-display text-sm italic text-gold backdrop-blur-md">
+                <div className="grade absolute inset-0" />
+                <span className="accent-serif absolute left-5 top-5 rounded-full border border-champagne/30 bg-ink/75 px-4 py-1.5 text-sm">
                   {card.index}
                 </span>
                 <div className="absolute bottom-4 left-5 right-5">
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-gold">{card.urdu}</p>
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">{card.urdu}</p>
                   <h3 className="font-display text-2xl font-light md:text-3xl">{card.title}</h3>
                 </div>
               </div>
 
               {/* items */}
               <div className="p-6 md:p-7">
-                <p className="mb-5 font-display text-sm italic text-gold-soft">{card.accent}</p>
+                <p className="accent-serif mb-5 text-base">{card.accent}</p>
                 <ul className="space-y-4">
                   {card.items.map((it) => (
                     <li key={it.name} className="flex items-baseline justify-between gap-3 border-b border-dotted border-champagne/12 pb-3">
@@ -148,7 +150,7 @@ export default function MenuCarousel() {
                         <p className="text-sm font-medium tracking-wide text-cream">{it.name}</p>
                         <p className="mt-0.5 text-xs font-light text-mist">{it.desc}</p>
                       </div>
-                      <span className="h-1 w-1 shrink-0 rotate-45 bg-gold/50" />
+                      <span className="h-1 w-1 shrink-0 rotate-45 bg-bronze/80" />
                     </li>
                   ))}
                 </ul>

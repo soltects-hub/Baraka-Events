@@ -5,7 +5,7 @@ import MagneticButton from './MagneticButton';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 
 const inputClass =
-  'w-full rounded-sm border border-champagne/12 bg-champagne/[0.04] px-5 py-4 text-sm font-light text-cream placeholder:text-mist-dim backdrop-blur-md transition-colors duration-300 focus:border-gold/60';
+  'w-full rounded-sm border border-champagne/12 bg-ink-4 px-5 py-4 text-sm font-light text-cream placeholder:text-mist-dim transition-[border-color,box-shadow] duration-300 focus:border-champagne/70 focus:shadow-[0_0_0_3px_rgba(230,197,138,0.08)]';
 
 // Set in Vercel (and .env for local testing) as VITE_FORMSPREE_ENDPOINT,
 // e.g. https://formspree.io/f/xxxxxxxx — sign up at formspree.io, create a
@@ -23,16 +23,22 @@ export default function Contact() {
     <section id="contact" ref={ref} data-scene="12 · FINAL FRAME — CONTACT" className="relative overflow-hidden py-28 md:py-40">
       <motion.div style={{ y: bgY }} className="absolute inset-[-15%]">
         <img src="/media/gallery-4.webp" alt="" aria-hidden className="h-full w-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-ink/88" />
+        {/* the photograph stays readable as a room; a bronze-tinted wash
+            and vignette instead of an 88% black sheet */}
+        <div className="absolute inset-0 bg-ink/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
+        <div className="vignette absolute inset-0" />
       </motion.div>
 
       <div className="relative mx-auto grid max-w-[1400px] gap-16 px-6 md:px-10 lg:grid-cols-2 lg:gap-24">
         <div className="flex flex-col justify-center">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Book a Consultation</p>
+          <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Book a Consultation</p>
           <RevealText
             as="h2"
             text="Tell us what you're planning."
-            className="font-display text-4xl font-light leading-[1.1] text-cream md:text-6xl"
+            className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
+            highlightWords={[2, 3, 4]}
+            highlightClass="accent-serif"
           />
           <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             A wedding, a corporate event, a private celebration: tell us the basics
@@ -49,9 +55,9 @@ export default function Contact() {
               <div key={c.label} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
                 <span className="w-16 shrink-0 text-[10px] uppercase tracking-[0.3em] text-mist-dim">{c.label}</span>
                 {c.href ? (
-                  <a href={c.href} className="gold-underline font-display text-lg text-cream md:text-xl">{c.value}</a>
+                  <a href={c.href} className="gold-underline font-display text-lg text-ivory md:text-xl">{c.value}</a>
                 ) : (
-                  <span className="max-w-md font-display text-lg leading-snug text-cream md:text-xl">{c.value}</span>
+                  <span className="max-w-md font-display text-lg leading-snug text-ivory md:text-xl">{c.value}</span>
                 )}
               </div>
             ))}
@@ -112,9 +118,9 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label={`Baraka Events on ${s.label}`}
                   style={{ '--brand': s.color } as React.CSSProperties}
-                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-champagne/15 bg-champagne/[0.04] backdrop-blur-md transition-all duration-300 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand)]/15 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--brand)_35%,transparent)]"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink-3 transition-all duration-300 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand)]/15 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--brand)_35%,transparent)]"
                 >
-                  <svg viewBox="0 0 32 32" className="h-[18px] w-[18px] fill-gold transition-colors duration-300 group-hover:fill-[color:var(--brand)]">
+                  <svg viewBox="0 0 32 32" className="h-[18px] w-[18px] fill-champagne transition-colors duration-300 group-hover:fill-[color:var(--brand)]">
                     {s.icon}
                   </svg>
                 </a>
@@ -123,7 +129,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="rounded-md border border-champagne/12 bg-ink/50 p-7 backdrop-blur-2xl md:p-10">
+        <div className="plate rounded-md p-7 md:p-10">
           <AnimatePresence mode="wait">
             {status === 'sent' ? (
               <motion.div
@@ -132,12 +138,12 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex h-full min-h-[420px] flex-col items-center justify-center text-center"
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold/50">
-                  <svg viewBox="0 0 24 24" className="h-7 w-7 stroke-gold" fill="none" strokeWidth="1.5">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-champagne/60">
+                  <svg viewBox="0 0 24 24" className="h-7 w-7 stroke-champagne" fill="none" strokeWidth="1.5">
                     <path d="M4 12.5l5 5L20 6.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <h3 className="font-display text-3xl font-light text-cream">Request received</h3>
+                <h3 className="font-display text-3xl font-light">Request received</h3>
                 <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-mist">
                   Shukriya — your consultation request is with our atelier.
                   Expect a personal reply within one business day.

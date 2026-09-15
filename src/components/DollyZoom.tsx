@@ -86,17 +86,19 @@ export default function DollyZoom() {
     <section data-scene="04 · BEFORE & AFTER — THE TRANSFORMATION" className="relative overflow-hidden bg-ink py-28 md:py-40">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-10 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.14) 0%, transparent 65%)' }}
       />
 
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">Before &amp; After</p>
+          <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Before &amp; After</p>
           <RevealText
             as="h2"
             text="The same room, before and after we build."
-            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] text-cream md:text-5xl"
+            className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
+            highlightWords={[3, 4, 5]}
+            highlightClass="accent-serif"
           />
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             Move your cursor over the photo to reveal the finished setup.
@@ -110,7 +112,7 @@ export default function DollyZoom() {
           style={{
             perspective: 1600,
             boxShadow: isHovering
-              ? '0 40px 90px -20px rgba(0,0,0,0.65), 0 0 70px -10px rgba(255,150,11,0.28)'
+              ? '0 40px 90px -20px rgba(0,0,0,0.65), 0 0 70px -10px rgba(230,197,138,0.22)'
               : '0 25px 60px -20px rgba(0,0,0,0.55)',
           }}
         >
@@ -156,7 +158,7 @@ export default function DollyZoom() {
 
               {/* one-time hint, fades out after first interaction */}
               {!hasHovered && (
-                <span className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-champagne/20 bg-ink/60 px-5 py-2 text-[10px] uppercase tracking-[0.3em] text-mist-dim backdrop-blur-md">
+                <span className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-champagne/25 bg-ink/80 px-5 py-2 text-[10px] uppercase tracking-[0.3em] text-ivory/80">
                   Hover to reveal
                 </span>
               )}

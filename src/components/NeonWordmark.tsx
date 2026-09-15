@@ -85,7 +85,7 @@ export default function NeonWordmark() {
             <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="dilated" />
             <feComposite in="dilated" in2="SourceAlpha" operator="out" result="ring" />
             <feGaussianBlur in="ring" stdDeviation="1" result="softRing" />
-            <feFlood floodColor="#ff960b" floodOpacity="0.6" result="color" />
+            <feFlood floodColor="#e6c58a" floodOpacity="0.55" result="color" />
             <feComposite in="color" in2="softRing" operator="in" result="outline" />
             <feMerge>
               <feMergeNode in="outline" />
@@ -95,13 +95,13 @@ export default function NeonWordmark() {
             <feMorphology in="SourceAlpha" operator="dilate" radius="0.8" result="dilated" />
             <feComposite in="dilated" in2="SourceAlpha" operator="out" result="ring" />
             <feGaussianBlur in="ring" stdDeviation="1.2" result="softRing" />
-            <feFlood floodColor="#ffb347" floodOpacity="0.85" result="color" />
+            <feFlood floodColor="#f3e4c7" floodOpacity="0.9" result="color" />
             <feComposite in="color" in2="softRing" operator="in" result="outline" />
             <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur1" />
-            <feFlood floodColor="#ff960b" floodOpacity="0.5" result="glowColor1" />
+            <feFlood floodColor="#ffb347" floodOpacity="0.4" result="glowColor1" />
             <feComposite in="glowColor1" in2="blur1" operator="in" result="glow1" />
             <feGaussianBlur in="SourceAlpha" stdDeviation="28" result="blur2" />
-            <feFlood floodColor="#ff960b" floodOpacity="0.28" result="glowColor2" />
+            <feFlood floodColor="#e6c58a" floodOpacity="0.24" result="glowColor2" />
             <feComposite in="glowColor2" in2="blur2" operator="in" result="glow2" />
             <feMerge>
               <feMergeNode in="glow2" />
@@ -113,39 +113,15 @@ export default function NeonWordmark() {
         </defs>
       </svg>
 
-      {/* ember glow — a warm light sitting low against the baseline, always on */}
+      {/* ember glow — a steady warm light sitting low against the baseline.
+          A plain radial gradient (no blur filter, no pulse) — the previous
+          flicker, pulsing glow and three blurred smoke wisps ran four
+          infinite animations on filtered layers at the bottom of every page. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[6%] left-[8%] right-[8%] h-[45%] blur-[50px]"
+        className="pointer-events-none absolute bottom-[4%] left-[6%] right-[6%] h-[50%]"
         style={{
-          background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(255,150,11,0.5) 0%, rgba(255,150,11,0.18) 45%, transparent 75%)',
-          animation: 'ground-glow-pulse 5s ease-in-out infinite',
-        }}
-      />
-
-      {/* smoke wisps — slow, faint, drifting up through the word */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-[4%] h-[70%] w-[22%] rounded-full blur-[26px]"
-        style={{
-          background: 'radial-gradient(circle, rgba(180,120,60,0.4) 0%, transparent 70%)',
-          animation: 'smoke-drift-a 9s ease-in infinite',
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-[38%] h-[60%] w-[18%] rounded-full blur-[22px]"
-        style={{
-          background: 'radial-gradient(circle, rgba(200,140,70,0.35) 0%, transparent 70%)',
-          animation: 'smoke-drift-b 11s ease-in infinite 2.5s',
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 right-[10%] h-[65%] w-[20%] rounded-full blur-[24px]"
-        style={{
-          background: 'radial-gradient(circle, rgba(190,130,65,0.35) 0%, transparent 70%)',
-          animation: 'smoke-drift-a 10s ease-in infinite 5s',
+          background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(230,197,138,0.26) 0%, rgba(230,197,138,0.09) 45%, transparent 75%)',
         }}
       />
 

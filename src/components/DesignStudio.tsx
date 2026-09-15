@@ -64,7 +64,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
         onMouseMove={onMove}
         onMouseLeave={reset}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="group relative overflow-hidden rounded-sm border border-champagne/10 bg-ink-2 will-change-transform"
+        className="plate group relative overflow-hidden rounded-sm will-change-transform"
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
@@ -81,14 +81,14 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
             style={{
               background: useTransform(
                 [glareX, glareY],
-                ([gx, gy]) => `radial-gradient(circle at ${gx} ${gy}, rgba(255,150,11,0.16) 0%, transparent 55%)`
+                ([gx, gy]) => `radial-gradient(circle at ${gx} ${gy}, rgba(230,197,138,0.14) 0%, transparent 55%)`
               ),
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
+          <div className="grade absolute inset-0" />
 
           {/* 3D badge */}
-          <span className="absolute right-5 top-5 rounded-full border border-gold/40 bg-ink/60 px-3.5 py-1.5 text-[9px] uppercase tracking-[0.3em] text-gold backdrop-blur-md">
+          <span className="absolute right-5 top-5 rounded-full border border-champagne/30 bg-ink/75 px-3.5 py-1.5 text-[9px] uppercase tracking-[0.3em] text-champagne">
             3D Concept
           </span>
         </div>
@@ -96,10 +96,10 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
         <div className="p-6 md:p-7" style={{ transform: 'translateZ(30px)' }}>
           <div className="flex items-baseline justify-between gap-4">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-gold">{d.type}</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">{d.type}</p>
               <h3 className="mt-1.5 font-display text-2xl font-light md:text-3xl">{d.title}</h3>
             </div>
-            <span className="font-display text-lg italic text-gold/50">{d.n}</span>
+            <span className="accent-serif text-lg text-champagne/50">{d.n}</span>
           </div>
           <p className="mt-3 text-xs font-light tracking-wide text-mist">{d.spec}</p>
         </div>
@@ -113,18 +113,20 @@ export default function DesignStudio() {
     <section id="studio" data-scene="05A · PREVIS — THE DESIGN STUDIO" className="relative overflow-hidden bg-ink py-28 md:py-40">
       <div
         aria-hidden
-        className="pointer-events-none absolute right-0 top-1/4 h-[400px] w-[600px] rounded-full opacity-10 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute right-0 top-1/4 h-[400px] w-[600px] rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.14) 0%, transparent 65%)' }}
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="mb-14 grid items-end gap-8 md:mb-20 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-gold">The Design Studio</p>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">The Design Studio</p>
             <RevealText
               as="h2"
               text="See your event before it exists"
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
+              highlightWords={[3, 4, 5]}
+              highlightClass="accent-serif"
             />
           </div>
           <p className="max-w-md text-sm font-light leading-relaxed text-mist lg:text-right lg:justify-self-end">
@@ -144,7 +146,7 @@ export default function DesignStudio() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-mist-dim">
             Concept renders delivered within 7 days of your brief
           </p>
-          <div className="h-[1px] w-16 bg-gold/40" />
+          <div aria-hidden className="hairline w-16" />
         </div>
       </div>
     </section>

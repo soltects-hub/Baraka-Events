@@ -98,7 +98,7 @@ function RingCard({
       style={{ position: 'absolute', left: '50%', top: '50%', width: cardW, transform, filter, zIndex }}
       className="pointer-events-none"
     >
-      <div className="aspect-[3/4] overflow-hidden rounded-sm border border-gold/25">
+      <div className="aspect-[3/4] overflow-hidden rounded-sm border border-champagne/25">
         <img
           src={item.src}
           alt={item.alt}
@@ -183,15 +183,15 @@ export default function DepthFlythrough() {
     <section data-scene="06 · THE ARCHIVE" className="relative overflow-hidden bg-ink py-28 md:py-40">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-[130px]"
-        style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.14) 0%, transparent 65%)' }}
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="mb-14 text-center md:mb-20">
-          <p className="mb-4 text-[10px] uppercase tracking-[0.5em] text-gold">Scroll = Camera</p>
-          <h2 className="font-display text-4xl font-light text-cream md:text-6xl">
-            Enter the <em className="italic text-gold-soft">archive</em>
+          <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-champagne">Scroll = Camera</p>
+          <h2 className="font-display text-4xl font-light md:text-6xl">
+            Enter the <em className="accent-serif">archive</em>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             A selection of celebrations, productions and experiences we&rsquo;ve brought to life.
@@ -221,7 +221,7 @@ export default function DepthFlythrough() {
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-mist-dim md:mt-14">
-          <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-gold" strokeWidth="1.5">
+          <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-champagne" strokeWidth="1.5">
             <path d="M7 11.5V6a1.5 1.5 0 0 1 3 0v4.5M10 10.5V5a1.5 1.5 0 0 1 3 0v5.5M13 10.5V6a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2 5.5-5 5.5s-4.5-1.5-5.5-4L4.2 11a1.4 1.4 0 0 1 2.4-1.4l1.4 2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Drag to explore
@@ -236,8 +236,8 @@ export default function DepthFlythrough() {
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{active.category}</p>
-              <h3 className="mt-3 font-display text-2xl font-light text-cream md:text-3xl">{active.title}</h3>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">{active.category}</p>
+              <h3 className="mt-3 font-display text-2xl font-light md:text-3xl">{active.title}</h3>
               <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-mist-dim">{active.location}</p>
             </motion.div>
           </AnimatePresence>
