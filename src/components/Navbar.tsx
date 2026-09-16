@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { m, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useLenis } from '../lib/useLenis';
 import { useSectionNav } from '../lib/useSectionNav';
@@ -103,6 +103,7 @@ export default function Navbar() {
   const lenis = useLenis();
   const sectionNav = useSectionNav();
   const closeTimer = useRef(0);
+  const isHome = useLocation().pathname === '/';
 
   useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 60));
 
@@ -135,8 +136,17 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          scrolled ? 'py-2.5 bg-ink/72 backdrop-blur-md' : 'py-5 bg-transparent'
+        // Unscrolled on the homepage, the bar insets by the same margin as
+        // the Hero's rounded card (Hero.tsx) so it reads as the card's own
+        // top edge rather than a separate full-bleed strip. Every other
+        // state — scrolled, or any other route — is pixel-identical to the
+        // bar's previous full-bleed behavior.
+        className={`fixed z-[100] transition-all duration-500 ${
+          scrolled
+            ? 'top-0 left-0 right-0 py-2.5 bg-ink/72 backdrop-blur-md'
+            : isHome
+              ? 'top-3 left-3 right-3 py-5 bg-transparent sm:top-4 sm:left-4 sm:right-4 md:top-6 md:left-6 md:right-6'
+              : 'top-0 left-0 right-0 py-5 bg-transparent'
         }`}
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">

@@ -150,6 +150,16 @@ body {
     color: transparent;
   }
 
+  /* Hero headline's grayscale/white line — a top-lit ivory-to-mist gradient,
+     applied per word via highlightWords (see .text-ignite below for why:
+     background-clip:text doesn't inherit to RevealText's nested word spans). */
+  .text-hero-grad {
+    background-image: linear-gradient(180deg, #f8f1e2 0%, #f3e4c7 45%, #b9ae9d 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
   /* The one hot word in the hero headline. It reveals in champagne with the
      rest of the line, then the gradient slides down through it a beat later
      so the word appears to catch light — background-position on one small
