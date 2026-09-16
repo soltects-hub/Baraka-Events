@@ -20,7 +20,7 @@ const experiences = [
     id: 'weddings',
     tag: 'Weddings',
     title: 'Wedding Planning and Management in Lahore',
-    image: '/media/wedding-1.webp',
+    image: '/media/gallery/detail-4.webp',
     intro:
       'A Lahori wedding is rarely one event — it is mehndi, baraat, nikkah and walima, often across several days and venues. We plan each function on its own terms while keeping the design and logistics consistent across all of them, so the whole week feels like one wedding, not four separate bookings.',
     points: [
@@ -41,7 +41,7 @@ const experiences = [
     id: 'corporate',
     tag: 'Corporate Events',
     title: 'Corporate Event Management in Lahore',
-    image: '/media/corporate-1.webp',
+    image: '/media/gallery/corporate-3.webp',
     intro:
       'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule, with no visible technical issues in front of clients, media or leadership.',
     points: [
@@ -59,7 +59,7 @@ const experiences = [
     id: 'private',
     tag: 'Private Celebrations',
     title: 'Private Event Planning for Birthdays, Anniversaries and Engagements',
-    image: '/media/private-1.webp',
+    image: '/media/gallery/celebration-4.webp',
     intro:
       'Birthdays, anniversaries, engagements and family milestones, planned with the guest list and budget actually in mind, not scaled down from a wedding template.',
     points: [
@@ -76,15 +76,15 @@ const experiences = [
   },
   {
     id: 'live',
-    tag: 'Live Shows & Concerts',
-    title: 'Live Event and Concert Production',
-    image: '/media/showcase-1.webp',
+    tag: 'Live Entertainment & Staging',
+    title: 'Live Entertainment for Weddings and Events',
+    image: '/media/gallery/detail-3.webp',
     intro:
-      'Stage, sound and lighting production for ticketed and private concerts, run by the same technical crew that handles our wedding and corporate stages.',
+      'Qawali sets, live music and stage entertainment woven into the event itself, coordinated by the same team handling the rest of your production rather than a separate vendor.',
     points: [
-      { h: 'Concert Production', p: 'Stage, sound and lighting for private and ticketed concerts, engineered by our in-house technical team.' },
-      { h: 'Live Sound Direction', p: 'Audio mixed properly rather than left to whatever the venue provides, whether it is a concert floor or a live qawwali set on a wedding stage.' },
-      { h: 'Rigging & Technical Production', p: 'Certified rigs and backup power for any live event where a mid-show technical failure is not an option.' },
+      { h: 'Qawali & Live Music', p: 'Traditional qawali nights and live music sets, staged and lit as part of your mehndi, baraat or reception.' },
+      { h: 'Stage Sound', p: 'Audio for live performances mixed properly rather than left to whatever the venue provides.' },
+      { h: 'Lighting & Staging', p: 'The performance stage designed and lit as one piece with the rest of the room, not bolted on separately.' },
     ],
     related: [{ text: 'See our production work', to: '/gallery' }],
   },

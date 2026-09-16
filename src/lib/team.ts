@@ -12,12 +12,6 @@ export const members = [
     bio: 'Runs Baraka’s brand and client communication, from the first inquiry response to how each event gets documented and shared afterward.',
   },
   {
-    name: 'Noman Khan',
-    role: 'Digital Marketer',
-    image: '/media/team-noman.webp',
-    bio: 'Handles Baraka’s online presence — campaign content, event highlight reels, and the digital side of how clients find and reach us.',
-  },
-  {
     name: 'Aqsa',
     role: 'Event Operator Head',
     image: '/media/team-aqsa.webp',
