@@ -81,8 +81,8 @@ export const services: Service[] = [
     seoTitle: 'Event Management Company in Lahore | Baraka Events',
     seoDescription:
       'Day-of event management in Lahore: on-site coordination, run-of-show scheduling and vendor supervision, for weddings, corporate events and private celebrations.',
-    image: '/media/showcase-1.webp',
-    imageAlt: 'Full-scale concert-grade stage and lighting rig, live event management Lahore',
+    image: '/media/showreel-2.webp',
+    imageAlt: 'Wedding reception arches and ambient lighting, managed on-site by Baraka Events',
     intro:
       'Planning decides what your event should look like; management is what makes it actually happen on the day. Our event management service covers the on-site coordination, vendor supervision and run-of-show scheduling that keeps an event on schedule — whether we planned it from the start or you did.',
     included: [
@@ -118,11 +118,11 @@ export const services: Service[] = [
     ctaSubject: 'event',
     seoTitle: 'Wedding Decorators & Event Decoration in Lahore | Baraka Events',
     seoDescription:
-      'Wedding decorators and event decoration in Lahore — stage design, florals and lighting, with a 3D concept render before your event.',
-    image: '/media/design-1.webp',
-    imageAlt: 'Keynote conference stage concept render, 3D event design Lahore',
+      'Wedding decorators and event decoration in Lahore — stage design, florals and lighting, planned as one visual system before a single flower is ordered.',
+    image: '/media/showreel-1.webp',
+    imageAlt: 'Walima reception stage with chandelier canopy and floral arches, produced by Baraka Events',
     intro:
-      'Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system, and can show it to you as a 3D render before a single flower is ordered.',
+      'Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system before a single flower is ordered.',
     included: [
       { h: 'Stage & Backdrop Design', p: 'Stage layouts and backdrops built around your venue\'s actual dimensions, not a generic catalogue setup.' },
       { h: 'Floral Arrangements & Installations', p: 'From table centerpieces to full floral walls, sourced and staged by our own team rather than subcontracted out.' },

@@ -1,48 +1,53 @@
 import RevealText from './RevealText';
 import LoopRail from './LoopRail';
 
+// Real Baraka Events production photography — from our own event archive,
+// not stock or AI-generated. (This replaces a set of licensed stock photos
+// — an international concert crowd, a Western conference audience — that
+// had drifted in here and no longer belonged on a site built entirely
+// around real Lahore production work.)
 const frames = [
   {
-    src: '/media/showcase-1.webp',
+    src: '/media/showreel-1.webp',
     n: '01',
-    category: 'Live Productions',
-    title: 'Full-scale stage & light',
-    caption: 'Concert-grade rigs, engineered in-house',
+    category: 'Walima Reception',
+    title: 'The reception floor',
+    caption: 'Chandeliers, drapery and floral built for one evening',
   },
   {
-    src: '/media/showcase-2.webp',
+    src: '/media/showreel-2.webp',
     n: '02',
-    category: 'Conferences',
-    title: 'The summit floor',
-    caption: 'Seating, sightlines and flow for 1,200',
+    category: 'Walima Reception',
+    title: 'Arches & ambient light',
+    caption: 'A room reshaped with light, not just decor',
   },
   {
-    src: '/media/showcase-3.webp',
+    src: '/media/showreel-3.webp',
     n: '03',
-    category: 'Sound Direction',
-    title: 'Mixed to the decibel',
-    caption: 'Live audio engineered, never left to chance',
+    category: 'Baraat',
+    title: 'The chandelier canopy',
+    caption: 'Hundreds of point-lights hung by hand',
   },
   {
-    src: '/media/showcase-4.webp',
+    src: '/media/showreel-4.webp',
     n: '04',
-    category: 'Corporate Galas',
-    title: 'The gala floor',
-    caption: 'Intelligent lighting choreographed to the minute',
+    category: 'Baraat',
+    title: 'Colour as architecture',
+    caption: 'A full-red palette, built from floor to ceiling',
   },
   {
-    src: '/media/showcase-5.webp',
+    src: '/media/showreel-5.webp',
     n: '05',
-    category: 'Hospitality',
-    title: 'First impressions',
-    caption: 'Reception service trained to five-star standard',
+    category: 'Mehndi Night',
+    title: 'Canopy & colour',
+    caption: 'Draped fabric, fairy light and a working lounge floor',
   },
   {
-    src: '/media/showcase-6.webp',
+    src: '/media/showreel-6.webp',
     n: '06',
-    category: 'Technical',
-    title: 'Rigging & truss',
-    caption: 'Certified rigs, redundant power, zero downtime',
+    category: 'Mehndi Night',
+    title: 'Daylight production',
+    caption: 'The same discipline, shot in full sun',
   },
 ];
 

@@ -76,15 +76,15 @@ const experiences = [
   },
   {
     id: 'live',
-    tag: 'Live Shows & Concerts',
-    title: 'Live Event and Concert Production',
-    image: '/media/showcase-1.webp',
+    tag: 'Live Entertainment & Staging',
+    title: 'Live Entertainment for Weddings and Events',
+    image: '/media/gallery/detail-3.webp',
     intro:
-      'Stage, sound and lighting production for ticketed and private concerts, run by the same technical crew that handles our wedding and corporate stages.',
+      'Qawali sets, live music and stage entertainment woven into the event itself, coordinated by the same team handling the rest of your production rather than a separate vendor.',
     points: [
-      { h: 'Concert Production', p: 'Stage, sound and lighting for private and ticketed concerts, engineered by our in-house technical team.' },
-      { h: 'Live Sound Direction', p: 'Audio mixed properly rather than left to whatever the venue provides, whether it is a concert floor or a live qawwali set on a wedding stage.' },
-      { h: 'Rigging & Technical Production', p: 'Certified rigs and backup power for any live event where a mid-show technical failure is not an option.' },
+      { h: 'Qawali & Live Music', p: 'Traditional qawali nights and live music sets, staged and lit as part of your mehndi, baraat or reception.' },
+      { h: 'Stage Sound', p: 'Audio for live performances mixed properly rather than left to whatever the venue provides.' },
+      { h: 'Lighting & Staging', p: 'The performance stage designed and lit as one piece with the rest of the room, not bolted on separately.' },
     ],
     related: [{ text: 'See our production work', to: '/gallery' }],
   },

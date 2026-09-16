@@ -509,8 +509,8 @@ export const posts: Post[] = [
     date: 'August 2026',
     publishedISO: '2026-08',
     readTime: '8 min read',
-    image: '/media/showcase-1.webp',
-    imageAlt: 'Baraka Events production crew finishing a stage build for a Lahore wedding',
+    image: '/media/showreel-4.webp',
+    imageAlt: 'A Baraka Events wedding stage production in Lahore',
     blocks: [
       { p: '“Best event planner in Lahore” is a phrase every agency in this city puts on its homepage — ours included. The difference is what happens after a client actually books. Over twelve years and more than five hundred events, Baraka Events has built its reputation less on the phrase and more on the follow-through, which is the only test that actually matters.' },
       { h: 'One team, not a chain of subcontractors' },
@@ -538,8 +538,8 @@ export const posts: Post[] = [
     date: 'August 2026',
     publishedISO: '2026-08',
     readTime: '7 min read',
-    image: '/media/showcase-2.webp',
-    imageAlt: 'Client consultation meeting with an event planning team in Lahore',
+    image: '/media/showreel-5.webp',
+    imageAlt: 'A Baraka Events mehndi night production in Lahore',
     blocks: [
       { p: 'Every year we sit across the table from families and brand managers who have already scrolled through a dozen Instagram pages captioned “top event planner in Lahore.” Good photography tells you almost nothing about how an event actually runs. This is the checklist we tell them to use instead — the same one we would use if we were hiring someone else.' },
       { h: '1. Ask for a line-item proposal, not a package price' },
@@ -644,8 +644,8 @@ export const posts: Post[] = [
     date: 'June 2026',
     publishedISO: '2026-06',
     readTime: '6 min read',
-    image: '/media/design-1.webp',
-    imageAlt: 'Floral and lighting decor installation by Baraka Events for a Lahore wedding stage',
+    image: '/media/showreel-1.webp',
+    imageAlt: 'Floral and lighting décor for a Baraka Events walima reception, Lahore',
     blocks: [
       { p: 'Decor is the part of an event people photograph first and remember longest — which is why Baraka Events decor services in Lahore are treated as architecture rather than rented furniture. Every design is drawn, approved and priced before a single flower is ordered.' },
       { h: 'Floral direction, planned like a supply chain' },
@@ -698,8 +698,8 @@ export const posts: Post[] = [
     date: 'May 2026',
     publishedISO: '2026-05',
     readTime: '6 min read',
-    image: '/media/design-2.webp',
-    imageAlt: 'Modern Pakistani wedding stage styled with a viral 2026 design trend in Lahore',
+    image: '/media/showreel-6.webp',
+    imageAlt: 'A Baraka Events wedding stage production in Lahore',
     blocks: [
       { p: 'Every wedding season now runs on two calendars — the actual date, and the trend cycle set by whichever shaadi reel crosses a million views first. Here is what is actually spreading across Pakistani wedding content in 2026, and our honest read on which trends hold up beyond the fifteen-second clip.' },
       { h: 'Drone reveal entrances' },

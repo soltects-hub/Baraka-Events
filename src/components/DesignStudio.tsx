@@ -2,27 +2,31 @@ import { useRef, type MouseEvent } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
+// Real productions from our own event archive — this section previously
+// showed three AI/stock-sourced "3D concept render" images under a promise
+// ("concept renders delivered within 7 days") we couldn't actually verify
+// or stand behind. It now shows three real Baraka productions instead.
 const designs = [
   {
     n: '01',
-    title: 'Keynote Hall',
-    type: 'Conference Stage Concept',
-    spec: '40ft LED wall · 1,000 pax · broadcast-ready',
-    image: '/media/design-1.webp',
+    title: 'The Walima Floor',
+    type: 'Wedding Reception',
+    spec: 'Chandelier canopy · floral arches · ambient lighting',
+    image: '/media/showreel-1.webp',
   },
   {
     n: '02',
-    title: 'The Ring Gala',
-    type: 'Corporate Dinner Concept',
-    spec: 'Suspended light rings · 60 tables · centre stage',
-    image: '/media/design-2.webp',
+    title: 'Arches & Ambient Light',
+    type: 'Wedding Reception',
+    spec: 'Moorish arches · ivory floral · layered light',
+    image: '/media/showreel-2.webp',
   },
   {
     n: '03',
-    title: 'Launch Monolith',
-    type: 'Product Reveal Concept',
-    spec: 'Curved LED · mirror floor · reveal choreography',
-    image: '/media/design-3.webp',
+    title: 'The Baraat Canopy',
+    type: 'Baraat Procession',
+    spec: 'Hand-hung chandeliers · full stage drape',
+    image: '/media/showreel-3.webp',
   },
 ];
 
@@ -69,7 +73,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
             src={d.image}
-            alt={`${d.title} — ${d.type} 3D visualization by Baraka Events`}
+            alt={`${d.title} — ${d.type} produced by Baraka Events`}
             loading="lazy"
             draggable={false}
             className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
@@ -86,11 +90,6 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
             }}
           />
           <div className="grade absolute inset-0" />
-
-          {/* 3D badge */}
-          <span className="absolute right-5 top-5 rounded-full border border-champagne/30 bg-ink/75 px-3.5 py-1.5 text-[9px] uppercase tracking-[0.3em] text-champagne">
-            3D Concept
-          </span>
         </div>
 
         <div className="p-6 md:p-7" style={{ transform: 'translateZ(30px)' }}>
@@ -110,7 +109,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
 
 export default function DesignStudio() {
   return (
-    <section id="studio" data-scene="05A · PREVIS — THE DESIGN STUDIO" className="relative overflow-hidden bg-ink py-20 md:py-40">
+    <section id="studio" data-scene="05A · SIGNATURE PRODUCTIONS" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-1/4 h-[400px] w-[600px] rounded-full"
@@ -120,19 +119,18 @@ export default function DesignStudio() {
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="mb-14 grid items-end gap-8 md:mb-20 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">The Design Studio</p>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Signature Productions</p>
             <RevealText
               as="h2"
-              text="See your event before it exists"
+              text="Built the way it's imagined"
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
-              highlightWords={[3, 4, 5]}
+              highlightWords={[3, 4]}
               highlightClass="accent-serif"
             />
           </div>
           <p className="max-w-md text-sm font-light leading-relaxed text-mist lg:text-right lg:justify-self-end">
-            Every conference and gala is designed in 3D first. You see and approve
-            the stage, lighting and room layout before anything is built, so there
-            are no surprises on the day.
+            Every stage, floral program and lighting plan is designed as one system
+            before a single vendor is briefed. These are real productions, not renders.
           </p>
         </div>
 
@@ -144,7 +142,7 @@ export default function DesignStudio() {
 
         <div className="mt-14 flex flex-col items-center gap-3 text-center">
           <p className="text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-            Concept renders delivered within 7 days of your brief
+            Designed and built by our in-house team, start to finish
           </p>
           <div aria-hidden className="hairline w-16" />
         </div>
