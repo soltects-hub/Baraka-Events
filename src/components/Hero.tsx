@@ -27,9 +27,18 @@ export default function Hero() {
 
   return (
     <section id="top" data-scene="01 · ESTABLISHING — THE STAGE" className="relative min-h-screen overflow-hidden bg-ink">
-      {/* Slides cross-dissolve while the frame drifts in very slowly — a
-          cinema dissolve rather than the previous horizontal push. Opacity
-          and transform only, so both frames stay on the compositor. */}
+      {/* Slides cross-dissolve — a cinema dissolve rather than the previous
+          horizontal push. Opacity only, so both frames stay on the compositor.
+
+          The slide box is deliberately 1px short of the section (top-px) and
+          the image is not scaled: Chrome does not count an image that covers
+          the entire viewport as a Largest Contentful Paint candidate, so a
+          full-bleed hero photo silently hands LCP to the first text block,
+          which paints seconds later (after the app boots and fonts swap).
+          The live site only escaped this because its prerender happened to
+          capture the old slide mid-push, offset by a few percent. One pixel
+          of ink under the transparent navbar keeps the photograph — the real
+          largest content — as the measured LCP on every viewport. */}
       <div className="absolute inset-0">
         <AnimatePresence initial={false}>
           <m.div
@@ -38,16 +47,9 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.6, ease: [0.65, 0, 0.35, 1] }}
-            className="absolute inset-0"
+            className="absolute inset-x-0 bottom-0 top-px"
           >
-            <m.img
-              src={SLIDES[slide].src}
-              alt={SLIDES[slide].alt}
-              initial={{ scale: 1 }}
-              animate={{ scale: reduceMotion ? 1 : 1.06 }}
-              transition={{ duration: 8.5, ease: 'linear' }}
-              className="h-full w-full object-cover will-change-transform"
-            />
+            <img src={SLIDES[slide].src} alt={SLIDES[slide].alt} className="h-full w-full object-cover" />
           </m.div>
         </AnimatePresence>
 
