@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { motion, AnimatePresence, animate, useMotionValue, useReducedMotion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
-import MotionDrumGallery from '../components/MotionDrumGallery';
+import MotionDrumGallery, { PANEL_SIZES, type DrumPhoto } from '../components/MotionDrumGallery';
 import { useSectionNav } from '../lib/useSectionNav';
-import { useLenis } from '../lib/useLenis';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 type Category = 'Weddings' | 'Corporate' | 'Celebrations' | 'Production';
@@ -113,6 +112,17 @@ const photos: Photo[] = [
   { src: '/media/gallery/detail-9.webp', alt: 'Real floral décor styling by Baraka Events, Lahore — look 3', category: 'Production', tags: ['Event Details', 'Event Decoration'], w: 810, h: 1080 },
 ];
 
+// Every photo wider than 720px also ships a 640px variant
+// (scripts/generate-gallery-variants.mjs) so the drum fetches and decodes
+// roughly the size it paints — the centre panel is ~576px on a DPR-1 desktop.
+// The lightbox keeps using the full-size `src`.
+const HAS_VARIANT_MIN_WIDTH = 720;
+function toDrumPhoto(p: Photo): DrumPhoto & { tags: FilterTag[] } {
+  const srcSet = p.w > HAS_VARIANT_MIN_WIDTH ? `${p.src.replace(/\.webp$/, '-640.webp')} 640w, ${p.src} ${p.w}w` : undefined;
+  return { src: p.src, alt: p.alt, category: p.category, tags: p.tags, srcSet };
+}
+const drumPhotos = photos.map(toDrumPhoto);
+
 function wrapIndex(i: number, length: number) {
   return ((i % length) + length) % length;
 }
@@ -188,82 +198,168 @@ function Lightbox({ items, index, onClose, onNav }: { items: LightboxPhoto[]; in
   );
 }
 
+
+type FilterKey = (typeof FILTERS)[number];
+
+const OUT_EASE: [number, number, number, number] = [0.4, 0, 1, 1];
+const IN_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const OUT_MS = 220;
+const IN_MS = 420;
+const PRELOAD_CAP_MS = 240; // never hold the swap longer than this waiting on decodes
+
+/** Kick off fetch+decode for exactly the frames that will be live the moment
+ *  a category fades in: the first `n`, plus the three that wrap in from the
+ *  far end of the ring on the left (the drum's live window is ±3 around the
+ *  centre). Cached by the browser, so calling it on hover and again on click
+ *  costs nothing the second time. */
+function preloadEntry(list: DrumPhoto[], n: number) {
+  const picks = list.slice(0, n);
+  if (list.length > n + 3) picks.push(list[list.length - 1], list[list.length - 2], list[list.length - 3]);
+  return Promise.all(
+    picks.map((p) => {
+      const img = new Image();
+      img.decoding = 'async';
+      if (p.srcSet) {
+        img.sizes = PANEL_SIZES;
+        img.srcset = p.srcSet;
+      }
+      img.src = p.src;
+      return img.decode().catch(() => undefined);
+    })
+  );
+}
+
 /**
- * Pill row for the filter taxonomy above. Deliberately plain
- * opacity/color transitions on the pills themselves — no slide, no tab
- * indicator animation — so nothing here competes with or resembles the
- * drum's own transform-driven motion language.
+ * Typographic filter nav — one editorial line, items separated by a dot,
+ * the active one in champagne with a hairline underneath. Wraps to a second
+ * line only below the width where all eleven fit; on phones it becomes a
+ * single controlled horizontal scroll with fade masks (never page overflow).
+ * Deliberately no sliding indicator or layout animation so nothing here
+ * competes with the drum's own motion.
  */
-function FilterBar({
-  active,
-  onSelect,
-}: {
-  active: (typeof FILTERS)[number];
-  onSelect: (tag: (typeof FILTERS)[number]) => void;
-}) {
+function FilterNav({ active, onSelect, onWarm }: { active: FilterKey; onSelect: (tag: FilterKey) => void; onWarm: (tag: FilterKey) => void }) {
+  const activeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
+  }, [active]);
+
   return (
-    <div role="tablist" aria-label="Filter gallery by event category" className="flex flex-wrap gap-2 md:gap-2.5">
-      {FILTERS.map((tag) => {
-        const isActive = tag === active;
-        return (
-          <button
-            key={tag}
-            type="button"
-            role="tab"
-            aria-selected={isActive}
-            onClick={() => onSelect(tag)}
-            className={`flex min-h-[44px] shrink-0 items-center rounded-full border px-4 py-2.5 text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
-              isActive
-                ? 'border-champagne bg-champagne text-ink'
-                : 'border-champagne/20 text-mist-dim hover:border-champagne/50 hover:text-champagne'
-            }`}
-          >
-            {tag}
-          </button>
-        );
-      })}
-    </div>
+    <nav aria-label="Filter gallery by event category" className="relative -mx-6 md:mx-0">
+      <div role="tablist" className="scrollbar-none flex items-center overflow-x-auto px-6 md:flex-wrap md:overflow-visible md:px-0">
+        {FILTERS.map((tag, i) => {
+          const isActive = tag === active;
+          return (
+            <Fragment key={tag}>
+              {i > 0 && <span aria-hidden className="mx-2.5 h-[3px] w-[3px] shrink-0 rounded-full bg-champagne/35 md:mx-3.5" />}
+              <button
+                ref={isActive ? activeRef : undefined}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => onSelect(tag)}
+                onPointerEnter={() => onWarm(tag)}
+                onFocus={() => onWarm(tag)}
+                className={`relative flex h-11 shrink-0 items-center whitespace-nowrap text-[10px] uppercase tracking-[0.22em] transition-colors duration-300 md:text-[11px] ${
+                  isActive ? 'text-champagne' : 'text-mist-dim hover:text-ivory'
+                }`}
+              >
+                {tag}
+                <span
+                  aria-hidden
+                  className={`absolute inset-x-0 bottom-2 h-px bg-champagne transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+                />
+              </button>
+            </Fragment>
+          );
+        })}
+      </div>
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-ink to-ink/0 md:hidden" />
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-ink to-ink/0 md:hidden" />
+    </nav>
   );
 }
 
 export default function GalleryPage() {
   const sectionNav = useSectionNav();
-  const lenis = useLenis();
+  const reduceMotion = useReducedMotion() ?? false;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState<(typeof FILTERS)[number]>('All');
-  const drumAnchorRef = useRef<HTMLDivElement>(null);
+  // `active` is what the nav highlights (updates on the click, instantly);
+  // `displayed` is what the stage is showing, and only changes once the
+  // outgoing set has faded out.
+  const [active, setActive] = useState<FilterKey>('All');
+  const [displayed, setDisplayed] = useState<FilterKey>('All');
+  const stageOpacity = useMotionValue(1);
+  const stageScale = useMotionValue(1);
+  const transitionSeq = useRef(0);
+  const pendingIn = useRef(false);
 
-  // 'All' and the broad 'Weddings' filter keep every photo's own native
-  // `category` untouched, so the drum's crossfading label behaves exactly
-  // as it always has. A specific sub-filter (Mehndi, Baraat, Corporate...)
-  // overrides `category` on just the filtered subset passed to the drum, so
-  // that same unmodified label mechanism reads e.g. "MEHNDI" instead of the
-  // broader "WEDDINGS" it was grouped under — still one continuous run of
-  // one label, the exact case the crossfade code already handles natively.
-  const visiblePhotos = useMemo(() => {
-    if (activeFilter === 'All') return photos;
-    const filtered = photos.filter((p) => p.tags.includes(activeFilter));
-    if (activeFilter === 'Weddings') return filtered;
-    return filtered.map((p) => ({ ...p, category: activeFilter }));
-  }, [activeFilter]);
-
-  // Scroll back to the top of the drum first, then swap the photo list once
-  // that settles — the drum remounts (key={activeFilter}) at scroll
-  // position ~0 and its own existing reveal animation (panels fading in as
-  // they enter the visible range) plays exactly as it does on first load.
-  // No new transition system, just re-entering the current one.
-  function handleFilterSelect(tag: (typeof FILTERS)[number]) {
-    if (tag === activeFilter) return;
-    const anchor = drumAnchorRef.current;
-    if (anchor && lenis) {
-      lenis.scrollTo(anchor, { duration: 0.9, onComplete: () => setActiveFilter(tag) });
-    } else if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveFilter(tag);
-    } else {
-      setActiveFilter(tag);
+  // Every filter's photo list, computed once. 'All' and the broad
+  // 'Weddings' filter keep each photo's own native `category` so the drum's
+  // crossfading label behaves exactly as before; a specific sub-filter
+  // overrides `category` on just its subset so that same label mechanism
+  // reads e.g. "MEHNDI" rather than the broader "WEDDINGS".
+  const photosByFilter = useMemo(() => {
+    const map = new Map<FilterKey, DrumPhoto[]>();
+    for (const f of FILTERS) {
+      if (f === 'All') map.set(f, drumPhotos);
+      else {
+        const filtered = drumPhotos.filter((p) => p.tags.includes(f));
+        map.set(f, f === 'Weddings' ? filtered : filtered.map((p) => ({ ...p, category: f })));
+      }
     }
-  }
+    return map;
+  }, []);
+  const displayedPhotos = photosByFilter.get(displayed) ?? drumPhotos;
+
+  const warm = useCallback((tag: FilterKey) => {
+    if (tag === displayed) return;
+    void preloadEntry(photosByFilter.get(tag) ?? [], 3);
+  }, [displayed, photosByFilter]);
+
+  // Click → the stage begins fading out on that same frame → the incoming
+  // set's first frames are decoded in parallel → swap while invisible →
+  // fade back in. One continuous ~640ms transition with no blank hold; a
+  // newer click simply supersedes an in-flight one at whatever opacity it
+  // has reached.
+  const selectFilter = useCallback(
+    (tag: FilterKey) => {
+      if (tag === active) return;
+      setActive(tag);
+      setLightboxIndex(null);
+      const seq = ++transitionSeq.current;
+      const next = photosByFilter.get(tag) ?? [];
+
+      if (reduceMotion) {
+        setDisplayed(tag);
+        return;
+      }
+
+      const decoded = preloadEntry(next, 4);
+      const wait = new Promise<void>((r) => window.setTimeout(r, PRELOAD_CAP_MS));
+      const out = animate(stageOpacity, 0, { duration: OUT_MS / 1000, ease: OUT_EASE });
+      animate(stageScale, 0.985, { duration: OUT_MS / 1000, ease: OUT_EASE });
+
+      void Promise.all([out.finished, Promise.race([decoded, wait])])
+        .then(() => {
+          if (seq !== transitionSeq.current) return;
+          stageScale.jump(1.015);
+          pendingIn.current = true;
+          setDisplayed(tag);
+        })
+        .catch(() => undefined); // an interrupted fade-out is simply superseded
+    },
+    [active, photosByFilter, reduceMotion, stageOpacity, stageScale]
+  );
+
+  // The fade-in starts only after React has committed the new photo set,
+  // so the first frame the visitor sees is the finished layout.
+  useEffect(() => {
+    if (!pendingIn.current) return;
+    pendingIn.current = false;
+    animate(stageOpacity, 1, { duration: IN_MS / 1000, ease: IN_EASE });
+    animate(stageScale, 1, { duration: IN_MS / 1000, ease: IN_EASE });
+  }, [displayed, stageOpacity, stageScale]);
 
   useSEO({
     title: 'Event Gallery — Wedding, Mehndi, Baraat & Corporate Event Photos in Lahore | Baraka Events',
@@ -287,26 +383,32 @@ export default function GalleryPage() {
 
   return (
     <main className="bg-ink">
-      {/* header */}
-      <section className="relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20">
+      {/* header + filters: same max-width container as the fixed navbar
+          (Navbar.tsx, max-w-[1400px]) so the logo, the title and the filter
+          line share one left edge; top padding clears the unscrolled bar
+          without the old half-viewport of dark space above the media */}
+      <section className="relative overflow-hidden pt-28 pb-4 md:pt-32 md:pb-5">
+        {/* `closest-side` keeps the glow fully faded inside its own 300px
+            box, so the now-compact header never clips it into a visible
+            horizontal edge above the stage */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.16) 0%, transparent 65%)' }}
+          className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[900px] -translate-x-1/2"
+          style={{ background: 'radial-gradient(closest-side, rgba(230,197,138,0.16), transparent)' }}
         />
-        <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
+            className="mb-3 text-[11px] uppercase tracking-[0.3em] text-champagne"
           >
             Gallery
           </motion.p>
           <RevealText
             as="h1"
             text="Real events, produced by Baraka."
-            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
+            className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-6xl"
             highlightWords={[0, 1]}
             highlightClass="accent-serif"
           />
@@ -314,44 +416,35 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
+            className="mt-3 max-w-4xl text-sm font-light leading-relaxed text-mist md:text-[15px]"
           >
-            Every photograph here is from our own production archive — weddings, mehndi
-            and baraat nights, corporate work and private celebrations across Lahore.
-            Scroll to move through the work; click any frame for a full-screen view.
+            Our own production archive across Lahore. Drag or use the arrows to browse; click the
+            centre frame to view full-screen.
           </motion.p>
 
-          <div className="mt-8">
-            <FilterBar active={activeFilter} onSelect={handleFilterSelect} />
+          <div className="mt-5 md:mt-6">
+            <FilterNav active={active} onSelect={selectFilter} onWarm={warm} />
           </div>
         </div>
       </section>
 
-      {/* scroll-pinned drum: one continuous scroll through whichever photos
-          the active filter leaves visible, grouped by the drum's own
-          internal category (Weddings, Corporate, Celebrations, Production),
-          with the category label crossfading as you pass into the next
-          group — see MotionDrumGallery for the interaction model, which is
-          completely unmodified by the filter bar above. `key={activeFilter}`
-          remounts the drum fresh on every filter change so its internal
-          scroll-position state can't end up pointing at an index that no
-          longer exists in a shorter filtered list. */}
-      <div ref={drumAnchorRef}>
-        {visiblePhotos.length === 0 ? (
-          <div className="mx-auto max-w-[1200px] px-6 py-32 text-center md:px-10">
-            <p className="text-sm font-light leading-relaxed text-mist-dim">
-              No {activeFilter} photos in the archive yet — check back soon, or browse another category.
-            </p>
-          </div>
-        ) : (
-          <MotionDrumGallery key={activeFilter} photos={visiblePhotos} onOpen={setLightboxIndex} />
-        )}
-      </div>
+      {/* the drum stays mounted across filter changes; only its photo list
+          swaps, inside this opacity/scale crossfade. will-change promotes the
+          section to its own compositor layer so the ±1.5% scale is applied
+          to the already-rasterised layer — without it Chrome re-rasters (and
+          re-decodes) every visible photo on every frame of the scale;
+          traced: 52 decodes per switch for 3 new images. */}
+      <motion.section
+        style={{ opacity: stageOpacity, scale: stageScale, willChange: 'transform, opacity' }}
+        className="relative mt-1 md:mt-2"
+      >
+        <MotionDrumGallery photos={displayedPhotos} onOpen={setLightboxIndex} />
+      </motion.section>
 
       <AnimatePresence>
         {lightboxIndex !== null && (
           <Lightbox
-            items={visiblePhotos}
+            items={displayedPhotos}
             index={lightboxIndex}
             onClose={() => setLightboxIndex(null)}
             onNav={setLightboxIndex}
@@ -360,8 +453,8 @@ export default function GalleryPage() {
       </AnimatePresence>
 
       {/* CTA */}
-      <section className="border-t border-champagne/10 bg-ink-2/40 py-24 text-center md:py-32">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <section className="mt-14 border-t border-champagne/10 bg-ink-2/40 py-20 text-center md:mt-20 md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <RevealText
             as="h2"
             text="Like what you see? Let's design yours."

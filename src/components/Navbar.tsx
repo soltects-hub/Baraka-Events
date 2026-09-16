@@ -153,19 +153,19 @@ export default function Navbar() {
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); go('/'); }}
-            className="flex items-center gap-3"
+            className="flex shrink-0 items-center gap-3"
           >
             <img
               src="/media/logo.png"
               alt="Baraka Events logo"
               className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'}`}
             />
-            <span className="hidden font-display text-xl tracking-[0.18em] text-cream sm:block lg:hidden xl:block">
+            <span className="hidden font-display text-xl tracking-[0.18em] text-cream sm:block lg:hidden 2xl:block">
               BARAKA<span className="text-champagne">.</span>
             </span>
           </a>
 
-          <nav className="hidden items-center gap-4 lg:flex xl:gap-7">
+          <nav className="hidden items-center gap-2.5 lg:flex xl:gap-4 2xl:gap-7">
             {links.map((l) =>
               l.label === 'Services' ? (
                 <div
@@ -186,7 +186,7 @@ export default function Navbar() {
                     onFocus={openServices}
                     aria-expanded={servicesOpen}
                     aria-haspopup="true"
-                    className="gold-underline flex items-center gap-1.5 whitespace-nowrap text-[12px] uppercase tracking-[0.18em] text-mist transition-colors duration-300 hover:text-ivory xl:text-[13px] xl:tracking-[0.22em]"
+                    className="gold-underline flex items-center gap-1.5 whitespace-nowrap text-[12px] uppercase tracking-[0.12em] text-mist transition-colors duration-300 hover:text-ivory xl:tracking-[0.18em] 2xl:text-[13px] 2xl:tracking-[0.22em]"
                   >
                     {l.label}
                     <m.svg
@@ -206,7 +206,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href.startsWith('#') ? '/' + l.href : l.href}
                   onClick={(e) => { e.preventDefault(); go(l.href); }}
-                  className="gold-underline whitespace-nowrap text-[12px] uppercase tracking-[0.18em] text-mist transition-colors duration-300 hover:text-ivory xl:text-[13px] xl:tracking-[0.22em]"
+                  className="gold-underline whitespace-nowrap text-[12px] uppercase tracking-[0.12em] text-mist transition-colors duration-300 hover:text-ivory xl:tracking-[0.18em] 2xl:text-[13px] 2xl:tracking-[0.22em]"
                 >
                   {l.label}
                 </a>
