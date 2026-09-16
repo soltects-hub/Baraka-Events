@@ -2,8 +2,8 @@ import { useRef, useState, type MouseEvent as ReactMouseEvent, type TouchEvent a
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
-const BEFORE_IMAGE = '/media/setup-before.webp';
-const AFTER_IMAGE = '/media/setup-after.webp';
+const BEFORE_IMAGE = '/media/corporate-transformation-before.webp';
+const AFTER_IMAGE = '/media/corporate-transformation-after.webp';
 
 /**
  * Hover-mask before/after: the "before" shot is the base layer, and the
@@ -135,7 +135,7 @@ export default function DollyZoom() {
               {/* BEFORE — base layer, always visible */}
               <img
                 src={BEFORE_IMAGE}
-                alt="The same stage empty, before setup begins"
+                alt="Empty hotel ballroom with crystal chandeliers, before setup begins"
                 draggable={false}
                 loading="lazy"
                 className="pointer-events-none absolute inset-0 h-full w-full object-cover"
@@ -149,7 +149,7 @@ export default function DollyZoom() {
               >
                 <img
                   src={AFTER_IMAGE}
-                  alt="Event stage fully produced, with lighting, décor and table settings"
+                  alt="Same ballroom fully produced for a corporate product launch, with stage, lighting and table settings"
                   draggable={false}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
