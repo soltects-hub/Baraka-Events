@@ -1,198 +1,172 @@
-import { useEffect, useMemo, useState } from 'react';
-import { motion, AnimatePresence, type PanInfo } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
-const categories = ['All', 'Weddings', 'Corporate & Live', 'Private', 'Design Concepts'] as const;
+const categories = ['All', 'Weddings', 'Corporate', 'Celebrations', 'Production'] as const;
 
-const photos: { src: string; alt: string; category: (typeof categories)[number] }[] = [
-  { src: '/media/gallery-1.webp', alt: 'Nikkah stage florals at a wedding decoration setup in Lahore', category: 'Weddings' },
-  { src: '/media/gallery-2.webp', alt: 'Ivory and gold wedding cake with mithai display, Lahore wedding decor', category: 'Weddings' },
-  { src: '/media/gallery-6.webp', alt: 'Dhol drummers leading a baraat procession at a Lahore shaadi', category: 'Weddings' },
-  { src: '/media/wedding-1.webp', alt: 'Nikkah stage with candlelight, wedding planner Lahore', category: 'Weddings' },
-  { src: '/media/gallery-5.webp', alt: 'Marigold and jasmine garlands, mehndi decoration Lahore', category: 'Weddings' },
-  { src: '/media/private-1.webp', alt: 'Mehndi night dancing and celebration, Mehndi event planner Lahore', category: 'Weddings' },
-  { src: '/media/wedding-2.webp', alt: 'Bride and groom on a wedding stage in Lahore', category: 'Weddings' },
-  { src: '/media/gallery-3.webp', alt: 'Fireworks over a grand Pakistani shaadi celebration in Lahore', category: 'Weddings' },
-  { src: '/media/about.jpg', alt: 'Henna-decorated hands arranging a marigold garland for a wedding', category: 'Weddings' },
-  { src: '/media/portfolio-1.webp', alt: 'Grand wedding reception in a historic Lahore haveli courtyard', category: 'Weddings' },
-  { src: '/media/showcase-1.webp', alt: 'Full-scale concert-grade stage and lighting rig, live event management Lahore', category: 'Corporate & Live' },
-  { src: '/media/showcase-2.webp', alt: 'Conference floor seating and sightlines for 1,200 delegates', category: 'Corporate & Live' },
-  { src: '/media/showcase-3.webp', alt: 'Live sound direction and audio engineering for a corporate event', category: 'Corporate & Live' },
-  { src: '/media/showcase-4.webp', alt: 'Corporate gala floor with choreographed intelligent lighting', category: 'Corporate & Live' },
-  { src: '/media/showcase-5.webp', alt: 'Five-star hospitality reception service at a corporate event in Lahore', category: 'Corporate & Live' },
-  { src: '/media/showcase-6.webp', alt: 'Certified rigging and truss for a live event production', category: 'Corporate & Live' },
-  { src: '/media/corporate-1.webp', alt: 'Corporate event management stage set in Lahore', category: 'Corporate & Live' },
-  { src: '/media/portfolio-2.webp', alt: 'Corporate product launch on stage at Expo Centre Lahore', category: 'Corporate & Live' },
-  { src: '/media/portfolio-4.webp', alt: 'Corporate awards dinner in a Gulberg grand ballroom', category: 'Corporate & Live' },
-  { src: '/media/rooftop-birthday.webp', alt: 'Private rooftop birthday celebration in the Walled City, Lahore', category: 'Private' },
-  { src: '/media/design-1.webp', alt: 'Keynote conference stage concept render, 3D event design Lahore', category: 'Design Concepts' },
-  { src: '/media/design-2.webp', alt: 'Corporate dinner concept render with suspended light rings', category: 'Design Concepts' },
-  { src: '/media/design-3.webp', alt: 'Product reveal stage concept render with curved LED wall', category: 'Design Concepts' },
+interface Photo {
+  src: string;
+  alt: string;
+  category: (typeof categories)[number];
+  w: number;
+  h: number;
+}
+
+// Every photo below is real Baraka Events production photography (from the
+// team's own event archive — weddings, corporate work and private
+// celebrations shot on-site, not stock or AI-generated). Natural aspect
+// ratios are kept (w/h) instead of a forced crop, which is what gives the
+// masonry its large/small rhythm — a true editorial grid, not a uniform
+// square grid dressed up.
+const photos: Photo[] = [
+  { src: '/media/gallery/wedding-1.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore', category: 'Weddings', w: 1043, h: 1043 },
+  { src: '/media/gallery/wedding-2.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 640, h: 800 },
+  { src: '/media/gallery/wedding-3.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 640, h: 800 },
+  { src: '/media/gallery/wedding-4.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 4', category: 'Weddings', w: 970, h: 1200 },
+  { src: '/media/gallery/wedding-5.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 5', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-6.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 6', category: 'Weddings', w: 900, h: 1200 },
+  { src: '/media/gallery/wedding-7.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 7', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-8.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore', category: 'Weddings', w: 1200, h: 560 },
+  { src: '/media/gallery/wedding-9.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 1200, h: 560 },
+  { src: '/media/gallery/wedding-10.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 560, h: 1200 },
+  { src: '/media/gallery/wedding-11.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 4', category: 'Weddings', w: 864, h: 1080 },
+  { src: '/media/gallery/wedding-12.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 5', category: 'Weddings', w: 1200, h: 560 },
+  { src: '/media/gallery/wedding-13.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 6', category: 'Weddings', w: 1200, h: 560 },
+  { src: '/media/gallery/wedding-14.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 7', category: 'Weddings', w: 994, h: 1200 },
+  { src: '/media/gallery/wedding-15.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-16.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 1200, h: 905 },
+  { src: '/media/gallery/wedding-17.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 1200, h: 1200 },
+  { src: '/media/gallery/wedding-18.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 4', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-19.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 5', category: 'Weddings', w: 1200, h: 905 },
+  { src: '/media/gallery/wedding-20.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 6', category: 'Weddings', w: 1200, h: 900 },
+  { src: '/media/gallery/wedding-21.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 7', category: 'Weddings', w: 1200, h: 905 },
+  { src: '/media/gallery/wedding-22.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-23.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 1080, h: 801 },
+  { src: '/media/gallery/wedding-24.webp', alt: 'Real walima reception stage and décor produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-25.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore', category: 'Weddings', w: 1080, h: 1080 },
+  { src: '/media/gallery/wedding-26.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 720, h: 891 },
+  { src: '/media/gallery/wedding-27.webp', alt: 'Real baraat stage setup produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 1080, h: 486 },
+  { src: '/media/gallery/wedding-28.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore', category: 'Weddings', w: 810, h: 1014 },
+  { src: '/media/gallery/wedding-29.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 960, h: 1200 },
+  { src: '/media/gallery/wedding-30.webp', alt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 1200, h: 902 },
+  { src: '/media/gallery/wedding-31.webp', alt: 'Real farmhouse wedding setup produced by Baraka Events, Lahore', category: 'Weddings', w: 735, h: 985 },
+  { src: '/media/gallery/wedding-32.webp', alt: 'Real farmhouse wedding setup produced by Baraka Events, Lahore — look 2', category: 'Weddings', w: 736, h: 981 },
+  { src: '/media/gallery/wedding-33.webp', alt: 'Real farmhouse wedding setup produced by Baraka Events, Lahore — look 3', category: 'Weddings', w: 540, h: 960 },
+  { src: '/media/gallery/celebration-1.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore', category: 'Celebrations', w: 864, h: 1080 },
+  { src: '/media/gallery/celebration-2.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 2', category: 'Celebrations', w: 960, h: 1200 },
+  { src: '/media/gallery/celebration-3.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 3', category: 'Celebrations', w: 1080, h: 1080 },
+  { src: '/media/gallery/celebration-4.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 4', category: 'Celebrations', w: 960, h: 1200 },
+  { src: '/media/gallery/celebration-5.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 5', category: 'Celebrations', w: 854, h: 570 },
+  { src: '/media/gallery/celebration-6.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 6', category: 'Celebrations', w: 1200, h: 1038 },
+  { src: '/media/gallery/celebration-7.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 7', category: 'Celebrations', w: 960, h: 1200 },
+  { src: '/media/gallery/celebration-8.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 8', category: 'Celebrations', w: 853, h: 569 },
+  { src: '/media/gallery/celebration-9.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 9', category: 'Celebrations', w: 960, h: 1200 },
+  { src: '/media/gallery/celebration-10.webp', alt: 'Real birthday celebration décor produced by Baraka Events, Lahore — look 10', category: 'Celebrations', w: 854, h: 570 },
+  { src: '/media/gallery/celebration-11.webp', alt: 'Real bridal shower setup produced by Baraka Events, Lahore', category: 'Celebrations', w: 735, h: 919 },
+  { src: '/media/gallery/celebration-12.webp', alt: 'Real bridal shower setup produced by Baraka Events, Lahore — look 2', category: 'Celebrations', w: 670, h: 1200 },
+  { src: '/media/gallery/celebration-13.webp', alt: 'Real bridal shower setup produced by Baraka Events, Lahore — look 3', category: 'Celebrations', w: 675, h: 1200 },
+  { src: '/media/gallery/celebration-14.webp', alt: 'Real private celebration décor produced by Baraka Events, Lahore', category: 'Celebrations', w: 960, h: 1200 },
+  { src: '/media/gallery/celebration-15.webp', alt: 'Real private celebration décor produced by Baraka Events, Lahore — look 2', category: 'Celebrations', w: 480, h: 600 },
+  { src: '/media/gallery/celebration-16.webp', alt: 'Real private celebration décor produced by Baraka Events, Lahore — look 3', category: 'Celebrations', w: 960, h: 1200 },
+  { src: '/media/gallery/celebration-17.webp', alt: 'Real mehfil-e-milad stage setup produced by Baraka Events, Lahore', category: 'Celebrations', w: 900, h: 1200 },
+  { src: '/media/gallery/celebration-18.webp', alt: 'Real mehfil-e-milad stage setup produced by Baraka Events, Lahore — look 2', category: 'Celebrations', w: 675, h: 1200 },
+  { src: '/media/gallery/corporate-1.webp', alt: 'Real corporate event production by Baraka Events, Lahore', category: 'Corporate', w: 1200, h: 900 },
+  { src: '/media/gallery/corporate-2.webp', alt: 'Real corporate event production by Baraka Events, Lahore — look 2', category: 'Corporate', w: 1200, h: 675 },
+  { src: '/media/gallery/corporate-3.webp', alt: 'Real corporate event production by Baraka Events, Lahore — look 3', category: 'Corporate', w: 1200, h: 675 },
+  { src: '/media/gallery/corporate-4.webp', alt: 'Real corporate event production by Baraka Events, Lahore — look 4', category: 'Corporate', w: 1200, h: 540 },
+  { src: '/media/gallery/corporate-5.webp', alt: 'Large-scale public event lighting production by Baraka Events, Lahore', category: 'Corporate', w: 1200, h: 900 },
+  { src: '/media/gallery/corporate-6.webp', alt: 'Large-scale public event lighting production by Baraka Events, Lahore — look 2', category: 'Corporate', w: 1200, h: 900 },
+  { src: '/media/gallery/corporate-7.webp', alt: 'Large-scale public event lighting production by Baraka Events, Lahore — look 3', category: 'Corporate', w: 1200, h: 900 },
+  { src: '/media/gallery/detail-1.webp', alt: 'Real catering and tableware styling by Baraka Events, Lahore', category: 'Production', w: 675, h: 1200 },
+  { src: '/media/gallery/detail-2.webp', alt: 'Real catering and tableware styling by Baraka Events, Lahore — look 2', category: 'Production', w: 736, h: 981 },
+  { src: '/media/gallery/detail-3.webp', alt: 'Real qawali night stage and lighting produced by Baraka Events, Lahore', category: 'Production', w: 900, h: 1200 },
+  { src: '/media/gallery/detail-4.webp', alt: 'Real qawali night stage and lighting produced by Baraka Events, Lahore — look 2', category: 'Production', w: 750, h: 929 },
+  { src: '/media/gallery/detail-5.webp', alt: 'Real qawali night stage and lighting produced by Baraka Events, Lahore — look 3', category: 'Production', w: 675, h: 1200 },
+  { src: '/media/gallery/detail-6.webp', alt: 'Real qawali night stage and lighting produced by Baraka Events, Lahore — look 4', category: 'Production', w: 736, h: 981 },
+  { src: '/media/gallery/detail-7.webp', alt: 'Real floral décor styling by Baraka Events, Lahore', category: 'Production', w: 1080, h: 924 },
+  { src: '/media/gallery/detail-8.webp', alt: 'Real floral décor styling by Baraka Events, Lahore — look 2', category: 'Production', w: 1200, h: 600 },
+  { src: '/media/gallery/detail-9.webp', alt: 'Real floral décor styling by Baraka Events, Lahore — look 3', category: 'Production', w: 810, h: 1080 },
 ];
-
-// How many cards to render on each side of the centered one
-const WINDOW = 2;
 
 function wrapIndex(i: number, length: number) {
   return ((i % length) + length) % length;
 }
 
-interface CarouselPhoto {
-  src: string;
-  alt: string;
-}
-
-function Carousel3D({ items }: { items: CarouselPhoto[] }) {
-  const [active, setActive] = useState(0);
-  const [lightbox, setLightbox] = useState<CarouselPhoto | null>(null);
-
-  const next = () => setActive((i) => wrapIndex(i + 1, items.length));
-  const prev = () => setActive((i) => wrapIndex(i - 1, items.length));
+function Lightbox({ items, index, onClose, onNav }: { items: Photo[]; index: number; onClose: () => void; onNav: (i: number) => void }) {
+  const photo = items[index];
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') onNav(wrapIndex(index + 1, items.length));
+      if (e.key === 'ArrowLeft') onNav(wrapIndex(index - 1, items.length));
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [items.length]);
-
-  const handleDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.x < -60) next();
-    else if (info.offset.x > 60) prev();
-  };
-
-  const slots = useMemo(() => {
-    if (items.length === 0) return [];
-    const out: { offset: number; photo: CarouselPhoto }[] = [];
-    const span = Math.min(WINDOW, Math.floor((items.length - 1) / 2) || 0);
-    for (let offset = -span; offset <= span; offset++) {
-      out.push({ offset, photo: items[wrapIndex(active + offset, items.length)] });
-    }
-    return out;
-  }, [active, items]);
-
-  if (items.length === 0) return null;
+  }, [index, items.length, onClose, onNav]);
 
   return (
-    <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-      <div
-        className="relative mx-auto h-[320px] select-none sm:h-[380px] md:h-[460px]"
-        style={{ perspective: 1400 }}
-      >
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.15}
-          onDragEnd={handleDragEnd}
-          className="absolute inset-0 cursor-grab active:cursor-grabbing"
-          style={{ transformStyle: 'preserve-3d' }}
-        >
-          <AnimatePresence initial={false}>
-            {slots.map(({ offset, photo }) => {
-              const abs = Math.abs(offset);
-              const isCenter = offset === 0;
-              return (
-                <motion.div
-                  key={photo.src}
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1 - abs * 0.32,
-                    x: `${offset * 56}%`,
-                    scale: isCenter ? 1 : 1 - abs * 0.16,
-                    rotateY: offset * -28,
-                    zIndex: 10 - abs,
-                  }}
-                  exit={{ opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 260, damping: 30 }}
-                  className="absolute left-1/2 top-1/2 w-[58%] -translate-x-1/2 -translate-y-1/2 sm:w-[42%] md:w-[30%]"
-                  onClick={() => (isCenter ? setLightbox(photo) : setActive(wrapIndex(active + offset, items.length)))}
-                >
-                  <div
-                    className={`aspect-[4/5] overflow-hidden rounded-sm border shadow-2xl shadow-black/60 transition-colors duration-300 ${
-                      isCenter ? 'border-champagne/50 cursor-zoom-in' : 'border-champagne/12 cursor-pointer'
-                    }`}
-                  >
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      draggable={false}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* nav arrows */}
-        <button
-          onClick={prev}
-          aria-label="Previous photo"
-          className="absolute left-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne sm:left-2 md:left-6"
-        >
-          &#10094;
-        </button>
-        <button
-          onClick={next}
-          aria-label="Next photo"
-          className="absolute right-0 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne sm:right-2 md:right-6"
-        >
-          &#10095;
-        </button>
-      </div>
-
-      <div className="mt-8 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
-        <span className="text-champagne">{String(active + 1).padStart(2, '0')}</span>
-        <span className="h-[1px] w-10 bg-champagne/15" />
-        <span>{String(items.length).padStart(2, '0')}</span>
-      </div>
-
-      {/* lightbox */}
-      <AnimatePresence>
-        {lightbox && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[200] flex cursor-zoom-out items-center justify-center bg-ink/95 p-6"
-          >
-            <motion.img
-              initial={{ scale: 0.94 }}
-              animate={{ scale: 1 }}
-              src={lightbox.src}
-              alt={lightbox.alt}
-              className="max-h-[85vh] max-w-full rounded-sm object-contain"
-            />
-            <button
-              onClick={() => setLightbox(null)}
-              aria-label="Close"
-              className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream"
-            >
-              &#10005;
-            </button>
-          </motion.div>
-        )}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 z-[200] flex cursor-zoom-out items-center justify-center bg-ink/95 p-6"
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={photo.src}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          src={photo.src}
+          alt={photo.alt}
+          onClick={(e) => e.stopPropagation()}
+          className="max-h-[85vh] max-w-full cursor-default rounded-sm object-contain"
+        />
       </AnimatePresence>
-    </div>
+
+      <button
+        onClick={(e) => { e.stopPropagation(); onNav(wrapIndex(index - 1, items.length)); }}
+        aria-label="Previous photo"
+        className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne md:left-8"
+      >
+        &#10094;
+      </button>
+      <button
+        onClick={(e) => { e.stopPropagation(); onNav(wrapIndex(index + 1, items.length)); }}
+        aria-label="Next photo"
+        className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream transition-colors hover:border-champagne hover:text-champagne md:right-8"
+      >
+        &#10095;
+      </button>
+      <button
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink/75 text-cream md:right-6 md:top-6"
+      >
+        &#10005;
+      </button>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[11px] uppercase tracking-[0.25em] text-mist-dim">
+        {String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+      </div>
+    </motion.div>
   );
 }
 
 export default function GalleryPage() {
   const sectionNav = useSectionNav();
   const [active, setActiveCategory] = useState<(typeof categories)[number]>('All');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   useSEO({
-    title: 'Event Gallery — Wedding Decoration & Corporate Event Photos in Lahore | Baraka Events',
+    title: 'Event Gallery — Wedding, Mehndi, Baraat & Corporate Event Photos in Lahore | Baraka Events',
     description:
-      'Browse Baraka Events gallery of wedding decoration, mehndi and baraat celebrations, corporate event production and private parties across Lahore.',
+      'Real wedding, mehndi, baraat, walima, corporate and private celebration photography from Baraka Events — our own production archive across Lahore.',
     canonical: routes.gallery,
   });
 
@@ -217,8 +191,8 @@ export default function GalleryPage() {
       <section className="relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full opacity-15 blur-[130px]"
-          style={{ background: 'radial-gradient(circle, #ff960b 0%, transparent 65%)' }}
+          className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.16) 0%, transparent 65%)' }}
         />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <motion.p
@@ -231,8 +205,10 @@ export default function GalleryPage() {
           </motion.p>
           <RevealText
             as="h1"
-            text="Wedding decoration and event production, in frame."
+            text="Real events, produced by Baraka."
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
+            highlightWords={[0, 1]}
+            highlightClass="accent-serif"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -240,9 +216,9 @@ export default function GalleryPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            A visual record of Baraka Events&rsquo; wedding decoration, mehndi styling,
-            corporate production and private celebrations across Lahore &mdash; drag,
-            click an arrow, or use the side covers to browse each category.
+            Every photograph here is from our own production archive — weddings, mehndi
+            and baraat nights, corporate work and private celebrations across Lahore.
+            Click any photo for a full-screen view.
           </motion.p>
         </div>
       </section>
@@ -254,11 +230,11 @@ export default function GalleryPage() {
             <button
               key={c}
               onClick={() => setActiveCategory(c)}
-              className={`rounded-full border px-5 py-2 text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+              className={
                 active === c
-                  ? 'border-gold bg-gold text-ink'
-                  : 'border-champagne/15 text-mist-dim hover:border-champagne/50 hover:text-champagne'
-              }`}
+                  ? 'btn-flame rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.2em]'
+                  : 'rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.2em] text-mist-dim ring-1 ring-inset ring-champagne/15 transition-colors duration-300 hover:text-champagne hover:ring-champagne/50'
+              }
             >
               {c}
             </button>
@@ -266,10 +242,50 @@ export default function GalleryPage() {
         </div>
       </div>
 
-      {/* 3D category carousel */}
+      {/* editorial masonry — native CSS multi-column, so the varied aspect
+          ratios of real (mostly phone-shot, portrait) event photography
+          create the large/small rhythm on their own, with zero JS layout
+          engine and zero extra dependency. */}
       <section className="py-16 md:py-24">
-        <Carousel3D key={active} items={visible} />
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="columns-2 gap-4 sm:columns-3 lg:columns-4 lg:gap-5">
+            {visible.map((photo, i) => {
+              return (
+                <button
+                  key={photo.src}
+                  onClick={() => setLightboxIndex(i)}
+                  className="group relative mb-4 block w-full overflow-hidden rounded-sm border border-champagne/10 lg:mb-5"
+                  style={{ breakInside: 'avoid' }}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.w}
+                    height={photo.h}
+                    loading="lazy"
+                    className="block h-auto w-full cursor-zoom-in object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                  />
+                  <div className="plate-glass pointer-events-none absolute inset-x-0 bottom-0 h-1/2 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="pointer-events-none absolute bottom-3 left-4 text-[10px] uppercase tracking-[0.25em] text-champagne opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    {photo.category}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </section>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <Lightbox
+            items={visible}
+            index={lightboxIndex}
+            onClose={() => setLightboxIndex(null)}
+            onNav={setLightboxIndex}
+          />
+        )}
+      </AnimatePresence>
 
       {/* CTA */}
       <section className="border-t border-champagne/10 bg-ink-2/40 py-24 text-center md:py-32">
@@ -278,6 +294,8 @@ export default function GalleryPage() {
             as="h2"
             text="Like what you see? Let's design yours."
             className="mx-auto max-w-2xl font-display text-3xl font-light leading-[1.15] md:text-5xl"
+            highlightWords={[7, 8]}
+            highlightClass="accent-serif"
           />
           <div className="mt-8">
             <MagneticButton
