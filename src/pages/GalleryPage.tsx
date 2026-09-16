@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import MotionDrumGallery from '../components/MotionDrumGallery';
 import { useSectionNav } from '../lib/useSectionNav';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
-const categories = ['All', 'Weddings', 'Corporate', 'Celebrations', 'Production'] as const;
+type Category = 'Weddings' | 'Corporate' | 'Celebrations' | 'Production';
 
 interface Photo {
   src: string;
   alt: string;
-  category: (typeof categories)[number];
+  category: Category;
   w: number;
   h: number;
 }
@@ -160,7 +161,6 @@ function Lightbox({ items, index, onClose, onNav }: { items: Photo[]; index: num
 
 export default function GalleryPage() {
   const sectionNav = useSectionNav();
-  const [active, setActiveCategory] = useState<(typeof categories)[number]>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   useSEO({
@@ -182,8 +182,6 @@ export default function GalleryPage() {
       ])
     );
   }, []);
-
-  const visible = active === 'All' ? photos : photos.filter((p) => p.category === active);
 
   return (
     <main className="bg-ink">
@@ -218,68 +216,21 @@ export default function GalleryPage() {
           >
             Every photograph here is from our own production archive — weddings, mehndi
             and baraat nights, corporate work and private celebrations across Lahore.
-            Click any photo for a full-screen view.
+            Scroll to move through the work; click any frame for a full-screen view.
           </motion.p>
         </div>
       </section>
 
-      {/* category tabs */}
-      <div className="sticky top-[64px] z-20 border-y border-champagne/10 bg-ink/85 md:top-[76px]">
-        <div className="mx-auto flex max-w-[1200px] flex-wrap gap-3 px-6 py-5 md:px-10">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setActiveCategory(c)}
-              className={
-                active === c
-                  ? 'btn-flame rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.2em]'
-                  : 'rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.2em] text-mist-dim ring-1 ring-inset ring-champagne/15 transition-colors duration-300 hover:text-champagne hover:ring-champagne/50'
-              }
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* editorial masonry — native CSS multi-column, so the varied aspect
-          ratios of real (mostly phone-shot, portrait) event photography
-          create the large/small rhythm on their own, with zero JS layout
-          engine and zero extra dependency. */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="columns-2 gap-4 sm:columns-3 lg:columns-4 lg:gap-5">
-            {visible.map((photo, i) => {
-              return (
-                <button
-                  key={photo.src}
-                  onClick={() => setLightboxIndex(i)}
-                  className="group relative mb-4 block w-full overflow-hidden rounded-sm border border-champagne/10 lg:mb-5"
-                  style={{ breakInside: 'avoid' }}
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    width={photo.w}
-                    height={photo.h}
-                    loading="lazy"
-                    className="block h-auto w-full cursor-zoom-in object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                  />
-                  <div className="plate-glass pointer-events-none absolute inset-x-0 bottom-0 h-1/2 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <span className="pointer-events-none absolute bottom-3 left-4 text-[10px] uppercase tracking-[0.25em] text-champagne opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    {photo.category}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* scroll-pinned drum: one continuous scroll through every photo in the
+          archive, grouped by category (Weddings, Corporate, Celebrations,
+          Production), with the category label crossfading as you pass into
+          the next group — see MotionDrumGallery for the interaction model. */}
+      <MotionDrumGallery photos={photos} onOpen={setLightboxIndex} />
 
       <AnimatePresence>
         {lightboxIndex !== null && (
           <Lightbox
-            items={visible}
+            items={photos}
             index={lightboxIndex}
             onClose={() => setLightboxIndex(null)}
             onNav={setLightboxIndex}
