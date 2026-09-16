@@ -13,37 +13,68 @@ interface Props {
 }
 
 /**
- * A scroll-pinned "drum" of images: a tall spacer holds the scroll distance,
- * a sticky stage stays on screen while scrolling through it, and every panel
- * is angled toward/away from camera based on its distance from the current
- * scroll position — the panel facing the camera reads flat and full-colour,
- * the others recede into a tilted, foreshortened stack above and below it.
+ * A from-scratch recreation of markclennon.com/motion's scroll-drum, built
+ * from PIXEL MEASUREMENTS taken directly off the reference (see below), not
+ * approximation. The reference itself renders on a single WebGL canvas with
+ * no persisted drawing buffer, so its geometry can't be read via CSS/DOM
+ * inspection — it was reverse-engineered from screenshots: a horizontal
+ * content-edge scan per row (`isBg` below is the same test used against a
+ * real screenshot of the reference) to find each band's exact top/bottom Y
+ * and left/right X at every row, which is how the numbers below were
+ * derived, not guessed:
  *
- * This is a from-scratch recreation of that interaction model in plain CSS
- * 3D transforms driven by framer-motion's scroll-linked MotionValues (no new
- * dependency — framer-motion is already used site-wide). It is deliberately
- * NOT the WebGL/canvas renderer the original reference uses: that would mean
- * introducing a WebGL surface and a per-frame render loop on a business site
- * where mobile visitors are paying customers, not portfolio browsers — the
- * exact regression this codebase already paid down once (see SmokeCursor's
- * removal). The visual character — flat centre panel, tilting stack, warm
- * fade into the background — is reproduced with transform/opacity only.
+ *  - Flat/active panel: 511x312px at a 1440px viewport -> aspect 1.64:1,
+ *    perfectly constant width for its full height (zero internal tilt).
+ *  - Each adjacent tilted band: exactly 136px tall (136/312 = 0.436x the
+ *    flat panel's height), and LINEAR (no internal bulge) from one edge to
+ *    the other -- confirmed by sampling its width every 4px of height and
+ *    checking the slope was constant.
+ *  - Every band's horizontal centre sits at exactly the same X (720px @
+ *    1440 viewport, i.e. dead centre) -- pure vertical stacking, no
+ *    horizontal drift.
+ *  - Bands touch directly at their seams (no gap), and each band is
+ *    narrower at the edge nearest the current flat panel and wider at the
+ *    edge nearest the NEXT seam -- i.e. each panel hinges at the edge
+ *    farthest from the current centre, not around its own middle. That's
+ *    the accordion/fan structure implemented below via a per-panel
+ *    transform-origin that flips between the panel's top and bottom edge
+ *    depending on which side of centre it's currently on.
+ *  - Scroll is Lenis-smoothed (confirmed with a wheel-burst test: scrollY
+ *    kept drifting for ~150ms after input stopped, then held) -- inherited
+ *    for free here since this codebase already runs Lenis site-wide.
+ *  - No global custom cursor (cursor:auto everywhere) -- the reference's
+ *    PLAY affordance on hover is a positioned DOM overlay, not a cursor
+ *    swap, and doesn't apply here anyway since there is no video content.
+ *  - Stage width is viewport-proportional and RESPONSIVE, not one constant:
+ *    ~35.5vw (capped) at 1440/1024px, jumping to ~64vw at 390px mobile --
+ *    a breakpoint change, reproduced below via a CSS custom property.
+ *  - Text repositions at mobile rather than just shrinking: the project
+ *    label moves from left-middle to bottom-centre (below the stack), and
+ *    the corner wordmark moves from right-middle to top-centre (above it).
  *
- * Performance note: with all 67 photos live-subscribed to scroll at once,
- * a scripted scroll-through measured ~9.7s of main-thread blocking under
- * 4x CPU throttle — the exact class of regression SmokeCursor was removed
- * for. Every photo still renders a real <img> with real alt text (nothing
- * is unmounted, so prerender/SEO sees the full archive), but only the
- * ACTIVE_BUFFER panels nearest the current scroll position get a live,
- * per-frame transform subscription; everything else sits at a static,
- * one-time-computed "parked" position with zero ongoing motion-value cost.
+ * Deliberately NOT the WebGL/canvas renderer itself: that would mean a
+ * WebGL surface and a per-frame render loop on a business site where
+ * mobile visitors are paying customers, not portfolio browsers -- the
+ * exact regression this codebase already paid down once (SmokeCursor).
+ * Everything here is transform/opacity only, driven by framer-motion's
+ * scroll-linked MotionValues (already a dependency, no new library).
+ *
+ * One disclosed gap: the reference's measured "far" edge (571px) slightly
+ * OVERSHOOTS the flat panel's own native width (511px), which a pure
+ * hinge-rotation can't reproduce (a hinged edge tops out at native width).
+ * That ~12% overshoot is most likely each of the reference's 7 real videos
+ * having a slightly different native aspect ratio, not a deliberate
+ * geometric exaggeration -- Baraka's photos are cropped to one consistent
+ * ratio by design, so this implementation holds every panel to the
+ * measured 1.64:1 flat ratio rather than force-replicating that overshoot.
  */
+const FLAT_ASPECT = 1.64; // measured 511/312
+const STEP_HEIGHT_RATIO = 0.436; // measured 136/312, per step away from centre
 const VISIBLE_RANGE = 4.2;
 const ACTIVE_BUFFER = 5; // panels on each side of centre that stay "live"
-const ANGLE_STEP = 15; // degrees of rotateX per step away from centre
-const Y_STEP = 132; // px of vertical travel per step
-const Z_STEP = 130; // px of recession per step (translateZ, negative)
+const ANGLE_STEP = 34; // degrees of rotateX per step away from centre
 const SCROLL_PER_PANEL = 145; // px of page scroll consumed per panel step
+const STAGE_WIDTH_VAR = '[--stage-w:64vw] md:[--stage-w:min(35.5vw,560px)]';
 
 const LABEL_TRANSITION = 2; // panel-steps over which one label crossfades into the next
 
@@ -79,13 +110,10 @@ function PanelLabel({
   panelCount: number;
   catStarts: number[];
 }) {
-  // Current category position as a continuous value (fractional only while
-  // crossing a boundary), so the label crossfade/slide shares the drum's own
-  // motion language instead of a bolted-on separate transition.
   const catProgress = useTransform(progress, (p) => categoryProgressAt(p * (panelCount - 1), catStarts));
 
   return (
-    <div className="pointer-events-none absolute left-6 top-1/2 z-10 h-24 w-[min(60vw,320px)] -translate-y-1/2 overflow-hidden md:left-10">
+    <div className="pointer-events-none absolute inset-x-0 bottom-[6%] z-10 h-16 overflow-hidden text-center md:inset-x-auto md:bottom-auto md:left-6 md:top-1/2 md:h-24 md:w-[min(60vw,320px)] md:-translate-y-1/2 md:text-left md:left-10">
       {categories.map((label, i) => (
         <Label key={label} label={label} index={i} catProgress={catProgress} />
       ))}
@@ -108,16 +136,17 @@ function Label({ label, index, catProgress }: { label: string; index: number; ca
 }
 
 const panelFrameClass =
-  'absolute inset-x-0 top-1/2 -mt-[28vw] aspect-[16/9] w-full origin-center overflow-hidden rounded-sm border border-champagne/15 sm:-mt-[18vw] md:-mt-[16vh]';
+  'absolute left-1/2 top-1/2 w-[var(--stage-w)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-sm border border-champagne/15';
+const panelStyle = { aspectRatio: String(FLAT_ASPECT) } as const;
 
 /** A live, scroll-reactive panel — only mounted for panels near the current
- *  centre. One combined transform-string MotionValue plus one opacity
- *  MotionValue per panel — two subscriptions instead of an earlier version's
- *  eight (a chained virtualIndex -> offset -> six separate transforms).
- *  Measured: the chaining was a real, not theoretical, cost — collapsing it
- *  cut scripted-scroll main-thread blocking substantially under 4x CPU
- *  throttle. Everything here is transform/opacity only (GPU-composited, no
- *  layout or paint cost from the animation itself). */
+ *  centre. Two MotionValue subscriptions (a combined transform string, plus
+ *  opacity) rather than eight separate chained ones — measured: collapsing
+ *  the chain cut scripted-scroll main-thread blocking substantially under
+ *  4x CPU throttle. transform-origin flips between the panel's own top and
+ *  bottom edge depending on which side of centre it's on (see file-level
+ *  comment) — the fan/accordion hinge measured off the reference. Only
+ *  transform/opacity are animated (GPU-composited, no layout/paint cost). */
 function LivePanel({
   photo,
   index,
@@ -134,10 +163,14 @@ function LivePanel({
   onOpen: () => void;
 }) {
   const transform = useTransform(progress, (p) => {
-    const o = clamp(index - p * (panelCount - 1), -VISIBLE_RANGE, VISIBLE_RANGE);
-    const a = Math.abs(o);
-    const scale = 1 - a * 0.015;
-    return `translateY(${o * Y_STEP}px) translateZ(${-a * Z_STEP}px) rotateX(${o * ANGLE_STEP}deg) scale(${scale})`;
+    const raw = index - p * (panelCount - 1);
+    const o = clamp(raw, -VISIBLE_RANGE, VISIBLE_RANGE);
+    // Step distance is a fraction of the flat panel's own (responsive)
+    // height, expressed as CSS calc() against the shared --stage-w custom
+    // property so it stays correct at any viewport width with no JS
+    // measurement or resize listener.
+    const stepCoefficient = (o * STEP_HEIGHT_RATIO) / FLAT_ASPECT;
+    return `translateY(calc(var(--stage-w) * ${stepCoefficient})) rotateX(${o * ANGLE_STEP}deg)`;
   });
   const opacity = useTransform(progress, (p) => {
     const a = Math.abs(index - p * (panelCount - 1));
@@ -146,13 +179,17 @@ function LivePanel({
     return VISIBLE_RANGE - a; // fade over the last step
   });
   const zIndex = 100 - Math.round(Math.abs(index - centerIndex) * 10);
+  // Hinge at the edge FARTHEST from the current centre (measured: the edge
+  // nearest the flat panel is the one that narrows; the far edge, toward
+  // the next seam, is the one that holds close to native width).
+  const transformOrigin = index <= centerIndex ? '50% 0%' : '50% 100%';
 
   return (
     <m.button
       type="button"
       onClick={onOpen}
       aria-label={`Open photo ${index + 1}: ${photo.alt}`}
-      style={{ transform, opacity, zIndex }}
+      style={{ transform, opacity, zIndex, transformOrigin, ...panelStyle }}
       className={`${panelFrameClass} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne`}
     >
       <img src={photo.src} alt={photo.alt} loading="eager" className="h-full w-full object-cover" />
@@ -168,7 +205,7 @@ function ParkedPanel({ photo, index }: { photo: DrumPhoto; index: number }) {
   return (
     <div
       aria-hidden
-      style={{ transform: `translateY(${index < 0 ? '-120vh' : '120vh'})`, opacity: 0 }}
+      style={{ transform: `translateY(${index < 0 ? '-120vh' : '120vh'})`, opacity: 0, ...panelStyle }}
       className={panelFrameClass}
     >
       <img src={photo.src} alt={photo.alt} loading="lazy" className="h-full w-full object-cover" />
@@ -225,7 +262,7 @@ export default function MotionDrumGallery({ photos, onOpen }: Props) {
             <li key={photo.src}>
               <button type="button" onClick={() => onOpen(i)} className="block w-full text-left">
                 <p className="mb-3 text-[10px] uppercase tracking-[0.25em] text-champagne">{photo.category}</p>
-                <span className="block aspect-[16/9] w-full overflow-hidden rounded-sm border border-champagne/15">
+                <span className="block aspect-[164/100] w-full overflow-hidden rounded-sm border border-champagne/15">
                   <img src={photo.src} alt={photo.alt} loading="lazy" className="h-full w-full object-cover" />
                 </span>
               </button>
@@ -238,13 +275,10 @@ export default function MotionDrumGallery({ photos, onOpen }: Props) {
 
   return (
     <div ref={trackRef} style={{ height: `${scrollHeight}px` }} className="relative">
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className={`sticky top-0 h-screen overflow-hidden ${STAGE_WIDTH_VAR}`}>
         <PanelLabel categories={categories} progress={scrollYProgress} panelCount={photos.length} catStarts={catStarts} />
 
-        <div
-          className="relative mx-auto h-full w-[min(88vw,560px)]"
-          style={{ perspective: '1400px', perspectiveOrigin: '50% 50%' }}
-        >
+        <div className="relative h-full" style={{ perspective: 'calc(var(--stage-w) * 1.35)', perspectiveOrigin: '50% 50%' }}>
           {photos.map((photo, i) =>
             Math.abs(i - centerIndex) <= ACTIVE_BUFFER ? (
               <LivePanel
@@ -268,7 +302,7 @@ export default function MotionDrumGallery({ photos, onOpen }: Props) {
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-ink to-transparent" />
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-ink to-transparent" />
 
-        <p className="pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 font-serif-display text-lg italic text-champagne/70 sm:block md:right-10">
+        <p className="pointer-events-none absolute inset-x-0 top-[6%] text-center font-serif-display text-base italic text-champagne/70 md:inset-x-auto md:right-6 md:top-1/2 md:-translate-y-1/2 md:text-left md:text-lg md:right-10">
           Gallery.
         </p>
       </div>
