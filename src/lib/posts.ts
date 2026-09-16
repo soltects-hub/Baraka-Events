@@ -578,7 +578,10 @@ export const posts: Post[] = [
       { p: 'Baraka Events management deliberately locks the design direction — palette, floral program, lighting concept, stage architecture — before florists, decor teams or lighting crews are briefed. That sequencing keeps every vendor building toward the same vision instead of five different interpretations of it.' },
       { h: 'Brand and digital: documenting what we build' },
       { p: 'Every production is filmed and photographed by our own content team, partly for the client’s memories and partly so future clients can see, honestly, what a Baraka-managed event actually looks like on the day — not just in a polished portfolio shot.' },
-      { p: 'That is the management structure behind every number on our homepage: five hundred-plus events, a decade of operating history, and a client base that mostly arrives through referral rather than advertising.' },
+      {
+        p: 'That is the management structure behind every number on our homepage: five hundred-plus events, a decade of operating history, and a client base that mostly arrives through referral rather than advertising.',
+        related: [{ text: 'Event Management in Lahore', to: '/services/event-management' }],
+      },
     ],
   },
   {
@@ -631,7 +634,10 @@ export const posts: Post[] = [
       { p: 'Because Baraka Events books venues year-round, we typically negotiate rates, included hours and vendor-access terms more favourably than a family booking directly and only once. We review every clause — cancellation terms, overtime charges, decor restrictions — before a signature happens.' },
       { h: 'Timing is the hidden lever' },
       { p: 'Venues in Gulberg, DHA and the Walled City release their best winter weekend dates ten to twelve months out. Booking through Baraka Events early in that window routinely saves fifteen to twenty percent versus a family negotiating the same venue for a date six weeks away.' },
-      { p: 'Whether the goal is a marquee in Bahria Town or a restored haveli in the Androon Shehr, Baraka Events venue booking turns a stressful, information-poor search into a short, well-informed decision.' },
+      {
+        p: 'Whether the goal is a marquee in Bahria Town or a restored haveli in the Androon Shehr, Baraka Events venue booking turns a stressful, information-poor search into a short, well-informed decision.',
+        related: [{ text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' }],
+      },
     ],
   },
   {
@@ -704,7 +710,10 @@ export const posts: Post[] = [
       { h: 'Drone reveal entrances' },
       { p: 'A slow drone pull-back over the baraat as the couple enters has become the most-replicated opening shot on wedding pages this year. It works beautifully outdoors and in open marquees; indoors, it needs a venue with real ceiling height and a pilot who has flown that specific room before, not the day of.' },
       { h: 'Monochrome-with-one-accent palettes' },
-      { p: 'All-ivory or all-emerald decor with a single accent colour — usually gold — is replacing the maximalist multi-colour stages of a few years ago. It photographs cleanly on camera phones, which is exactly why it spreads well online.' },
+      {
+        p: 'All-ivory or all-emerald decor with a single accent colour — usually gold — is replacing the maximalist multi-colour stages of a few years ago. It photographs cleanly on camera phones, which is exactly why it spreads well online.',
+        related: [{ text: 'Baraka Events Decor Services in Lahore: Every Style We Design', slug: 'baraka-events-decor-services-lahore' }],
+      },
       { h: 'Short-form highlight films over long cinematic ones' },
       { p: 'Couples increasingly want a ninety-second, vertical, shareable film alongside the traditional long-form wedding video — built specifically for Instagram and TikTok rather than a living-room screening.' },
       { h: 'AI-generated invitation content' },
@@ -822,7 +831,10 @@ export const posts: Post[] = [
       { p: 'The quiet rebellion \u2014 all-white florals, rattan lanterns, ivory kurtas encouraged on the invite. It strips colour so that mehndi itself, the dancing and the haldi become the colour. Lighting design carries the whole night here.' },
       { h: '4. Mughal Courtyard' },
       { p: 'Scalloped arches, surahi centrepieces, qawwali before the dance floor opens. Built for haveli venues, and the theme our destination guests from abroad request most.' },
-      { p: 'Whichever direction you choose, one rule holds: the mehndi should look nothing like the walima. Two nights, two worlds \u2014 that contrast is what your guests will still talk about at the next family shaadi.' },
+      {
+        p: 'Whichever direction you choose, one rule holds: the mehndi should look nothing like the walima. Two nights, two worlds \u2014 that contrast is what your guests will still talk about at the next family shaadi.',
+        related: [{ text: 'Walima Decor in 2025: From Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' }],
+      },
     ],
   },
   {
@@ -845,7 +857,10 @@ export const posts: Post[] = [
       { h: 'Where smart families save' },
       { p: 'Off-peak dates (March\u2013April, September) unlock 15\u201320% savings on identical venues. Repurposing nikkah florals into walima lounge arrangements. And guest-count honesty: every fifty guests trimmed funds an upgrade somewhere the camera will actually see.' },
       { h: 'The Baraka proposal' },
-      { p: 'Every engagement begins with a line-item proposal \u2014 every rupee visible, every alternative priced. No surprises has been our policy for twelve years; it is also, not coincidentally, why 98% of our clients return for the family\u2019s next celebration.' },
+      {
+        p: 'Every engagement begins with a line-item proposal \u2014 every rupee visible, every alternative priced. No surprises has been our policy for twelve years; it is also, not coincidentally, why 98% of our clients return for the family\u2019s next celebration.',
+        related: [{ text: 'What Event Planning in Lahore Costs, and How to Spend Less', slug: 'event-planning-cost-budget-lahore' }],
+      },
     ],
   },
   {
@@ -890,7 +905,10 @@ export const posts: Post[] = [
       { h: 'The run of show' },
       { p: 'Every minute scripted, every speech time-boxed, every walk-up cue rehearsed with the actual presenters. We build a minute-by-minute document shared with client, venue and crew \u2014 then rehearse the full sequence the afternoon before, twice.' },
       { h: 'Hospitality is the brand' },
-      { p: 'Guests remember how smoothly they were received long after they forget the LED content. Trained hosting staff, colour-coded lanyards that actually work, chai service that never runs dry \u2014 hospitality is where Pakistani corporate events are won.' },
+      {
+        p: 'Guests remember how smoothly they were received long after they forget the LED content. Trained hosting staff, colour-coded lanyards that actually work, chai service that never runs dry \u2014 hospitality is where Pakistani corporate events are won.',
+        related: [{ text: 'Corporate Events in Lahore', to: '/services/corporate-events' }],
+      },
     ],
   },
   {
