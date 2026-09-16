@@ -43,8 +43,8 @@ export const services: Service[] = [
     seoTitle: 'Wedding Planner & Wedding Planning in Lahore | Baraka Events',
     seoDescription:
       'Luxury wedding planner and wedding event management company in Lahore — mehndi, baraat, nikkah and walima planned as one project, with a line-item quote.',
-    image: '/media/wedding-2.webp',
-    imageAlt: 'Bride and groom on a wedding stage in Lahore',
+    image: '/media/gallery/wedding-24.webp',
+    imageAlt: 'Wedding stage with a floral canopy, produced by Baraka Events, Lahore',
     intro:
       'A Lahori wedding is a week of functions, not one event — mehndi, baraat, nikkah and walima, often across different venues. We plan the whole week as one project so the design and logistics stay consistent from the first function to the last, instead of getting handed to four separate vendors.',
     included: [
@@ -81,7 +81,7 @@ export const services: Service[] = [
     seoTitle: 'Event Management Company in Lahore | Baraka Events',
     seoDescription:
       'Day-of event management in Lahore: on-site coordination, run-of-show scheduling and vendor supervision, for weddings, corporate events and private celebrations.',
-    image: '/media/showreel-2.webp',
+    image: '/media/gallery/wedding-17.webp',
     imageAlt: 'Wedding reception arches and ambient lighting, managed on-site by Baraka Events',
     intro:
       'Planning decides what your event should look like; management is what makes it actually happen on the day. Our event management service covers the on-site coordination, vendor supervision and run-of-show scheduling that keeps an event on schedule — whether we planned it from the start or you did.',
@@ -119,8 +119,8 @@ export const services: Service[] = [
     seoTitle: 'Wedding Decorators & Event Decoration in Lahore | Baraka Events',
     seoDescription:
       'Wedding decorators and event decoration in Lahore — stage design, florals and lighting, planned as one visual system before a single flower is ordered.',
-    image: '/media/showreel-1.webp',
-    imageAlt: 'Walima reception stage with chandelier canopy and floral arches, produced by Baraka Events',
+    image: '/media/gallery/wedding-13.webp',
+    imageAlt: 'Walima reception stage with chandelier canopy, produced by Baraka Events',
     intro:
       'Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system before a single flower is ordered.',
     included: [
@@ -153,7 +153,7 @@ export const services: Service[] = [
     seoTitle: 'Corporate Event Planner & Management Company in Lahore | Baraka Events',
     seoDescription:
       'Corporate event planner and event management company in Lahore — product launches, conferences, annual dinners and AGMs, run by an in-house team.',
-    image: '/media/corporate-1.webp',
+    image: '/media/gallery/corporate-3.webp',
     imageAlt: 'Corporate event management stage set in Lahore',
     intro:
       'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule with no visible technical issues in front of clients, media or leadership.',
@@ -189,8 +189,8 @@ export const services: Service[] = [
     seoTitle: 'Nikkah Ceremony Planning in Lahore | Baraka Events',
     seoDescription:
       'Nikkah ceremony planning in Lahore: stage and seating design, guest logistics, and timing coordinated with the baraat arrival beforehand.',
-    image: '/media/wedding-1.webp',
-    imageAlt: 'Nikkah stage with candlelight, wedding planner Lahore',
+    image: '/media/gallery/detail-4.webp',
+    imageAlt: 'Nikkah stage with floral rings and candlelight, wedding planner Lahore',
     intro:
       'The nikkah is the ceremony everything else in the week is built around. We design the stage and seating, manage family and guest logistics, and time the ceremony against the baraat\'s arrival so the day moves in the right order instead of running behind.',
     included: [
@@ -225,8 +225,8 @@ export const services: Service[] = [
     seoTitle: 'Mehndi Planner & Decoration in Lahore | Baraka Events',
     seoDescription:
       'Mehndi planner in Lahore for floral and dholki staging, colour palette and evening lighting design that sets the tone for the rest of the wedding week.',
-    image: '/media/gallery-5.webp',
-    imageAlt: 'Marigold and jasmine garlands, mehndi decoration Lahore',
+    image: '/media/gallery/wedding-28.webp',
+    imageAlt: 'Marigold petal aisle and mehndi stage lighting, Lahore',
     intro:
       'The mehndi is the first function of the week, and its colour palette usually sets the tone for everything that follows. We handle the floral staging, dholki setup and evening lighting, and brief florists early in the day so everything is fresh by the time guests arrive.',
     included: [
@@ -261,8 +261,8 @@ export const services: Service[] = [
     seoTitle: 'Baraat Planner in Lahore | Baraka Events',
     seoDescription:
       'Baraat planner in Lahore for groom’s arrival timing, dhol and procession coordination, and guest parking logistics, so the entrance runs on schedule.',
-    image: '/media/gallery-6.webp',
-    imageAlt: 'Dhol drummers leading a baraat procession at a Lahore shaadi',
+    image: '/media/gallery/wedding-16.webp',
+    imageAlt: 'Floral processional walkway for a baraat entrance at a Lahore shaadi',
     intro:
       'The baraat is the function most likely to run behind schedule if it isn’t planned properly — the groom’s route, the dhol formation and guest parking all have to be timed together. We coordinate the arrival so it becomes the entrance it is supposed to be, not a scramble at the gate.',
     included: [
@@ -298,8 +298,8 @@ export const services: Service[] = [
     seoTitle: 'Walima Planner & Reception Planning in Lahore | Baraka Events',
     seoDescription:
       'Walima planner in Lahore for formal stage and floral design, catering coordination and guest flow for the wedding week’s largest, most photographed function.',
-    image: '/media/gallery-2.webp',
-    imageAlt: 'Ivory and gold wedding cake with mithai display, Lahore wedding decor',
+    image: '/media/gallery/wedding-30.webp',
+    imageAlt: 'Formal walima reception hall with chandeliers, Lahore wedding decor',
     intro:
       'The walima is usually the largest guest list and the most photographed function of the week, and it closes the wedding rather than opening it. We plan a more formal register than the earlier functions — refined florals, curated lighting and a hosting standard suited to the biggest room of the week.',
     included: [
@@ -334,8 +334,8 @@ export const services: Service[] = [
     seoTitle: 'Engagement Event Planning in Lahore | Baraka Events',
     seoDescription:
       'Engagement event planning in Lahore, styled between a family gathering and full wedding formality, with decor that can set the tone for the wedding to follow.',
-    image: '/media/private-1.webp',
-    imageAlt: 'Evening lounge setup for a private celebration',
+    image: '/media/gallery/celebration-4.webp',
+    imageAlt: 'Floral wall styling for a private celebration, Lahore',
     intro:
       'An engagement usually sits between a family gathering and the formality of a nikkah — smaller than a wedding function, but still a real event to stage properly. We plan the ring ceremony, guest flow and styling, often with an eye on the design language the wedding itself will carry later.',
     included: [

@@ -649,7 +649,7 @@ export const posts: Post[] = [
     date: 'June 2026',
     publishedISO: '2026-06',
     readTime: '6 min read',
-    image: '/media/showreel-1.webp',
+    image: '/media/gallery/wedding-13.webp',
     imageAlt: 'Floral and lighting décor for a Baraka Events walima reception, Lahore',
     blocks: [
       { p: 'Decor is the part of an event people photograph first and remember longest — which is why Baraka Events decor services in Lahore are treated as architecture rather than rented furniture. Every design is drawn, approved and priced before a single flower is ordered.' },

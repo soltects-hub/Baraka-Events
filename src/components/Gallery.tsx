@@ -1,21 +1,21 @@
 import RevealText from './RevealText';
 import LoopRail from './LoopRail';
 
-// Real Baraka Events production photography — from our own event archive,
-// not stock or AI-generated. (This replaces a set of licensed stock photos
-// — an international concert crowd, a Western conference audience — that
-// had drifted in here and no longer belonged on a site built entirely
-// around real Lahore production work.)
+// Real Baraka Events production photography, drawn from the same approved
+// Gallery library as /gallery (public/media/gallery). The first two frames
+// here used to point at showreel-1/2.webp — a set previously claimed as
+// "real, not stock or AI-generated" that turned out to be unverified renders
+// after all — so they now point at the vetted Gallery files instead.
 const frames = [
   {
-    src: '/media/showreel-1.webp',
+    src: '/media/gallery/wedding-13.webp',
     n: '01',
     category: 'Walima Reception',
     title: 'The reception floor',
     caption: 'Chandeliers, drapery and floral built for one evening',
   },
   {
-    src: '/media/showreel-2.webp',
+    src: '/media/gallery/wedding-17.webp',
     n: '02',
     category: 'Walima Reception',
     title: 'Arches & ambient light',

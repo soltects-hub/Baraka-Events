@@ -2,24 +2,26 @@ import { useRef, type MouseEvent } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
-// Real productions from our own event archive — this section previously
-// showed three AI/stock-sourced "3D concept render" images under a promise
-// ("concept renders delivered within 7 days") we couldn't actually verify
-// or stand behind. It now shows three real Baraka productions instead.
+// Real productions from our own approved Gallery library (public/media/gallery).
+// This section previously showed three AI/stock-sourced "3D concept render"
+// images under a promise ("concept renders delivered within 7 days") we
+// couldn't actually verify or stand behind, then briefly showed two
+// showreel-*.webp files that turned out to be unverified renders themselves —
+// both slots below now point at photos already vetted for the /gallery page.
 const designs = [
   {
     n: '01',
     title: 'The Walima Floor',
     type: 'Wedding Reception',
     spec: 'Chandelier canopy · floral arches · ambient lighting',
-    image: '/media/showreel-1.webp',
+    image: '/media/gallery/wedding-13.webp',
   },
   {
     n: '02',
     title: 'Arches & Ambient Light',
     type: 'Wedding Reception',
     spec: 'Moorish arches · ivory floral · layered light',
-    image: '/media/showreel-2.webp',
+    image: '/media/gallery/wedding-17.webp',
   },
   {
     n: '03',
