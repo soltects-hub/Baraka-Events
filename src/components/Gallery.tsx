@@ -48,7 +48,7 @@ const frames = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" data-scene="07 · SHOWREEL — IN PRODUCTION" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="gallery" data-scene="07 · SHOWREEL — IN PRODUCTION" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-1/3 h-[400px] w-[600px] rounded-full"

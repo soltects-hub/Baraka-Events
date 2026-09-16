@@ -110,7 +110,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
 
 export default function DesignStudio() {
   return (
-    <section id="studio" data-scene="05A · PREVIS — THE DESIGN STUDIO" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="studio" data-scene="05A · PREVIS — THE DESIGN STUDIO" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-1/4 h-[400px] w-[600px] rounded-full"

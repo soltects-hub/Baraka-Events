@@ -33,7 +33,7 @@ export default function Testimonials() {
   const t = testimonials[index];
 
   return (
-    <section id="testimonials" data-scene="10 · TWO-SHOT — KIND WORDS" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="testimonials" data-scene="10 · TWO-SHOT — KIND WORDS" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full"
@@ -81,7 +81,7 @@ export default function Testimonials() {
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Testimonial ${i + 1}`}
-              className="group flex h-8 items-center"
+              className="group flex h-10 items-center px-1"
             >
               <span
                 className={`block h-[2px] rounded-full transition-all duration-500 ${

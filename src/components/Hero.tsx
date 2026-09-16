@@ -73,7 +73,7 @@ export default function Hero() {
             key={i}
             onClick={() => setSlide(i)}
             aria-label={`Show slide ${i + 1}`}
-            className="group flex h-6 items-center"
+            className="group flex h-10 items-center px-1"
           >
             <span
               className={`relative block h-px overflow-hidden transition-all duration-500 ${

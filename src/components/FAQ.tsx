@@ -7,7 +7,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" data-scene="11 · INSERT — QUESTIONS" className="bg-ink-2 py-28 md:py-40">
+    <section id="faq" data-scene="11 · INSERT — QUESTIONS" className="bg-ink-2 py-20 md:py-40">
       <div className="mx-auto max-w-4xl px-6 md:px-10">
         <div className="mb-16 text-center">
           <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Questions</p>

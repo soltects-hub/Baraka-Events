@@ -180,7 +180,7 @@ export default function DepthFlythrough() {
   const active = items[activeIndex];
 
   return (
-    <section data-scene="06 · THE ARCHIVE" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section data-scene="06 · THE ARCHIVE" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full"

@@ -20,7 +20,7 @@ export default function About() {
   const bigWordX = useTransform(scrollYProgress, [0, 1], ['6%', '-14%']);
 
   return (
-    <section id="about" ref={ref} data-scene="02 · CLOSE-UP — THE HOUSE" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="about" ref={ref} data-scene="02 · CLOSE-UP — THE HOUSE" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <motion.div
         style={{ x: bigWordX }}
         aria-hidden

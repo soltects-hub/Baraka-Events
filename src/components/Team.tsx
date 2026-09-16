@@ -3,7 +3,7 @@ import TeamCarousel3D from './TeamCarousel3D';
 
 export default function Team() {
   return (
-    <section id="team" data-scene="09 · PORTRAIT SERIES — THE ATELIER" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section id="team" data-scene="09 · PORTRAIT SERIES — THE ATELIER" className="relative overflow-hidden bg-ink py-20 md:py-40">
       {/* ambient glow */}
       <div
         aria-hidden

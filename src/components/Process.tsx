@@ -36,7 +36,7 @@ export default function Process() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <section id="process" data-scene="08 · TRACKING — THE METHOD" className="relative bg-ink-2 py-28 md:py-40">
+    <section id="process" data-scene="08 · TRACKING — THE METHOD" className="relative bg-ink-2 py-20 md:py-40">
       <div className="mx-auto grid max-w-[1400px] gap-16 px-6 md:px-10 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">The Method</p>

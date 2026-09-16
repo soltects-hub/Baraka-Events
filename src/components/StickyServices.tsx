@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 
 const services = [
@@ -31,7 +31,75 @@ const services = [
   },
 ];
 
+/** lg and up (the breakpoint the pinned layout was designed for). Starts
+ *  from the real media query so a phone never mounts the 340vh version. */
+function useIsDesktop() {
+  const [desktop, setDesktop] = useState(
+    () => typeof window === 'undefined' || window.matchMedia('(min-width: 1024px)').matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const onChange = () => setDesktop(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return desktop;
+}
+
+/**
+ * Touch/narrow layout: the same three chapters as a vertical stack. A
+ * 340vh scroll-jacked section with a pinned image was the most awkward
+ * thing on the site to thumb through; three cards read in one pass.
+ */
+function StackedServices() {
+  return (
+    <section id="experiences" data-scene="03 · LOCKED-OFF — EXPERIENCES" className="relative bg-ink-2 py-20">
+      <div className="mx-auto max-w-[1400px] px-6">
+        <p className="mb-8 text-[11px] uppercase tracking-[0.3em] text-champagne">Signature Experiences</p>
+        <div className="space-y-6">
+          {services.map((s, i) => (
+            <motion.article
+              key={s.index}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-8%' }}
+              transition={{ duration: 0.8, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              className="relative overflow-hidden rounded-sm border border-champagne/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]"
+            >
+              <img src={s.image} alt={s.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="grade absolute inset-0" />
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-ink via-ink/80 via-45% to-transparent" />
+              <div className="relative flex min-h-[620px] flex-col justify-end p-6 sm:min-h-[540px] sm:p-8">
+                <div className="flex items-baseline gap-3">
+                  <span className="accent-serif text-lg text-champagne/80">{s.index}</span>
+                  <h3 className="font-display text-4xl font-light sm:text-5xl">{s.title}</h3>
+                </div>
+                <span aria-hidden className="hairline-flame mt-3 block w-24" />
+                <p className="accent-serif mt-3 text-lg sm:text-xl">{s.tagline}</p>
+                <p className="mt-3 text-sm font-light leading-relaxed text-cream/85">{s.description}</p>
+                <ul className="mt-4 space-y-2">
+                  {s.details.map((d) => (
+                    <li key={d} className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-ivory/80">
+                      <span className="h-px w-6 shrink-0 bg-champagne/60" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function StickyServices() {
+  const desktop = useIsDesktop();
+  return desktop ? <PinnedServices /> : <StackedServices />;
+}
+
+function PinnedServices() {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
@@ -147,11 +215,6 @@ export default function StickyServices() {
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2 lg:hidden">
-          {services.map((_, i) => (
-            <div key={i} className={`h-1 w-8 rounded-full transition-colors duration-500 ${i === active ? 'bg-gold' : 'bg-champagne/15'}`} />
-          ))}
-        </div>
       </div>
     </section>
   );

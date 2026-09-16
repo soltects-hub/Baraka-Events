@@ -83,7 +83,7 @@ export default function DollyZoom() {
   });
 
   return (
-    <section data-scene="04 · BEFORE & AFTER — THE TRANSFORMATION" className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section data-scene="04 · BEFORE & AFTER — THE TRANSFORMATION" className="relative overflow-hidden bg-ink py-20 md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full"

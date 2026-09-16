@@ -20,7 +20,7 @@ export default function Contact() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
 
   return (
-    <section id="contact" ref={ref} data-scene="12 · FINAL FRAME — CONTACT" className="relative overflow-hidden py-28 md:py-40">
+    <section id="contact" ref={ref} data-scene="12 · FINAL FRAME — CONTACT" className="relative overflow-hidden py-20 md:py-40">
       <motion.div style={{ y: bgY }} className="absolute inset-[-15%]">
         <img src="/media/gallery-4.webp" alt="" aria-hidden className="h-full w-full object-cover" loading="lazy" />
         {/* the photograph stays readable as a room; a bronze-tinted wash

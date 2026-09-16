@@ -18,7 +18,7 @@ const MAP_PLACE_URL = seoConfig.organization.mapUrl;
 
 export default function LocationMap() {
   return (
-    <section id="location" data-scene="13 · WIDE SHOT — FIND US" className="relative overflow-hidden bg-ink-2 py-28 md:py-36">
+    <section id="location" data-scene="13 · WIDE SHOT — FIND US" className="relative overflow-hidden bg-ink-2 py-20 md:py-36">
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-0 h-[400px] w-[700px] rounded-full"
