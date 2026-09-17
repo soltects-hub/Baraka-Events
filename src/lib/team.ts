@@ -23,8 +23,7 @@ export const members: TeamMember[] = [
   {
     name: 'Sania Khan',
     role: 'Sales Director',
-    // No confirmed real photograph yet — do not substitute a generated one.
-    image: '',
+    image: '/media/team-sania.webp',
     bio: 'Leads the sales process from first inquiry to signed proposal, and negotiates scope and budget directly rather than routing it through someone else.',
   },
 ];
