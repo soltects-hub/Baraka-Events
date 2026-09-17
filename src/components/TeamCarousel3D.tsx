@@ -287,7 +287,7 @@ export default function TeamCarousel3D() {
       {/* ambient glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[min(900px,100vw)] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{ background: 'radial-gradient(circle, rgba(230,197,138,0.2) 0%, transparent 65%)' }}
       />
 
