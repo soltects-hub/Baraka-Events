@@ -6,7 +6,7 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from 'react';
-import { m, AnimatePresence, animate, useMotionValue, useTransform, useMotionValueEvent, useReducedMotion, type AnimationPlaybackControls, type MotionValue } from 'framer-motion';
+import { m, animate, useMotionValue, useTransform, useMotionValueEvent, useReducedMotion, type AnimationPlaybackControls, type MotionValue } from 'framer-motion';
 import { members, type TeamMember } from '../lib/team';
 
 const AUTO_MS = 4200;
@@ -163,7 +163,14 @@ export default function TeamCarousel3D() {
 
   const settle = useCallback(() => {
     stopAnim();
-    const velocity = progress.getVelocity();
+    // A single large synthetic pointer jump (or a coalesced burst of real
+    // events under load) can make getVelocity() estimate an enormous
+    // instantaneous speed from too few samples over too short a window.
+    // Fed straight into inertia, that overshoots multiple ring-wraps before
+    // settling — capped here to at most ~3 steps/second either way, which
+    // still reads as a fast, natural flick for any real gesture.
+    const MAX_VELOCITY = n * 3;
+    const velocity = clamp(progress.getVelocity(), -MAX_VELOCITY, MAX_VELOCITY);
     animRef.current = animate(progress, progress.get(), {
       type: 'inertia',
       velocity,
@@ -171,7 +178,7 @@ export default function TeamCarousel3D() {
       timeConstant: 200,
       modifyTarget: (t) => Math.round(t),
     });
-  }, [progress, stopAnim]);
+  }, [n, progress, stopAnim]);
 
   const next = useCallback(() => goTo(centerIndex + 1), [centerIndex, goTo]);
   const prev = useCallback(() => goTo(centerIndex - 1), [centerIndex, goTo]);
@@ -341,23 +348,28 @@ export default function TeamCarousel3D() {
         </button>
       </div>
 
-      {/* caption panel — the front card's details, fixed and readable */}
+      {/* caption panel — the front card's details, fixed and readable.
+          Deliberately no AnimatePresence/exit-queue here: `current` is
+          `items[centerIndex]`, so it is by construction never out of sync
+          with which card is actually front-facing. A fast fling can retarget
+          `centerIndex` several times in quick succession (settle() clamps
+          the *velocity*, not how far a legitimate multi-step flick can
+          travel), and an exit-queued crossfade can fall behind that and get
+          stuck showing a stale name — a fade-in keyed to centerIndex, with
+          no competing exit animation to desync from, cannot. */}
       <div className="relative mx-auto mt-10 max-w-xl text-center">
-        <AnimatePresence mode="wait">
-          <m.div
-            key={current.name}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.5, ease: SNAP_EASE }}
-          >
-            <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">{current.role}</p>
-            <h3 className={`mt-2 font-display text-3xl text-cream md:text-4xl ${isFutureSeat ? 'italic text-mist' : 'font-light'}`}>
-              {current.name}
-            </h3>
-            <p className="mx-auto mt-3 max-w-md text-[13px] font-light leading-relaxed text-mist">{current.bio}</p>
-          </m.div>
-        </AnimatePresence>
+        <m.div
+          key={centerIndex}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: SNAP_EASE }}
+        >
+          <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">{current.role}</p>
+          <h3 className={`mt-2 font-display text-3xl text-cream md:text-4xl ${isFutureSeat ? 'italic text-mist' : 'font-light'}`}>
+            {current.name}
+          </h3>
+          <p className="mx-auto mt-3 max-w-md text-[13px] font-light leading-relaxed text-mist">{current.bio}</p>
+        </m.div>
 
         <div className="mt-6 flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
           <span className="text-champagne">{String(centerIndex + 1).padStart(2, '0')}</span>
