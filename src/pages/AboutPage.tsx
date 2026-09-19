@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
@@ -137,8 +138,15 @@ export default function AboutPage() {
           <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-mist md:text-base">
             <p>
               Baraka Events started as a small team of designers and production
-              managers based in Gulberg. We plan and produce weddings, corporate
-              launches and private celebrations across Gulberg, DHA, Bahria Town,
+              managers based in Gulberg. We plan and produce{' '}
+              <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
+                weddings
+              </Link>
+              ,{' '}
+              <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+                corporate launches
+              </Link>{' '}
+              and private celebrations across Gulberg, DHA, Bahria Town,
               Model Town, Johar Town and the Walled City.
             </p>
             <p>

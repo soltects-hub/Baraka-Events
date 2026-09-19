@@ -252,7 +252,10 @@ export const posts: Post[] = [
       { p: 'What is the significance of the Quran being held over the bride during rukhsati? In many families it is a gesture of blessing and protection as the bride begins her new life — the specific practice and its meaning can vary by family and tradition.' },
       {
         p: 'Can Baraka Events help plan and stage the rukhsati moment? Yes — building it into the day’s run-of-show, coordinating car or doli decor, and making sure the space and the right family members are ready at the right time is part of how we plan a full wedding week, not a separate add-on.',
-        related: [{ text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' }],
+        related: [
+          { text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' },
+          { text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' },
+        ],
       },
       { p: 'Everything else in a wedding week can be rehearsed. The rukhsati cannot — which is exactly why it deserves a plan, not just a hope that it goes smoothly.' },
     ],
@@ -293,7 +296,10 @@ export const posts: Post[] = [
       { p: 'What is the difference between a destination shaadi and a multi-day shaadi? A destination shaadi is about location — moving the celebration away from Lahore. A multi-day shaadi is about structure — treating the whole wedding week as one continuous itinerary at that location, rather than separate city-venue functions on separate nights.' },
       {
         p: 'Can Baraka Events plan a wedding outside Lahore? Yes — the same guest-list, budget and vendor-coordination process we use for a Lahore wedding applies to a destination or multi-day format; the venue changes, the planning discipline does not.',
-        related: [{ text: 'Baraka Events Venue Booking: How the Process Actually Works', slug: 'baraka-events-venue-booking-guide' }],
+        related: [
+          { text: 'Baraka Events Venue Booking: How the Process Actually Works', slug: 'baraka-events-venue-booking-guide' },
+          { text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' },
+        ],
       },
       { p: 'Leaving Lahore for the wedding is a real, valid choice — it simply moves a few problems from "which vendor" to "how do sixty guests get up a mountain," and those are worth planning for just as deliberately.' },
     ],
@@ -607,7 +613,10 @@ export const posts: Post[] = [
       { p: 'For a corporate audience, how smoothly they were received often outlasts their memory of the content itself. Trained hosting staff, functioning registration and a hospitality standard that matches the brand’s own positioning are treated as production line items, not afterthoughts.' },
       {
         p: 'From product launches in Johar Town’s Expo Centre to award dinners in Gulberg ballrooms, this is the same discipline behind every Baraka Events corporate event — which is also, simply, why the same brands rebook us the following year.',
-        related: [{ text: 'Producing a Corporate Gala in Lahore: The Complete Checklist', slug: 'corporate-gala-lahore-checklist' }],
+        related: [
+          { text: 'Producing a Corporate Gala in Lahore: The Complete Checklist', slug: 'corporate-gala-lahore-checklist' },
+          { text: 'Corporate Event Management in Lahore', to: '/services/corporate-events' },
+        ],
       },
     ],
   },
@@ -833,7 +842,10 @@ export const posts: Post[] = [
       { p: 'Scalloped arches, surahi centrepieces, qawwali before the dance floor opens. Built for haveli venues, and the theme our destination guests from abroad request most.' },
       {
         p: 'Whichever direction you choose, one rule holds: the mehndi should look nothing like the walima. Two nights, two worlds \u2014 that contrast is what your guests will still talk about at the next family shaadi.',
-        related: [{ text: 'Walima Decor in 2025: From Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' }],
+        related: [
+          { text: 'Walima Decor in 2025: From Pastel Minimal to Mughal Maximal', slug: 'walima-decor-trends-2025' },
+          { text: 'Mehndi Night Planning in Lahore', to: '/services/mehndi-events' },
+        ],
       },
     ],
   },
@@ -883,7 +895,10 @@ export const posts: Post[] = [
       { h: 'The detail everyone underestimates' },
       {
         p: 'The entrance corridor. Guests form their impression of the entire night in the thirty steps between the car and the hall \u2014 which is why our designers spend disproportionate budget and rehearsal time on that first passage of scent, light and sound.',
-        related: [{ text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' }],
+        related: [
+          { text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' },
+          { text: 'Walima Reception Planning in Lahore', to: '/services/walima-events' },
+        ],
       },
     ],
   },
@@ -931,7 +946,10 @@ export const posts: Post[] = [
       { h: 'Protect the entrance shot' },
       {
         p: 'The single most-rewatched clip of the entire shaadi is the couple\u2019s first walk. We choreograph a clean corridor, brief the family on where to stand, and give the film team a locked, lit lane. Thirty seconds of order buys a lifetime of rewatching.',
-        related: [{ text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' }],
+        related: [
+          { text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' },
+          { text: 'Baraat Planning in Lahore', to: '/services/barat-events' },
+        ],
       },
     ],
   },
@@ -1020,6 +1038,7 @@ export const posts: Post[] = [
       },
       {
         p: 'Treated as one coordinated production instead of four separate bookings, a multi-function Pakistani wedding runs the way it is meant to \u2014 as a single story told across a week, not four unrelated events that happen to share a couple.',
+        related: [{ text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' }],
       },
     ],
   },
