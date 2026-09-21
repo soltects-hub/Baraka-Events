@@ -67,6 +67,7 @@ export const services: Service[] = [
     ],
     relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'engagement-events', 'event-decoration'],
     relatedLinks: [
+      { text: 'How to choose a wedding planner in Lahore', to: '/blog/how-to-choose-wedding-planner-lahore' },
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
       { text: 'Farmhouse weddings on Raiwind Road', to: '/blog/farmhouse-wedding-raiwind-road-lahore' },
       { text: 'Destination & multi-day shaadi planning', to: '/blog/destination-multi-day-shaadi-lahore' },
