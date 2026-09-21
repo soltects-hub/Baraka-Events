@@ -39,6 +39,83 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: 'how-to-choose-wedding-planner-lahore',
+    title: 'How to Choose a Wedding Planner in Lahore When the Wedding Is Actually Four Events',
+    excerpt:
+      'Mehndi, baraat, nikkah and walima are four separate builds wearing one name. Here is what actually separates a wedding planner who can run all four from one who is coordinating four different vendors and hoping it holds together.',
+    category: 'Planning',
+    date: '21 September 2026',
+    publishedISO: '2026-09-21',
+    readTime: '8 min read',
+    image: '/media/gallery/wedding-8.webp',
+    imageAlt: 'Real baraat stage setup produced by Baraka Events in Lahore, one of the four builds a wedding planner has to run across a single week',
+    blocks: [
+      {
+        p: 'Search "wedding planner in Lahore" and the results run from a decorator with a good Instagram page to a genuine production company, and almost nothing on the page tells you which is which. That distinction matters more for a wedding than for almost any other event we produce, because a Lahore wedding is rarely one function. It is usually four — mehndi, baraat, nikkah and walima — each with its own venue, its own guest list and its own build, often inside the same seven days. Choosing "a wedding planner" is really choosing who can run all four without dropping one.',
+      },
+      { h: 'A wedding is four events wearing one name' },
+      {
+        p: 'A mehndi is loud, colourful and floor-level, built for a crowd that dances. A baraat and nikkah are often the same evening or the one right after, formal and stage-centred, usually the largest guest count of the week. A walima follows within days, more restrained and more corporate in tone, frequently at a different venue entirely. Three different rooms, three different guest counts, three different design languages, and sometimes only 48 hours between the last one being struck and the next one going up. Anyone can plan one of these well. The real test is whether the same team can carry a coherent story across all three without your family repeating the brief four times.',
+      },
+      { h: 'Ask whether one team builds all four nights, or four vendors share the "planner" title' },
+      {
+        p: 'Some companies you find under "wedding planner in Lahore" are decorators who subcontract catering and staging separately for each night and manage the schedule loosely from the side. That is not dishonest, but it is a different service from a planner who designs, staffs and runs mehndi through walima as one production. Ask directly: is the same coordinator on-site for all four functions, or does the team change per venue? Is the floral and stage crew one in-house team, or a different vendor each night? The answer changes how much you are actually buying.',
+        related: [{ text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' }],
+      },
+      { h: 'Ask what is deliberately consistent from mehndi to walima' },
+      {
+        p: 'A wedding that looks planned, rather than assembled, usually repeats something on purpose across the week — a colour family that shifts in intensity, a floral material used differently at each stage, a stage silhouette that evolves rather than resets. Ask a planner what carries through their design from the first night to the last. If the honest answer is "nothing, each night is its own brief," that can still work for a family that wants every function to feel distinct, but it means you are hiring four separate designers under one contract, not one.',
+        related: [{ text: 'real mehndi-to-walima productions in our gallery', to: '/gallery' }],
+      },
+      { h: 'Ask about the changeover window between functions' },
+      {
+        p: 'This is the detail most families never think to ask about, and the one that causes almost every mid-week problem: how much time does the venue crew actually have to strike one function and rebuild the next. A baraat stage struck at 1am with a nikkah setup due by evening the same day is a real production timeline, not a formality. A planner who can tell you, without checking, how their crew handles that turnaround has done this before. One who has never been asked the question is planning your wedding as three isolated bookings rather than one week.',
+        related: [
+          { text: 'The Perfect Baraat: Timing, Dhol and the Grand Entrance', slug: 'perfect-baraat-guide' },
+          { text: 'Rukhsati Ceremony Planning in Lahore', slug: 'rukhsati-ceremony-planning-lahore' },
+        ],
+      },
+      { h: 'Ask how the guest count changes the brief each night, not just the total' },
+      {
+        p: 'Mehndi guest lists in Lahore usually run close family and friends, commonly under 150. Baraat and nikkah typically pull the largest crowd of the week. Walima, especially among Gulberg and DHA families entertaining a wider professional circle, is often the biggest and most formal night of all. Catering, seating and even parking need to be re-planned per night, not averaged across the week. If a proposal quotes one blended per-head number for "the wedding," ask what guest count it assumes for each function individually.',
+        related: [{ text: 'What a Luxury Shaadi in Lahore Actually Costs in 2025', slug: 'luxury-shaadi-cost-lahore' }],
+      },
+      { h: 'What an honest multi-function proposal actually looks like' },
+      {
+        p: 'The same rule that applies to any single-event quote applies four times over here: venue, catering, decor, lighting and staffing broken out as their own line, for every function, not folded into one week-long total. A planner who can hand you four separate line-item breakdowns, one per night, with a single point of contact tying them together, is showing you the actual shape of the job. A single lump sum for "the wedding package" hides exactly where the money and the risk sit.',
+        related: [{ text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' }],
+      },
+      { h: 'Book earlier than you think, especially across four functions' },
+      {
+        p: 'Because a full wedding needs four venues, or one venue held across four separate days, a date gets harder to hold the closer you are to wedding season. In Lahore that season runs roughly October through March, and for a complete mehndi-to-walima week we tell families to start nine to twelve months out if they want their first choice of venues on consecutive or near-consecutive dates. A single function on its own is more forgiving — two to four months is usually workable. If you are already inside that window, it is still worth calling; venues cancel and dates open up more often than people assume.',
+      },
+      { h: 'Where Baraka fits into that choice' },
+      {
+        p: 'We plan mehndi, baraat, nikkah and walima as one production rather than four separate bookings, with one coordinator across every night and the same in-house design and production team building each stage. That is the specific problem this guide is about, and it is why most of our wedding clients book us for the whole week rather than a single function.',
+        related: [{ text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' }],
+      },
+      { h: 'FAQs: Choosing a Wedding Planner in Lahore' },
+      { h: 'Should every function of the wedding use the same planner?' },
+      {
+        p: 'Not necessarily, but it is worth understanding the trade-off. One team across all four nights keeps the design, vendor relationships and on-the-day coordination consistent, and means only one point of contact if something shifts. Some families deliberately hire a separate mehndi specialist for a more theatrical look and a different team for the formal nights — that works too, as long as someone is coordinating the handoff between them, because otherwise it becomes your job.',
+      },
+      { h: 'How far ahead should I book a wedding planner in Lahore?' },
+      {
+        p: 'For a full multi-function wedding — mehndi, baraat, nikkah and walima — nine to twelve months ahead gives you the best chance at your first choice of venues and dates, especially in wedding season from October to March. A single function on its own is more flexible, usually two to four months. If your date is closer than that, ask anyway; availability changes.',
+      },
+      { h: 'Can a wedding planner work with vendors we have already booked?' },
+      {
+        p: 'A flexible one can. If you already have a caterer or photographer you trust, a genuine wedding planner should be able to integrate them into the production plan for every function rather than insisting on their own list. Ask this directly during the first conversation, before you sign anything.',
+        related: [{ text: 'Wedding Event Timeline: From Mehndi to Walima', slug: 'wedding-timeline-mehndi-to-walima' }],
+      },
+      { h: 'What is the difference between a wedding planner and a decorator?' },
+      {
+        p: 'A decorator designs and builds the stage, florals and lighting for an event. A wedding planner does that and also handles venue selection, vendor coordination, budgeting, timing and on-site management across every function of the week. Many companies do both under one name, which is exactly why it is worth asking which one you are actually hiring.',
+        related: [{ text: 'Planning a Destination or Multi-Day Shaadi in Lahore', slug: 'destination-multi-day-shaadi-lahore' }],
+      },
+    ],
+  },
+  {
     slug: 'event-planning-cost-budget-lahore',
     title: 'What Event Planning in Lahore Costs, and How to Spend Less',
     excerpt:
@@ -558,8 +635,11 @@ export const posts: Post[] = [
       { h: '5. Check how they handle vendors you already trust' },
       { p: 'Many Lahore families already have a caterer or a videographer they love. A flexible planner integrates your trusted vendors into their production plan; an inflexible one insists on their own list regardless. Baraka Events runs this way for every client who asks — our job is to produce your event, not replace your relationships.' },
       {
-        p: 'Run any shortlist through these five questions and the top event planner in Lahore for your event usually becomes obvious well before the first invoice.',
-        related: [{ text: 'Why Baraka Events Is the Best Event Planner in Lahore', slug: 'best-event-planner-lahore-baraka-events' }],
+        p: 'Run any shortlist through these five questions and the top event planner in Lahore for your event usually becomes obvious well before the first invoice. If you are hiring specifically for a wedding week rather than a single event, the questions change slightly — a mehndi-to-walima week has its own logistics worth asking about separately.',
+        related: [
+          { text: 'Why Baraka Events Is the Best Event Planner in Lahore', slug: 'best-event-planner-lahore-baraka-events' },
+          { text: 'How to Choose a Wedding Planner in Lahore', slug: 'how-to-choose-wedding-planner-lahore' },
+        ],
       },
     ],
   },
@@ -1038,7 +1118,10 @@ export const posts: Post[] = [
       },
       {
         p: 'Treated as one coordinated production instead of four separate bookings, a multi-function Pakistani wedding runs the way it is meant to \u2014 as a single story told across a week, not four unrelated events that happen to share a couple.',
-        related: [{ text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' }],
+        related: [
+          { text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' },
+          { text: 'How to Choose a Wedding Planner in Lahore', slug: 'how-to-choose-wedding-planner-lahore' },
+        ],
       },
     ],
   },

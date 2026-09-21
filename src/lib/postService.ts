@@ -12,6 +12,7 @@
  */
 export const postServiceLinks: Record<string, string> = {
   // Weddings, end to end
+  'how-to-choose-wedding-planner-lahore': 'wedding-planning',
   'top-wedding-venues-lahore-2025': 'wedding-planning',
   'how-to-choose-wedding-venue-lahore-guide': 'wedding-planning',
   'luxury-shaadi-cost-lahore': 'wedding-planning',
