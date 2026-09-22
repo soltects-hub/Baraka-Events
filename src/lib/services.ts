@@ -59,7 +59,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: 'Do you plan single functions or only full weddings?', a: 'Both. Most clients book us for the full week, but we also plan individual functions — see our dedicated Nikkah, Mehndi, Baraat and Walima pages if that is what you need.' },
-      { q: 'How far in advance should we book?', a: 'Eight to ten months out gives us the best choice of venues and vendors, though we take on shorter timelines depending on the date and season.' },
+      { q: 'How far in advance should we book?', a: 'Nine to twelve months out gives us the best choice of venues and vendors, especially in wedding season from October to March. Outside peak season, or for a single function rather than the full week, shorter timelines are usually workable.' },
       { q: 'Do you handle vendor payments or just coordination?', a: 'We coordinate and can manage vendor payments on your behalf as part of the planning agreement, with every cost itemized in your proposal.' },
       { q: 'How much does a wedding planner in Lahore cost?', a: 'We quote for the scope of work, not as a percentage of your budget, and the fee sits as its own line separate from venue, catering and decor. Whether you book the full week or a single function changes it far more than the size of the wedding does.' },
       { q: 'Can you work with vendors we have already booked?', a: 'Yes. If your venue, caterer or photographer is already confirmed we work with them rather than replacing them, and hold them to the same run-of-show as everyone else.' },
