@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import RevealText from './RevealText';
 
 const stats = [
@@ -72,11 +73,18 @@ export default function About() {
               marquees of DHA and the ballrooms of Gulberg.
             </p>
             <p>
-              A shaadi means mehndi, baraat, nikkah and walima planned as one continuous
-              production, not four separate bookings. A corporate event means stage design,
-              lighting and hospitality handled by people who also do this for weddings, so
-              nothing feels improvised. Either way, the same team stays with you from the
-              first meeting to the last guest leaving.
+              A{' '}
+              <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
+                shaadi
+              </Link>{' '}
+              means mehndi, baraat, nikkah and walima planned as one continuous
+              production, not four separate bookings. A{' '}
+              <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+                corporate event
+              </Link>{' '}
+              means stage design, lighting and hospitality handled by people who also do
+              this for weddings, so nothing feels improvised. Either way, the same team
+              stays with you from the first meeting to the last guest leaving.
             </p>
           </div>
 
