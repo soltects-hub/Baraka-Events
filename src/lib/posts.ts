@@ -598,7 +598,10 @@ export const posts: Post[] = [
       { h: 'One team, not a chain of subcontractors' },
       { p: 'Most “event planners” in Lahore are, in practice, a coordinator who hires a decorator, a caterer and a sound vendor and hopes they all show up on the same day. Baraka Events runs production, design, floral and client relations as one in-house team. When something shifts two hours before doors open — and in Lahore, something always shifts — we are not making phone calls to four different companies. We are already fixing it.' },
       { h: 'Every category, one standard' },
-      { p: 'Ask us for a Walled City haveli nikkah, a Gulberg corporate gala or a fortieth-birthday dinner for sixty guests, and the same production discipline applies: a written line-item proposal, a named coordinator, a lighting and sound plan reviewed before the day, and a run-of-show rehearsed rather than read for the first time on site. That consistency — not any single spectacular stage — is what earns the return client.' },
+      {
+        p: 'Ask us for a Walled City haveli nikkah, a Gulberg corporate gala or a fortieth-birthday dinner for sixty guests, and the same production discipline applies: a written line-item proposal, a named coordinator, a lighting and sound plan reviewed before the day, and a run-of-show rehearsed rather than read for the first time on site. That consistency — not any single spectacular stage — is what earns the return client.',
+        related: [{ text: 'Every event type we plan', to: '/services' }],
+      },
       { h: 'What our clients actually say' },
       { p: 'Search Baraka Events on Google and the reviews that keep appearing are not about a single dramatic entrance or floral wall. They mention communication, timing, and the absence of drama on the day itself. For a wedding planner in Lahore, that is the real scoreboard: not how the stage photographed, but whether the family enjoyed their own event instead of managing it.' },
       { h: 'Where to find us' },
@@ -623,7 +626,10 @@ export const posts: Post[] = [
     image: '/media/showreel-5.webp',
     imageAlt: 'A Baraka Events mehndi night production in Lahore',
     blocks: [
-      { p: 'Every year we sit across the table from families and brand managers who have already scrolled through a dozen Instagram pages captioned “top event planner in Lahore.” Good photography tells you almost nothing about how an event actually runs. This is the checklist we tell them to use instead — the same one we would use if we were hiring someone else.' },
+      {
+        p: 'Every year we sit across the table from families and brand managers who have already scrolled through a dozen Instagram pages captioned “top event planner in Lahore.” Good photography tells you almost nothing about how an event actually runs. This is the checklist we tell them to use instead — the same one we would use if we were hiring someone else.',
+        related: [{ text: 'See every service we offer', to: '/services' }],
+      },
       { h: '1. Ask for a line-item proposal, not a package price' },
       { p: 'A single lump-sum quote hides where your money is actually going. A serious planner breaks the budget into venue, decor, catering, lighting, sound, staffing and contingency — and can explain each line without hesitating.' },
       { h: '2. Ask who shows up on the day' },
