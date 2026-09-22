@@ -65,7 +65,7 @@ export const services: Service[] = [
       { q: 'Can you work with vendors we have already booked?', a: 'Yes. If your venue, caterer or photographer is already confirmed we work with them rather than replacing them, and hold them to the same run-of-show as everyone else.' },
       { q: 'What is the difference between a wedding planner and a wedding decorator?', a: 'A decorator designs and installs how the event looks. A planner decides venue, budget, vendors and schedule, and holds all of it together across the week. We do both, priced separately, and either can be booked on its own.' },
     ],
-    relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'engagement-events', 'event-decoration'],
+    relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'engagement-events', 'event-decoration', 'event-management'],
     relatedLinks: [
       { text: 'How to choose a wedding planner in Lahore', to: '/blog/how-to-choose-wedding-planner-lahore' },
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
@@ -99,6 +99,7 @@ export const services: Service[] = [
     faqs: [
       { q: 'Can you manage an event I already planned myself?', a: 'Yes — we regularly step in purely for day-of management when the planning and vendor selection is already done.' },
       { q: 'Do you provide event management without full planning?', a: 'Yes, event management is available as a standalone service, separate from our full wedding or corporate planning packages.' },
+      { q: 'Is Baraka Events a full event management company, or only day-of coordination?', a: 'Both. Baraka Events is a full-service event management company — planning, decor, vendor coordination and production for weddings, corporate events and private celebrations, from the first consultation onward. The day-of coordination described on this page is also available on its own, for events we did not plan from the start. If you want us to run your event end to end rather than just the final day, our Wedding Planning and Corporate Event Management pages cover that in full.' },
       { q: 'What is included in day-of coordination?', a: 'A run-of-show, an on-site team, and direct vendor supervision from setup through breakdown — see the sections above for the full scope.' },
       { q: 'How much does event management cost in Lahore?', a: 'It is quoted against scope rather than sold as a fixed package, because supervising one evening at one venue is not the same job as a four-function week across three. You get the number as a separate line in your proposal before committing to anything.' },
       { q: 'How much notice do you need?', a: 'For day-of management alone, a few weeks is usually workable outside peak season. In peak wedding months availability depends on the date far more than on lead time, so it is worth asking early even if you are not ready to book.' },
@@ -140,7 +141,7 @@ export const services: Service[] = [
       { q: 'How much does event decoration cost in Lahore?', a: 'It scales with floral volume, stage size and the lighting rig rather than with guest count. We quote those as three separate lines so you can see where the money is going and trade between them.' },
       { q: 'How far in advance should decor be booked?', a: 'Six to eight weeks suits most setups. Custom stage fabrication and large floral installations need longer, and peak wedding season compresses everything.' },
     ],
-    relatedServices: ['wedding-planning', 'walima-events', 'mehndi-events'],
+    relatedServices: ['wedding-planning', 'walima-events', 'mehndi-events', 'event-management', 'corporate-events'],
     relatedLinks: [
       { text: 'See design concepts', to: '/gallery' },
       { text: 'Walima decor trends', to: '/blog/walima-decor-trends-2025' },
