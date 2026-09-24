@@ -142,10 +142,12 @@ export default function ServicesIndexPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            As an event planner in Lahore, we cover everything from full wedding
-            planning down to a single function; as an event management company, we
-            take on corporate work of any scale. Each service below can be booked on
-            its own or as part of a larger project.
+            Whether you are searching for an event planner, an event organizer or
+            an event management company in Lahore, you are looking for the same
+            thing: one team that handles the decisions, the vendors and the day
+            itself. We cover everything from full wedding planning down to a
+            single function, and take on corporate work of any scale. Each service
+            below can be booked on its own or as part of a larger project.
           </motion.p>
         </div>
       </section>
@@ -212,8 +214,17 @@ export default function ServicesIndexPage() {
         <div className="border-t border-champagne/10 pt-12">
           <h2 className="font-display text-2xl font-light md:text-3xl">Where we work across Lahore</h2>
           <p className="mt-4 text-sm font-light leading-relaxed text-mist md:text-base">
-            Our office is at Liberty Roundabout in Gulberg III, and we produce events across the whole city —
-            including the farmhouse venues out along Raiwind and Bedian Road.
+            Our office is at{' '}
+            <a
+              href="https://maps.app.goo.gl/iXCcf5Ko2GKd6vjk7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gold-underline text-gold hover:text-gold-soft"
+            >
+              Liberty Roundabout in Gulberg III
+            </a>
+            , and we produce events across the whole city — including the
+            farmhouse venues out along Raiwind and Bedian Road.
           </p>
           <ul className="mt-6 flex flex-wrap gap-2.5">
             {SERVICE_AREAS.map((area) => (
