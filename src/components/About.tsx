@@ -68,8 +68,11 @@ export default function About() {
           <div className="mt-8 space-y-5 text-base font-light leading-[1.75] text-mist md:text-[17px]">
             <p>
               Baraka Events is an event planning and management company based in Gulberg,
-              Lahore. We plan and produce weddings, corporate events and private
-              celebrations across the city — from the havelis of the Walled City to the
+              Lahore. We plan and produce weddings, corporate events and{' '}
+              <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
+                private celebrations
+              </Link>{' '}
+              across the city — from the havelis of the Walled City to the
               marquees of DHA and the ballrooms of Gulberg.
             </p>
             <p>
