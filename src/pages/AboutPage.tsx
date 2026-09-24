@@ -146,7 +146,11 @@ export default function AboutPage() {
               <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
                 corporate launches
               </Link>{' '}
-              and private celebrations across Gulberg, DHA, Bahria Town,
+              and{' '}
+              <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
+                private celebrations
+              </Link>{' '}
+              across Gulberg, DHA, Bahria Town,
               Model Town, Johar Town and the Walled City.
             </p>
             <p>
