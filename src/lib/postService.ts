@@ -40,9 +40,11 @@ export const postServiceLinks: Record<string, string> = {
   'corporate-gala-lahore-checklist': 'corporate-events',
   'baraka-events-corporate-events-lahore': 'corporate-events',
 
-  // Private celebrations
-  'anniversary-celebration-ideas-lahore': 'birthday-events',
-  'aqeeqah-celebration-planning-lahore': 'birthday-events',
+  // Anniversary and aqeeqah content used to point at birthday-events, which
+  // shares its "Private Celebrations" tag but is written specifically for
+  // birthday parties (title, FAQs and included-services all say "birthday").
+  // No dedicated anniversary/aqeeqah service page exists, so per the rule
+  // above these are left unmapped rather than pointed somewhere inaccurate.
 
   // Catering sits under full wedding planning — there is no catering service page
   'luxury-event-catering-menu-lahore': 'wedding-planning',

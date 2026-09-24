@@ -6,6 +6,12 @@ import { useSectionNav } from '../lib/useSectionNav';
 import { services } from '../lib/services';
 import MagneticButton from './MagneticButton';
 
+// Experiences, Portfolio and Gallery were removed from the primary nav
+// (2026-09-24) to keep it focused on the commercial path — Home, Services,
+// Blog and Contact are what a converting visitor actually needs. All three
+// pages still exist, are still in the sitemap (generated from seoConfig
+// routes, not this array) and stay fully crawlable via the Footer's nav
+// list, which still links all three on every page.
 const links = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
@@ -15,9 +21,6 @@ const links = [
   // footer link. Putting the full list in the nav (present on every page)
   // is also the single highest-leverage internal-link change available.
   { label: 'Services', href: '/services' },
-  { label: 'Experiences', href: '/experiences' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
