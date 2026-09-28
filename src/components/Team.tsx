@@ -1,5 +1,5 @@
 import RevealText from './RevealText';
-import TeamCarousel3D from './TeamCarousel3D';
+import LeadershipProfile from './LeadershipProfile';
 
 export default function Team() {
   return (
@@ -17,21 +17,21 @@ export default function Team() {
             <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">The Atelier</p>
             <RevealText
               as="h2"
-              text="The faces behind Baraka"
+              text="The face behind Baraka"
               className="font-display text-4xl font-light leading-[1.1] md:text-6xl"
               highlightWords={[2, 3]}
               highlightClass="accent-serif"
             />
           </div>
           <p className="max-w-sm text-sm font-light leading-relaxed text-mist md:text-right">
-            A small team that works on every event together. Hover to pause the
-            carousel, drag left or right to browse, or click a face to bring it forward.
+            Every Baraka production is reviewed personally, from stage layout
+            to final vendor sign-off, before it goes live.
           </p>
         </div>
       </div>
 
-      {/* 3D team carousel */}
-      <TeamCarousel3D />
+      {/* leadership profile */}
+      <LeadershipProfile />
     </section>
   );
 }
