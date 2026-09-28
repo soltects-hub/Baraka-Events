@@ -30,25 +30,37 @@ const HERO_IMAGES = [
 function HeroTriptych({ className = '' }: { className?: string }) {
   return (
     <div className={`grid grid-cols-3 ${className}`}>
-      {HERO_IMAGES.map((img, i) => (
-        <img
-          key={img.src}
-          src={img.src}
-          alt={img.alt}
-          width={1000}
-          height={1500}
-          // The first (leftmost) frame is the one most likely to be the
-          // LCP element on both layouts, so it alone gets priority hinting.
-          // None of the three are scale-animated — Hero.tsx's own history
-          // (visual-phase-2) found that a scale transform on a viewport-
-          // filling hero image makes Chrome drop it from LCP candidacy
-          // entirely, silently regressing LCP to the paragraph below.
-          fetchPriority={i === 0 ? 'high' : 'auto'}
-          decoding="async"
-          className="h-full w-full object-cover"
-          style={{ objectPosition: img.position }}
-        />
-      ))}
+      {HERO_IMAGES.map((img, i) => {
+        const base = img.src.replace(/\.webp$/, '');
+        return (
+          <img
+            key={img.src}
+            src={img.src}
+            // Both layouts (the mobile strip and the desktop full-bleed grid)
+            // are structurally the same shape — three equal columns spanning
+            // the available width — so "33vw" is an accurate size hint at
+            // every breakpoint, not just one of them. Mobile was previously
+            // downloading the full 1000px-wide desktop file into a column
+            // rendered at ~120px: an 380/700/1000w srcset lets the browser
+            // pick a file close to what it will actually display instead.
+            srcSet={`${base}-380.webp 380w, ${base}-700.webp 700w, ${img.src} 1000w`}
+            sizes="33vw"
+            alt={img.alt}
+            width={1000}
+            height={1500}
+            // The first (leftmost) frame is the one most likely to be the
+            // LCP element on both layouts, so it alone gets priority hinting.
+            // None of the three are scale-animated — Hero.tsx's own history
+            // (visual-phase-2) found that a scale transform on a viewport-
+            // filling hero image makes Chrome drop it from LCP candidacy
+            // entirely, silently regressing LCP to the paragraph below.
+            fetchPriority={i === 0 ? 'high' : 'auto'}
+            decoding="async"
+            className="h-full w-full object-cover"
+            style={{ objectPosition: img.position }}
+          />
+        );
+      })}
     </div>
   );
 }

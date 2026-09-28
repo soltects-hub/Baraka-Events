@@ -120,6 +120,7 @@ function PinnedServices() {
               key={s.image}
               src={s.image}
               alt={s.title}
+              loading="lazy"
               initial={{ opacity: 0, scale: 1.12, rotateY: 4 }}
               animate={{ opacity: 0.92, scale: 1, rotateY: 0 }}
               exit={{ opacity: 0, scale: 0.96, rotateY: -4 }}
