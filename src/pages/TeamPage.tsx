@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
-import TeamCarousel3D from '../components/TeamCarousel3D';
+import LeadershipProfile from '../components/LeadershipProfile';
 import { useSectionNav } from '../lib/useSectionNav';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
@@ -19,7 +19,7 @@ export default function TeamPage() {
   useSEO({
     title: 'Meet the Team — Baraka Events Lahore',
     description:
-      'Meet the founders, producers and coordinators behind Baraka Events, the team planning weddings, corporate events and private celebrations across Lahore.',
+      'Meet Malik Bilal, the founder and CEO of Baraka Events — the person behind every wedding, corporate event and private celebration the company produces in Lahore.',
     canonical: routes.team,
   });
 
@@ -56,7 +56,7 @@ export default function TeamPage() {
           </motion.p>
           <RevealText
             as="h1"
-            text="The people behind every Baraka production."
+            text="The person behind every Baraka production."
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
@@ -65,16 +65,16 @@ export default function TeamPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            A small, obsessive team of designers, producers and coordinators — the same people
-            you will speak to at your first consultation are the ones running your event on the
-            night itself.
+            One obsessive founder who reviews every production personally — the
+            same person you speak to at your first consultation is the one
+            running your event on the night itself.
           </motion.p>
         </div>
       </section>
 
-      {/* 3D team carousel */}
+      {/* leadership profile */}
       <section className="pb-24 md:pb-32">
-        <TeamCarousel3D />
+        <LeadershipProfile />
       </section>
 
       {/* expertise */}
