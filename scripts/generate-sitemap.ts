@@ -10,6 +10,8 @@ import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { posts } from '../src/lib/posts';
 import { services } from '../src/lib/services';
+import { publishedVenues } from '../src/lib/venues';
+import { vendors } from '../src/lib/vendors';
 import { seoConfig, routes } from '../src/seo';
 
 interface SitemapUrl {
@@ -56,6 +58,13 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: editedLastmod },
   { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: editedLastmod },
+  // /venues and /vendors are deliberately left out while they carry no real
+  // listings (both index pages are `noindex` until Phase 2 — see
+  // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a
+  // noindex page is a contradiction worth avoiding. Once either array holds
+  // a real, verified entry, its index page belongs here too.
+  ...(publishedVenues.length > 0 ? [{ path: routes.venues, changefreq: 'weekly' as const, priority: '0.8', lastmod: staticLastmod }] : []),
+  ...(vendors.length > 0 ? [{ path: routes.vendors, changefreq: 'weekly' as const, priority: '0.7', lastmod: staticLastmod }] : []),
 ];
 
 const postRoutes: SitemapUrl[] = posts.map((post) => ({
@@ -72,7 +81,24 @@ const serviceRoutes: SitemapUrl[] = services.map((service) => ({
   lastmod: EDITED_SERVICE_SLUGS.has(service.slug) ? editedLastmod : staticLastmod,
 }));
 
-const urls = [...staticRoutes, ...postRoutes, ...serviceRoutes];
+// Empty today (see src/lib/venues.ts / src/lib/vendors.ts) — these produce
+// zero URLs until Phase 2 adds real, verified listings, at which point they
+// need no further changes here.
+const venueRoutes: SitemapUrl[] = publishedVenues.map((venue) => ({
+  path: routes.venuePage(venue.slug),
+  changefreq: 'monthly',
+  priority: '0.7',
+  lastmod: venue.verifiedDate,
+}));
+
+const vendorRoutes: SitemapUrl[] = vendors.map((vendor) => ({
+  path: routes.vendorPage(vendor.slug),
+  changefreq: 'monthly',
+  priority: '0.6',
+  lastmod: vendor.verifiedDate,
+}));
+
+const urls = [...staticRoutes, ...postRoutes, ...serviceRoutes, ...venueRoutes, ...vendorRoutes];
 
 const body = urls
   .map((u) => {
