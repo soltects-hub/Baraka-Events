@@ -27,6 +27,13 @@ const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const ServicesIndexPage = lazy(() => import('./pages/ServicesIndexPage'));
 const ServicePage = lazy(() => import('./pages/ServicePage'));
+// Foundation-phase pages (architecture proposal approved 2026-09-29, Phase 1)
+// — both render an honest "in development" state until Phase 2 adds real,
+// verified listings to src/lib/venues.ts / src/lib/vendors.ts.
+const VenuesIndexPage = lazy(() => import('./pages/VenuesIndexPage'));
+const VenuePage = lazy(() => import('./pages/VenuePage'));
+const VendorsIndexPage = lazy(() => import('./pages/VendorsIndexPage'));
+const VendorPage = lazy(() => import('./pages/VendorPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function ScrollRestore() {
@@ -80,6 +87,10 @@ export default function App() {
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/services" element={<ServicesIndexPage />} />
                 <Route path="/services/:slug" element={<ServicePage />} />
+                <Route path="/venues" element={<VenuesIndexPage />} />
+                <Route path="/venues/:slug" element={<VenuePage />} />
+                <Route path="/vendors" element={<VendorsIndexPage />} />
+                <Route path="/vendors/:slug" element={<VendorPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

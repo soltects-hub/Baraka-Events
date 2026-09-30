@@ -72,6 +72,7 @@ export const services: Service[] = [
       { text: 'Farmhouse weddings on Raiwind Road', to: '/blog/farmhouse-wedding-raiwind-road-lahore' },
       { text: 'Destination & multi-day shaadi planning', to: '/blog/destination-multi-day-shaadi-lahore' },
       { text: 'See wedding decor in the gallery', to: '/gallery' },
+      { text: 'Browse real Lahore venues (independent guide)', to: '/venues' },
     ],
   },
   {

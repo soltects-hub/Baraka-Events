@@ -72,4 +72,11 @@ export const routes = {
   blogPost: (slug: string) => `/blog/${slug}`,
   services: '/services',
   servicePage: (slug: string) => `/services/${slug}`,
+  // Foundation-phase routes (architecture proposal approved 2026-09-29,
+  // Phase 1) — src/lib/venues.ts and src/lib/vendors.ts ship empty until
+  // Phase 2 adds real, verified listings.
+  venues: '/venues',
+  venuePage: (slug: string) => `/venues/${slug}`,
+  vendors: '/vendors',
+  vendorPage: (slug: string) => `/vendors/${slug}`,
 };

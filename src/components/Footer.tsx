@@ -11,6 +11,7 @@ const nav = [
   { label: 'Gallery', href: '/gallery' },
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Venues', href: '/venues' },
   { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '#faq' },
 ];

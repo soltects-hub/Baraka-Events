@@ -12,6 +12,7 @@ export {
   generateBreadcrumbSchema,
   generateFAQSchema,
   generateServiceSchema,
+  generatePlaceSchema,
   applyStructuredData,
   composeSchemaGraph,
 } from './structuredData';

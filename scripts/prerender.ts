@@ -32,6 +32,8 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { posts } from '../src/lib/posts';
 import { services } from '../src/lib/services';
+import { publishedVenues } from '../src/lib/venues';
+import { vendors } from '../src/lib/vendors';
 import { routes } from '../src/seo';
 
 const PORT = 4319;
@@ -94,8 +96,15 @@ const routePaths: string[] = [
   routes.contact,
   routes.blog,
   routes.services,
+  // Foundation-phase routes (architecture proposal approved 2026-09-29,
+  // Phase 1): the index pages always prerender; the dynamic spreads below
+  // produce zero paths today since venues/vendors ship empty until Phase 2.
+  routes.venues,
+  routes.vendors,
   ...posts.map((p) => routes.blogPost(p.slug)),
   ...services.map((s) => routes.servicePage(s.slug)),
+  ...publishedVenues.map((v) => routes.venuePage(v.slug)),
+  ...vendors.map((v) => routes.vendorPage(v.slug)),
   routes.home, // last — see outputPathFor note above
 ];
 

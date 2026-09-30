@@ -312,6 +312,22 @@
     {
       "source": "/services/:slug",
       "destination": "/services/:slug.html"
+    },
+    {
+      "source": "/venues",
+      "destination": "/venues.html"
+    },
+    {
+      "source": "/venues/:slug",
+      "destination": "/venues/:slug.html"
+    },
+    {
+      "source": "/vendors",
+      "destination": "/vendors.html"
+    },
+    {
+      "source": "/vendors/:slug",
+      "destination": "/vendors/:slug.html"
     }
   ],
   "headers": [
