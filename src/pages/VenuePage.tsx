@@ -6,6 +6,7 @@ import MagneticButton from '../components/MagneticButton';
 import IndependentListingNotice from '../components/IndependentListingNotice';
 import VenueVisual from '../components/VenueVisual';
 import { useSectionNav } from '../lib/useSectionNav';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 import { getVenue, publishedVenues, type Venue } from '../lib/venues';
 import { getService } from '../lib/services';
 import { getPost } from '../lib/posts';
@@ -21,21 +22,19 @@ import {
 } from '../seo';
 
 /**
- * These two questions are the only FAQ content on an independent listing —
- * deliberately not venue-specific pricing/availability Q&As, since nothing
- * here is confirmed to that level. Computed rather than stored per-venue so
- * every listing states the disclosure identically (see
- * IndependentListingNotice.tsx for why that wording matters).
+ * Baraka-as-Gateway FAQ (2026-10-01) — deliberately not "how do I contact
+ * this venue" content. The point of this listing is to route the visitor
+ * into Baraka's own planning services, not hand them a channel around us.
  */
-function independentListingFaqs(venue: Venue) {
+function gatewayFaqs(venue: Venue) {
   return [
     {
-      q: `Is ${venue.name} affiliated with Baraka Events?`,
-      a: `No. This is an independent, publicly sourced listing — Baraka Events has no confirmed partnership, representation or endorsement relationship with ${venue.name}. Use the contact details above to reach the venue directly and confirm availability, pricing and requirements.`,
+      q: `Can Baraka Events plan an event at ${venue.name}?`,
+      a: `Yes. Baraka Events can help you explore ${venue.name} as part of your event and handle the planning, decor and coordination around it — this listing is informational, not a booking channel.`,
     },
     {
-      q: 'Can Baraka Events plan or manage an event at this venue?',
-      a: `Yes. Our planning and event-management services can be booked for an event at any venue you've already chosen, including ${venue.name}.`,
+      q: 'How can Baraka Events help me choose a venue?',
+      a: "Tell us what you're planning — guest count, event type, area of the city — and we'll help you compare options like this one against what your event actually needs, then manage the planning once a venue is chosen.",
     },
   ];
 }
@@ -57,7 +56,7 @@ export default function VenuePage() {
     applyStructuredData(
       composeSchemaGraph([
         generatePlaceSchema(venue),
-        generateFAQSchema(independentListingFaqs(venue)),
+        generateFAQSchema(gatewayFaqs(venue)),
         generateBreadcrumbSchema([
           { name: 'Home', url: seoConfig.site.url },
           { name: 'Venues', url: `${seoConfig.site.url}${routes.venues}` },
@@ -72,8 +71,7 @@ export default function VenuePage() {
   const relatedServices = venue.relatedServices.map((s) => getService(s)).filter((s) => s !== undefined);
   const relatedPosts = venue.relatedPosts.map((p) => getPost(p)).filter((p) => p !== undefined);
   const otherVenues = publishedVenues.filter((v) => v.slug !== venue.slug).slice(0, 3);
-  const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${venue.name}, ${venue.area}`)}`;
-  const faqs = independentListingFaqs(venue);
+  const faqs = gatewayFaqs(venue);
 
   return (
     <main className="bg-ink">
@@ -100,42 +98,20 @@ export default function VenuePage() {
 
         <p className="mt-10 text-base font-light leading-[1.9] text-cream/75 md:text-lg">{venue.description}</p>
 
-        {/* facts grid */}
+        {/* facts grid — general/public facts only; no address, contact or
+            outbound link to the venue itself (Baraka-as-Gateway model) */}
         <div className="mt-12 grid gap-6 border-t border-champagne/10 pt-10 sm:grid-cols-2">
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Location</p>
-            <p className="mt-2 text-sm font-light leading-relaxed text-mist">{venue.addressText}</p>
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gold-underline mt-2 inline-block text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-soft"
-            >
-              Get Directions
-            </a>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Venue's Own Contact</p>
-            <div className="mt-2 space-y-1 text-sm font-light leading-relaxed text-mist">
-              {venue.publicPhone && <p>{venue.publicPhone}</p>}
-              {venue.publicEmail && <p>{venue.publicEmail}</p>}
-              <a
-                href={venue.officialWebsite}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gold-underline inline-block text-gold hover:text-gold-soft"
-              >
-                Official Website
-              </a>
-            </div>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Capacity</p>
-            <p className="mt-2 text-sm font-light leading-relaxed text-mist">{venue.capacityNote}</p>
+            <p className="mt-2 text-sm font-light leading-relaxed text-mist">{venue.area}</p>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Indoor / Outdoor</p>
             <p className="mt-2 text-sm font-light capitalize leading-relaxed text-mist">{venue.indoorOutdoor}</p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Capacity</p>
+            <p className="mt-2 text-sm font-light leading-relaxed text-mist">{venue.capacityNote}</p>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-champagne">Event Types</p>
@@ -197,17 +173,17 @@ export default function VenuePage() {
           </p>
         )}
 
-        {/* CTA — Baraka's own services, never "book this venue" */}
+        {/* CTA — the only conversion path on this page is Baraka's own */}
         <div className="plate mt-16 rounded-sm p-8 text-center md:p-10">
           <p className="font-display text-2xl font-light md:text-3xl">
-            Already chosen <em className="accent-serif">{venue.name}</em>?
+            Plan Your Event <em className="accent-serif">With Baraka Events</em>
           </p>
           <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
-            Baraka Events can plan, decorate and manage your event here — the venue is yours to book, the rest can be ours to run.
+            Considering {venue.name}? Tell us about your event and we'll help you explore this option as part of your plan.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
-            <MagneticButton onClick={() => go('/contact')}>Get a Quote</MagneticButton>
-            <MagneticButton variant="ghost" onClick={() => go('/services')}>See Our Services</MagneticButton>
+            <MagneticButton onClick={() => go('/contact')}>Get a Custom Quote</MagneticButton>
+            <MagneticButton variant="ghost" href={WHATSAPP_URL}>Ask Baraka About This Venue</MagneticButton>
           </div>
         </div>
       </article>
