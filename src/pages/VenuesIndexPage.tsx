@@ -54,16 +54,15 @@ export default function VenuesIndexPage() {
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <p className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base">
-            A small, hand-checked guide to real event venues across Lahore — halls, capacity and contact details,
-            sourced from each venue's own public information. This is a Baraka Events guide, not a Baraka Events
-            venue list: nothing here implies a partnership or booking relationship unless stated otherwise on that
-            venue's page.
+            A small, hand-checked guide to real event venues across Lahore — halls, capacity and facilities,
+            independently compiled by Baraka Events. Interested in one? Baraka Events can help you explore it and
+            plan your event around it.
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-[1200px] px-6 pb-8 md:px-10">
-        <IndependentListingNotice />
+        <IndependentListingNotice plural />
       </section>
 
       <section className="mx-auto max-w-[1200px] px-6 pb-24 md:px-10 md:pb-32">

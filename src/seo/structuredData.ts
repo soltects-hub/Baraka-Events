@@ -125,20 +125,14 @@ export function generateServiceSchema(service: { name: string; description: stri
 /**
  * Place schema for a third-party venue described on an independent listing
  * page (/venues/:slug). Deliberately `Place`, not `LocalBusiness` — this site
- * does not operate, represent or endorse the venue, so the schema must never
- * carry LocalBusiness's implied-ownership semantics. `url` points at the
- * venue's own official site (the real entity's canonical URL), not this
- * page. No `review`/`aggregateRating` — only add those once real,
- * attributable reviews exist to mirror.
+ * does not operate, represent or endorse the venue. Baraka-as-Gateway model
+ * (2026-10-01): deliberately carries no `telephone`, `email`, `url` or
+ * `sameAs` — those would hand a visitor a direct channel to the venue,
+ * bypassing Baraka, and Place schema is perfectly valid without them. No
+ * `review`/`aggregateRating` — only add those once real, attributable
+ * reviews exist to mirror.
  */
-export function generatePlaceSchema(venue: {
-  name: string;
-  description: string;
-  addressText: string;
-  officialWebsite: string;
-  publicPhone?: string;
-  publicEmail?: string;
-}) {
+export function generatePlaceSchema(venue: { name: string; description: string }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Place',
@@ -146,15 +140,10 @@ export function generatePlaceSchema(venue: {
     description: venue.description,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: venue.addressText,
       addressLocality: 'Lahore',
       addressRegion: 'Punjab',
       addressCountry: 'PK',
     },
-    ...(venue.publicPhone ? { telephone: venue.publicPhone } : {}),
-    ...(venue.publicEmail ? { email: venue.publicEmail } : {}),
-    url: venue.officialWebsite,
-    sameAs: [venue.officialWebsite],
   };
 }
 

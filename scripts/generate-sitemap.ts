@@ -11,6 +11,9 @@ import { resolve } from 'node:path';
 import { posts } from '../src/lib/posts';
 import { services } from '../src/lib/services';
 import { publishedVenues } from '../src/lib/venues';
+// Build-time-only import — generate-sitemap.ts runs via tsx, never bundled,
+// so reading verifiedDate here does not put verification data in the client.
+import { getVenueVerification } from '../src/data/venuesVerification';
 import { vendors } from '../src/lib/vendors';
 import { seoConfig, routes } from '../src/seo';
 
@@ -88,7 +91,7 @@ const venueRoutes: SitemapUrl[] = publishedVenues.map((venue) => ({
   path: routes.venuePage(venue.slug),
   changefreq: 'monthly',
   priority: '0.7',
-  lastmod: venue.verifiedDate,
+  lastmod: getVenueVerification(venue.slug)?.verifiedDate ?? staticLastmod,
 }));
 
 const vendorRoutes: SitemapUrl[] = vendors.map((vendor) => ({
