@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import {
   useSEO,
   seoConfig,
@@ -21,6 +22,7 @@ const experiences = [
     tag: 'Weddings',
     title: 'Wedding Planning and Management in Lahore',
     image: '/media/gallery/detail-4.webp',
+    imageAlt: 'Floor seating with sage-green bolsters, pink satin cushions and a flower hoop arch under chandeliers',
     intro:
       'A Lahori wedding is rarely one event — it is mehndi, baraat, nikkah and walima, often across several days and venues. We plan each function on its own terms while keeping the design and logistics consistent across all of them, so the whole week feels like one wedding, not four separate bookings.',
     points: [
@@ -42,6 +44,7 @@ const experiences = [
     tag: 'Corporate Events',
     title: 'Corporate Event Management in Lahore',
     image: '/media/gallery/corporate-3.webp',
+    imageAlt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables',
     intro:
       'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule, with no visible technical issues in front of clients, media or leadership.',
     points: [
@@ -60,6 +63,7 @@ const experiences = [
     tag: 'Private Celebrations',
     title: 'Private Event Planning for Birthdays, Anniversaries and Engagements',
     image: '/media/gallery/celebration-4.webp',
+    imageAlt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns',
     intro:
       'Birthdays, anniversaries, engagements and family milestones, planned with the guest list and budget actually in mind, not scaled down from a wedding template.',
     points: [
@@ -79,6 +83,7 @@ const experiences = [
     tag: 'Live Entertainment & Staging',
     title: 'Live Entertainment for Weddings and Events',
     image: '/media/gallery/detail-3.webp',
+    imageAlt: 'Evening stage under a fairy-light canopy with chandeliers and lit arched frames',
     intro:
       'Qawali sets, live music and stage entertainment woven into the event itself, coordinated by the same team handling the rest of your production rather than a separate vendor.',
     points: [
@@ -197,7 +202,7 @@ export default function ExperiencesPage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden rounded-sm"
           >
-            <img src={exp.image} alt={exp.title} className="h-[340px] w-full object-cover md:h-[460px]" loading="lazy" />
+            <img src={exp.image} {...galleryImgProps(exp.image, GALLERY_SIZES.half)} alt={exp.imageAlt} className="h-[340px] w-full object-cover md:h-[460px]" loading="lazy" />
           </motion.div>
           <div className="flex flex-col justify-center">
             <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">{exp.tag}</p>

@@ -8,6 +8,7 @@ const projects = [
     location: 'A restored haveli, Walled City, Lahore',
     year: '2025',
     image: '/media/portfolio-1.webp',
+    alt: 'Wedding banquet in a lantern-lit palace courtyard at night, with round tables, chandeliers and a floral stage',
     stat: '600 guests · 4 functions',
   },
   {
@@ -16,6 +17,7 @@ const projects = [
     location: 'A conference venue, Johar Town, Lahore',
     year: '2024',
     image: '/media/portfolio-2.webp',
+    alt: 'Speaker at a podium on a lit conference stage in front of a large LED screen, with an audience in the foreground',
     stat: '1,200 guests · national livestream',
   },
   {
@@ -24,6 +26,7 @@ const projects = [
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
     image: '/media/rooftop-birthday.webp',
+    alt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables',
     stat: '90 guests · sunset to sunrise',
   },
   {
@@ -32,6 +35,7 @@ const projects = [
     location: 'A grand ballroom, Gulberg, Lahore',
     year: '2023',
     image: '/media/portfolio-4.webp',
+    alt: 'Audience watching a presenter on a lit conference stage with a projected slide',
     stat: '800 executives · awards night',
   },
 ];
@@ -123,7 +127,7 @@ export default function HorizontalPortfolio() {
               <div className="relative h-[62vh] overflow-hidden md:h-[70vh]">
                 <motion.img
                   src={p.image}
-                  alt={p.title}
+                  alt={p.alt}
                   loading="lazy"
                   style={{ x: plateX, scale: 1.18 }}
                   className="h-full w-full object-cover will-change-transform"

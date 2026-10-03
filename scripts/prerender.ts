@@ -171,6 +171,23 @@ async function stripInjectedTagScripts(page: import('puppeteer').Page) {
   if (removed > 0) console.log(`    stripped ${removed} injected tag node(s) before capture`);
 }
 
+/**
+ * LoopRail renders its slides twice so the drift can wrap seamlessly, and marks
+ * the second copy `data-loop-clone`. It is purely visual (and aria-hidden), yet
+ * leaving it in the snapshot put every card caption and catering-menu line in
+ * the static HTML twice — about a third of the homepage's text. Drop it from the
+ * static page only: the client render recreates it at runtime, so the loop looks
+ * and behaves exactly as before.
+ */
+async function stripLoopClones(page: import('puppeteer').Page) {
+  const removed = await page.evaluate(() => {
+    const nodes = Array.from(document.querySelectorAll('[data-loop-clone]'));
+    nodes.forEach((n) => n.remove());
+    return nodes.length;
+  });
+  if (removed > 0) console.log(`    removed ${removed} loop-copy node(s) from the static snapshot`);
+}
+
 async function prerenderRoute(browser: import('puppeteer').Browser, path: string): Promise<void> {
   const page = await browser.newPage();
   try {
@@ -183,6 +200,7 @@ async function prerenderRoute(browser: import('puppeteer').Browser, path: string
     await new Promise((r) => setTimeout(r, 400));
 
     await stripInjectedTagScripts(page);
+    await stripLoopClones(page);
 
     const html = await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML);
 

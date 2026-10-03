@@ -5,6 +5,7 @@ import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import { services } from '../lib/services';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import {
   useSEO,
   seoConfig,
@@ -167,6 +168,7 @@ export default function ServicesIndexPage() {
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={s.image}
+                    {...galleryImgProps(s.image, GALLERY_SIZES.card)}
                     alt={s.imageAlt}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"

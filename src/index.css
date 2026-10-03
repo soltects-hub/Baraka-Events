@@ -139,6 +139,16 @@ body {
     color: var(--color-champagne);
   }
 
+  /* Purely decorative repeated words (the diagonal ticker strips, the loop
+     copy of a marquee). The words live in CSS generated content instead of
+     the DOM, so a crawler or screen reader reading the page text does not see
+     the same phrase repeated dozens of times. Use on an empty, aria-hidden
+     element carrying `data-text`; font, size, tracking, case and colour are
+     inherited from the element exactly as for real text. */
+  .deco-text::before {
+    content: attr(data-text);
+  }
+
   /* ---------- light, not colour ----------
      The few gradients the design allows are all gradients *of light*:
      a lit phrase, a hairline catching light, a vignette, a top-lit surface. */
