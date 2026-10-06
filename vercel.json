@@ -193,12 +193,12 @@
     },
     {
       "source": "/blog/cheap-event-planners-in-lahore-gulberg",
-      "destination": "/blog/baraka-events-lahore-gulberg",
+      "destination": "/blog/event-planning-cost-budget-lahore",
       "statusCode": 301
     },
     {
       "source": "/blog/cheap-event-planners-in-lahore-gulberg/",
-      "destination": "/blog/baraka-events-lahore-gulberg",
+      "destination": "/blog/event-planning-cost-budget-lahore",
       "statusCode": 301
     },
     {

@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, type ReactNode } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getPost, getRelatedPosts } from '../lib/posts';
@@ -16,6 +16,28 @@ import {
   composeSchemaGraph,
 } from '../seo';
 
+// Inline same-site links inside a paragraph: [anchor text](/path). Posts could only link from the
+// "Related:" row under a paragraph, never from the sentence that earns the link. Only paths that
+// start with "/" are accepted, so a stray bracket in prose can never become an external link.
+const INLINE_LINK = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+
+function renderInline(text: string): ReactNode[] {
+  const out: ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(INLINE_LINK)) {
+    const start = m.index ?? 0;
+    if (start > last) out.push(text.slice(last, start));
+    out.push(
+      <Link key={start} to={m[2]} className="gold-underline text-gold hover:text-gold-soft">
+        {m[1]}
+      </Link>
+    );
+    last = start + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 export default function BlogPost() {
   const { slug } = useParams();
   const post = slug ? getPost(slug) : undefined;
@@ -30,6 +52,7 @@ export default function BlogPost() {
     imageAlt: post?.imageAlt,
     type: post ? 'article' : 'website',
     publishedDate: post?.publishedISO,
+    modifiedDate: post?.updatedISO,
   });
 
   useEffect(() => {
@@ -43,6 +66,7 @@ export default function BlogPost() {
           image: post.image,
           imageAlt: post.imageAlt,
           publishedDate: post.publishedISO,
+          modifiedDate: post.updatedISO,
           slug: post.slug,
         }),
         generateBreadcrumbSchema([
@@ -108,7 +132,7 @@ export default function BlogPost() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-6 text-[15px] font-light leading-[1.9] text-cream/75 md:text-base"
               >
-                {b.p}
+                {b.p ? renderInline(b.p) : null}
               </motion.p>
               {b.related && b.related.length > 0 && (
                 <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-mist-dim">

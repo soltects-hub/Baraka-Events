@@ -1,4 +1,5 @@
 import { useRef, type MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
@@ -131,8 +132,11 @@ export default function DesignStudio() {
             />
           </div>
           <p className="max-w-md text-sm font-light leading-relaxed text-mist lg:text-right lg:justify-self-end">
-            Every stage, floral program and lighting plan is designed as one system
-            before a single vendor is briefed. These are real productions, not renders.
+            Every{' '}
+            <Link to="/services/event-decoration" className="gold-underline text-gold hover:text-gold-soft">
+              stage, floral program and lighting plan
+            </Link>{' '}
+            is designed as one system before a single vendor is briefed. These are real productions, not renders.
           </p>
         </div>
 

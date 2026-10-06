@@ -35,6 +35,12 @@ const staticLastmod = '2026-09';
 // from ~200 to ~500-650 words. Everything untouched keeps month precision, so
 // lastmod stays a real signal rather than a blanket timestamp.
 const editedLastmod = '2026-09-09';
+// The homepage changed again on 2026-10-06: every FAQ answer is now in the HTML
+// (previously only the open one), two query-driven FAQs were added, and the
+// body links to /services/event-management and /services/event-decoration.
+// /about gained a link to /services/event-management the same day.
+// Day precision, and only for pages that actually changed.
+const commercialPassLastmod = '2026-10-06';
 // All ten now carry day-precision: the first four were expanded on the
 // page-2 pass, the remaining six (the individual wedding functions plus
 // birthdays) in the follow-up that took them from ~200 to ~500-660 words.
@@ -52,9 +58,9 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: editedLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: commercialPassLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: staticLastmod },
-  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
+  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: commercialPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: staticLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
@@ -74,7 +80,9 @@ const postRoutes: SitemapUrl[] = posts.map((post) => ({
   path: routes.blogPost(post.slug),
   changefreq: 'monthly',
   priority: '0.7',
-  lastmod: post.publishedISO,
+  // updatedISO exists only on posts whose content was genuinely revised after
+  // publication; everything else keeps its publish date.
+  lastmod: post.updatedISO ?? post.publishedISO,
 }));
 
 const serviceRoutes: SitemapUrl[] = services.map((service) => ({

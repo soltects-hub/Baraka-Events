@@ -111,7 +111,7 @@ export const services: Service[] = [
       { text: 'See recent productions', to: '/portfolio' },
       { text: 'Our corporate event checklist', to: '/blog/corporate-gala-lahore-checklist' },
       { text: 'What event planning in Lahore costs', to: '/blog/event-planning-cost-budget-lahore' },
-      { text: 'How to choose the top event planner in Lahore', to: '/blog/top-event-planner-lahore-checklist-2026' },
+      { text: 'How to choose the best event planner in Lahore', to: '/blog/top-event-planner-lahore-checklist-2026' },
     ],
   },
   {

@@ -157,7 +157,12 @@ export default function AboutPage() {
               Every engagement, whether it is a sixty-guest anniversary dinner or a
               corporate launch with over a thousand attendees, goes through the same
               five stages: discovery, design, vendor coordination, production and the
-              event itself. The process does not change with the guest count.
+              event itself. The process does not change with the guest count, and the
+              last stage — running the day itself — can also be booked on its own as{' '}
+              <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+                event management
+              </Link>
+              .
             </p>
           </div>
           <div className="mt-8">

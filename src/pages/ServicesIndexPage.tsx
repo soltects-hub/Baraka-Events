@@ -254,7 +254,7 @@ export default function ServicesIndexPage() {
           <p className="mt-10 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
             Related:{' '}
             <Link to="/blog/top-event-planner-lahore-checklist-2026" className="gold-underline text-gold hover:text-gold-soft">
-              How to choose the top event planner in Lahore
+              How to choose the best event planner in Lahore
             </Link>
             {' · '}
             <Link to="/blog/luxury-shaadi-cost-lahore" className="gold-underline text-gold hover:text-gold-soft">

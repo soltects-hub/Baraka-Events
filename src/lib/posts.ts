@@ -31,6 +31,13 @@ export interface Post {
    * original year-month precision (YYYY-MM) rather than a guessed day.
    */
   publishedISO: string;
+  /**
+   * ISO date of the last substantial edit to the post, when it differs from
+   * publishedISO. Feeds the sitemap <lastmod> and the Article schema's
+   * dateModified so the freshness signal stays truthful: set it only when the
+   * content genuinely changed, never as a blanket bump.
+   */
+  updatedISO?: string;
   readTime: string;
   image: string;
   imageAlt: string;
@@ -174,7 +181,7 @@ export const posts: Post[] = [
       {
         p: 'Put them side by side on the five lines above and check that each line covers the same thing. Confirm the per-head menu in writing, not in conversation. Ask what the decor number assumes about stage size. Ask how many crew are on site and for how many hours. Ask what happens to the price if the guest count moves by fifty in either direction, because it will. The cheaper quote is only cheaper if it survives those five questions.',
         related: [
-          { text: 'How to Choose the Top Event Planner in Lahore', slug: 'top-event-planner-lahore-checklist-2026' },
+          { text: 'How to Choose the Best Event Planner in Lahore', slug: 'top-event-planner-lahore-checklist-2026' },
         ],
       },
       { h: 'Booking only the part you need' },
@@ -608,7 +615,7 @@ export const posts: Post[] = [
       {
         p: 'Baraka Events is based at LG 13A, Big City Plaza, Liberty Roundabout, Gulberg III — in the middle of the city’s events district, minutes from most of the venues we build for. If you are comparing the best event planner in Lahore against a shortlist, we would simply ask for the meeting. Twelve years of production standards are easier to show than to describe.',
         related: [
-          { text: 'How to Choose the Top Event Planner in Lahore', slug: 'top-event-planner-lahore-checklist-2026' },
+          { text: 'How to Choose the Best Event Planner in Lahore', slug: 'top-event-planner-lahore-checklist-2026' },
           { text: 'Inside Baraka Events Management', slug: 'baraka-events-management-how-we-work' },
         ],
       },
@@ -616,32 +623,51 @@ export const posts: Post[] = [
   },
   {
     slug: 'top-event-planner-lahore-checklist-2026',
-    title: 'How to Choose the Top Event Planner in Lahore: A 2026 Buyer’s Checklist',
+    title: 'How to Choose the Best Event Planner in Lahore: A 2026 Buyer’s Checklist',
     excerpt:
-      'Reviews and portfolios all look impressive. Here is the practical checklist our own clients use to separate the top event planner in Lahore from a good Instagram page.',
+      'How to choose the best event planner in Lahore: the questions to ask, what a line-item proposal should show, red flags to avoid, and how early to book.',
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',
-    readTime: '7 min read',
+    updatedISO: '2026-10-06',
+    readTime: '6 min read',
     image: '/media/showreel-5.webp',
     imageAlt: 'A Baraka Events mehndi night production in Lahore',
     blocks: [
       {
-        p: 'Every year we sit across the table from families and brand managers who have already scrolled through a dozen Instagram pages captioned “top event planner in Lahore.” Good photography tells you almost nothing about how an event actually runs. This is the checklist we tell them to use instead — the same one we would use if we were hiring someone else.',
+        p: 'Every year we sit across the table from families and brand managers who have already scrolled through a dozen Instagram pages captioned “best event planner in Lahore.” Good photography tells you almost nothing about how an event actually runs. This is the checklist we tell them to use instead — the same one we would use if we were hiring someone else.',
         related: [{ text: 'See every service we offer', to: '/services' }],
       },
+      { h: 'First, decide what you are actually hiring for' },
+      { p: 'The “best” planner depends on the job. A team that is excellent at a four-function wedding week is not automatically the right choice for a 300-delegate product launch, and the reverse is equally true. Three different jobs hide under the phrase “event planner”, and they are staffed and priced differently.' },
+      { p: 'Planning means deciding the venue, budget, vendors and schedule and holding them together — for a wedding, the whole mehndi-to-walima week as one project ([wedding planning in Lahore](/services/wedding-planning)). Management is what happens on the day: on-site coordination, a run-of-show, vendor supervision and a fallback for when something fails, and it can be booked on its own if your venue and vendors are already arranged ([event management in Lahore](/services/event-management)). Decoration is the design and installation of the stage, florals and lighting ([event decoration in Lahore](/services/event-decoration)). Some companies do all three and some do one, so know which you need before you compare quotes — otherwise you end up comparing a decorator’s price with a planner’s.' },
       { h: '1. Ask for a line-item proposal, not a package price' },
-      { p: 'A single lump-sum quote hides where your money is actually going. A serious planner breaks the budget into venue, decor, catering, lighting, sound, staffing and contingency — and can explain each line without hesitating.' },
+      { p: 'A single lump-sum quote hides where your money is actually going. A serious planner breaks the budget into venue, decor, catering, lighting, sound, staffing and contingency — and can explain each line without hesitating. Compare proposals line by line rather than total by total: two quotes with the same bottom line can include very different things.' },
+      { p: 'Ask for the planner’s own fee as a separate line, and ask how it is calculated. Some planners charge for the scope of the work; others take a percentage of everything you spend, which means their fee rises when you choose a more expensive venue. Neither is wrong, but you should know which one you are signing. We charge for the work rather than as a percentage, which is why our fee appears as its own line in our proposals. And ask what happens to the contingency line if it is not used.' },
       { h: '2. Ask who shows up on the day' },
-      { p: 'The person who pitches you in the first meeting should not disappear once the contract is signed. Ask by name who your on-site coordinator will be, and how many people from that company will physically be present during your event.' },
+      { p: 'The person who pitches you in the first meeting should not disappear once the contract is signed. Ask by name who your on-site coordinator will be, how many people from that company will physically be present during your event, and whether you can meet that coordinator before you sign. If the answer is vague, the person you are meeting may not be the person who runs your event.' },
       { h: '3. Ask about their worst day' },
       { p: 'Any planner who claims twelve years without a single problem is not being honest with you. The better question is how they handled load-shedding mid-reception, a late caterer, or a monsoon downpour over an outdoor nikkah. The answer tells you everything about their production depth.' },
-      { h: '4. Visit one of their live events, not just their portfolio' },
-      { p: 'Photos are edited; a live event is not. If a planner cannot arrange for you to see a build in progress or attend part of a real event, treat that as a signal.' },
+      { p: 'Good answers are specific: what failed, what the fallback was, who made the call and what changed afterwards. In Lahore the usual suspects are power cuts, a late caterer, weather on an outdoor lawn and a guest count that moves in the final week. Ask what the power backup plan is for your venue and your kind of event, and who has the authority to decide on the spot when something changes.' },
+      { h: '4. Visit a live event, not just a portfolio' },
+      { p: 'Photos are edited; a live event is not. Ask to see a build in progress or to attend part of a real event. If that cannot be arranged, ask to speak to a recent client who held the same type of event at a similar size — not just the best-case reference offered first.' },
       { h: '5. Check how they handle vendors you already trust' },
       { p: 'Many Lahore families already have a caterer or a videographer they love. A flexible planner integrates your trusted vendors into their production plan; an inflexible one insists on their own list regardless. Baraka Events runs this way for every client who asks — our job is to produce your event, not replace your relationships.' },
+      { p: 'The same applies to venues. If yours is already booked, ask whether the planner will visit it before the date rather than on it, and whether they can step in for coordination alone. That is exactly the situation [event management](/services/event-management) exists for.' },
+      { h: '6. Match the planner to your kind of event' },
+      { p: 'For a wedding week, ask how they run four functions as one plan, how they handle two families with different guest lists and budgets, and what the last two weeks look like — that fortnight is where most of what goes wrong at a Lahori wedding gets decided. Our guide to [choosing a wedding planner in Lahore](/blog/how-to-choose-wedding-planner-lahore) goes through those questions in more detail.' },
+      { p: 'For a corporate event, ask who handles AV and technical rehearsal, how branding and approvals are signed off, and whether they can work to a company purchase-order and an itemised quotation. A planner who mostly does weddings can be excellent and still not be set up for [corporate event management in Lahore](/services/corporate-events).' },
+      { p: 'For a birthday, aqeeqah or anniversary, ask how they scale the design to the guest list. A smaller guest list should get more design detail per guest, not a stripped-down version of a wedding package — see our approach to [birthday and private celebrations in Lahore](/services/birthday-events).' },
+      { h: '7. Read the contract before you pay the deposit' },
+      { p: 'Check what is included and what is not, who holds each vendor contract, what the payment schedule is, and what happens if you change the date or the guest count. Ask when final numbers are locked and what happens if a vendor does not turn up. A clear contract is a good sign; a verbal promise is not a substitute for one.' },
+      { h: 'How early should you book an event planner in Lahore?' },
+      { p: 'For a full multi-function wedding, nine to twelve months ahead gives you the best choice of venue and date, especially in wedding season from October to March. For a single function or a smaller private event, two to four months is usually enough. A conference or annual dinner is comfortable at six to eight weeks, and launches with custom stage builds need longer because of fabrication and approvals. If your date is closer than that, ask anyway: availability depends on the date far more than on the notice.' },
+      { h: 'What does an event planner in Lahore cost?' },
+      { p: 'It depends on guest count, venue, how many functions are involved and how much of the work you hand over, which is why a serious planner will not quote a single number before a consultation. What you can insist on is the structure: a line-item proposal that shows venue, decor, catering, lighting, staffing and the planner’s fee separately. Our [guide to what event planning in Lahore costs](/blog/event-planning-cost-budget-lahore) explains where the money goes and where it is sensible to save.' },
+      { h: 'Red flags worth walking away from' },
+      { p: 'No written proposal, or a single price with no breakdown. A pitch that is all photographs and no questions about your venue, guest count or families. No named coordinator. A refusal to let you speak to previous clients or see a live setup. Pressure to pay a deposit before you have seen a contract. And a planner who says yes to everything — the right answer to an unrealistic timeline or budget is an honest “not like that.”' },
       {
-        p: 'Run any shortlist through these five questions and the top event planner in Lahore for your event usually becomes obvious well before the first invoice. If you are hiring specifically for a wedding week rather than a single event, the questions change slightly — a mehndi-to-walima week has its own logistics worth asking about separately.',
+        p: 'Run any shortlist through these checks and the best event planner in Lahore for your event usually becomes obvious well before the first invoice. If you would like Baraka Events on that shortlist, we are happy to be asked every question above — [book a consultation](/contact) and bring the list with you.',
         related: [
           { text: 'Why Baraka Events Is the Best Event Planner in Lahore', slug: 'best-event-planner-lahore-baraka-events' },
           { text: 'How to Choose a Wedding Planner in Lahore', slug: 'how-to-choose-wedding-planner-lahore' },
