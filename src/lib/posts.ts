@@ -613,7 +613,7 @@ export const posts: Post[] = [
       { p: 'Search Baraka Events on Google and the reviews that keep appearing are not about a single dramatic entrance or floral wall. They mention communication, timing, and the absence of drama on the day itself. For a wedding planner in Lahore, that is the real scoreboard: not how the stage photographed, but whether the family enjoyed their own event instead of managing it.' },
       { h: 'Where to find us' },
       {
-        p: 'Baraka Events is based at LG 13A, Big City Plaza, Liberty Roundabout, Gulberg III — in the middle of the city’s events district, minutes from most of the venues we build for. If you are comparing the best event planner in Lahore against a shortlist, we would simply ask for the meeting. Twelve years of production standards are easier to show than to describe.',
+        p: '[Baraka Events](/) is based at LG 13A, Big City Plaza, Liberty Roundabout, Gulberg III — in the middle of the city’s events district, minutes from most of the venues we build for. If you are comparing the best event planner in Lahore against a shortlist, we would simply ask for the meeting. Twelve years of production standards are easier to show than to describe.',
         related: [
           { text: 'How to Choose the Best Event Planner in Lahore', slug: 'top-event-planner-lahore-checklist-2026' },
           { text: 'Inside Baraka Events Management', slug: 'baraka-events-management-how-we-work' },
@@ -667,7 +667,7 @@ export const posts: Post[] = [
       { h: 'Red flags worth walking away from' },
       { p: 'No written proposal, or a single price with no breakdown. A pitch that is all photographs and no questions about your venue, guest count or families. No named coordinator. A refusal to let you speak to previous clients or see a live setup. Pressure to pay a deposit before you have seen a contract. And a planner who says yes to everything — the right answer to an unrealistic timeline or budget is an honest “not like that.”' },
       {
-        p: 'Run any shortlist through these checks and the best event planner in Lahore for your event usually becomes obvious well before the first invoice. If you would like Baraka Events on that shortlist, we are happy to be asked every question above — [book a consultation](/contact) and bring the list with you.',
+        p: 'Run any shortlist through these checks and the best event planner in Lahore for your event usually becomes obvious well before the first invoice. If you would like Baraka Events, an [event planner in Lahore](/) based in Gulberg III, on that shortlist, we are happy to be asked every question above — [book a consultation](/contact) and bring the list with you.',
         related: [
           { text: 'Why Baraka Events Is the Best Event Planner in Lahore', slug: 'best-event-planner-lahore-baraka-events' },
           { text: 'How to Choose a Wedding Planner in Lahore', slug: 'how-to-choose-wedding-planner-lahore' },

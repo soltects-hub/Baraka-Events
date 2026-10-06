@@ -56,7 +56,7 @@ export const faqs: Faq[] = [
   {
     q: 'Can you manage vendors and event-day coordination if we already have a venue booked?',
     a: 'Yes. We can step in at any stage. If you already have a venue or caterer you like, we coordinate them into the production plan and handle the rest — decor, lighting, timing and on-the-day management — so you are not the one fielding vendor calls.',
-    related: [{ text: 'Event management in Lahore', to: '/services/event-management' }],
+    related: [{ text: 'Day-of event management and coordination', to: '/services/event-management' }],
   },
   {
     q: 'What does a typical Baraka Events production cost?',
