@@ -23,6 +23,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { posts } from '../../src/lib/posts';
 import { REPORTS_DIR } from './config';
+import { mergePageVariants } from './page-variants';
 import type { SearchConsoleReportData } from './types';
 
 interface KeywordRecord {
@@ -93,8 +94,10 @@ function decide(data: SearchConsoleReportData, keywordMap: KeywordMap): Decision
   const current = data.current;
   const previous = data.previous;
   if (current && previous) {
-    const prevBySlug = new Map(previous.topPages.map((p) => [p.page, p]));
-    for (const page of current.topPages) {
+    // Merge http/https + apex/www variants first, or a plain canonical migration
+    // (clicks moving from http://www. to https://www.) reads as a loss.
+    const prevBySlug = new Map(mergePageVariants(previous.topPages).map((p) => [p.page, p]));
+    for (const page of mergePageVariants(current.topPages)) {
       const prev = prevBySlug.get(page.page);
       if (prev && prev.clicks >= 5 && page.clicks < prev.clicks * 0.8) {
         reasoning.push(`${page.page}: clicks dropped from ${prev.clicks} to ${page.clicks} (${(((page.clicks - prev.clicks) / prev.clicks) * 100).toFixed(1)}%) period-over-period.`);
