@@ -41,6 +41,14 @@ const editedLastmod = '2026-09-09';
 // /about gained a link to /services/event-management the same day.
 // Day precision, and only for pages that actually changed.
 const commercialPassLastmod = '2026-10-06';
+// 2026-10-08: an added FAQ on /services/event-management and /services/corporate-events, and the "barat" spelling on
+// /services/barat-events. The /services hub renders every service's intro, so it moved with the barat intro.
+const servicesPassLastmod = '2026-10-08';
+const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
+  'event-management': servicesPassLastmod,
+  'corporate-events': servicesPassLastmod,
+  'barat-events': servicesPassLastmod,
+};
 // All ten now carry day-precision: the first four were expanded on the
 // page-2 pass, the remaining six (the individual wedding functions plus
 // birthdays) in the follow-up that took them from ~200 to ~500-660 words.
@@ -66,7 +74,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: editedLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: editedLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: servicesPassLastmod },
   // /venues and /vendors are deliberately left out while they carry no real
   // listings (both index pages are `noindex` until Phase 2 — see
   // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a
@@ -89,7 +97,7 @@ const serviceRoutes: SitemapUrl[] = services.map((service) => ({
   path: routes.servicePage(service.slug),
   changefreq: 'monthly',
   priority: '0.8',
-  lastmod: EDITED_SERVICE_SLUGS.has(service.slug) ? editedLastmod : staticLastmod,
+  lastmod: SERVICE_LASTMOD_OVERRIDES[service.slug] ?? (EDITED_SERVICE_SLUGS.has(service.slug) ? editedLastmod : staticLastmod),
 }));
 
 // Empty today (see src/lib/venues.ts / src/lib/vendors.ts) — these produce

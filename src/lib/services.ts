@@ -101,6 +101,7 @@ export const services: Service[] = [
       { q: 'Can you manage an event I already planned myself?', a: 'Yes — we regularly step in purely for day-of management when the planning and vendor selection is already done.' },
       { q: 'Do you provide event management without full planning?', a: 'Yes, event management is available as a standalone service, separate from our full wedding or corporate planning packages.' },
       { q: 'Is Baraka Events a full event management company, or only day-of coordination?', a: 'Both. Baraka Events is a full-service event management company — planning, decor, vendor coordination and production for weddings, corporate events and private celebrations, from the first consultation onward. The day-of coordination described on this page is also available on its own, for events we did not plan from the start. If you want us to run your event end to end rather than just the final day, our Wedding Planning and Corporate Event Management pages cover that in full.' },
+      { q: 'How do I choose between event management companies in Lahore?', a: 'Compare them on the same four points. Is the quote itemised, with the management fee as its own line, or a single package price? Who will physically be on site on the day, and can you meet that person before you sign? What is the backup plan for power and weather at your venue? And has the company run your type and size of event before, and can you speak to a recent client who did? Our guide to choosing an event planner in Lahore sets out the full checklist.' },
       { q: 'What is included in day-of coordination?', a: 'A run-of-show, an on-site team, and direct vendor supervision from setup through breakdown — see the sections above for the full scope.' },
       { q: 'How much does event management cost in Lahore?', a: 'It is quoted against scope rather than sold as a fixed package, because supervising one evening at one venue is not the same job as a four-function week across three. You get the number as a separate line in your proposal before committing to anything.' },
       { q: 'How much notice do you need?', a: 'For day-of management alone, a few weeks is usually workable outside peak season. In peak wedding months availability depends on the date far more than on lead time, so it is worth asking early even if you are not ready to book.' },
@@ -176,6 +177,7 @@ export const services: Service[] = [
       { q: 'Can you manage a hybrid or live-broadcast event?', a: 'Yes, we plan AV and stage timing around live broadcast or streaming requirements when needed.' },
       { q: 'Do you work with corporate procurement and issue formal quotations?', a: 'Yes. Proposals are itemised for finance review, and we work to a company purchase-order and invoicing process rather than a private-client one.' },
       { q: 'Can you run an event outside Lahore?', a: 'Yes. For corporate clients the crew and technical specification travel with the event. Travel and accommodation appear as their own line rather than being absorbed quietly into production cost.' },
+      { q: 'What should we ask before hiring a corporate event management company in Lahore?', a: 'Ask who handles AV and technical rehearsal and whether it is done in-house, how branding and approvals are signed off and when the cut-off falls, whether they can work to a purchase order with an itemised quotation, and what the power backup plan is for your venue. Then ask to speak to a client who ran an event of a similar size.' },
       { q: 'How far in advance should a corporate event be booked?', a: 'Six to eight weeks is comfortable for a conference or annual dinner. Launches with custom stage builds or heavy branding need longer, mostly because of fabrication and approval cycles rather than availability.' },
     ],
     relatedServices: ['event-management', 'event-decoration'],
@@ -261,13 +263,13 @@ export const services: Service[] = [
     tag: 'Weddings',
     title: 'Baraat Planning in Lahore',
     ctaSubject: 'baraat',
-    seoTitle: 'Baraat Planner in Lahore | Baraka Events',
+    seoTitle: 'Baraat (Barat) Planner in Lahore | Baraka Events',
     seoDescription:
-      'Baraat planner in Lahore for groom’s arrival timing, dhol and procession coordination, and guest parking logistics, so the entrance runs on schedule.',
+      'Baraat (barat) planner in Lahore for groom’s arrival timing, dhol and procession coordination, and guest parking logistics, so the entrance runs on schedule.',
     image: '/media/gallery/wedding-16.webp',
     imageAlt: 'Entrance aisle under hanging marigold and bead garlands with mirrored gold tables and yellow and white flowers',
     intro:
-      'The baraat is the function most likely to run behind schedule if it isn’t planned properly — the groom’s route, the dhol formation and guest parking all have to be timed together. We coordinate the arrival so it becomes the entrance it is supposed to be, not a scramble at the gate.',
+      'The baraat (also written barat) is the function most likely to run behind schedule if it isn’t planned properly — the groom’s route, the dhol formation and guest parking all have to be timed together. We coordinate the arrival so it becomes the entrance it is supposed to be, not a scramble at the gate.',
     included: [
       { h: 'Groom’s Arrival Timing & Route', p: 'A planned arrival time and route worked backward from when the nikkah or walima needs to begin.' },
       { h: 'Dhol & Procession Coordination', p: 'Dhol groups and the procession formation coordinated so the entrance reads as one sequence, not a crowd.' },
