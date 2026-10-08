@@ -32,8 +32,14 @@ export default function RevealText({
       <span ref={ref} className="inline">
         {words.map((word, i) => (
           <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]">
+            {/* `block`, not `inline-block`: an inline-block child is baseline-aligned
+                against this wrapper's strut, so when the accent words' serif (Playfair)
+                and the Oswald strut arrive at different moments the wrapper grows by
+                a few px (measured 41.8 -> 45.8 -> 42.8px), shifting everything under
+                the heading. A block child makes the wrapper exactly one line-height
+                tall whatever font is loaded (gallery page CLS 0.23 -> 0.02). */}
             <m.span
-              className={`inline-block will-change-transform ${highlightWords.includes(i) ? highlightClass : ''}`}
+              className={`block will-change-transform ${highlightWords.includes(i) ? highlightClass : ''}`}
               initial={{ y: '110%', rotate: 4 }}
               animate={inView ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 4 }}
               transition={{ duration: 0.9, delay: delay + i * 0.045, ease: [0.22, 1, 0.36, 1] }}

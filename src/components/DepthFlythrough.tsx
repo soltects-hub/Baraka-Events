@@ -14,13 +14,13 @@ interface ArchiveItem {
  * gallery itself doesn't care how many items there are.
  */
 const items: ArchiveItem[] = [
-  { src: '/media/portfolio-1.webp', alt: 'Wedding staged across a restored haveli in the Walled City', category: 'Wedding', title: 'A Four-Function Wedding', location: 'Walled City, Lahore' },
-  { src: '/media/gallery/corporate-3.webp', alt: 'Corporate stage production by Baraka Events', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
-  { src: '/media/rooftop-birthday.webp', alt: 'Rooftop birthday celebration in the Walled City', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
-  { src: '/media/gallery/wedding-24.webp', alt: 'Wedding stage with a floral canopy, produced by Baraka Events', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
-  { src: '/media/showreel-3.webp', alt: 'Chandelier canopy over a baraat stage, produced by Baraka Events', category: 'Baraat', title: 'The Chandelier Canopy', location: 'Lahore' },
-  { src: '/media/portfolio-4.webp', alt: 'Corporate awards night in a Gulberg ballroom', category: 'Corporate Event', title: 'An Awards Night', location: 'Gulberg, Lahore' },
-  { src: '/media/gallery/celebration-4.webp', alt: 'Floral wall styling for a private celebration', category: 'Private Celebration', title: 'A Floral Wall Installation', location: 'Lahore' },
+  { src: '/media/portfolio-1.webp', alt: 'Wedding banquet in a lantern-lit palace courtyard at night, with round tables, chandeliers and a floral stage', category: 'Wedding', title: 'A Four-Function Wedding', location: 'Walled City, Lahore' },
+  { src: '/media/gallery/corporate-3.webp', alt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
+  { src: '/media/rooftop-birthday.webp', alt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
+  { src: '/media/gallery/wedding-24.webp', alt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
+  { src: '/media/showreel-3.webp', alt: 'Rows of hanging crystal chandeliers and bead curtains over a pink lounge beside a white aisle at night', category: 'Baraat', title: 'The Chandelier Canopy', location: 'Lahore' },
+  { src: '/media/portfolio-4.webp', alt: 'Audience watching a presenter on a lit conference stage with a projected slide', category: 'Corporate Event', title: 'An Awards Night', location: 'Gulberg, Lahore' },
+  { src: '/media/gallery/celebration-4.webp', alt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns', category: 'Private Celebration', title: 'A Floral Wall Installation', location: 'Lahore' },
 ];
 
 const DRAG_SENSITIVITY = 0.35;

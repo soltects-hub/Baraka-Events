@@ -50,14 +50,20 @@ export default function BrandsMarquee() {
           style={{ '--marquee-duration': '48s' } as React.CSSProperties}
           className="marquee-track flex w-max items-center gap-14 whitespace-nowrap md:gap-20"
         >
-          {row.map((b, i) => (
-            <div key={i} className="flex items-center gap-14 md:gap-20">
-              <span className="font-display text-xl font-light capitalize tracking-[0.08em] text-ivory/60 transition-colors duration-500 hover:text-champagne md:text-2xl">
-                {b}
-              </span>
-              <span className="h-1 w-1 rotate-45 bg-bronze/80" />
-            </div>
-          ))}
+          {row.map((b, i) => {
+            // Second pass = seamless-loop copy only: painted from data-text and
+            // hidden from assistive tech, so each event type is listed once in
+            // the page text rather than twice.
+            const isCopy = i >= brands.length;
+            const label =
+              'font-display text-xl font-light capitalize tracking-[0.08em] text-ivory/60 transition-colors duration-500 hover:text-champagne md:text-2xl';
+            return (
+              <div key={i} aria-hidden={isCopy || undefined} className="flex items-center gap-14 md:gap-20">
+                {isCopy ? <span data-text={b} className={`deco-text ${label}`} /> : <span className={label}>{b}</span>}
+                <span className="h-1 w-1 rotate-45 bg-bronze/80" />
+              </div>
+            );
+          })}
         </div>
       </div>
 

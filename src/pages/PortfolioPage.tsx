@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 const projects = [
@@ -12,6 +13,7 @@ const projects = [
     location: 'A restored haveli, Walled City, Lahore',
     year: '2025',
     image: '/media/portfolio-1.webp',
+    imageAlt: 'Wedding banquet in a lantern-lit palace courtyard at night, with round tables, chandeliers and a floral stage',
     stat: '600 guests · 4 functions',
     summary:
       'Mehndi, baraat, nikkah and walima staged across a restored Walled City haveli. Floral installations and a rebuilt courtyard lighting rig carried one consistent design through every function.',
@@ -22,6 +24,7 @@ const projects = [
     location: 'A conference venue, Johar Town, Lahore',
     year: '2024',
     image: '/media/portfolio-2.webp',
+    imageAlt: 'Speaker at a podium on a lit conference stage in front of a large LED screen, with an audience in the foreground',
     stat: '1,200 guests · national livestream',
     summary:
       'A broadcast-ready product reveal for 1,200 attendees, produced for a live national stream with no room for technical delay. Stage, lighting cues and the reveal sequence were rehearsed in advance.',
@@ -32,6 +35,7 @@ const projects = [
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
     image: '/media/rooftop-birthday.webp',
+    imageAlt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables',
     stat: '90 guests · sunset to sunrise',
     summary:
       'An intimate milestone birthday built around a rooftop view of the old city skyline: candlelight, a live qawwali set and a menu built around the guest of honor’s preferences.',
@@ -42,6 +46,7 @@ const projects = [
     location: 'A grand ballroom, Gulberg, Lahore',
     year: '2023',
     image: '/media/portfolio-4.webp',
+    imageAlt: 'Audience watching a presenter on a lit conference stage with a projected slide',
     stat: '800 executives · awards night',
     summary:
       'An annual awards dinner for 800 executives, produced with a full stage build, custom lighting design and a run-of-show timed across a three-hour program.',
@@ -52,6 +57,7 @@ const projects = [
     location: 'A private estate, DHA, Lahore',
     year: '2023',
     image: '/media/gallery/wedding-31.webp',
+    imageAlt: 'Garden wedding dining under a draped cream canopy with ivy-wrapped posts and string lights',
     stat: '450 guests · destination-style wedding',
     summary:
       'A garden nikkah and walima built for a family who wanted a destination-wedding feeling without leaving Lahore: Mughal-inspired archways, water-channel lighting and a marquee built for the site.',
@@ -62,6 +68,7 @@ const projects = [
     location: 'A private residence, Gulberg, Lahore',
     year: '2023',
     image: '/media/gallery/wedding-23.webp',
+    imageAlt: 'Garden banquet table with white floral centrepieces and white chairs under a draped white canopy',
     stat: '60 guests · milestone anniversary',
     summary:
       'An anniversary dinner for close family and friends: a single long table, live strings and lighting built to flatter the room rather than perform.',
@@ -142,7 +149,8 @@ export default function PortfolioPage() {
               <div className="relative h-64 overflow-hidden md:h-72">
                 <img
                   src={p.image}
-                  alt={`${p.title} — ${p.category} in ${p.location}`}
+                  {...galleryImgProps(p.image, GALLERY_SIZES.twoUp)}
+                  alt={p.imageAlt}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />

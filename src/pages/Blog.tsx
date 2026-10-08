@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { posts } from '../lib/posts';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import RevealText from '../components/RevealText';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
@@ -75,6 +76,7 @@ export default function Blog() {
               <img
                 src={featured.image}
                 alt={featured.imageAlt}
+                fetchPriority="high"
                 className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink-3" />
@@ -118,6 +120,7 @@ export default function Blog() {
                 <div className="relative h-52 overflow-hidden md:h-56">
                   <img
                     src={post.image}
+                    {...galleryImgProps(post.image, GALLERY_SIZES.card)}
                     alt={post.imageAlt}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"

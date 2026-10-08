@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { getPost, getRelatedPosts } from '../lib/posts';
 import { getService } from '../lib/services';
 import { postServiceLinks } from '../lib/postService';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import {
@@ -87,7 +88,7 @@ export default function BlogPost() {
       {/* hero */}
       <section className="relative flex min-h-[62vh] items-end overflow-hidden pt-32 md:min-h-[70vh]">
         <div className="absolute inset-0">
-          <img src={post.image} alt={post.imageAlt} className="h-full w-full object-cover" />
+          <img src={post.image} alt={post.imageAlt} fetchPriority="high" className="h-full w-full object-cover" />
           {/* vignette + foot fade: the photograph stays in colour, the copy
               sits on the darkened lower third */}
           <div className="vignette absolute inset-0" />
@@ -191,7 +192,7 @@ export default function BlogPost() {
           {related.map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden plate rounded-sm">
               <div className="relative h-44 overflow-hidden">
-                <img src={p.image} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
+                <img src={p.image} {...galleryImgProps(p.image, GALLERY_SIZES.card)} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <span className="text-[10px] uppercase tracking-[0.3em] text-champagne">{p.category}</span>

@@ -125,7 +125,7 @@ export default function AboutPage() {
         >
           <img
             src="/media/about.jpg"
-            alt="Baraka Events team arranging florals for a wedding in Lahore"
+            alt="White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers"
             className="h-[420px] w-full object-cover md:h-[560px]"
             loading="lazy"
           />

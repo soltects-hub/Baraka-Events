@@ -36,7 +36,7 @@ export default function About() {
             <motion.img
               style={{ y: imgY, scale: 1.15 }}
               src="/media/about.jpg"
-              alt="Henna-decorated hands arranging a marigold garland on a wedding table"
+              alt="White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers"
               className="h-[520px] w-full object-cover md:h-[640px]"
               loading="lazy"
             />
@@ -48,7 +48,7 @@ export default function About() {
           >
             <img
               src="/media/gallery/detail-4.webp"
-              alt="Nikkah stage with floral rings and warm lighting"
+              alt="Floor seating with sage-green bolsters, pink satin cushions and a flower hoop arch under chandeliers"
               className="h-64 w-full object-cover"
               loading="lazy"
             />

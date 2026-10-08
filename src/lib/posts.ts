@@ -55,7 +55,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-21',
     readTime: '8 min read',
     image: '/media/gallery/wedding-8.webp',
-    imageAlt: 'Real baraat stage setup produced by Baraka Events in Lahore, one of the four builds a wedding planner has to run across a single week',
+    imageAlt: 'Red velvet drapes, arched niches and a round tufted gold sofa at a baraat setup by Baraka Events in Lahore',
     blocks: [
       {
         p: 'Search "wedding planner in Lahore" and the results run from a decorator with a good Instagram page to a genuine production company, and almost nothing on the page tells you which is which. That distinction matters more for a wedding than for almost any other event we produce, because a Lahore wedding is rarely one function. It is usually four — mehndi, baraat, nikkah and walima — each with its own venue, its own guest list and its own build, often inside the same seven days. Choosing "a wedding planner" is really choosing who can run all four without dropping one.',
@@ -123,6 +123,59 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: 'birthday-party-planning-lahore-guide',
+    title: 'Birthday Party Planning in Lahore: Home, Rooftop or Venue?',
+    excerpt:
+      'How to plan a birthday party in Lahore: home, rooftop, lawn or venue, what to settle first, and the power, weather and timing details that shape the day.',
+    category: 'Planning',
+    date: '3 October 2026',
+    publishedISO: '2026-10-03',
+    readTime: '7 min read',
+    image: '/media/gallery/celebration-10.webp',
+    imageAlt: 'First-birthday lawn setup with large pink and lilac ONE marquee letters, a pink balloon garland and tufted pink sofas',
+    blocks: [
+      { p: 'Search for a birthday planner in Lahore and the results run from a balloon decorator with a good Instagram page to full event companies. Almost any of them will ask you the same question before they quote: where is the party going to happen? The setting decides the guest count, the menu, the decor and most of the budget before anyone has picked a theme. This is the order we work through a birthday in, whether it is a first birthday, a child’s party or an adult milestone, from the setting down to the last hour of the day.' },
+      { h: 'Start with the guest of honour and a rough headcount' },
+      { p: 'Three things need settling before a venue or a theme: who the party is really for, roughly how many people are coming, and whether children are among them. A first birthday is mostly a family gathering with a photograph-friendly backdrop. A children’s party is a timing problem, because attention spans set the running order. A milestone adult birthday is closer to a small dinner reception. Each points to a different setting, and even a range for the headcount is what a venue, caterer or decorator needs before they can give you a real number.' },
+      { h: 'Home, rooftop, lawn or venue: how to choose' },
+      { p: 'Home is the default for good reasons: no hire fee, familiar ground and relaxed timing. Its limits are space, parking and power. Seating for a proper meal runs out faster than people expect, which is why we think of home as working well up to roughly thirty guests, and a household supply that copes with an ordinary evening may not cope with lighting, a sound system and a caterer’s equipment all at once. Ask early whether you will need backup power or a separate supply, not at the moment the cake is due.' },
+      {
+        p: 'A rooftop earns its place on the view and the evening light, and it suits adult guest lists and small families better than a room of running toddlers. Check the building’s rules on noise, make sure the roof can take the number of guests and any staging, think about how elderly guests will get up and down, and keep a covered fallback in the plan for wind or rain.',
+        related: [{ text: 'Anniversary Parties, Garden Mehfils and Rooftop Dinners in Lahore', slug: 'anniversary-celebration-ideas-lahore' }],
+      },
+      { p: 'A lawn or garden, at a house, a farmhouse or a venue, is usually the best setting for children, because they have somewhere to run, and it gives a growing guest list the most room. It depends on the season. Lahore’s summer afternoons are too hot for an outdoor party, so in the warmer months a lawn works from late afternoon into the evening, in the cooler months it works through the day, and the monsoon is the one thing you cannot schedule around. Decide what happens if it rains before you send the invitations, not after.' },
+      { p: 'A restaurant private room, banquet hall or event venue takes most of the logistics off your hands: seating, power, parking, a kitchen and restrooms. It also costs more. It makes the most sense for a larger guest list, for a party with many elderly or travelling guests, or when you simply do not want to host in your own home.' },
+      { h: 'Choosing the date and time' },
+      { p: 'Birthdays are less tied to peak wedding season than wedding functions, so short timelines are often workable. The calendar still matters, though. School terms and exam weeks decide whether children and their parents can come at all, Ramadan changes the shape of an evening completely, and in the busiest wedding months popular decorators and venues fill their weekends early, so ask for a Saturday or Sunday sooner rather than later. For anything outdoors choose the cooler end of the day, and give decor setup a full hour of margin: guests should not arrive while the last balloons are still going up.' },
+      { h: 'Themes and decor: what shows up in photographs' },
+      {
+        p: 'Birthday decor in Lahore is mostly balloon-led for a practical reason: a garland or arch photographs well at close range, costs less than a floral build and can be made in almost any colour palette. The backdrop and the cake table are the most photographed parts of the day, so they are the parts worth getting right. Two or three well-chosen colours usually look better, and cost less, than a full character theme that has to be carried through every table. Keep the welcome sign, cake table and backdrop in the same palette so the photographs hold together, and remember that balloons and direct afternoon sun do not mix. Our gallery shows the range, from pastel balloon backdrops and marquee numbers to neon signs set against a flower wall.',
+        related: [
+          { text: 'Event decoration services', to: '/services/event-decoration' },
+          { text: 'Our gallery', to: '/gallery' },
+        ],
+      },
+      { h: 'What a birthday costs: the drivers, not a number' },
+      {
+        p: 'Prices move too much with venue, season and guest count for one honest figure to mean anything, but the drivers are consistent. For a seated party, catering per head and venue hire are usually the two biggest lines. Decor scales with the size of the backdrop and how much of it is custom-printed rather than made from stock materials, not with the guest count. Entertainment, cake, photography and the extras, such as extra seating, sound and backup power, are the lines that surprise people. To bring the total down without the party feeling smaller, trim the guest list or the breadth of the menu before you touch what guests see up close: the food, the cake moment and one well-made photo backdrop.',
+        related: [{ text: 'What Event Planning in Lahore Costs, and How to Spend Less', slug: 'event-planning-cost-budget-lahore' }],
+      },
+      { h: 'A simple running order for the day' },
+      { p: 'A running order is what keeps a good setup from turning into a chaotic afternoon. For a children’s party we plan around a two to three hour window: arrival and free play, one structured activity, food, cake, then out before it turns. Adult birthdays stretch longer but need the same spine: arrival and welcome, food, a toast or cake moment placed while everyone is still in the room, then music or conversation. Fix the time of the cake moment and tell the family and the photographer, because it is the one part of the day that cannot be repeated. And name one person who is not the host as the contact for vendors on the day, so the host is not signing for deliveries in the middle of their own party.' },
+      { h: 'Surprise parties and milestone birthdays' },
+      { p: 'A surprise party has one real constraint: the guest of honour cannot be part of the planning, so someone else has to own the guest list, the timing and the arrival. Plan the arrival minute by minute and tell guests to arrive well ahead of the guest of honour, not alongside them. A fortieth, fiftieth or sixtieth is closer to a small reception than to a child’s party scaled up: usually a seated dinner with one stage moment, such as a toast, a short speech or a slideshow of photographs, and decor that suits adults rather than a theme.' },
+      { h: 'Questions to ask before you book' },
+      { p: 'Whoever you are booking, ask the same short list. What is the real seated capacity, as opposed to the standing number? What hours does the booking cover, including setup and clear-out? What is included in the quote and what is billed separately, whether decor, lighting, sound, furniture or power? What is the plan if an outdoor date is rained out? And who will actually be on site on the day, and how do you reach them?' },
+      { h: 'FAQs: Birthday Parties in Lahore' },
+      { p: 'How far ahead should a birthday party be planned? For a home or rooftop party a few weeks is often enough, but custom-printed decor and popular weekend venues need longer. The sooner you fix the date and a headcount range, the more choice you have.' },
+      { p: 'Is it cheaper to host a birthday at home? The hire fee disappears, but power, extra seating, parking and clean-up do not. Home is cheaper when the guest list is small and the space is genuinely there, and much less so when you end up hiring in everything a venue would have provided.' },
+      { p: 'What is the best setting for a child’s birthday? Somewhere safe for them to run. For most families that is a lawn or garden in the cooler part of the day, or an indoor space with a clearly defined play area during the hotter months.' },
+      { p: 'Can I book decoration only, without full planning? Yes. Birthday decor is often booked on its own, especially for home and rooftop parties where the catering is already handled.' },
+      { p: 'Does Baraka Events plan birthdays? Yes, from children’s themed parties to milestone adult birthdays, with decor, entertainment and catering handled as one plan and quoted line by line.' },
+      { p: 'Pick the setting and the headcount first and most of the other decisions follow from them. If you would rather hand over part of it, decor only or the whole day, that is what our private celebrations team does.' },
+    ],
+  },
+  {
     slug: 'event-planning-cost-budget-lahore',
     title: 'What Event Planning in Lahore Costs, and How to Spend Less',
     excerpt:
@@ -132,7 +185,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-09',
     readTime: '9 min read',
     image: '/media/gallery/wedding-4.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events in Lahore, the kind of full production a wedding budget actually pays for',
+    imageAlt: 'Walkway lined with white rose stands under draped white fabric and a crystal chandelier at a Lahore walima',
     blocks: [
       {
         p: 'Almost everyone searching for an affordable event planner in Lahore is really asking two questions at once: what does this normally cost, and am I about to be overcharged. Both are fair. The problem is that the honest answer to the first one is a range wide enough to be useless on its own, and the only way to make it useful is to break the number apart. This is what actually sits inside an event quote in Lahore, which parts move, and where cutting genuinely works versus where it just makes the day look thinner.',
@@ -223,7 +276,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-08',
     readTime: '8 min read',
     image: '/media/gallery/wedding-32.webp',
-    imageAlt: 'Real outdoor farmhouse wedding setup with evening lighting, produced by Baraka Events in Lahore',
+    imageAlt: 'Outdoor farmhouse wedding lawn at dusk with gold chairs, round tables and white floral centrepieces near Lahore',
     blocks: [
       {
         p: 'An open-air wedding is the setup almost every couple in Lahore asks about first, and the one most likely to be quietly talked out of by a venue that would rather sell you the hall. The instinct is right — a lawn under drape and warm light photographs better than any banquet room in this city. But an outdoor function is a production job, not a booking. The sky is free; everything the sky does not provide has to be brought in, powered, levelled and made safe.',
@@ -313,7 +366,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-05',
     readTime: '5 min read',
     image: '/media/gallery/wedding-6.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events, Lahore',
+    imageAlt: 'Entrance framed by pale green drapes with a wooden table of brass elephant figures and candles at a Lahore wedding',
     blocks: [
       { p: 'Most of a Lahori wedding week is planned around production — stages, menus, guest counts. The rukhsati is different. It is a few minutes, not a function, and it is usually the most emotional part of the entire week: the moment a bride formally leaves her parents’ home. It gets far less planning attention than the mehndi or the walima, which is exactly why it is worth thinking through in advance.' },
       { h: 'What rukhsati actually is' },
@@ -354,7 +407,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-06',
     readTime: '6 min read',
     image: '/media/gallery/wedding-33.webp',
-    imageAlt: 'Real farmhouse wedding setup produced by Baraka Events, built for a multi-day celebration away from the city',
+    imageAlt: 'Farmhouse wedding lawn at night with chair-covered tables and a white-draped entrance beside a lit house',
     blocks: [
       { p: 'Some families want the destination-wedding feeling without leaving Lahore, and we have written about how to build that. This is for the families who have already decided the other way — that the wedding, or at least part of it, is actually leaving the city.' },
       { h: 'What "destination" and "multi-day" mean here' },
@@ -398,7 +451,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-06',
     readTime: '5 min read',
     image: '/media/gallery/celebration-14.webp',
-    imageAlt: 'Real private celebration décor produced by Baraka Events, styled for an intimate evening gathering in Lahore',
+    imageAlt: 'Black and white checkerboard dance floor under hanging lantern pendants for an evening party in Lahore',
     blocks: [
       { p: 'Weddings get months of planning; a milestone anniversary or a mehfil for close friends often gets a phone call to a caterer the week before. That gap is exactly why these evenings can feel the most personal of anything we produce — there is less spectacle to hide behind, and a lot more riding on the room actually feeling right.' },
       { h: 'Three formats, one planning approach' },
@@ -422,7 +475,10 @@ export const posts: Post[] = [
       { p: 'How far in advance should an anniversary party be planned? Four to six weeks is usually enough for a milestone anniversary at this scale, though a rooftop with a popular view or a specific live-music act may need to be booked earlier.' },
       {
         p: 'Can Baraka Events plan a private celebration like this? Yes — anniversaries, garden mehfils and rooftop dinners fall under our private celebrations work, planned with the same attention as a wedding function, just sized to a smaller room.',
-        related: [{ text: 'The Rise of Micro-Weddings and Intimate Celebrations in Pakistan', slug: 'micro-weddings-intimate-celebrations-pakistan' }],
+        related: [
+          { text: 'The Rise of Micro-Weddings and Intimate Celebrations in Pakistan', slug: 'micro-weddings-intimate-celebrations-pakistan' },
+          { text: 'Birthday Party Planning in Lahore: Home, Rooftop or Venue?', slug: 'birthday-party-planning-lahore-guide' },
+        ],
       },
       { p: 'The formality changes; the planning discipline should not. A closer guest list simply means there is nowhere for an unplanned detail to hide.' },
     ],
@@ -437,7 +493,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-05',
     readTime: '5 min read',
     image: '/media/gallery/celebration-15.webp',
-    imageAlt: 'Real private family celebration décor produced by Baraka Events in Lahore',
+    imageAlt: 'Circular checkerboard dance floor under hanging lanterns with blue and red neon lines behind a DJ booth',
     blocks: [
       { p: 'An Aqeeqah used to mean a small gathering at home — family, a shared meal, and not much more planning than that. For a lot of Lahore families today it still is exactly that, and there is nothing wrong with keeping it simple. But we are also seeing more families treat it as a proper hosted celebration — a decorated space, a catering plan, guests arriving to something that has clearly been thought through. Both are the same occasion; the difference is just how much is planned in advance.' },
       { h: 'What an Aqeeqah celebration actually involves' },
@@ -476,7 +532,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-04',
     readTime: '6 min read',
     image: '/media/gallery/wedding-31.webp',
-    imageAlt: 'Real farmhouse wedding setup produced by Baraka Events on the outskirts of Lahore',
+    imageAlt: 'Farmhouse wedding dining under a draped cream canopy with ivy-wrapped posts and string lights near Lahore',
     blocks: [
       { p: 'Ask a Lahori family why they chose a farmhouse on Raiwind Road over a banquet hall in DHA or Gulberg, and the answer is almost always the same: space. A farmhouse lawn gives you room a purpose-built hall simply cannot — for a five-hundred-guest baraat, a car park that does not spill onto the main road, or a stage concept too large for any indoor ceiling. That extra space comes with a different set of planning questions than a city venue, and most families only discover them after they have already signed the booking.' },
       { h: 'Why Raiwind Road specifically' },
@@ -523,7 +579,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-04',
     readTime: '7 min read',
     image: '/media/gallery/wedding-22.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events, Lahore',
+    imageAlt: 'Outdoor wedding stage with a white tufted sofa, a white floral garland and a greenery arch with a bead curtain',
     blocks: [
       { p: 'Most Lahore families choose a wedding venue backwards — they fall for a hall on Instagram, then try to make their guest list, season and budget fit around it. That order produces the two complaints we hear most often after the fact: the venue felt too tight or too empty, and the final bill had nothing to do with the number that was quoted in the first meeting. Choosing the venue last, after everything else is decided, avoids both.' },
       { h: 'Start with the guest list, not the venue list' },
@@ -562,7 +618,7 @@ export const posts: Post[] = [
     publishedISO: '2026-09-03',
     readTime: '7 min read',
     image: '/media/grand-mains.webp',
-    imageAlt: 'A Lahori wedding dastarkhwan of biryani, mutton qorma and beef nihari served at a Baraka Events walima',
+    imageAlt: 'Biryani topped with a roasted drumstick beside bowls of mutton qorma and butter chicken in copper dishes',
     blocks: [
       { p: 'Ask ten Lahori families what they remember from a wedding six months later, and at least half will mention the food before the decor. Catering is the only part of a shaadi every single guest personally experiences — hundreds of people who never look closely at the floral work will absolutely notice if the biryani was dry or the buffet ran short of nihari by ten o’clock. That is exactly why we treat the menu as production, not procurement.' },
       { h: 'Where catering actually sits in a wedding budget' },
@@ -599,7 +655,7 @@ export const posts: Post[] = [
     publishedISO: '2026-08',
     readTime: '8 min read',
     image: '/media/showreel-4.webp',
-    imageAlt: 'A Baraka Events wedding stage production in Lahore',
+    imageAlt: 'Red-draped lounge with arched panels, red flowers and a fairy-light ceiling of chandeliers, by Baraka Events in Lahore',
     blocks: [
       { p: '“Best event planner in Lahore” is a phrase every agency in this city puts on its homepage — ours included. The difference is what happens after a client actually books. Over twelve years and more than five hundred events, Baraka Events has built its reputation less on the phrase and more on the follow-through, which is the only test that actually matters.' },
       { h: 'One team, not a chain of subcontractors' },
@@ -632,7 +688,7 @@ export const posts: Post[] = [
     updatedISO: '2026-10-06',
     readTime: '6 min read',
     image: '/media/showreel-5.webp',
-    imageAlt: 'A Baraka Events mehndi night production in Lahore',
+    imageAlt: 'Pastel draped ceiling with tassels and fairy lights above pink velvet lounge sofas at a Baraka Events mehndi in Lahore',
     blocks: [
       {
         p: 'Every year we sit across the table from families and brand managers who have already scrolled through a dozen Instagram pages captioned “best event planner in Lahore.” Good photography tells you almost nothing about how an event actually runs. This is the checklist we tell them to use instead — the same one we would use if we were hiring someone else.',
@@ -685,7 +741,7 @@ export const posts: Post[] = [
     publishedISO: '2026-07',
     readTime: '6 min read',
     image: '/media/about.jpg',
-    imageAlt: 'Baraka Events management team reviewing a production timeline in their Gulberg office',
+    imageAlt: 'White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers',
     blocks: [
       { p: '“Event management” sounds like a single job. In practice, Baraka Events management is four disciplines running in parallel — production, design, client relations and digital — coordinated so tightly that clients only ever see one team. Here is how that structure actually works, function by function.' },
       { h: 'Client relations: one person, start to finish' },
@@ -712,7 +768,7 @@ export const posts: Post[] = [
     publishedISO: '2026-07',
     readTime: '6 min read',
     image: '/media/gallery/corporate-3.webp',
-    imageAlt: 'Real corporate event production by Baraka Events, Lahore',
+    imageAlt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables, Lahore',
     blocks: [
       { p: 'A wedding forgives small stumbles because the room is full of family. A corporate event does not offer that grace — investors, media and executives notice a technical delay immediately. That pressure is precisely why Baraka Events corporate events are built around redundancy, rehearsal and a minute-by-minute run-of-show rather than improvisation.' },
       { h: 'The brief we ask for first' },
@@ -742,7 +798,7 @@ export const posts: Post[] = [
     publishedISO: '2026-06',
     readTime: '6 min read',
     image: '/media/gallery/wedding-23.webp',
-    imageAlt: 'Real walima reception stage and décor at a Lahore venue booked through Baraka Events',
+    imageAlt: 'Garden banquet table with white floral centrepieces and white chairs under a draped white canopy in Lahore',
     blocks: [
       { p: 'Venue booking is where most families lose the most money and the most time — usually because they approach venues directly, before anyone has mapped the full production against the space. Baraka Events venue booking exists to close that gap, and it typically runs in four stages.' },
       { h: '1. Brief before browsing' },
@@ -771,7 +827,7 @@ export const posts: Post[] = [
     publishedISO: '2026-06',
     readTime: '6 min read',
     image: '/media/gallery/wedding-13.webp',
-    imageAlt: 'Floral and lighting décor for a Baraka Events walima reception, Lahore',
+    imageAlt: 'Lounge seating facing a stage of hanging chandeliers and greenery between red velvet drapes, décor by Baraka Events',
     blocks: [
       { p: 'Decor is the part of an event people photograph first and remember longest — which is why Baraka Events decor services in Lahore are treated as architecture rather than rented furniture. Every design is drawn, approved and priced before a single flower is ordered.' },
       { h: 'Floral direction, planned like a supply chain' },
@@ -800,7 +856,7 @@ export const posts: Post[] = [
     publishedISO: '2026-05',
     readTime: '5 min read',
     image: '/media/portfolio-4.webp',
-    imageAlt: 'Gulberg III skyline near Liberty Roundabout, home of the Baraka Events office in Lahore',
+    imageAlt: 'Audience watching a presenter on a lit conference stage with a projected slide',
     blocks: [
       { p: 'Ask any Lahori planner where the city’s events actually happen and the answer is almost always some version of Gulberg. That is precisely why Baraka Events is headquartered at LG 13A, Big City Plaza, Liberty Roundabout, Main Boulevard, Gulberg III — not for the address, but for what sits within twenty minutes of it.' },
       { h: 'A neighbourhood built for event logistics' },
@@ -825,7 +881,7 @@ export const posts: Post[] = [
     publishedISO: '2026-05',
     readTime: '6 min read',
     image: '/media/showreel-6.webp',
-    imageAlt: 'A Baraka Events wedding stage production in Lahore',
+    imageAlt: 'Orange and white draped canopy over white lattice sofas with yellow and pink cushions at a Lahore mehndi',
     blocks: [
       { p: 'Every wedding season now runs on two calendars — the actual date, and the trend cycle set by whichever shaadi reel crosses a million views first. Here is what is actually spreading across Pakistani wedding content in 2026, and our honest read on which trends hold up beyond the fifteen-second clip.' },
       { h: 'Drone reveal entrances' },
@@ -853,7 +909,7 @@ export const posts: Post[] = [
     publishedISO: '2026-04',
     readTime: '5 min read',
     image: '/media/gallery/wedding-24.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events, built for an immersive destination-style feeling in Lahore',
+    imageAlt: 'Evening walima stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns',
     blocks: [
       { p: 'Destination weddings abroad have gotten harder to justify — visas, travel costs for elderly relatives, and guest lists that shrink out of logistics rather than choice. The trend replacing it in Lahore is what our design team has started calling the destination-style shaadi: all the immersive, transporting feeling of a destination wedding, built entirely inside the city.' },
       { h: 'What makes it feel like a destination' },
@@ -878,7 +934,7 @@ export const posts: Post[] = [
     publishedISO: '2026-04',
     readTime: '5 min read',
     image: '/media/gallery/celebration-16.webp',
-    imageAlt: 'Real private celebration décor produced by Baraka Events, styled for an intimate guest list in Lahore',
+    imageAlt: 'Round checkerboard dance floor beneath a ring of hanging lanterns facing a blue-lit DJ booth',
     blocks: [
       { p: 'For a generation raised on five-hundred-guest baraats, a fifty-person nikkah once looked like a compromise. In 2026, it increasingly looks like a choice — and it is one of the fastest-growing celebration formats we produce, alongside the traditional grand shaadi.' },
       { h: 'Why families are choosing smaller' },
@@ -904,7 +960,7 @@ export const posts: Post[] = [
     publishedISO: '2025-03',
     readTime: '7 min read',
     image: '/media/gallery/wedding-9.webp',
-    imageAlt: 'Real baraat stage setup produced by Baraka Events, Lahore',
+    imageAlt: 'Wide lounge under a fairy-light canopy with crystal chandeliers, red velvet drapes and candlelit cabinets',
     blocks: [
       { p: 'Lahore does not lack beautiful venues \u2014 it lacks honest guidance about them. After producing more than 450 events across this city, we know which courtyards flood in monsoon season, which marquees have ceilings tall enough for a proper stage reveal, and which havelis make every photograph look like a film still.' },
       { h: 'The Walled City: havelis with history' },
@@ -941,7 +997,7 @@ export const posts: Post[] = [
     publishedISO: '2025-03',
     readTime: '6 min read',
     image: '/media/gallery/wedding-16.webp',
-    imageAlt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore',
+    imageAlt: 'Mehndi entrance aisle under hanging marigold and bead garlands with mirrored gold tables and yellow and white flowers',
     blocks: [
       { p: 'The mehndi is the night guests actually dance \u2014 which makes it the night design earns its keep. These are the seven directions our Lahore clients are requesting most, and what each one demands to be done properly.' },
       { h: '1. Genda Phool Maximalism' },
@@ -971,7 +1027,7 @@ export const posts: Post[] = [
     publishedISO: '2025-02',
     readTime: '8 min read',
     image: '/media/gallery/wedding-7.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events, Lahore',
+    imageAlt: 'Long outdoor banquet table with tall white rose centrepieces on black stands and wooden cross-back chairs',
     blocks: [
       { p: 'Nobody in this industry likes talking numbers publicly. We do \u2014 because families plan better, negotiate better and enjoy their own shaadi more when nobody is guessing. Here is the honest anatomy of a Lahore wedding budget.' },
       { h: 'The four pillars of every budget' },
@@ -997,7 +1053,7 @@ export const posts: Post[] = [
     publishedISO: '2025-02',
     readTime: '5 min read',
     image: '/media/gallery/wedding-2.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events, Lahore',
+    imageAlt: 'Aisle under a canopy of hanging greenery and a crystal chandelier, with carved white furniture and elephant figures',
     blocks: [
       { p: 'If the mehndi is the party and the baraat is the drama, the walima is the portrait \u2014 composed, elegant, and photographed more than any other night. Two schools dominate Lahore\u2019s 2025 season.' },
       { h: 'Pastel minimal' },
@@ -1024,7 +1080,7 @@ export const posts: Post[] = [
     publishedISO: '2025-01',
     readTime: '6 min read',
     image: '/media/gallery/corporate-4.webp',
-    imageAlt: 'Real corporate event production by Baraka Events, Lahore',
+    imageAlt: 'Corporate celebration stage with a large LED screen, truss lighting and red balloon decor',
     blocks: [
       { p: 'A corporate event has one job: make the organisation look as good as its ambitions. That outcome is engineered weeks earlier \u2014 in run-of-show documents, redundancy plans and rehearsals. This is the checklist our production team runs for every gala in Lahore.' },
       { h: 'Venue and technical foundations' },
@@ -1048,7 +1104,7 @@ export const posts: Post[] = [
     publishedISO: '2025-01',
     readTime: '5 min read',
     image: '/media/gallery/wedding-10.webp',
-    imageAlt: 'Real baraat stage setup produced by Baraka Events, Lahore',
+    imageAlt: 'Entrance walkway under a tree with a large crystal chandelier, fairy lights, red drapes and a round tufted sofa',
     blocks: [
       { p: 'No moment in a Pakistani wedding carries more raw emotion per minute than the baraat\u2019s arrival. It is also \u2014 ask any honest planner \u2014 the moment most likely to descend into forty minutes of parking chaos. The difference is direction.' },
       { h: 'Timing is nine-tenths of the drama' },
@@ -1075,7 +1131,7 @@ export const posts: Post[] = [
     publishedISO: '2026-08',
     readTime: '7 min read',
     image: '/media/gallery/wedding-3.webp',
-    imageAlt: 'Real walima reception stage and décor produced by Baraka Events, Lahore',
+    imageAlt: 'Candles in tall glass holders on a hand-painted floral cabinet with elephant figures under hanging greenery',
     blocks: [
       {
         p: 'The walima is hosted by the groom\u2019s family, it is the most formally photographed night of the wedding, and it is also the function families most often under-plan \u2014 by the time it arrives, everyone is exhausted from the mehndi and baraat and tempted to treat it as a smaller repeat of what came before. It deserves its own plan, on its own timeline.',
@@ -1117,7 +1173,7 @@ export const posts: Post[] = [
     publishedISO: '2026-08',
     readTime: '8 min read',
     image: '/media/gallery/wedding-17.webp',
-    imageAlt: 'Real mehndi night décor and lighting produced by Baraka Events, Lahore',
+    imageAlt: 'Stage under a ceiling of blush flowers and crystal garlands with pink drapes and a lotus-pattern lit floor',
     blocks: [
       {
         p: 'A full Pakistani wedding is not one event with several parts \u2014 it is four separate productions, each with its own vendors, decor and mood, run inside a single week. The hardest part of planning one is rarely any individual function; it is the sequencing, and the handoffs between nights that get missed when each function is planned in isolation.',
