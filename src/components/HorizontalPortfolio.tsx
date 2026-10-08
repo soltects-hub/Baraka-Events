@@ -3,14 +3,6 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 
 const projects = [
   {
-    title: 'A Four-Function Wedding',
-    category: 'Wedding',
-    location: 'A restored haveli, Walled City, Lahore',
-    year: '2025',
-    image: '/media/portfolio-1.webp',
-    stat: '600 guests · 4 functions',
-  },
-  {
     title: 'A National Product Launch',
     category: 'Corporate Event',
     location: 'A conference venue, Johar Town, Lahore',
@@ -102,12 +94,11 @@ export default function HorizontalPortfolio() {
           <div className="flex w-[85vw] shrink-0 flex-col justify-center md:w-[38vw]">
             <p className="mb-5 text-[11px] uppercase tracking-[0.3em] text-champagne">Selected Work</p>
             <h2 className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl">
-              Four events,<br /><em className="accent-serif">one standard</em>
+              Three events,<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-              A wedding in the Walled City, a product launch in Johar Town, a rooftop
-              birthday, an awards dinner in Gulberg — different briefs, same production
-              discipline behind each one.
+              A product launch in Johar Town, a rooftop birthday, an awards dinner in
+              Gulberg — different briefs, same production discipline behind each one.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
               <span>Scroll</span>

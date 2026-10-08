@@ -7,16 +7,6 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 
 const projects = [
   {
-    title: 'A Four-Function Wedding',
-    category: 'Wedding',
-    location: 'A restored haveli, Walled City, Lahore',
-    year: '2025',
-    image: '/media/portfolio-1.webp',
-    stat: '600 guests · 4 functions',
-    summary:
-      'Mehndi, baraat, nikkah and walima staged across a restored Walled City haveli. Floral installations and a rebuilt courtyard lighting rig carried one consistent design through every function.',
-  },
-  {
     title: 'A National Product Launch',
     category: 'Corporate Event',
     location: 'A conference venue, Johar Town, Lahore',

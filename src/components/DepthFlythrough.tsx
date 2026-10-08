@@ -14,7 +14,6 @@ interface ArchiveItem {
  * gallery itself doesn't care how many items there are.
  */
 const items: ArchiveItem[] = [
-  { src: '/media/portfolio-1.webp', alt: 'Wedding staged across a restored haveli in the Walled City', category: 'Wedding', title: 'A Four-Function Wedding', location: 'Walled City, Lahore' },
   { src: '/media/gallery/corporate-3.webp', alt: 'Corporate stage production by Baraka Events', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
   { src: '/media/rooftop-birthday.webp', alt: 'Rooftop birthday celebration in the Walled City', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
   { src: '/media/gallery/wedding-24.webp', alt: 'Wedding stage with a floral canopy, produced by Baraka Events', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
