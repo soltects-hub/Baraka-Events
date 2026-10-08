@@ -21,7 +21,6 @@ export const ARTICLE_IMAGES: ArticleImageOption[] = [
   { image: '/media/gallery-3.jpg', imageAlt: 'Golden fireworks over a grand Pakistani shaadi celebration', themes: ['Destination & Multi-Day Shaadis', 'Anniversary Celebrations'] },
   { image: '/media/gallery-4.jpg', imageAlt: 'Outdoor mehndi dinner under string lights and marigold garlands', themes: ['Aqeeqah', 'Anniversary Celebrations', 'Milestone Birthdays'] },
   { image: '/media/gallery-6.jpg', imageAlt: 'Dhol drummers performing at a baraat celebration under golden confetti', themes: ['Milestone Birthdays'] },
-  { image: '/media/portfolio-1.jpg', imageAlt: 'Grand Pakistani wedding reception in a historic Lahore haveli courtyard', themes: ['Walled City & Haveli Weddings', 'Raiwind Road Farmhouse Weddings'] },
   { image: '/media/portfolio-2.jpg', imageAlt: 'Dramatic corporate launch stage with golden LED screen in Lahore', themes: ['Corporate Product Launch', 'Corporate Summit & Conference', 'VIP & Executive Hospitality'] },
   { image: '/media/about.jpg', imageAlt: 'Henna-decorated hands arranging a marigold garland on a luxury shaadi table', themes: ['Event Catering & Menu Direction', 'Event Decor & Floral Design'] },
   { image: '/media/showcase-1.jpg', imageAlt: 'Full-scale stage & light — concert-grade rigs, engineered in-house', themes: ['Event Lighting & Production'] },

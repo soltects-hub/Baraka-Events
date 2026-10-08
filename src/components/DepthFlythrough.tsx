@@ -14,7 +14,6 @@ interface ArchiveItem {
  * gallery itself doesn't care how many items there are.
  */
 const items: ArchiveItem[] = [
-  { src: '/media/portfolio-1.webp', alt: 'Wedding banquet in a lantern-lit palace courtyard at night, with round tables, chandeliers and a floral stage', category: 'Wedding', title: 'A Four-Function Wedding', location: 'Walled City, Lahore' },
   { src: '/media/gallery/corporate-3.webp', alt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables', category: 'Corporate Event', title: 'A Product Launch on Stage', location: 'Johar Town, Lahore' },
   { src: '/media/rooftop-birthday.webp', alt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
   { src: '/media/gallery/wedding-24.webp', alt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
