@@ -249,7 +249,7 @@ export const services: Service[] = [
       { q: 'Do you coordinate dance and dholki performances?', a: 'We handle the staging, seating and sound for performances; choreography itself is typically arranged by the family.' },
       { q: 'Can mehndi and baraat happen on different days?', a: 'Yes, that is the most common format — see our full wedding timeline for how the week is usually sequenced.' },
       { q: 'How much does mehndi decoration cost in Lahore?', a: 'It scales with floral volume and how much of the staging is custom-built rather than with guest count. Marigold-heavy traditional setups sit at the lower end; mirrorwork and imported florals at the higher.' },
-      { q: 'Is an outdoor mehndi a good idea in Lahore?', a: 'It is the nicest option in the right months and a difficult one in the wrong ones. Outdoors works well from roughly mid-October to late November and again in late February and March. Peak summer and monsoon are not realistic without a covered fallback.' },
+      { q: 'Is an outdoor mehndi a good idea in Lahore?', a: 'It is the nicest option in the right months and a difficult one in the wrong ones. Outdoors works well from roughly mid-October to late November and again in late February and March, though smog season (October to February) is a reason to keep an indoor fallback. Peak summer and monsoon are not realistic without a covered fallback.' },
       { q: 'How early should mehndi florals be booked?', a: 'Six to eight weeks for most setups. Specific or out-of-season flowers need longer because they are ordered in, and peak wedding season tightens supply across the whole city.' },
     ],
     relatedServices: ['barat-events', 'event-decoration', 'wedding-planning'],

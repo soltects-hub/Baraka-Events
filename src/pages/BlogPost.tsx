@@ -17,10 +17,22 @@ import {
   composeSchemaGraph,
 } from '../seo';
 
-// Inline same-site links inside a paragraph: [anchor text](/path). Posts could only link from the
-// "Related:" row under a paragraph, never from the sentence that earns the link. Only paths that
-// start with "/" are accepted, so a stray bracket in prose can never become an external link.
-const INLINE_LINK = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+// Inline links inside a paragraph: [anchor text](/path) for same-site pages, and [anchor text](https://host/...) for the
+// few sources a post cites. Posts could only link from the "Related:" row under a paragraph, never from the sentence that
+// earns the link. A site path must start with a single "/", and an external link is accepted only when the PARSED url is
+// https with no credentials and its hostname is in CITED_HOSTS (exact match, not a pattern), so a stray bracket in prose
+// can never become a link to anywhere else; anything else stays plain text.
+const INLINE_LINK = /\[([^\]]+)\]\((\/(?!\/)[^)\s]*|https:\/\/[^)\s]+)\)/g;
+const CITED_HOSTS = new Set(['aqi.punjab.gov.pk', 'tribune.com.pk']);
+
+function citedUrl(href: string): string | null {
+  try {
+    const u = new URL(href);
+    return u.protocol === 'https:' && !u.username && !u.password && CITED_HOSTS.has(u.hostname) ? u.href : null;
+  } catch {
+    return null;
+  }
+}
 
 function renderInline(text: string): ReactNode[] {
   const out: ReactNode[] = [];
@@ -28,11 +40,25 @@ function renderInline(text: string): ReactNode[] {
   for (const m of text.matchAll(INLINE_LINK)) {
     const start = m.index ?? 0;
     if (start > last) out.push(text.slice(last, start));
-    out.push(
-      <Link key={start} to={m[2]} className="gold-underline text-gold hover:text-gold-soft">
-        {m[1]}
-      </Link>
-    );
+    const href = m[2];
+    if (href.startsWith('/')) {
+      out.push(
+        <Link key={start} to={href} className="gold-underline text-gold hover:text-gold-soft">
+          {m[1]}
+        </Link>
+      );
+    } else {
+      const cited = citedUrl(href);
+      out.push(
+        cited ? (
+          <a key={start} href={cited} target="_blank" rel="noopener noreferrer" className="gold-underline text-gold hover:text-gold-soft">
+            {m[1]}
+          </a>
+        ) : (
+          m[0]
+        )
+      );
+    }
     last = start + m[0].length;
   }
   if (last < text.length) out.push(text.slice(last));

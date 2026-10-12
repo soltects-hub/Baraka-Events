@@ -179,10 +179,11 @@ export const posts: Post[] = [
     slug: 'event-planning-cost-budget-lahore',
     title: 'What Event Planning in Lahore Costs, and How to Spend Less',
     excerpt:
-      'What actually drives the price of an event in Lahore, where the money really goes, and the honest ways to spend less without the day looking cheaper.',
+      'Why we do not publish an event planner price list in Lahore, what a very cheap quote usually means, and where the money in a quote really goes.',
     category: 'Planning',
     date: '9 September 2026',
     publishedISO: '2026-09-09',
+    updatedISO: '2026-10-12',
     readTime: '9 min read',
     image: '/media/gallery/wedding-4.webp',
     imageAlt: 'Walkway lined with white rose stands under draped white fabric and a crystal chandelier at a Lahore walima',
@@ -190,9 +191,9 @@ export const posts: Post[] = [
       {
         p: 'Almost everyone searching for an affordable event planner in Lahore is really asking two questions at once: what does this normally cost, and am I about to be overcharged. Both are fair. The problem is that the honest answer to the first one is a range wide enough to be useless on its own, and the only way to make it useful is to break the number apart. This is what actually sits inside an event quote in Lahore, which parts move, and where cutting genuinely works versus where it just makes the day look thinner.',
       },
-      { h: 'Why nobody publishes a price list' },
+      { h: 'Why we do not publish an event planner price list' },
       {
-        p: 'A 150-guest nikkah at a hall in Johar Town and an 800-guest walima at a five-star in Gulberg are not the same product with a different number attached. They differ in venue tier, per-head catering, how much staging and floral is built, how many crew are on site and for how long. Any planner publishing one flat package price is either quoting for the cheapest possible version of it, or padding for the most expensive. Neither tells you what your event costs.',
+        p: 'A 150-guest nikkah at a hall in Johar Town and an 800-guest walima at a five-star in Gulberg are not the same product with a different number attached. They differ in venue tier, per-head catering, how much staging and floral is built, how many crew are on site and for how long. A single flat package price is usually either quoted for the cheapest possible version of the event or padded for the most expensive. Neither tells you what your event costs.',
       },
       { h: 'The five lines that make up almost every quote' },
       {
@@ -221,14 +222,14 @@ export const posts: Post[] = [
       },
       { h: 'Season changes the price more than anything you choose' },
       {
-        p: 'Peak wedding season in Lahore compresses everything from roughly November through March, and every vendor in the city knows it. The same venue, caterer and decor team cost meaningfully more on a December Saturday than on an off-season weekday, purely because of demand. If your date is flexible at all, moving it is the single largest saving available to you, and it costs you nothing in quality. It is also why booking early matters more for price than for availability.',
+        p: 'Peak wedding season in Lahore compresses everything from roughly October to March, and every vendor in the city knows it; a [November 2025 Express Tribune report](https://tribune.com.pk/2025/11/23/october-is-the-new-december/) describes the country’s wedding calendar as running from October through March. The same venue, caterer and decor team cost meaningfully more on a December Saturday than on an off-season weekday, purely because of demand. If your date is flexible at all, moving it is the single largest saving available to you, and it costs you nothing in quality. It is also why booking early matters more for price than for availability.',
         related: [
           { text: 'Outdoor Weddings in Lahore: Picking the Right Month and Setup', slug: 'outdoor-garden-wedding-lahore-guide' },
         ],
       },
-      { h: 'What a very cheap quote usually means' },
+      { h: 'Cheap event planners in Lahore: what a very low quote usually means' },
       {
-        p: 'Unusually low quotes in this market are rarely fraud. They are almost always a narrower scope than you assumed. Common versions: the per-head rate covers a shorter menu than the one you were shown, decor is priced for a smaller stage than the venue actually needs, lighting is a token rig rather than a designed one, or the planner is a coordinator on the day only with no vendor management before it. None of that is dishonest if it is written down. It becomes a problem when the scope is verbal and the invoice is not.',
+        p: 'A cheap event planner’s quote in Lahore is rarely fraud. It is almost always a narrower scope than you assumed. Common versions: the per-head rate covers a shorter menu than the one you were shown, decor is priced for a smaller stage than the venue actually needs, lighting is a token rig rather than a designed one, or the planner is a coordinator on the day only with no vendor management before it. None of that is dishonest if it is written down. It becomes a problem when the scope is verbal and the invoice is not.',
       },
       { h: 'How to compare two quotes properly' },
       {
@@ -244,10 +245,17 @@ export const posts: Post[] = [
           { text: 'Event Management in Lahore', to: '/services/event-management' },
         ],
       },
+      { h: 'What to send us for a line-item quote' },
+      {
+        p: 'Which functions you want planned, a guest-count range, your dates or a date window, whether a venue is already fixed, and which parts you would rather run yourself. With those we can send an itemised proposal.',
+        related: [
+          { text: 'Request a line-item proposal', to: '/contact' },
+        ],
+      },
       { h: 'FAQs: Event Planning Costs in Lahore' },
       { h: 'How much does an event planner in Lahore charge?' },
       {
-        p: 'It depends on whether you are buying full planning, day-of management or decor alone, and on how many functions are involved. Reputable planners quote against your actual brief rather than publishing a package price. What you should insist on is that the fee appears as its own line, separate from venue, catering and decor, so you can see what the planning itself costs.',
+        p: 'It depends on whether you are buying full planning, day-of management or decor alone, and on how many functions are involved. Reputable planners quote against your actual brief rather than publishing a package price. What you should insist on is that the fee appears as its own line, separate from venue, catering and decor, so you can see what the planning itself costs. At Baraka Events the fee is charged for the work, not as a percentage of what you spend, so it does not rise because you chose a more expensive venue.',
       },
       { h: 'Is it cheaper to plan the event myself?' },
       {
@@ -255,7 +263,7 @@ export const posts: Post[] = [
       },
       { h: 'What is the cheapest month for a wedding in Lahore?' },
       {
-        p: 'Anything outside the November to March peak. Summer is the least contested and the cheapest, with the obvious trade-off that outdoor functions become difficult and indoor cooling becomes essential. Late spring and early autumn are the usual compromise between price and comfort.',
+        p: 'Anything outside the October to March peak. Summer is the least contested and the cheapest, with the obvious trade-off that outdoor functions become difficult and indoor cooling becomes essential. Late spring and early autumn are the usual compromise between price and comfort.',
       },
       { h: 'Can you work to a fixed budget?' },
       {
@@ -274,6 +282,7 @@ export const posts: Post[] = [
     category: 'Venues',
     date: '8 September 2026',
     publishedISO: '2026-09-08',
+    updatedISO: '2026-10-12',
     readTime: '8 min read',
     image: '/media/gallery/wedding-32.webp',
     imageAlt: 'Outdoor farmhouse wedding lawn at dusk with gold chairs, round tables and white floral centrepieces near Lahore',
@@ -283,14 +292,14 @@ export const posts: Post[] = [
       },
       { h: 'The months that actually work' },
       {
-        p: 'Lahore gives you a genuinely comfortable outdoor window roughly from mid-October into late November, and again from late February through March. May to August is not a debate — afternoon heat well past 40°C, and evenings that stay uncomfortable long after sunset. July and August add monsoon rain, which is not a light drizzle you decorate around. If your date falls in that band, an outdoor ceremony with an indoor dinner is a far better plan than pretending the lawn will hold.',
+        p: 'Lahore gives you a comfortable outdoor window for temperature roughly from mid-October into late November, and again from late February through March, though the autumn window sits inside smog season, so plan an indoor fallback. May to August is not a debate — severe afternoon heat, and evenings that stay uncomfortable long after sunset. July and August add monsoon rain, which is not a light drizzle you decorate around. If your date falls in that band, an outdoor ceremony with an indoor dinner is a far better plan than pretending the lawn will hold.',
         related: [
           { text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' },
         ],
       },
       { h: 'December and January are peak season and the hardest outdoors' },
       {
-        p: 'This is the part that surprises people. Peak shaadi season sits squarely in the months when Lahore is coldest and its air is at its worst. Smog season runs roughly November through January, and on bad days the air quality is genuinely hazardous rather than merely unpleasant — elderly guests and children feel it first. Dense winter fog does the rest: it strands guests driving in from out of town, it swallows uplighting, and it puts a grey cast over photographs that no amount of editing fully removes. None of this makes a December outdoor wedding impossible. It makes it a decision you should take deliberately, with heaters, an enclosed fallback and a realistic view of arrival times, rather than one you drift into because the date was available.',
+        p: 'This is the part that surprises people. Peak shaadi season sits squarely in the months when Lahore is coldest and smog season is under way. The Punjab Environmental Protection Agency says Lahore [experiences seasonal smog primarily from October to February](https://aqi.punjab.gov.pk/lahore), and on bad days the air quality is genuinely hazardous rather than merely unpleasant — elderly guests and children feel it first. Dense winter fog does the rest: it strands guests driving in from out of town, it swallows uplighting, and it puts a grey cast over photographs that no amount of editing fully removes. None of this makes a December outdoor wedding impossible. It makes it a decision you should take deliberately, with heaters, an enclosed fallback and a realistic view of arrival times, rather than one you drift into because the date was available.',
       },
       { h: 'Lawn, farmhouse or courtyard — three different builds' },
       {
@@ -337,7 +346,7 @@ export const posts: Post[] = [
       { h: 'FAQs: Outdoor and Garden Weddings in Lahore' },
       { h: 'What is the best month for an outdoor wedding in Lahore?' },
       {
-        p: 'Mid-October to late November is the most reliable window, with late February and March a close second. Both give you comfortable evenings without peak smog. December and January are the busiest wedding months but the hardest outdoors, because of cold, fog and air quality.',
+        p: 'Mid-October to late November and late February to March are the most comfortable stretches for temperature. The Punjab Environmental Protection Agency describes smog season as running primarily from October to February, so the autumn window carries air-quality risk (March falls outside it). Whichever you choose, confirm an indoor fallback. December and January are among the busiest wedding months but the hardest outdoors, because of cold, fog and air quality.',
       },
       { h: 'Is an outdoor wedding more expensive than a banquet hall?' },
       {
@@ -546,7 +555,7 @@ export const posts: Post[] = [
       { p: 'Guest capacity is the main draw — most Raiwind Road farmhouses comfortably handle guest lists that would feel impossible indoors, which is why they are a common choice for a baraat or walima with an extended-family invite list running into the hundreds. The open lawn also gives a designer room for a genuinely large-scale stage or entrance concept without fighting a low ceiling or load-bearing pillars, and outdoor space for a dhol procession or fireworks that an indoor hall could never accommodate.' },
       { h: 'The season question matters even more here' },
       {
-        p: 'Everything our venue guide says about Lahore’s outdoor season applies to a farmhouse lawn with less margin for error, because there is no indoor fallback built in. October through March is the safe window — cool evenings and no monsoon risk. Booking a farmhouse for a summer date without a fully covered, cooled tent structure is the single most common regret we hear about after the fact.',
+        p: 'Everything our venue guide says about Lahore’s outdoor season applies to a farmhouse lawn with less margin for error, because there is no indoor fallback built in. October through March is the safe window for temperature and monsoon risk, with smog season (October to February) the caveat that makes an indoor fallback worth planning. Booking a farmhouse for a summer date without a fully covered, cooled tent structure is the single most common regret we hear about after the fact.',
         related: [{ text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' }],
       },
       { h: 'Logistics that are different out here' },
@@ -586,7 +595,7 @@ export const posts: Post[] = [
       { h: 'Start with the guest list, not the venue list' },
       { p: 'Lock a realistic headcount before touring a single hall. A venue that photographs beautifully at half capacity can feel like a warehouse with three hundred guests in it, or airless and cramped with six hundred squeezed into a room built for four. Round the number up slightly for a baraat or walima, where late RSVPs and plus-ones are the norm rather than the exception, and ask every venue for its actual seated and standing capacity — not the number on its marketing brochure.' },
       { h: 'Let the season pick indoor or outdoor for you' },
-      { p: 'Lahore’s outdoor gardens and haveli courtyards are unbeatable from October through March, when golden-hour light and cool evenings do half the design work for free. From April through September, the same spaces become a liability without serious cooling and shade infrastructure — and a family that insists on an outdoor June wedding needs to budget for that infrastructure specifically, not assume the venue already has it. If the date is fixed and falls in the hot months, an indoor or covered venue is usually the safer decision, not the compromise.' },
+      { p: 'Lahore’s outdoor gardens and haveli courtyards are unbeatable from October through March, when golden-hour light and cool evenings do half the design work for free, with smog season (October to February, per the Punjab Environmental Protection Agency) the caveat that makes an indoor fallback worth confirming. From April through September, the same spaces become a liability without serious cooling and shade infrastructure — and a family that insists on an outdoor June wedding needs to budget for that infrastructure specifically, not assume the venue already has it. If the date is fixed and falls in the hot months, an indoor or covered venue is usually the safer decision, not the compromise.' },
       { h: 'Match the venue type to the wedding you’re actually planning' },
       {
         p: 'A restored haveli in the Walled City gives a nikkah real historical weight but limited parking and tighter load-in access for vendors. Gulberg’s banquet complexes and five-star ballrooms trade some of that character for convenience — better for guest lists heavy on elderly relatives or out-of-town mehmaan. DHA and Bahria Town’s purpose-built marquees offer the most creative freedom for a custom-built stage concept, and Lahore’s gardens deliver the most romantic outdoor nikkah setting in the right season. None of these is universally “best” — each solves a different brief.',
