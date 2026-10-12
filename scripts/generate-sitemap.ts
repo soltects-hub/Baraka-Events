@@ -40,13 +40,25 @@ const editedLastmod = '2026-09-09';
 // body links to /services/event-management and /services/event-decoration.
 // /about gained a link to /services/event-management the same day.
 // Day precision, and only for pages that actually changed.
-const commercialPassLastmod = '2026-10-06';
+//
+// 2026-10-09: the courtyard-wedding photograph was removed from the homepage "Selected Work" strip and archive ring and from
+// the Portfolio page (commits 6e16229 / 364cd9c), so those two pages' visible content changed that day (this supersedes the
+// homepage's 2026-10-06 date).
+const removalPassLastmod = '2026-10-09';
+// 2026-10-12: the ranking pass. Pages whose copy, FAQs, links or search snippets changed: /services, /services/event-management
+// (description + organizer FAQ), /services/corporate-events (description, scale wording, quote brief, cost FAQ), /services/wedding-planning
+// (related link), /services/mehndi-events (outdoor FAQ), /contact (snippet + heading), /about and /experiences (scale wording),
+// and /blog (several titles and excerpts shown in the index changed). The posts carry their own updatedISO. UTC date of the last
+// content commit, never a predicted one; the venue entries and every page not listed here keep the date they had.
+const rankingPassLastmod = '2026-10-12';
 // 2026-10-08: an added FAQ on /services/event-management and /services/corporate-events, and the "barat" spelling on
 // /services/barat-events. The /services hub renders every service's intro, so it moved with the barat intro.
 const servicesPassLastmod = '2026-10-08';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
-  'event-management': servicesPassLastmod,
-  'corporate-events': servicesPassLastmod,
+  'event-management': rankingPassLastmod,
+  'corporate-events': rankingPassLastmod,
+  'wedding-planning': rankingPassLastmod,
+  'mehndi-events': rankingPassLastmod,
   'barat-events': servicesPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
@@ -66,15 +78,15 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: commercialPassLastmod },
-  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: staticLastmod },
-  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: commercialPassLastmod },
-  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: staticLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: removalPassLastmod },
+  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: rankingPassLastmod },
+  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: removalPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: staticLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
-  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: staticLastmod },
-  { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: editedLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: servicesPassLastmod },
+  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
+  { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: rankingPassLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: rankingPassLastmod },
   // /venues and /vendors are deliberately left out while they carry no real
   // listings (both index pages are `noindex` until Phase 2 — see
   // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a
