@@ -143,8 +143,11 @@ export default function ServicesIndexPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            Whether you are searching for an event planner, an event organizer or
-            an event management company in Lahore, you are looking for the same
+            Whether you are searching for an event planner, an event organizer or an{' '}
+            <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+              event management company in Lahore
+            </Link>
+            , you are looking for the same
             thing: one team that handles the decisions, the vendors and the day
             itself. We cover everything from full wedding planning down to a
             single function, and take on corporate work of any scale. Each service

@@ -49,7 +49,7 @@ const experiences = [
       'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule, with no visible technical issues in front of clients, media or leadership.',
     points: [
       { h: 'Product Launches', p: 'Stage design and AV built for a reveal that has to land in one take, including for a live broadcast or press attendance.' },
-      { h: 'Conference & Summit Management', p: 'Seating, sightlines and delegate flow planned for rooms ranging from 100 to over 1,000 attendees.' },
+      { h: 'Conference & Summit Management', p: 'Seating, sightlines and delegate flow planned around the room and the headcount, from small boardrooms to large halls.' },
       { h: 'Annual Dinners & Award Nights', p: 'Full production from arrival to closing act, for companies that want one team accountable for the whole evening.' },
       { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, handled by the same corporate event organizer team behind our larger productions.' },
     ],

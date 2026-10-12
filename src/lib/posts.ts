@@ -665,7 +665,7 @@ export const posts: Post[] = [
     date: 'August 2026',
     publishedISO: '2026-08',
     updatedISO: '2026-10-12',
-    readTime: '8 min read',
+    readTime: '4 min read',
     image: '/media/showreel-4.webp',
     imageAlt: 'Red-draped lounge with arched panels, red flowers and a fairy-light ceiling of chandeliers, by Baraka Events in Lahore',
     blocks: [
@@ -679,6 +679,8 @@ export const posts: Post[] = [
       },
       { h: 'What to judge us on' },
       { p: 'Do not take the phrase on trust. Ask to see work from events of the same type and size as yours, ask to speak to a recent client, and judge us on communication, timing and whether the family enjoyed their own event instead of managing it. For a wedding planner in Lahore, that is the real scoreboard: not how the stage photographed.' },
+      { h: 'How we suggest comparing a shortlist' },
+      { p: 'Put two or three planners side by side on the same brief and compare them on the same things: an itemised proposal rather than a single package price, how the fee is charged (ours is for the work, not a percentage of what you spend), who your named lead will be on the day, and what the power and weather fallback is for your venue. The full set of questions is in [how to choose the best event planner in Lahore](/blog/top-event-planner-lahore-checklist-2026), and [what event planning in Lahore costs](/blog/event-planning-cost-budget-lahore) explains what sits inside a quote. Whether you need an [event management company in Lahore](/services/event-management) for the day itself or a [wedding planner in Lahore](/services/wedding-planning) for the whole week, we would like to be one of the planners you interview.' },
       { h: 'Where to find us' },
       {
         p: '[Baraka Events](/) is based at LG 13A, Big City Plaza, Liberty Roundabout, Gulberg III, in central Lahore. If you are comparing the best event planner in Lahore against a shortlist, we would simply ask for the meeting. A written proposal and a named coordinator are easier to show than to describe.',
