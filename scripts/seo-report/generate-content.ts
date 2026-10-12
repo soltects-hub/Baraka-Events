@@ -32,7 +32,7 @@ const VERIFIED_FACTS = `
   2. Corporate Events — launches, galas, summits, brand environments & stage design, VIP & executive hospitality.
   3. Private Celebrations — milestone birthdays, aqeeqahs, anniversaries, rooftop dinners, garden mehfils, discreet celebrity/VIP events.
 - Also offers: in-house culinary/menu direction (live BBQ, grand mains, continental/fusion, desserts), event lighting/AV production, floral & stage design.
-- Published stats (reuse verbatim if relevant, never inflate): "450+ Events Produced", "120+ Lahore Venues", "12 Years of Craft", "98% Client Return Rate".
+- No company statistics are published on the site (the owner removed "events produced", "years of craft" and "client return rate" figures on 2026-08-29 because they could not be verified). Do not state any event count, tenure, venue count, return rate or client number.
 - Booking guidance: full multi-function shaadis 9–14 months ahead; intimate celebrations 3–6 months; can occasionally deliver on 6-week timelines.
 - Budget positioning: full multi-function shaadi productions "typically begin in the mid seven figures (PKR)" — never state a more specific number than this.
 - Will collaborate with a client's own venue/vendors, integrating them into Baraka's production system.
