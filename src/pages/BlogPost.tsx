@@ -22,7 +22,7 @@ import {
 // earns the link. A site path must start with a single "/", and an external link is accepted only when the PARSED url is
 // https with no credentials and its hostname is in CITED_HOSTS (exact match, not a pattern), so a stray bracket in prose
 // can never become a link to anywhere else; anything else stays plain text.
-const INLINE_LINK = /\[([^\]]+)\]\((\/(?!\/)[^)\s]*|https:\/\/[^)\s]+)\)/g;
+const INLINE_LINK = /\[([^\]]+)\]\((\/(?![/\\])[^)\s]*|https:\/\/[^)\s]+)\)/g;
 const CITED_HOSTS = new Set(['aqi.punjab.gov.pk', 'tribune.com.pk']);
 
 function citedUrl(href: string): string | null {

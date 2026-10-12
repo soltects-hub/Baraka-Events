@@ -41,13 +41,13 @@ const editedLastmod = '2026-09-09';
 // /about gained a link to /services/event-management the same day.
 // Day precision, and only for pages that actually changed.
 //
-// 2026-10-09: the courtyard-wedding photograph was removed from the homepage "Selected Work" strip and archive ring and from
-// the Portfolio page (commits 6e16229 / 364cd9c), so those two pages' visible content changed that day (this supersedes the
-// homepage's 2026-10-06 date).
-const removalPassLastmod = '2026-10-09';
+// 2026-10-08 (UTC; 2026-10-09 in Pakistan): the courtyard-wedding photograph was removed from the homepage "Selected Work" strip
+// and archive ring and from the Portfolio page (commits 6e16229 / 364cd9c), so those two pages' visible content changed that day
+// (this supersedes the homepage's 2026-10-06 date).
+const removalPassLastmod = '2026-10-08';
 // 2026-10-12: the ranking pass. Pages whose copy, FAQs, links or search snippets changed: /services, /services/event-management
 // (description + organizer FAQ), /services/corporate-events (description, scale wording, quote brief, cost FAQ), /services/wedding-planning
-// (related link), /services/mehndi-events (outdoor FAQ), /contact (snippet + heading), /about and /experiences (scale wording),
+// (related link), /services/mehndi-events (outdoor FAQ), /services/nikkah-events (booking-pattern claim removed from an FAQ), /contact (snippet + heading), /about and /experiences (scale wording),
 // and /blog (several titles and excerpts shown in the index changed). The posts carry their own updatedISO. UTC date of the last
 // content commit, never a predicted one; the venue entries and every page not listed here keep the date they had.
 const rankingPassLastmod = '2026-10-12';
@@ -59,6 +59,7 @@ const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'corporate-events': rankingPassLastmod,
   'wedding-planning': rankingPassLastmod,
   'mehndi-events': rankingPassLastmod,
+  'nikkah-events': rankingPassLastmod,
   'barat-events': servicesPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the

@@ -67,11 +67,11 @@ const SERVICES_FAQS = [
   },
   {
     q: 'Can I hire you for just one function instead of the whole wedding?',
-    a: 'Yes. Each function has its own page — nikkah, mehndi, baraat and walima — and any of them can be booked on its own. Most clients book the full week, but single-function work is normal for us.',
+    a: 'Yes. Each function has its own page — nikkah, mehndi, baraat and walima — and any of them can be booked on its own or as part of the full week.',
   },
   {
     q: 'How far in advance should we book?',
-    a: 'Eight to ten months gives you the real choice of venues and dates. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
+    a: 'Nine to twelve months gives you the first choice of venues and dates. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
   },
   {
     q: 'Do you handle the venue booking, or do we?',
@@ -150,7 +150,7 @@ export default function ServicesIndexPage() {
             , you are looking for the same
             thing: one team that handles the decisions, the vendors and the day
             itself. We cover everything from full wedding planning down to a
-            single function, and take on corporate work of any scale. Each service
+            single function, and take on corporate work from small board dinners to large conferences. Each service
             below can be booked on its own or as part of a larger project.
           </motion.p>
         </div>
@@ -263,7 +263,7 @@ export default function ServicesIndexPage() {
             </Link>
             {' · '}
             <Link to="/blog/luxury-shaadi-cost-lahore" className="gold-underline text-gold hover:text-gold-soft">
-              What a luxury shaadi in Lahore actually costs
+              Lahore wedding budget: where to spend and where to save
             </Link>
             {' · '}
             <Link to="/blog/how-to-choose-wedding-venue-lahore-guide" className="gold-underline text-gold hover:text-gold-soft">
