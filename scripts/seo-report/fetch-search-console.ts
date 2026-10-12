@@ -32,6 +32,8 @@ import {
 import type {
   AccessibleProperty,
   ApiError,
+  PageQueriesMeta,
+  PageQueryRow,
   PageRow,
   PropertyResolution,
   QueryRow,
@@ -113,6 +115,72 @@ async function queryByDimension(
     .map((r) => ({ key: r.keys?.[0] ?? '', ...toTotals(r) }))
     .sort((a, b) => b.clicks - a.clicks);
   return { rows };
+}
+
+/** The Search Analytics API's maximum rows per request. Page x query for this site is a few thousand rows at most. */
+const MAX_ROWS = 25000;
+
+/** Raw rows to query rows. Keys are read defensively so a malformed row can never throw. */
+export function toQueryRows(rows: RawRow[]): QueryRow[] {
+  return rows.map((r) => ({ query: r.keys?.[0] ?? '', ...toTotals(r) }));
+}
+export function toPageQueryRows(rows: RawRow[]): PageQueryRow[] {
+  return rows.map((r) => ({ page: r.keys?.[0] ?? '', query: r.keys?.[1] ?? '', ...toTotals(r) }));
+}
+
+/** One Search Analytics pull grouped by `dimensions` at the API's maximum row count, rows kept in the API's order. */
+async function queryRaw(
+  startDate: string,
+  endDate: string,
+  dimensions: Array<'query' | 'page'>,
+  request: typeof apiRequest
+): Promise<{ rows: RawRow[]; error?: ApiError }> {
+  const result = await request<SearchAnalyticsResponse>(searchAnalyticsUrl(activeSiteUrl), 'POST', {
+    startDate,
+    endDate,
+    dimensions,
+    rowLimit: MAX_ROWS,
+  });
+  if (!result.ok) return { rows: [], error: { status: result.status, message: result.message } };
+  return { rows: result.data.rows ?? [] };
+}
+
+/**
+ * Enrichment pulls: every query (topQueries is only the first 100) and page x query pairs, which is what turns "which page
+ * owns this query" from an inference into data. Best effort by design: a failure or exception becomes a warning in the
+ * snapshot and never an entry in `errors`, so an optional pull cannot turn the daily run red or block the data PR.
+ * `request` is injectable so the mapping and the failure handling can be tested without the network.
+ */
+export async function collectEnrichment(
+  startDate: string,
+  endDate: string,
+  windowTotalImpressions: number,
+  request: typeof apiRequest = apiRequest
+): Promise<{ allQueries?: QueryRow[]; pageQueries?: PageQueryRow[]; pageQueriesMeta?: PageQueriesMeta; warnings: ApiError[] }> {
+  const warnings: ApiError[] = [];
+  const out: { allQueries?: QueryRow[]; pageQueries?: PageQueryRow[]; pageQueriesMeta?: PageQueriesMeta; warnings: ApiError[] } = { warnings };
+  try {
+    const [q, pq] = await Promise.all([
+      queryRaw(startDate, endDate, ['query'], request),
+      queryRaw(startDate, endDate, ['page', 'query'], request),
+    ]);
+    if (q.error) warnings.push(q.error);
+    else out.allQueries = toQueryRows(q.rows);
+    if (pq.error) warnings.push(pq.error);
+    else {
+      const rows = toPageQueryRows(pq.rows);
+      out.pageQueries = rows;
+      out.pageQueriesMeta = {
+        rowCount: rows.length,
+        truncated: rows.length >= MAX_ROWS,
+        sumImpressions: rows.reduce((n, r) => n + r.impressions, 0),
+        windowTotalImpressions,
+      };
+    }
+  } catch (err) {
+    warnings.push({ status: 0, message: `Enrichment pulls failed: ${err instanceof Error ? err.message : String(err)}` });
+  }
+  return out;
 }
 
 function zeroTotals(): SearchTotals {
@@ -351,7 +419,23 @@ async function main() {
   const currentTopPages: PageRow[] = currentPages.rows.map((r) => ({ page: r.key, clicks: r.clicks, impressions: r.impressions, ctr: r.ctr, position: r.position }));
   const previousTopPages: PageRow[] = previousPages.rows.map((r) => ({ page: r.key, clicks: r.clicks, impressions: r.impressions, ctr: r.ctr, position: r.position }));
 
-  data.current = { totals: currentTotals.totals, topQueries, topPages: currentTopPages };
+  // Optional extras (every query, page x query). Skipped when the core totals failed: that is a permissions problem and
+  // more calls add nothing. Their failures are warnings, never errors.
+  const enrichment = currentTotals.error
+    ? undefined
+    : await collectEnrichment(current.startDate, current.endDate, currentTotals.totals.impressions);
+
+  data.current = {
+    totals: currentTotals.totals,
+    topQueries,
+    topPages: currentTopPages,
+    ...(enrichment?.allQueries ? { allQueries: enrichment.allQueries } : {}),
+    ...(enrichment?.pageQueries ? { pageQueries: enrichment.pageQueries, pageQueriesMeta: enrichment.pageQueriesMeta } : {}),
+  };
+  if (enrichment && enrichment.warnings.length > 0) {
+    data.warnings = enrichment.warnings;
+    for (const w of enrichment.warnings) console.error(`::warning::Optional Search Console pull failed [${w.status}] ${w.message}`);
+  }
   data.previous = { totals: previousTotals.totals, topPages: previousTopPages };
   data.sitemaps = sitemapResult.sitemaps;
 

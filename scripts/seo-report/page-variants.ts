@@ -14,7 +14,7 @@
  * Query strings are kept: the spam ?JGNS=... URLs are distinct rows on purpose.
  */
 import { PRODUCTION_ORIGIN } from './config';
-import type { PageRow } from './types';
+import type { PageQueryRow, PageRow } from './types';
 
 const OUR_HOSTS = new Set(['barakaevents.com', 'www.barakaevents.com']);
 
@@ -55,3 +55,37 @@ export function mergePageVariants(rows: PageRow[]): PageRow[] {
   }
   return [...byUrl.values()].sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions);
 }
+
+/**
+ * Merge http/https, apex/www and trailing-slash variants of the same page for page x query rows. Keyed on the canonical
+ * page AND the query: mergePageVariants() above keys on the page alone, so run on these rows it would add every query of a
+ * page into one row and destroy the query dimension. Position stays impression-weighted. Meant for read time; the
+ * snapshot keeps the raw page keys so it stays visible which variant ranks where.
+ */
+export function mergePageQueryVariants(rows: PageQueryRow[]): PageQueryRow[] {
+  const byKey = new Map<string, PageQueryRow>();
+  for (const row of rows) {
+    const page = canonicalPageUrl(row.page);
+    const key = `${page}\u0000${row.query}`;
+    const existing = byKey.get(key);
+    if (!existing) {
+      byKey.set(key, { ...row, page });
+      continue;
+    }
+    const impressions = existing.impressions + row.impressions;
+    const clicks = existing.clicks + row.clicks;
+    byKey.set(key, {
+      page,
+      query: row.query,
+      clicks,
+      impressions,
+      ctr: impressions > 0 ? clicks / impressions : 0,
+      position:
+        impressions > 0
+          ? (existing.position * existing.impressions + row.position * row.impressions) / impressions
+          : existing.position,
+    });
+  }
+  return [...byKey.values()].sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions);
+}
+
