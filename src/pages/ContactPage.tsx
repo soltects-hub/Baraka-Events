@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
 import Contact from '../components/Contact';
 import LocationMap from '../components/LocationMap';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 const reasons = [
-  { h: 'Same-Day Response', p: 'A senior member of our atelier replies within one business day — often the same afternoon.' },
+  { h: 'Reply Within One Business Day', p: 'A senior member of our atelier replies within one business day.' },
   { h: 'Free Consultation', p: 'Your first conversation, in person or by video, is entirely complimentary and comes with no obligation.' },
   { h: 'One Point of Contact', p: 'From your first message to your final function, you speak to the same coordinator every time.' },
 ];
@@ -15,7 +16,7 @@ export default function ContactPage() {
   useSEO({
     title: 'Contact Baraka Events — Hire an Event Planner in Lahore',
     description:
-      'Get in touch with Baraka Events for a free consultation. Based in Gulberg III, Lahore, we plan luxury weddings, corporate events and private celebrations across the city.',
+      'Book a free consultation with Baraka Events, an event planner in Gulberg III, Lahore. Call +92 313 9999039, Mon–Sat 11:00 AM–8:00 PM.',
     canonical: routes.contact,
   });
 
@@ -64,7 +65,11 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            Whether you're comparing event management companies in Lahore or already know
+            Whether you're comparing{' '}
+            <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+              event management companies in Lahore
+            </Link>{' '}
+            or already know
             you want Baraka, the fastest way to find out what's possible for your date and
             budget is a short, free conversation with our atelier.
           </motion.p>

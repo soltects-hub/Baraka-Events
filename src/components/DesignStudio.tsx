@@ -1,4 +1,5 @@
 import { useRef, type MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
@@ -15,6 +16,7 @@ const designs = [
     type: 'Wedding Reception',
     spec: 'Chandelier canopy · floral arches · ambient lighting',
     image: '/media/gallery/wedding-13.webp',
+    alt: 'Lounge seating facing a stage of hanging chandeliers and greenery between red velvet drapes',
   },
   {
     n: '02',
@@ -22,6 +24,7 @@ const designs = [
     type: 'Wedding Reception',
     spec: 'Moorish arches · ivory floral · layered light',
     image: '/media/gallery/wedding-17.webp',
+    alt: 'Stage under a ceiling of blush flowers and hanging crystal garlands with a lotus-pattern lit floor',
   },
   {
     n: '03',
@@ -29,6 +32,7 @@ const designs = [
     type: 'Baraat Procession',
     spec: 'Hand-hung chandeliers · full stage drape',
     image: '/media/showreel-3.webp',
+    alt: 'Rows of hanging crystal chandeliers and bead curtains over a pink lounge beside a white aisle at night',
   },
 ];
 
@@ -75,7 +79,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
             src={d.image}
-            alt={`${d.title} — ${d.type} produced by Baraka Events`}
+            alt={d.alt}
             loading="lazy"
             draggable={false}
             className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
@@ -131,8 +135,11 @@ export default function DesignStudio() {
             />
           </div>
           <p className="max-w-md text-sm font-light leading-relaxed text-mist lg:text-right lg:justify-self-end">
-            Every stage, floral program and lighting plan is designed as one system
-            before a single vendor is briefed. These are real productions, not renders.
+            Every{' '}
+            <Link to="/services/event-decoration" className="gold-underline text-gold hover:text-gold-soft">
+              stage, floral program and lighting plan
+            </Link>{' '}
+            is designed as one system before a single vendor is briefed. These are real productions, not renders.
           </p>
         </div>
 

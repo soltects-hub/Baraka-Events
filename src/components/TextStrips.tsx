@@ -9,13 +9,15 @@ function StripContent({ dark }: { dark: boolean }) {
     <>
       {row.map((p, i) => (
         <div key={i} className="flex items-center gap-8">
+          {/* Decorative ribbon text (the whole section is aria-hidden): painted
+              from `data-text` via .deco-text rather than written into the DOM,
+              so the site tagline is not repeated 24 times in the page text. */}
           <span
-            className={`font-display text-xl font-light uppercase tracking-[0.2em] md:text-2xl ${
+            data-text={p}
+            className={`deco-text font-display text-xl font-light uppercase tracking-[0.2em] md:text-2xl ${
               dark ? 'text-ink' : 'text-champagne'
             }`}
-          >
-            {p}
-          </span>
+          />
           <svg viewBox="0 0 24 24" className={`h-4 w-4 ${dark ? 'fill-ink/70' : 'fill-champagne/70'}`}>
             <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z" />
           </svg>

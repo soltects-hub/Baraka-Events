@@ -78,7 +78,8 @@ export function useSEO(metadata: SEOMetadata) {
     updateMetaTag('og:url', canonicalUrl, true);
 
     // Twitter Card tags
-    updateMetaTag('twitter:card', 'summary_large_image');
+    // The default image is the square brand logo, which the large-image card would crop badly.
+    updateMetaTag('twitter:card', image === seoConfig.defaultImage ? 'summary' : 'summary_large_image');
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', absoluteImage);

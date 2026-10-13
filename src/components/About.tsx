@@ -36,7 +36,7 @@ export default function About() {
             <motion.img
               style={{ y: imgY, scale: 1.15 }}
               src="/media/about.jpg"
-              alt="Henna-decorated hands arranging a marigold garland on a wedding table"
+              alt="White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers"
               className="h-[520px] w-full object-cover md:h-[640px]"
               loading="lazy"
             />
@@ -48,7 +48,7 @@ export default function About() {
           >
             <img
               src="/media/gallery/detail-4.webp"
-              alt="Nikkah stage with floral rings and warm lighting"
+              alt="Floor seating with sage-green bolsters, pink satin cushions and a flower hoop arch under chandeliers"
               className="h-64 w-full object-cover"
               loading="lazy"
             />
@@ -67,8 +67,11 @@ export default function About() {
           />
           <div className="mt-8 space-y-5 text-base font-light leading-[1.75] text-mist md:text-[17px]">
             <p>
-              Baraka Events is an event planning and management company based in Gulberg,
-              Lahore. We plan and produce weddings, corporate events and{' '}
+              Baraka Events is an{' '}
+              <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+                event planning and management company
+              </Link>{' '}
+              based in Gulberg, Lahore. We plan and produce weddings, corporate events and{' '}
               <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
                 private celebrations
               </Link>{' '}

@@ -5,6 +5,7 @@ import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import { services } from '../lib/services';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import {
   useSEO,
   seoConfig,
@@ -66,11 +67,11 @@ const SERVICES_FAQS = [
   },
   {
     q: 'Can I hire you for just one function instead of the whole wedding?',
-    a: 'Yes. Each function has its own page — nikkah, mehndi, baraat and walima — and any of them can be booked on its own. Most clients book the full week, but single-function work is normal for us.',
+    a: 'Yes. Each function has its own page — nikkah, mehndi, baraat and walima — and any of them can be booked on its own or as part of the full week.',
   },
   {
     q: 'How far in advance should we book?',
-    a: 'Eight to ten months gives you the real choice of venues and dates. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
+    a: 'Nine to twelve months gives you the first choice of venues and dates. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
   },
   {
     q: 'Do you handle the venue booking, or do we?',
@@ -142,11 +143,14 @@ export default function ServicesIndexPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            Whether you are searching for an event planner, an event organizer or
-            an event management company in Lahore, you are looking for the same
+            Whether you are searching for an event planner, an event organizer or an{' '}
+            <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+              event management company in Lahore
+            </Link>
+            , you are looking for the same
             thing: one team that handles the decisions, the vendors and the day
             itself. We cover everything from full wedding planning down to a
-            single function, and take on corporate work of any scale. Each service
+            single function, and take on corporate work from small board dinners to large conferences. Each service
             below can be booked on its own or as part of a larger project.
           </motion.p>
         </div>
@@ -167,6 +171,7 @@ export default function ServicesIndexPage() {
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={s.image}
+                    {...galleryImgProps(s.image, GALLERY_SIZES.card)}
                     alt={s.imageAlt}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
@@ -254,11 +259,11 @@ export default function ServicesIndexPage() {
           <p className="mt-10 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
             Related:{' '}
             <Link to="/blog/top-event-planner-lahore-checklist-2026" className="gold-underline text-gold hover:text-gold-soft">
-              How to choose the top event planner in Lahore
+              How to choose the best event planner in Lahore
             </Link>
             {' · '}
             <Link to="/blog/luxury-shaadi-cost-lahore" className="gold-underline text-gold hover:text-gold-soft">
-              What a luxury shaadi in Lahore actually costs
+              Lahore wedding budget: where to spend and where to save
             </Link>
             {' · '}
             <Link to="/blog/how-to-choose-wedding-venue-lahore-guide" className="gold-underline text-gold hover:text-gold-soft">

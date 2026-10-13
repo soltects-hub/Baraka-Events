@@ -8,6 +8,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { REPORTS_DIR, isoDate } from './config';
+import { mergePageVariants } from './page-variants';
 import type { PageRow, QueryRow, SearchConsoleReportData, UrlInspectionResult } from './types';
 import { classifyUrls } from './legacy-urls';
 import type { Decision } from './decide-action';
@@ -167,7 +168,10 @@ function renderFullReport(data: SearchConsoleReportData): string {
   const ctrDelta = current.totals.ctr - previous.totals.ctr;
   const positionDelta = current.totals.position - previous.totals.position; // negative = improved (lower is better)
 
-  const pageDeltas = pageDelta(current.topPages, previous.topPages);
+  // One row per real page: http/https and apex/www variants merged (see page-variants.ts).
+  const currentPages = mergePageVariants(current.topPages);
+  const previousPages = mergePageVariants(previous.topPages);
+  const pageDeltas = pageDelta(currentPages, previousPages);
   const declining = pageDeltas
     .filter((d) => d.prevClicks >= MIN_CLICKS_FOR_TREND && d.delta !== null && d.delta <= DECLINE_THRESHOLD)
     .sort((a, b) => (a.delta ?? 0) - (b.delta ?? 0));
@@ -339,7 +343,7 @@ function renderFullReport(data: SearchConsoleReportData): string {
   lines.push('');
   lines.push('| Page | Clicks | Impressions | CTR | Avg. position |');
   lines.push('|---|---|---|---|---|');
-  for (const p of current.topPages.slice(0, 10)) {
+  for (const p of currentPages.slice(0, 10)) {
     lines.push(`| ${p.page} | ${p.clicks} | ${p.impressions} | ${pctPoint(p.ctr)} | ${p.position.toFixed(1)} |`);
   }
   lines.push('');

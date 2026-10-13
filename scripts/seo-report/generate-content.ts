@@ -23,18 +23,18 @@ import type { Decision } from './decide-action';
 const decisionPath = resolve(process.cwd(), REPORTS_DIR, 'decision-latest.json');
 const proposalPath = resolve(process.cwd(), REPORTS_DIR, 'content-proposal-latest.json');
 
-/** Facts verified by reading the live site this session — never extend or round these up. */
+/** Facts as published on the site (src/lib/faqs.ts, src/lib/services.ts) — keep in sync with them; never extend or round these up. */
 const VERIFIED_FACTS = `
 - Company: Baraka Events, a design and production atelier (not a coordination service) based in Gulberg III, Lahore, Pakistan.
-- Serves Lahore exclusively: Walled City / Androon Shehr havelis, Shalimar-inspired gardens, DHA, Gulberg, Bahria Town, and Raiwind Road farmhouses.
+- Based in Gulberg III and works across Lahore (Gulberg, DHA, Model Town, Johar Town, Bahria Town, Cantt, the Walled City / Androon Shehr, Raiwind Road farmhouses). Can also run events outside Lahore (destination and multi-day weddings; corporate crews travel with the event). Never claim a one-city-only policy and do not name specific other cities.
 - Three service pillars (do not invent others):
   1. Luxury Shaadis — Mehndi, Baraat, Nikkah, Walima, destination & multi-day shaadis, couture floral & stage design.
   2. Corporate Events — launches, galas, summits, brand environments & stage design, VIP & executive hospitality.
   3. Private Celebrations — milestone birthdays, aqeeqahs, anniversaries, rooftop dinners, garden mehfils, discreet celebrity/VIP events.
 - Also offers: in-house culinary/menu direction (live BBQ, grand mains, continental/fusion, desserts), event lighting/AV production, floral & stage design.
-- Published stats (reuse verbatim if relevant, never inflate): "450+ Events Produced", "120+ Lahore Venues", "12 Years of Craft", "98% Client Return Rate".
-- Booking guidance: full multi-function shaadis 9–14 months ahead; intimate celebrations 3–6 months; can occasionally deliver on 6-week timelines.
-- Budget positioning: full multi-function shaadi productions "typically begin in the mid seven figures (PKR)" — never state a more specific number than this.
+- No company statistics are published on the site (the owner removed "events produced", "years of craft" and "client return rate" figures on 2026-08-29 because they could not be verified). Do not state any event count, tenure, venue count, return rate or client number.
+- Booking guidance (as published): a full multi-function wedding 9 to 12 months ahead for first choice of venue and date, especially in wedding season (October to March); a single function or smaller private event 2 to 4 months; for closer dates, contact us and we can often still make it work. Do not state any shorter specific turnaround.
+- Pricing: no price list is published. Baraka quotes for the scope of work, not as a percentage of the client's budget, with its fee as its own line, and gives a line-item proposal before commitment. Never state any price, PKR figure, price range or budget band.
 - Will collaborate with a client's own venue/vendors, integrating them into Baraka's production system.
 - Contact: Booking@barakaevents.com, +92 313 9999039.
 `.trim();

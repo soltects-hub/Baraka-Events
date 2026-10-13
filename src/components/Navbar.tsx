@@ -80,7 +80,7 @@ function ServicesMenu({ onNavigate }: { onNavigate: (href: string) => void }) {
         >
           <img
             src="/media/nav-services-teaser.webp"
-            alt="Chandelier-lit reception aisle produced by Baraka Events"
+            alt="Long white aisle lined with flowers beneath rows of hanging crystal chandeliers in a grand banquet hall"
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
           />

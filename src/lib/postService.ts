@@ -46,6 +46,10 @@ export const postServiceLinks: Record<string, string> = {
   // No dedicated anniversary/aqeeqah service page exists, so per the rule
   // above these are left unmapped rather than pointed somewhere inaccurate.
 
+  // Birthday planning is exactly what the birthday-events service page covers
+  // (children's parties through milestone and surprise birthdays).
+  'birthday-party-planning-lahore-guide': 'birthday-events',
+
   // Catering sits under full wedding planning — there is no catering service page
   'luxury-event-catering-menu-lahore': 'wedding-planning',
 

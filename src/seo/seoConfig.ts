@@ -56,8 +56,11 @@ export const seoConfig = {
     facebook: 'Barakaeventsofficial',
     instagram: 'Barakaeventsofficial',
   },
-  defaultImage: 'https://www.barakaevents.com/media/portfolio-1.jpg',
-  defaultImageAlt: 'Baraka Events - Event Planning and Production in Lahore',
+  // The brand logo, deliberately, not a photograph. The previous default (a courtyard-wedding photograph) was removed
+  // from the site on 2026-10-09 at the owner's request and must not return through this fallback. A page that has a real
+  // photo of its own passes it to useSEO({ image }).
+  defaultImage: 'https://www.barakaevents.com/web-app-manifest-512x512.png',
+  defaultImageAlt: 'Baraka Events logo',
 };
 
 export const routes = {

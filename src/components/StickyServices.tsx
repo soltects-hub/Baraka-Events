@@ -9,6 +9,7 @@ const services = [
     description:
       'Mehndi, baraat, nikkah and walima planned as one production instead of four separate events. We handle venue selection, stage and floral design, catering coordination and guest logistics, so the story stays consistent from the first night to the last.',
     image: '/media/gallery/wedding-24.webp',
+    imageAlt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns',
     details: ['Mehndi · Baraat · Nikkah · Walima', 'Destination & Multi-Day Weddings', 'Stage, Floral & Lighting Design'],
   },
   {
@@ -18,6 +19,7 @@ const services = [
     description:
       "Product launches, executive summits and award nights for brands that cannot afford a technical delay. We handle stage design, AV, run-of-show timing and hospitality across Lahore's hotels, expo halls and private venues.",
     image: '/media/gallery/corporate-3.webp',
+    imageAlt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables',
     details: ['Launches, Summits & Award Nights', 'Stage Design & AV Production', 'Guest & Executive Hospitality'],
   },
   {
@@ -27,6 +29,7 @@ const services = [
     description:
       'Birthdays, aqeeqahs, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty. A smaller guest list gets more design detail per guest, not less.',
     image: '/media/gallery/celebration-4.webp',
+    imageAlt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns',
     details: ['Milestone Birthdays & Anniversaries', 'Rooftop Dinners & Garden Mehfils', 'Private & Intimate Gatherings'],
   },
 ];
@@ -66,7 +69,7 @@ function StackedServices() {
               transition={{ duration: 0.8, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="relative overflow-hidden rounded-sm border border-champagne/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]"
             >
-              <img src={s.image} alt={s.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={s.image} alt={s.imageAlt} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
               <div className="grade absolute inset-0" />
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-ink via-ink/80 via-45% to-transparent" />
               <div className="relative flex min-h-[620px] flex-col justify-end p-6 sm:min-h-[540px] sm:p-8">
@@ -119,7 +122,7 @@ function PinnedServices() {
             <motion.img
               key={s.image}
               src={s.image}
-              alt={s.title}
+              alt={s.imageAlt}
               loading="lazy"
               initial={{ opacity: 0, scale: 1.12, rotateY: 4 }}
               animate={{ opacity: 0.92, scale: 1, rotateY: 0 }}

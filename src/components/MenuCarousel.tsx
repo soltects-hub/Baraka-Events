@@ -7,6 +7,7 @@ interface MenuCard {
   urdu: string;
   items: { name: string; desc: string }[];
   image: string;
+  imageAlt: string;
   accent: string;
 }
 
@@ -16,6 +17,7 @@ const menu: MenuCard[] = [
     title: 'Live BBQ Station',
     urdu: 'Angeethi',
     image: '/media/bbq-station.webp',
+    imageAlt: 'Cooks grilling skewers of kebabs, tikka and vegetables over charcoal at a night-time live BBQ station',
     accent: 'Charcoal-fired, carved to order',
     items: [
       { name: 'Seekh Kebab', desc: 'Hand-minced beef, charred over coals' },
@@ -29,6 +31,7 @@ const menu: MenuCard[] = [
     title: 'The Grand Mains',
     urdu: 'Khaas Khaanay',
     image: '/media/grand-mains.webp',
+    imageAlt: 'Biryani topped with a roasted drumstick beside bowls of mutton qorma and butter chicken in copper dishes',
     accent: 'The heart of every shaadi dastarkhwan',
     items: [
       { name: 'Mutton Qorma', desc: 'Slow-cooked in desi ghee, shahi style' },
@@ -42,6 +45,7 @@ const menu: MenuCard[] = [
     title: 'Continental & Fusion',
     urdu: 'Jadeed Zaiqay',
     image: '/media/continental-fusion.webp',
+    imageAlt: 'Buffet counter with a herb-crusted chicken roast, pasta, green curry and a wok dish, each with a menu sign',
     accent: 'For the modern mehmaan',
     items: [
       { name: 'Herb-Crusted Chicken Roast', desc: 'Rosemary jus, roast vegetables' },
@@ -55,6 +59,7 @@ const menu: MenuCard[] = [
     title: 'Desserts & Mithai',
     urdu: 'Meethas',
     image: '/media/desserts-mithai.webp',
+    imageAlt: 'Mirrored dessert table of layered cups, gulab jamun and pastries with gold stands and candles',
     accent: 'The sweetest farewell',
     items: [
       { name: 'Shahi Kheer', desc: 'Clay-pot rice pudding, pistachio' },
@@ -68,6 +73,7 @@ const menu: MenuCard[] = [
     title: 'Chai & Beverages',
     urdu: 'Mashroobat',
     image: '/media/chai-beverages.webp',
+    imageAlt: 'Kashmiri chai urn with clay cups and a chalkboard sign beside jars of lemonade, iced tea and fruit punch',
     accent: 'From doodh patti to mocktails',
     items: [
       { name: 'Kashmiri Chai Station', desc: 'Pink tea, crushed pistachio' },
@@ -125,7 +131,7 @@ export default function MenuCarousel() {
               <div className="relative h-44 overflow-hidden md:h-52">
                 <img
                   src={card.image}
-                  alt={card.title}
+                  alt={card.imageAlt}
                   draggable={false}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"

@@ -88,7 +88,11 @@ export default function LoopRail({ children, speed = 45, gapClass = 'gap-6 pr-6 
         <div ref={setRef} className={`flex shrink-0 items-stretch ${gapClass}`}>
           {children}
         </div>
-        <div aria-hidden className={`flex shrink-0 items-stretch ${gapClass}`}>
+        {/* The seamless-loop copy. `data-loop-clone` marks it so the prerender
+            step can leave it out of the static HTML (scripts/prerender.ts) —
+            otherwise every card caption and menu item is in the page source
+            twice. At runtime it still renders, so the visual loop is unchanged. */}
+        <div aria-hidden data-loop-clone className={`flex shrink-0 items-stretch ${gapClass}`}>
           {children}
         </div>
       </motion.div>

@@ -125,7 +125,7 @@ export default function AboutPage() {
         >
           <img
             src="/media/about.jpg"
-            alt="Baraka Events team arranging florals for a wedding in Lahore"
+            alt="White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers"
             className="h-[420px] w-full object-cover md:h-[560px]"
             loading="lazy"
           />
@@ -154,10 +154,15 @@ export default function AboutPage() {
               Model Town, Johar Town and the Walled City.
             </p>
             <p>
-              Every engagement, whether it is a sixty-guest anniversary dinner or a
-              corporate launch with over a thousand attendees, goes through the same
+              Every engagement, whether it is a small anniversary dinner or a
+              large corporate launch, goes through the same
               five stages: discovery, design, vendor coordination, production and the
-              event itself. The process does not change with the guest count.
+              event itself. The process does not change with the guest count, and the
+              last stage — running the day itself — can also be booked on its own as{' '}
+              <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+                event management
+              </Link>
+              .
             </p>
           </div>
           <div className="mt-8">

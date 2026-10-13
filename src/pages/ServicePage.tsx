@@ -5,6 +5,7 @@ import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import { getService, services } from '../lib/services';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 import {
   useSEO,
@@ -59,7 +60,7 @@ export default function ServicePage() {
       {/* hero */}
       <section className="relative flex min-h-[55vh] items-end overflow-hidden pt-32 md:min-h-[65vh]">
         <div className="absolute inset-0">
-          <img src={service.image} alt={service.imageAlt} className="h-full w-full object-cover" />
+          <img src={service.image} alt={service.imageAlt} fetchPriority="high" className="h-full w-full object-cover" />
           {/* vignette + foot fade: the photograph stays in colour, the copy
               sits on the darkened lower third */}
           <div className="vignette absolute inset-0" />
@@ -162,6 +163,7 @@ export default function ServicePage() {
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={s.image}
+                    {...galleryImgProps(s.image, GALLERY_SIZES.card)}
                     alt={s.imageAlt}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"

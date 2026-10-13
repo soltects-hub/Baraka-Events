@@ -3,19 +3,12 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 
 const projects = [
   {
-    title: 'A Four-Function Wedding',
-    category: 'Wedding',
-    location: 'A restored haveli, Walled City, Lahore',
-    year: '2025',
-    image: '/media/portfolio-1.webp',
-    stat: '600 guests · 4 functions',
-  },
-  {
     title: 'A National Product Launch',
     category: 'Corporate Event',
     location: 'A conference venue, Johar Town, Lahore',
     year: '2024',
     image: '/media/portfolio-2.webp',
+    alt: 'Speaker at a podium on a lit conference stage in front of a large LED screen, with an audience in the foreground',
     stat: '1,200 guests · national livestream',
   },
   {
@@ -24,6 +17,7 @@ const projects = [
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
     image: '/media/rooftop-birthday.webp',
+    alt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables',
     stat: '90 guests · sunset to sunrise',
   },
   {
@@ -32,6 +26,7 @@ const projects = [
     location: 'A grand ballroom, Gulberg, Lahore',
     year: '2023',
     image: '/media/portfolio-4.webp',
+    alt: 'Audience watching a presenter on a lit conference stage with a projected slide',
     stat: '800 executives · awards night',
   },
 ];
@@ -102,12 +97,11 @@ export default function HorizontalPortfolio() {
           <div className="flex w-[85vw] shrink-0 flex-col justify-center md:w-[38vw]">
             <p className="mb-5 text-[11px] uppercase tracking-[0.3em] text-champagne">Selected Work</p>
             <h2 className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl">
-              Four events,<br /><em className="accent-serif">one standard</em>
+              Three events,<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-              A wedding in the Walled City, a product launch in Johar Town, a rooftop
-              birthday, an awards dinner in Gulberg — different briefs, same production
-              discipline behind each one.
+              A product launch in Johar Town, a rooftop birthday, an awards dinner in
+              Gulberg — different briefs, same production discipline behind each one.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
               <span>Scroll</span>
@@ -123,7 +117,7 @@ export default function HorizontalPortfolio() {
               <div className="relative h-[62vh] overflow-hidden md:h-[70vh]">
                 <motion.img
                   src={p.image}
-                  alt={p.title}
+                  alt={p.alt}
                   loading="lazy"
                   style={{ x: plateX, scale: 1.18 }}
                   className="h-full w-full object-cover will-change-transform"

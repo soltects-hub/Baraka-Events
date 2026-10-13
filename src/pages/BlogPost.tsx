@@ -1,9 +1,10 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, type ReactNode } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getPost, getRelatedPosts } from '../lib/posts';
 import { getService } from '../lib/services';
 import { postServiceLinks } from '../lib/postService';
+import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import {
@@ -15,6 +16,54 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+
+// Inline links inside a paragraph: [anchor text](/path) for same-site pages, and [anchor text](https://host/...) for the
+// few sources a post cites. Posts could only link from the "Related:" row under a paragraph, never from the sentence that
+// earns the link. A site path must start with a single "/", and an external link is accepted only when the PARSED url is
+// https with no credentials and its hostname is in CITED_HOSTS (exact match, not a pattern), so a stray bracket in prose
+// can never become a link to anywhere else; anything else stays plain text.
+const INLINE_LINK = /\[([^\]]+)\]\((\/(?![/\\])[^)\s]*|https:\/\/[^)\s]+)\)/g;
+const CITED_HOSTS = new Set(['aqi.punjab.gov.pk', 'tribune.com.pk']);
+
+function citedUrl(href: string): string | null {
+  try {
+    const u = new URL(href);
+    return u.protocol === 'https:' && !u.username && !u.password && CITED_HOSTS.has(u.hostname) ? u.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function renderInline(text: string): ReactNode[] {
+  const out: ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(INLINE_LINK)) {
+    const start = m.index ?? 0;
+    if (start > last) out.push(text.slice(last, start));
+    const href = m[2];
+    if (href.startsWith('/')) {
+      out.push(
+        <Link key={start} to={href} className="gold-underline text-gold hover:text-gold-soft">
+          {m[1]}
+        </Link>
+      );
+    } else {
+      const cited = citedUrl(href);
+      out.push(
+        cited ? (
+          <a key={start} href={cited} target="_blank" rel="noopener noreferrer" className="gold-underline text-gold hover:text-gold-soft">
+            {m[1]}
+          </a>
+        ) : (
+          m[0]
+        )
+      );
+    }
+    last = start + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -30,6 +79,7 @@ export default function BlogPost() {
     imageAlt: post?.imageAlt,
     type: post ? 'article' : 'website',
     publishedDate: post?.publishedISO,
+    modifiedDate: post?.updatedISO,
   });
 
   useEffect(() => {
@@ -43,6 +93,7 @@ export default function BlogPost() {
           image: post.image,
           imageAlt: post.imageAlt,
           publishedDate: post.publishedISO,
+          modifiedDate: post.updatedISO,
           slug: post.slug,
         }),
         generateBreadcrumbSchema([
@@ -63,7 +114,7 @@ export default function BlogPost() {
       {/* hero */}
       <section className="relative flex min-h-[62vh] items-end overflow-hidden pt-32 md:min-h-[70vh]">
         <div className="absolute inset-0">
-          <img src={post.image} alt={post.imageAlt} className="h-full w-full object-cover" />
+          <img src={post.image} alt={post.imageAlt} fetchPriority="high" className="h-full w-full object-cover" />
           {/* vignette + foot fade: the photograph stays in colour, the copy
               sits on the darkened lower third */}
           <div className="vignette absolute inset-0" />
@@ -108,7 +159,7 @@ export default function BlogPost() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-6 text-[15px] font-light leading-[1.9] text-cream/75 md:text-base"
               >
-                {b.p}
+                {b.p ? renderInline(b.p) : null}
               </motion.p>
               {b.related && b.related.length > 0 && (
                 <p className="mt-3 text-[12px] uppercase tracking-[0.15em] text-mist-dim">
@@ -167,7 +218,7 @@ export default function BlogPost() {
           {related.map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`} className="group block overflow-hidden plate rounded-sm">
               <div className="relative h-44 overflow-hidden">
-                <img src={p.image} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
+                <img src={p.image} {...galleryImgProps(p.image, GALLERY_SIZES.card)} alt={p.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <span className="text-[10px] uppercase tracking-[0.3em] text-champagne">{p.category}</span>

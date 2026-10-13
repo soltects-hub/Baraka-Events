@@ -9,6 +9,7 @@ import LoopRail from './LoopRail';
 const frames = [
   {
     src: '/media/gallery/wedding-13.webp',
+    alt: 'Lounge seating facing a stage of hanging chandeliers and greenery between red velvet drapes',
     n: '01',
     category: 'Walima Reception',
     title: 'The reception floor',
@@ -16,6 +17,7 @@ const frames = [
   },
   {
     src: '/media/gallery/wedding-17.webp',
+    alt: 'Stage under a ceiling of blush flowers and hanging crystal garlands with a lotus-pattern lit floor',
     n: '02',
     category: 'Walima Reception',
     title: 'Arches & ambient light',
@@ -23,6 +25,7 @@ const frames = [
   },
   {
     src: '/media/showreel-3.webp',
+    alt: 'Rows of hanging crystal chandeliers and bead curtains over a pink lounge beside a white aisle at night',
     n: '03',
     category: 'Baraat',
     title: 'The chandelier canopy',
@@ -30,6 +33,7 @@ const frames = [
   },
   {
     src: '/media/showreel-4.webp',
+    alt: 'Red arched panels, red flowers and a fairy-light ceiling of chandeliers around a round tufted sofa',
     n: '04',
     category: 'Baraat',
     title: 'Colour as architecture',
@@ -37,6 +41,7 @@ const frames = [
   },
   {
     src: '/media/showreel-5.webp',
+    alt: 'Pastel draped ceiling with tassels and fairy lights above pink velvet lounge sofas and parasols',
     n: '05',
     category: 'Mehndi Night',
     title: 'Canopy & colour',
@@ -44,6 +49,7 @@ const frames = [
   },
   {
     src: '/media/showreel-6.webp',
+    alt: 'Orange and white draped canopy over white lattice sofas with yellow and pink cushions in daylight',
     n: '06',
     category: 'Mehndi Night',
     title: 'Daylight production',
@@ -90,7 +96,7 @@ export default function Gallery() {
               <div className="relative h-[420px] overflow-hidden md:h-[480px]">
                 <img
                   src={f.src}
-                  alt={`${f.title} — ${f.caption}`}
+                  alt={f.alt}
                   draggable={false}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"

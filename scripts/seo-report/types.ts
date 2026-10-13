@@ -13,6 +13,25 @@ export interface PageRow extends SearchTotals {
   page: string;
 }
 
+/** One (page, query) pair. The page key is stored raw, exactly as Search Console returned it; merge variants at read time. */
+export interface PageQueryRow extends SearchTotals {
+  page: string;
+  query: string;
+}
+
+/**
+ * How complete the page x query pull is. The pairs never add up to the window total: Search Console leaves anonymized
+ * queries out of any query-level pull, and counts one query once per URL here but once in the property total. The meta
+ * keeps that gap visible instead of letting it read as "no other queries".
+ */
+export interface PageQueriesMeta {
+  rowCount: number;
+  /** True when the API's per-request row ceiling was hit, i.e. rows were cut. */
+  truncated: boolean;
+  sumImpressions: number;
+  windowTotalImpressions: number;
+}
+
 export interface SitemapStatus {
   path: string;
   lastSubmitted: string | null;
@@ -86,6 +105,11 @@ export interface SearchConsoleReportData {
     totals: SearchTotals;
     topQueries: QueryRow[];
     topPages: PageRow[];
+    /** Every query for the window (topQueries is only the first 100, and the zero-click tail of it is cut alphabetically). Optional: older snapshots lack it. */
+    allQueries?: QueryRow[];
+    /** Page x query pairs for the window, raw page keys. Optional: older snapshots lack it. */
+    pageQueries?: PageQueryRow[];
+    pageQueriesMeta?: PageQueriesMeta;
   };
   previous?: {
     totals: SearchTotals;
@@ -94,4 +118,6 @@ export interface SearchConsoleReportData {
   sitemaps?: SitemapStatus[];
   urlInspections?: UrlInspectionResult[];
   errors: ApiError[];
+  /** Non-fatal problems with optional pulls (allQueries / pageQueries). Never part of `errors`, so they cannot fail the daily run. */
+  warnings?: ApiError[];
 }
