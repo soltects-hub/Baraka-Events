@@ -10,8 +10,8 @@
  *  1. fix-indexing   — real site pages aren't indexed yet; publishing more
  *                       content nobody can find is wasted effort until this
  *                       is addressed.
- *  2. improve-existing — an existing page is losing clicks, or has real
- *                       impressions but poor CTR (fixable without new content).
+ *  2. improve-existing — an existing page is losing clicks, a page-1 query earns fewer clicks than its position predicts, or a
+ *                       page-2/3 query has real impressions (see query-analysis.ts). Fixable without new content.
  *  3. new-article     — a high-priority content gap with real query evidence
  *                       (actual impressions in Search Console), and indexing
  *                       isn't broadly broken.
@@ -24,6 +24,7 @@ import { resolve } from 'node:path';
 import { posts } from '../../src/lib/posts';
 import { REPORTS_DIR } from './config';
 import { mergePageVariants } from './page-variants';
+import { assessQuery, isBrandQuery, MIN_IMPRESSIONS_FOR_RANKING_WORK, ownerOf, queriesOf } from './query-analysis';
 import type { SearchConsoleReportData } from './types';
 
 interface KeywordRecord {
@@ -105,11 +106,40 @@ function decide(data: SearchConsoleReportData, keywordMap: KeywordMap): Decision
       }
     }
 
-    // High-impression, low-CTR existing queries — a fixable title/description problem.
-    const opportunity = current.topQueries.find((q) => q.impressions >= 10 && q.ctr < 0.02);
-    if (opportunity) {
-      reasoning.push(`Query "${opportunity.query}" has ${opportunity.impressions} impressions but only ${(opportunity.ctr * 100).toFixed(2)}% CTR — title/description likely isn't compelling for what's already being shown.`);
-      return { action: 'improve-existing', target: opportunity.query, reasoning, evidence: { query: opportunity } };
+    // Judge each query against its position, not against one flat CTR (see query-analysis.ts): a page-2 query is a ranking
+    // problem however good the snippet, and "no clicks" only means something when enough clicks were expected.
+    const assessed = queriesOf(data)
+      .filter((q) => !isBrandQuery(q.query))
+      .map((q) => ({ q, a: assessQuery(q) }));
+    const snippet = assessed.filter((x) => x.a.kind === 'snippet').sort((a, b) => b.q.impressions - a.q.impressions)[0];
+    if (snippet) {
+      reasoning.push(`Query "${snippet.q.query}": ${snippet.a.note}.`);
+      return { action: 'improve-existing', target: snippet.q.query, reasoning, evidence: { query: snippet.q, assessment: snippet.a } };
+    }
+    const ranking = assessed
+      .filter((x) => x.a.kind === 'ranking' && x.q.impressions >= MIN_IMPRESSIONS_FOR_RANKING_WORK)
+      .sort((a, b) => b.q.impressions - a.q.impressions)[0];
+    if (ranking) {
+      const own = ownerOf(data, ranking.q.query);
+      reasoning.push(`Query "${ranking.q.query}": ${ranking.a.note}.`);
+      if (own) {
+        reasoning.push(
+          `Owning page: ${own.owner.page} (${own.owner.impressions} impressions at position ${own.owner.position.toFixed(1)}).` +
+            (own.serviceGap
+              ? ` The topical service page ${own.servicePage} ${own.servicePageRow ? `ranks at position ${own.servicePageRow.position.toFixed(1)}` : 'does not rank'}; strengthen it and the contextual links that point to it.`
+              : '')
+        );
+        if (own.cannibalized) reasoning.push(`Other own pages on the same query: ${own.others.map((o) => `${o.page} (${o.impressions} impressions at ${o.position.toFixed(1)})`).join(', ')}.`);
+      }
+      // A service-page gap means the homepage already answers the query; the page to build up is the service page (named in the reasoning above).
+      const gapPage = own?.serviceGap ? own.servicePage : undefined;
+      reasoning.push(gapPage ? 'Rewriting the snippet would not move this query.' : 'Strengthen the owning page (content depth, contextual internal links); rewriting the snippet would not move this query.');
+      return {
+        action: 'improve-existing',
+        target: gapPage ?? own?.owner.page ?? ranking.q.query,
+        reasoning,
+        evidence: { query: ranking.q, assessment: ranking.a, ownership: own ?? null },
+      };
     }
   }
 
@@ -155,7 +185,7 @@ function decide(data: SearchConsoleReportData, keywordMap: KeywordMap): Decision
     };
   }
 
-  reasoning.push('No indexing emergency, no page losing clicks, no high-CTR-opportunity gap, and no keyword-map cluster has real query evidence yet.');
+  reasoning.push('No indexing emergency, no page losing clicks, no query with a snippet or ranking opportunity, and no keyword-map cluster has real query evidence yet.');
   return { action: 'do-nothing', target: 'none', reasoning, evidence: {} };
 }
 

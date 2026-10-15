@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { REPORTS_DIR, isoDate } from './config';
+import { queriesOf } from './query-analysis';
 import type { SearchConsoleReportData } from './types';
 
 type Bucket = 'defend' | 'optimize-aggressively' | 'strengthen' | 'improve-topical-authority' | 'evaluate' | 'no-impressions';
@@ -32,6 +33,9 @@ function bucketFor(position: number | null): Bucket {
   if (position <= 50) return 'improve-topical-authority';
   return 'evaluate';
 }
+
+// One impression is not evidence of a ranking: a lone 1-impression "lahore" at position 2.0 would otherwise put 33 keywords in "defend".
+const MIN_IMPRESSIONS_FOR_MATCH = 2;
 
 function normalize(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -67,9 +71,11 @@ function main() {
 
   const today = isoDate(new Date());
   const newEntries: HistoryEntry[] = [];
+  // Every query when the snapshot has them (topQueries is only the first 100 rows, and its zero-click tail is cut in arbitrary order).
+  const rows = queriesOf(data).filter((q) => q.impressions >= MIN_IMPRESSIONS_FOR_MATCH);
 
   for (const kw of keywordMap.keywords) {
-    const match = data.current.topQueries.find((q) => fuzzyMatch(kw.keyword, q.query));
+    const match = rows.filter((q) => fuzzyMatch(kw.keyword, q.query)).sort((a, b) => b.impressions - a.impressions)[0];
     if (!match) continue; // no real evidence for this keyword today — don't fabricate a "no impressions" row for every one of 300+ keywords daily; only record real matches.
     newEntries.push({
       date: today,

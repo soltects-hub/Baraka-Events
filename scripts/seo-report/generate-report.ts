@@ -9,7 +9,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { REPORTS_DIR, isoDate } from './config';
 import { mergePageVariants } from './page-variants';
-import type { PageRow, QueryRow, SearchConsoleReportData, UrlInspectionResult } from './types';
+import { assessQuery, isBrandQuery, MIN_IMPRESSIONS_FOR_RANKING_WORK, queriesOf, queryOwnership } from './query-analysis';
+import type { PageRow, SearchConsoleReportData, UrlInspectionResult } from './types';
 import { classifyUrls } from './legacy-urls';
 import type { Decision } from './decide-action';
 
@@ -21,7 +22,6 @@ function readJsonIfExists<T>(path: string): T | null {
 const DECLINE_THRESHOLD = -0.2; // flag a >=20% drop
 const GROWTH_THRESHOLD = 0.2; // flag a >=20% gain
 const MIN_CLICKS_FOR_TREND = 5; // ignore noise from near-zero-traffic pages
-const LOW_CTR_THRESHOLD = 0.02; // 2%
 const MIN_IMPRESSIONS_FOR_OPPORTUNITY = 10;
 
 /**
@@ -179,9 +179,16 @@ function renderFullReport(data: SearchConsoleReportData): string {
     .filter((d) => (d.prevClicks >= MIN_CLICKS_FOR_TREND || d.curClicks >= MIN_CLICKS_FOR_TREND) && d.delta !== null && (d.delta === Infinity || d.delta >= GROWTH_THRESHOLD))
     .sort((a, b) => (b.curClicks - b.prevClicks) - (a.curClicks - a.prevClicks));
 
-  const opportunities: QueryRow[] = current.topQueries
-    .filter((q) => q.impressions >= MIN_IMPRESSIONS_FOR_OPPORTUNITY && q.ctr < LOW_CTR_THRESHOLD)
-    .sort((a, b) => b.impressions - a.impressions);
+  // Read each query against its position (query-analysis.ts). A flat "CTR below 2%" rule blamed the snippet for page-2 rankings
+  // and flagged position-1 queries that a map pack or answer box answers.
+  const assessedQueries = queriesOf(data)
+    .filter((q) => q.impressions >= MIN_IMPRESSIONS_FOR_OPPORTUNITY && !isBrandQuery(q.query))
+    .map((q) => ({ q, a: assessQuery(q) }))
+    .sort((a, b) => b.q.impressions - a.q.impressions);
+  const snippetIssues = assessedQueries.filter((x) => x.a.kind === 'snippet');
+  const rankingOpportunities = assessedQueries.filter((x) => x.a.kind === 'ranking' && x.q.impressions >= MIN_IMPRESSIONS_FOR_RANKING_WORK);
+  const serpFeatureQueries = assessedQueries.filter((x) => x.a.kind === 'serp-feature');
+  const ownership = queryOwnership(data);
 
   const technicalIssues: string[] = [];
 
@@ -264,9 +271,21 @@ function renderFullReport(data: SearchConsoleReportData): string {
       `Investigate \`${d.page}\` — clicks ${d.delta === Infinity ? 'appeared' : pct(d.delta ?? 0)} (${d.prevClicks} → ${d.curClicks} clicks over the last ${periods.current.startDate} to ${periods.current.endDate} vs the prior period).`
     );
   }
-  for (const q of opportunities.slice(0, 5)) {
+  for (const { q, a } of snippetIssues.slice(0, 3)) {
+    recommendedActions.push(`Improve the title/meta description for "${q.query}" — ${a.note}.`);
+  }
+  // One line per owning page (several page-2 queries usually share the same owner).
+  const rankingByOwner = new Map<string, { query: string; impressions: number; position: number }[]>();
+  for (const { q } of rankingOpportunities) {
+    const own = ownership.find((o) => o.query === q.query);
+    // A query the homepage answers while its topical service page lags is a job for the service page.
+    const owner = (own?.serviceGap ? own.servicePage : undefined) ?? own?.owner.page ?? 'the page that ranks';
+    rankingByOwner.set(owner, [...(rankingByOwner.get(owner) ?? []), { query: q.query, impressions: q.impressions, position: q.position }]);
+  }
+  for (const [owner, qs] of [...rankingByOwner].slice(0, 3)) {
+    const label = owner.startsWith('/') ? `\`${owner}\`` : owner;
     recommendedActions.push(
-      `Improve title/meta description for the query "${q.query}" — ${q.impressions} impressions but only ${pctPoint(q.ctr)} CTR (position ${q.position.toFixed(1)}).`
+      `Strengthen ${label} for ${qs.slice(0, 3).map((x) => `"${x.query}" (${x.impressions} impr. at ${x.position.toFixed(1)})`).join(', ')} — page-2 rankings: more content depth and contextual links, not a new snippet.`
     );
   }
   for (const issue of technicalIssues.slice(0, 5)) {
@@ -350,13 +369,55 @@ function renderFullReport(data: SearchConsoleReportData): string {
 
   lines.push('## Keyword opportunities');
   lines.push('');
-  lines.push(`Queries with meaningful visibility (${MIN_IMPRESSIONS_FOR_OPPORTUNITY}+ impressions) but low click-through (<${LOW_CTR_THRESHOLD * 100}%) — usually a sign the title/description isn't compelling for what people are already seeing it for:`);
+  lines.push(
+    `Non-brand queries with ${MIN_IMPRESSIONS_FOR_OPPORTUNITY}+ impressions, read against their position (query-analysis.ts). A click-through problem is only reported on page 1 when enough clicks were expected for "none" to mean something; page-2/3 queries are ranking work, not snippet work.`
+  );
   lines.push('');
-  if (opportunities.length === 0) {
-    lines.push('No low-CTR, high-impression queries found this period.');
+  if (snippetIssues.length + rankingOpportunities.length + serpFeatureQueries.length === 0) {
+    lines.push('No opportunities found this period.');
+    lines.push('');
+  }
+  if (snippetIssues.length > 0) {
+    lines.push('**Snippet — page 1, fewer clicks than the position predicts:**');
+    for (const { q } of snippetIssues.slice(0, 8)) lines.push(`- "${q.query}" — ${q.impressions} impressions, ${pctPoint(q.ctr)} CTR, position ${q.position.toFixed(1)}`);
+    lines.push('');
+  }
+  if (rankingOpportunities.length > 0) {
+    lines.push('**Ranking — positions 11-30:**');
+    for (const { q } of rankingOpportunities.slice(0, 10)) {
+      const own = ownership.find((o) => o.query === q.query);
+      lines.push(`- "${q.query}" — ${q.impressions} impressions, position ${q.position.toFixed(1)}${own ? `, owner \`${own.owner.page}\`` : ''}`);
+    }
+    lines.push('');
+  }
+  if (serpFeatureQueries.length > 0) {
+    lines.push('**Top positions with few clicks — probably a map pack, answer box or AI answer, not the title:**');
+    for (const { q } of serpFeatureQueries.slice(0, 5)) lines.push(`- "${q.query}" — ${q.impressions} impressions, ${q.clicks} click(s), position ${q.position.toFixed(1)}`);
+    lines.push('');
+  }
+
+  lines.push('## Query ownership (page × query)');
+  lines.push('');
+  if (ownership.length === 0) {
+    lines.push('No page × query data in this snapshot.');
   } else {
-    for (const q of opportunities.slice(0, 10)) {
-      lines.push(`- "${q.query}" — ${q.impressions} impressions, ${pctPoint(q.ctr)} CTR, position ${q.position.toFixed(1)}`);
+    const meta = current.pageQueriesMeta;
+    lines.push(
+      `Which of our pages Google shows for each query (http/https, apex/www and trailing-slash variants merged).` +
+        (meta ? ` Covers ${meta.sumImpressions} of the ${meta.windowTotalImpressions} impressions in the window: Search Console never returns anonymized queries${meta.truncated ? ' — THE PULL WAS TRUNCATED' : ''}.` : '')
+    );
+    lines.push('');
+    lines.push('| Query | Impr. | Pos. | Owner page | Other own pages | Flags |');
+    lines.push('|---|---|---|---|---|---|');
+    for (const o of ownership.filter((x) => !isBrandQuery(x.query)).slice(0, 15)) {
+      const others = o.others.length > 0 ? o.others.map((x) => `\`${x.page}\` (${x.impressions} @ ${x.position.toFixed(1)})`).join(', ') : '—';
+      const flags = [o.cannibalized ? 'two own pages' : '', o.serviceGap ? `service page ${o.servicePage} ${o.servicePageRow ? 'far behind' : 'not ranking'}` : ''].filter(Boolean).join('; ') || '—';
+      lines.push(`| ${o.query} | ${o.impressions} | ${o.position.toFixed(1)} | \`${o.owner.page}\` (${o.owner.impressions} @ ${o.owner.position.toFixed(1)}) | ${others} | ${flags} |`);
+    }
+    const gaps = ownership.filter((o) => o.serviceGap);
+    if (gaps.length > 0) {
+      lines.push('');
+      lines.push(`**Service-page gaps:** ${gaps.length} non-brand quer${gaps.length === 1 ? 'y is' : 'ies are'} answered by the homepage while the topical service page does not rank near it: ${gaps.slice(0, 6).map((g) => `"${g.query}" → \`${g.servicePage}\``).join(', ')}.`);
     }
   }
   lines.push('');

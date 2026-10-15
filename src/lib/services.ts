@@ -130,7 +130,7 @@ export const services: Service[] = [
     intro:
       'Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system before a single flower is ordered.',
     included: [
-      { h: 'Stage & Backdrop Design', p: 'Stage layouts and backdrops built around your venue\'s actual dimensions, not a generic catalogue setup.' },
+      { h: 'Wedding Stage Decoration & Backdrop Design', p: 'Stage layouts and backdrops built around your venue\'s actual dimensions, not a generic catalogue setup.' },
       { h: 'Floral Arrangements & Installations', p: 'From table centerpieces to full floral walls, sourced and staged by our own team rather than subcontracted out.' },
       { h: 'Lighting Design', p: 'Lighting planned as part of the decor concept, not added afterward, so the room reads correctly in photos and in person.' },
       { h: '3D Concept Renders', p: 'A render of your stage and decor concept before the event, so changes happen on screen instead of on the day.' },
@@ -144,11 +144,13 @@ export const services: Service[] = [
       { q: 'What events do you decorate?', a: 'Weddings and every individual wedding function, corporate events and private celebrations.' },
       { q: 'How much does event decoration cost in Lahore?', a: 'It scales with floral volume, stage size and the lighting rig rather than with guest count. We quote those as three separate lines so you can see where the money is going and trade between them.' },
       { q: 'How far in advance should decor be booked?', a: 'Six to eight weeks suits most setups. Custom stage fabrication and large floral installations need longer, and peak wedding season compresses everything.' },
+      { q: 'What should I ask a wedding decorator in Lahore before booking?', a: 'Ask for stage, floral and lighting to be quoted as separate lines, so you can see what each costs and trade one against another. Ask whether they will survey your venue before quoting, because rigging points, power and ambient light differ between a hall, a lawn and a heritage courtyard. If you are decorating more than one function, ask whether each is designed as part of a series or the same setup is repeated. We quote the three lines separately, survey the venue first and design the functions as a series.' },
     ],
     relatedServices: ['wedding-planning', 'walima-events', 'mehndi-events', 'event-management', 'corporate-events'],
     relatedLinks: [
       { text: 'See design concepts', to: '/gallery' },
       { text: 'Walima decor trends', to: '/blog/walima-decor-trends-2025' },
+      { text: 'Outdoor wedding setup and the right month', to: '/blog/outdoor-garden-wedding-lahore-guide' },
     ],
   },
   {
@@ -240,7 +242,7 @@ export const services: Service[] = [
     intro:
       'The mehndi is the first function of the week, and its colour palette usually sets the tone for everything that follows. We handle the floral staging, dholki setup and evening lighting, and brief florists early in the day so everything is fresh by the time guests arrive.',
     included: [
-      { h: 'Floral Staging & Dholki Setup', p: 'Marigold, jasmine and seasonal florals staged for both the couple\'s seating and the dholki performance area.' },
+      { h: 'Mehndi Event Floral Staging & Dholki Setup', p: 'Marigold, jasmine and seasonal florals staged for both the couple\'s seating and the dholki performance area.' },
       { h: 'Colour Palette & Thematic Styling', p: 'A palette chosen early, since it typically carries through into the rest of the week\'s design language.' },
       { h: 'Performance & Dholki Logistics', p: 'Seating and sound arranged around family performances rather than treated as an afterthought.' },
       { h: 'Evening Lighting Design', p: 'Lighting built for an evening function specifically, warmer and more layered than a daytime setup.' },
@@ -386,7 +388,7 @@ export const services: Service[] = [
       { h: 'Themed Decor for Children’s Parties', p: 'A theme carried through decor, activities and cake, sized to the actual guest count rather than over-produced.' },
       { h: 'Milestone Birthday Production', p: 'A more formal register for milestone birthdays — 25th, 50th and beyond — closer in scale to a private celebration than a children’s party.' },
       { h: 'Entertainment & Catering Coordination', p: 'Entertainment and catering coordinated as part of the same run-of-show, not booked separately by the host.' },
-      { h: 'Venue Selection for Any Guest Size', p: 'Venue options matched to guest count, from a rooftop gathering to a full-scale hall booking.' },
+      { h: 'Birthday Venue Selection in Lahore for Any Guest Size', p: 'Venue options matched to guest count and to whether children are among the guests, from a rooftop gathering to a farmhouse lawn or a full-scale hall booking.' },
       { h: 'Birthday Parties for Children', p: 'A children party is a timing problem more than a decor one. Attention spans set the running order: arrival and free play, one structured activity, food, cake, then out before it turns. We plan around a two to three hour window, keep the activity list shorter than parents expect, and make sure the cake moment happens while everyone is still in the room. Decor is built to be photographed and then survive being touched.' },
       { h: 'Milestone Birthdays and Surprise Parties', p: 'A fiftieth or a sixtieth is closer to a small wedding reception than to a children party, and is usually planned as a seated dinner with a stage moment. Surprise parties add one genuine constraint: the guest of honour cannot be part of the planning, so someone else has to own the guest list, the timing and the arrival choreography. We plan the arrival minute by minute, because it is the only part that cannot be repeated.' },
       { h: 'Birthday Decoration: What You Are Paying For', p: 'Balloon work, a backdrop, table styling, cake staging and lighting. Balloon installations are cheaper than florals and photograph well at close range, which is why they dominate birthday decor in Lahore. Cost scales with the size of the backdrop and how much of it is custom-printed rather than with guest count. A themed party with printed elements costs more than a colour-led one that uses stock materials well.' },
@@ -407,6 +409,7 @@ export const services: Service[] = [
       { text: 'Anniversary parties, garden mehfils and rooftop dinners', to: '/blog/anniversary-celebration-ideas-lahore' },
       { text: 'Aqeeqah celebration planning in Lahore', to: '/blog/aqeeqah-celebration-planning-lahore' },
       { text: 'Birthday party planning in Lahore: home, rooftop or venue', to: '/blog/birthday-party-planning-lahore-guide' },
+      { text: 'Browse real Lahore venues (independent guide)', to: '/venues' },
       { text: 'See our gallery', to: '/gallery' },
     ],
   },

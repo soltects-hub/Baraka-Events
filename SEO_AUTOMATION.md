@@ -71,7 +71,7 @@ For the current 28-day window (ending 3 days ago, to account for Search Console'
 
 - **Wins** — pages whose clicks grew ≥20% period-over-period.
 - **Losses / pages needing attention** — pages whose clicks dropped ≥20% (minimum 5 prior clicks, to avoid noise from near-zero-traffic pages).
-- **Keyword opportunities** — queries with ≥10 impressions but <2% CTR (visible, but not compelling enough to click).
+- **Keyword opportunities** — queries judged against their position: a page-1 query with fewer clicks than its position predicts (a snippet problem), a page-2/3 query with ≥15 impressions (a ranking problem), or a page-1 query with no clicks despite many impressions (a search-result-feature problem). See `scripts/seo-report/query-analysis.ts`.
 - **Technical SEO issues** — sitemap errors/warnings, and any inspected URL not in "Submitted and indexed" coverage state.
 - **Recommended actions** — a plain-language bullet list built directly from the above, each one citing the real numbers behind it.
 
@@ -147,7 +147,7 @@ reproducible and explainable from the data alone. It runs after
    indexed) — a genuinely correct, if unglamorous, evidence-based call.
 2. **`improve-existing`** — an existing page's clicks dropped ≥20%
    period-over-period (min. 5 prior clicks, to avoid noise), or a query has
-   ≥10 impressions but <2% CTR (a fixable title/description problem).
+   a query judged against its position: page-1 queries earning fewer clicks than expected are a title/description problem, page-2/3 queries are a ranking problem (strengthen the owning page; a new snippet would not help).
 3. **`new-article`** — only for a topic cluster with **no existing page**,
    **no cannibalization risk**, and **real Search Console query evidence**
    (an actual impression on a matching query today) — never speculative.
