@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-02T03:13:00.660Z",
+  "generatedAt": "2026-09-03T05:26:42.301Z",
   "siteUrl": "https://barakaevents.com/",
   "periods": {
     "current": {
-      "startDate": "2026-08-03",
-      "endDate": "2026-08-30"
+      "startDate": "2026-08-04",
+      "endDate": "2026-08-31"
     },
     "previous": {
-      "startDate": "2026-07-06",
-      "endDate": "2026-08-02"
+      "startDate": "2026-07-07",
+      "endDate": "2026-08-03"
     }
   },
   "auth": {
@@ -18,9 +18,9 @@
   "current": {
     "totals": {
       "clicks": 1,
-      "impressions": 15,
-      "ctr": 0.06666666666666667,
-      "position": 29.066666666666666
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 27.1875
     },
     "topQueries": [
       {
@@ -38,11 +38,11 @@
         "position": 50
       },
       {
-        "query": "janwar wala bf picture",
+        "query": "birthday planners in lahore",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 30
+        "position": 14.5
       },
       {
         "query": "janwar wali bf picture",
@@ -56,9 +56,9 @@
       {
         "page": "https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3",
         "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 36
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 38
       },
       {
         "page": "https://barakaevents.com/",
@@ -70,26 +70,26 @@
       {
         "page": "https://barakaevents.com/birthday-planners/",
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 11,
         "ctr": 0,
-        "position": 32.22222222222222
+        "position": 29
       }
     ]
   },
   "previous": {
     "totals": {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 9.8
+      "position": 13.166666666666666
     },
     "topPages": [
       {
         "page": "https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 28
+        "position": 29
       },
       {
         "page": "https://barakaevents.com/corporate-event-planner/",
@@ -178,7 +178,7 @@
       "coverageState": "Page with redirect",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED",
-      "lastCrawlTime": "2026-09-01T02:09:51Z",
+      "lastCrawlTime": "2026-09-02T12:20:35Z",
       "pageFetchState": "SUCCESSFUL",
       "userCanonical": "https://www.barakaevents.com/",
       "googleCanonical": "https://www.barakaevents.com/"

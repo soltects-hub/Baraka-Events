@@ -1,15 +1,15 @@
-# Baraka Events SEO Report — 2026-09-02
+# Baraka Events SEO Report — 2026-09-03
 
-Site: `https://barakaevents.com/` · Current period: 2026-08-03 to 2026-08-30 (28 days) · Compared to: 2026-07-06 to 2026-08-02
+Site: `https://barakaevents.com/` · Current period: 2026-08-04 to 2026-08-31 (28 days) · Compared to: 2026-07-07 to 2026-08-03
 
 ## Overview
 
 | Metric | Current | Previous | Change |
 |---|---|---|---|
 | Clicks | 1 | 0 | new |
-| Impressions | 15 | 5 | +200.0% |
-| CTR | 6.67% | 0.00% | 6.67% pts |
-| Avg. position | 29.1 | 9.8 | worsened by 19.3 |
+| Impressions | 16 | 6 | +166.7% |
+| CTR | 6.25% | 0.00% | 6.25% pts |
+| Avg. position | 27.2 | 13.2 | worsened by 14.0 |
 
 ## Wins
 
@@ -25,16 +25,16 @@ No pages dropped clicks by 20%+ this period.
 |---|---|---|---|---|
 | bf picture janwar wali | 1 | 2 | 50.00% | 24.5 |
 | birthday events lahore | 0 | 4 | 0.00% | 50.0 |
-| janwar wala bf picture | 0 | 1 | 0.00% | 30.0 |
+| birthday planners in lahore | 0 | 2 | 0.00% | 14.5 |
 | janwar wali bf picture | 0 | 1 | 0.00% | 65.0 |
 
 ## Top pages (current period)
 
 | Page | Clicks | Impressions | CTR | Avg. position |
 |---|---|---|---|---|
-| https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3 | 1 | 4 | 25.00% | 36.0 |
+| https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3 | 1 | 3 | 33.33% | 38.0 |
 | https://barakaevents.com/ | 0 | 2 | 0.00% | 1.0 |
-| https://barakaevents.com/birthday-planners/ | 0 | 9 | 0.00% | 32.2 |
+| https://barakaevents.com/birthday-planners/ | 0 | 11 | 0.00% | 29.0 |
 
 ## Keyword opportunities
 
@@ -70,7 +70,7 @@ No low-CTR, high-impression queries found this period.
 
 | URL | Coverage state | Verdict | Last crawl | User canonical | Google canonical |
 |---|---|---|---|---|---|
-| https://barakaevents.com/ | Page with redirect | NEUTRAL | 2026-09-01T02:09:51Z | https://www.barakaevents.com/ | https://www.barakaevents.com/ |
+| https://barakaevents.com/ | Page with redirect | NEUTRAL | 2026-09-02T12:20:35Z | https://www.barakaevents.com/ | https://www.barakaevents.com/ |
 | https://barakaevents.com/blog | URL is unknown to Google | NEUTRAL | — | — | — |
 | https://barakaevents.com/blog/best-event-planner-lahore-baraka-events | URL is unknown to Google | NEUTRAL | — | — | — |
 | https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026 | URL is unknown to Google | NEUTRAL | — | — | — |
