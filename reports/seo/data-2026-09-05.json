@@ -1,0 +1,415 @@
+{
+  "generatedAt": "2026-09-05T07:30:14.941Z",
+  "siteUrl": "https://barakaevents.com/",
+  "periods": {
+    "current": {
+      "startDate": "2026-08-06",
+      "endDate": "2026-09-02"
+    },
+    "previous": {
+      "startDate": "2026-07-09",
+      "endDate": "2026-08-05"
+    }
+  },
+  "auth": {
+    "ok": true
+  },
+  "errors": [],
+  "current": {
+    "totals": {
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 27.571428571428573
+    },
+    "topQueries": [
+      {
+        "query": "birthday events lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "query": "birthday planners in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 14.5
+      },
+      {
+        "query": "janwar wali bf picture",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 65
+      }
+    ],
+    "topPages": [
+      {
+        "page": "https://barakaevents.com/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "page": "https://barakaevents.com/birthday-planners/",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 29
+      }
+    ]
+  },
+  "previous": {
+    "totals": {
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 19.666666666666668
+    },
+    "topPages": [
+      {
+        "page": "https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 26.75
+      },
+      {
+        "page": "https://barakaevents.com/corporate-event-planner/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://barakaevents.com/index.php?JGNS=NOU125329123&amp;g=&amp;m=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://barakaevents.com/index.php?JGNS=NOU265432883&g=&m=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      }
+    ]
+  },
+  "sitemaps": [
+    {
+      "path": "https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37",
+      "lastSubmitted": "2025-11-20T06:33:55.746Z",
+      "lastDownloaded": "2025-11-23T08:30:38.382Z",
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "warnings": 1,
+      "errors": 0,
+      "contents": [
+        {
+          "type": "web",
+          "submitted": 37,
+          "indexed": 0
+        }
+      ]
+    },
+    {
+      "path": "https://barakaevents.com/index.php?r=s&t=1&m=3&cn=32",
+      "lastSubmitted": "2025-11-20T02:26:43.384Z",
+      "lastDownloaded": "2025-11-30T05:40:52.270Z",
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "warnings": 0,
+      "errors": 0,
+      "contents": [
+        {
+          "type": "web",
+          "submitted": 32,
+          "indexed": 0
+        }
+      ]
+    },
+    {
+      "path": "https://barakaevents.com/sitemap.xml",
+      "lastSubmitted": "2025-10-15T20:59:17.575Z",
+      "lastDownloaded": "2026-08-25T07:45:54.394Z",
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "warnings": 0,
+      "errors": 0,
+      "contents": [
+        {
+          "type": "web",
+          "submitted": 8,
+          "indexed": 0
+        }
+      ]
+    }
+  ],
+  "urlInspections": [
+    {
+      "url": "https://barakaevents.com/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Page with redirect",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-05T02:31:32Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/",
+      "googleCanonical": "https://www.barakaevents.com/"
+    },
+    {
+      "url": "https://barakaevents.com/blog",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/luxury-event-catering-menu-lahore",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/best-event-planner-lahore-baraka-events",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/baraka-events-management-how-we-work",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/baraka-events-corporate-events-lahore",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/baraka-events-venue-booking-guide",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/baraka-events-decor-services-lahore",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/baraka-events-lahore-gulberg",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/destination-style-shaadi-lahore-trend",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/mehndi-themes-lahore-loves",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/luxury-shaadi-cost-lahore",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/walima-decor-trends-2025",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/corporate-gala-lahore-checklist",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/perfect-baraat-guide",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/walima-reception-planning-guide",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    },
+    {
+      "url": "https://barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "lastCrawlTime": null,
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "userCanonical": null,
+      "googleCanonical": null
+    }
+  ]
+}

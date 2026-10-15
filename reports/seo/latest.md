@@ -1,15 +1,15 @@
-# Baraka Events SEO Report — 2026-09-02
+# Baraka Events SEO Report — 2026-09-05
 
-Site: `https://barakaevents.com/` · Current period: 2026-08-03 to 2026-08-30 (28 days) · Compared to: 2026-07-06 to 2026-08-02
+Site: `https://barakaevents.com/` · Current period: 2026-08-06 to 2026-09-02 (28 days) · Compared to: 2026-07-09 to 2026-08-05
 
 ## Overview
 
 | Metric | Current | Previous | Change |
 |---|---|---|---|
-| Clicks | 1 | 0 | new |
-| Impressions | 15 | 5 | +200.0% |
-| CTR | 6.67% | 0.00% | 6.67% pts |
-| Avg. position | 29.1 | 9.8 | worsened by 19.3 |
+| Clicks | 0 | 1 | -100.0% |
+| Impressions | 14 | 6 | +133.3% |
+| CTR | 0.00% | 16.67% | -16.67% pts |
+| Avg. position | 27.6 | 19.7 | worsened by 7.9 |
 
 ## Wins
 
@@ -23,18 +23,17 @@ No pages dropped clicks by 20%+ this period.
 
 | Query | Clicks | Impressions | CTR | Avg. position |
 |---|---|---|---|---|
-| bf picture janwar wali | 1 | 2 | 50.00% | 24.5 |
 | birthday events lahore | 0 | 4 | 0.00% | 50.0 |
-| janwar wala bf picture | 0 | 1 | 0.00% | 30.0 |
+| birthday planners in lahore | 0 | 2 | 0.00% | 14.5 |
 | janwar wali bf picture | 0 | 1 | 0.00% | 65.0 |
 
 ## Top pages (current period)
 
 | Page | Clicks | Impressions | CTR | Avg. position |
 |---|---|---|---|---|
-| https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3 | 1 | 4 | 25.00% | 36.0 |
 | https://barakaevents.com/ | 0 | 2 | 0.00% | 1.0 |
-| https://barakaevents.com/birthday-planners/ | 0 | 9 | 0.00% | 32.2 |
+| https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3 | 0 | 1 | 0.00% | 65.0 |
+| https://barakaevents.com/birthday-planners/ | 0 | 11 | 0.00% | 29.0 |
 
 ## Keyword opportunities
 
@@ -47,6 +46,9 @@ No low-CTR, high-impression queries found this period.
 - Sitemap `https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37`: 0 error(s), 1 warning(s).
 - `https://barakaevents.com/`: coverage state is "Page with redirect" (verdict: NEUTRAL).
 - `https://barakaevents.com/blog`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
+- `https://barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
+- `https://barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
+- `https://barakaevents.com/blog/luxury-event-catering-menu-lahore`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
 - `https://barakaevents.com/blog/best-event-planner-lahore-baraka-events`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
 - `https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
 - `https://barakaevents.com/blog/baraka-events-management-how-we-work`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
@@ -70,8 +72,11 @@ No low-CTR, high-impression queries found this period.
 
 | URL | Coverage state | Verdict | Last crawl | User canonical | Google canonical |
 |---|---|---|---|---|---|
-| https://barakaevents.com/ | Page with redirect | NEUTRAL | 2026-09-01T02:09:51Z | https://www.barakaevents.com/ | https://www.barakaevents.com/ |
+| https://barakaevents.com/ | Page with redirect | NEUTRAL | 2026-09-05T02:31:32Z | https://www.barakaevents.com/ | https://www.barakaevents.com/ |
 | https://barakaevents.com/blog | URL is unknown to Google | NEUTRAL | — | — | — |
+| https://barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore | URL is unknown to Google | NEUTRAL | — | — | — |
+| https://barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide | URL is unknown to Google | NEUTRAL | — | — | — |
+| https://barakaevents.com/blog/luxury-event-catering-menu-lahore | URL is unknown to Google | NEUTRAL | — | — | — |
 | https://barakaevents.com/blog/best-event-planner-lahore-baraka-events | URL is unknown to Google | NEUTRAL | — | — | — |
 | https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026 | URL is unknown to Google | NEUTRAL | — | — | — |
 | https://barakaevents.com/blog/baraka-events-management-how-we-work | URL is unknown to Google | NEUTRAL | — | — | — |
@@ -102,7 +107,7 @@ No low-CTR, high-impression queries found this period.
 
 ## Indexed pages
 
-0/20 inspected site URLs are indexed by Google.
+0/23 inspected site URLs are indexed by Google.
 
 ## Legacy URL audit (Phase 1 — classification only, nothing auto-applied)
 
@@ -116,12 +121,11 @@ No low-CTR, high-impression queries found this period.
 **Legacy content with a clear redirect target (human review before implementing):**
 - `https://barakaevents.com/birthday-planners/` → `/services/birthday-events` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
 - `https://barakaevents.com/corporate-event-planner/` → `/services/corporate-events` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
-- `https://barakaevents.com/wedding-planner/` → `/services/wedding-planning` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
 
 ## Content decision & publishing
 
 **Decision:** fix-indexing (target: site-wide indexing)
-  - Only 0/20 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).
+  - Only 0/23 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).
   - Publishing new content before fixing discoverability would waste effort — indexing is the dominant blocker right now.
 
 **Content generation skipped:** Decision was "fix-indexing", not "new-article" — nothing to generate today.
@@ -130,7 +134,8 @@ No low-CTR, high-impression queries found this period.
 
 | Bucket | Count | Meaning |
 |---|---|---|
-| improve-topical-authority | 6 | positions 21-50 — needs broader topical coverage |
+| strengthen | 1 | positions 11-20 — needs stronger page/internal links |
+| improve-topical-authority | 7 | positions 21-50 — needs broader topical coverage |
 
 _Buckets reflect real Search Console position data for keywords in the topical map that matched a real query today — never a projection or a ranking guarantee._
 
@@ -139,9 +144,9 @@ _Buckets reflect real Search Console position data for keywords in the topical m
 - Fix: Sitemap `https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37`: 0 error(s), 1 warning(s).
 - Fix: `https://barakaevents.com/`: coverage state is "Page with redirect" (verdict: NEUTRAL).
 - Fix: `https://barakaevents.com/blog`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- Fix: `https://barakaevents.com/blog/best-event-planner-lahore-baraka-events`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- Fix: `https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- Next recommended action: **fix-indexing** — Only 0/20 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).
+- Fix: `https://barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
+- Fix: `https://barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
+- Next recommended action: **fix-indexing** — Only 0/23 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).
 
 ---
 _Generated automatically from live Search Console data. No numbers in this report are AI-generated or estimated._
