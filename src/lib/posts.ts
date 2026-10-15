@@ -209,7 +209,7 @@ export const posts: Post[] = [
       },
       { h: 'Where you can genuinely save' },
       {
-        p: 'Date and season are the biggest free lever, and we cover that below. Beyond that: choose a venue whose own architecture does some of the work, so you are not paying to hide a plain room. Concentrate floral volume where people actually stand and photograph, which is the stage and the entrance, rather than spreading it thinly everywhere. Use fewer, larger installations instead of many small ones, because labour scales with the number of pieces. Take a weekday or an afternoon slot. And book a single function properly rather than four functions cheaply.',
+        p: 'Date and season are the biggest free lever, and we cover that below. Beyond that: choose [a venue whose own architecture does some of the work](/blog/top-wedding-venues-lahore-2025), so you are not paying to hide a plain room. Concentrate floral volume where people actually stand and photograph, which is the stage and the entrance, rather than spreading it thinly everywhere. Use fewer, larger installations instead of many small ones, because labour scales with the number of pieces. Take a weekday or an afternoon slot. And book a single function properly rather than four functions cheaply.',
         related: [
           { text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' },
         ],
@@ -606,7 +606,7 @@ export const posts: Post[] = [
         related: [{ text: 'Lahore Wedding Venues by Area: Havelis, Marquees, Gardens', slug: 'top-wedding-venues-lahore-2025' }],
       },
       { h: 'Get a real number before you fall in love with a venue' },
-      { p: 'Venue rental is one of the larger lines in a wedding budget, but the number that actually matters is the total cost once catering minimums, decor restrictions and overtime charges are added — figures that rarely appear on the first quote. Ask directly whether the venue requires you to use its in-house caterer, what the minimum guest-count charge is regardless of actual attendance, and what an extra hour past the contracted time costs. These three numbers, not the base rental figure, are usually where budgets go wrong.' },
+      { p: 'Venue rental is [one of the larger lines in a wedding budget](/blog/luxury-shaadi-cost-lahore), but the number that actually matters is the total cost once catering minimums, decor restrictions and overtime charges are added — figures that rarely appear on the first quote. Ask directly whether the venue requires you to use its in-house caterer, what the minimum guest-count charge is regardless of actual attendance, and what an extra hour past the contracted time costs. These three numbers, not the base rental figure, are usually where budgets go wrong.' },
       { h: 'The logistics most families forget to check' },
       { p: 'Backup power that has actually been tested, not just promised, matters more than any decor feature once load-shedding hits mid-reception. Loading access for a decor and catering team moving truckloads of equipment can make or break a haveli or garden venue with a narrow entrance. And parking capacity should be checked against your real guest count, not the venue’s stated lot size — a shortfall here becomes the first thing every guest experiences, before they have even seen the stage.' },
       { h: 'Questions to ask before you sign' },
@@ -1197,6 +1197,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',
+    updatedISO: '2026-10-15',
     readTime: '8 min read',
     image: '/media/gallery/wedding-17.webp',
     imageAlt: 'Stage under a ceiling of blush flowers and crystal garlands with pink drapes and a lotus-pattern lit floor',
@@ -1214,7 +1215,7 @@ export const posts: Post[] = [
       },
       { h: 'Mehndi night' },
       {
-        p: 'The least formal and most physically active function \u2014 dancing, dholki, bright colour \u2014 typically starting in the early evening with no need to rush guests out early. Because it is the loosest night on the calendar, it is also where run-of-show discipline slips first; a mehndi that runs ninety minutes long pushes every vendor call time behind it for the rest of the week.',
+        p: 'The least formal and most physically active function \u2014 dancing, dholki, bright colour \u2014 typically starting in the early evening and, at a hall or other hired venue, still finishing by the venue\u2019s closing time. Because it is the loosest night on the calendar, it is also where run-of-show discipline slips first; a mehndi that runs ninety minutes long pushes every vendor call time behind it for the rest of the week. Settle the [mehndi night staging, lighting and running order](/services/mehndi-events) well before the date, not on the night itself.',
       },
       { h: 'Baraat and nikkah' },
       {
@@ -1225,6 +1226,17 @@ export const posts: Post[] = [
       {
         p: 'The closing night, hosted by the groom\u2019s family and usually the most formally photographed \u2014 it earns its own guest list, its own decor identity and its own run of show rather than inheriting whatever is left over from the baraat.',
         related: [{ text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' }],
+      },
+      { h: 'Work backwards from the venue\u2019s closing time' },
+      {
+        p: 'Before you fix any start time, find out when the venue has to be empty. Under section 6 of the [Punjab Marriage Functions Act 2016](https://nasirlawsite.com/laws/pmfa2016.htm), whoever owns, manages or runs a public place that is the site of a marriage must ensure every ceremony connected with it concludes by 10:00 pm. The Act counts mayun, mehndi, barat, nikah, rukhsati and walima as part of a marriage, and its definition of a public place includes a wedding hall, hotel, restaurant, open space or private property hired for a marriage.',
+      },
+      {
+        p: 'Operating-hour notifications and enforcement point the same way. [Dunya News](https://dunyanews.tv/en/Business/955118-punjab-revises-operating-hours-for-markets-and-wedding-halls) reported in June 2026 that a Punjab notification allows wedding halls, marquees and other commercial event venues to stay open until 10 pm, and [Dawn](https://www.dawn.com/news/1951630) reported in October 2025 that Lahore\u2019s district administration had sealed marriage halls, a farmhouse among them, for running functions past the permitted time. Notifications get revised, so confirm in writing, with your venue, the closing time that applies to your date.',
+      },
+      {
+        p: 'In practice, each function at a hall has a hard end, and the evening has to be built back from it. If a baraat arrives at 8:00 pm, for example, the nikkah, dinner, speeches and any same-night rukhsati must fit into the two hours before closing. Put clock times against each moment, decide in advance what can be shortened, and give one person the job of calling time. The Act\u2019s 10 pm duty is written for public places, so a function at a family\u2019s own home is a different question; check local rules before planning a late night at home.',
+        related: [{ text: 'Rukhsati Planning in Lahore: Timing, Staging and What to Expect', slug: 'rukhsati-ceremony-planning-lahore' }],
       },
       { h: 'Where timelines actually break' },
       {
