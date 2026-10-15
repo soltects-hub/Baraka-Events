@@ -277,7 +277,9 @@ function renderFullReport(data: SearchConsoleReportData): string {
   // One line per owning page (several page-2 queries usually share the same owner).
   const rankingByOwner = new Map<string, { query: string; impressions: number; position: number }[]>();
   for (const { q } of rankingOpportunities) {
-    const owner = ownership.find((o) => o.query === q.query)?.owner.page ?? 'the page that ranks';
+    const own = ownership.find((o) => o.query === q.query);
+    // A query the homepage answers while its topical service page lags is a job for the service page.
+    const owner = (own?.serviceGap ? own.servicePage : undefined) ?? own?.owner.page ?? 'the page that ranks';
     rankingByOwner.set(owner, [...(rankingByOwner.get(owner) ?? []), { query: q.query, impressions: q.impressions, position: q.position }]);
   }
   for (const [owner, qs] of [...rankingByOwner].slice(0, 3)) {

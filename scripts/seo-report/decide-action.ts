@@ -10,8 +10,8 @@
  *  1. fix-indexing   — real site pages aren't indexed yet; publishing more
  *                       content nobody can find is wasted effort until this
  *                       is addressed.
- *  2. improve-existing — an existing page is losing clicks, or has real
- *                       impressions but poor CTR (fixable without new content).
+ *  2. improve-existing — an existing page is losing clicks, a page-1 query earns fewer clicks than its position predicts, or a
+ *                       page-2/3 query has real impressions (see query-analysis.ts). Fixable without new content.
  *  3. new-article     — a high-priority content gap with real query evidence
  *                       (actual impressions in Search Console), and indexing
  *                       isn't broadly broken.
@@ -131,10 +131,12 @@ function decide(data: SearchConsoleReportData, keywordMap: KeywordMap): Decision
         );
         if (own.cannibalized) reasoning.push(`Other own pages on the same query: ${own.others.map((o) => `${o.page} (${o.impressions} impressions at ${o.position.toFixed(1)})`).join(', ')}.`);
       }
-      reasoning.push('Strengthen the owning page (content depth, contextual internal links); rewriting the snippet would not move this query.');
+      // A service-page gap means the homepage already answers the query; the page to build up is the service page (named in the reasoning above).
+      const gapPage = own?.serviceGap ? own.servicePage : undefined;
+      reasoning.push(gapPage ? 'Rewriting the snippet would not move this query.' : 'Strengthen the owning page (content depth, contextual internal links); rewriting the snippet would not move this query.');
       return {
         action: 'improve-existing',
-        target: own?.owner.page ?? ranking.q.query,
+        target: gapPage ?? own?.owner.page ?? ranking.q.query,
         reasoning,
         evidence: { query: ranking.q, assessment: ranking.a, ownership: own ?? null },
       };
@@ -183,7 +185,7 @@ function decide(data: SearchConsoleReportData, keywordMap: KeywordMap): Decision
     };
   }
 
-  reasoning.push('No indexing emergency, no page losing clicks, no high-CTR-opportunity gap, and no keyword-map cluster has real query evidence yet.');
+  reasoning.push('No indexing emergency, no page losing clicks, no query with a snippet or ranking opportunity, and no keyword-map cluster has real query evidence yet.');
   return { action: 'do-nothing', target: 'none', reasoning, evidence: {} };
 }
 

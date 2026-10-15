@@ -44,7 +44,7 @@ export interface QueryAssessment {
 }
 
 export function isBrandQuery(query: string): boolean {
-  return /\bbara[ck]a[hk]?\b|\bbaraku\b|\babk\b/i.test(query);
+  return /\bbara[ck]a[hk]?\b|\bbaraku\b|\babk\b|barakaevents/i.test(query);
 }
 
 export function assessQuery(q: QueryRow): QueryAssessment {
@@ -174,5 +174,6 @@ export function ownerOf(data: SearchConsoleReportData, query: string): QueryOwne
 
 /** Queries the daily report should consider: every query when the snapshot has them, otherwise the top-100 list. */
 export function queriesOf(data: SearchConsoleReportData): QueryRow[] {
-  return data.current?.allQueries ?? data.current?.topQueries ?? [];
+  const all = data.current?.allQueries;
+  return all && all.length > 0 ? all : (data.current?.topQueries ?? []);
 }

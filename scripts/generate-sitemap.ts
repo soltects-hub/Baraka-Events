@@ -54,15 +54,16 @@ const rankingPassLastmod = '2026-10-12';
 // 2026-10-08: an added FAQ on /services/event-management and /services/corporate-events, and the "barat" spelling on
 // /services/barat-events. The /services hub renders every service's intro, so it moved with the barat intro.
 const servicesPassLastmod = '2026-10-08';
-// 2026-10-15: copy pass on three service pages: /services/event-decoration (wedding-stage heading, decorator FAQ, outdoor-guide link),
-// /services/mehndi-events (first included-service heading) and /services/birthday-events (venue-selection heading, venues-guide link).
-// UTC date of the content commit, never a predicted one.
+// 2026-10-15: copy pass on two service pages: /services/event-decoration (wedding-stage heading, decorator FAQ, outdoor-guide link) and
+// /services/birthday-events (venue-selection heading and sentence, venues-guide link). UTC date of the content commit, never a predicted one.
+// Deliberately not moved: /services/mehndi-events (a two-word heading change) and the two blog posts that gained one inline link each
+// (event-planning-cost-budget-lahore, how-to-choose-wedding-venue-lahore-guide); their dates stay at the last substantive edit.
 const copyPassLastmod = '2026-10-15';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': rankingPassLastmod,
   'wedding-planning': rankingPassLastmod,
-  'mehndi-events': copyPassLastmod,
+  'mehndi-events': rankingPassLastmod,
   'event-decoration': copyPassLastmod,
   'birthday-events': copyPassLastmod,
   'nikkah-events': rankingPassLastmod,
