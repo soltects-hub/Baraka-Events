@@ -2,12 +2,12 @@
   "action": "fix-indexing",
   "target": "site-wide indexing",
   "reasoning": [
-    "Only 0/20 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).",
+    "Only 0/22 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).",
     "Publishing new content before fixing discoverability would waste effort — indexing is the dominant blocker right now."
   ],
   "evidence": {
     "indexedCount": 0,
-    "totalInspected": 20,
+    "totalInspected": 22,
     "coverageStates": [
       {
         "url": "https://barakaevents.com/",
@@ -15,6 +15,14 @@
       },
       {
         "url": "https://barakaevents.com/blog",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+        "coverageState": "URL is unknown to Google"
+      },
+      {
+        "url": "https://barakaevents.com/blog/luxury-event-catering-menu-lahore",
         "coverageState": "URL is unknown to Google"
       },
       {
