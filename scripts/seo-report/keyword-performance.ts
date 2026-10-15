@@ -67,9 +67,11 @@ function main() {
 
   const today = isoDate(new Date());
   const newEntries: HistoryEntry[] = [];
+  // Every query when the snapshot has them (topQueries is only the first 100 rows, and its zero-click tail is cut in arbitrary order).
+  const rows = data.current.allQueries ?? data.current.topQueries;
 
   for (const kw of keywordMap.keywords) {
-    const match = data.current.topQueries.find((q) => fuzzyMatch(kw.keyword, q.query));
+    const match = rows.filter((q) => fuzzyMatch(kw.keyword, q.query)).sort((a, b) => b.impressions - a.impressions)[0];
     if (!match) continue; // no real evidence for this keyword today — don't fabricate a "no impressions" row for every one of 300+ keywords daily; only record real matches.
     newEntries.push({
       date: today,
