@@ -59,6 +59,11 @@ const servicesPassLastmod = '2026-10-08';
 // Deliberately not moved: /services/mehndi-events (a two-word heading change) and the two blog posts that gained one inline link each
 // (event-planning-cost-budget-lahore, how-to-choose-wedding-venue-lahore-guide); their dates stay at the last substantive edit.
 const copyPassLastmod = '2026-10-15';
+// 2026-10-16: images and on-page audit. Pages whose visible content or search snippet changed: /gallery, /experiences and /portfolio (titles
+// shortened to the visible length), /services/engagement-events (its hero was a "Happy Birthday" neon photo; /services renders the same card
+// image) and the wedding-venues guide, which takes its date from updatedISO. Image recompression, the About image format change and the
+// trimmed blog excerpts are not content passes and move no date. UTC date of the content commit, never a predicted one.
+const auditPassLastmod = '2026-10-16';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': rankingPassLastmod,
@@ -68,6 +73,7 @@ const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'birthday-events': copyPassLastmod,
   'nikkah-events': rankingPassLastmod,
   'barat-events': servicesPassLastmod,
+  'engagement-events': auditPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
 // page-2 pass, the remaining six (the individual wedding functions plus
@@ -87,14 +93,14 @@ const EDITED_SERVICE_SLUGS = new Set([
 
 const staticRoutes: SitemapUrl[] = [
   { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: removalPassLastmod },
-  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: rankingPassLastmod },
+  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: auditPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
-  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: removalPassLastmod },
-  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: staticLastmod },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: auditPassLastmod },
+  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: auditPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: rankingPassLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: rankingPassLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: auditPassLastmod },
   // /venues and /vendors are deliberately left out while they carry no real
   // listings (both index pages are `noindex` until Phase 2 — see
   // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a
