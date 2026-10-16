@@ -163,7 +163,7 @@ export default function ServicePage() {
             <p className="mt-6 text-sm font-light text-mist">
               Prefer email?{' '}
               <a href={mailtoUrl} onClick={track('email')} className="gold-underline text-gold hover:text-gold-soft">
-                Email a structured brief
+                Send a ready-made brief
               </a>
               , with the details we need to quote already laid out.
             </p>

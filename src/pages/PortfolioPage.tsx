@@ -122,7 +122,7 @@ export default function PortfolioPage() {
               corporate productions
             </Link>{' '}
             and private celebrations across Lahore, each planned by the same team from the first
-            meeting to the last guest. Details are generalized to protect client privacy.
+            meeting to the last guest. Captions are generalized.
           </motion.p>
         </div>
       </section>

@@ -217,7 +217,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Tell Us Your Vision</label>
+                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">{eventType === 'Corporate Event' ? 'Event Brief' : 'Tell Us Your Vision'}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -233,8 +233,9 @@ export default function Contact() {
                 </div>
                 {status === 'error' && (
                   <p className="text-sm font-light text-red-400">
-                    Something went wrong sending your request. Please try again, or reach us directly at{' '}
-                    <a href="tel:+923139999039" className="underline">+92 313 9999039</a> or{' '}
+                    Something went wrong sending your request. Please email{' '}
+                    <a href="mailto:Booking@barakaevents.com" className="underline">Booking@barakaevents.com</a>, call{' '}
+                    <a href="tel:+923139999039" className="underline">+92 313 9999039</a> or use{' '}
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
                   </p>
                 )}
@@ -244,7 +245,7 @@ export default function Contact() {
                     disabled={status === 'submitting'}
                     className="w-full sm:w-auto"
                   >
-                    {status === 'submitting' ? 'Sending…' : 'Request Consultation'}
+                    {status === 'submitting' ? 'Sending…' : eventType === 'Corporate Event' ? 'Send Brief' : 'Request Consultation'}
                   </MagneticButton>
                 </div>
               </motion.form>

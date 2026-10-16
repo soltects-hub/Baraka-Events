@@ -18,7 +18,7 @@ const items: ArchiveItem[] = [
   { src: '/media/rooftop-birthday.webp', alt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
   { src: '/media/gallery/wedding-24.webp', alt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
   { src: '/media/showreel-3.webp', alt: 'Rows of hanging crystal chandeliers and bead curtains over a pink lounge beside a white aisle at night', category: 'Baraat', title: 'The Chandelier Canopy', location: 'Lahore' },
-  { src: '/media/gallery/corporate-4.webp', alt: 'Stage with an LED screen, truss lighting and red balloon decor in a hotel hall', category: 'Corporate Event', title: 'A Stage with LED Screens', location: '' },
+  { src: '/media/gallery/corporate-4.webp', alt: 'Stage with an LED screen, truss lighting and red balloon decor in a chandeliered hall', category: 'Corporate Event', title: 'A Stage with LED Screens', location: '' },
   { src: '/media/gallery/celebration-4.webp', alt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns', category: 'Private Celebration', title: 'A Floral Wall Installation', location: 'Lahore' },
 ];
 

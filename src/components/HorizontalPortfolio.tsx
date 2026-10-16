@@ -100,7 +100,7 @@ export default function HorizontalPortfolio() {
               Three events,<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-              A corporate stage, a rooftop birthday and a conference set-up —
+              A branded LED stage, a rooftop birthday and a conference stage —
               different briefs from our archive.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">

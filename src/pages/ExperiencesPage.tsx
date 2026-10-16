@@ -48,10 +48,10 @@ const experiences = [
     intro:
       'Baraka Events plans and manages corporate events in Lahore: product launches, conferences, annual dinners, AGMs, board dinners and client evenings.',
     points: [
-      { h: 'Product Launches', p: 'Built backwards from the reveal moment: what is unveiled, who sees it first, and who approves the branding and the cue sheet.' },
-      { h: 'Conference & Summit Management', p: 'Planned from the delegate list outward: room format against headcount, registration, session timing and speaker handover.' },
-      { h: 'Annual Dinners & Award Nights', p: 'Run to a written running order: arrival, service, the recognition segment and close, with prayer times and the service window built in.' },
-      { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, scoped around a short guest list and one clear purpose.' },
+      { h: 'Product Launches', p: 'A launch is built backwards from the reveal moment: settle what is unveiled, who sees it first, and who approves the branding and the cue sheet.' },
+      { h: 'Conference & Summit Management', p: 'A conference is planned from the delegate list outward: room format against headcount, registration, session timing and speaker handover.' },
+      { h: 'Annual Dinners & Award Nights', p: 'A company dinner needs a written running order: arrival, service, the recognition segment and close, with prayer times and the service window built in from the start.' },
+      { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client evenings work best when built around a short guest list and one clear purpose.' },
     ],
     related: [
       { text: 'Corporate event management service', to: '/services/corporate-events' },

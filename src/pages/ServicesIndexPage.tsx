@@ -158,7 +158,7 @@ export default function ServicesIndexPage() {
             , you are looking for the same
             thing: one team that handles the decisions, the vendors and the day
             itself. We cover everything from full wedding planning down to a
-            single function, and take on corporate work from small board dinners to large conferences. Each service
+            single function, and take on corporate work such as board dinners, conferences and product launches. Each service
             below can be booked on its own or as part of a larger project.
           </motion.p>
         </div>
