@@ -383,8 +383,8 @@ export const services: Service[] = [
     seoTitle: 'Engagement Event Planning in Lahore | Baraka Events',
     seoDescription:
       'Engagement event planning in Lahore, styled between a family gathering and full wedding formality, with decor that can set the tone for the wedding to follow.',
-    image: '/media/gallery/celebration-4.webp',
-    imageAlt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns on artificial grass',
+    image: '/media/gallery/wedding-22.webp',
+    imageAlt: 'Small outdoor stage with a white tufted sofa, a white rose garland and a greenery arch hung with a bead curtain, in daylight',
     intro:
       'An engagement usually sits between a family gathering and the formality of a nikkah — smaller than a wedding function, but still a real event to stage properly. We plan the ring ceremony, guest flow and styling, often with an eye on the design language the wedding itself will carry later.',
     included: [

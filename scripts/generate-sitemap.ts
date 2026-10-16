@@ -63,6 +63,11 @@ const copyPassLastmod = '2026-10-15';
 // brands-strip caption), and /blog (two corporate post titles and excerpts shown in the index changed). The two corporate posts carry their own
 // updatedISO. UTC date of the content commit, never a predicted one.
 const corporatePassLastmod = '2026-10-16';
+// 2026-10-16: images and on-page audit. Pages whose visible content or search snippet changed: /gallery, /experiences and /portfolio (titles
+// shortened to the visible length), /services/engagement-events (its hero was a "Happy Birthday" neon photo; /services renders the same card
+// image) and the wedding-venues guide, which takes its date from updatedISO. Image recompression, the About image format change and the
+// trimmed blog excerpts are not content passes and move no date. UTC date of the content commit, never a predicted one.
+const auditPassLastmod = '2026-10-16';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': corporatePassLastmod,
@@ -72,6 +77,7 @@ const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'birthday-events': copyPassLastmod,
   'nikkah-events': rankingPassLastmod,
   'barat-events': servicesPassLastmod,
+  'engagement-events': auditPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
 // page-2 pass, the remaining six (the individual wedding functions plus
@@ -94,7 +100,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
-  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: staticLastmod },
+  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: auditPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },

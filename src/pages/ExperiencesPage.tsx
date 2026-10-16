@@ -104,9 +104,9 @@ export default function ExperiencesPage() {
   const sectionNav = useSectionNav();
 
   useSEO({
-    title: 'Event Planning Services in Lahore — Weddings, Corporate & Private Events | Baraka Events',
+    title: 'Event Planning in Lahore: Weddings, Corporate, Private | Baraka Events',
     description:
-      'Baraka Events is an event planner in Lahore covering weddings (mehndi, baraat, nikkah, walima), corporate events, private celebrations and live event production across Gulberg, DHA and Model Town.',
+      'Event planner in Lahore for weddings (mehndi, baraat, nikkah, walima), corporate events, private celebrations and live entertainment, from Gulberg to DHA.',
     canonical: routes.experiences,
   });
 
