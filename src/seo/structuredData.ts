@@ -112,11 +112,7 @@ export function generateServiceSchema(service: { name: string; description: stri
     serviceType: service.name,
     name: service.name,
     description: service.description,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: seoConfig.organization.name,
-      url: seoConfig.organization.url,
-    },
+    provider: { '@id': ORGANIZATION_ID },
     areaServed: 'Lahore, Pakistan',
     url: absoluteUrl(service.url),
   };

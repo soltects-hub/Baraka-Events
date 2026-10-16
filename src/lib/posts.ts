@@ -49,7 +49,7 @@ export const posts: Post[] = [
     slug: 'how-to-choose-wedding-planner-lahore',
     title: 'How to Choose a Wedding Planner in Lahore When the Wedding Is Actually Four Events',
     excerpt:
-      'Mehndi, baraat, nikkah and walima are four separate builds wearing one name. Here is what actually separates a wedding planner who can run all four from one who is coordinating four different vendors and hoping it holds together.',
+      'Mehndi, baraat, nikkah and walima are four separate builds under one name. What separates a planner who can run all four from one coordinating four vendors.',
     category: 'Planning',
     date: '21 September 2026',
     publishedISO: '2026-09-21',
@@ -753,13 +753,13 @@ export const posts: Post[] = [
     slug: 'baraka-events-management-how-we-work',
     title: 'Inside Baraka Events Management: How We Run an Event',
     excerpt:
-      'A behind-the-scenes look at how Baraka Events management structures a single event — from first consultation to final vendor payment — across weddings, corporate events and private celebrations.',
+      'How Baraka Events structures a single event, from first consultation to final vendor payment, across weddings, corporate events and private celebrations.',
     category: 'Planning',
     date: 'July 2026',
     publishedISO: '2026-07',
     updatedISO: '2026-10-12',
     readTime: '6 min read',
-    image: '/media/about.jpg',
+    image: '/media/about.webp',
     imageAlt: 'White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers',
     blocks: [
       { p: '“Event management” sounds like a single job. In practice, Baraka Events management is four disciplines running in parallel — production, design, client relations and digital — coordinated so tightly that clients only ever see one team. Here is how that structure actually works, function by function.' },
@@ -842,7 +842,7 @@ export const posts: Post[] = [
     slug: 'baraka-events-decor-services-lahore',
     title: 'Baraka Events Decor Services in Lahore: Every Style We Design',
     excerpt:
-      'From genda phool maximalism to pastel minimal walima florals — a full look at the Baraka Events decor services Lahore clients request most, and how our design floor builds each one.',
+      'From genda phool maximalism to pastel minimal walima florals: the decor Baraka Events Lahore clients request most, and how each look is built.',
     category: 'Design',
     date: 'June 2026',
     publishedISO: '2026-06',
@@ -951,7 +951,7 @@ export const posts: Post[] = [
     slug: 'micro-weddings-intimate-celebrations-pakistan',
     title: 'The Rise of Micro-Weddings and Intimate Celebrations in Pakistan',
     excerpt:
-      'Guest lists of fifty replacing guest lists of five hundred — why intimate celebrations are trending across Pakistan, and how the production standard actually gets harder, not easier.',
+      'Guest lists of fifty replacing five hundred: why intimate celebrations are trending across Pakistan, and why the production standard gets harder, not easier.',
     category: 'Trends',
     date: 'April 2026',
     publishedISO: '2026-04',
@@ -981,7 +981,7 @@ export const posts: Post[] = [
     category: 'Venues',
     date: 'March 2025',
     publishedISO: '2025-03',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-10-16',
     readTime: '7 min read',
     image: '/media/gallery/wedding-9.webp',
     imageAlt: 'Wide lounge under a fairy-light canopy with crystal chandeliers, red velvet drapes and candlelit cabinets',
@@ -999,6 +999,11 @@ export const posts: Post[] = [
       {
         p: 'October through March, Lahore\u2019s gardens host the city\u2019s most romantic nikkahs \u2014 water channels, cypress lines and golden-hour light no ballroom can imitate. The catch is contingency: a producer must always hold an indoor fallback, weather-proof power, and heating for the late-night walima crowd. That is precisely the kind of invisible engineering Baraka exists for.',
         related: [{ text: 'How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide', slug: 'how-to-choose-wedding-venue-lahore-guide' }],
+      },
+      { h: 'Named venues from our independent venue guide' },
+      {
+        p: 'The areas above describe what to expect; for named venues, [our independent Lahore venue guide](/venues) lists the ones we have documented from public information, each with the capacity the venue itself states. [The Nishat Hotel Gulberg](/venues/the-nishat-hotel-gulberg) states a 22,838 sq ft Grand Ballroom that seats up to 1,200 across round tables, among eight banquet halls. [Avari Lahore](/venues/avari-lahore) states it can host events from 10 to 1,200 guests across named spaces including Khorshed Mahal and Indus Hall. [Royal Palm Golf & Country Club](/venues/royal-palm-golf-country-club) on Canal Bank lists three marquees (Bab-al-Shams up to 600, Silverbells up to 1,000 and Sungate) plus indoor halls and lawns. [Sumbal Chak Farmhouse](/venues/sumbal-chak-farmhouse) on Raiwind Road describes a nine-kanal lawn for approximately 400 guests. These are publicly stated figures, not endorsements or tested capacities: confirm the numbers, the hall layout and your date with the venue before you commit.',
+        related: [{ text: 'Lahore venue guide (independent listings)', to: '/venues' }],
       },
       { h: 'FAQs: Choosing Among Lahore\u2019s Wedding Venues' },
       { p: 'Which area is best for a large guest list? DHA, Bahria Town and Valencia Town\u2019s purpose-built marquees handle the biggest lists most comfortably; Johar Town and Wapda Town\u2019s banquet halls suit a more moderate count without feeling empty.' },
@@ -1150,7 +1155,7 @@ export const posts: Post[] = [
     slug: 'walima-reception-planning-guide',
     title: 'How to Plan a Walima Reception in Lahore',
     excerpt:
-      'The walima is the last function and the most photographed \u2014 here is the guest list, venue, catering and run-of-show order that keeps it from feeling like an afterthought to the baraat.',
+      'The walima is the last function and the most photographed. The guest list, venue, catering and run-of-show order that keep it from feeling like an afterthought.',
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',
@@ -1193,7 +1198,7 @@ export const posts: Post[] = [
     slug: 'wedding-timeline-mehndi-to-walima',
     title: 'Wedding Event Timeline: From Mehndi to Walima',
     excerpt:
-      'A Pakistani wedding is four productions run back to back, not one event. Here is the week-by-week and night-by-night timeline that keeps a multi-function shaadi from colliding into itself.',
+      'A Pakistani wedding is four productions run back to back. The week-by-week and night-by-night timeline that keeps a multi-function shaadi from colliding.',
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',

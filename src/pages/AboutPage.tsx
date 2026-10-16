@@ -42,7 +42,7 @@ export default function AboutPage() {
   useSEO({
     title: 'About Baraka Events — Event Planning Company in Lahore',
     description:
-      'Baraka Events is an event planning and management company based in Gulberg, Lahore. Meet the team behind the weddings, corporate events and private celebrations we produce across the city.',
+      'Baraka Events is an event planning and management company in Gulberg, Lahore, producing weddings, corporate events and private celebrations across the city.',
     canonical: routes.about,
   });
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
           className="overflow-hidden rounded-sm"
         >
           <img
-            src="/media/about.jpg"
+            src="/media/about.webp"
             alt="White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers"
             className="h-[420px] w-full object-cover md:h-[560px]"
             loading="lazy"

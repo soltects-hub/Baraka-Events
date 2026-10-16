@@ -22,7 +22,7 @@ export const ARTICLE_IMAGES: ArticleImageOption[] = [
   { image: '/media/gallery-4.jpg', imageAlt: 'Outdoor mehndi dinner under string lights and marigold garlands', themes: ['Aqeeqah', 'Anniversary Celebrations', 'Milestone Birthdays'] },
   { image: '/media/gallery-6.jpg', imageAlt: 'Dhol drummers performing at a baraat celebration under golden confetti', themes: ['Milestone Birthdays'] },
   { image: '/media/portfolio-2.jpg', imageAlt: 'Dramatic corporate launch stage with golden LED screen in Lahore', themes: ['Corporate Product Launch', 'Corporate Summit & Conference', 'VIP & Executive Hospitality'] },
-  { image: '/media/about.jpg', imageAlt: 'Henna-decorated hands arranging a marigold garland on a luxury shaadi table', themes: ['Event Catering & Menu Direction', 'Event Decor & Floral Design'] },
+  { image: '/media/about.webp', imageAlt: 'Henna-decorated hands arranging a marigold garland on a luxury shaadi table', themes: ['Event Catering & Menu Direction', 'Event Decor & Floral Design'] },
   { image: '/media/showcase-1.jpg', imageAlt: 'Full-scale stage & light — concert-grade rigs, engineered in-house', themes: ['Event Lighting & Production'] },
   { image: '/media/showcase-4.jpg', imageAlt: 'The gala floor — intelligent lighting choreographed to the minute', themes: ['Corporate Summit & Conference', 'Event Lighting & Production'] },
   { image: '/media/showcase-5.jpg', imageAlt: 'First impressions — reception service trained to five-star standard', themes: ['VIP & Executive Hospitality', 'Event Catering & Menu Direction'] },

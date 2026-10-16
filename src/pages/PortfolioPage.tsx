@@ -68,9 +68,9 @@ export default function PortfolioPage() {
   const sectionNav = useSectionNav();
 
   useSEO({
-    title: 'Portfolio — Weddings, Corporate & Private Events in Lahore | Baraka Events',
+    title: 'Event Portfolio: Weddings, Corporate & Private | Baraka Events',
     description:
-      'A selection of weddings, corporate events and private celebrations produced by Baraka Events across Lahore, from Walled City havelis to Gulberg ballrooms and DHA estates.',
+      'A selection of weddings, corporate events and private celebrations by Baraka Events across Lahore, from Walled City havelis to Gulberg ballrooms and DHA estates.',
     canonical: routes.portfolio,
   });
 
@@ -140,7 +140,8 @@ export default function PortfolioPage() {
                   src={p.image}
                   {...galleryImgProps(p.image, GALLERY_SIZES.twoUp)}
                   alt={p.imageAlt}
-                  loading="lazy"
+                  loading={i < 2 ? 'eager' : 'lazy'}
+                  fetchPriority={i === 0 ? 'high' : 'auto'}
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 grade" />

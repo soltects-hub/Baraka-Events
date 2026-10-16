@@ -35,7 +35,7 @@ export default function About() {
           <motion.div style={{ clipPath: mask }} className="relative z-10 overflow-hidden rounded-sm">
             <motion.img
               style={{ y: imgY, scale: 1.15 }}
-              src="/media/about.jpg"
+              src="/media/about.webp"
               alt="White roses and gold candle holders along a long wedding table beneath draped ivory fabric and crystal chandeliers"
               className="h-[520px] w-full object-cover md:h-[640px]"
               loading="lazy"
