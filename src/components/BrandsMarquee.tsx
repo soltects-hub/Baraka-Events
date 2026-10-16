@@ -13,7 +13,6 @@ const brands = [
   'Annual Dinners',
   'conferences',
   'Executive Summits',
-  'Brand Activations',
   'Leadership Offsites',
   'AGMs',
   'Client Dinners',
@@ -31,7 +30,7 @@ export default function BrandsMarquee() {
         <p className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne">Corporate Work</p>
         <RevealText
           as="h2"
-          text="The kinds of corporate events we run"
+          text="The kinds of corporate events we plan"
           className="font-display text-3xl font-light leading-[1.15] md:text-5xl"
           highlightWords={[3, 4]}
           highlightClass="accent-serif"
@@ -68,7 +67,7 @@ export default function BrandsMarquee() {
       </div>
 
       <p className="mt-8 text-center text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-        Corporate events produced across Lahore, from small leadership dinners to full-scale launches
+        Corporate event types we plan for companies in Lahore
       </p>
     </section>
   );

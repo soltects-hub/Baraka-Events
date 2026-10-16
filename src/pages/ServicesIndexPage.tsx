@@ -45,7 +45,15 @@ const WHAT_WE_DO = [
   },
   {
     h: 'Corporate work runs on the same engine',
-    p: 'Conferences, product launches, award nights and dealer conventions need the same three things a wedding needs — a schedule everyone follows, vendors who are supervised, and a stage that reads well on camera. What changes is the documentation: branding approvals, AV specs, seating manifests and a run-of-show that a client\'s marketing team can sign off on in advance.',
+    p: (
+      <>
+        Conferences, product launches, award nights and dealer conventions need the same three things a wedding needs — a schedule everyone follows, vendors who are supervised, and a stage that reads well on camera. What changes is the documentation:{' '}
+        <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+          branding approvals, AV specs, seating manifests
+        </Link>{' '}
+        and a run-of-show that a client&apos;s marketing team can sign off on in advance.
+      </>
+    ),
   },
 ];
 
@@ -150,7 +158,7 @@ export default function ServicesIndexPage() {
             , you are looking for the same
             thing: one team that handles the decisions, the vendors and the day
             itself. We cover everything from full wedding planning down to a
-            single function, and take on corporate work from small board dinners to large conferences. Each service
+            single function, and take on corporate work such as board dinners, conferences and product launches. Each service
             below can be booked on its own or as part of a larger project.
           </motion.p>
         </div>

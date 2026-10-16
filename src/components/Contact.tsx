@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
@@ -15,6 +16,9 @@ const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | u
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
+  // /contact?type=corporate (used by the corporate service page's quote button) opens with Corporate Event selected.
+  const [params] = useSearchParams();
+  const [eventType, setEventType] = useState(params.get('type') === 'corporate' ? 'Corporate Event' : '');
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const bgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
@@ -198,7 +202,7 @@ export default function Contact() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label htmlFor="type" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Event Type</label>
-                    <select id="type" name="eventType" required defaultValue="" className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
+                    <select id="type" name="eventType" required value={eventType} onChange={(e) => setEventType(e.target.value)} className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
                       <option value="" disabled>Select an occasion</option>
                       <option>Wedding (Mehndi · Baraat · Nikkah · Walima)</option>
                       <option>Corporate Event</option>
@@ -213,20 +217,25 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Tell Us Your Vision</label>
+                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">{eventType === 'Corporate Event' ? 'Event Brief' : 'Tell Us Your Vision'}</label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
                     required
-                    placeholder="Guest count, functions, venue ideas, atmosphere — anything that inspires you…"
+                    placeholder={
+                      eventType === 'Corporate Event'
+                        ? 'Company, event type, date or date range, venue if fixed, expected headcount range, invoicing requirements…'
+                        : 'Guest count, functions, venue ideas, atmosphere — anything that inspires you…'
+                    }
                     className={`${inputClass} resize-none`}
                   />
                 </div>
                 {status === 'error' && (
                   <p className="text-sm font-light text-red-400">
-                    Something went wrong sending your request. Please try again, or reach us directly at{' '}
-                    <a href="tel:+923139999039" className="underline">+92 313 9999039</a> or{' '}
+                    Something went wrong sending your request. Please email{' '}
+                    <a href="mailto:Booking@barakaevents.com" className="underline">Booking@barakaevents.com</a>, call{' '}
+                    <a href="tel:+923139999039" className="underline">+92 313 9999039</a> or use{' '}
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
                   </p>
                 )}
@@ -236,7 +245,7 @@ export default function Contact() {
                     disabled={status === 'submitting'}
                     className="w-full sm:w-auto"
                   >
-                    {status === 'submitting' ? 'Sending…' : 'Request Consultation'}
+                    {status === 'submitting' ? 'Sending…' : eventType === 'Corporate Event' ? 'Send Brief' : 'Request Consultation'}
                   </MagneticButton>
                 </div>
               </motion.form>

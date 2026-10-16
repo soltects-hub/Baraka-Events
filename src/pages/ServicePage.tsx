@@ -6,7 +6,7 @@ import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import { getService, services } from '../lib/services';
 import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
-import { WHATSAPP_URL } from '../lib/whatsapp';
+import { WHATSAPP_URL, whatsAppUrl } from '../lib/whatsapp';
 import {
   useSEO,
   seoConfig,
@@ -54,6 +54,15 @@ export default function ServicePage() {
   if (!service) return <Navigate to="/services" replace />;
 
   const related = services.filter((s) => service.relatedServices.includes(s.slug));
+
+  // Services with an enquiry path (corporate) send the quoting details by
+  // WhatsApp and email and open the contact page; the rest keep the generic CTA.
+  const enquiry = service.enquiry;
+  const waUrl = enquiry ? whatsAppUrl(enquiry.whatsappText) : WHATSAPP_URL;
+  const mailtoUrl = enquiry
+    ? `mailto:${seoConfig.organization.contact.email}?subject=${encodeURIComponent(enquiry.emailSubject)}&body=${encodeURIComponent(enquiry.emailBody.join('\r\n'))}`
+    : undefined;
+  const track = (method: string) => () => window.gtag?.('event', 'contact_click', { method, service: service.slug });
 
   return (
     <main className="bg-ink">
@@ -143,13 +152,22 @@ export default function ServicePage() {
             Planning your <em className="accent-serif">{service.ctaSubject}</em>?
           </p>
           <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
-            Book a complimentary consultation with our atelier in Gulberg, or reach us directly for a quote.
+            {enquiry?.copy ?? 'Book a complimentary consultation with our atelier in Gulberg, or reach us directly for a quote.'}
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
-            <MagneticButton onClick={() => go('#contact')}>Get a Quote</MagneticButton>
-            <MagneticButton variant="ghost" href={WHATSAPP_URL}>WhatsApp Us</MagneticButton>
-            <MagneticButton variant="ghost" href="tel:+923139999039">Call Now</MagneticButton>
+            <MagneticButton onClick={() => go(enquiry ? '/contact?type=corporate' : '#contact')}>Get a Quote</MagneticButton>
+            <MagneticButton variant="ghost" href={waUrl} onClick={enquiry ? track('whatsapp') : undefined}>WhatsApp Us</MagneticButton>
+            <MagneticButton variant="ghost" href="tel:+923139999039" onClick={enquiry ? track('call') : undefined}>Call Now</MagneticButton>
           </div>
+          {mailtoUrl && (
+            <p className="mt-6 text-sm font-light text-mist">
+              Prefer email?{' '}
+              <a href={mailtoUrl} onClick={track('email')} className="gold-underline text-gold hover:text-gold-soft">
+                Send a ready-made brief
+              </a>
+              , with the details we need to quote already laid out.
+            </p>
+          )}
         </div>
       </article>
 

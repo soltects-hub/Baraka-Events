@@ -3,13 +3,13 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 
 const projects = [
   {
-    title: 'A National Product Launch',
+    title: 'A Branded LED Stage',
     category: 'Corporate Event',
-    location: 'A conference venue, Johar Town, Lahore',
-    year: '2024',
-    image: '/media/portfolio-2.webp',
-    alt: 'Speaker at a podium on a lit conference stage in front of a large LED screen, with an audience in the foreground',
-    stat: '1,200 guests · national livestream',
+    location: '',
+    year: '',
+    image: '/media/gallery/corporate-1.webp',
+    alt: 'Event hall with red truss arches, LED screens and a circular central platform',
+    stat: 'LED screens · truss lighting · stage platform',
   },
   {
     title: 'A Rooftop Birthday',
@@ -21,13 +21,13 @@ const projects = [
     stat: '90 guests · sunset to sunrise',
   },
   {
-    title: 'A Corporate Awards Night',
+    title: 'A Conference Stage',
     category: 'Corporate Event',
-    location: 'A grand ballroom, Gulberg, Lahore',
-    year: '2023',
-    image: '/media/portfolio-4.webp',
-    alt: 'Audience watching a presenter on a lit conference stage with a projected slide',
-    stat: '800 executives · awards night',
+    location: '',
+    year: '',
+    image: '/media/gallery/corporate-2.webp',
+    alt: 'Conference stage with a large LED screen, a branded lectern and a lit stage edge',
+    stat: 'LED screen · lectern · lit stage steps',
   },
 ];
 
@@ -100,8 +100,8 @@ export default function HorizontalPortfolio() {
               Three events,<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-              A product launch in Johar Town, a rooftop birthday, an awards dinner in
-              Gulberg — different briefs, same production discipline behind each one.
+              A branded LED stage, a rooftop birthday and a conference stage —
+              different briefs from our archive.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">
               <span>Scroll</span>
@@ -123,9 +123,11 @@ export default function HorizontalPortfolio() {
                   className="h-full w-full object-cover will-change-transform"
                 />
                 <div className="grade absolute inset-0" />
-                <div className="absolute right-6 top-6 rounded-full border border-champagne/25 bg-ink/70 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-ivory/80">
-                  {p.year}
-                </div>
+                {p.year && (
+                  <div className="absolute right-6 top-6 rounded-full border border-champagne/25 bg-ink/70 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-ivory/80">
+                    {p.year}
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-9">
                   {/* hairline above the caption; lights to flame on hover */}
                   <span aria-hidden className="relative mb-5 block h-px w-16 overflow-hidden">
@@ -137,8 +139,12 @@ export default function HorizontalPortfolio() {
                   </p>
                   <h3 className="font-display text-2xl font-light leading-tight sm:text-3xl md:text-5xl">{p.title}</h3>
                   <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-light tracking-wide text-mist">
-                    <span>{p.location}</span>
-                    <span className="hidden h-1 w-1 rounded-full bg-bronze sm:block" />
+                    {p.location && (
+                      <>
+                        <span>{p.location}</span>
+                        <span className="hidden h-1 w-1 rounded-full bg-bronze sm:block" />
+                      </>
+                    )}
                     <span>{p.stat}</span>
                   </div>
                 </div>

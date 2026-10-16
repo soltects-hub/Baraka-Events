@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
@@ -8,15 +9,15 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 
 const projects = [
   {
-    title: 'A National Product Launch',
+    title: 'A Branded LED Stage',
     category: 'Corporate Event',
-    location: 'A conference venue, Johar Town, Lahore',
-    year: '2024',
-    image: '/media/portfolio-2.webp',
-    imageAlt: 'Speaker at a podium on a lit conference stage in front of a large LED screen, with an audience in the foreground',
-    stat: '1,200 guests · national livestream',
+    location: '',
+    year: '',
+    image: '/media/gallery/corporate-1.webp',
+    imageAlt: 'Event hall with red truss arches, LED screens and a circular central platform',
+    stat: 'LED screens · truss lighting · stage platform',
     summary:
-      'A broadcast-ready product reveal for 1,200 attendees, produced for a live national stream with no room for technical delay. Stage, lighting cues and the reveal sequence were rehearsed in advance.',
+      'A branded corporate hall with a truss-mounted lighting rig, LED screens and a central platform.',
   },
   {
     title: 'A Rooftop Birthday',
@@ -30,15 +31,15 @@ const projects = [
       'An intimate milestone birthday built around a rooftop view of the old city skyline: candlelight, a live qawwali set and a menu built around the guest of honor’s preferences.',
   },
   {
-    title: 'A Corporate Awards Night',
+    title: 'A Conference Stage',
     category: 'Corporate Event',
-    location: 'A grand ballroom, Gulberg, Lahore',
-    year: '2023',
-    image: '/media/portfolio-4.webp',
-    imageAlt: 'Audience watching a presenter on a lit conference stage with a projected slide',
-    stat: '800 executives · awards night',
+    location: '',
+    year: '',
+    image: '/media/gallery/corporate-2.webp',
+    imageAlt: 'Conference stage with a large LED screen, a branded lectern and a lit stage edge',
+    stat: 'LED screen · lectern · lit stage steps',
     summary:
-      'An annual awards dinner for 800 executives, produced with a full stage build, custom lighting design and a run-of-show timed across a three-hour program.',
+      'A conference stage with a large LED screen, a branded lectern and a lit stage edge.',
   },
   {
     title: 'A Garden Wedding',
@@ -116,9 +117,12 @@ export default function PortfolioPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            Representative examples of weddings, corporate productions and private
-            celebrations across Lahore, each planned by the same team from the first
-            meeting to the last guest. Details are generalized to protect client privacy.
+            Representative examples of weddings,{' '}
+            <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+              corporate productions
+            </Link>{' '}
+            and private celebrations across Lahore, each planned by the same team from the first
+            meeting to the last guest. Captions are generalized.
           </motion.p>
         </div>
       </section>
@@ -144,15 +148,21 @@ export default function PortfolioPage() {
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 grade" />
-                <span className="absolute right-5 top-5 rounded-full border border-champagne/20 bg-ink/75 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-mist-dim">
-                  {p.year}
-                </span>
+                {p.year && (
+                  <span className="absolute right-5 top-5 rounded-full border border-champagne/20 bg-ink/75 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-mist-dim">
+                    {p.year}
+                  </span>
+                )}
               </div>
               <div className="p-7 md:p-8">
                 <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mist-dim">
                   <span className="text-champagne">{p.category}</span>
-                  <span className="h-1 w-1 rounded-full bg-mist-dim" />
-                  <span>{p.location}</span>
+                  {p.location && (
+                    <>
+                      <span className="h-1 w-1 rounded-full bg-mist-dim" />
+                      <span>{p.location}</span>
+                    </>
+                  )}
                 </div>
                 <h2 className="mt-3 font-display text-2xl font-light md:text-3xl">{p.title}</h2>
                 <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-champagne-soft">{p.stat}</p>
