@@ -46,16 +46,17 @@ const experiences = [
     image: '/media/gallery/corporate-3.webp',
     imageAlt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables',
     intro:
-      'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule, with no visible technical issues in front of clients, media or leadership.',
+      'Baraka Events plans and manages corporate events in Lahore: product launches, conferences, annual dinners, AGMs, board dinners and client evenings.',
     points: [
-      { h: 'Product Launches', p: 'Stage design and AV built for a reveal that has to land in one take, including for a live broadcast or press attendance.' },
-      { h: 'Conference & Summit Management', p: 'Seating, sightlines and delegate flow planned around the room and the headcount, from small boardrooms to large halls.' },
-      { h: 'Annual Dinners & Award Nights', p: 'Full production from arrival to closing act, for companies that want one team accountable for the whole evening.' },
-      { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, handled by the same corporate event organizer team behind our larger productions.' },
+      { h: 'Product Launches', p: 'Built backwards from the reveal moment: what is unveiled, who sees it first, and who approves the branding and the cue sheet.' },
+      { h: 'Conference & Summit Management', p: 'Planned from the delegate list outward: room format against headcount, registration, session timing and speaker handover.' },
+      { h: 'Annual Dinners & Award Nights', p: 'Run to a written running order: arrival, service, the recognition segment and close, with prayer times and the service window built in.' },
+      { h: 'Smaller Business Events', p: 'Board dinners, leadership offsites and client appreciation evenings, scoped around a short guest list and one clear purpose.' },
     ],
     related: [
       { text: 'Corporate event management service', to: '/services/corporate-events' },
       { text: 'Our corporate event checklist', to: '/blog/corporate-gala-lahore-checklist' },
+      { text: 'What a well-run corporate production looks like', to: '/blog/baraka-events-corporate-events-lahore' },
     ],
   },
   {

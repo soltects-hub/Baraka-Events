@@ -13,6 +13,18 @@ export interface ServiceLink {
   to: string;
 }
 
+/**
+ * Optional enquiry path for services whose buyers send a brief (corporate).
+ * When present, the closing CTA carries the quoting details by WhatsApp and
+ * email, and "Get a Quote" opens the contact page instead of the home form.
+ */
+export interface ServiceEnquiry {
+  copy: string;
+  whatsappText: string;
+  emailSubject: string;
+  emailBody: string[];
+}
+
 export interface Service {
   slug: string;
   tag: string;
@@ -32,6 +44,7 @@ export interface Service {
   faqs: ServiceFaq[];
   relatedServices: string[];
   relatedLinks: ServiceLink[];
+  enquiry?: ServiceEnquiry;
 }
 
 export const services: Service[] = [
@@ -164,34 +177,56 @@ export const services: Service[] = [
     image: '/media/gallery/corporate-3.webp',
     imageAlt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables in Lahore',
     intro:
-      'We produce product launches, annual dinners, AGMs and conferences for Lahore businesses that need the event to run on schedule with no visible technical issues in front of clients, media or leadership.',
+      'Baraka Events plans and manages corporate events in Lahore: product launches, conferences, annual dinners, AGMs, board dinners and client evenings. This page sets out how a corporate event is scoped, what drives the cost and what to ask any provider before you hire one.',
     included: [
-      { h: 'Product Launches', p: 'Stage design and AV built for a reveal that has to land in one take, including for a live broadcast or press attendance.' },
-      { h: 'Conferences & Summits', p: 'Seating, sightlines and delegate flow planned around the room and the headcount, from small boardrooms to large halls.' },
-      { h: 'Annual Dinners & Award Nights', p: 'Full production from arrival to closing act, for companies that want one team accountable for the whole evening.' },
-      { h: 'Board Dinners & Leadership Offsites', p: 'Smaller-scale corporate events handled by the same team behind our larger productions.' },
-      { h: 'What a Corporate Event Costs in Lahore', p: 'Corporate budgets split cleanly in two. Venue and catering scale with headcount; stage, AV, lighting and branding scale with the room and the specification, not the guest list. We quote those halves separately so finance can see which one moves when the headcount changes, and so nobody pays concert-grade production for a sixty-person dealer briefing.' },
+      { h: 'Product Launches', p: 'A launch is built backwards from the reveal moment. The brief should settle what is being unveiled and who must see it first (guests, press or a live stream), how the stage and screens support that moment, who approves the branding and the cue sheet, and how much lead time stage fabrication needs.' },
+      { h: 'Conferences & Summits', p: 'A conference is planned from the delegate list outward. The brief should settle the room format (theatre, classroom or cabaret) against the headcount, how delegates register and are badged, how sessions and breaks are timed, how speakers are handed over, and what the screens and microphones must support, including any remote speaker or recording. Prayer and meal breaks belong in the agenda from the first draft. The same questions apply to seminars and to dealer or sales conferences.' },
+      { h: 'Annual Dinners & Award Nights', p: 'A company dinner runs on its running order: arrival and seating, welcome and dinner service, the awards or recognition segment, entertainment, and close. The order, the speaker list and the award categories should be agreed with the host before the date, nominees seated within easy reach of the stage, and prayer times and the dinner service window written into the schedule from the start.' },
+      { h: 'Board Dinners, Client Evenings & Leadership Offsites', p: 'These are built around a short guest list and one clear purpose. The decisions that matter are the room (a private room, a hotel hall or a styled space), the seating plan, a realistic running order for speeches and service, and how catering, decor and lighting are coordinated around it. They depend less on stage production and more on discretion and the pace of service.' },
+      { h: 'AGMs & Shareholder Meetings', p: 'A shareholder meeting is a formal meeting first and an event second, so planning starts from the attendance list: registration and seating by attendee type, microphones for questions, presentation screens and, where the company offers remote participation, the AV for a hybrid link, in a hall whose layout suits a formal agenda. Notice periods, quorum and filings stay with your company secretary and share registrar.' },
+      { h: 'What a Corporate Event Costs in Lahore', p: 'Corporate budgets split cleanly in two. Venue and catering scale with headcount; stage, AV, lighting and branding scale with the room and the specification, not the guest list. We quote those halves separately so finance can see which one moves when the headcount changes, and so nobody pays concert-grade production for a sixty-person dealer briefing. Two more lines belong in every corporate budget: a contingency held back for late changes, and the planning fee, shown on its own. When you compare venue quotes, ask what each excludes, such as service charges, overtime and outside-equipment fees, and whether the venue requires its own caterer or AV supplier.' },
       { h: 'What We Need From You to Quote', p: 'The date or a date range, the venue if it is fixed, an expected headcount range, what the event has to achieve, who signs off on branding and approvals, your purchase-order or invoicing requirements, and a budget range if you have one. With those we can send an itemised proposal.' },
-      { h: 'Branding, Approvals and Sign-Off', p: 'Corporate work lives or dies on approvals. Stage graphics, backdrop artwork, name boards and screen content go through a documented review with your marketing team ahead of the date, with a locked cut-off after which nothing changes. Agreeing that cut-off is the single most useful thing a client can do for their own event.' },
-      { h: 'AV, Power and Technical Rehearsal', p: 'Anything with a microphone and a screen gets a full technical rehearsal before doors, not a soundcheck while guests arrive. That covers audio levels, content playback, presenter laptops and the handover between speakers. Power is sized with a backup path, so a generator fault is an inconvenience rather than the end of the event.' },
-      { h: 'Guest, Media and Executive Hospitality', p: 'Registration desks, seating manifests, VIP arrival routes, media handling and a green room for senior guests. Where press are attending we coordinate arrival timing and photographs so leadership are where they need to be without being chased across the room.' },
+      { h: 'Branding, Approvals and Sign-Off', p: 'Corporate work lives or dies on approvals. Stage graphics, backdrop artwork, name boards and screen content should go through a documented review with your marketing team ahead of the date, with a locked cut-off after which nothing changes. Agreeing that cut-off at the start is the single most useful thing a client can do for their own event.' },
+      { h: 'AV, Power and Technical Rehearsal', p: 'Anything with a microphone and a screen should get a full technical rehearsal before doors, not a soundcheck while guests arrive. That means testing audio levels, content playback, presenter laptops and the handover between speakers. Ask any provider for the power plan for your venue in writing: how the load is sized, what the backup path is if a generator fails, and who tests it before doors, so a fault is an inconvenience rather than the end of the event.' },
+      { h: 'Guest, Media and Executive Hospitality', p: 'A corporate guest list needs registration desks, seating manifests, VIP arrival routes, media handling and a green room for senior guests. Where press are attending, agree arrival timing and photograph slots in advance so leadership are where they need to be without being chased across the room.' },
+      { h: 'From Brief to Close-Out', p: 'A corporate event usually moves through the same stages. First the brief: the objective, the audience and who has the final say. Then the date, the venue and a headcount range, which fix the budget lines that scale with the room. Next a written proposal and budget sign-off, followed by branding and content approvals up to a locked cut-off. In the last week come the technical rehearsal and the minute-by-minute run of show, then the event itself, and afterwards a close-out: final invoices, vendor settlements and any content or photographs the client needs.' },
     ],
     faqs: [
-      { q: 'What size of corporate events do you handle in Lahore?', a: 'From small board dinners to large conferences. Tell us the expected headcount and we will say honestly whether the venue and format suit it.' },
-      { q: 'Do you provide AV and technical production in-house?', a: 'Yes, our own technical team handles staging, sound and lighting rather than subcontracting it out.' },
-      { q: 'Can you manage a hybrid or live-broadcast event?', a: 'Yes, we plan AV and stage timing around live broadcast or streaming requirements when needed.' },
-      { q: 'Do you work with corporate procurement and issue formal quotations?', a: 'Yes. Proposals are itemised for finance review, and we work to a company purchase-order and invoicing process rather than a private-client one.' },
-      { q: 'How much does a corporate event planner in Lahore cost?', a: 'It depends on scope, not a fixed rate. We quote the event itself and show our fee as its own line, so finance can see what is planning and what is production; the headcount-driven and specification-driven costs are quoted separately, as set out above.' },
-      { q: 'Can you run an event outside Lahore?', a: 'Yes. For corporate clients the crew and technical specification travel with the event. Travel and accommodation appear as their own line rather than being absorbed quietly into production cost.' },
-      { q: 'What should we ask before hiring a corporate event management company in Lahore?', a: 'Ask who handles AV and technical rehearsal and whether it is done in-house, how branding and approvals are signed off and when the cut-off falls, whether they can work to a purchase order with an itemised quotation, and what the power backup plan is for your venue. Then ask to speak to a client who ran an event of a similar size.' },
+      { q: 'What size of corporate events do you handle in Lahore?', a: 'Tell us the expected headcount and we will say honestly whether the venue and format suit it.' },
+      { q: 'Who provides the AV and technical production for a corporate event?', a: 'Staging, sound, lighting and screens should appear in the proposal as separate lines, with the supplier for each named, so you can see who is responsible for what and what is included. If you or the venue already have a preferred AV supplier, tell us at the start and the proposal can be written around them.' },
+      { q: 'Can you manage a hybrid or live-broadcast event?', a: 'A hybrid or live-broadcast event adds a second audience, so the brief needs the streaming platform, camera positions, audio feed and presenter schedule agreed up front. Tell us the format and the proposal will state who is responsible for each part, including any specialist streaming supplier.' },
+      { q: 'Do you work with corporate procurement and issue formal quotations?', a: 'Proposals are itemised so finance can review each line. Tell us your purchase-order and invoicing requirements at the start, such as PO number, invoice format and payment terms, and the proposal will confirm whether we can meet them.' },
+      { q: 'How much does a corporate event planner in Lahore cost?', a: 'It depends on scope, not a fixed rate. We quote the event itself and show our fee as its own line, so finance can see what is planning and what is production; the headcount-driven and specification-driven costs are quoted separately, as set out above. What moves a quote most is the headcount range, the venue and its load-in constraints, the stage, AV and LED specification, branding fabrication, lead time and any travel.' },
+      { q: 'Can you run an event outside Lahore?', a: 'Tell us the city, the dates and the venue and we will say whether we can take it on. Travel and accommodation for any team we send appear as their own line in the proposal rather than being absorbed into production cost.' },
+      { q: 'What should we ask before hiring a corporate event management company in Lahore?', a: 'Ask who supplies the AV and technical crew and who is on site to run the rehearsal, how branding and approvals are signed off and when the cut-off falls, whether they can work to a purchase order with an itemised quotation, and what the power backup plan is for your venue. Then ask to see photographs and, where the client agrees, the run of show from an event of a similar size.' },
       { q: 'How far in advance should a corporate event be booked?', a: 'Six to eight weeks is comfortable for a conference or annual dinner. Launches with custom stage builds or heavy branding need longer, mostly because of fabrication and approval cycles rather than availability.' },
     ],
     relatedServices: ['event-management', 'event-decoration'],
     relatedLinks: [
       { text: 'Our corporate event checklist', to: '/blog/corporate-gala-lahore-checklist' },
+      { text: 'What event planning in Lahore costs, line by line', to: '/blog/event-planning-cost-budget-lahore' },
+      { text: 'What a well-run corporate production looks like', to: '/blog/baraka-events-corporate-events-lahore' },
       { text: 'What to ask before hiring an event planner', to: '/blog/top-event-planner-lahore-checklist-2026' },
       { text: 'See recent productions', to: '/portfolio' },
     ],
+    enquiry: {
+      copy:
+        'Send the date or date range, the venue if it is fixed, an expected headcount range and your invoicing requirements, and we can prepare an itemised proposal. Email, WhatsApp or call, whichever suits your team.',
+      whatsappText:
+        'Assalam-o-Alaikum, I found Baraka Events through your website and would like a quote for a corporate event. I will share the date, venue and expected headcount here.',
+      emailSubject: 'Corporate event enquiry',
+      emailBody: [
+        'Company:',
+        'Event type (launch, conference, annual dinner, AGM, other):',
+        'Date or date range:',
+        'Venue (if fixed):',
+        'Expected headcount range:',
+        'What the event has to achieve:',
+        'Who signs off on branding and approvals:',
+        'Purchase-order / invoicing requirements:',
+        'Budget range (optional):',
+      ],
+    },
   },
   {
     slug: 'nikkah-events',

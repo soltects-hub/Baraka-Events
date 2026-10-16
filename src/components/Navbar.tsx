@@ -20,6 +20,9 @@ const links = [
   // site, but used to be reachable only from the /services hub or a single
   // footer link. Putting the full list in the nav (present on every page)
   // is also the single highest-leverage internal-link change available.
+  // The panel itself mounts on hover/focus, so the trigger is a real
+  // <a href="/services">: the static header then carries one crawlable link
+  // to the hub even before any script runs.
   { label: 'Services', href: '/services' },
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
@@ -183,9 +186,9 @@ export default function Navbar() {
                     if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setServicesOpen(false);
                   }}
                 >
-                  <button
-                    type="button"
-                    onClick={() => go(l.href)}
+                  <a
+                    href={l.href}
+                    onClick={(e) => { e.preventDefault(); go(l.href); }}
                     onFocus={openServices}
                     aria-expanded={servicesOpen}
                     aria-haspopup="true"
@@ -201,7 +204,7 @@ export default function Navbar() {
                     >
                       <path d="M1 1.5L6 6.5L11 1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </m.svg>
-                  </button>
+                  </a>
                   <AnimatePresence>{servicesOpen && <ServicesMenu onNavigate={go} />}</AnimatePresence>
                 </div>
               ) : (
