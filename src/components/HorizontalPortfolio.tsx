@@ -16,8 +16,8 @@ const projects = [
     category: 'Private Celebration',
     location: 'A rooftop venue, Walled City, Lahore',
     year: '2024',
-    image: '/media/rooftop-birthday.webp',
-    alt: 'Rooftop party at sunset with a lit 25 marquee sign, Happy Birthday neon, balloons and set tables',
+    image: '/media/rooftop-birthday-night.webp',
+    alt: 'Rooftop terrace at night under string lights and white paper lanterns, with a gold and white balloon garland, a Happy Birthday neon sign, lit 28 marquee numbers and set tables',
     stat: '90 guests · sunset to sunrise',
   },
   {

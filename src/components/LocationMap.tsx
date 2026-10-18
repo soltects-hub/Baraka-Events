@@ -101,7 +101,7 @@ export default function LocationMap() {
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {[
             { k: 'Landmark', v: 'Liberty Roundabout — opposite Liberty Market' },
-            { k: 'Hours', v: 'Mon\u2013Sat · 11:00 AM \u2013 8:00 PM' },
+            { k: 'Hours', v: 'Mon\u2013Sat · 2:00 PM \u2013 11:00 PM' },
             { k: 'Parking', v: 'Big City Plaza basement — validated for clients' },
           ].map((f, i) => (
             <motion.div

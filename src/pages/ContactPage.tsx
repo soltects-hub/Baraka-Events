@@ -16,7 +16,7 @@ export default function ContactPage() {
   useSEO({
     title: 'Contact Baraka Events — Hire an Event Planner in Lahore',
     description:
-      'Book a free consultation with Baraka Events, an event planner in Gulberg III, Lahore. Call +92 313 9999039, Mon–Sat 11:00 AM–8:00 PM.',
+      'Book a free consultation with Baraka Events, an event planner in Gulberg III, Lahore. Call +92 313 9999039, Mon–Sat 2:00 PM–11:00 PM.',
     canonical: routes.contact,
   });
 

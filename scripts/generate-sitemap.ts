@@ -68,6 +68,10 @@ const corporatePassLastmod = '2026-10-16';
 // image) and the wedding-venues guide, which takes its date from updatedISO. Image recompression, the About image format change and the
 // trimmed blog excerpts are not content passes and move no date. UTC date of the content commit, never a predicted one.
 const auditPassLastmod = '2026-10-16';
+// 2026-10-18: owner-supplied photos and corrected opening hours. The homepage (Weddings chapter, rooftop-birthday card, location hours),
+// /portfolio (rooftop-birthday card) and /contact (location hours and its meta description) changed visibly. UTC date of the content
+// commit, never a predicted one.
+const contentPassLastmod = '2026-10-18';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': corporatePassLastmod,
@@ -96,13 +100,13 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: corporatePassLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: contentPassLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
-  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: contentPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: auditPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
-  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
+  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: contentPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
   { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
   // /venues and /vendors are deliberately left out while they carry no real

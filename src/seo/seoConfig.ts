@@ -41,8 +41,8 @@ export const seoConfig = {
     // "quick facts" row — mirrored here, not a new claim.
     openingHours: {
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '11:00',
-      closes: '20:00',
+      opens: '14:00',
+      closes: '23:00',
     },
     sameAs: [
       'https://instagram.com/Barakaeventsofficial',

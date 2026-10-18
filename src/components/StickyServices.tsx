@@ -8,8 +8,8 @@ const services = [
     tagline: 'Every function, one plan',
     description:
       'Mehndi, baraat, nikkah and walima planned as one production instead of four separate events. We handle venue selection, stage and floral design, catering coordination and guest logistics, so the story stays consistent from the first night to the last.',
-    image: '/media/gallery/wedding-24.webp',
-    imageAlt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns',
+    image: '/media/experiences-weddings.webp',
+    imageAlt: 'Garden wedding reception under a white draped canopy on a metal frame, with hanging lanterns, tall white floral urns with pink and cream arrangements, and round tables set on the lawn',
     details: ['Mehndi · Baraat · Nikkah · Walima', 'Destination & Multi-Day Weddings', 'Stage, Floral & Lighting Design'],
   },
   {
