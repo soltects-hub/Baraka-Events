@@ -26,7 +26,7 @@ export default function Contact() {
   return (
     <section id="contact" ref={ref} data-scene="12 · FINAL FRAME — CONTACT" className="relative overflow-hidden py-20 md:py-40">
       <motion.div style={{ y: bgY }} className="absolute inset-[-15%]">
-        <img src="/media/gallery-4.webp" alt="" aria-hidden className="h-full w-full object-cover" loading="lazy" />
+        <img src="/media/contact-candles.webp" alt="" aria-hidden width={940} height={1672} className="h-full w-full object-cover" loading="lazy" />
         {/* the photograph stays readable as a room; a bronze-tinted wash
             and vignette instead of an 88% black sheet */}
         <div className="absolute inset-0 bg-ink/70" />
