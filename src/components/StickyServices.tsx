@@ -28,8 +28,10 @@ const services = [
     tagline: 'Sized to the guest list',
     description:
       'Birthdays, aqeeqahs, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty. A smaller guest list gets more design detail per guest, not less.',
-    image: '/media/gallery/celebration-4.webp',
-    imageAlt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns',
+    image: '/media/private-celebrations-dinner.webp',
+    imageAlt: 'Long candlelit dining table in a timber pavilion, with white draped fabric overhead, string lights, a cream table runner and candles in glass holders on the floor',
+    // portrait photo in a landscape frame: show the candlelit table and the string lights
+    focus: '50% 42%',
     details: ['Milestone Birthdays & Anniversaries', 'Rooftop Dinners & Garden Mehfils', 'Private & Intimate Gatherings'],
   },
 ];
@@ -69,7 +71,7 @@ function StackedServices() {
               transition={{ duration: 0.8, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="relative overflow-hidden rounded-sm border border-champagne/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]"
             >
-              <img src={s.image} alt={s.imageAlt} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={s.image} alt={s.imageAlt} loading="lazy" style={s.focus ? { objectPosition: s.focus } : undefined} className="absolute inset-0 h-full w-full object-cover" />
               <div className="grade absolute inset-0" />
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-ink via-ink/80 via-45% to-transparent" />
               <div className="relative flex min-h-[620px] flex-col justify-end p-6 sm:min-h-[540px] sm:p-8">
@@ -124,6 +126,7 @@ function PinnedServices() {
               src={s.image}
               alt={s.imageAlt}
               loading="lazy"
+              style={s.focus ? { objectPosition: s.focus } : undefined}
               initial={{ opacity: 0, scale: 1.12, rotateY: 4 }}
               animate={{ opacity: 0.92, scale: 1, rotateY: 0 }}
               exit={{ opacity: 0, scale: 0.96, rotateY: -4 }}
