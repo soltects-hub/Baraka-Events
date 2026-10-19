@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import RevealText from './RevealText';
+import HouseSignature from './HouseSignature';
 
 const stats = [
   { value: 'Full-Service', label: 'Planning & Production' },
@@ -18,17 +19,12 @@ export default function About() {
   const img2Y = useTransform(scrollYProgress, [0, 1], [160, -40]);
   const maskInset = useTransform(scrollYProgress, [0.05, 0.4], [30, 0]);
   const mask = useMotionTemplate`inset(${maskInset}% 0% ${maskInset}% 0%)`;
-  const bigWordX = useTransform(scrollYProgress, [0, 1], ['6%', '-14%']);
 
   return (
-    <section id="about" ref={ref} data-scene="02 · CLOSE-UP — THE HOUSE" className="relative overflow-hidden bg-ink py-20 md:py-40">
-      <motion.div
-        style={{ x: bigWordX }}
-        aria-hidden
-        className="pointer-events-none absolute top-2 left-0 whitespace-nowrap font-display text-[20vw] leading-none text-stroke opacity-30 select-none md:top-6"
-      >
-        Baraka — Baraka — Baraka
-      </motion.div>
+    <section id="about" ref={ref} data-scene="02 · CLOSE-UP — THE HOUSE" className="relative overflow-hidden bg-ink pt-10 pb-20 md:pt-20 md:pb-40">
+      <div className="relative mx-auto mb-10 max-w-[1400px] px-6 md:mb-12 md:px-10">
+        <HouseSignature />
+      </div>
 
       <div className="relative mx-auto grid max-w-[1400px] gap-16 px-6 md:px-10 lg:grid-cols-2 lg:gap-24">
         <div className="relative">
