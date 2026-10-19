@@ -231,6 +231,15 @@ body {
       transform: translateX(var(--marquee-distance, -50%));
     }
   }
+  /* The floating WhatsApp button sits 20px from the right edge on phones; the stock ping
+     (scale 2) overshoots that by 8px, so its pulse is clipped by the screen edge. */
+  @keyframes wa-ping {
+    75%,
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
 
   .hairline {
     height: 1px;

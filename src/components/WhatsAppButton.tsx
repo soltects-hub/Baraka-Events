@@ -44,7 +44,7 @@ export default function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-24 right-5 z-[96] w-[300px] overflow-hidden rounded-2xl border border-champagne/12 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:bottom-28 md:right-7"
+            className="fixed bottom-24 right-5 z-[96] w-[300px] max-w-[calc(100%-2.5rem)] overflow-hidden rounded-2xl border border-champagne/12 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:bottom-28 md:right-7"
           >
             {/* header */}
             <div className="relative bg-gradient-to-br from-ink-2 to-ink px-5 py-4">
@@ -128,7 +128,7 @@ export default function WhatsAppButton() {
         )}
 
         <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_8px_30px_rgba(37,211,102,0.35)] transition-shadow duration-300 group-hover:shadow-[0_8px_40px_rgba(37,211,102,0.55)]">
-          {!open && <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/30 [animation-duration:3s]" />}
+          {!open && <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/30 [animation-duration:3s] max-md:animate-[wa-ping_3s_cubic-bezier(0,0,0.2,1)_infinite]" />}
           <AnimatePresence mode="wait" initial={false}>
             {open ? (
               <m.span
