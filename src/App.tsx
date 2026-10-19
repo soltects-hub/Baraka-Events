@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { SmoothScrollProvider } from './lib/scroll';
 import { useLenis } from './lib/useLenis';
+import { keepsBootPosition, clearBootPosition } from './lib/bootScroll';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -40,6 +41,9 @@ function ScrollRestore() {
   const { pathname } = useLocation();
   const lenis = useLenis();
   useEffect(() => {
+    // A visitor who scrolled the prerendered page while the app was still loading keeps their place.
+    if (keepsBootPosition(pathname)) return;
+    clearBootPosition();
     lenis?.scrollTo(0, { immediate: true });
     window.scrollTo(0, 0);
   }, [pathname, lenis]);

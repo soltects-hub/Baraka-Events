@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { registerLazyMount } from '../lib/lazyMountRegistry';
+import { reservedHeight } from '../lib/bootScroll';
 
 /**
  * Doesn't render children until the wrapper scrolls within `rootMargin` of
@@ -10,6 +11,10 @@ import { registerLazyMount } from '../lib/lazyMountRegistry';
  * seen. The generous default margin gives content time to mount and settle
  * before it scrolls into view, so growing into its real height never
  * happens on-screen.
+ *
+ * When a visitor had already scrolled the prerendered page at hand-over (see
+ * lib/bootScroll.ts) the wrapper also holds that section's prerendered height
+ * until its content has rendered, so the page does not collapse under them.
  */
 export default function LazyMount({
   children,
@@ -27,6 +32,31 @@ export default function LazyMount({
   const [visible, setVisible] = useState(
     () => !!anchorId && typeof window !== 'undefined' && window.location.hash === `#${anchorId}`
   );
+
+  // Only ever set when a visitor was already scrolled at hand-over; otherwise this stays undefined and the wrapper is unchanged.
+  const [reserve, setReserve] = useState<number | undefined>(undefined);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el?.parentElement) return;
+    setReserve(reservedHeight(Array.prototype.indexOf.call(el.parentElement.children, el)));
+  }, []);
+  useEffect(() => {
+    if (reserve === undefined) return;
+    const el = ref.current;
+    if (!el) return;
+    // released as soon as the section's own markup is in (children exist), or after a safety timeout
+    const release = () => {
+      if (el.children.length > 0) setReserve(undefined);
+    };
+    const observer = new MutationObserver(release);
+    observer.observe(el, { childList: true });
+    release();
+    const timeout = setTimeout(() => setReserve(undefined), 30000);
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
+  }, [reserve]);
 
   useEffect(() => {
     if (visible) return;
@@ -53,5 +83,9 @@ export default function LazyMount({
     };
   }, [visible, rootMargin]);
 
-  return <div ref={ref}>{visible ? children : null}</div>;
+  return (
+    <div ref={ref} style={reserve === undefined ? undefined : { minHeight: reserve }}>
+      {visible ? children : null}
+    </div>
+  );
 }

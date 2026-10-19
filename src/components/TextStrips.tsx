@@ -33,10 +33,11 @@ function StripContent({ dark }: { dark: boolean }) {
  * on a CSS animation that is paused while the section is out of view; on
  * phones only the flame ribbon is shown.
  *
- * Phone layout (md and up are unchanged):
- *  - The section has its own bg-ink like every neighbour. It had none, and the
- *    Hero's ambient backdrop is position:fixed behind the whole page, so it
- *    showed through only here as a hard-edged brown rectangle.
+ * All sizes: the section has its own bg-ink like every neighbour. It had none,
+ * and the Hero's ambient backdrop is position:fixed behind the whole page, so
+ * it showed through only here as a hard-edged brown rectangle.
+ *
+ * Phone layout only (md and up keep the original spacing, shadow and edges):
  *  - It is only as tall as the tilted ribbon needs; the neighbours already carry
  *    their own py-20 (it used to add py-24 + a 96px spacer on top of that).
  *  - The ribbon's glow is a soft gradient that fades out inside the section
@@ -50,7 +51,7 @@ export default function TextStrips() {
   const trackStyle = { '--marquee-duration': '30s', '--marquee-distance': '-33.333%' } as React.CSSProperties;
 
   return (
-    <section ref={ref} aria-hidden className="relative overflow-hidden bg-ink md:-my-10 md:bg-transparent md:py-32">
+    <section ref={ref} aria-hidden className="relative overflow-hidden bg-ink md:-my-10 md:py-32">
       {/* phone glow: fades to nothing at the section's top and bottom edges (md and up use the ribbon's own shadow) */}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/15 to-transparent md:hidden" />
 

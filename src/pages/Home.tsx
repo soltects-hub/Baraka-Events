@@ -8,6 +8,7 @@ import Hero from '../components/Hero';
 import { faqs } from '../lib/faqs';
 import LazyMount from '../components/LazyMount';
 import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
+import { hasBootPosition } from '../lib/bootScroll';
 
 // Everything below Hero is code-split: none of it is needed for the
 // initial paint, and splitting it into separate chunks breaks up what was
@@ -37,7 +38,11 @@ const LocationMap = lazy(() => import('../components/LocationMap'));
 let hasLoadedOnce = false;
 
 export default function Home() {
-  const [loaded, setLoaded] = useState(hasLoadedOnce);
+  // The splash is for arrivals at the top; a visitor already scrolling the prerendered page goes straight to the content.
+  const [loaded, setLoaded] = useState(() => {
+    if (hasBootPosition()) hasLoadedOnce = true;
+    return hasLoadedOnce;
+  });
   const lenis = useLenis();
   const { hash } = useLocation();
 
