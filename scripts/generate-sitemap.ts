@@ -72,6 +72,9 @@ const auditPassLastmod = '2026-10-16';
 // /portfolio (rooftop-birthday card) and /contact (location hours and its meta description) changed visibly. UTC date of the content
 // commit, never a predicted one.
 const contentPassLastmod = '2026-10-18';
+// 2026-10-19: the Food Menu 2026-27 replaced the homepage tasting-menu carousel (all eight packages, prices and inclusions now on the page).
+// The catering guide's updatedISO moves with it, so it takes its date from there. UTC date of the content commit, never a predicted one.
+const menuPassLastmod = '2026-10-19';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': corporatePassLastmod,
@@ -100,7 +103,7 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: contentPassLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: menuPassLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: contentPassLastmod },

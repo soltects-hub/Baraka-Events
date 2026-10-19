@@ -31,7 +31,7 @@ const VERIFIED_FACTS = `
   1. Luxury Shaadis — Mehndi, Baraat, Nikkah, Walima, destination & multi-day shaadis, couture floral & stage design.
   2. Corporate Events — launches, galas, summits, brand environments & stage design, VIP & executive hospitality.
   3. Private Celebrations — milestone birthdays, aqeeqahs, anniversaries, rooftop dinners, garden mehfils, discreet celebrity/VIP events.
-- Also offers: in-house culinary/menu direction (live BBQ, grand mains, continental/fusion, desserts), event lighting/AV production, floral & stage design.
+- Also offers: a food menu of eight set packages, Menu 1 to Menu 8 (2026-27), priced per person for a minimum of 200 guests, event lighting/AV production, floral & stage design.
 - No company statistics are published on the site (the owner removed "events produced", "years of craft" and "client return rate" figures on 2026-08-29 because they could not be verified). Do not state any event count, tenure, venue count, return rate or client number.
 - Booking guidance (as published): a full multi-function wedding 9 to 12 months ahead for first choice of venue and date, especially in wedding season (October to March); a single function or smaller private event 2 to 4 months; for closer dates, contact us and we can often still make it work. Do not state any shorter specific turnaround.
 - Pricing: no price list is published. Baraka quotes for the scope of work, not as a percentage of the client's budget, with its fee as its own line, and gives a line-item proposal before commitment. Never state any price, PKR figure, price range or budget band.

@@ -223,7 +223,7 @@ const clusters: Cluster[] = [
     proposedUrl: routes.blogPost('luxury-event-catering-menu-lahore'),
     contentType: 'blog-post',
     existingSlug: null,
-    evidence: 'MenuCarousel.tsx: Live BBQ Station, Grand Mains, Continental & Fusion, Desserts & Mithai — culinary direction is an explicit part of the service.',
+    evidence: 'FoodMenus.tsx / foodMenu.ts: the Food Menu 2026-27, eight set packages priced per person (minimum 200 guests) — catering is an explicit part of the service.',
     seeds: ['wedding catering', 'event catering menu', 'live BBQ station wedding', 'shaadi menu ideas'],
     modifiers: ['{seed} Lahore', 'best {seed} company', 'luxury {seed} packages'],
     basePriority: 'medium',
@@ -436,7 +436,7 @@ const all = dedupe(clusters.flatMap(buildCluster)).sort((a, b) => a.topicCluster
 const output = {
   generatedAt: new Date().toISOString(),
   methodology:
-    'Topic-cluster keyword research: seed terms x intent modifiers, grounded in Baraka Events\' real published services (StickyServices.tsx, MenuCarousel.tsx), real FAQ-stated service areas (FAQ.tsx), and existing blog content (src/lib/posts.ts). No search-volume data source is connected to this project — searchVolume is always "unavailable", never estimated.',
+    'Topic-cluster keyword research: seed terms x intent modifiers, grounded in Baraka Events\' real published services (StickyServices.tsx, FoodMenus.tsx), real FAQ-stated service areas (FAQ.tsx), and existing blog content (src/lib/posts.ts). No search-volume data source is connected to this project — searchVolume is always "unavailable", never estimated.',
   clusterCount: clusters.length,
   keywordCount: all.length,
   keywords: all,

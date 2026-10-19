@@ -22,7 +22,7 @@ const About = lazy(() => import('../components/About'));
 const FAQ = lazy(() => import('../components/FAQ'));
 const StickyServices = lazy(() => import('../components/StickyServices'));
 const BrandsMarquee = lazy(() => import('../components/BrandsMarquee'));
-const MenuCarousel = lazy(() => import('../components/MenuCarousel'));
+const FoodMenus = lazy(() => import('../components/FoodMenus'));
 const TextStrips = lazy(() => import('../components/TextStrips'));
 const DollyZoom = lazy(() => import('../components/DollyZoom'));
 const HorizontalPortfolio = lazy(() => import('../components/HorizontalPortfolio'));
@@ -134,7 +134,7 @@ export default function Home() {
         </LazyMount>
         <LazyMount>
           <Suspense fallback={null}>
-            <MenuCarousel />
+            <FoodMenus />
           </Suspense>
         </LazyMount>
         <LazyMount anchorId="process">

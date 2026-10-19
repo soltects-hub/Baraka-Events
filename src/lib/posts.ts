@@ -630,7 +630,7 @@ export const posts: Post[] = [
     category: 'Catering',
     date: 'September 3, 2026',
     publishedISO: '2026-09-03',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-10-19',
     readTime: '7 min read',
     image: '/media/grand-mains.webp',
     imageAlt: 'Biryani topped with a roasted drumstick beside bowls of mutton qorma and butter chicken in copper dishes',
@@ -639,7 +639,7 @@ export const posts: Post[] = [
       { h: 'Where catering actually sits in a wedding budget' },
       { p: 'Catering is usually the largest single line in a Lahore wedding budget, depending on guest count and menu ambition, and more so for bigger guest lists. Getting that line right matters more than almost any other budget decision, because it is also the line item with the least room for a bad surprise on the night itself.' },
       { h: 'How we structure a Lahore wedding dastarkhwan' },
-      { p: 'Our own tasting menu at Baraka Events is built as five distinct stations rather than one long buffet table: a live BBQ station finishing seekh kebab, chicken malai boti and mutton chops to order; the grand mains — mutton qorma, chicken biryani and beef nihari, the dishes every Lahori guest actually came for; a continental and fusion counter for the modern mehmaan who wants a lighter plate; desserts and mithai to close; and a chai and beverages station that keeps the evening moving once the main service winds down. Five stations, each staffed and timed separately, rather than one kitchen trying to hold six cuisines at once.' },
+      { p: 'Our 2026–27 food menu is a set of eight packages, Menu 1 to Menu 8, each priced per person for a minimum of 200 guests. Menu 1 to Menu 3 are built around a main dish (a chicken B.B.Q menu, a chicken one-dish menu and a mutton one-dish menu), with a choice of sweet dishes and a variety of naan. Menu 4 to Menu 8 are fuller spreads that begin with hot and sour soup and run from Rs. 3,300 to Rs. 6,700 per person. Every package includes the setup (wall to wall carpet, round tables and banquet chairs, buffet stations, crockery, cutlery, waiters, lighting and a genset), while decor, DJ and the venue are not included. The full dish list for each menu is on our homepage.' },
       { h: 'Live stations vs. plated service: which suits your event' },
       { p: 'Live stations work best for a mehndi or a large baraat crowd that is moving, dancing and eating in shifts — guests serve themselves at their own pace, and the theatre of a live grill or wok station becomes part of the entertainment. A formal walima with assigned seating usually calls for plated or family-style service instead, timed against the run-of-show so the couple’s entrance and cake-cutting never collide with dinner. A sensible split is to use both: live stations for the mehndi and baraat, a more composed plated or buffet service for the walima.' },
       { h: 'What headcount does to a menu' },
@@ -651,7 +651,7 @@ export const posts: Post[] = [
       { p: 'Should the mehndi, baraat and walima all have the same menu? No — most Lahore weddings vary the menu across functions, with livelier live stations for the mehndi and baraat and a more formal plated or buffet service for the walima.' },
       { p: 'Can Baraka Events coordinate a caterer we’ve already chosen? Yes. We build the run-of-show around a family’s own trusted caterer, timing meal service against the rest of the evening rather than replacing vendors you already like.' },
       {
-        p: 'Does Baraka Events handle catering directly, or just coordination? Both. We offer in-house culinary and menu direction — including the live BBQ, grand mains, continental and fusion, and dessert stations described above — and we coordinate an outside caterer just as readily if that is what a family prefers.',
+        p: 'Does Baraka Events handle catering directly, or just coordination? Both. We offer a food menu of eight set packages, Menu 1 to Menu 8, priced per person for a minimum of 200 guests, and we coordinate an outside caterer just as readily if that is what a family prefers.',
         related: [
           { text: 'How to Plan a Walima Reception in Lahore', slug: 'walima-reception-planning-guide' },
           { text: 'Lahore Wedding Budget: Where to Spend and Where to Save', slug: 'luxury-shaadi-cost-lahore' },
