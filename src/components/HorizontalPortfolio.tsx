@@ -12,13 +12,13 @@ const projects = [
     stat: 'LED screens · truss lighting · stage platform',
   },
   {
-    title: 'A Rooftop Birthday',
+    title: 'A Birthday Backdrop',
     category: 'Private Celebration',
-    location: 'A rooftop venue, Walled City, Lahore',
-    year: '2024',
-    image: '/media/rooftop-birthday-night.webp',
-    alt: 'Rooftop terrace at night under string lights and white paper lanterns, with a gold and white balloon garland, a Happy Birthday neon sign, lit 28 marquee numbers and set tables',
-    stat: '90 guests · sunset to sunrise',
+    location: '',
+    year: '',
+    image: '/media/gallery/celebration-4.webp',
+    alt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns',
+    stat: 'Flower wall · neon sign · balloon columns',
   },
   {
     title: 'A Conference Stage',
@@ -100,7 +100,7 @@ export default function HorizontalPortfolio() {
               Three events,<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-              A branded LED stage, a rooftop birthday and a conference stage —
+              A branded LED stage, a birthday backdrop and a conference stage —
               different briefs from our archive.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">

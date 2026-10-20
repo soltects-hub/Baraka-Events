@@ -15,7 +15,6 @@ interface ArchiveItem {
  */
 const items: ArchiveItem[] = [
   { src: '/media/gallery/corporate-3.webp', alt: 'Ballroom conference set-up with a lighting truss, LED stage screen, red carpet aisle and round tables', category: 'Corporate Event', title: 'A Ballroom Stage Set-Up', location: '' },
-  { src: '/media/rooftop-birthday-night.webp', alt: 'Rooftop terrace at night under string lights and white paper lanterns, with a gold and white balloon garland, a Happy Birthday neon sign, lit 28 marquee numbers and set tables', category: 'Private Celebration', title: 'A Rooftop Birthday', location: 'Walled City, Lahore' },
   { src: '/media/gallery/wedding-24.webp', alt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns', category: 'Wedding', title: 'A Garden Nikkah & Walima', location: 'DHA, Lahore' },
   { src: '/media/showreel-3.webp', alt: 'Rows of hanging crystal chandeliers and bead curtains over a pink lounge beside a white aisle at night', category: 'Baraat', title: 'The Chandelier Canopy', location: 'Lahore' },
   { src: '/media/gallery/corporate-4.webp', alt: 'Stage with an LED screen, truss lighting and red balloon decor in a chandeliered hall', category: 'Corporate Event', title: 'A Stage with LED Screens', location: '' },

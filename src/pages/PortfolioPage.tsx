@@ -20,15 +20,17 @@ const projects = [
       'A branded corporate hall with a truss-mounted lighting rig, LED screens and a central platform.',
   },
   {
-    title: 'A Rooftop Birthday',
+    title: 'A Birthday Backdrop',
     category: 'Private Celebration',
-    location: 'A rooftop venue, Walled City, Lahore',
-    year: '2024',
-    image: '/media/rooftop-birthday-night.webp',
-    imageAlt: 'Rooftop terrace at night under string lights and white paper lanterns, with a gold and white balloon garland, a Happy Birthday neon sign, lit 28 marquee numbers and set tables',
-    stat: '90 guests · sunset to sunrise',
+    location: '',
+    year: '',
+    image: '/media/gallery/celebration-4.webp',
+    imageAlt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns',
+    stat: 'Flower wall · neon sign · balloon columns',
+    // portrait photo in a wide frame: keep the neon sign in view
+    focus: '50% 30%',
     summary:
-      'An intimate milestone birthday built around a rooftop view of the old city skyline: candlelight, a live qawwali set and a menu built around the guest of honor’s preferences.',
+      'A birthday backdrop built around a white flower wall, a Happy Birthday neon sign and two pink balloon columns.',
   },
   {
     title: 'A Conference Stage',
@@ -146,6 +148,7 @@ export default function PortfolioPage() {
                   alt={p.imageAlt}
                   loading={i < 2 ? 'eager' : 'lazy'}
                   fetchPriority={i === 0 ? 'high' : 'auto'}
+                  style={p.focus ? { objectPosition: p.focus } : undefined}
                   className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 grade" />

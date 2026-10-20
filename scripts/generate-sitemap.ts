@@ -75,6 +75,9 @@ const contentPassLastmod = '2026-10-18';
 // 2026-10-19: the Food Menu 2026-27 replaced the homepage tasting-menu carousel (all eight packages, prices and inclusions now on the page).
 // The catering guide's updatedISO moves with it, so it takes its date from there. UTC date of the content commit, never a predicted one.
 const menuPassLastmod = '2026-10-19';
+// 2026-10-20: owner-approved photo swaps. The homepage (Weddings panel photo, birthday card and archive ring) and /portfolio (birthday card, whose
+// unverified guest count, venue, year and programme details were removed) changed visibly. UTC date of the content commit, never a predicted one.
+const photoPassLastmod = '2026-10-20';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': corporatePassLastmod,
@@ -103,10 +106,10 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: menuPassLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: photoPassLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
-  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: contentPassLastmod },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: photoPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: auditPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: contentPassLastmod },
