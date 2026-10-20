@@ -29,7 +29,7 @@ const experiences = [
       { h: 'Mehndi Planning & Decoration', p: 'Floral staging, dholki arrangements and a colour palette that sets the tone for the rest of the week. We brief florists early in the day so everything is fresh by the time guests arrive in the evening.' },
       { h: 'Baraat (Barat) & Nikkah (Nikah) Coordination', p: 'Timing the groom’s arrival, dhol formations and the nikkah stage setup so the sequence runs smoothly instead of turning into a parking and scheduling scramble.' },
       { h: 'Walima Hosting & Decor', p: 'A more formal register for the closing function: refined florals, curated lighting and a hosting standard suited to the largest guest list of the week.' },
-      { h: 'Wedding Stage & Decor Design', p: 'Stage design, floral programs and lighting planned as one visual system by our own wedding decorators, rather than assembled piecemeal from separate rental catalogues.' },
+      { h: 'Wedding Stage & Decor Design', p: 'Stage design, floral programs and lighting planned as one visual system by our designers, rather than assembled piecemeal from separate rental catalogues.' },
     ],
     related: [
       { text: 'Full wedding planning & management', to: '/services/wedding-planning' },

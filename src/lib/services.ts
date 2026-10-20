@@ -144,7 +144,7 @@ export const services: Service[] = [
       'Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system before a single flower is ordered.',
     included: [
       { h: 'Wedding Stage Decoration & Backdrop Design', p: 'Stage layouts and backdrops built around your venue\'s actual dimensions, not a generic catalogue setup.' },
-      { h: 'Floral Arrangements & Installations', p: 'From table centerpieces to full floral walls, sourced and staged by our own team rather than subcontracted out.' },
+      { h: 'Floral Arrangements & Installations', p: 'From table centerpieces to full floral walls, designed, sourced and staged as part of one concept so the finished room matches the plan.' },
       { h: 'Lighting Design', p: 'Lighting planned as part of the decor concept, not added afterward, so the room reads correctly in photos and in person.' },
       { h: '3D Concept Renders', p: 'A render of your stage and decor concept before the event, so changes happen on screen instead of on the day.' },
       { h: 'What Decor Costs and What Drives It', p: 'Decor pricing follows volume, not item count. Floral cost tracks how much flower is used rather than how many arrangements there are; stage cost tracks the size of the build and how much of it is custom; lighting is its own line because it scales with the rig and the power it draws. Seeing those three separately is what lets you trade a larger stage against a smaller floral spend instead of cutting everything evenly.' },

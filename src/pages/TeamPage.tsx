@@ -8,7 +8,7 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 
 const expertise = [
   { h: 'Production & Operations', p: 'Load-ins, cues and contingencies run by a dedicated operator head — the difference between a professional event planner in Lahore and a vendor who only shows up on the day.' },
-  { h: 'Design & Styling', p: 'Every stage, floral program and lighting plan is designed in-house before a single vendor is briefed, so the vision stays consistent from concept to execution.' },
+  { h: 'Design & Styling', p: 'Every stage, floral program and lighting plan is designed by our team before a single vendor is briefed, so the vision stays consistent from concept to execution.' },
   { h: 'Client Relations', p: 'One dedicated coordinator walks every family or brand through the entire journey — a single point of contact from first consultation to final rukhsati or closing toast.' },
   { h: 'Brand & Digital', p: 'A marketing and content team that documents and shares every Baraka production, so clients arrive already knowing the quality of work behind the name.' },
 ];

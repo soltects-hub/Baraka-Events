@@ -40,7 +40,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'Do you handle event decoration and production, or only planning and coordination?',
-    a: 'Both. We design the stage, florals and lighting in-house, and our own team handles the technical production — sound, AV and rigging. You are not being handed between a separate planner, decorator and production company.',
+    a: 'Both. We design the stage, florals and lighting, and we manage the technical production — sound, AV and rigging — as part of one plan. You are not being handed between a separate planner, decorator and production company.',
     related: [{ text: 'Event decoration in Lahore', to: '/services/event-decoration' }],
   },
   {
@@ -76,7 +76,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What makes Baraka Events different from other event planners in Lahore?',
-    a: 'We are a design and production company, not just a booking service. Décor, lighting and technical production are handled in-house by our own team, with one coordinator staying with your event from the first meeting to the last guest leaving — instead of being passed between separate vendors.',
+    a: 'We are a design and production company, not just a booking service. Décor, lighting and technical production are designed, planned and managed as one plan, with one coordinator staying with your event from the first meeting to the last guest leaving — instead of you being passed between separate vendors.',
     related: [
       { text: 'About Baraka Events', to: '/about' },
       { text: 'See our work', to: '/portfolio' },

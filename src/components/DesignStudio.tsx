@@ -151,7 +151,7 @@ export default function DesignStudio() {
 
         <div className="mt-14 flex flex-col items-center gap-3 text-center">
           <p className="text-[10px] uppercase tracking-[0.3em] text-mist-dim">
-            Designed and built by our in-house team, start to finish
+            Designed, planned and managed by our team, start to finish
           </p>
           <div aria-hidden className="hairline w-16" />
         </div>

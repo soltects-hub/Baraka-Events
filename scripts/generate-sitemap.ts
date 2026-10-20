@@ -72,18 +72,18 @@ const auditPassLastmod = '2026-10-16';
 // /portfolio (rooftop-birthday card) and /contact (location hours and its meta description) changed visibly. UTC date of the content
 // commit, never a predicted one.
 const contentPassLastmod = '2026-10-18';
-// 2026-10-19: the Food Menu 2026-27 replaced the homepage tasting-menu carousel (all eight packages, prices and inclusions now on the page).
-// The catering guide's updatedISO moves with it, so it takes its date from there. UTC date of the content commit, never a predicted one.
-const menuPassLastmod = '2026-10-19';
 // 2026-10-20: owner-approved photo swaps. The homepage (Weddings panel photo, birthday card and archive ring) and /portfolio (birthday card, whose
 // unverified guest count, venue, year and programme details were removed) changed visibly. UTC date of the content commit, never a predicted one.
 const photoPassLastmod = '2026-10-20';
+// 2026-10-20: unsupported in-house / own-team staffing and equipment claims were reworded to what Baraka designs, plans and manages. Pages whose visible
+// text changed: /team, /experiences and /services/event-decoration (the homepage already moved with the photo pass; the two guides carry updatedISO).
+const claimsPassLastmod = '2026-10-20';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': corporatePassLastmod,
   'wedding-planning': rankingPassLastmod,
   'mehndi-events': rankingPassLastmod,
-  'event-decoration': copyPassLastmod,
+  'event-decoration': claimsPassLastmod,
   'birthday-events': copyPassLastmod,
   'nikkah-events': rankingPassLastmod,
   'barat-events': servicesPassLastmod,
@@ -107,11 +107,11 @@ const EDITED_SERVICE_SLUGS = new Set([
 
 const staticRoutes: SitemapUrl[] = [
   { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: photoPassLastmod },
-  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
+  { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: photoPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: auditPassLastmod },
-  { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: staticLastmod },
+  { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: claimsPassLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: contentPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
   { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
