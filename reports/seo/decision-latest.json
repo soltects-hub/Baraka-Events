@@ -1,94 +1,45 @@
 {
-  "action": "fix-indexing",
-  "target": "site-wide indexing",
+  "action": "improve-existing",
+  "target": "/",
   "reasoning": [
-    "Only 0/20 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).",
-    "Publishing new content before fixing discoverability would waste effort — indexing is the dominant blocker right now."
+    "Query \"event planner lahore\": page 2 (position 11.9): even a perfect snippet earns about 1.0% here — the ranking is the limit, not the title.",
+    "Owning page: / (68 impressions at position 11.9).",
+    "Strengthen the owning page (content depth, contextual internal links); rewriting the snippet would not move this query."
   ],
   "evidence": {
-    "indexedCount": 0,
-    "totalInspected": 20,
-    "coverageStates": [
-      {
-        "url": "https://barakaevents.com/",
-        "coverageState": "Page with redirect"
+    "query": {
+      "query": "event planner lahore",
+      "clicks": 1,
+      "impressions": 68,
+      "ctr": 0.014705882352941176,
+      "position": 11.911764705882353
+    },
+    "assessment": {
+      "kind": "ranking",
+      "expectedCtr": 0.01,
+      "note": "page 2 (position 11.9): even a perfect snippet earns about 1.0% here — the ranking is the limit, not the title"
+    },
+    "ownership": {
+      "query": "event planner lahore",
+      "impressions": 69,
+      "clicks": 1,
+      "position": 11.753623188405797,
+      "owner": {
+        "page": "/",
+        "impressions": 68,
+        "clicks": 1,
+        "position": 11.911764705882353
       },
-      {
-        "url": "https://barakaevents.com/blog",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/best-event-planner-lahore-baraka-events",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/baraka-events-management-how-we-work",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/baraka-events-corporate-events-lahore",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/baraka-events-venue-booking-guide",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/baraka-events-decor-services-lahore",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/baraka-events-lahore-gulberg",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/destination-style-shaadi-lahore-trend",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/top-wedding-venues-lahore-2025",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/mehndi-themes-lahore-loves",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/luxury-shaadi-cost-lahore",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/walima-decor-trends-2025",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/corporate-gala-lahore-checklist",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/perfect-baraat-guide",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/walima-reception-planning-guide",
-        "coverageState": "URL is unknown to Google"
-      },
-      {
-        "url": "https://barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
-        "coverageState": "URL is unknown to Google"
-      }
-    ]
+      "others": [
+        {
+          "page": "/blog/baraka-events-lahore-event-planner",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 1
+        }
+      ],
+      "cannibalized": false,
+      "serviceGap": false
+    }
   }
 }
