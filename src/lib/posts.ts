@@ -545,7 +545,7 @@ export const posts: Post[] = [
     updatedISO: '2026-10-12',
     readTime: '6 min read',
     image: '/media/gallery/wedding-31.webp',
-    imageAlt: 'Farmhouse wedding dining under a draped cream canopy with ivy-wrapped posts and string lights near Lahore',
+    imageAlt: 'Garden dining under a draped cream canopy with ivy-wrapped posts and string lights',
     blocks: [
       { p: 'Ask a Lahori family why they chose a farmhouse on Raiwind Road over a banquet hall in DHA or Gulberg, and the answer is almost always the same: space. A farmhouse lawn gives you room a purpose-built hall simply cannot — for a five-hundred-guest baraat, a car park that does not spill onto the main road, or a stage concept too large for any indoor ceiling. That extra space comes with a different set of planning questions than a city venue, and most families only discover them after they have already signed the booking.' },
       { h: 'Why Raiwind Road specifically' },
