@@ -162,7 +162,7 @@ export default function Hero() {
                 Event Design &amp; Production &mdash; Gulberg, Lahore
               </m.p>
 
-              <h1 className="mt-6 max-w-lg font-display font-semibold leading-[1.04] [text-wrap:balance] text-[13vw] sm:text-[8vw] md:text-[clamp(38px,4.6vw,72px)]">
+              <h1 className="mt-6 max-w-lg font-display font-semibold leading-[1.04] [text-wrap:balance] text-[9.6vw] sm:text-[7vw] md:text-[clamp(38px,4.6vw,72px)]">
                 <RevealText
                   as="span"
                   text="Event Planners"

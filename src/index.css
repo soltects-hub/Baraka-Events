@@ -61,6 +61,7 @@
   --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-serif-display: "Playfair Display", "Georgia", serif;
+  --font-heading: "Roboto", sans-serif;
 }
 
 html {
@@ -398,7 +399,7 @@ input, textarea, select {
   --gmpx-fixed-panel-width-row-layout: 22em;
   --gmpx-fixed-panel-height-column-layout: 45%;
   --gmpx-font-family-base: 'Inter', system-ui, sans-serif;
-  --gmpx-font-family-headings: 'Oswald', system-ui, sans-serif;
+  --gmpx-font-family-headings: 'Roboto', system-ui, sans-serif;
   --gmpx-font-size-base: 0.875rem;
   --gmpx-hours-color-open: #4ade80;
   --gmpx-hours-color-closed: #f87171;
@@ -479,3 +480,37 @@ body { background-color: #000000; }
 
 /* the About signature's inline halo is the dark-section ink colour; on cream it becomes a cream halo */
 [data-scene^="02 "] [style*="text-shadow"] { text-shadow: 0 0 6px #f9f3ee, 0 0 3px #f9f3ee !important; }
+
+/* ---------------------------------------------------------------------------
+ * Heading typography (2026-10-21): every heading is Roboto in Baraka orange.
+ * One rule, outside the Tailwind layers so it wins over the per-heading
+ * font-display / font-light / text-ivory / accent-serif utilities and the
+ * gradient-clipped hero words without !important. Descendants are included
+ * because the headline words are nested spans (RevealText) and the accent
+ * phrases are <em>/<span class="accent-serif"> inside the heading.
+ * Only family, style, weight and colour are set; size, line-height, tracking,
+ * case and spacing stay with each heading's own utilities.
+ * The colour comes from --heading-color so a background that cannot carry
+ * orange can swap it in one place (see the orange sections below).
+ * ------------------------------------------------------------------------- */
+:root { --heading-color: #ff960b; }
+
+:is(h1, h2, h3, h4, h5, h6, [role="heading"]),
+:is(h1, h2, h3, h4, h5, h6, [role="heading"]) * {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--heading-color);
+  background-image: none;
+  animation: none;
+}
+:is(h1, [role="heading"][aria-level="1"]),
+:is(h1, [role="heading"][aria-level="1"]) * { font-weight: 500; }
+:is(h4, h5, h6),
+:is(h4, h5, h6) * { font-weight: 500; }
+
+/* the orange sections: orange text on #ff960b is invisible, so their headings
+   take the same near-black as the rest of the section's text; dark cards inside
+   them (the logo rail) keep orange headings */
+[data-scene^="03A "], [data-scene^="10 "] { --heading-color: #121212; }
+[data-scene^="03A "] .bg-ink-2, [data-scene^="10 "] .bg-ink-2 { --heading-color: #ff960b; }
