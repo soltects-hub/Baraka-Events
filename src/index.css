@@ -447,9 +447,9 @@ body { background-color: #000000; }
 [data-scene^="02 "] .text-gold, [data-scene^="05 "] .text-gold, [data-scene^="07A "] .text-gold,
 [data-scene^="09 "] .text-gold, [data-scene^="11 "] .text-gold { color: #9a4a00; }
 
-/* yellow brand band */
+/* brand band: Baraka orange (the reference uses yellow #ffc20e here) */
 [data-scene^="03A "] {
-  background-color: #ffc20e;
+  background-color: #ff960b;
   color: #121212;
   --color-cream: #121212;
   --color-ivory: #121212;
