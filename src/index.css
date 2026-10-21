@@ -405,3 +405,35 @@ input, textarea, select {
   --gmpx-rating-color: var(--color-gold);
   --gmpx-rating-color-empty: rgb(255 255 255 / 0.18);
 }
+
+/* ---------------------------------------------------------------------------
+ * Orange brand band (2026-10-21): the "Trusted By" section (data-scene 03A) takes
+ * Baraka orange as its background. Nothing else on the site changes. The section's
+ * light text colours would be unreadable on orange, so its colour tokens are
+ * redefined to a dark palette on the section only, and restored on the dark brand
+ * rail inside it (the black strip), which keeps its background and light text.
+ * No layout, spacing, type, image, gradient, overlay, animation or script property
+ * is set here; the shared colour tokens are unchanged. Outside the Tailwind layers,
+ * so it wins over the bg-ink utility it replaces.
+ * ------------------------------------------------------------------------- */
+[data-scene^="03A "] {
+  background-color: #ff960b;
+  color: #121212;
+  --color-cream: #121212;
+  --color-ivory: #121212;
+  --color-mist: #3b3326;
+  --color-mist-dim: #4a4030;
+  --color-champagne: #5a3b0c;
+  --color-gold-soft: #5a3b0c;
+}
+[data-scene^="03A "] .text-gold { color: #5a3b0c; }
+[data-scene^="03A "] .bg-ink-2 {
+  color: #f4eee3;
+  --color-cream: #f4eee3;
+  --color-ivory: #f3e4c7;
+  --color-mist: #b9ae9d;
+  --color-mist-dim: #7e7466;
+  --color-champagne: #e6c58a;
+  --color-gold-soft: #e6c58a;
+}
+[data-scene^="03A "] .bg-ink-2 .text-gold { color: #ff960b; }
