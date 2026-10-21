@@ -407,18 +407,74 @@ input, textarea, select {
 }
 
 /* ---------------------------------------------------------------------------
- * Section background scheme (2026-10-21), taken from the rendered backgrounds of
- * eventrra.pk: pure black #000000 and charcoal #303030. Its #0c0c0c / #121212
- * near-blacks are not used: on this site's smallest captions they would lower
- * contrast. Background colour only: no text, spacing, border, gradient, overlay,
- * image or layout property is set here. Keyed on each homepage section's existing
- * data-scene attribute, so no component or class names change; unlayered rules
- * outrank the layered Tailwind bg-ink / bg-ink-2 utilities they replace.
- * The reference's cream (#f9f3ee), white and yellow (#ffc20e) are deliberately not
- * used: the site's existing light text would be 1.0-2.2:1 on them.
+ * Section background scheme (2026-10-21), mapped from the rendered eventrra.pk:
+ * dark hero, cream About, dark process / services, a yellow brand band, a long
+ * white portfolio, a charcoal testimonial, cream team, near-black footer.
+ * Colours measured on the live reference: #000000, #0c0c0c, #121212, #303030,
+ * #404040, cream #f9f3ee, white #ffffff, yellow #ffc20e.
+ *
+ * Only background-color is set for the dark sections. The cream, white and
+ * yellow sections also get a dark text palette (their light text would be only
+ * 1.0-2.2:1 on those colours): the existing colour tokens are redefined on the
+ * section, so every text colour, icon stroke and hairline that uses a token
+ * follows, and the original tokens are restored on dark cards / photo captions
+ * inside them. Rules are keyed on each section's existing data-scene attribute and
+ * sit outside the Tailwind layers, so they win over the bg-ink / bg-ink-2
+ * utilities they replace. No layout, spacing, type, image, gradient, overlay,
+ * animation or script property is set here; the shared colour tokens are unchanged.
  * ------------------------------------------------------------------------- */
 body { background-color: #000000; }
-[data-scene^="01 "], [data-scene^="02 "], [data-scene^="03 "], [data-scene^="03A "],
-[data-scene^="05 "], [data-scene^="05A "], [data-scene^="06 "], [data-scene^="07A "],
-[data-scene^="09 "], [data-scene^="11 "], [data-scene^="13 "], footer.bg-ink { background-color: #000000; }
-[data-scene^="04 "], [data-scene^="07 "], [data-scene^="08 "], [data-scene^="10 "] { background-color: #303030; }
+
+/* dark sections: pure black where the section has small dim captions, near-black / charcoal where it has none */
+[data-scene^="01 "], [data-scene^="03 "], [data-scene^="05A "], [data-scene^="06 "], [data-scene^="13 "], footer.bg-ink { background-color: #000000; }
+[data-scene^="04 "] { background-color: #121212; }
+[data-scene^="08 "] { background-color: #0c0c0c; }
+[data-scene^="10 "] { background-color: #303030; }
+[data-scene^="07 "] { background-color: #404040; }
+
+/* light sections: cream and white, with a dark text palette */
+[data-scene^="02 "], [data-scene^="07A "], [data-scene^="09 "] { background-color: #f9f3ee; }
+[data-scene^="05 "], [data-scene^="11 "] { background-color: #ffffff; }
+[data-scene^="02 "], [data-scene^="05 "], [data-scene^="07A "], [data-scene^="09 "], [data-scene^="11 "] {
+  color: #121212;
+  --color-cream: #121212;
+  --color-ivory: #121212;
+  --color-mist: #4a4339;
+  --color-mist-dim: #6a6254;
+  --color-champagne: #6b4a1e;
+  --color-gold-soft: #6b4a1e;
+}
+[data-scene^="02 "] .text-gold, [data-scene^="05 "] .text-gold, [data-scene^="07A "] .text-gold,
+[data-scene^="09 "] .text-gold, [data-scene^="11 "] .text-gold { color: #9a4a00; }
+
+/* yellow brand band */
+[data-scene^="03A "] {
+  background-color: #ffc20e;
+  color: #121212;
+  --color-cream: #121212;
+  --color-ivory: #121212;
+  --color-mist: #3b3326;
+  --color-mist-dim: #4a4030;
+  --color-champagne: #5a3b0c;
+  --color-gold-soft: #5a3b0c;
+}
+[data-scene^="03A "] .text-gold { color: #5a3b0c; }
+
+/* dark photo cards, round icon buttons and the brand rail inside the light / yellow sections keep the original text palette */
+[data-scene^="03A "] .bg-ink-2,
+[data-scene^="05 "] .group,
+:is([data-scene^="02 "], [data-scene^="05 "], [data-scene^="07A "], [data-scene^="09 "], [data-scene^="11 "]) :is(.bg-ink-3, .bg-ink-4, .bg-ink-5, .plate) {
+  color: #f4eee3;
+  --color-cream: #f4eee3;
+  --color-ivory: #f3e4c7;
+  --color-mist: #b9ae9d;
+  --color-mist-dim: #7e7466;
+  --color-champagne: #e6c58a;
+  --color-gold-soft: #e6c58a;
+}
+[data-scene^="03A "] .bg-ink-2 .text-gold,
+[data-scene^="05 "] .group .text-gold,
+:is([data-scene^="02 "], [data-scene^="05 "], [data-scene^="07A "], [data-scene^="09 "], [data-scene^="11 "]) :is(.bg-ink-3, .bg-ink-4, .bg-ink-5, .plate) .text-gold { color: #ff960b; }
+
+/* the About signature's inline halo is the dark-section ink colour; on cream it becomes a cream halo */
+[data-scene^="02 "] [style*="text-shadow"] { text-shadow: 0 0 6px #f9f3ee, 0 0 3px #f9f3ee !important; }
