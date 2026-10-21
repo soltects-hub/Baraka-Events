@@ -405,3 +405,20 @@ input, textarea, select {
   --gmpx-rating-color: var(--color-gold);
   --gmpx-rating-color-empty: rgb(255 255 255 / 0.18);
 }
+
+/* ---------------------------------------------------------------------------
+ * Section background scheme (2026-10-21), taken from the rendered backgrounds of
+ * eventrra.pk: pure black #000000 and charcoal #303030. Its #0c0c0c / #121212
+ * near-blacks are not used: on this site's smallest captions they would lower
+ * contrast. Background colour only: no text, spacing, border, gradient, overlay,
+ * image or layout property is set here. Keyed on each homepage section's existing
+ * data-scene attribute, so no component or class names change; unlayered rules
+ * outrank the layered Tailwind bg-ink / bg-ink-2 utilities they replace.
+ * The reference's cream (#f9f3ee), white and yellow (#ffc20e) are deliberately not
+ * used: the site's existing light text would be 1.0-2.2:1 on them.
+ * ------------------------------------------------------------------------- */
+body { background-color: #000000; }
+[data-scene^="01 "], [data-scene^="02 "], [data-scene^="03 "], [data-scene^="03A "],
+[data-scene^="05 "], [data-scene^="05A "], [data-scene^="06 "], [data-scene^="07A "],
+[data-scene^="09 "], [data-scene^="11 "], [data-scene^="13 "], footer.bg-ink { background-color: #000000; }
+[data-scene^="04 "], [data-scene^="07 "], [data-scene^="08 "], [data-scene^="10 "] { background-color: #303030; }
