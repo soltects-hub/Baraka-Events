@@ -409,7 +409,7 @@ input, textarea, select {
 /* ---------------------------------------------------------------------------
  * Section background scheme (2026-10-21), mapped from the rendered eventrra.pk:
  * dark hero, cream About, dark process / services, a yellow brand band, a long
- * white portfolio, a charcoal testimonial, cream team, near-black footer.
+ * white portfolio, a testimonial panel, cream team, near-black footer.
  * Colours measured on the live reference: #000000, #0c0c0c, #121212, #303030,
  * #404040, cream #f9f3ee, white #ffffff, yellow #ffc20e.
  *
@@ -429,7 +429,6 @@ body { background-color: #000000; }
 [data-scene^="01 "], [data-scene^="03 "], [data-scene^="05A "], [data-scene^="06 "], [data-scene^="13 "], footer.bg-ink { background-color: #000000; }
 [data-scene^="04 "] { background-color: #121212; }
 [data-scene^="08 "] { background-color: #0c0c0c; }
-[data-scene^="10 "] { background-color: #303030; }
 [data-scene^="07 "] { background-color: #404040; }
 
 /* light sections: cream and white, with a dark text palette */
@@ -447,8 +446,8 @@ body { background-color: #000000; }
 [data-scene^="02 "] .text-gold, [data-scene^="05 "] .text-gold, [data-scene^="07A "] .text-gold,
 [data-scene^="09 "] .text-gold, [data-scene^="11 "] .text-gold { color: #9a4a00; }
 
-/* brand band: Baraka orange (the reference uses yellow #ffc20e here) */
-[data-scene^="03A "] {
+/* brand band and testimonials: Baraka orange (the reference uses yellow #ffc20e for its band) */
+[data-scene^="03A "], [data-scene^="10 "] {
   background-color: #ff960b;
   color: #121212;
   --color-cream: #121212;
@@ -458,7 +457,9 @@ body { background-color: #000000; }
   --color-champagne: #5a3b0c;
   --color-gold-soft: #5a3b0c;
 }
-[data-scene^="03A "] .text-gold { color: #5a3b0c; }
+[data-scene^="03A "] .text-gold, [data-scene^="10 "] .text-gold { color: #5a3b0c; }
+/* the active carousel dot is the orange accent itself, which would vanish on an orange background */
+[data-scene^="10 "] .bg-gold { background-color: #121212; }
 
 /* dark photo cards, round icon buttons and the brand rail inside the light / yellow sections keep the original text palette */
 [data-scene^="03A "] .bg-ink-2,
