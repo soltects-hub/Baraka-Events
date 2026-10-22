@@ -53,7 +53,7 @@ export const services: Service[] = [
     tag: 'Weddings',
     title: 'Wedding Planning & Management in Lahore',
     ctaSubject: 'wedding',
-    seoTitle: 'Wedding Planner & Wedding Planning in Lahore | Baraka Events',
+    seoTitle: 'Luxury Wedding Planner in Lahore | Baraka Events',
     seoDescription:
       'Luxury wedding planner and wedding event management company in Lahore — mehndi, baraat, nikkah and walima planned as one project, with a line-item quote.',
     image: '/media/gallery/wedding-24.webp',
@@ -66,12 +66,14 @@ export const services: Service[] = [
       { h: 'Day-of Timeline Management', p: 'A run-of-show for every function, so arrivals, stage moments and meal service happen on schedule.' },
       { h: 'Design Direction Across Every Function', p: 'A consistent floral, lighting and stage language that carries from mehndi through walima, rather than each night looking unrelated to the last.' },
       { h: 'What a Wedding Planner in Lahore Actually Costs', p: 'We charge for the work rather than as a percentage of what you spend, so the fee does not rise because you picked a more expensive venue. The proposal itemises venue, catering per head, decor, lighting, photography and our fee as separate lines. That structure matters more than the headline number, because it is what lets you move money between functions once you can see the totals side by side.' },
+      { h: 'What a Luxury Wedding Means in Lahore', p: 'For us, a luxury wedding is a standard of control, not just a size of budget. The stage is designed to the venue\u2019s real dimensions, lighting is treated as part of the design, every function has its own run-of-show, and one team stays accountable for the whole week. The proposal itemises every line, and a more expensive venue does not raise our fee. If you are looking for a luxury wedding planner in Lahore, that is the standard to hold any planner to, including us.' },
       { h: 'Full Planning or a Single Function', p: 'You can book the whole week, or book one function and run the rest yourselves. The full week buys design consistency and one point of contact. A single function buys expertise exactly where you need it. Neither is the upsell, and we will say which one your situation actually calls for.' },
       { h: 'Working With Both Families', p: 'A Lahori wedding usually has two sides with different guest lists, different budgets and sometimes different ideas about the same evening. We are used to running a plan where both families stay informed without either being managed through the other, and where cost splits are written down rather than assumed. It removes the most common source of friction in the final fortnight.' },
       { h: 'The Last Two Weeks', p: 'Nearly everything that goes wrong at a Lahori wedding is decided in the last fortnight: final counts, seating, vendor payment schedules, arrival timings and the running order. That period gets a fixed schedule of check-ins rather than ad-hoc phone calls, so nothing is discovered on the day itself.' },
     ],
     faqs: [
       { q: 'Do you plan single functions or only full weddings?', a: 'Both. We plan the full week, and we also plan individual functions — see our dedicated Nikkah, Mehndi, Baraat and Walima pages if that is what you need.' },
+      { q: 'What does a luxury wedding planner in Lahore do?', a: 'A luxury wedding planner runs the whole wedding as one designed, itemised project rather than a set of separate bookings: venue and vendor selection, a stage and lighting design drawn to the venue before anything is ordered, a run-of-show for each function, and one point of contact from the first consultation to the last guest. We quote the fee for the work, separate from venue, catering and decor, so you can see where the money goes.' },
       { q: 'How far in advance should we book?', a: 'Nine to twelve months out gives us the best choice of venues and vendors, especially in wedding season from October to March. Outside peak season, or for a single function rather than the full week, shorter timelines are usually workable.' },
       { q: 'Do you handle vendor payments or just coordination?', a: 'We coordinate and can manage vendor payments on your behalf as part of the planning agreement, with every cost itemized in your proposal.' },
       { q: 'How much does a wedding planner in Lahore cost?', a: 'We quote for the scope of work, not as a percentage of your budget, and the fee sits as its own line separate from venue, catering and decor. Whether you book the full week or a single function changes it far more than the size of the wedding does.' },
@@ -135,7 +137,7 @@ export const services: Service[] = [
     tag: 'Design & Decor',
     title: 'Event Decoration & Design in Lahore',
     ctaSubject: 'event',
-    seoTitle: 'Wedding Decorators & Event Decoration in Lahore | Baraka Events',
+    seoTitle: 'Wedding Decor & Event Decoration in Lahore | Baraka Events',
     seoDescription:
       'Wedding decorators and event decoration in Lahore — stage design, florals and lighting, planned as one visual system before a single flower is ordered.',
     image: '/media/gallery/wedding-13.webp',
@@ -149,6 +151,10 @@ export const services: Service[] = [
       { h: '3D Concept Renders', p: 'A render of your stage and decor concept before the event, so changes happen on screen instead of on the day.' },
       { h: 'What Decor Costs and What Drives It', p: 'Decor pricing follows volume, not item count. Floral cost tracks how much flower is used rather than how many arrangements there are; stage cost tracks the size of the build and how much of it is custom; lighting is its own line because it scales with the rig and the power it draws. Seeing those three separately is what lets you trade a larger stage against a smaller floral spend instead of cutting everything evenly.' },
       { h: 'Halls, Outdoor Lawns and Heritage Venues', p: 'The same concept behaves differently in each. A hall gives you controlled light and fixed rigging points. A lawn gives you no ambient light after sunset and needs structure, power and a weather plan. A heritage courtyard gives you architecture worth lighting and real limits on what may be rigged to it. We survey the venue before quoting, so the design is built for the room you actually have.' },
+      { h: 'Decor Styles We Design', p: 'The looks clients ask for most run from genda phool maximalism and truck-art brights to ivory monochrome, pastel minimal florals and deep Mughal jewel tones. Whatever the palette, every design is drawn, approved and priced before a single flower is ordered, so you choose from a drawing rather than a description.' },
+      { h: 'Florals Planned Around Lahore\u2019s Heat', p: 'Fresh flowers are the least forgiving part of any decor plan: marigolds strung the night before are wilting by evening. We build the floral program around Lahore\u2019s heat, and anything time-sensitive is briefed to the florists at dawn on the day of the event.' },
+      { h: 'Stage Architecture, Not Just Stage Decoration', p: 'Scalloped Mughal arches, mirrored backdrops, suspended floral clouds or a minimalist runway stage: we build the stage as a structure first and layer the decor onto it, so it photographs well from every guest angle, not only the one directly in front of it.' },
+      { h: 'Decor for Birthdays and Private Celebrations', p: 'Decor is not only for weddings. Birthday and private-celebration decor tends to be balloon-led, because a garland or arch photographs well at close range and can be made in almost any palette. We keep the welcome sign, cake table and backdrop in one palette so the photographs hold together, and decor can be booked on its own for a home, rooftop or lawn party where the catering is already arranged.' },
       { h: 'Decor Across Every Wedding Function', p: 'Mehndi, nikkah, baraat and walima each have their own visual language, and a walima that looks like the mehndi reads as a missed opportunity rather than as consistency. We design them as a series: a shared palette and material set, deliberately different staging, so the week holds together without repeating itself.' },
     ],
     faqs: [

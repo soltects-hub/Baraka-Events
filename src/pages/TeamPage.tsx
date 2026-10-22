@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import LeadershipProfile from '../components/LeadershipProfile';
@@ -101,6 +102,39 @@ export default function TeamPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* where the team works and where to see the work */}
+      <section className="mx-auto max-w-[1200px] px-6 pt-20 md:px-10 md:pt-24">
+        <div className="max-w-3xl space-y-5 text-sm font-light leading-relaxed text-mist md:text-base">
+          <p>
+            Baraka Events is an event planning and management company based in Gulberg III, Lahore, working on weddings,
+            corporate events and private celebrations. The four disciplines above are how the work is organised on every project.
+          </p>
+          <p>
+            To see what that looks like in practice, browse the{' '}
+            <Link to="/portfolio" className="gold-underline text-gold hover:text-gold-soft">
+              portfolio
+            </Link>{' '}
+            and the{' '}
+            <Link to="/gallery" className="gold-underline text-gold hover:text-gold-soft">
+              gallery
+            </Link>
+            , or read how we plan a{' '}
+            <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
+              wedding
+            </Link>{' '}
+            and run an event on the day through our{' '}
+            <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+              event management
+            </Link>{' '}
+            service. The first consultation is free, in person or by video, and you can book it from the{' '}
+            <Link to="/contact" className="gold-underline text-gold hover:text-gold-soft">
+              contact page
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

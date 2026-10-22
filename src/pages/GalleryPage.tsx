@@ -3,6 +3,7 @@ import { motion, AnimatePresence, animate, useMotionValue, useReducedMotion } fr
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import MotionDrumGallery, { PANEL_SIZES, type DrumPhoto } from '../components/MotionDrumGallery';
+import { Link } from 'react-router-dom';
 import { useSectionNav } from '../lib/useSectionNav';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
@@ -451,6 +452,48 @@ export default function GalleryPage() {
           />
         )}
       </AnimatePresence>
+
+      {/* what the archive contains: text for a page that is otherwise all photographs */}
+      <section className="mx-auto mt-14 max-w-[1400px] px-6 md:mt-20 md:px-10">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl font-light md:text-3xl">What is in this archive</h2>
+          <div className="mt-5 space-y-4 text-sm font-light leading-relaxed text-mist md:text-base">
+            <p>
+              This is Baraka Events&rsquo; own production archive across Lahore, filed by function. The wedding photographs are
+              split into mehndi, baraat and walima; the corporate set holds the staged and lit corporate work; birthdays holds
+              birthday and bridal-shower set-ups; event decoration holds floral arches and garden tables; and event details
+              covers catering counters and live-music staging, including qawali nights.
+            </p>
+            <p>
+              Each function has its own planning page:{' '}
+              <Link to="/services/mehndi-events" className="gold-underline text-gold hover:text-gold-soft">
+                mehndi
+              </Link>
+              ,{' '}
+              <Link to="/services/barat-events" className="gold-underline text-gold hover:text-gold-soft">
+                baraat
+              </Link>
+              ,{' '}
+              <Link to="/services/walima-events" className="gold-underline text-gold hover:text-gold-soft">
+                walima
+              </Link>
+              ,{' '}
+              <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+                corporate events
+              </Link>
+              ,{' '}
+              <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
+                birthday parties
+              </Link>{' '}
+              and{' '}
+              <Link to="/services/event-decoration" className="gold-underline text-gold hover:text-gold-soft">
+                event decoration
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="mt-14 border-t border-champagne/10 bg-ink-2/40 py-20 text-center md:mt-20 md:py-28">

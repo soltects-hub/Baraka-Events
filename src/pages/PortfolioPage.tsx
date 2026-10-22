@@ -73,7 +73,7 @@ export default function PortfolioPage() {
   useSEO({
     title: 'Event Portfolio: Weddings, Corporate & Private | Baraka Events',
     description:
-      'A selection of weddings, corporate events and private celebrations by Baraka Events across Lahore, from Walled City havelis to Gulberg ballrooms and DHA estates.',
+      'Selected corporate, private-celebration and garden set-up work by Baraka Events in Lahore: LED stages, a birthday backdrop and draped garden canopies.',
     canonical: routes.portfolio,
   });
 
@@ -174,6 +174,52 @@ export default function PortfolioPage() {
               </div>
             </motion.article>
           ))}
+        </div>
+      </section>
+
+      {/* what the examples show: text for a page that is otherwise captions only */}
+      <section className="mx-auto max-w-[1200px] px-6 pb-24 md:px-10 md:pb-32">
+        <div className="max-w-3xl border-t border-champagne/10 pt-12">
+          <h2 className="font-display text-2xl font-light md:text-3xl">What these examples show</h2>
+          <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-mist md:text-base">
+            <p>
+              The corporate examples are built around staging: a branded hall with a truss-mounted lighting rig, LED screens
+              and a central platform, and a conference stage with a large LED screen, a branded lectern and a lit stage edge.
+              How we plan and run this kind of work is set out on our{' '}
+              <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+                corporate event management
+              </Link>{' '}
+              page.
+            </p>
+            <p>
+              The private-celebration example is a birthday backdrop of a white flower wall, a neon sign and two pink balloon
+              columns. Our{' '}
+              <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
+                birthday party planning
+              </Link>{' '}
+              page covers how we plan this kind of event.
+            </p>
+            <p>
+              The garden set-ups, a draped canopy with ivy-wrapped posts and string lights, and a long banquet table with white
+              floral centrepieces, are decor work of the kind covered on our{' '}
+              <Link to="/services/event-decoration" className="gold-underline text-gold hover:text-gold-soft">
+                event decoration and design
+              </Link>{' '}
+              page, where stage, florals and lighting are designed together before anything is ordered.
+            </p>
+            <p>
+              Every project starts the same way: a first conversation about guest count, budget range, dates and what you want
+              the day to feel like, then a design direction you approve before any vendor is booked. The{' '}
+              <Link to="/gallery" className="gold-underline text-gold hover:text-gold-soft">
+                gallery
+              </Link>{' '}
+              holds the wider photo archive, and the{' '}
+              <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
+                wedding planning
+              </Link>{' '}
+              page explains how a full wedding is run. Captions on this page are generalised.
+            </p>
+          </div>
         </div>
       </section>
 

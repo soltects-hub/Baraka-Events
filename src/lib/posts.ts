@@ -460,7 +460,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: 'September 6, 2026',
     publishedISO: '2026-09-06',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-10-22',
     readTime: '5 min read',
     image: '/media/gallery/celebration-14.webp',
     imageAlt: 'Black and white checkerboard dance floor under hanging lantern pendants for an evening party in Lahore',
@@ -474,7 +474,7 @@ export const posts: Post[] = [
       { p: 'A milestone anniversary — a 10th, 25th or 50th — tends to warrant the more formal end of this spectrum: assigned seating, a proper menu, perhaps a short toast. A recurring or casual mehfil can stay unstructured on purpose, with guests moving between conversation, music and the food table all evening. Deciding which one you are hosting before booking anything saves you from over-producing a casual evening or under-producing a real milestone.' },
       { h: 'Styling for a smaller, closer crowd' },
       {
-        p: 'A single long table reads far better for twenty to thirty guests than scattered round tables ever will. Warm, low lighting — string lights or lanterns rather than a stage rig — suits a rooftop or garden evening much better than anything built for a wedding function. Candles and simple seasonal florals usually do more for an intimate table than a large floral installation would.',
+        p: 'A single long table reads far better for twenty to thirty guests than scattered round tables ever will. Warm, low lighting — string lights or lanterns rather than a stage rig — suits a rooftop or garden evening much better than anything built for a wedding function. Candles and simple seasonal florals usually do more for an intimate table than a large floral installation would. If you want help with the table, the lighting or the florals, our [event decoration and design service in Lahore](/services/event-decoration) can be booked on its own, without full event planning.',
         related: [{ text: 'Baraka Events Decor Services in Lahore: Every Style We Design', slug: 'baraka-events-decor-services-lahore' }],
       },
       { h: 'Catering and music for a mehfil-style evening' },
@@ -486,7 +486,7 @@ export const posts: Post[] = [
       { p: 'How is a rooftop dinner different from a full event? Mainly in scale and setting — it is built around an intimate guest list and a skyline or open-air backdrop rather than a stage, dance floor or large production.' },
       { p: 'How far in advance should an anniversary party be planned? Four to six weeks is usually enough for a milestone anniversary at this scale, though a rooftop with a popular view or a specific live-music act may need to be booked earlier.' },
       {
-        p: 'Can Baraka Events plan a private celebration like this? Yes — anniversaries, garden mehfils and rooftop dinners fall under our private celebrations work, planned with the same attention as a wedding function, just sized to a smaller room.',
+        p: 'Can Baraka Events plan a private celebration like this? Yes — anniversaries, garden mehfils and rooftop dinners fall under our private celebrations work, planned with the same attention as a wedding function, just sized to a smaller room. Our [event management service](/services/event-management) covers weddings, corporate and private events with the same crew and run-of-show.',
         related: [
           { text: 'The Rise of Micro-Weddings and Intimate Celebrations in Pakistan', slug: 'micro-weddings-intimate-celebrations-pakistan' },
           { text: 'Birthday Party Planning in Lahore: Home, Rooftop or Venue?', slug: 'birthday-party-planning-lahore-guide' },
@@ -503,6 +503,7 @@ export const posts: Post[] = [
     category: 'Traditions',
     date: 'September 5, 2026',
     publishedISO: '2026-09-05',
+    updatedISO: '2026-10-22',
     readTime: '5 min read',
     image: '/media/gallery/celebration-15.webp',
     imageAlt: 'Circular checkerboard dance floor under hanging lanterns with blue and red neon lines behind a DJ booth',
@@ -516,7 +517,7 @@ export const posts: Post[] = [
       { p: 'Most Aqeeqah celebrations we help with sit closer to a milestone birthday in scale than a wedding function — usually close family, a smaller circle of friends, and sometimes neighbours or colleagues if the family wants a wider gathering. That smaller scale is an advantage, not a limitation: it means more design attention per guest, and a setup that can genuinely be turned around on short notice.' },
       { h: 'Venue and decor: home comfort or a rented space' },
       {
-        p: 'Plenty of families host at home, and a good decorator should be able to transform a lounge or lawn without needing to relocate anyone. Others prefer a small rented hall or rooftop, mainly for guest parking and space rather than because home does not feel right. Either way, the decor language we lean toward for an Aqeeqah is softer than a wedding’s — pastel florals, the baby’s name worked into the signage or backdrop, and lighting that reads as warm rather than dramatic.',
+        p: 'Plenty of families host at home, and a good decorator should be able to transform a lounge or lawn without needing to relocate anyone. Others prefer a small rented hall or rooftop, mainly for guest parking and space rather than because home does not feel right. Either way, the decor language we lean toward for an Aqeeqah is softer than a wedding’s — pastel florals, the baby’s name worked into the signage or backdrop, and lighting that reads as warm rather than dramatic. Decor can be booked on its own through our [event decoration and design service](/services/event-decoration), without full event planning.',
         related: [{ text: 'Baraka Events Decor Services in Lahore: Every Style We Design', slug: 'baraka-events-decor-services-lahore' }],
       },
       { h: 'Catering: coordinating the meal around the tradition' },
@@ -527,7 +528,7 @@ export const posts: Post[] = [
       { p: 'When is an Aqeeqah traditionally held? On the seventh day after the baby’s birth, though many families move the celebration later to accommodate the mother’s recovery and travelling relatives.' },
       { p: 'How many guests attend a typical Aqeeqah celebration? It varies by family, but most of the celebrations we help plan are closer in scale to a milestone birthday than a wedding function — often close family and a smaller circle of friends.' },
       { p: 'Is an Aqeeqah only a religious observance, or is it also a hosted event? Both, and they are not in conflict. The naming, hair-shaving and sharing of the meat are the tradition itself; the decorated space and hosted meal are simply how many families choose to welcome guests to it.' },
-      { p: 'Can Baraka Events help plan and decorate an Aqeeqah celebration? Yes — it falls under our private celebrations work alongside birthdays, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty.' },
+      { p: 'Can Baraka Events help plan and decorate an Aqeeqah celebration? Yes — it falls under our private celebrations work alongside birthdays, anniversaries and family mehfils, planned with the same attention whether it is fifteen guests or a hundred and fifty. For the planning and day-of coordination, see our [event management service](/services/event-management).' },
       {
         p: 'Simple at home or fully hosted, an Aqeeqah only needs one thing to go right: guests arriving to a space that feels ready, so the day stays about the baby rather than the logistics.',
         related: [{ text: 'The Rise of Micro-Weddings and Intimate Celebrations in Pakistan', slug: 'micro-weddings-intimate-celebrations-pakistan' }],

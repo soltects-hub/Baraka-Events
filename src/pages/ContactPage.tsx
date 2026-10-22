@@ -90,6 +90,47 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* what to include in a first message */}
+      <section className="mx-auto max-w-[1200px] px-6 pb-16 md:px-10 md:pb-20">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl font-light md:text-3xl">What to include in your first message</h2>
+          <div className="mt-5 space-y-4 text-sm font-light leading-relaxed text-mist md:text-base">
+            <p>
+              You do not need a finished plan. For a useful first conversation we ask about your guest count, budget range and
+              dates, and what you want the day to feel like. For a wedding, say which functions you want help with (mehndi,
+              baraat, nikkah, walima) or whether you want the whole week planned as one project. We reply within one business day.
+            </p>
+            <p>
+              Not sure which service fits? See{' '}
+              <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
+                wedding planning
+              </Link>
+              ,{' '}
+              <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
+                corporate event management
+              </Link>
+              ,{' '}
+              <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
+                birthday party planning
+              </Link>
+              ,{' '}
+              <Link to="/services/event-decoration" className="gold-underline text-gold hover:text-gold-soft">
+                event decoration
+              </Link>{' '}
+              and{' '}
+              <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
+                event management
+              </Link>
+              , or browse every service on the{' '}
+              <Link to="/services" className="gold-underline text-gold hover:text-gold-soft">
+                services page
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
       <Contact />
       <LocationMap />
     </main>
