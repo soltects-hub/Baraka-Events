@@ -117,32 +117,42 @@ function Leaf() {
   );
 }
 
+interface Spot {
+  /** left as % of the stage; top (desktop) and bottom (phone) as % of the stage height; sizes in px */
+  left: string;
+  top: string;
+  size: number;
+}
+
 interface GlyphSpec {
   id: string;
   node: ReactNode;
-  /** left / top as % of the stage, size in px (desktop), then the same three for a phone; `null` hides it on phones */
-  d: { left: string; top: string; size: number };
-  m: { left: string; top: string; size: number } | null;
-  /** parallax depth in px for a full pointer sweep */
+  d: Spot;
+  /** on a phone the ingredients sit in the strip under the card, `null` hides one */
+  m: { left: string; bottom: string; size: number } | null;
+  /** pointer parallax in px for a full sweep of the stage: the stage moves these directly (no CSS variable is inherited) */
   depth: number;
-  /** float travel and period */
   fy: string;
   dur: string;
   delay: string;
-  /** a full slow turn about the vertical axis, or a gentle tilt back and forth (better for a cup) */
   turn: 'spin' | 'tilt';
   turnDur: string;
   rz: string;
 }
 
+/*
+ * Composition: the side margins of the stage are the ingredients' ground, because the front card covers the middle. Larger and
+ * brighter pieces sit nearer the corners and the stage edge, smaller ones towards the card, so they read as a scatter in depth
+ * rather than a border. None of them is placed over the card, over the tab bar at the top, or over a neighbouring card's name.
+ */
 const GLYPHS: GlyphSpec[] = [
-  { id: 'jalebi', node: <Jalebi />, d: { left: '1.5%', top: '5%', size: 108 }, m: { left: '5%', top: '1.2%', size: 42 }, depth: 22, fy: '16px', dur: '9s', delay: '-1s', turn: 'spin', turnDur: '34s', rz: '6deg' },
-  { id: 'naan', node: <Naan />, d: { left: '90.5%', top: '5%', size: 114 }, m: { left: '80%', top: '1%', size: 46 }, depth: 26, fy: '18px', dur: '11s', delay: '-4s', turn: 'spin', turnDur: '40s', rz: '-5deg' },
-  { id: 'chilli', node: <Chilli />, d: { left: '3.5%', top: '63%', size: 76 }, m: null, depth: 14, fy: '12px', dur: '8s', delay: '-2s', turn: 'tilt', turnDur: '12s', rz: '8deg' },
-  { id: 'garlic', node: <Garlic />, d: { left: '92.5%', top: '63%', size: 72 }, m: null, depth: 12, fy: '12px', dur: '10s', delay: '-6s', turn: 'spin', turnDur: '46s', rz: '-6deg' },
-  { id: 'chai', node: <Chai />, d: { left: '1.5%', top: '22%', size: 80 }, m: { left: '44%', top: '0.8%', size: 40 }, depth: 18, fy: '10px', dur: '9.5s', delay: '-3s', turn: 'tilt', turnDur: '14s', rz: '3deg' },
-  { id: 'skewer', node: <Skewer />, d: { left: '92%', top: '22%', size: 100 }, m: null, depth: 20, fy: '14px', dur: '12s', delay: '-7s', turn: 'tilt', turnDur: '16s', rz: '-4deg' },
-  { id: 'leaf', node: <Leaf />, d: { left: '12%', top: '3%', size: 56 }, m: null, depth: 30, fy: '20px', dur: '10.5s', delay: '-5s', turn: 'spin', turnDur: '30s', rz: '10deg' },
+  { id: 'jalebi', node: <Jalebi />, d: { left: '1.4%', top: '48%', size: 108 }, m: { left: '4%', bottom: '8px', size: 40 }, depth: 14, fy: '14px', dur: '10s', delay: '-1s', turn: 'spin', turnDur: '38s', rz: '5deg' },
+  { id: 'chai', node: <Chai />, d: { left: '5%', top: '64%', size: 76 }, m: { left: '30%', bottom: '10px', size: 36 }, depth: 9, fy: '10px', dur: '9s', delay: '-3s', turn: 'tilt', turnDur: '14s', rz: '3deg' },
+  { id: 'chilli', node: <Chilli />, d: { left: '1.6%', top: '80%', size: 66 }, m: null, depth: 18, fy: '12px', dur: '8s', delay: '-2s', turn: 'tilt', turnDur: '12s', rz: '8deg' },
+  { id: 'leaf', node: <Leaf />, d: { left: '10.5%', top: '85%', size: 38 }, m: null, depth: 22, fy: '16px', dur: '11s', delay: '-5s', turn: 'spin', turnDur: '32s', rz: '10deg' },
+  { id: 'naan', node: <Naan />, d: { left: '89.8%', top: '48%', size: 104 }, m: { left: '84%', bottom: '8px', size: 42 }, depth: 16, fy: '16px', dur: '12s', delay: '-4s', turn: 'spin', turnDur: '42s', rz: '-5deg' },
+  { id: 'skewer', node: <Skewer />, d: { left: '92.2%', top: '64%', size: 90 }, m: { left: '58%', bottom: '10px', size: 38 }, depth: 10, fy: '12px', dur: '12.5s', delay: '-7s', turn: 'tilt', turnDur: '16s', rz: '-4deg' },
+  { id: 'garlic', node: <Garlic />, d: { left: '90.2%', top: '81%', size: 62 }, m: null, depth: 20, fy: '11px', dur: '10s', delay: '-6s', turn: 'spin', turnDur: '48s', rz: '-6deg' },
 ];
 
 export default function FoodMotion() {
@@ -177,6 +187,7 @@ export default function FoodMotion() {
         <div
           key={g.id}
           className="fm-g"
+          data-depth={g.depth}
           data-mobile={g.m ? 'show' : 'hide'}
           style={
             {
@@ -184,9 +195,8 @@ export default function FoodMotion() {
               '--t': g.d.top,
               '--w': `${g.d.size}px`,
               '--ml': g.m?.left,
-              '--mt': g.m?.top,
+              '--mb': g.m?.bottom,
               '--mw': g.m ? `${g.m.size}px` : undefined,
-              '--depth': g.depth,
               '--fy': g.fy,
               '--rz': g.rz,
               '--dur': g.dur,

@@ -1,4 +1,4 @@
-import { Fragment, memo, useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react';
+import { Fragment, memo, useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
 import RevealText from './RevealText';
 import FoodMotion from './FoodMotion';
 import {
@@ -14,6 +14,8 @@ import { whatsAppUrl } from '../lib/whatsapp';
 
 const MINIMUM_GUESTS = foodPackages[0].minimumGuests;
 const COUNT = foodPackages.length;
+/** Space the deck keeps around the cards: above them (shadow room) and below them (the stage's floor). Matches .menu-card top and .menu-floor in index.css. */
+const DECK_PAD = 18 + 64;
 
 /**
  * Photography behind the stage. Both are catering set-ups already published in the Gallery (buffet stations
@@ -60,17 +62,18 @@ function Lines({ text }: { text: string }) {
   );
 }
 
-const labelClass = 'text-[10px] font-medium uppercase tracking-[0.3em] text-champagne';
+const labelClass = 'text-[11px] font-medium uppercase tracking-[0.28em] text-champagne';
+const order = (i: number) => ({ '--i': i }) as CSSProperties;
 
 const PackageBody = memo(function PackageBody({ pkg }: { pkg: FoodPackage }) {
   return (
     <div data-menu-body className="[overflow-wrap:anywhere]">
       {pkg.sections && (
-        <div className="space-y-6">
-          {pkg.sections.map((s) => (
-            <div key={s.label}>
+        <div className="space-y-6 md:space-y-7">
+          {pkg.sections.map((s, i) => (
+            <div key={s.label} className="menu-item" style={order(i)}>
               <h4 className={labelClass}>{s.label}</h4>
-              <p className="mt-2.5 text-[15px] font-light leading-[1.7] text-cream/90">
+              <p className="mt-2.5 text-[16px] font-light leading-[1.65] text-cream md:text-[17px]">
                 <Lines text={s.text} />
               </p>
             </div>
@@ -79,12 +82,12 @@ const PackageBody = memo(function PackageBody({ pkg }: { pkg: FoodPackage }) {
       )}
 
       {pkg.dishes && (
-        <ul className="gap-x-10 sm:columns-2">
-          {pkg.dishes.map((d) => (
-            <li key={d.name} className="mb-2.5 flex break-inside-avoid gap-3 md:mb-3.5">
-              <span aria-hidden className="mt-[0.7em] h-1 w-1 shrink-0 rotate-45 bg-bronze" />
+        <ul className="menu-dishes">
+          {pkg.dishes.map((d, i) => (
+            <li key={d.name} className="menu-item mb-3 flex break-inside-avoid gap-3 md:mb-2.5" style={order(i)}>
+              <span aria-hidden className="mt-[0.72em] h-1.5 w-1.5 shrink-0 rotate-45 bg-gold/80" />
               <span>
-                <span className="block text-[14px] text-cream md:text-[15px]">
+                <span className="block text-[16px] leading-snug text-cream">
                   <SoftSlashes text={d.name} />
                 </span>
                 {d.detail && <span className="mt-0.5 block text-[13px] font-light leading-snug text-mist">{d.detail}</span>}
@@ -94,7 +97,7 @@ const PackageBody = memo(function PackageBody({ pkg }: { pkg: FoodPackage }) {
         </ul>
       )}
 
-      <div className="mt-7 grid gap-6 border-t border-champagne/12 pt-6 md:grid-cols-2 md:gap-9">
+      <div className="mt-7 grid gap-6 border-t border-champagne/15 pt-5 md:mt-6 md:grid-cols-2 md:gap-9">
         <div>
           <h4 className={labelClass}>{INCLUDED_LABEL}</h4>
           <p className="mt-2.5 text-[13px] font-light leading-[1.75] text-mist">
@@ -118,7 +121,19 @@ function positionOf(i: number, active: number): string {
   return o === 0 ? '0' : o === 1 ? 'p1' : o === -1 ? 'm1' : o === 2 ? 'p2' : o === -2 ? 'm2' : o > 0 ? 'hr' : 'hl';
 }
 
-function MenuCard({ pkg, pos, onSelect }: { pkg: FoodPackage; pos: string; onSelect: () => void }) {
+function MenuCard({
+  pkg,
+  pos,
+  plateHeight,
+  onSelect,
+  measure,
+}: {
+  pkg: FoodPackage;
+  pos: string;
+  plateHeight: number | undefined;
+  onSelect: () => void;
+  measure: (el: HTMLDivElement | null) => void;
+}) {
   const price = formatRs(pkg.pricePerPerson);
   const isActive = pos === '0';
   const enquiry = whatsAppUrl(
@@ -137,61 +152,55 @@ function MenuCard({ pkg, pos, onSelect }: { pkg: FoodPackage; pos: string; onSel
       onClick={isActive ? undefined : onSelect}
       className="menu-card"
     >
-      <div className="menu-plate" inert={!isActive}>
-        <header className="flex items-end justify-between gap-4 border-b border-champagne/12 px-5 pb-4 pt-5 md:px-8 md:pb-5 md:pt-6">
-          <div>
-            <p aria-hidden className="accent-serif text-lg leading-none text-champagne/70 md:text-xl">
-              0{pkg.number}
+      {/* the plate takes the height of the front menu, so every card matches it and the stage grows or shrinks as one piece;
+          nothing inside a card scrolls on its own, so a finger on a card scrolls the page */}
+      <div className="menu-plate" style={plateHeight ? { height: plateHeight } : undefined} inert={!isActive}>
+        <div className="menu-content" ref={measure}>
+          <header className="menu-face">
+            <div className="min-w-0">
+              <p aria-hidden className="menu-index">
+                0{pkg.number}
+              </p>
+              <h3 className="menu-name">Menu {pkg.number}</h3>
+              <p data-menu-price className="menu-price">
+                <span className="menu-price-num">{price}</span>
+                <span className="menu-price-unit">/person</span>
+              </p>
+            </div>
+            <p aria-hidden className="menu-ghost">
+              {pkg.number}
             </p>
-            <h3 className="mt-1.5 whitespace-nowrap font-display text-3xl font-light leading-none md:text-4xl">Menu {pkg.number}</h3>
+          </header>
+
+          <div className="menu-detail">
+            <div className="menu-body">
+              <PackageBody pkg={pkg} />
+            </div>
+            <footer className="menu-foot">
+              <span data-menu-min className="menu-min">
+                Minimum guests: <span className="text-ivory">{pkg.minimumGuests}</span>
+              </span>
+              <a
+                href={enquiry}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="menu-cta"
+              >
+                Ask about Menu {pkg.number}
+                <span aria-hidden>&rarr;</span>
+              </a>
+            </footer>
           </div>
-          <p data-menu-price className="flex flex-col items-end whitespace-nowrap sm:flex-row sm:items-baseline sm:gap-1.5">
-            <span className="font-display text-2xl font-light leading-tight text-champagne md:text-3xl">{price}</span>
-            <span className="text-[12px] leading-tight tracking-wide text-mist">/person</span>
-          </p>
-        </header>
-
-        <div className="menu-scroll min-h-0 flex-1 overflow-y-auto px-5 py-5 md:px-8 md:py-6">
-          <PackageBody pkg={pkg} />
         </div>
-
-        <footer className="flex flex-wrap items-center justify-between gap-x-5 gap-y-2 border-t border-champagne/12 px-5 py-3.5 md:px-8 md:py-4">
-          <p className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-mist">
-            <span data-menu-min className="whitespace-nowrap text-[11px] uppercase tracking-[0.2em]">
-              Minimum guests: <span className="text-ivory">{pkg.minimumGuests}</span>
-            </span>
-            <span className="hidden whitespace-nowrap text-[13px] tracking-wide sm:inline">
-              <span className="text-ivory">{price}</span>/person
-            </span>
-          </p>
-          <a
-            href={enquiry}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gold-underline inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold hover:text-gold-soft"
-          >
-            Ask about Menu {pkg.number}
-            <span aria-hidden>&rarr;</span>
-          </a>
-        </footer>
       </div>
     </article>
   );
 }
 
-function Arrow({ dir, onClick, inline = false }: { dir: 'prev' | 'next'; onClick: () => void; inline?: boolean }) {
+function Arrow({ dir, onClick }: { dir: 'prev' | 'next'; onClick: () => void }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={dir === 'prev' ? 'Previous menu' : 'Next menu'}
-      className={`items-center justify-center rounded-full border border-champagne/30 bg-ink/70 text-champagne transition-colors duration-300 hover:border-champagne hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
-        inline
-          ? 'flex h-10 w-10 shrink-0 md:hidden'
-          : `absolute top-[calc(var(--card-h)/2+20px)] z-[8] hidden h-12 w-12 -translate-y-1/2 backdrop-blur-sm md:flex ${dir === 'prev' ? 'left-5' : 'right-5'}`
-      }`}
-    >
-      <svg viewBox="0 0 12 20" className="h-4 w-2.5 fill-none stroke-current" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <button type="button" onClick={onClick} aria-label={dir === 'prev' ? 'Previous menu' : 'Next menu'} className="menu-arrow">
+      <svg viewBox="0 0 12 20" className="h-4 w-2.5 fill-none stroke-current" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d={dir === 'prev' ? 'M10 2L2 10l8 8' : 'M2 2l8 8-8 8'} />
       </svg>
     </button>
@@ -203,16 +212,32 @@ export default function FoodMenus() {
   const [live, setLive] = useState(false);
   const [entering, setEntering] = useState(false);
   const [backdrop, setBackdrop] = useState(0);
+  const [heights, setHeights] = useState<number[]>(() => Array(COUNT).fill(0));
   const stageRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const reducedMotion = useRef(false);
-  const touch = useRef<{ x: number; y: number; lastX: number; moved: boolean } | null>(null);
+  const gesture = useRef<{ id: number; x: number; y: number; t: number; lastX: number; mode: 'pending' | 'h' } | null>(null);
   const askAboutMenus = whatsAppUrl(
     'Assalam-o-Alaikum, I found Baraka Events through your website and would like to know more about your 2026-27 food menus.'
   );
 
   const go = useCallback((i: number) => setActive(((i % COUNT) + COUNT) % COUNT), []);
   const step = useCallback((d: number) => setActive((a) => (((a + d) % COUNT) + COUNT) % COUNT), []);
+
+  // The stage is as tall as the menu in front. Each card's own content height is measured (not its plate, which is sized from it),
+  // so the stage follows a font load or a resize by itself.
+  useEffect(() => {
+    const read = () =>
+      setHeights((prev) => {
+        const next = contentRefs.current.map((el) => (el ? Math.ceil(el.offsetHeight) : 0));
+        return next.length === prev.length && next.every((v, i) => v === prev[i]) ? prev : next;
+      });
+    const ro = new ResizeObserver(read);
+    contentRefs.current.forEach((el) => el && ro.observe(el));
+    return () => ro.disconnect();
+  }, []);
 
   // Run the motion only while the stage is on screen and the tab is visible; play the entrance once, as it arrives.
   useEffect(() => {
@@ -225,14 +250,14 @@ export default function FoodMenus() {
     const io = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
-        if (entry.isIntersecting && entry.intersectionRatio > 0.2 && !played && !reducedMotion.current) {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.15 && !played && !reducedMotion.current) {
           played = true;
           setEntering(true);
-          window.setTimeout(() => setEntering(false), 2200);
+          window.setTimeout(() => setEntering(false), 2400);
         }
         sync();
       },
-      { threshold: [0, 0.2] }
+      { threshold: [0, 0.15] }
     );
     io.observe(el);
     document.addEventListener('visibilitychange', sync);
@@ -242,24 +267,37 @@ export default function FoodMenus() {
     };
   }, []);
 
-  // Pointer parallax for the floating ingredients: desktop pointers only, throttled to one write per frame.
+  // Pointer parallax: desktop pointers only, one write per frame, and only to the handful of layers that move. (It used to set a CSS
+  // variable on the stage, which every element inside inherits, so each pointer move restyled the whole stage.)
   useEffect(() => {
     const el = stageRef.current;
     if (!el || !live || reducedMotion.current || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const glyphs = Array.from(el.querySelectorAll<HTMLElement>('.fm-g'));
+    const photo = el.querySelector<HTMLElement>('.menu-backdrop');
     let frame = 0;
+    const apply = (nx: number, ny: number) => {
+      glyphs.forEach((g) => {
+        const d = Number(g.dataset.depth) || 0;
+        g.style.transform = `translate3d(${(nx * d).toFixed(1)}px, ${(ny * d).toFixed(1)}px, 0)`;
+      });
+      if (photo) photo.style.transform = `translate3d(${(nx * -10).toFixed(1)}px, ${(ny * -6).toFixed(1)}px, 0)`;
+    };
     const onMove = (e: globalThis.PointerEvent) => {
       if (frame) return;
       frame = requestAnimationFrame(() => {
         frame = 0;
         const r = el.getBoundingClientRect();
-        el.style.setProperty('--px', (((e.clientX - r.left) / r.width) * 2 - 1).toFixed(3));
-        el.style.setProperty('--py', (((e.clientY - r.top) / r.height) * 2 - 1).toFixed(3));
+        apply(((e.clientX - r.left) / r.width) * 2 - 1, ((e.clientY - r.top) / r.height) * 2 - 1);
       });
     };
+    const onLeave = () => apply(0, 0);
     el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerleave', onLeave);
     return () => {
       el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerleave', onLeave);
       if (frame) cancelAnimationFrame(frame);
+      apply(0, 0);
     };
   }, [live]);
 
@@ -289,32 +327,61 @@ export default function FoodMenus() {
     e.preventDefault();
   };
 
-  // Swipe: touch and pen only. Vertical movement is left to the page (touch-action: pan-y on the deck).
+  // Touch and pen. The deck declares touch-action: pan-y, so the browser owns every vertical gesture (the page scrolls under the finger,
+  // with its normal momentum) and only hands us movement that is clearly sideways. Direction is decided once, at the first real
+  // movement: mostly sideways follows the finger and then moves one menu; anything else is left to the browser (it ends the gesture
+  // with pointercancel, which we ignore).
+  const settleTrack = () => {
+    const t = trackRef.current;
+    if (!t) return;
+    t.classList.remove('is-dragging');
+    t.style.transform = '';
+  };
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if (e.pointerType === 'mouse') return;
-    touch.current = { x: e.clientX, y: e.clientY, lastX: e.clientX, moved: false };
+    gesture.current = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), lastX: e.clientX, mode: 'pending' };
   };
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    const t = touch.current;
-    if (!t) return;
-    t.lastX = e.clientX;
-    if (Math.abs(e.clientX - t.x) > 12 && Math.abs(e.clientX - t.x) > Math.abs(e.clientY - t.y)) t.moved = true;
+    const g = gesture.current;
+    if (!g || g.id !== e.pointerId) return;
+    const dx = e.clientX - g.x;
+    const dy = e.clientY - g.y;
+    if (g.mode === 'pending') {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      if (Math.abs(dx) <= Math.abs(dy) * 1.6) {
+        gesture.current = null; // vertical or diagonal: the page's
+        return;
+      }
+      g.mode = 'h';
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        /* the pointer is already gone */
+      }
+      trackRef.current?.classList.add('is-dragging');
+    }
+    g.lastX = e.clientX;
+    if (trackRef.current) trackRef.current.style.transform = `translate3d(${(dx * 0.4).toFixed(1)}px, 0, 0)`;
   };
   const onPointerUp = () => {
-    const t = touch.current;
-    touch.current = null;
-    if (!t || !t.moved) return;
-    const dx = t.lastX - t.x;
-    if (Math.abs(dx) > 48) step(dx < 0 ? 1 : -1);
+    const g = gesture.current;
+    gesture.current = null;
+    settleTrack();
+    if (!g || g.mode !== 'h') return;
+    const dx = g.lastX - g.x;
+    const speed = Math.abs(dx) / Math.max(performance.now() - g.t, 1);
+    if (Math.abs(dx) > 64 || (speed > 0.45 && Math.abs(dx) > 28)) step(dx < 0 ? 1 : -1);
   };
   const onPointerCancel = () => {
-    touch.current = null;
+    gesture.current = null;
+    settleTrack();
   };
 
   const current = foodPackages[active];
+  const deckHeight = heights[active] || undefined;
 
   return (
-    <section id="menu" data-scene="07A · FOOD MENU — THE DASTARKHWAN" className="relative overflow-hidden bg-ink-2 py-16 md:py-24">
+    <section id="menu" data-scene="07A · FOOD MENU — THE DASTARKHWAN" className="relative overflow-clip bg-ink-2 py-16 md:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-0 h-[400px] w-[700px] rounded-full"
@@ -370,12 +437,12 @@ export default function FoodMenus() {
           </div>
         </div>
 
-        {/* the stage: a fixed-height dark island, so choosing a menu never moves anything on the page */}
+        {/* the stage: a dark island. Its tab bar stays in view while a long menu is read, and nothing in it captures a scroll. */}
         <div
           ref={stageRef}
           role="region"
           aria-roledescription="carousel"
-          aria-label="Food Menu 2026-27, Menu 1 to Menu 8. Use the arrow keys, the buttons or swipe to change menu."
+          aria-label="Food Menu 2026-27, Menu 1 to Menu 8. Use the arrow keys, the buttons, the tabs or swipe sideways to change menu."
           tabIndex={0}
           onKeyDown={onKeyDown}
           data-live={live}
@@ -399,28 +466,13 @@ export default function FoodMenus() {
             ))}
           </div>
           <div aria-hidden className="menu-vignette absolute inset-0" />
+          <div aria-hidden className="menu-spot absolute inset-0" />
 
           <FoodMotion />
 
-          <div
-            className="menu-deck relative z-[3]"
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerUp}
-            onPointerCancel={onPointerCancel}
-          >
-            {foodPackages.map((pkg, i) => {
-              return <MenuCard key={pkg.number} pkg={pkg} pos={positionOf(i, active)} onSelect={() => go(i)} />;
-            })}
-          </div>
-
-          <Arrow dir="prev" onClick={() => step(-1)} />
-          <Arrow dir="next" onClick={() => step(1)} />
-
-          <div className="relative z-[6] flex items-center gap-2 pb-4 pl-3 pr-16 pt-1 md:gap-3 md:pl-6">
-            <Arrow dir="prev" inline onClick={() => step(-1)} />
-            <Arrow dir="next" inline onClick={() => step(1)} />
-            <div ref={tabsRef} className="menu-tabs flex min-w-0 flex-1 gap-2 overflow-x-auto">
+          <div className="menu-topbar">
+            <Arrow dir="prev" onClick={() => step(-1)} />
+            <div ref={tabsRef} className="menu-tabs">
               {foodPackages.map((pkg, i) => (
                 <button
                   key={pkg.number}
@@ -428,18 +480,42 @@ export default function FoodMenus() {
                   onClick={() => go(i)}
                   aria-current={i === active}
                   aria-label={`Show Menu ${pkg.number}, ${formatRs(pkg.pricePerPerson)} per person`}
-                  className={`shrink-0 rounded-full border px-3.5 py-2 text-left transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
-                    i === active ? 'border-gold bg-gold/15 text-ivory' : 'border-champagne/20 text-mist hover:border-champagne/50 hover:text-ivory'
-                  }`}
+                  className="menu-tab"
                 >
-                  <span className="block text-[10px] uppercase leading-none tracking-[0.2em]">Menu {pkg.number}</span>
-                  <span className="mt-1 block text-[12px] leading-none tracking-wide text-champagne">{formatRs(pkg.pricePerPerson)}</span>
+                  <span className="menu-tab-name">Menu {pkg.number}</span>
+                  <span className="menu-tab-price">{formatRs(pkg.pricePerPerson)}</span>
                 </button>
               ))}
             </div>
-            <p aria-hidden className="hidden shrink-0 text-[11px] uppercase tracking-[0.25em] text-mist sm:block">
+            <Arrow dir="next" onClick={() => step(1)} />
+            <p aria-hidden className="menu-counter">
               {String(active + 1).padStart(2, '0')} / {String(COUNT).padStart(2, '0')}
             </p>
+          </div>
+
+          <div
+            className="menu-deck"
+            style={deckHeight ? { height: deckHeight + DECK_PAD } : { minHeight: 660 }}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerCancel={onPointerCancel}
+          >
+            <div ref={trackRef} className="menu-track">
+              {foodPackages.map((pkg, i) => (
+                <MenuCard
+                  key={pkg.number}
+                  pkg={pkg}
+                  pos={positionOf(i, active)}
+                  plateHeight={deckHeight}
+                  onSelect={() => go(i)}
+                  measure={(el) => {
+                    contentRefs.current[i] = el;
+                  }}
+                />
+              ))}
+            </div>
+            <div aria-hidden className="menu-floor" />
           </div>
 
           <p className="sr-only" aria-live="polite" aria-atomic="true">

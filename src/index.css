@@ -516,39 +516,33 @@ body { background-color: #000000; }
 [data-scene^="03A "] .bg-ink-2, [data-scene^="10 "] .bg-ink-2 { --heading-color: #ff960b; }
 
 /* ---------------------------------------------------------------------------
- * Food Menu stage (2026-10-23): a fixed-height 3D deck of the eight menu cards.
- * The old accordion grew and shrank as menus opened and closed, and a panel that
- * closed above the one you clicked moved it off screen (measured: the clicked
- * header jumped up by the height of the panel that had just closed, 570-590px).
- * The stage never changes height, so nothing moves when a menu is chosen.
+ * Food Menu stage (2026-10-23, second pass): a 3D deck of the eight menu cards.
  *
- * Everything animated here is transform or opacity (compositor only). The stage
- * carries data-live="false" while it is off screen or the tab is hidden, which
- * pauses every loop; prefers-reduced-motion switches the loops and the entrance
- * off and the deck changes menu without travelling.
+ * Scrolling. The first version gave every card its own scrolling list inside a fixed-height stage, so a finger that started on a
+ * card scrolled the list and not the page (measured: 285-306px of list, 0px of page, every time). Now nothing inside a card scrolls:
+ * each card is as tall as its content, the stage is as tall as the menu in front and grows or shrinks around it, and the deck
+ * declares touch-action: pan-y so the browser owns every vertical gesture and only sideways movement reaches the carousel.
+ *
+ * Cost. Everything that animates is transform or opacity. No custom property that changes at run time is set on an ancestor of
+ * the cards (custom properties inherit, so doing so restyles every node below), the pointer parallax writes transforms to a few
+ * layers directly, and the stage pauses its loops when it is off screen (data-live) or the tab is hidden.
  * ------------------------------------------------------------------------- */
 .menu-stage {
-  --card-w: min(720px, 86vw);
-  --card-h: clamp(500px, calc(100svh - 190px), 700px);
-  --step: calc(var(--card-w) * 0.7);
-  --deck-top: 22px;
-  --px: 0;
-  --py: 0;
+  --card-w: min(740px, calc(100vw - 100px));
+  --step: calc(var(--card-w) * 0.95);
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   isolation: isolate;
-  contain: layout paint;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 @media (max-width: 767px) {
   .menu-stage {
-    --card-w: min(86vw, calc(100vw - 58px));
-    --card-h: clamp(440px, calc(100svh - 240px), 600px);
-    --deck-top: 58px;
-    --step: calc(var(--card-w) * 0.9);
+    --card-w: calc(100vw - 60px);
+    --step: calc(var(--card-w) * 0.92);
   }
 }
 
+/* the room: a dark photographic back wall, a warm pool of light behind the front card, a floor */
 .menu-backdrop img {
   position: absolute;
   inset: 0;
@@ -558,54 +552,131 @@ body { background-color: #000000; }
   opacity: 0;
   transition: opacity 1.8s ease;
 }
-.menu-backdrop img[data-on='true'] { opacity: 0.88; }
+.menu-backdrop img[data-on='true'] { opacity: 0.62; }
+.menu-backdrop, .menu-vignette, .menu-spot { pointer-events: none; }
 .menu-vignette {
   background:
-    radial-gradient(ellipse 60% 55% at 50% 45%, rgba(6, 5, 4, 0), rgba(6, 5, 4, 0.35) 100%),
-    linear-gradient(180deg, rgba(6, 5, 4, 0.25), rgba(6, 5, 4, 0) 35%, rgba(6, 5, 4, 0.78));
+    radial-gradient(ellipse 85% 70% at 50% 38%, rgba(6, 5, 4, 0.22), rgba(6, 5, 4, 0.9) 100%),
+    linear-gradient(180deg, rgba(6, 5, 4, 0.5), rgba(6, 5, 4, 0.1) 30%, rgba(6, 5, 4, 0.72));
+}
+.menu-spot { background: radial-gradient(ellipse 46% 52% at 50% 40%, rgba(255, 170, 60, 0.13), transparent 70%); }
+.menu-floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 52% 100% at 50% 100%, rgba(0, 0, 0, 0.62), transparent 72%),
+    linear-gradient(180deg, transparent, rgba(6, 5, 4, 0.55));
 }
 
+/* the bar: sticky, so the menu can be changed from anywhere in a long list */
+.menu-topbar {
+  position: sticky;
+  top: 68px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 0.85rem 0.7rem;
+  background: linear-gradient(180deg, rgba(8, 6, 5, 0.96), rgba(8, 6, 5, 0.86) 72%, rgba(8, 6, 5, 0));
+}
+@media (min-width: 768px) {
+  .menu-topbar { gap: 0.75rem; padding: 1rem 1.5rem 0.8rem; }
+}
+.menu-tabs {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.menu-tabs::-webkit-scrollbar { display: none; }
+.menu-tabs > :first-child { margin-left: auto; }
+.menu-tabs > :last-child { margin-right: auto; }
+.menu-tab {
+  flex: none;
+  min-height: 44px;
+  padding: 0.45rem 1rem;
+  text-align: left;
+  color: var(--color-mist);
+  border: 1px solid rgba(230, 197, 138, 0.24);
+  border-radius: 999px;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+.menu-tab:hover { border-color: rgba(230, 197, 138, 0.55); color: var(--color-ivory); }
+.menu-tab[aria-current='true'] { color: var(--color-ivory); border-color: #ff960b; background-color: rgba(255, 150, 11, 0.16); }
+.menu-tab:focus-visible, .menu-arrow:focus-visible, .menu-cta:focus-visible { outline: 2px solid #ff960b; outline-offset: 2px; }
+.menu-tab-name { display: block; font-size: 10px; line-height: 1; letter-spacing: 0.2em; text-transform: uppercase; }
+.menu-tab-price { display: block; margin-top: 0.3rem; font-size: 12.5px; line-height: 1; letter-spacing: 0.03em; color: var(--color-champagne); }
+.menu-arrow {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-champagne);
+  background: rgba(10, 8, 7, 0.6);
+  border: 1px solid rgba(230, 197, 138, 0.34);
+  border-radius: 999px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.menu-arrow:hover { border-color: var(--color-champagne); background: rgba(10, 8, 7, 0.9); }
+.menu-counter { display: none; }
+@media (min-width: 1024px) {
+  .menu-counter { display: block; flex: none; width: 4.5rem; text-align: right; font-size: 11px; letter-spacing: 0.25em; color: var(--color-mist); }
+}
+
+/* the deck */
 .menu-deck {
-  height: calc(var(--card-h) + var(--deck-top) + 18px);
-  perspective: 1800px;
-  perspective-origin: 50% 45%;
+  position: relative;
+  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .menu-deck, .menu-deck * { touch-action: pan-y; }
+.menu-track {
+  position: absolute;
+  inset: 0;
+  perspective: 1800px;
+  perspective-origin: 50% 24%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.menu-track.is-dragging { transition: none; }
 .menu-card {
   position: absolute;
+  top: 18px;
   left: 50%;
-  top: calc(var(--card-h) / 2 + var(--deck-top));
-  width: var(--card-w);
-  height: var(--card-h);
   z-index: 10;
-  transform: translate(-50%, -50%);
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
-  will-change: transform;
+  width: var(--card-w);
+  margin-left: calc(var(--card-w) / -2);
+  transform-origin: 50% 30%;
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
 }
-.menu-card[data-pos='p1'] { z-index: 6; opacity: 1; cursor: pointer; transform: translate(-50%, -50%) translateX(var(--step)) translateZ(-120px) rotateY(-34deg) scale(0.88); }
-.menu-card[data-pos='m1'] { z-index: 6; opacity: 1; cursor: pointer; transform: translate(-50%, -50%) translateX(calc(var(--step) * -1)) translateZ(-120px) rotateY(34deg) scale(0.88); }
-.menu-card[data-pos='p2'] { z-index: 3; opacity: 0.9; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * 2)) translateZ(-260px) rotateY(-46deg) scale(0.76); }
-.menu-card[data-pos='m2'] { z-index: 3; opacity: 0.9; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * -2)) translateZ(-260px) rotateY(46deg) scale(0.76); }
-.menu-card[data-pos='hr'] { z-index: 1; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * 3)) translateZ(-420px) rotateY(-56deg) scale(0.66); }
-.menu-card[data-pos='hl'] { z-index: 1; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * -3)) translateZ(-420px) rotateY(56deg) scale(0.66); }
+.menu-card[data-pos='p1'] { z-index: 6; cursor: pointer; transform: translateX(var(--step)) translateZ(-190px) rotateY(-26deg) scale(0.88); }
+.menu-card[data-pos='m1'] { z-index: 6; cursor: pointer; transform: translateX(calc(var(--step) * -1)) translateZ(-190px) rotateY(26deg) scale(0.88); }
+.menu-card[data-pos='p2'] { z-index: 3; opacity: 0.5; pointer-events: none; transform: translateX(calc(var(--step) * 1.78)) translateZ(-380px) rotateY(-36deg) scale(0.76); }
+.menu-card[data-pos='m2'] { z-index: 3; opacity: 0.5; pointer-events: none; transform: translateX(calc(var(--step) * -1.78)) translateZ(-380px) rotateY(36deg) scale(0.76); }
+.menu-card[data-pos='hr'] { z-index: 1; opacity: 0; pointer-events: none; transform: translateX(calc(var(--step) * 2.4)) translateZ(-560px) rotateY(-44deg) scale(0.64); }
+.menu-card[data-pos='hl'] { z-index: 1; opacity: 0; pointer-events: none; transform: translateX(calc(var(--step) * -2.4)) translateZ(-560px) rotateY(44deg) scale(0.64); }
 @media (max-width: 767px) {
-  .menu-card[data-pos='p1'] { transform: translate(-50%, -50%) translateX(var(--step)) translateZ(-60px) rotateY(-16deg) scale(0.9); }
-  .menu-card[data-pos='m1'] { transform: translate(-50%, -50%) translateX(calc(var(--step) * -1)) translateZ(-60px) rotateY(16deg) scale(0.9); }
+  .menu-card[data-pos='p1'] { transform: translateX(var(--step)) translateZ(-80px) rotateY(-14deg) scale(0.92); }
+  .menu-card[data-pos='m1'] { transform: translateX(calc(var(--step) * -1)) translateZ(-80px) rotateY(14deg) scale(0.92); }
   .menu-card[data-pos='p2'], .menu-card[data-pos='m2'] { opacity: 0; }
 }
 
+/* the plate: layered shadows and a hairline of light on the front card; the others are glass-dark and quieter */
 .menu-plate {
   position: relative;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
   overflow: hidden;
   border: 1px solid rgba(230, 197, 138, 0.2);
-  border-radius: 8px;
-  background: linear-gradient(180deg, rgba(30, 25, 21, 0.97), rgba(12, 10, 8, 0.98));
-  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  background: linear-gradient(168deg, #231b15 0%, #15110d 55%, #0d0a08 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 236, 200, 0.07), 0 10px 24px -12px rgba(0, 0, 0, 0.7);
+  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s ease, box-shadow 0.6s ease;
 }
-.menu-card:not([data-pos='0']) .menu-plate { background: rgba(14, 11, 9, 0.4); }
 .menu-plate::after {
   content: '';
   position: absolute;
@@ -615,36 +686,143 @@ body { background-color: #000000; }
   opacity: 0;
   transition: opacity 0.6s ease;
 }
-.menu-card[data-pos='p1'] .menu-plate::after, .menu-card[data-pos='m1'] .menu-plate::after { opacity: 0.55; }
+.menu-card[data-pos='p1'] .menu-plate::after, .menu-card[data-pos='m1'] .menu-plate::after { opacity: 0.34; }
 .menu-card[data-pos='p2'] .menu-plate::after, .menu-card[data-pos='m2'] .menu-plate::after,
-.menu-card[data-pos='hr'] .menu-plate::after, .menu-card[data-pos='hl'] .menu-plate::after { opacity: 0.68; }
+.menu-card[data-pos='hr'] .menu-plate::after, .menu-card[data-pos='hl'] .menu-plate::after { opacity: 0.55; }
 .menu-card[data-pos='0'] .menu-plate {
-  border-color: rgba(230, 197, 138, 0.34);
-  box-shadow: 0 34px 90px -26px rgba(0, 0, 0, 0.85), 0 0 70px -18px rgba(255, 150, 11, 0.22);
+  border-color: rgba(230, 197, 138, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 236, 200, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    0 22px 44px -16px rgba(0, 0, 0, 0.7),
+    0 60px 110px -40px rgba(0, 0, 0, 0.85),
+    0 0 90px -34px rgba(255, 150, 11, 0.22);
 }
-.menu-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(230, 197, 138, 0.35) transparent;
+.menu-card[data-pos='0'] .menu-plate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 150, 11, 0.85), transparent);
 }
-.menu-tabs { scrollbar-width: none; }
-.menu-tabs::-webkit-scrollbar { display: none; }
-.menu-tabs > :first-child { margin-left: auto; }
-.menu-tabs > :last-child { margin-right: auto; }
 
-/* entrance: the cards fly in from depth, centre first, once, as the stage arrives. Only the start is keyframed, so each
-   card ends exactly where its own position puts it, and the animation stops holding anything when it finishes. */
+/* the face: the menu's number, name and price, always readable (it is all a side card shows) */
+.menu-face {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.4rem 1.3rem;
+}
+@media (min-width: 768px) {
+  .menu-face { padding: 1.55rem 2.2rem 1.35rem; }
+}
+.menu-index { font-family: var(--font-serif-display); font-style: italic; font-size: 1.2rem; line-height: 1; color: rgba(230, 197, 138, 0.8); }
+.menu-card .menu-name {
+  margin-top: 0.45rem;
+  font-size: clamp(2.7rem, 5.4vw, 4.2rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+.menu-price { display: flex; align-items: baseline; gap: 0.55rem; margin-top: 0.8rem; white-space: nowrap; }
+.menu-price-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  color: var(--color-ivory);
+}
+.menu-price-unit { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-mist); }
+.menu-card[data-pos='m1'] .menu-face, .menu-card[data-pos='m2'] .menu-face { flex-direction: row-reverse; text-align: right; }
+.menu-card[data-pos='m1'] .menu-price, .menu-card[data-pos='m2'] .menu-price { justify-content: flex-end; }
+.menu-ghost {
+  display: none;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 11vw, 8.5rem);
+  font-weight: 500;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(230, 197, 138, 0.2);
+  user-select: none;
+}
+@media (min-width: 640px) {
+  .menu-ghost { display: block; }
+}
+
+/* the detail: dishes, what is included and excluded, the enquiry. Only the front card shows it. */
+.menu-detail { container-type: inline-size; border-top: 1px solid rgba(230, 197, 138, 0.14); }
+.menu-card:not([data-pos='0']) .menu-detail {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+.menu-card[data-pos='0'] .menu-detail { opacity: 1; transition: opacity 0.7s ease 0.2s; }
+.menu-body { padding: 1.4rem 1.4rem 1.6rem; }
+@media (min-width: 768px) {
+  .menu-body { padding: 1.5rem 2.2rem 1.6rem; }
+}
+@container (min-width: 440px) {
+  .menu-dishes { column-count: 2; column-gap: 2.75rem; }
+}
+.menu-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding: 1rem 1.4rem 1.2rem;
+  background: rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(230, 197, 138, 0.14);
+}
+@media (min-width: 768px) {
+  .menu-foot { padding: 0.9rem 2.2rem 1.1rem; }
+}
+@media (max-width: 767px) {
+  /* the site-wide WhatsApp button sits bottom-right: keep the enquiry clear of it */
+  .menu-foot { padding-right: 4.75rem; }
+}
+.menu-min { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-mist); white-space: nowrap; }
+.menu-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0 1.3rem;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ff960b;
+  border: 1px solid rgba(255, 150, 11, 0.65);
+  border-radius: 999px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.menu-cta:hover { background-color: #ff960b; color: #060504; }
+
+/* entrance of the stage, once, and of a menu's lines each time it comes to the front. Only the start is keyframed, so each
+   element ends exactly where its own style puts it. */
 @keyframes menu-card-in {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateX(0) translateZ(-760px) rotateY(0deg) scale(0.55);
-  }
+  from { opacity: 0; transform: translateX(0) translateZ(-760px) rotateY(0deg) scale(0.55); }
 }
-.menu-stage[data-entering='true'] .menu-card {
-  animation: menu-card-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
+.menu-stage[data-entering='true'] .menu-card { animation: menu-card-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
 .menu-stage[data-entering='true'] .menu-card[data-pos='p1'], .menu-stage[data-entering='true'] .menu-card[data-pos='m1'] { animation-delay: 140ms; }
 .menu-stage[data-entering='true'] .menu-card[data-pos='p2'], .menu-stage[data-entering='true'] .menu-card[data-pos='m2'] { animation-delay: 280ms; }
 .menu-stage[data-entering='true'] .menu-card[data-pos='hr'], .menu-stage[data-entering='true'] .menu-card[data-pos='hl'] { animation-delay: 420ms; }
+@keyframes menu-face-in {
+  from { opacity: 0; }
+}
+.menu-card[data-pos='m1'] .menu-face > div, .menu-card[data-pos='m2'] .menu-face > div, .menu-card[data-pos='0'] .menu-face > div { animation: menu-face-in 0.5s ease backwards; }
+@keyframes menu-item-in {
+  from { opacity: 0; transform: translateY(14px); }
+}
+.menu-card[data-pos='0'] .menu-item {
+  animation: menu-item-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(0.28s + var(--i, 0) * 32ms);
+}
 
 /* floating ingredients */
 .fm-g {
@@ -653,8 +831,7 @@ body { background-color: #000000; }
   top: var(--t);
   width: var(--w);
   aspect-ratio: 1;
-  transform: translate3d(calc(var(--px) * var(--depth) * 1px), calc(var(--py) * var(--depth) * 1px), 0);
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .fm-float {
   width: 100%;
@@ -665,7 +842,6 @@ body { background-color: #000000; }
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.45));
 }
 .fm-turn[data-turn='spin'] { animation: fm-spin var(--turn-dur) linear infinite; }
 .fm-turn[data-turn='tilt'] { animation: fm-tilt var(--turn-dur) ease-in-out infinite alternate; }
@@ -684,8 +860,8 @@ body { background-color: #000000; }
   0%, 100% { opacity: 0.2; transform: translateY(2px); }
   50% { opacity: 0.7; transform: translateY(-3px); }
 }
-@media (max-width: 767px) {
-  .fm-g { left: var(--ml); top: var(--mt); width: var(--mw); }
+@media (max-width: 1199px) {
+  .fm-g { left: var(--ml); top: auto; bottom: var(--mb); width: var(--mw); }
   .fm-g[data-mobile='hide'] { display: none; }
 }
 
@@ -694,9 +870,8 @@ body { background-color: #000000; }
 
 @media (prefers-reduced-motion: reduce) {
   .fm-float, .fm-turn, .fm-turn[data-turn], .fm-steam { animation: none; }
-  .fm-g { transition: none; transform: none; }
-  .menu-card, .menu-plate::after, .menu-backdrop img { transition: none; }
-  .menu-stage[data-entering='true'] .menu-card { animation: none; }
+  .fm-g, .menu-deck, .menu-track, .menu-card, .menu-plate, .menu-plate::after, .menu-detail, .menu-backdrop img { transition: none; }
+  .menu-stage[data-entering='true'] .menu-card, .menu-card[data-pos='0'] .menu-item, .menu-card .menu-face > div { animation: none; }
 }
 
 /* a browser without 3D transforms shows the front menu flat, which is still the whole menu */
