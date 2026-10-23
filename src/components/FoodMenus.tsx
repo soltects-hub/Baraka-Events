@@ -417,7 +417,7 @@ export default function FoodMenus() {
           <Arrow dir="prev" onClick={() => step(-1)} />
           <Arrow dir="next" onClick={() => step(1)} />
 
-          <div className="relative z-[6] flex items-center gap-2 px-3 pb-4 pt-1 md:gap-3 md:px-6">
+          <div className="relative z-[6] flex items-center gap-2 pb-4 pl-3 pr-16 pt-1 md:gap-3 md:pl-6">
             <Arrow dir="prev" inline onClick={() => step(-1)} />
             <Arrow dir="next" inline onClick={() => step(1)} />
             <div ref={tabsRef} className="menu-tabs flex min-w-0 flex-1 gap-2 overflow-x-auto">
