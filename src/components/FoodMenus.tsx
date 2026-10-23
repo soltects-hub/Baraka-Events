@@ -275,7 +275,9 @@ export default function FoodMenus() {
     const row = tabsRef.current;
     const tab = row?.querySelector<HTMLElement>('[aria-current="true"]');
     if (!row || !tab) return;
-    row.scrollTo({ left: tab.offsetLeft - (row.clientWidth - tab.offsetWidth) / 2, behavior: reducedMotion.current ? 'auto' : 'smooth' });
+    const r = row.getBoundingClientRect();
+    const t = tab.getBoundingClientRect();
+    row.scrollBy({ left: t.left - r.left - (r.width - t.width) / 2, behavior: reducedMotion.current ? 'auto' : 'smooth' });
   }, [active]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
