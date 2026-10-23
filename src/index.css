@@ -514,3 +514,193 @@ body { background-color: #000000; }
    them (the logo rail) keep orange headings */
 [data-scene^="03A "], [data-scene^="10 "] { --heading-color: #121212; }
 [data-scene^="03A "] .bg-ink-2, [data-scene^="10 "] .bg-ink-2 { --heading-color: #ff960b; }
+
+/* ---------------------------------------------------------------------------
+ * Food Menu stage (2026-10-23): a fixed-height 3D deck of the eight menu cards.
+ * The old accordion grew and shrank as menus opened and closed, and a panel that
+ * closed above the one you clicked moved it off screen (measured: the clicked
+ * header jumped up by the height of the panel that had just closed, 570-590px).
+ * The stage never changes height, so nothing moves when a menu is chosen.
+ *
+ * Everything animated here is transform or opacity (compositor only). The stage
+ * carries data-live="false" while it is off screen or the tab is hidden, which
+ * pauses every loop; prefers-reduced-motion switches the loops and the entrance
+ * off and the deck changes menu without travelling.
+ * ------------------------------------------------------------------------- */
+.menu-stage {
+  --card-w: min(720px, 86vw);
+  --card-h: clamp(500px, calc(100svh - 190px), 700px);
+  --step: calc(var(--card-w) * 0.7);
+  --deck-top: 22px;
+  --px: 0;
+  --py: 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  contain: layout paint;
+  border-radius: 10px;
+}
+@media (max-width: 767px) {
+  .menu-stage {
+    --card-w: 86vw;
+    --card-h: clamp(440px, calc(100svh - 240px), 600px);
+    --deck-top: 58px;
+    --step: calc(var(--card-w) * 0.9);
+  }
+}
+
+.menu-backdrop img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+.menu-backdrop img[data-on='true'] { opacity: 0.88; }
+.menu-vignette {
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 45%, rgba(6, 5, 4, 0), rgba(6, 5, 4, 0.35) 100%),
+    linear-gradient(180deg, rgba(6, 5, 4, 0.25), rgba(6, 5, 4, 0) 35%, rgba(6, 5, 4, 0.78));
+}
+
+.menu-deck {
+  height: calc(var(--card-h) + var(--deck-top) + 18px);
+  perspective: 1800px;
+  perspective-origin: 50% 45%;
+}
+.menu-deck, .menu-deck * { touch-action: pan-y; }
+.menu-card {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--card-h) / 2 + var(--deck-top));
+  width: var(--card-w);
+  height: var(--card-h);
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+  will-change: transform;
+}
+.menu-card[data-pos='p1'] { z-index: 6; opacity: 1; cursor: pointer; transform: translate(-50%, -50%) translateX(var(--step)) translateZ(-120px) rotateY(-34deg) scale(0.88); }
+.menu-card[data-pos='m1'] { z-index: 6; opacity: 1; cursor: pointer; transform: translate(-50%, -50%) translateX(calc(var(--step) * -1)) translateZ(-120px) rotateY(34deg) scale(0.88); }
+.menu-card[data-pos='p2'] { z-index: 3; opacity: 0.9; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * 2)) translateZ(-260px) rotateY(-46deg) scale(0.76); }
+.menu-card[data-pos='m2'] { z-index: 3; opacity: 0.9; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * -2)) translateZ(-260px) rotateY(46deg) scale(0.76); }
+.menu-card[data-pos='hr'] { z-index: 1; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * 3)) translateZ(-420px) rotateY(-56deg) scale(0.66); }
+.menu-card[data-pos='hl'] { z-index: 1; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) translateX(calc(var(--step) * -3)) translateZ(-420px) rotateY(56deg) scale(0.66); }
+@media (max-width: 767px) {
+  .menu-card[data-pos='p1'] { transform: translate(-50%, -50%) translateX(var(--step)) translateZ(-60px) rotateY(-16deg) scale(0.9); }
+  .menu-card[data-pos='m1'] { transform: translate(-50%, -50%) translateX(calc(var(--step) * -1)) translateZ(-60px) rotateY(16deg) scale(0.9); }
+  .menu-card[data-pos='p2'], .menu-card[data-pos='m2'] { opacity: 0; }
+}
+
+.menu-plate {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(230, 197, 138, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(30, 25, 21, 0.97), rgba(12, 10, 8, 0.98));
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.8);
+}
+.menu-card:not([data-pos='0']) .menu-plate { background: rgba(14, 11, 9, 0.4); }
+.menu-plate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgb(6, 5, 4);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.menu-card[data-pos='p1'] .menu-plate::after, .menu-card[data-pos='m1'] .menu-plate::after { opacity: 0.55; }
+.menu-card[data-pos='p2'] .menu-plate::after, .menu-card[data-pos='m2'] .menu-plate::after,
+.menu-card[data-pos='hr'] .menu-plate::after, .menu-card[data-pos='hl'] .menu-plate::after { opacity: 0.68; }
+.menu-card[data-pos='0'] .menu-plate {
+  border-color: rgba(230, 197, 138, 0.34);
+  box-shadow: 0 34px 90px -26px rgba(0, 0, 0, 0.85), 0 0 70px -18px rgba(255, 150, 11, 0.22);
+}
+.menu-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(230, 197, 138, 0.35) transparent;
+}
+.menu-tabs { scrollbar-width: none; }
+.menu-tabs::-webkit-scrollbar { display: none; }
+.menu-tabs > :first-child { margin-left: auto; }
+.menu-tabs > :last-child { margin-right: auto; }
+
+/* entrance: the cards fly in from depth, centre first, once, as the stage arrives. Only the start is keyframed, so each
+   card ends exactly where its own position puts it, and the animation stops holding anything when it finishes. */
+@keyframes menu-card-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(0) translateZ(-760px) rotateY(0deg) scale(0.55);
+  }
+}
+.menu-stage[data-entering='true'] .menu-card {
+  animation: menu-card-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+.menu-stage[data-entering='true'] .menu-card[data-pos='p1'], .menu-stage[data-entering='true'] .menu-card[data-pos='m1'] { animation-delay: 140ms; }
+.menu-stage[data-entering='true'] .menu-card[data-pos='p2'], .menu-stage[data-entering='true'] .menu-card[data-pos='m2'] { animation-delay: 280ms; }
+.menu-stage[data-entering='true'] .menu-card[data-pos='hr'], .menu-stage[data-entering='true'] .menu-card[data-pos='hl'] { animation-delay: 420ms; }
+
+/* floating ingredients */
+.fm-g {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: var(--w);
+  aspect-ratio: 1;
+  transform: translate3d(calc(var(--px) * var(--depth) * 1px), calc(var(--py) * var(--depth) * 1px), 0);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fm-float {
+  width: 100%;
+  height: 100%;
+  animation: fm-float var(--dur) ease-in-out var(--delay) infinite;
+}
+.fm-turn {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.45));
+}
+.fm-turn[data-turn='spin'] { animation: fm-spin var(--turn-dur) linear infinite; }
+.fm-turn[data-turn='tilt'] { animation: fm-tilt var(--turn-dur) ease-in-out infinite alternate; }
+.fm-turn svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.fm-steam { animation: fm-steam 4.5s ease-in-out infinite; }
+@keyframes fm-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(var(--rz)); }
+  50% { transform: translate3d(0, calc(var(--fy) * -1), 0) rotateZ(calc(var(--rz) * -1)); }
+}
+@keyframes fm-spin { to { transform: rotateY(360deg); } }
+@keyframes fm-tilt {
+  from { transform: rotateY(-26deg) rotateX(8deg); }
+  to { transform: rotateY(26deg) rotateX(-8deg); }
+}
+@keyframes fm-steam {
+  0%, 100% { opacity: 0.2; transform: translateY(2px); }
+  50% { opacity: 0.7; transform: translateY(-3px); }
+}
+@media (max-width: 767px) {
+  .fm-g { left: var(--ml); top: var(--mt); width: var(--mw); }
+  .fm-g[data-mobile='hide'] { display: none; }
+}
+
+/* off screen or tab hidden: pause every loop (the stage keeps its last frame) */
+.menu-stage[data-live='false'] :is(.fm-float, .fm-turn, .fm-steam) { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-float, .fm-turn, .fm-turn[data-turn], .fm-steam { animation: none; }
+  .fm-g { transition: none; transform: none; }
+  .menu-card, .menu-plate::after, .menu-backdrop img { transition: none; }
+  .menu-stage[data-entering='true'] .menu-card { animation: none; }
+}
+
+/* a browser without 3D transforms shows the front menu flat, which is still the whole menu */
+@supports not (transform-style: preserve-3d) {
+  .menu-card:not([data-pos='0']) { display: none; }
+  .fm-layer { display: none; }
+}
