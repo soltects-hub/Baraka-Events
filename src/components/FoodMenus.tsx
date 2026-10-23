@@ -147,7 +147,7 @@ function MenuCard({ pkg, pos, onSelect }: { pkg: FoodPackage; pos: string; onSel
           </div>
           <p data-menu-price className="flex flex-col items-end whitespace-nowrap sm:flex-row sm:items-baseline sm:gap-1.5">
             <span className="font-display text-2xl font-light leading-tight text-champagne md:text-3xl">{price}</span>
-            <span className="text-[12px] leading-tight tracking-wide text-mist-dim">/person</span>
+            <span className="text-[12px] leading-tight tracking-wide text-mist">/person</span>
           </p>
         </header>
 
@@ -435,7 +435,7 @@ export default function FoodMenus() {
                 </button>
               ))}
             </div>
-            <p aria-hidden className="hidden shrink-0 text-[11px] uppercase tracking-[0.25em] text-mist-dim sm:block">
+            <p aria-hidden className="hidden shrink-0 text-[11px] uppercase tracking-[0.25em] text-mist sm:block">
               {String(active + 1).padStart(2, '0')} / {String(COUNT).padStart(2, '0')}
             </p>
           </div>

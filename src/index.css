@@ -542,7 +542,7 @@ body { background-color: #000000; }
 }
 @media (max-width: 767px) {
   .menu-stage {
-    --card-w: 86vw;
+    --card-w: min(86vw, calc(100vw - 58px));
     --card-h: clamp(440px, calc(100svh - 240px), 600px);
     --deck-top: 58px;
     --step: calc(var(--card-w) * 0.9);
