@@ -104,6 +104,11 @@ export default function Home() {
         </LazyMount>
         <LazyMount>
           <Suspense fallback={null}>
+            <FoodMenus />
+          </Suspense>
+        </LazyMount>
+        <LazyMount>
+          <Suspense fallback={null}>
             <DollyZoom />
           </Suspense>
         </LazyMount>
@@ -130,11 +135,6 @@ export default function Home() {
         <LazyMount anchorId="gallery">
           <Suspense fallback={null}>
             <Gallery />
-          </Suspense>
-        </LazyMount>
-        <LazyMount>
-          <Suspense fallback={null}>
-            <FoodMenus />
           </Suspense>
         </LazyMount>
         <LazyMount anchorId="process">
