@@ -5,6 +5,7 @@ import { getPost, getRelatedPosts } from '../lib/posts';
 import { getService } from '../lib/services';
 import { postServiceLinks } from '../lib/postService';
 import { postSeoTitles } from '../lib/postSeoTitles';
+import { postSeoDescriptions } from '../lib/postSeoDescriptions';
 import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
@@ -74,7 +75,7 @@ export default function BlogPost() {
 
   useSEO({
     title: post ? (postSeoTitles[post.slug] ?? `${post.title} \u2014 The Baraka Journal`) : 'The Baraka Journal',
-    description: post?.excerpt ?? seoConfig.site.description,
+    description: post ? (postSeoDescriptions[post.slug] ?? post.excerpt) : seoConfig.site.description,
     canonical: post ? routes.blogPost(post.slug) : routes.blog,
     image: post?.image,
     imageAlt: post?.imageAlt,

@@ -50,24 +50,11 @@ const editedLastmod = '2026-09-09';
 // and /blog (several titles and excerpts shown in the index changed). The posts carry their own updatedISO. UTC date of the last
 // content commit, never a predicted one; the venue entries and every page not listed here keep the date they had.
 const rankingPassLastmod = '2026-10-12';
-// 2026-10-08: an added FAQ on /services/event-management and /services/corporate-events, and the "barat" spelling on
-// /services/barat-events. The /services hub renders every service's intro, so it moved with the barat intro.
-const servicesPassLastmod = '2026-10-08';
-// 2026-10-15: copy pass on two service pages: /services/event-decoration (wedding-stage heading, decorator FAQ, outdoor-guide link) and
-// /services/birthday-events (venue-selection heading and sentence, venues-guide link). UTC date of the content commit, never a predicted one.
-// Deliberately not moved: /services/mehndi-events (a two-word heading change) and the two blog posts that gained one inline link each
-// (event-planning-cost-budget-lahore, how-to-choose-wedding-venue-lahore-guide); their dates stay at the last substantive edit.
-const copyPassLastmod = '2026-10-15';
 // 2026-10-16: the corporate growth pass. /services/corporate-events (rewritten sections, FAQs and enquiry path), the /services hub (renders each
 // service intro, so the corporate intro moved it), /experiences (corporate section), /portfolio and the homepage (the two corporate cards and the
 // brands-strip caption), and /blog (two corporate post titles and excerpts shown in the index changed). The two corporate posts carry their own
 // updatedISO. UTC date of the content commit, never a predicted one.
 const corporatePassLastmod = '2026-10-16';
-// 2026-10-16: images and on-page audit. Pages whose visible content or search snippet changed: /gallery, /experiences and /portfolio (titles
-// shortened to the visible length), /services/engagement-events (its hero was a "Happy Birthday" neon photo; /services renders the same card
-// image) and the wedding-venues guide, which takes its date from updatedISO. Image recompression, the About image format change and the
-// trimmed blog excerpts are not content passes and move no date. UTC date of the content commit, never a predicted one.
-const auditPassLastmod = '2026-10-16';
 // 2026-10-20: owner-approved photo swaps. The homepage (Weddings panel photo, birthday card and archive ring) and /portfolio (birthday card, whose
 // unverified guest count, venue, year and programme details were removed) changed visibly. UTC date of the content commit, never a predicted one.
 const photoPassLastmod = '2026-10-20';
@@ -79,16 +66,21 @@ const claimsPassLastmod = '2026-10-20';
 // targeting, decor content, contextual copy on portfolio/gallery/team/contact). Title-only blog edits
 // are deliberately not bumped; the two posts that gained links carry their own updatedISO.
 const seoPassLastmod = '2026-10-22';
+// 2026-10-25: the six individual-function service pages gained new sections, FAQs and links to the existing guides,
+// and /gallery gained its archive breakdown. The two blog meta descriptions and the /team meta description
+// changed only in the head, so they are not bumped.
+const functionPassLastmod = '2026-10-25';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
   'corporate-events': corporatePassLastmod,
   'wedding-planning': seoPassLastmod,
-  'mehndi-events': rankingPassLastmod,
+  'mehndi-events': functionPassLastmod,
   'event-decoration': seoPassLastmod,
-  'birthday-events': copyPassLastmod,
-  'nikkah-events': rankingPassLastmod,
-  'barat-events': servicesPassLastmod,
-  'engagement-events': auditPassLastmod,
+  'birthday-events': functionPassLastmod,
+  'nikkah-events': functionPassLastmod,
+  'barat-events': functionPassLastmod,
+  'walima-events': functionPassLastmod,
+  'engagement-events': functionPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
 // page-2 pass, the remaining six (the individual wedding functions plus
@@ -111,7 +103,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: rankingPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: seoPassLastmod },
-  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: seoPassLastmod },
+  { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: functionPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: seoPassLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: seoPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },

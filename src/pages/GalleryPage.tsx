@@ -113,6 +113,10 @@ const photos: Photo[] = [
   { src: '/media/gallery/detail-9.webp', alt: 'Pastel floral arches with sheer drapes over a long dining table on a lawn', category: 'Production', tags: ['Event Details', 'Event Decoration'], w: 810, h: 1080 },
 ];
 
+// How many photographs each filter holds, counted from the list above so the
+// archive description under the drum can never drift from what the filters show.
+const tagCount = (tag: FilterTag) => photos.filter((p) => p.tags.includes(tag)).length;
+
 // Every photo wider than 720px also ships a 640px variant
 // (scripts/generate-gallery-variants.mjs) so the drum fetches and decodes
 // roughly the size it paints — the centre panel is ~576px on a DPR-1 desktop.
@@ -463,6 +467,9 @@ export default function GalleryPage() {
               split into mehndi, baraat and walima; the corporate set holds the staged and lit corporate work; birthdays holds
               birthday and bridal-shower set-ups; event decoration holds floral arches and garden tables; and event details
               covers catering counters and live-music staging, including qawali nights.
+            </p>
+            <p>
+              {`The archive currently holds ${photos.length} photographs: ${tagCount('Weddings')} under Weddings (${tagCount('Mehndi')} mehndi, ${tagCount('Baraat')} baraat and ${tagCount('Walima')} walima), ${tagCount('Corporate')} corporate, ${tagCount('Birthdays')} birthday and bridal-shower set-ups, ${tagCount('Event Decoration')} event decoration and ${tagCount('Event Details')} event details. Filters overlap by design: a walima photograph also appears under Weddings, and a floral arch can appear under both Event Details and Event Decoration. The mehndi set is marigold stages, garlanded ceilings and lit floors; the baraat set is red-velvet lounges, chandeliers and entrance walkways; the walima set is white-rose arches, banquet tables and draped ceilings; and the corporate set is LED stages, lighting trusses and outdoor screen rigs.`}
             </p>
             <p>
               Each function has its own planning page:{' '}

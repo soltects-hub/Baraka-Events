@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
@@ -17,6 +17,26 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+
+// Service copy can link to a guide or a sister service with [text](/path); the
+// links use the same style as the "Related" line below the FAQs.
+const INLINE_LINK = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+
+function withLinks(text: string) {
+  const out: ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(INLINE_LINK)) {
+    out.push(text.slice(last, m.index));
+    out.push(
+      <Link key={`${m.index}-${m[2]}`} to={m[2]} className="gold-underline text-gold hover:text-gold-soft">
+        {m[1]}
+      </Link>
+    );
+    last = (m.index ?? 0) + m[0].length;
+  }
+  out.push(text.slice(last));
+  return out;
+}
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -110,7 +130,7 @@ export default function ServicePage() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <h2 className="font-display text-xl font-light text-gold-soft md:text-2xl">{pt.h}</h2>
-              <p className="mt-2 text-sm font-light leading-relaxed text-mist md:text-base">{pt.p}</p>
+              <p className="mt-2 text-sm font-light leading-relaxed text-mist md:text-base">{withLinks(pt.p)}</p>
             </motion.div>
           ))}
         </div>

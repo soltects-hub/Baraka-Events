@@ -20,7 +20,7 @@ export default function TeamPage() {
   useSEO({
     title: 'Meet the Team — Baraka Events Lahore',
     description:
-      'Meet Malik Bilal, the founder and CEO of Baraka Events — the person behind every wedding, corporate event and private celebration the company produces in Lahore.',
+      'Meet Malik Bilal, founder and CEO of Baraka Events, the person behind every wedding, corporate event and private celebration the company produces in Lahore.',
     canonical: routes.team,
   });
 
