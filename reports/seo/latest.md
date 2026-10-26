@@ -1,15 +1,19 @@
-# Baraka Events SEO Report — 2026-09-02
+# Baraka Events SEO Report — 2026-10-26
 
-Site: `https://barakaevents.com/` · Current period: 2026-08-03 to 2026-08-30 (28 days) · Compared to: 2026-07-06 to 2026-08-02
+Site: `sc-domain:barakaevents.com` · Current period: 2026-09-26 to 2026-10-23 (28 days) · Compared to: 2026-08-29 to 2026-09-25
+
+Property queried: `sc-domain:barakaevents.com` (configured via default)
+
+Service-account access: `https://barakaevents.com/` (siteFullUser), `sc-domain:barakaevents.com` (siteFullUser)
 
 ## Overview
 
 | Metric | Current | Previous | Change |
 |---|---|---|---|
-| Clicks | 1 | 0 | new |
-| Impressions | 15 | 5 | +200.0% |
-| CTR | 6.67% | 0.00% | 6.67% pts |
-| Avg. position | 29.1 | 9.8 | worsened by 19.3 |
+| Clicks | 41 | 47 | -12.8% |
+| Impressions | 1704 | 1271 | +34.1% |
+| CTR | 2.41% | 3.70% | -1.29% pts |
+| Avg. position | 11.8 | 13.3 | improved by 1.4 |
 
 ## Wins
 
@@ -23,125 +27,191 @@ No pages dropped clicks by 20%+ this period.
 
 | Query | Clicks | Impressions | CTR | Avg. position |
 |---|---|---|---|---|
-| bf picture janwar wali | 1 | 2 | 50.00% | 24.5 |
-| birthday events lahore | 0 | 4 | 0.00% | 50.0 |
-| janwar wala bf picture | 0 | 1 | 0.00% | 30.0 |
-| janwar wali bf picture | 0 | 1 | 0.00% | 65.0 |
+| baraka events | 6 | 57 | 10.53% | 2.5 |
+| wedding planner in lahore | 3 | 23 | 13.04% | 5.0 |
+| best event planners in lahore | 2 | 31 | 6.45% | 11.3 |
+| event planner in lahore | 2 | 44 | 4.55% | 6.7 |
+| events planner in lahore | 2 | 4 | 50.00% | 15.5 |
+| barakah events | 1 | 6 | 16.67% | 7.7 |
+| best event planner in lahore | 1 | 50 | 2.00% | 11.0 |
+| can pay | 1 | 1 | 100.00% | 1.0 |
+| event management | 1 | 39 | 2.56% | 1.9 |
+| event organizer in lahore | 1 | 18 | 5.56% | 17.4 |
 
 ## Top pages (current period)
 
 | Page | Clicks | Impressions | CTR | Avg. position |
 |---|---|---|---|---|
-| https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3 | 1 | 4 | 25.00% | 36.0 |
-| https://barakaevents.com/ | 0 | 2 | 0.00% | 1.0 |
-| https://barakaevents.com/birthday-planners/ | 0 | 9 | 0.00% | 32.2 |
+| https://www.barakaevents.com/ | 35 | 1473 | 2.38% | 8.7 |
+| https://www.barakaevents.com/services/event-management | 1 | 44 | 2.27% | 30.0 |
+| https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025 | 1 | 24 | 4.17% | 42.8 |
+| https://www.barakaevents.com/team | 1 | 8 | 12.50% | 11.6 |
+| https://www.barakaevents.com/about | 1 | 6 | 16.67% | 4.0 |
+| https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026 | 1 | 4 | 25.00% | 7.0 |
+| https://www.barakaevents.com/services/engagement-events | 1 | 3 | 33.33% | 10.7 |
+| https://www.barakaevents.com/experiences | 0 | 50 | 0.00% | 23.4 |
+| https://www.barakaevents.com/venues | 0 | 50 | 0.00% | 30.5 |
+| https://www.barakaevents.com/gallery | 0 | 34 | 0.00% | 9.5 |
 
 ## Keyword opportunities
 
-Queries with meaningful visibility (10+ impressions) but low click-through (<2%) — usually a sign the title/description isn't compelling for what people are already seeing it for:
+Non-brand queries with 10+ impressions, read against their position (query-analysis.ts). A click-through problem is only reported on page 1 when enough clicks were expected for "none" to mean something; page-2/3 queries are ranking work, not snippet work.
 
-No low-CTR, high-impression queries found this period.
+**Ranking — positions 11-30:**
+- "event planner lahore" — 82 impressions, position 11.6, owner `/`
+- "best event planner in lahore" — 50 impressions, position 11.0, owner `/`
+- "best event planners in lahore" — 31 impressions, position 11.3, owner `/`
+- "event planners in lahore" — 28 impressions, position 14.9, owner `/`
+- "event organizer in lahore" — 18 impressions, position 17.4, owner `/`
+- "event management companies in lahore" — 18 impressions, position 16.6, owner `/`
+- "event management in lahore" — 15 impressions, position 24.0, owner `/`
+
+## Query ownership (page × query)
+
+Which of our pages Google shows for each query (http/https, apex/www and trailing-slash variants merged). Covers 949 of the 1704 impressions in the window: Search Console never returns anonymized queries.
+
+| Query | Impr. | Pos. | Owner page | Other own pages | Flags |
+|---|---|---|---|---|---|
+| event planner lahore | 82 | 11.6 | `/` (82 @ 11.6) | — | — |
+| best event planner in lahore | 50 | 11.0 | `/` (50 @ 11.0) | — | — |
+| event planner in lahore | 45 | 6.6 | `/` (44 @ 6.7) | `/venues` (1 @ 1.0) | — |
+| event planner | 40 | 3.8 | `/` (40 @ 3.8) | — | — |
+| event management | 39 | 1.9 | `/` (39 @ 1.9) | — | — |
+| best event planners in lahore | 31 | 11.3 | `/` (31 @ 11.3) | — | — |
+| event planners in lahore | 29 | 14.4 | `/` (28 @ 14.9) | `/experiences` (1 @ 1.0) | — |
+| wedding planner in lahore | 23 | 5.0 | `/` (23 @ 5.0) | — | service page /services/wedding-planning not ranking |
+| event management lahore | 19 | 8.4 | `/` (18 @ 4.9) | `/services/event-management` (1 @ 72.0) | service page /services/event-management far behind |
+| event organizer in lahore | 18 | 17.4 | `/` (18 @ 17.4) | — | service page /services/event-management not ranking |
+| event management company in lahore | 18 | 8.7 | `/` (17 @ 4.6) | `/services/event-management` (1 @ 78.0) | service page /services/event-management far behind |
+| event management companies in lahore | 18 | 16.6 | `/` (16 @ 9.1) | `/services/event-management` (2 @ 76.0) | service page /services/event-management far behind |
+| event planner near me | 16 | 10.2 | `/` (16 @ 10.2) | — | — |
+| event management in lahore | 15 | 24.0 | `/` (13 @ 15.7) | `/services/event-management` (2 @ 78.0) | service page /services/event-management far behind |
+| barat events lahore | 12 | 60.2 | `/experiences` (5 @ 75.0) | `/` (4 @ 43.3), `/services/barat-events` (3 @ 58.0) | two own pages |
+
+**Service-page gaps:** 11 non-brand queries are answered by the homepage while the topical service page does not rank near it: "wedding planner in lahore" → `/services/wedding-planning`, "event management lahore" → `/services/event-management`, "event organizer in lahore" → `/services/event-management`, "event management company in lahore" → `/services/event-management`, "event management companies in lahore" → `/services/event-management`, "event management in lahore" → `/services/event-management`.
 
 ## Technical SEO issues
 
-- Sitemap `https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37`: 0 error(s), 1 warning(s).
-- `https://barakaevents.com/`: coverage state is "Page with redirect" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/best-event-planner-lahore-baraka-events`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/baraka-events-management-how-we-work`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/baraka-events-corporate-events-lahore`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/baraka-events-venue-booking-guide`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/baraka-events-decor-services-lahore`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/baraka-events-lahore-gulberg`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/viral-pakistani-wedding-trends-2026`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/destination-style-shaadi-lahore-trend`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/top-wedding-venues-lahore-2025`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/mehndi-themes-lahore-loves`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/luxury-shaadi-cost-lahore`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/walima-decor-trends-2025`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/corporate-gala-lahore-checklist`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/perfect-baraat-guide`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/walima-reception-planning-guide`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- `https://barakaevents.com/blog/wedding-timeline-mehndi-to-walima`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
+No sitemap errors/warnings and no indexing coverage issues detected on inspected URLs.
 
 ## Indexing status (URL Inspection)
 
 | URL | Coverage state | Verdict | Last crawl | User canonical | Google canonical |
 |---|---|---|---|---|---|
-| https://barakaevents.com/ | Page with redirect | NEUTRAL | 2026-09-01T02:09:51Z | https://www.barakaevents.com/ | https://www.barakaevents.com/ |
-| https://barakaevents.com/blog | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/best-event-planner-lahore-baraka-events | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026 | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/baraka-events-management-how-we-work | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/baraka-events-corporate-events-lahore | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/baraka-events-venue-booking-guide | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/baraka-events-decor-services-lahore | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/baraka-events-lahore-gulberg | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/viral-pakistani-wedding-trends-2026 | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/destination-style-shaadi-lahore-trend | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/top-wedding-venues-lahore-2025 | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/mehndi-themes-lahore-loves | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/luxury-shaadi-cost-lahore | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/walima-decor-trends-2025 | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/corporate-gala-lahore-checklist | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/perfect-baraat-guide | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/walima-reception-planning-guide | URL is unknown to Google | NEUTRAL | — | — | — |
-| https://barakaevents.com/blog/wedding-timeline-mehndi-to-walima | URL is unknown to Google | NEUTRAL | — | — | — |
+| https://www.barakaevents.com/ | Submitted and indexed | PASS | 2026-10-24T15:43:44Z | https://www.barakaevents.com/ | https://www.barakaevents.com/ |
+| https://www.barakaevents.com/services | Submitted and indexed | PASS | 2026-08-29T19:58:25Z | https://www.barakaevents.com/services | https://www.barakaevents.com/services |
+| https://www.barakaevents.com/services/wedding-planning | Submitted and indexed | PASS | 2026-08-29T20:20:56Z | https://www.barakaevents.com/services/wedding-planning | https://www.barakaevents.com/services/wedding-planning |
+| https://www.barakaevents.com/services/event-management | Submitted and indexed | PASS | 2026-10-05T11:24:36Z | https://www.barakaevents.com/services/event-management | https://www.barakaevents.com/services/event-management |
+| https://www.barakaevents.com/services/event-decoration | Submitted and indexed | PASS | 2026-08-29T21:51:28Z | https://www.barakaevents.com/services/event-decoration | https://www.barakaevents.com/services/event-decoration |
+| https://www.barakaevents.com/services/corporate-events | Submitted and indexed | PASS | 2026-09-12T12:35:30Z | https://www.barakaevents.com/services/corporate-events | https://www.barakaevents.com/services/corporate-events |
+| https://www.barakaevents.com/services/nikkah-events | Submitted and indexed | PASS | 2026-08-30T00:17:52Z | https://www.barakaevents.com/services/nikkah-events | https://www.barakaevents.com/services/nikkah-events |
+| https://www.barakaevents.com/services/mehndi-events | Submitted and indexed | PASS | 2026-08-30T03:38:44Z | https://www.barakaevents.com/services/mehndi-events | https://www.barakaevents.com/services/mehndi-events |
+| https://www.barakaevents.com/services/barat-events | Submitted and indexed | PASS | 2026-08-29T23:57:50Z | https://www.barakaevents.com/services/barat-events | https://www.barakaevents.com/services/barat-events |
+| https://www.barakaevents.com/services/walima-events | Submitted and indexed | PASS | 2026-08-29T20:21:57Z | https://www.barakaevents.com/services/walima-events | https://www.barakaevents.com/services/walima-events |
+| https://www.barakaevents.com/services/engagement-events | Submitted and indexed | PASS | 2026-08-29T23:44:49Z | https://www.barakaevents.com/services/engagement-events | https://www.barakaevents.com/services/engagement-events |
+| https://www.barakaevents.com/services/birthday-events | Submitted and indexed | PASS | 2026-10-02T03:37:22Z | https://www.barakaevents.com/services/birthday-events | https://www.barakaevents.com/services/birthday-events |
+| https://www.barakaevents.com/blog | Submitted and indexed | PASS | 2026-09-30T13:18:33Z | https://www.barakaevents.com/blog | https://www.barakaevents.com/blog |
+| https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore | Submitted and indexed | PASS | 2026-09-23T02:06:19Z | https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore | https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore |
+| https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide | Submitted and indexed | PASS | 2026-10-14T05:56:47Z | https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide | https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide |
+| https://www.barakaevents.com/blog/event-planning-cost-budget-lahore | Submitted and indexed | PASS | 2026-10-24T07:28:42Z | https://www.barakaevents.com/blog/event-planning-cost-budget-lahore | https://www.barakaevents.com/blog/event-planning-cost-budget-lahore |
+| https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide | Submitted and indexed | PASS | 2026-10-16T01:33:01Z | https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide | https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide |
+| https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore | Submitted and indexed | PASS | 2026-09-11T10:18:42Z | https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore | https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore |
+| https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore | Submitted and indexed | PASS | 2026-09-11T12:37:58Z | https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore | https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore |
+| https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore | Submitted and indexed | PASS | 2026-09-10T19:15:01Z | https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore | https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore |
+| https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore | Submitted and indexed | PASS | 2026-09-11T13:59:18Z | https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore | https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore |
+| https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore | Submitted and indexed | PASS | 2026-09-26T21:57:32Z | https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore | https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore |
+| https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide | Submitted and indexed | PASS | 2026-09-11T07:30:26Z | https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide | https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide |
+| https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore | Submitted and indexed | PASS | 2026-10-14T11:42:51Z | https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore | https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore |
+| https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events | Submitted and indexed | PASS | 2026-10-06T17:42:49Z | https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events | https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events |
+| https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026 | Submitted and indexed | PASS | 2026-08-29T22:53:24Z | https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026 | https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026 |
+| https://www.barakaevents.com/blog/baraka-events-management-how-we-work | Submitted and indexed | PASS | 2026-08-29T22:48:48Z | https://www.barakaevents.com/blog/baraka-events-management-how-we-work | https://www.barakaevents.com/blog/baraka-events-management-how-we-work |
+| https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore | Submitted and indexed | PASS | 2026-09-11T13:59:05Z | https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore | https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore |
+| https://www.barakaevents.com/blog/baraka-events-venue-booking-guide | Submitted and indexed | PASS | 2026-08-29T19:07:05Z | https://www.barakaevents.com/blog/baraka-events-venue-booking-guide | https://www.barakaevents.com/blog/baraka-events-venue-booking-guide |
+| https://www.barakaevents.com/blog/baraka-events-decor-services-lahore | Submitted and indexed | PASS | 2026-09-10T23:57:10Z | https://www.barakaevents.com/blog/baraka-events-decor-services-lahore | https://www.barakaevents.com/blog/baraka-events-decor-services-lahore |
+| https://www.barakaevents.com/blog/baraka-events-lahore-gulberg | Submitted and indexed | PASS | 2026-08-29T22:56:11Z | https://www.barakaevents.com/blog/baraka-events-lahore-gulberg | https://www.barakaevents.com/blog/baraka-events-lahore-gulberg |
+| https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026 | Submitted and indexed | PASS | 2026-10-01T02:59:57Z | https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026 | https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026 |
+| https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend | Submitted and indexed | PASS | 2026-08-29T18:17:33Z | https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend | https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend |
+| https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan | Submitted and indexed | PASS | 2026-08-29T20:55:15Z | https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan | https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan |
+| https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025 | Submitted and indexed | PASS | 2026-08-25T12:09:37Z | https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025 | https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025 |
+| https://www.barakaevents.com/blog/mehndi-themes-lahore-loves | Submitted and indexed | PASS | 2026-08-20T02:09:31Z | — | https://www.barakaevents.com/blog/mehndi-themes-lahore-loves |
+| https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore | Submitted and indexed | PASS | 2026-08-20T01:41:32Z | — | https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore |
+| https://www.barakaevents.com/blog/walima-decor-trends-2025 | Submitted and indexed | PASS | 2026-08-25T10:07:06Z | https://www.barakaevents.com/blog/walima-decor-trends-2025 | https://www.barakaevents.com/blog/walima-decor-trends-2025 |
+| https://www.barakaevents.com/blog/corporate-gala-lahore-checklist | Submitted and indexed | PASS | 2026-08-25T09:54:51Z | https://www.barakaevents.com/blog/corporate-gala-lahore-checklist | https://www.barakaevents.com/blog/corporate-gala-lahore-checklist |
+| https://www.barakaevents.com/blog/perfect-baraat-guide | Submitted and indexed | PASS | 2026-08-25T09:51:53Z | https://www.barakaevents.com/blog/perfect-baraat-guide | https://www.barakaevents.com/blog/perfect-baraat-guide |
+| https://www.barakaevents.com/blog/walima-reception-planning-guide | Submitted and indexed | PASS | 2026-08-30T00:07:28Z | https://www.barakaevents.com/blog/walima-reception-planning-guide | https://www.barakaevents.com/blog/walima-reception-planning-guide |
+| https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima | Submitted and indexed | PASS | 2026-08-29T21:25:20Z | https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima | https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima |
 
 ## Sitemap status
 
-- `https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37` — last downloaded: 2025-11-23T08:30:38.382Z, errors: 0, warnings: 1
-  - web: 0/37 indexed
-- `https://barakaevents.com/index.php?r=s&t=1&m=3&cn=32` — last downloaded: 2025-11-30T05:40:52.270Z, errors: 0, warnings: 0
-  - web: 0/32 indexed
-- `https://barakaevents.com/sitemap.xml` — last downloaded: 2026-08-25T07:45:54.394Z, errors: 0, warnings: 0
-  - web: 0/8 indexed
+- `https://www.barakaevents.com/sitemap.xml` — last downloaded: 2026-10-24T10:42:39.274Z, errors: 0, warnings: 0
+  - web: 0/53 indexed
 
 ## Indexed pages
 
-0/20 inspected site URLs are indexed by Google.
+42/42 inspected site URLs are indexed by Google.
 
 ## Legacy URL audit (Phase 1 — classification only, nothing auto-applied)
 
 **Spam/malware-pattern URLs (recommend 410, never redirect):**
-- `https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
-- `https://barakaevents.com/index.php?JGNS=NOU125329123&amp;g=&amp;m=3` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
+- `https://barakaevents.com/?JGNS=NOU314638988&g=18&m=1` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
+- `https://barakaevents.com/?JGNS=NOU472506520&g=10&m=1` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
 - `https://barakaevents.com/index.php?JGNS=NOU265432883&g=&m=3` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
-- `https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
-- `https://barakaevents.com/index.php?r=s&t=1&m=3&cn=32` — Matches a known WordPress spam/malware-injection URL signature (not a page this site, past or present, ever legitimately served).
 
 **Legacy content with a clear redirect target (human review before implementing):**
+- `https://www.barakaevents.com/gallery` → `/#gallery` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
 - `https://barakaevents.com/birthday-planners/` → `/services/birthday-events` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
-- `https://barakaevents.com/corporate-event-planner/` → `/services/corporate-events` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
-- `https://barakaevents.com/wedding-planner/` → `/services/wedding-planning` — Legacy WordPress-era content URL with a clear current-site equivalent (verified anchor exists).
+
+**Needs human investigation (no automatic action taken):**
+- `https://www.barakaevents.com/about` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/team` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/baraka-events-best-event-management-company-in-lahore` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/baraka-events-lahore-event-planner` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/best-event-management-company-lahore` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/best-event-planner-in-lahore-guide` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/cheap-event-planners-in-lahore` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/cheap-event-planners-in-lahore-gulberg` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/corporate-event-floral-decor-lahore` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/top-wedding-decoration-trends-in-lahore-for-2026` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/ultimate-guide-event-planners-lahore-pakistan` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/contact` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/disclaimer` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/experiences` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/portfolio` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/venues` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/venues/avari-lahore` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/venues/royal-palm-golf-country-club` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/venues/sumbal-chak-farmhouse` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/venues/the-nishat-hotel-gulberg` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/event-planning-trends-lahore-baraka-events` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/blog/event-season-in-pakistan-wedding-corporate-event-management-baraka-events` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
+- `https://www.barakaevents.com/terms-conditions` — First time this script has seen this URL. Add it to legacy-urls.ts once classified.
 
 ## Content decision & publishing
 
-**Decision:** fix-indexing (target: site-wide indexing)
-  - Only 0/20 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).
-  - Publishing new content before fixing discoverability would waste effort — indexing is the dominant blocker right now.
+**Decision:** improve-existing (target: /)
+  - Query "event planner lahore": page 2 (position 11.6): even a perfect snippet earns about 1.0% here — the ranking is the limit, not the title.
+  - Owning page: / (82 impressions at position 11.6).
+  - Strengthen the owning page (content depth, contextual internal links); rewriting the snippet would not move this query.
 
-**Content generation skipped:** Decision was "fix-indexing", not "new-article" — nothing to generate today.
+**Content generation skipped:** Decision was "improve-existing", not "new-article" — nothing to generate today.
 
 ## Keyword opportunity classification (Phase 9)
 
 | Bucket | Count | Meaning |
 |---|---|---|
-| improve-topical-authority | 6 | positions 21-50 — needs broader topical coverage |
+| defend | 31 | positions 1-3 — protect current ranking |
+| optimize-aggressively | 46 | positions 4-10 — push for page 1 top spots |
+| strengthen | 81 | positions 11-20 — needs stronger page/internal links |
+| improve-topical-authority | 10 | positions 21-50 — needs broader topical coverage |
+| evaluate | 31 | position 50+ — evaluate intent/content fit |
 
 _Buckets reflect real Search Console position data for keywords in the topical map that matched a real query today — never a projection or a ranking guarantee._
 
 ## Recommended actions
 
-- Fix: Sitemap `https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37`: 0 error(s), 1 warning(s).
-- Fix: `https://barakaevents.com/`: coverage state is "Page with redirect" (verdict: NEUTRAL).
-- Fix: `https://barakaevents.com/blog`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- Fix: `https://barakaevents.com/blog/best-event-planner-lahore-baraka-events`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- Fix: `https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026`: coverage state is "URL is unknown to Google" (verdict: NEUTRAL).
-- Next recommended action: **fix-indexing** — Only 0/20 real site URLs are indexed by Google (coverage states: Page with redirect, URL is unknown to Google).
+- Strengthen `/` for "event planner lahore" (82 impr. at 11.6), "best event planner in lahore" (50 impr. at 11.0), "best event planners in lahore" (31 impr. at 11.3) — page-2 rankings: more content depth and contextual links, not a new snippet.
+- Strengthen `/services/event-management` for "event organizer in lahore" (18 impr. at 17.4), "event management companies in lahore" (18 impr. at 16.6), "event management in lahore" (15 impr. at 24.0) — page-2 rankings: more content depth and contextual links, not a new snippet.
+- Next recommended action: **improve-existing** — Query "event planner lahore": page 2 (position 11.6): even a perfect snippet earns about 1.0% here — the ranking is the limit, not the title.
 
 ---
 _Generated automatically from live Search Console data. No numbers in this report are AI-generated or estimated._
