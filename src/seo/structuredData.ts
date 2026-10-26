@@ -77,6 +77,11 @@ export function generateOrganizationSchema() {
       areaServed: 'PK',
       email: seoConfig.organization.contact.email,
     },
+    founder: {
+      '@type': 'Person',
+      name: seoConfig.organization.founder.name,
+      jobTitle: seoConfig.organization.founder.jobTitle,
+    },
     sameAs: seoConfig.organization.sameAs,
   };
 }

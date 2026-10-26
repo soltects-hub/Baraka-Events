@@ -367,7 +367,7 @@ export default function GalleryPage() {
   }, [displayed, stageOpacity, stageScale]);
 
   useSEO({
-    title: 'Wedding, Mehndi & Corporate Event Photos in Lahore | Baraka Events',
+    title: 'Lahore Wedding, Mehndi & Event Photo Gallery | Baraka Events',
     description:
       'Real wedding, mehndi, baraat, walima, corporate and private celebration photography from Baraka Events — our own production archive across Lahore.',
     canonical: routes.gallery,

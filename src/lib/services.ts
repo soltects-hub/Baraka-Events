@@ -177,7 +177,7 @@ export const services: Service[] = [
     tag: 'Corporate',
     title: 'Corporate Event Management in Lahore',
     ctaSubject: 'corporate event',
-    seoTitle: 'Corporate Event Planner & Management Company in Lahore | Baraka Events',
+    seoTitle: 'Corporate Event Management Company in Lahore | Baraka Events',
     seoDescription:
       'Corporate event planner and management company in Lahore for product launches, conferences, annual dinners and AGMs, with itemised proposals.',
     image: '/media/gallery/corporate-3.webp',

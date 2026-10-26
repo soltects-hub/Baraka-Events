@@ -104,7 +104,7 @@ export default function ExperiencesPage() {
   const sectionNav = useSectionNav();
 
   useSEO({
-    title: 'Event Planning in Lahore: Weddings, Corporate, Private | Baraka Events',
+    title: 'Wedding & Corporate Event Planning in Lahore | Baraka Events',
     description:
       'Event planner in Lahore for weddings (mehndi, baraat, nikkah, walima), corporate events, private celebrations and live entertainment, from Gulberg to DHA.',
     canonical: routes.experiences,

@@ -99,7 +99,7 @@ export default function ServicesIndexPage() {
   const go = useSectionNav();
 
   useSEO({
-    title: 'Event Planner in Lahore | Event Management Company | Baraka Events',
+    title: 'Event Planner & Management Company in Lahore | Baraka Events',
     description:
       'Event planner in Lahore and full-service event management company — wedding planning, decoration, corporate events, and every individual wedding function.',
     canonical: routes.services,

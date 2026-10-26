@@ -44,6 +44,8 @@ export const seoConfig = {
       opens: '14:00',
       closes: '23:00',
     },
+    // Named and titled exactly as on the Team page (src/lib/team.ts, LeadershipProfile.tsx): name and role only, no credentials.
+    founder: { name: 'Malik Bilal', jobTitle: 'Founder and CEO' },
     sameAs: [
       'https://instagram.com/Barakaeventsofficial',
       'https://facebook.com/Barakaeventsofficial',
