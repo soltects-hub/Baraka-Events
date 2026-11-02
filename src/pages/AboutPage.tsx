@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
+import { services } from '../lib/services';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 const stats = [
@@ -200,6 +202,56 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* at a glance: the facts in one place, each read from the same source as the schema and the contact details */}
+      <section className="mx-auto max-w-[1200px] px-6 pb-24 md:px-10 md:pb-32">
+        <div className="max-w-3xl border-t border-champagne/10 pt-12">
+          <h2 className="font-display text-2xl font-light md:text-3xl">Baraka Events at a glance</h2>
+          <dl className="mt-6 grid gap-x-10 gap-y-5 text-sm font-light leading-relaxed text-mist sm:grid-cols-[11rem_1fr] md:text-base">
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">What we do</dt>
+            <dd>Event planning and event management: weddings and every wedding function, corporate events and private celebrations.</dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Where</dt>
+            <dd>
+              Based at {seoConfig.organization.address.streetAddress}, Gulberg III, {seoConfig.organization.address.addressLocality}, working
+              across the city.
+            </dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Founder</dt>
+            <dd>
+              {seoConfig.organization.founder.name}, {seoConfig.organization.founder.jobTitle}.{' '}
+              <Link to="/team" className="gold-underline text-gold hover:text-gold-soft">
+                Meet the team
+              </Link>
+              .
+            </dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Services</dt>
+            <dd>
+              {services.map((s, i) => (
+                <span key={s.slug}>
+                  {i > 0 && (i === services.length - 1 ? ' and ' : ', ')}
+                  <Link to={`/services/${s.slug}`} className="gold-underline text-gold hover:text-gold-soft">
+                    {s.title.replace(/ in Lahore$/, '')}
+                  </Link>
+                </span>
+              ))}
+              .
+            </dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Office hours</dt>
+            <dd>Monday to Saturday, 2:00 PM to 11:00 PM.</dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">How to enquire</dt>
+            <dd>
+              Call or{' '}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="gold-underline text-gold hover:text-gold-soft">
+                WhatsApp
+              </a>{' '}
+              {seoConfig.organization.contact.telephone}, email {seoConfig.organization.contact.email}, or use the{' '}
+              <Link to="/contact" className="gold-underline text-gold hover:text-gold-soft">
+                contact page
+              </Link>
+              .
+            </dd>
+          </dl>
         </div>
       </section>
 

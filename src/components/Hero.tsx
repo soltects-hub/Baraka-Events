@@ -170,7 +170,7 @@ export default function Hero() {
                   className="block"
                   highlightWords={[0, 1]}
                   highlightClass="text-hero-grad"
-                />
+                />{' '}
                 <RevealText
                   as="span"
                   text="in Lahore."
@@ -178,7 +178,7 @@ export default function Hero() {
                   className="block"
                   highlightWords={[0, 1]}
                   highlightClass="text-hero-grad"
-                />
+                />{' '}
                 <RevealText
                   as="span"
                   text="Weddings, corporate, private."

@@ -363,7 +363,7 @@ export const services: Service[] = [
     tag: 'Weddings',
     title: 'Walima Reception Planning in Lahore',
     ctaSubject: 'walima',
-    seoTitle: 'Walima Planner & Reception Planning in Lahore | Baraka Events',
+    seoTitle: 'Walima Planner & Reception Planning Lahore | Baraka Events',
     seoDescription:
       'Walima planner in Lahore for formal stage and floral design, catering coordination and guest flow for the wedding week’s largest, most photographed function.',
     image: '/media/gallery/wedding-30.webp',

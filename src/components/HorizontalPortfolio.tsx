@@ -97,7 +97,7 @@ export default function HorizontalPortfolio() {
           <div className="flex w-[85vw] shrink-0 flex-col justify-center md:w-[38vw]">
             <p className="mb-5 text-[11px] uppercase tracking-[0.3em] text-champagne">Selected Work</p>
             <h2 className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl">
-              Three events,<br /><em className="accent-serif">one standard</em>
+              Three events,{' '}<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
               A branded LED stage, a birthday backdrop and a conference stage —

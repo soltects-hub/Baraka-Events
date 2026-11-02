@@ -71,7 +71,7 @@ export default function PortfolioPage() {
   const sectionNav = useSectionNav();
 
   useSEO({
-    title: 'Event Portfolio: Weddings, Corporate & Private | Baraka Events',
+    title: 'Lahore Event Portfolio: Corporate & Private | Baraka Events',
     description:
       'Selected corporate, private-celebration and garden set-up work by Baraka Events in Lahore: LED stages, a birthday backdrop and draped garden canopies.',
     canonical: routes.portfolio,
