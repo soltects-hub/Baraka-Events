@@ -79,6 +79,7 @@ export const services: Service[] = [
       { q: 'How much does a wedding planner in Lahore cost?', a: 'We quote for the scope of work, not as a percentage of your budget, and the fee sits as its own line separate from venue, catering and decor. Whether you book the full week or a single function changes it far more than the size of the wedding does.' },
       { q: 'Can you work with vendors we have already booked?', a: 'Yes. If your venue, caterer or photographer is already confirmed we work with them rather than replacing them, and hold them to the same run-of-show as everyone else.' },
       { q: 'What is the difference between a wedding planner and a wedding decorator?', a: 'A decorator designs and installs how the event looks. A planner decides venue, budget, vendors and schedule, and holds all of it together across the week. We do both, priced separately, and either can be booked on its own.' },
+      { q: 'What happens after we contact you about our wedding?', a: 'We reply within one business day to arrange a free first consultation, in person or by video. It covers your guest count, budget range and dates, which functions you want help with, and what you want the week to feel like. Before you commit to anything you receive a line-item proposal, and no vendor is booked until you have approved the design direction.' },
     ],
     relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'engagement-events', 'event-decoration', 'event-management'],
     relatedLinks: [
@@ -123,6 +124,7 @@ export const services: Service[] = [
       { q: 'How much does event management cost in Lahore?', a: 'It is quoted against scope rather than sold as a fixed package, because supervising one evening at one venue is not the same job as a four-function week across three. You get the number as a separate line in your proposal before committing to anything.' },
       { q: 'How much notice do you need?', a: 'For day-of management alone, a few weeks is usually workable outside peak season. In peak wedding months availability depends on the date far more than on lead time, so it is worth asking early even if you are not ready to book.' },
       { q: 'How large is the on-site team?', a: 'It scales with the event. A small private dinner may need two people; a multi-venue wedding week needs a lead plus a coordinator per function. The number is stated in your proposal rather than decided on the day.' },
+      { q: 'How do we book event management for our event?', a: 'Send us the date, the venue if you have one, the guest count and what is already arranged. We reply within one business day to arrange a free consultation, in person or by video, and then send a proposal with management as its own line, separate from planning and decor, before you commit to anything.' },
     ],
     relatedServices: ['wedding-planning', 'corporate-events', 'event-decoration'],
     relatedLinks: [

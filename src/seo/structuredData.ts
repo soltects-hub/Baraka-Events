@@ -4,6 +4,7 @@
  */
 
 import { seoConfig } from './seoConfig';
+import { services } from '../lib/services';
 
 function absoluteUrl(url: string): string {
   if (/^https?:\/\//i.test(url)) return url;
@@ -81,6 +82,20 @@ export function generateOrganizationSchema() {
       '@type': 'Person',
       name: seoConfig.organization.founder.name,
       jobTitle: seoConfig.organization.founder.jobTitle,
+    },
+    // The ten services the site already has pages for, read from services.ts so the catalogue cannot list
+    // anything without its own page. Names and URLs only: no prices.
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Event planning and management services in Lahore',
+      itemListElement: services.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.title,
+          url: absoluteUrl(`/services/${s.slug}`),
+        },
+      })),
     },
     sameAs: seoConfig.organization.sameAs,
   };

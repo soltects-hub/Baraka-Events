@@ -50,7 +50,8 @@ export const seoConfig = {
       'https://instagram.com/Barakaeventsofficial',
       'https://facebook.com/Barakaeventsofficial',
       'https://youtube.com/@Barakaeventsofficial',
-      'https://linkedin.com/company/Barakaeventsofficial',
+      // linkedin.com/company/Barakaeventsofficial is left out: on 2026-11-03 it returned 404, exactly like a made-up
+      // company slug, so it is not a profile that identifies this business. Add the real page here once confirmed.
     ],
   },
   social: {
