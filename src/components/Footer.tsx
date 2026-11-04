@@ -116,6 +116,7 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={s.label === 'WhatsApp' ? () => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'footer' }) : undefined}
                     style={{ '--brand': s.color } as React.CSSProperties}
                     className="gold-underline text-sm font-light text-mist transition-colors duration-300 hover:text-[color:var(--brand)]"
                   >

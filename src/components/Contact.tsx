@@ -131,6 +131,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Baraka Events on ${s.label}`}
+                  onClick={s.label === 'WhatsApp' ? () => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'contact' }) : undefined}
                   style={{ '--brand': s.color } as React.CSSProperties}
                   className="group flex h-11 w-11 items-center justify-center rounded-full border border-champagne/20 bg-ink-3 transition-all duration-300 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand)]/15 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--brand)_35%,transparent)]"
                 >
