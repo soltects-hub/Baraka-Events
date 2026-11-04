@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
-import { WHATSAPP_URL } from '../lib/whatsapp';
+import { WHATSAPP_URL, whatsAppUrl } from '../lib/whatsapp';
 
 const inputClass =
   'w-full rounded-sm border border-champagne/12 bg-ink-4 px-5 py-4 text-sm font-light text-cream placeholder:text-mist-dim transition-[border-color,box-shadow] duration-300 focus:border-champagne/70 focus:shadow-[0_0_0_3px_rgba(230,197,138,0.08)]';
@@ -11,11 +11,13 @@ const inputClass =
 // Set in Vercel (and .env for local testing) as VITE_FORMSPREE_ENDPOINT,
 // e.g. https://formspree.io/f/xxxxxxxx — sign up at formspree.io, create a
 // form, and use the endpoint it gives you. Without it the form has nowhere
-// real to send submissions, so it fails loudly instead of faking success.
+// real to send submissions, so it hands the enquiry to WhatsApp, where the
+// visitor presses send themselves, instead of faking success.
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined;
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error' | 'handoff'>('idle');
+  const [handoffUrl, setHandoffUrl] = useState(WHATSAPP_URL);
   // /contact?type=corporate (used by the corporate service page's quote button) opens with Corporate Event selected.
   const [params] = useSearchParams();
   const [eventType, setEventType] = useState(params.get('type') === 'corporate' ? 'Corporate Event' : '');
@@ -160,8 +162,23 @@ export default function Contact() {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (!FORMSPREE_ENDPOINT) {
-                    console.error('[Contact] VITE_FORMSPREE_ENDPOINT is not set — form has nowhere to send submissions.');
-                    setStatus('error');
+                    const d = new FormData(e.currentTarget);
+                    const date = d.get('preferredDate');
+                    const url = whatsAppUrl(
+                      [
+                        'Assalam-o-Alaikum, I would like a consultation with Baraka Events.',
+                        `Name: ${d.get('name')}`,
+                        `Email: ${d.get('email')}`,
+                        `Event: ${d.get('eventType')}`,
+                        ...(date ? [`Preferred date: ${date}`] : []),
+                        `Details: ${d.get('message')}`,
+                      ].join('\n')
+                    );
+                    setHandoffUrl(url);
+                    setStatus('handoff');
+                    // A click, not a conversion: the enquiry only reaches us if the visitor presses send in WhatsApp.
+                    window.gtag?.('event', 'contact_click', { method: 'form_whatsapp', location: 'contact' });
+                    window.open(url, '_blank', 'noopener,noreferrer');
                     return;
                   }
                   setStatus('submitting');
@@ -231,6 +248,13 @@ export default function Contact() {
                     className={`${inputClass} resize-none`}
                   />
                 </div>
+                {status === 'handoff' && (
+                  <p role="status" className="text-sm font-light text-mist">
+                    WhatsApp has opened with your details. Please press send there so your request reaches us. If it did not open,{' '}
+                    <a href={handoffUrl} target="_blank" rel="noopener noreferrer" className="underline">open WhatsApp here</a>, or call{' '}
+                    <a href="tel:+923139999039" className="underline">+92 313 9999039</a>.
+                  </p>
+                )}
                 {status === 'error' && (
                   <p className="text-sm font-light text-red-400">
                     Something went wrong sending your request. Please email{' '}
