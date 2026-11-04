@@ -75,7 +75,7 @@ export default function TeamPage() {
 
       {/* leadership profile */}
       <section className="pb-24 md:pb-32">
-        <LeadershipProfile />
+        <LeadershipProfile headingAs="h2" />
       </section>
 
       {/* expertise */}

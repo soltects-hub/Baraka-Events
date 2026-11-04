@@ -59,6 +59,12 @@ export const faqs: Faq[] = [
     related: [{ text: 'Day-of event management and coordination', to: '/services/event-management' }],
   },
   {
+    // Figures mirror src/lib/foodMenu.ts (the owner's Food Menu 2026-27 PDF): update both together.
+    q: 'Does Baraka Events offer catering, and what does food cost per person?',
+    a: 'Yes. Our Food Menu 2026–27 has eight set packages, from Rs. 2,200 to Rs. 6,700 per person, each for a minimum of 200 guests. Every package includes the setup: carpet, round tables and banquet chairs, buffet stations, crockery, cutlery, waiters, lighting and a genset. Decor, DJ, diesel, heating and chilling, and the venue are not included. If a family prefers an outside caterer, we coordinate that instead.',
+    related: [{ text: 'Luxury wedding catering in Lahore: menus and live stations', to: '/blog/luxury-event-catering-menu-lahore' }],
+  },
+  {
     q: 'What does a typical Baraka Events production cost?',
     a: 'It depends entirely on guest count, venue and how many functions are involved, so we do not quote a single number here. After a short consultation, you get a line-item proposal broken down by venue, decor, catering, lighting and staffing, so you know exactly what you are paying for before committing.',
     related: [

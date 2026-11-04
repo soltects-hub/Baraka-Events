@@ -25,6 +25,8 @@ export function generateOrganizationSchema() {
     '@type': 'LocalBusiness',
     '@id': ORGANIZATION_ID,
     name: seoConfig.organization.name,
+    // The exact name of the Google Maps listing that hasMap points to, so the two records read as one business.
+    alternateName: seoConfig.organization.mapName,
     url: seoConfig.organization.url,
     logo: seoConfig.organization.logo,
     description: seoConfig.site.description,
@@ -82,6 +84,7 @@ export function generateOrganizationSchema() {
       '@type': 'Person',
       name: seoConfig.organization.founder.name,
       jobTitle: seoConfig.organization.founder.jobTitle,
+      url: absoluteUrl('/team'),
     },
     // The ten services the site already has pages for, read from services.ts so the catalogue cannot list
     // anything without its own page. Names and URLs only: no prices.
@@ -211,10 +214,12 @@ export function generateArticleSchema(metadata: {
     dateModified: metadata.modifiedDate || metadata.publishedDate,
     author: {
       '@type': 'Organization',
+      ...(metadata.author ? {} : { '@id': ORGANIZATION_ID }),
       name: metadata.author || seoConfig.organization.name,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
       name: seoConfig.organization.name,
       logo: {
         '@type': 'ImageObject',

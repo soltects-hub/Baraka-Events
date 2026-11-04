@@ -184,7 +184,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: '9 September 2026',
     publishedISO: '2026-09-09',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-11-04',
     readTime: '9 min read',
     image: '/media/gallery/wedding-4.webp',
     imageAlt: 'Walkway lined with white rose stands under draped white fabric and a crystal chandelier at a Lahore walima',
@@ -205,7 +205,7 @@ export const posts: Post[] = [
       },
       { h: 'Guest count moves the total more than most decisions' },
       {
-        p: 'Catering is per head, so every extra fifty guests is a fixed multiplier on the largest single line in the budget. Guest count also drags the venue up a tier once you cross what a room can hold, and it pushes seating, service staff and washroom provision with it. Cutting a guest list by fifty moves the total by more than most decor decisions will, and it is a lever families often leave until last. If the budget genuinely does not work, look here before you cut decor.',
+        p: 'Catering is per head, so every extra fifty guests is a fixed multiplier on the largest single line in the budget. As a reference point, [our Food Menu 2026–27 packages](/blog/luxury-event-catering-menu-lahore) run from Rs. 2,200 to Rs. 6,700 per person for a minimum of 200 guests, excluding decor, DJ, diesel, heating and chilling, and the venue. Guest count also drags the venue up a tier once you cross what a room can hold, and it pushes seating, service staff and washroom provision with it. Cutting a guest list by fifty moves the total by more than most decor decisions will, and it is a lever families often leave until last. If the budget genuinely does not work, look here before you cut decor.',
       },
       { h: 'Where you can genuinely save' },
       {
@@ -959,12 +959,12 @@ export const posts: Post[] = [
     category: 'Trends',
     date: 'April 2026',
     publishedISO: '2026-04',
-    updatedISO: '2026-10-26',
+    updatedISO: '2026-11-04',
     readTime: '5 min read',
     image: '/media/gallery/celebration-16.webp',
     imageAlt: 'Round checkerboard dance floor beneath a ring of hanging lanterns facing a blue-lit DJ booth',
     blocks: [
-      { p: 'For a generation raised on five-hundred-guest baraats, a fifty-person nikkah once looked like a compromise. In 2026, it increasingly looks like a choice — and it is one of the fastest-growing celebration formats we produce, alongside the traditional grand shaadi. If you are weighing a small nikkah, our [nikkah planning](/services/nikkah-events) page explains how a family-only ceremony is briefed differently.' },
+      { p: 'For a generation raised on five-hundred-guest baraats, a fifty-person nikkah once looked like a compromise. In 2026, it increasingly looks like a choice, made alongside the traditional grand shaadi. If you are weighing a small nikkah, our [nikkah planning](/services/nikkah-events) page explains how a family-only ceremony is briefed differently.' },
       { h: 'Why families are choosing smaller' },
       { p: 'Rising venue and catering costs are part of it, but not the whole story. Many couples now say a smaller guest list lets them actually spend time with everyone in the room — something close to impossible at a six-hundred-guest reception.' },
       { h: 'Smaller does not mean simpler to produce' },

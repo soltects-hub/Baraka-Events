@@ -176,8 +176,8 @@ export default function ServicePage() {
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <MagneticButton onClick={() => go(enquiry ? '/contact?type=corporate' : '#contact')}>Get a Quote</MagneticButton>
-            <MagneticButton variant="ghost" href={waUrl} onClick={enquiry ? track('whatsapp') : undefined}>WhatsApp Us</MagneticButton>
-            <MagneticButton variant="ghost" href="tel:+923139999039" onClick={enquiry ? track('call') : undefined}>Call Now</MagneticButton>
+            <MagneticButton variant="ghost" href={waUrl} onClick={track('whatsapp')}>WhatsApp Us</MagneticButton>
+            <MagneticButton variant="ghost" href="tel:+923139999039" onClick={track('call')}>Call Now</MagneticButton>
           </div>
           {mailtoUrl && (
             <p className="mt-6 text-sm font-light text-mist">

@@ -59,7 +59,7 @@ export default function Contact() {
               <div key={c.label} className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
                 <span className="w-16 shrink-0 text-[10px] uppercase tracking-[0.3em] text-mist-dim">{c.label}</span>
                 {c.href ? (
-                  <a href={c.href} className="gold-underline font-display text-lg text-ivory md:text-xl">{c.value}</a>
+                  <a href={c.href} onClick={() => window.gtag?.('event', 'contact_click', { method: c.label === 'Phone' ? 'call' : 'email', location: 'contact' })} className="gold-underline font-display text-lg text-ivory md:text-xl">{c.value}</a>
                 ) : (
                   <span className="max-w-md font-display text-lg leading-snug text-ivory md:text-xl">{c.value}</span>
                 )}
