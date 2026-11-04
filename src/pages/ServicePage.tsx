@@ -135,8 +135,8 @@ export default function ServicePage() {
 
         {/* the closing CTA sits ~1,000 words down, so give a ready visitor a way in here */}
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <MagneticButton size="sm" onClick={() => go(quotePath)}>Get a Quote</MagneticButton>
-          <MagneticButton size="sm" variant="ghost" href={waUrl} onClick={track('whatsapp', 'page_top')}>WhatsApp Us</MagneticButton>
+          <MagneticButton onClick={() => go(quotePath)}>Get a Quote</MagneticButton>
+          <MagneticButton variant="ghost" href={waUrl} onClick={track('whatsapp', 'page_top')}>WhatsApp Us</MagneticButton>
         </div>
 
         <div className="mt-14 space-y-10 border-t border-champagne/10 pt-10">

@@ -230,6 +230,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
+            aria-expanded={open}
             className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full border border-champagne/15 bg-ink/40 lg:hidden"
           >
             <m.span animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-5 bg-cream" />
@@ -356,9 +357,8 @@ export default function Navbar() {
             >
               <span aria-hidden className="hairline mb-6 block w-16" />
               <div className="mb-6 flex flex-wrap gap-3">
-                <MagneticButton size="sm" onClick={() => go('#contact')}>Book Consultation</MagneticButton>
+                <MagneticButton onClick={() => go('#contact')}>Book Consultation</MagneticButton>
                 <MagneticButton
-                  size="sm"
                   variant="ghost"
                   href={WHATSAPP_URL}
                   onClick={() => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'mobile_menu' })}
@@ -366,7 +366,6 @@ export default function Navbar() {
                   WhatsApp
                 </MagneticButton>
                 <MagneticButton
-                  size="sm"
                   variant="ghost"
                   href="tel:+923139999039"
                   onClick={() => window.gtag?.('event', 'contact_click', { method: 'call', location: 'mobile_menu' })}
