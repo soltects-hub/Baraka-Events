@@ -19,7 +19,8 @@ export function useSectionNav() {
     (href: string) => {
       if (href === '#contact' && location.pathname !== '/') {
         if (location.pathname === '/contact') {
-          lenis?.scrollTo('#contact form', { duration: 1.2, offset: -100 });
+          const form = document.querySelector<HTMLElement>('#contact form');
+          if (form) window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
         } else {
           navigate('/contact#contact');
         }

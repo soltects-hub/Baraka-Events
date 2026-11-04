@@ -363,6 +363,12 @@ input, textarea, select {
   outline: none;
 }
 
+/* Keyboard users need to see where they are on the CTAs. */
+.btn-flame:focus-visible, .btn-ghost:focus-visible {
+  outline: 2px solid #ff960b;
+  outline-offset: 3px;
+}
+
 /* Footer wordmark — champagne hairline outline, lit where the cursor passes.
    Outline uses an SVG feMorphology filter (see NeonWordmark.tsx) rather
    than -webkit-text-stroke, which renders faceted, slightly blocky
