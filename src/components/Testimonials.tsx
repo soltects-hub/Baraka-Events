@@ -97,7 +97,7 @@ export default function Testimonials() {
           href={seoConfig.organization.mapUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="gold-underline mt-6 inline-block text-xs font-light tracking-wide text-mist"
+          className="mt-2 inline-block py-3 text-xs font-light tracking-wide text-mist underline underline-offset-4"
         >
           Read our reviews on Google
         </a>
