@@ -11,7 +11,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
  * "other" cards) has nothing to browse to with a single member, so this is
  * a purpose-built editorial portrait layout instead of a one-card carousel.
  */
-export default function LeadershipProfile() {
+export default function LeadershipProfile({ headingAs = 'h3' }: { headingAs?: 'h2' | 'h3' }) {
   const leader = members[0];
   const reduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -65,7 +65,7 @@ export default function LeadershipProfile() {
         </m.p>
 
         <RevealText
-          as="h3"
+          as={headingAs}
           text={leader.name}
           className="mt-4 font-display text-4xl font-light uppercase leading-[1.05] tracking-wide md:text-6xl"
         />

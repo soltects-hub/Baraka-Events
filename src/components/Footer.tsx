@@ -51,7 +51,7 @@ export default function Footer() {
                 <a href="mailto:Booking@barakaevents.com" className="gold-underline hover:text-cream">Booking@barakaevents.com</a>
               </p>
               <p>
-                <a href="tel:+923139999039" className="gold-underline hover:text-cream">+92 313 9999039</a>
+                <a href="tel:+923139999039" onClick={() => window.gtag?.('event', 'contact_click', { method: 'call', location: 'footer' })} className="gold-underline hover:text-cream">+92 313 9999039</a>
               </p>
               <p className="max-w-xs leading-relaxed">
                 <a

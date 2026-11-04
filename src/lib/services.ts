@@ -59,7 +59,7 @@ export const services: Service[] = [
     image: '/media/gallery/wedding-24.webp',
     imageAlt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns in Lahore',
     intro:
-      'A Lahori wedding is a week of functions, not one event — mehndi, baraat, nikkah and walima, often across different venues. We plan the whole week as one project so the design and logistics stay consistent from the first function to the last, instead of getting handed to four separate vendors.',
+      'Baraka Events is a wedding planner and wedding event management company in Lahore. A Lahori wedding is a week of functions, not one event — mehndi, baraat, nikkah and walima, often across different venues. We plan the whole week as one project so the design and logistics stay consistent from the first function to the last, instead of getting handed to four separate vendors.',
     included: [
       { h: 'Venue Selection & Booking', p: 'We shortlist venues against your guest count and budget across Gulberg, DHA, Model Town and the rest of the city, and handle the booking directly.' },
       { h: 'Budget & Vendor Coordination', p: 'A line-item proposal before you commit to anything, and one team coordinating catering, decor, photography and entertainment instead of you managing each vendor separately.' },
@@ -103,7 +103,7 @@ export const services: Service[] = [
     image: '/media/gallery/wedding-17.webp',
     imageAlt: 'Stage under a ceiling of blush flowers and hanging crystal garlands with a lotus-pattern lit floor, managed on site in Lahore',
     intro:
-      'Planning decides what your event should look like; management is what makes it actually happen on the day. Our event management service covers the on-site coordination, vendor supervision and run-of-show scheduling that keeps an event on schedule — whether we planned it from the start or you did.',
+      'Baraka Events is an event management company in Lahore, based in Gulberg III. Planning decides what your event should look like; management is what makes it actually happen on the day. Our event management service covers the on-site coordination, vendor supervision and run-of-show scheduling that keeps an event on schedule — whether we planned it from the start or you did.',
     included: [
       { h: 'On-Site Coordination Team', p: 'A dedicated team present for the full event, handling vendor arrivals, setup timing and anything that needs a decision in the moment.' },
       { h: 'Run-of-Show Scheduling', p: 'A minute-by-minute schedule for arrivals, speeches, meal service and stage moments, shared with every vendor in advance.' },
@@ -145,7 +145,7 @@ export const services: Service[] = [
     image: '/media/gallery/wedding-13.webp',
     imageAlt: 'Lounge seating facing a stage of hanging chandeliers and greenery between red velvet drapes, décor by Baraka Events',
     intro:
-      'Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system before a single flower is ordered.',
+      'Baraka Events works as wedding decorators and event designers in Lahore. Some clients want full planning; others already have a venue and vendors booked and just need the decor itself designed and installed properly. Our design studio builds the stage, floral and lighting concept as one visual system before a single flower is ordered.',
     included: [
       { h: 'Wedding Stage Decoration & Backdrop Design', p: 'Stage layouts and backdrops built around your venue\'s actual dimensions, not a generic catalogue setup.' },
       { h: 'Floral Arrangements & Installations', p: 'From table centerpieces to full floral walls, designed, sourced and staged as part of one concept so the finished room matches the plan.' },
@@ -388,7 +388,7 @@ export const services: Service[] = [
       { q: 'How is walima decor different from baraat or mehndi decor?', a: 'It’s typically more formal and refined — the mehndi and baraat lean more festive and colourful, while the walima is styled for the week’s most formal function.' },
       { q: 'How many guests can you plan for?', a: 'Walima receptions we’ve planned have ranged from intimate gatherings to several hundred guests.' },
       { q: 'Do you coordinate catering directly?', a: 'Yes, we coordinate catering as part of the run-of-show so meal service is timed against the rest of the evening.' },
-      { q: 'How much does a walima cost in Lahore?', a: 'Catering per head dominates, so guest count moves the total more than any design decision. We quote catering, venue, decor and lighting as separate lines so you can see which one to adjust.' },
+      { q: 'How much does a walima cost in Lahore?', a: 'Catering per head dominates, so guest count moves the total more than any design decision. We quote catering, venue, decor and lighting as separate lines so you can see which one to adjust. For reference, our Food Menu 2026–27 packages run from Rs. 2,200 to Rs. 6,700 per person for a minimum of 200 guests, excluding decor, DJ, diesel, heating and chilling, and the venue.' },
       { q: 'What is the largest walima you can plan?', a: 'We plan across the full range Lahore venues support, from a few hundred guests to the largest marquee and hotel capacities. Above roughly five hundred the seating plan and guest flow become the hardest part of the job, not the decor.' },
       { q: 'When does a walima at a hall have to finish?', a: 'At a hall or other public place hired for a marriage, the Punjab Marriage Functions Act 2016 requires every ceremony connected with it to conclude by 10:00 pm, and notifications get revised. We confirm the closing time for your date with the venue in writing and put clock times against dinner, the couple’s entrance, cake and the closing cue, so the evening ends on a cue rather than trailing off.' },
       { q: 'How early should a walima venue be booked?', a: 'Eight to ten months for a peak-season date. The largest halls and marquees are the first thing in the city to go, and the walima usually needs the biggest room of the week.' },
@@ -453,7 +453,7 @@ export const services: Service[] = [
     image: '/media/portfolio-3.webp',
     imageAlt: 'Family seated on cushioned sofas around a low table of tea and lanterns on a rooftop at dusk, with a mosque beyond',
     intro:
-      'From a themed party for a child to a milestone fiftieth, we plan birthdays with the guest list and budget actually in mind, rather than scaling a wedding template down. Decor, entertainment and catering are handled as one coordinated plan regardless of the celebration’s size.',
+      'Baraka Events is a birthday event planner in Lahore. From a themed party for a child to a milestone fiftieth, we plan birthdays with the guest list and budget actually in mind, rather than scaling a wedding template down. Decor, entertainment and catering are handled as one coordinated plan regardless of the celebration’s size.',
     included: [
       { h: 'Themed Decor for Children’s Parties', p: 'A theme carried through decor, activities and cake, sized to the actual guest count rather than over-produced.' },
       { h: 'Milestone Birthday Production', p: 'A more formal register for milestone birthdays — 25th, 50th and beyond — closer in scale to a private celebration than a children’s party.' },

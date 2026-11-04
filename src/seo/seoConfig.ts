@@ -46,6 +46,8 @@ export const seoConfig = {
     },
     // Named and titled exactly as on the Team page (src/lib/team.ts, LeadershipProfile.tsx): name and role only, no credentials.
     founder: { name: 'Malik Bilal', jobTitle: 'Founder and CEO' },
+    // The name on the Google Maps listing behind mapUrl, read from the place URL on 2026-11-04.
+    mapName: 'Baraka Events - Your Event Architects',
     sameAs: [
       'https://instagram.com/Barakaeventsofficial',
       'https://facebook.com/Barakaeventsofficial',

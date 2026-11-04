@@ -49,7 +49,6 @@ const editedLastmod = '2026-09-09';
 // (related link), /services/mehndi-events (outdoor FAQ), /services/nikkah-events (booking-pattern claim removed from an FAQ), /contact (snippet + heading), /about and /experiences (scale wording),
 // and /blog (several titles and excerpts shown in the index changed). The posts carry their own updatedISO. UTC date of the last
 // content commit, never a predicted one; the venue entries and every page not listed here keep the date they had.
-const rankingPassLastmod = '2026-10-12';
 // 2026-10-16: the corporate growth pass. /services/corporate-events (rewritten sections, FAQs and enquiry path), the /services hub (renders each
 // service intro, so the corporate intro moved it), /experiences (corporate section), /portfolio and the homepage (the two corporate cards and the
 // brands-strip caption), and /blog (two corporate post titles and excerpts shown in the index changed). The two corporate posts carry their own
@@ -57,7 +56,6 @@ const rankingPassLastmod = '2026-10-12';
 const corporatePassLastmod = '2026-10-16';
 // 2026-10-20: owner-approved photo swaps. The homepage (Weddings panel photo, birthday card and archive ring) and /portfolio (birthday card, whose
 // unverified guest count, venue, year and programme details were removed) changed visibly. UTC date of the content commit, never a predicted one.
-const photoPassLastmod = '2026-10-20';
 // 2026-10-20: unsupported in-house / own-team staffing and equipment claims were reworded to what Baraka designs, plans and manages. Pages whose visible
 // text changed: /team, /experiences and /services/event-decoration (the homepage already moved with the photo pass; the two guides carry updatedISO).
 const claimsPassLastmod = '2026-10-20';
@@ -73,16 +71,20 @@ const functionPassLastmod = '2026-10-25';
 // 2026-11-02: /about gained the "at a glance" fact sheet (services, address, founder, hours, how to enquire). UTC date of the
 // content commit, never a predicted one. The homepage heading spacing and two title tags are not content changes.
 const aboutPassLastmod = '2026-11-02';
+// 2026-11-04: the homepage gained the food-packages FAQ. /services/wedding-planning and /services/event-management gained booking-process FAQs and
+// answer-first intros, /services/event-decoration and /services/birthday-events answer-first intros, /services/walima-events the Food Menu price
+// reference, and the /services hub renders those intros. UTC date of the content commit, never a predicted one.
+const answerPassLastmod = '2026-11-04';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
-  'event-management': rankingPassLastmod,
+  'event-management': answerPassLastmod,
   'corporate-events': corporatePassLastmod,
-  'wedding-planning': seoPassLastmod,
+  'wedding-planning': answerPassLastmod,
   'mehndi-events': functionPassLastmod,
-  'event-decoration': seoPassLastmod,
-  'birthday-events': functionPassLastmod,
+  'event-decoration': answerPassLastmod,
+  'birthday-events': answerPassLastmod,
   'nikkah-events': functionPassLastmod,
   'barat-events': functionPassLastmod,
-  'walima-events': functionPassLastmod,
+  'walima-events': answerPassLastmod,
   'engagement-events': functionPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
@@ -102,7 +104,7 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: photoPassLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: answerPassLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: aboutPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: seoPassLastmod },
@@ -110,7 +112,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: seoPassLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: seoPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: answerPassLastmod },
   // /venues and /vendors are deliberately left out while they carry no real
   // listings (both index pages are `noindex` until Phase 2 — see
   // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a
