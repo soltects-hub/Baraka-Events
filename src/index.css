@@ -56,7 +56,7 @@
   /* Text — warm off-whites instead of cool grey-on-black. */
   --color-cream: #f4eee3;
   --color-mist: #b9ae9d;
-  --color-mist-dim: #7e7466;
+  --color-mist-dim: #847a6c;
 
   --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -470,7 +470,7 @@ body { background-color: #000000; }
   --color-cream: #f4eee3;
   --color-ivory: #f3e4c7;
   --color-mist: #b9ae9d;
-  --color-mist-dim: #7e7466;
+  --color-mist-dim: #847a6c;
   --color-champagne: #e6c58a;
   --color-gold-soft: #e6c58a;
 }

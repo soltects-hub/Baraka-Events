@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import RevealText from '../components/RevealText';
 import Contact from '../components/Contact';
 import LocationMap from '../components/LocationMap';
+import MagneticButton from '../components/MagneticButton';
+import { useLenis } from '../lib/useLenis';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 
 const reasons = [
@@ -13,6 +16,8 @@ const reasons = [
 ];
 
 export default function ContactPage() {
+  const { hash, search } = useLocation();
+  const lenis = useLenis();
   useSEO({
     title: 'Contact Baraka Events — Hire an Event Planner in Lahore',
     description:
@@ -35,6 +40,20 @@ export default function ContactPage() {
       ])
     );
   }, []);
+
+  // A "Get a Quote" or "Book Consultation" button sent the visitor here: go straight to the form.
+  useEffect(() => {
+    if (hash !== '#contact' && !search.includes('type=')) return;
+    const t = setTimeout(() => {
+      const form = document.querySelector<HTMLElement>('#contact form');
+      if (!form) return;
+      if (lenis) lenis.scrollTo(form, { immediate: true, offset: -100 });
+      else window.scrollTo(0, form.getBoundingClientRect().top + window.scrollY - 100);
+    }, 300);
+    return () => clearTimeout(t);
+  }, [hash, search, lenis]);
+
+  const track = (method: string) => () => window.gtag?.('event', 'contact_click', { method, location: 'contact_top' });
 
   return (
     <main className="bg-ink">
@@ -73,6 +92,11 @@ export default function ContactPage() {
             you want Baraka, the fastest way to find out what's possible for your date and
             budget is a short, free conversation with our atelier.
           </motion.p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <MagneticButton href={WHATSAPP_URL} onClick={track('whatsapp')}>WhatsApp Us</MagneticButton>
+            <MagneticButton variant="ghost" href="tel:+923139999039" onClick={track('call')}>Call Now</MagneticButton>
+          </div>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {reasons.map((r, i) => (

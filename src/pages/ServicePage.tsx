@@ -6,7 +6,7 @@ import MagneticButton from '../components/MagneticButton';
 import { useSectionNav } from '../lib/useSectionNav';
 import { getService, services } from '../lib/services';
 import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
-import { WHATSAPP_URL, whatsAppUrl } from '../lib/whatsapp';
+import { whatsAppUrl } from '../lib/whatsapp';
 import {
   useSEO,
   seoConfig,
@@ -37,6 +37,13 @@ function withLinks(text: string) {
   out.push(text.slice(last));
   return out;
 }
+
+// Opens the contact form with the visitor's event type already selected.
+const CONTACT_TYPE_BY_TAG: Record<string, string | undefined> = {
+  Weddings: 'wedding',
+  Corporate: 'corporate',
+  'Private Celebrations': 'private',
+};
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -78,11 +85,17 @@ export default function ServicePage() {
   // Services with an enquiry path (corporate) send the quoting details by
   // WhatsApp and email and open the contact page; the rest keep the generic CTA.
   const enquiry = service.enquiry;
-  const waUrl = enquiry ? whatsAppUrl(enquiry.whatsappText) : WHATSAPP_URL;
+  const waUrl = whatsAppUrl(
+    enquiry?.whatsappText ??
+      `Assalam-o-Alaikum, I found Baraka Events through your website and would like to discuss my ${service.ctaSubject}.`
+  );
+  const contactType = CONTACT_TYPE_BY_TAG[service.tag];
+  const quotePath = contactType ? `/contact?type=${contactType}` : '/contact#contact';
   const mailtoUrl = enquiry
     ? `mailto:${seoConfig.organization.contact.email}?subject=${encodeURIComponent(enquiry.emailSubject)}&body=${encodeURIComponent(enquiry.emailBody.join('\r\n'))}`
     : undefined;
-  const track = (method: string) => () => window.gtag?.('event', 'contact_click', { method, service: service.slug });
+  const track = (method: string, location = 'page_end') => () =>
+    window.gtag?.('event', 'contact_click', { method, service: service.slug, location });
 
   return (
     <main className="bg-ink">
@@ -119,6 +132,12 @@ export default function ServicePage() {
         >
           {service.intro}
         </motion.p>
+
+        {/* the closing CTA sits ~1,000 words down, so give a ready visitor a way in here */}
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <MagneticButton size="sm" onClick={() => go(quotePath)}>Get a Quote</MagneticButton>
+          <MagneticButton size="sm" variant="ghost" href={waUrl} onClick={track('whatsapp', 'page_top')}>WhatsApp Us</MagneticButton>
+        </div>
 
         <div className="mt-14 space-y-10 border-t border-champagne/10 pt-10">
           {service.included.map((pt) => (
@@ -175,7 +194,7 @@ export default function ServicePage() {
             {enquiry?.copy ?? 'Book a complimentary consultation with our atelier in Gulberg, or reach us directly for a quote.'}
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
-            <MagneticButton onClick={() => go(enquiry ? '/contact?type=corporate' : '#contact')}>Get a Quote</MagneticButton>
+            <MagneticButton onClick={() => go(quotePath)}>Get a Quote</MagneticButton>
             <MagneticButton variant="ghost" href={waUrl} onClick={track('whatsapp')}>WhatsApp Us</MagneticButton>
             <MagneticButton variant="ghost" href="tel:+923139999039" onClick={track('call')}>Call Now</MagneticButton>
           </div>

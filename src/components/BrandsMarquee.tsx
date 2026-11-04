@@ -11,7 +11,7 @@ const brands = [
   'Product Launches',
   'Award Nights',
   'Annual Dinners',
-  'conferences',
+  'Conferences',
   'Executive Summits',
   'Leadership Offsites',
   'AGMs',

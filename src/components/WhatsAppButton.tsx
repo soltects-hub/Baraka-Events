@@ -59,7 +59,7 @@ export default function WhatsAppButton() {
                 <img src="/media/logo.png" alt="" aria-hidden className="h-9 w-9 shrink-0 rounded-full bg-champagne/5 object-contain p-1" />
                 <div>
                   <p className="font-display text-sm tracking-[0.08em] text-cream">Baraka Events</p>
-                  <p className="text-[11px] font-light text-mist">Typically replies within minutes</p>
+                  <p className="text-[11px] font-light text-mist">Mon–Sat · 2:00 PM – 11:00 PM</p>
                 </div>
               </div>
             </div>
@@ -87,6 +87,7 @@ export default function WhatsAppButton() {
                 onClick={() => {
                   // Opens in a new tab, so the current page never unloads —
                   // no need to delay navigation for the beacon to land.
+                  window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'floating' });
                   window.gtag?.('event', 'conversion', {
                     send_to: 'AW-669423654/zjY6CMLNpMwZEKawmr8C',
                     value: 1.0,
@@ -99,10 +100,6 @@ export default function WhatsAppButton() {
                 <WhatsAppIcon className="h-4 w-4 fill-white" />
                 WhatsApp Us
               </a>
-              <p className="mt-3 text-center text-[11px] text-[#111]/40">
-                <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#25D366] align-middle" />
-                Online<span className="mx-2">|</span>Privacy Policy
-              </p>
             </div>
           </m.div>
         )}

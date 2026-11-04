@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { seoConfig } from '../seo/seoConfig';
 
 const testimonials = [
   {
@@ -91,6 +92,15 @@ export default function Testimonials() {
             </button>
           ))}
         </div>
+
+        <a
+          href={seoConfig.organization.mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="gold-underline mt-6 inline-block text-xs font-light tracking-wide text-mist"
+        >
+          Read our reviews on Google
+        </a>
       </div>
     </section>
   );

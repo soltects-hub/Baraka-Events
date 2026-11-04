@@ -184,6 +184,7 @@ function MenuCard({
                 href={enquiry}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'food_menu', menu: pkg.number })}
                 className="menu-cta"
               >
                 Ask about Menu {pkg.number}
@@ -430,6 +431,7 @@ export default function FoodMenus() {
               href={askAboutMenus}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'food_menu' })}
               className="btn-flame mt-7 inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[12px] font-medium uppercase tracking-[0.22em]"
             >
               Ask about a menu

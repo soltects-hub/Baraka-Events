@@ -5,6 +5,7 @@ import { useLenis } from '../lib/useLenis';
 import { useSectionNav } from '../lib/useSectionNav';
 import { services } from '../lib/services';
 import MagneticButton from './MagneticButton';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 
 // Experiences, Portfolio and Gallery were removed from the primary nav
 // (2026-09-24) to keep it focused on the commercial path — Home, Services,
@@ -351,9 +352,28 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.5 }}
-              className="relative mt-12 text-[12px] uppercase tracking-[0.2em] text-mist-dim"
+              className="relative mt-10 text-[12px] uppercase tracking-[0.2em] text-mist-dim"
             >
               <span aria-hidden className="hairline mb-6 block w-16" />
+              <div className="mb-6 flex flex-wrap gap-3">
+                <MagneticButton size="sm" onClick={() => go('#contact')}>Book Consultation</MagneticButton>
+                <MagneticButton
+                  size="sm"
+                  variant="ghost"
+                  href={WHATSAPP_URL}
+                  onClick={() => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'mobile_menu' })}
+                >
+                  WhatsApp
+                </MagneticButton>
+                <MagneticButton
+                  size="sm"
+                  variant="ghost"
+                  href="tel:+923139999039"
+                  onClick={() => window.gtag?.('event', 'contact_click', { method: 'call', location: 'mobile_menu' })}
+                >
+                  Call
+                </MagneticButton>
+              </div>
               Booking@barakaevents.com
             </m.div>
             </div>
