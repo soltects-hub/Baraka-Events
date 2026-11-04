@@ -22,6 +22,8 @@ const EVENT_TYPE_BY_PARAM: Record<string, string | undefined> = {
   private: 'Private Celebration',
 };
 
+const labelClass = 'mb-2 block text-[11px] uppercase tracking-[0.25em] text-mist';
+
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error' | 'handoff'>('idle');
   const [handoffUrl, setHandoffUrl] = useState(WHATSAPP_URL);
@@ -170,13 +172,17 @@ export default function Contact() {
                   if (!FORMSPREE_ENDPOINT) {
                     const d = new FormData(e.currentTarget);
                     const date = d.get('preferredDate');
+                    const guests = d.get('guestCount');
+                    const email = d.get('email');
                     const url = whatsAppUrl(
                       [
                         'Assalam-o-Alaikum, I would like a consultation with Baraka Events.',
                         `Name: ${d.get('name')}`,
-                        `Email: ${d.get('email')}`,
+                        `Phone: ${d.get('phone')}`,
+                        ...(email ? [`Email: ${email}`] : []),
                         `Event: ${d.get('eventType')}`,
                         ...(date ? [`Preferred date: ${date}`] : []),
+                        ...(guests ? [`Guests: ${guests}`] : []),
                         `Details: ${d.get('message')}`,
                       ].join('\n')
                     );
@@ -214,17 +220,21 @@ export default function Contact() {
               >
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Full Name</label>
-                    <input id="name" name="name" required placeholder="Ayesha Khan" className={inputClass} />
+                    <label htmlFor="name" className={labelClass}>Full Name</label>
+                    <input id="name" name="name" required autoComplete="name" placeholder="Ayesha Khan" className={inputClass} />
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Email</label>
-                    <input id="email" name="email" type="email" required placeholder="you@email.com" className={inputClass} />
+                    <label htmlFor="phone" className={labelClass}>Phone / WhatsApp</label>
+                    <input id="phone" name="phone" type="tel" required autoComplete="tel" inputMode="tel" placeholder="+92 3XX XXXXXXX" className={inputClass} />
                   </div>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="type" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Event Type</label>
+                    <label htmlFor="email" className={labelClass}>Email (optional)</label>
+                    <input id="email" name="email" type="email" autoComplete="email" placeholder="you@email.com" className={inputClass} />
+                  </div>
+                  <div>
+                    <label htmlFor="type" className={labelClass}>Event Type</label>
                     <select id="type" name="eventType" required value={eventType} onChange={(e) => setEventType(e.target.value)} className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
                       <option value="" disabled>Select an occasion</option>
                       <option>Wedding (Mehndi · Baraat · Nikkah · Walima)</option>
@@ -234,13 +244,26 @@ export default function Contact() {
                       <option>Other</option>
                     </select>
                   </div>
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="date" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">Preferred Date</label>
+                    <label htmlFor="date" className={labelClass}>Preferred Date</label>
                     <input id="date" name="preferredDate" type="date" className={`${inputClass} [color-scheme:dark]`} />
+                  </div>
+                  <div>
+                    <label htmlFor="guests" className={labelClass}>Guest Count</label>
+                    <select id="guests" name="guestCount" defaultValue="" className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
+                      <option value="">Not sure yet</option>
+                      <option>Under 100</option>
+                      <option>100 to 300</option>
+                      <option>300 to 500</option>
+                      <option>500 to 1,000</option>
+                      <option>Over 1,000</option>
+                    </select>
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mist-dim">{eventType === 'Corporate Event' ? 'Event Brief' : 'Tell Us Your Vision'}</label>
+                  <label htmlFor="message" className={labelClass}>{eventType === 'Corporate Event' ? 'Event Brief' : 'Tell Us Your Vision'}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -249,7 +272,7 @@ export default function Contact() {
                     placeholder={
                       eventType === 'Corporate Event'
                         ? 'Company, event type, date or date range, venue if fixed, expected headcount range, invoicing requirements…'
-                        : 'Guest count, functions, venue ideas, atmosphere — anything that inspires you…'
+                        : 'Functions, venue ideas, atmosphere — anything that inspires you…'
                     }
                     className={`${inputClass} resize-none`}
                   />
