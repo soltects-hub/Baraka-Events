@@ -101,7 +101,7 @@ export default function DollyZoom() {
             highlightClass="accent-serif"
           />
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-            Move your cursor over the photo to reveal the finished setup.
+            Move your cursor or finger across the photo to reveal the finished setup.
           </p>
         </div>
 
@@ -159,7 +159,7 @@ export default function DollyZoom() {
               {/* one-time hint, fades out after first interaction */}
               {!hasHovered && (
                 <span className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-champagne/25 bg-ink/80 px-5 py-2 text-[10px] uppercase tracking-[0.3em] text-ivory/80">
-                  Hover to reveal
+                  Slide to reveal
                 </span>
               )}
             </motion.div>

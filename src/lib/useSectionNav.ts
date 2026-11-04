@@ -7,6 +7,7 @@ import { revealAllLazyMounts } from './lazyMountRegistry';
  * Navigate to a section anchor (works from any route) or a route path.
  * - '#about' on home  -> smooth-scroll
  * - '#about' elsewhere -> go home, then scroll (Home handles the hash)
+ * - '#contact' elsewhere -> the contact page's form, not a trip back through the homepage
  * - '/blog'            -> route navigation
  */
 export function useSectionNav() {
@@ -16,7 +17,13 @@ export function useSectionNav() {
 
   return useCallback(
     (href: string) => {
-      if (href.startsWith('#')) {
+      if (href === '#contact' && location.pathname !== '/') {
+        if (location.pathname === '/contact') {
+          lenis?.scrollTo('#contact form', { duration: 1.2, offset: -100 });
+        } else {
+          navigate('/contact#contact');
+        }
+      } else if (href.startsWith('#')) {
         if (location.pathname === '/') {
           revealAllLazyMounts();
           requestAnimationFrame(() => lenis?.scrollTo(href, { duration: 1.6 }));

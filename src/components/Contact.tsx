@@ -15,12 +15,18 @@ const inputClass =
 // visitor presses send themselves, instead of faking success.
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined;
 
+// /contact?type=… (the service pages' quote buttons) opens with that event type selected.
+const EVENT_TYPE_BY_PARAM: Record<string, string | undefined> = {
+  corporate: 'Corporate Event',
+  wedding: 'Wedding (Mehndi · Baraat · Nikkah · Walima)',
+  private: 'Private Celebration',
+};
+
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error' | 'handoff'>('idle');
   const [handoffUrl, setHandoffUrl] = useState(WHATSAPP_URL);
-  // /contact?type=corporate (used by the corporate service page's quote button) opens with Corporate Event selected.
   const [params] = useSearchParams();
-  const [eventType, setEventType] = useState(params.get('type') === 'corporate' ? 'Corporate Event' : '');
+  const [eventType, setEventType] = useState(EVENT_TYPE_BY_PARAM[params.get('type') ?? ''] ?? '');
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const bgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
