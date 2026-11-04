@@ -6,7 +6,7 @@ import MagneticButton from './MagneticButton';
 import { WHATSAPP_URL, whatsAppUrl } from '../lib/whatsapp';
 
 const inputClass =
-  'w-full rounded-sm border border-champagne/12 bg-ink-4 px-5 py-4 text-sm font-light text-cream placeholder:text-mist-dim transition-[border-color,box-shadow] duration-300 focus:border-champagne/70 focus:shadow-[0_0_0_3px_rgba(230,197,138,0.08)]';
+  'w-full rounded-sm border border-champagne/12 bg-ink-4 px-5 py-4 text-base font-light md:text-sm text-cream placeholder:text-mist-dim transition-[border-color,box-shadow] duration-300 focus:border-champagne/70 focus:shadow-[0_0_0_3px_rgba(230,197,138,0.08)]';
 
 // Set in Vercel (and .env for local testing) as VITE_FORMSPREE_ENDPOINT,
 // e.g. https://formspree.io/f/xxxxxxxx — sign up at formspree.io, create a
