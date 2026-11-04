@@ -107,10 +107,10 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: answerPassLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: aboutPassLastmod },
-  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: seoPassLastmod },
+  { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: answerPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: functionPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: seoPassLastmod },
-  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: seoPassLastmod },
+  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: answerPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
   { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: answerPassLastmod },
   // /venues and /vendors are deliberately left out while they carry no real
