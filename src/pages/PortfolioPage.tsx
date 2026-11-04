@@ -9,6 +9,39 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 
 const projects = [
   {
+    title: 'A Walima Floral Arch',
+    category: 'Walima',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-1.webp',
+    imageAlt: 'Walima floral arch of white and blush roses under hanging bead garlands and crystal chandeliers',
+    stat: 'Rose arch · bead garlands · crystal chandeliers',
+    summary:
+      'A walima floor built around a floral arch of white and blush roses, under hanging bead garlands and crystal chandeliers.',
+  },
+  {
+    title: 'A Baraat Stage',
+    category: 'Baraat',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-14.webp',
+    imageAlt: 'Baraat stage with curtains of hanging crystal strands, red roses, white urns and a white sofa',
+    stat: 'Crystal strands · red roses · white urns',
+    summary:
+      'A baraat stage under curtains of hanging crystal strands, with red roses, white urns and a white sofa.',
+  },
+  {
+    title: 'A Mehndi Stage',
+    category: 'Mehndi',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-15.webp',
+    imageAlt: 'Mehndi stage of carved arches hung with marigold garlands, white statues and yellow cushions',
+    stat: 'Carved arches · marigold garlands · yellow seating',
+    summary:
+      'A mehndi stage of carved arches hung with marigold garlands, with white statues and yellow cushions.',
+  },
+  {
     title: 'A Branded LED Stage',
     category: 'Corporate Event',
     location: '',
@@ -71,9 +104,9 @@ export default function PortfolioPage() {
   const sectionNav = useSectionNav();
 
   useSEO({
-    title: 'Lahore Event Portfolio: Corporate & Private | Baraka Events',
+    title: 'Lahore Wedding & Event Portfolio | Baraka Events',
     description:
-      'Selected corporate, private-celebration and garden set-up work by Baraka Events in Lahore: LED stages, a birthday backdrop and draped garden canopies.',
+      'Selected wedding, corporate and private work by Baraka Events in Lahore: walima, baraat and mehndi stages, LED corporate stages and garden set-ups.',
     canonical: routes.portfolio,
   });
 
@@ -124,7 +157,7 @@ export default function PortfolioPage() {
               corporate productions
             </Link>{' '}
             and private celebrations across Lahore, each planned by the same team from the first
-            meeting to the last guest. Captions are generalized.
+            meeting to the last guest. Captions are generalised.
           </motion.p>
         </div>
       </section>
@@ -183,6 +216,22 @@ export default function PortfolioPage() {
           <h2 className="font-display text-2xl font-light md:text-3xl">What these examples show</h2>
           <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-mist md:text-base">
             <p>
+              The wedding examples follow the week: a{' '}
+              <Link to="/services/mehndi-events" className="gold-underline text-gold hover:text-gold-soft">
+                mehndi
+              </Link>{' '}
+              stage of carved arches and marigold garlands, a{' '}
+              <Link to="/services/barat-events" className="gold-underline text-gold hover:text-gold-soft">
+                baraat
+              </Link>{' '}
+              stage of crystal strands and red roses, and a{' '}
+              <Link to="/services/walima-events" className="gold-underline text-gold hover:text-gold-soft">
+                walima
+              </Link>{' '}
+              floor built around a rose arch. Each function has its own look, and each can be booked alone or as part of the
+              full week.
+            </p>
+            <p>
               The corporate examples are built around staging: a branded hall with a truss-mounted lighting rig, LED screens
               and a central platform, and a conference stage with a large LED screen, a branded lectern and a lit stage edge.
               How we plan and run this kind of work is set out on our{' '}
@@ -217,7 +266,7 @@ export default function PortfolioPage() {
               <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
                 wedding planning
               </Link>{' '}
-              page explains how a full wedding is run. Captions on this page are generalised.
+              page explains how a full wedding is run.
             </p>
           </div>
         </div>

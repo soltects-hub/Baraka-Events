@@ -71,7 +71,7 @@ const SERVICE_AREAS = [
 const SERVICES_FAQS = [
   {
     q: 'What does an event planner in Lahore actually cost?',
-    a: 'It depends on whether you want full planning, day-of management only, or decor alone, and on guest count and season. We quote as a line-item proposal against your actual brief rather than publishing a package price, because a 200-guest nikkah and an 800-guest walima are not the same job. The proposal is free and comes before you commit to anything.',
+    a: 'It depends on whether you want full planning, day-of management only, or decor alone, and on guest count and season. We quote planning and decor as a line-item proposal against your actual brief rather than publishing a package price, because a 200-guest nikkah and an 800-guest walima are not the same job. Food is the exception: our Food Menu 2026–27 packages are priced per person on the homepage. The proposal is free and comes before you commit to anything.',
   },
   {
     q: 'Can I hire you for just one function instead of the whole wedding?',
