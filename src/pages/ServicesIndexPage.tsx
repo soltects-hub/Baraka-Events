@@ -37,7 +37,7 @@ const WHAT_WE_DO = [
   },
   {
     h: 'The budget is written down before anything is booked',
-    p: 'You get a line-item proposal — venue, catering per head, decor, lighting, photography, our fee — before a single deposit goes out. Not a lump-sum figure. Lahore event pricing moves a lot with season and guest count, and the only way to make a decision is to see what each part actually costs and where you can trade. If a number changes later, you see the revised line, not a surprise at the end.',
+    p: 'You get a line-item proposal — venue, catering, decor, lighting, our fee — before a single deposit goes out. Not a lump-sum figure. Lahore event pricing moves a lot with season and guest count, and the only way to make a decision is to see what each part actually costs and where you can trade. If a number changes later, you see the revised line, not a surprise at the end.',
   },
   {
     h: 'Venue and vendor access across the city',

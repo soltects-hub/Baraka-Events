@@ -34,7 +34,7 @@ const values = [
   {
     n: '04',
     title: 'A Clear Quote From Day One',
-    body: 'You get a line-item proposal before you commit to anything, broken down by venue, decor, catering and staffing. If a cost changes later, we tell you why before it shows up on an invoice.',
+    body: 'You get a line-item proposal before you commit to anything, broken down by venue, catering, decor, lighting and our fee. If a cost changes later, we tell you why before it shows up on an invoice.',
   },
 ];
 

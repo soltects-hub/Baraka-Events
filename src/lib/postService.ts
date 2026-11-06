@@ -13,6 +13,8 @@
 export const postServiceLinks: Record<string, string> = {
   // Weddings, end to end
   'how-to-choose-wedding-planner-lahore': 'wedding-planning',
+  'lahore-wedding-season-2026-27-before-ramadan': 'wedding-planning',
+  'nikkah-decor-ideas-lahore': 'nikkah-events',
   'top-wedding-venues-lahore-2025': 'wedding-planning',
   'how-to-choose-wedding-venue-lahore-guide': 'wedding-planning',
   'luxury-shaadi-cost-lahore': 'wedding-planning',
