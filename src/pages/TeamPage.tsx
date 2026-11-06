@@ -10,7 +10,7 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 const expertise = [
   { h: 'Production & Operations', p: 'Load-ins, cues and contingencies run by a dedicated operator head — the difference between a professional event planner in Lahore and a vendor who only shows up on the day.' },
   { h: 'Design & Styling', p: 'Every stage, floral program and lighting plan is designed by our team before a single vendor is briefed, so the vision stays consistent from concept to execution.' },
-  { h: 'Client Relations', p: 'One dedicated coordinator walks every family or brand through the entire journey — a single point of contact from first consultation to final rukhsati or closing toast.' },
+  { h: 'Client Relations', p: 'Every family or brand deals with one team through the entire journey, with our founder personally managing the event from first consultation to final rukhsati or closing toast.' },
   { h: 'Brand & Digital', p: 'A marketing and content team that documents and shares every Baraka production, so clients arrive already knowing the quality of work behind the name.' },
 ];
 
@@ -66,9 +66,8 @@ export default function TeamPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            One obsessive founder who reviews every production personally — the
-            same person you speak to at your first consultation is the one
-            running your event on the night itself.
+            With 15+ years of experience, our founder personally manages each event,
+            supported by a team across production, design and client relations.
           </motion.p>
         </div>
       </section>

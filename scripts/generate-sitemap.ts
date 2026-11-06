@@ -63,28 +63,28 @@ const claimsPassLastmod = '2026-10-20';
 // 2026-10-22 commercial-copy pass: the pages whose visible text actually changed (luxury wedding planner
 // targeting, decor content, contextual copy on portfolio/gallery/team/contact). Title-only blog edits
 // are deliberately not bumped; the two posts that gained links carry their own updatedISO.
-const seoPassLastmod = '2026-10-22';
 // 2026-10-25: the six individual-function service pages gained new sections, FAQs and links to the existing guides,
 // and /gallery gained its archive breakdown. The two blog meta descriptions and the /team meta description
 // changed only in the head, so they are not bumped.
 const functionPassLastmod = '2026-10-25';
 // 2026-11-02: /about gained the "at a glance" fact sheet (services, address, founder, hours, how to enquire). UTC date of the
 // content commit, never a predicted one. The homepage heading spacing and two title tags are not content changes.
-const aboutPassLastmod = '2026-11-02';
 // 2026-11-04: the homepage gained the food-packages FAQ. /services/wedding-planning and /services/event-management gained booking-process FAQs and
 // answer-first intros, /services/event-decoration and /services/birthday-events answer-first intros, /services/walima-events the Food Menu price
 // reference, and the /services hub renders those intros. UTC date of the content commit, never a predicted one.
 const answerPassLastmod = '2026-11-04';
+// 2026-11-06: owner-confirmed facts (booking wording, founder, own kitchen, 15+ years), keyword-aligned H1s, /catering.
+const ownerFactsLastmod = '2026-11-06';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
-  'event-management': answerPassLastmod,
-  'corporate-events': corporatePassLastmod,
-  'wedding-planning': answerPassLastmod,
-  'mehndi-events': functionPassLastmod,
-  'event-decoration': answerPassLastmod,
-  'birthday-events': answerPassLastmod,
-  'nikkah-events': functionPassLastmod,
-  'barat-events': functionPassLastmod,
-  'walima-events': answerPassLastmod,
+  'event-management': ownerFactsLastmod,
+  'corporate-events': ownerFactsLastmod,
+  'wedding-planning': ownerFactsLastmod,
+  'mehndi-events': ownerFactsLastmod,
+  'event-decoration': ownerFactsLastmod,
+  'birthday-events': ownerFactsLastmod,
+  'nikkah-events': ownerFactsLastmod,
+  'barat-events': ownerFactsLastmod,
+  'walima-events': ownerFactsLastmod,
   'engagement-events': functionPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
@@ -104,15 +104,16 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: answerPassLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: ownerFactsLastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
-  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: aboutPassLastmod },
+  { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: ownerFactsLastmod },
+  { path: routes.catering, changefreq: 'monthly', priority: '0.9', lastmod: ownerFactsLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: answerPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: functionPassLastmod },
-  { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: seoPassLastmod },
-  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: answerPassLastmod },
+  { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: ownerFactsLastmod },
+  { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: ownerFactsLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: answerPassLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: ownerFactsLastmod },
   // /venues and /vendors are deliberately left out while they carry no real
   // listings (both index pages are `noindex` until Phase 2 — see
   // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a

@@ -12,7 +12,7 @@ const stats = [
   { value: 'Full-Service', label: 'Planning & Production' },
   { value: 'One Team', label: 'Start to Finish' },
   { value: 'Lahore-Wide', label: 'Venues & Vendors' },
-  { value: 'Direct Line', label: 'To Your Coordinator' },
+  { value: '15+ Years', label: 'Of Experience' },
 ];
 
 const values = [
@@ -90,8 +90,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
           >
-            Baraka Events plans and produces weddings, corporate events and private
-            celebrations in Lahore. From a mehndi in the Walled City to a corporate
+            With 15+ years of experience, Baraka Events plans and produces weddings,
+            corporate events and private celebrations in Lahore, with catering from our
+            own kitchen and team. From a mehndi in the Walled City to a corporate
             launch in Gulberg, one team designs, produces and runs the event, so you
             experience it as a guest rather than the person managing it.
           </motion.p>
@@ -212,6 +213,8 @@ export default function AboutPage() {
           <dl className="mt-6 grid gap-x-10 gap-y-5 text-sm font-light leading-relaxed text-mist sm:grid-cols-[11rem_1fr] md:text-base">
             <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">What we do</dt>
             <dd>Event planning and event management: weddings and every wedding function, corporate events and private celebrations.</dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Experience</dt>
+            <dd>15+ years of experience.</dd>
             <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Where</dt>
             <dd>
               Based at {seoConfig.organization.address.streetAddress}, Gulberg III, {seoConfig.organization.address.addressLocality}, working
@@ -222,6 +225,14 @@ export default function AboutPage() {
               {seoConfig.organization.founder.name}, {seoConfig.organization.founder.jobTitle}.{' '}
               <Link to="/team" className="gold-underline text-gold hover:text-gold-soft">
                 Meet the team
+              </Link>
+              . Our founder personally manages each event, supported by our team.
+            </dd>
+            <dt className="text-[11px] uppercase tracking-[0.25em] text-champagne sm:pt-1">Catering</dt>
+            <dd>
+              Our own kitchen and catering team.{' '}
+              <Link to="/catering" className="gold-underline text-gold hover:text-gold-soft">
+                See the catering menus
               </Link>
               .
             </dd>

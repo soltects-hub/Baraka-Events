@@ -13,6 +13,6 @@ export const members: TeamMember[] = [
     name: 'Malik Bilal',
     role: 'CEO & Founder',
     image: '/media/team-bilal.webp',
-    bio: 'Founded Baraka Events and still reviews every production personally before it goes live, from stage layout to final vendor sign-off.',
+    bio: 'Founded Baraka Events and personally manages its events, reviewing each production before it goes live, from stage layout to final vendor sign-off.',
   },
 ];

@@ -25,6 +25,7 @@ const links = [
   // <a href="/services">: the static header then carries one crawlable link
   // to the hub even before any script runs.
   { label: 'Services', href: '/services' },
+  { label: 'Catering', href: '/catering' },
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },

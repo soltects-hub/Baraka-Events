@@ -15,7 +15,7 @@ export const seoConfig = {
     url: 'https://www.barakaevents.com',
     locale: 'en_US',
     description:
-      'Baraka Events is an event planning and management company based in Gulberg III, Lahore. We plan weddings, mehndi and baraat functions, corporate events and private celebrations across the city.',
+      'Baraka Events is an event planning and management company based in Gulberg III, Lahore, with 15+ years of experience. We plan weddings, corporate events and private celebrations across the city, with catering from our own kitchen and team.',
   },
   organization: {
     name: 'Baraka Events',
@@ -73,6 +73,7 @@ export const routes = {
   about: '/about',
   experiences: '/experiences',
   portfolio: '/portfolio',
+  catering: '/catering',
   gallery: '/gallery',
   team: '/team',
   contact: '/contact',

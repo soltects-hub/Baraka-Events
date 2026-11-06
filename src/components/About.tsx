@@ -8,7 +8,7 @@ const stats = [
   { value: 'Full-Service', label: 'Planning & Production' },
   { value: 'One Team', label: 'Start to Finish' },
   { value: 'Lahore-Wide', label: 'Venues & Vendors' },
-  { value: 'Direct Line', label: 'To Your Coordinator' },
+  { value: '15+ Years', label: 'Of Experience' },
 ];
 
 export default function About() {
@@ -67,7 +67,11 @@ export default function About() {
               <Link to="/services/event-management" className="gold-underline text-gold hover:text-gold-soft">
                 event planning and management company
               </Link>{' '}
-              based in Gulberg, Lahore. We plan and produce weddings, corporate events and{' '}
+              based in Gulberg, Lahore, with 15+ years of experience. We plan and produce{' '}
+              <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
+                weddings
+              </Link>
+              , corporate events and{' '}
               <Link to="/services/birthday-events" className="gold-underline text-gold hover:text-gold-soft">
                 private celebrations
               </Link>{' '}
@@ -75,18 +79,22 @@ export default function About() {
               marquees of DHA and the ballrooms of Gulberg.
             </p>
             <p>
-              A{' '}
+              As a{' '}
               <Link to="/services/wedding-planning" className="gold-underline text-gold hover:text-gold-soft">
-                shaadi
-              </Link>{' '}
-              means mehndi, baraat, nikkah and walima planned as one continuous
-              production, not four separate bookings. A{' '}
+                wedding planner in Lahore
+              </Link>
+              , we treat a shaadi as what it is: mehndi, baraat, nikkah and walima
+              planned as one continuous production, not four separate bookings. A{' '}
               <Link to="/services/corporate-events" className="gold-underline text-gold hover:text-gold-soft">
                 corporate event
               </Link>{' '}
               means stage design, lighting and hospitality handled by people who also do
-              this for weddings, so nothing feels improvised. Either way, the same team
-              stays with you from the first meeting to the last guest leaving.
+              this for weddings, so nothing feels improvised. Either way, our founder
+              personally manages your event, supported by our team, with{' '}
+              <Link to="/catering" className="gold-underline text-gold hover:text-gold-soft">
+                catering
+              </Link>{' '}
+              from our own kitchen.
             </p>
           </div>
 

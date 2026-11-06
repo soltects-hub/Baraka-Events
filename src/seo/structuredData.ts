@@ -3,7 +3,7 @@
  * Generate proper schema markup for SEO
  */
 
-import { seoConfig } from './seoConfig';
+import { seoConfig, routes } from './seoConfig';
 import { services } from '../lib/services';
 
 function absoluteUrl(url: string): string {
@@ -91,13 +91,12 @@ export function generateOrganizationSchema() {
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Event planning and management services in Lahore',
-      itemListElement: services.map((s) => ({
+      itemListElement: [
+        ...services.map((s) => ({ name: s.title, url: absoluteUrl(`/services/${s.slug}`) })),
+        { name: 'Catering Services in Lahore', url: absoluteUrl(routes.catering) },
+      ].map((item) => ({
         '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: s.title,
-          url: absoluteUrl(`/services/${s.slug}`),
-        },
+        itemOffered: { '@type': 'Service', ...item },
       })),
     },
     sameAs: seoConfig.organization.sameAs,

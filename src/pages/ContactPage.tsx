@@ -12,7 +12,7 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 const reasons = [
   { h: 'Reply Within One Business Day', p: 'A senior member of our atelier replies within one business day.' },
   { h: 'Free Consultation', p: 'Your first conversation, in person or by video, is entirely complimentary and comes with no obligation.' },
-  { h: 'One Point of Contact', p: 'From your first message to your final function, you speak to the same coordinator every time.' },
+  { h: 'One Point of Contact', p: 'From your first message to your final function, you deal with one team, and our founder personally manages your event.' },
 ];
 
 export default function ContactPage() {
@@ -43,7 +43,7 @@ export default function ContactPage() {
 
   // A "Get a Quote" or "Book Consultation" button sent the visitor here: go straight to the form.
   useEffect(() => {
-    if (hash !== '#contact' && !search.includes('type=')) return;
+    if (hash !== '#contact' && !/[?&](type|need)=/.test(search)) return;
     const t = setTimeout(() => {
       const form = document.querySelector<HTMLElement>('#contact form');
       if (!form) return;

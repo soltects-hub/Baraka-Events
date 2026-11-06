@@ -104,6 +104,15 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/catering"
+                  onClick={(e) => { e.preventDefault(); go('/catering'); }}
+                  className="gold-underline text-sm font-light text-mist hover:text-cream"
+                >
+                  Catering Services
+                </a>
+              </li>
             </ul>
           </div>
 

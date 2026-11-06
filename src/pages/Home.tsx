@@ -49,7 +49,7 @@ export default function Home() {
   useSEO({
     title: 'Baraka Events Lahore — Best Event Planner for Luxury Weddings',
     description:
-      'Baraka Events Lahore — the best event planner in Lahore for luxury weddings, corporate events, decor services and venue booking, based in Gulberg III.',
+      'Event planner in Lahore with 15+ years of experience: founder-managed luxury weddings, corporate events and decor, plus catering from our own kitchen.',
     canonical: routes.home,
   });
 

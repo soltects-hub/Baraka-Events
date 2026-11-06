@@ -71,7 +71,7 @@ const SERVICE_AREAS = [
 const SERVICES_FAQS = [
   {
     q: 'What does an event planner in Lahore actually cost?',
-    a: 'It depends on whether you want full planning, day-of management only, or decor alone, and on guest count and season. We quote planning and decor as a line-item proposal against your actual brief rather than publishing a package price, because a 200-guest nikkah and an 800-guest walima are not the same job. Food is the exception: our Food Menu 2026–27 packages are priced per person on the homepage. The proposal is free and comes before you commit to anything.',
+    a: 'It depends on whether you want full planning, day-of management only, or decor alone, and on guest count and season. We quote planning and decor as a line-item proposal against your actual brief rather than publishing a package price, because a 200-guest nikkah and an 800-guest walima are not the same job. Food is the exception: our Food Menu 2026–27 packages are priced per person on our catering page. The proposal is free and comes before you commit to anything.',
   },
   {
     q: 'Can I hire you for just one function instead of the whole wedding?',
@@ -79,7 +79,7 @@ const SERVICES_FAQS = [
   },
   {
     q: 'How far in advance should we book?',
-    a: 'Nine to twelve months gives you the first choice of venues and dates. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
+    a: 'It depends on the type of event, your date and availability. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
   },
   {
     q: 'Do you handle the venue booking, or do we?',
@@ -200,6 +200,17 @@ export default function ServicesIndexPage() {
       </section>
 
       {/* what an event planner actually does */}
+      {/* catering has its own landing page rather than a /services/* entry */}
+      <section className="mx-auto max-w-[1200px] px-6 pb-16 md:px-10">
+        <Link to={routes.catering} className="plate group block rounded-sm p-7 md:p-9">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-champagne">Catering</span>
+          <h2 className="mt-2 font-display text-xl font-light transition-colors duration-300 group-hover:text-gold-soft md:text-2xl">Catering Services in Lahore</h2>
+          <p className="mt-2 max-w-2xl text-sm font-light leading-relaxed text-mist">
+            Wedding, corporate and private event catering from our own kitchen and catering team, with eight set menu packages.
+          </p>
+        </Link>
+      </section>
+
       <section className="mx-auto max-w-[900px] px-6 pb-4 md:px-10">
         <div className="border-t border-champagne/10 pt-12">
           <h2 className="font-display text-2xl font-light md:text-3xl">

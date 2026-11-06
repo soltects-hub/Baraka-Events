@@ -24,11 +24,14 @@ const EVENT_TYPE_BY_PARAM: Record<string, string | undefined> = {
 
 const labelClass = 'mb-2 block text-[11px] uppercase tracking-[0.25em] text-mist';
 
+const SERVICE_BY_PARAM: Record<string, string | undefined> = { catering: 'Catering' };
+
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error' | 'handoff'>('idle');
   const [handoffUrl, setHandoffUrl] = useState(WHATSAPP_URL);
   const [params] = useSearchParams();
   const [eventType, setEventType] = useState(EVENT_TYPE_BY_PARAM[params.get('type') ?? ''] ?? '');
+  const [need, setNeed] = useState(SERVICE_BY_PARAM[params.get('need') ?? ''] ?? '');
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const bgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
@@ -174,17 +177,20 @@ export default function Contact() {
                     const d = new FormData(e.currentTarget);
                     const date = d.get('preferredDate');
                     const guests = d.get('guestCount');
-                    const email = d.get('email');
+                    const location = d.get('location');
+                    const services = d.get('services');
+                    const message = d.get('message');
                     const url = whatsAppUrl(
                       [
                         'Assalam-o-Alaikum, I would like a consultation with Baraka Events.',
                         `Name: ${d.get('name')}`,
                         `Phone: ${d.get('phone')}`,
-                        ...(email ? [`Email: ${email}`] : []),
                         `Event: ${d.get('eventType')}`,
                         ...(date ? [`Preferred date: ${date}`] : []),
+                        ...(location ? [`Location: ${location}`] : []),
                         ...(guests ? [`Guests: ${guests}`] : []),
-                        `Details: ${d.get('message')}`,
+                        ...(services ? [`Services needed: ${services}`] : []),
+                        ...(message ? [`Details: ${message}`] : []),
                       ].join('\n')
                     );
                     setHandoffUrl(url);
@@ -231,10 +237,6 @@ export default function Contact() {
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="email" className={labelClass}>Email (optional)</label>
-                    <input id="email" name="email" type="email" autoComplete="email" placeholder="you@email.com" className={inputClass} />
-                  </div>
-                  <div>
                     <label htmlFor="type" className={labelClass}>Event Type</label>
                     <select id="type" name="eventType" required value={eventType} onChange={(e) => setEventType(e.target.value)} className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
                       <option value="" disabled>Select an occasion</option>
@@ -243,6 +245,16 @@ export default function Contact() {
                       <option>Private Celebration</option>
                       <option>Destination-Style Wedding</option>
                       <option>Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="services" className={labelClass}>Services Needed</label>
+                    <select id="services" name="services" value={need} onChange={(e) => setNeed(e.target.value)} className={`${inputClass} appearance-none [&>option]:bg-ink-2`}>
+                      <option value="">Not sure yet</option>
+                      <option>Full planning and management</option>
+                      <option>Decor and design</option>
+                      <option>Catering</option>
+                      <option>Event-day management</option>
                     </select>
                   </div>
                 </div>
@@ -264,16 +276,19 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className={labelClass}>{eventType === 'Corporate Event' ? 'Event Brief' : 'Tell Us Your Vision'}</label>
+                  <label htmlFor="location" className={labelClass}>Location or Venue</label>
+                  <input id="location" name="location" autoComplete="off" placeholder="Area of Lahore or venue name" className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="message" className={labelClass}>{eventType === 'Corporate Event' ? 'Event Brief' : 'Anything Else (optional)'}</label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={4}
-                    required
+                    rows={3}
                     placeholder={
                       eventType === 'Corporate Event'
                         ? 'Company, event type, date or date range, venue if fixed, expected headcount range, invoicing requirements…'
-                        : 'Functions, venue ideas, atmosphere — anything that inspires you…'
+                        : 'Functions, ideas, atmosphere…'
                     }
                     className={`${inputClass} resize-none`}
                   />
