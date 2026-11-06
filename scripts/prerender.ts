@@ -190,6 +190,23 @@ async function stripLoopClones(page: import('puppeteer').Page) {
   if (removed > 0) console.log(`    removed ${removed} loop-copy node(s) from the static snapshot`);
 }
 
+/**
+ * On a route other than the homepage, list the JS chunks the page needed so the browser fetches them
+ * alongside the main bundle instead of discovering them one by one after it has run. Called before the
+ * scroll pass, so chunks that only load further down the page are left out. The homepage keeps its
+ * deliberate lazy loading (see modulePreload in vite.config.ts).
+ */
+async function collectRouteChunks(page: import('puppeteer').Page, path: string): Promise<string[]> {
+  if (path === '/') return [];
+  return page.evaluate(() => {
+    const entry = document.querySelector('script[type="module"][src*="/assets/"]')?.getAttribute('src') ?? '';
+    return performance
+      .getEntriesByType('resource')
+      .map((r) => new URL(r.name).pathname)
+      .filter((p) => /^\/assets\/.+\.js$/.test(p) && p !== entry);
+  });
+}
+
 async function prerenderRoute(browser: import('puppeteer').Browser, path: string): Promise<void> {
   const page = await browser.newPage();
   try {
@@ -198,11 +215,21 @@ async function prerenderRoute(browser: import('puppeteer').Browser, path: string
     // Past the ~2.4s homepage preloader and any lazy chunk fetches, so the
     // useSEO()/applyStructuredData() effects have committed their tags.
     await new Promise((r) => setTimeout(r, 2800));
+    const routeChunks = await collectRouteChunks(page, path);
     await scrollThroughPage(page);
     await new Promise((r) => setTimeout(r, 400));
 
     await stripInjectedTagScripts(page);
     await stripLoopClones(page);
+
+    await page.evaluate((chunks) => {
+      for (const href of chunks) {
+        const link = document.createElement('link');
+        link.rel = 'modulepreload';
+        link.href = href;
+        document.head.appendChild(link);
+      }
+    }, routeChunks);
 
     const html = await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML);
 

@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { SmoothScrollProvider } from './lib/scroll';
@@ -15,29 +15,25 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import { generateOrganizationSchema, applyStructuredData } from './seo';
 
-// Every other route is code-split: a first-time visit to "/" (by far the
-// most common entry point) should not have to fetch/parse the JS for
-// pages the visitor hasn't asked for yet.
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ExperiencesPage = lazy(() => import('./pages/ExperiencesPage'));
-const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
-const CateringPage = lazy(() => import('./pages/CateringPage'));
-const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
-const GalleryPage = lazy(() => import('./pages/GalleryPage'));
-const TeamPage = lazy(() => import('./pages/TeamPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const Blog = lazy(() => import('./pages/Blog'));
-const BlogPost = lazy(() => import('./pages/BlogPost'));
-const ServicesIndexPage = lazy(() => import('./pages/ServicesIndexPage'));
-const ServicePage = lazy(() => import('./pages/ServicePage'));
-// Foundation-phase pages (architecture proposal approved 2026-09-29, Phase 1)
-// — both render an honest "in development" state until Phase 2 adds real,
-// verified listings to src/lib/venues.ts / src/lib/vendors.ts.
-const VenuesIndexPage = lazy(() => import('./pages/VenuesIndexPage'));
-const VenuePage = lazy(() => import('./pages/VenuePage'));
-const VendorsIndexPage = lazy(() => import('./pages/VendorsIndexPage'));
-const VendorPage = lazy(() => import('./pages/VendorPage'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+import {
+  AboutPage,
+  ExperiencesPage,
+  PortfolioPage,
+  CateringPage,
+  PrivacyPage,
+  GalleryPage,
+  TeamPage,
+  ContactPage,
+  Blog,
+  BlogPost,
+  ServicesIndexPage,
+  ServicePage,
+  VenuesIndexPage,
+  VenuePage,
+  VendorsIndexPage,
+  VendorPage,
+  NotFound,
+} from './lib/routePages';
 
 function ScrollRestore() {
   const { pathname } = useLocation();
