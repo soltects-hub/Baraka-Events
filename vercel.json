@@ -291,6 +291,10 @@
       "destination": "/portfolio.html"
     },
     {
+      "source": "/catering",
+      "destination": "/catering.html"
+    },
+    {
       "source": "/gallery",
       "destination": "/gallery.html"
     },
