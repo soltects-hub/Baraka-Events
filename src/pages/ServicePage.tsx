@@ -115,7 +115,7 @@ export default function ServicePage() {
           <p className="mt-5 text-[11px] uppercase tracking-[0.3em] text-champagne">{service.tag}</p>
           <RevealText
             as="h1"
-            text={service.title}
+            text={service.heading ?? service.title}
             className="mt-4 font-display text-3xl font-light leading-[1.1] sm:text-4xl md:text-6xl"
           />
         </div>

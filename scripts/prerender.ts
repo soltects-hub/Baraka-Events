@@ -91,6 +91,7 @@ const routePaths: string[] = [
   routes.about,
   routes.experiences,
   routes.portfolio,
+  routes.catering,
   routes.gallery,
   routes.team,
   routes.contact,

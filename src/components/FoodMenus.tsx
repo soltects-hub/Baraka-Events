@@ -1,4 +1,5 @@
 import { Fragment, memo, useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
+import { Link } from 'react-router-dom';
 import RevealText from './RevealText';
 import FoodMotion from './FoodMotion';
 import {
@@ -12,7 +13,6 @@ import {
 } from '../lib/foodMenu';
 import { whatsAppUrl } from '../lib/whatsapp';
 
-const MINIMUM_GUESTS = foodPackages[0].minimumGuests;
 const COUNT = foodPackages.length;
 /** Space the deck keeps around the cards: above them (shadow room) and below them (the stage's floor). Matches .menu-card top and .menu-floor in index.css. */
 const DECK_PAD = 18 + 64;
@@ -137,7 +137,7 @@ function MenuCard({
   const price = formatRs(pkg.pricePerPerson);
   const isActive = pos === '0';
   const enquiry = whatsAppUrl(
-    `Assalam-o-Alaikum, I found Baraka Events through your website and would like to know more about Menu ${pkg.number} (${price}/person, minimum ${pkg.minimumGuests} guests).`
+    `Assalam-o-Alaikum, I found Baraka Events through your website and would like to know more about Menu ${pkg.number} (${price}/person).`
   );
 
   return (
@@ -178,7 +178,7 @@ function MenuCard({
             </div>
             <footer className="menu-foot">
               <span data-menu-min className="menu-min">
-                Minimum guests: <span className="text-ivory">{pkg.minimumGuests}</span>
+                Guest count: <span className="text-ivory">flexible</span>
               </span>
               <a
                 href={enquiry}
@@ -401,8 +401,12 @@ export default function FoodMenus() {
               highlightClass="accent-serif"
             />
             <p className="mt-5 max-w-xl text-base font-light leading-[1.75] text-mist">
-              Our Food Menu 2026&ndash;27: eight set packages, Menu 1 to Menu 8, each priced per person for a minimum of{' '}
-              {MINIMUM_GUESTS} guests. Browse the menus below to see each full dish list and what is included and excluded.
+              Our Food Menu 2026&ndash;27: eight set packages, Menu 1 to Menu 8, each priced per person, from our own kitchen and
+              catering team. Browse the menus below to see each full dish list, or{' '}
+              <Link to="/catering" className="gold-underline text-gold hover:text-gold-soft">
+                see our catering services
+              </Link>
+              .
             </p>
           </div>
 
@@ -420,10 +424,10 @@ export default function FoodMenus() {
                 </dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-mist-dim">Minimum</dt>
-                <dd className="mt-2 font-display text-3xl font-light text-champagne">
-                  {MINIMUM_GUESTS}
-                  <span className="block text-sm text-mist">guests</span>
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-mist-dim">Guests</dt>
+                <dd className="mt-2 font-display text-xl font-light leading-tight text-champagne">
+                  Flexible
+                  <span className="block text-sm text-mist">ask us</span>
                 </dd>
               </div>
             </dl>
@@ -521,12 +525,12 @@ export default function FoodMenus() {
           </div>
 
           <p className="sr-only" aria-live="polite" aria-atomic="true">
-            Menu {current.number} of {COUNT}, {formatRs(current.pricePerPerson)} per person, minimum {current.minimumGuests} guests.
+            Menu {current.number} of {COUNT}, {formatRs(current.pricePerPerson)} per person.
           </p>
         </div>
 
         <p className="mt-6 text-[11px] uppercase tracking-[0.22em] text-mist-dim">
-          All prices are per person &middot; minimum {MINIMUM_GUESTS} guests per package
+          All prices are per person &middot; guest count is flexible, so tell us yours
         </p>
         <p className="mt-2 max-w-2xl text-[12px] font-light leading-relaxed text-mist-dim">
           Photography shows buffet stations and crockery from our catering set-ups. It illustrates the service, not a particular dish; every

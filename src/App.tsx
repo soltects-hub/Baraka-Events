@@ -21,6 +21,7 @@ import { generateOrganizationSchema, applyStructuredData } from './seo';
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ExperiencesPage = lazy(() => import('./pages/ExperiencesPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
+const CateringPage = lazy(() => import('./pages/CateringPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const TeamPage = lazy(() => import('./pages/TeamPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -84,6 +85,7 @@ export default function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/experiences" element={<ExperiencesPage />} />
                 <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/catering" element={<CateringPage />} />
                 <Route path="/gallery" element={<GalleryPage />} />
                 <Route path="/team" element={<TeamPage />} />
                 <Route path="/contact" element={<ContactPage />} />

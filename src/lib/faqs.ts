@@ -17,7 +17,7 @@ export interface Faq {
 export const faqs: Faq[] = [
   {
     q: 'How early should I book a wedding planner in Lahore?',
-    a: 'For a full multi-function wedding — mehndi, baraat, nikkah and walima — book 9 to 12 months ahead if you want your first choice of venue and date, especially in wedding season (October to March). For a single function or a smaller private event, 2 to 4 months is usually enough. If your date is closer than that, contact us anyway — we can often still make it work.',
+    a: 'It depends on the type of event, your date and availability. A full multi-function wedding needs more planning time than a single function or a small private event, and dates in wedding season (October to March) fill first. Send us your date and we will tell you what is possible.',
     related: [
       { text: 'Wedding planning in Lahore', to: '/services/wedding-planning' },
       { text: 'Wedding timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
@@ -61,8 +61,8 @@ export const faqs: Faq[] = [
   {
     // Figures mirror src/lib/foodMenu.ts (the owner's Food Menu 2026-27 PDF): update both together.
     q: 'Does Baraka Events offer catering, and what does food cost per person?',
-    a: 'Yes. Our Food Menu 2026–27 has eight set packages, from Rs. 2,200 to Rs. 6,700 per person, each for a minimum of 200 guests. Every package includes the setup: carpet, round tables and banquet chairs, buffet stations, crockery, cutlery, waiters, lighting and a genset. Decor, DJ, diesel, heating and chilling, and the venue are not included. If a family prefers an outside caterer, we coordinate that instead.',
-    related: [{ text: 'Luxury wedding catering in Lahore: menus and live stations', to: '/blog/luxury-event-catering-menu-lahore' }],
+    a: 'Yes. Baraka Events operates its own kitchen and catering team. Our Food Menu 2026–27 has eight set packages, from Rs. 2,200 to Rs. 6,700 per person. Every package includes the setup: carpet, round tables and banquet chairs, buffet stations, crockery, cutlery, waiters, lighting and a genset. Decor, DJ, diesel, heating and chilling, and the venue are not included. Guest count is flexible, so tell us your numbers and requirements.',
+    related: [{ text: 'Catering services in Lahore', to: '/catering' }, { text: 'Wedding catering guide', to: '/blog/luxury-event-catering-menu-lahore' }],
   },
   {
     q: 'What does a typical Baraka Events production cost?',
@@ -82,7 +82,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What makes Baraka Events different from other event planners in Lahore?',
-    a: 'We are a design and production company, not just a booking service. Décor, lighting and technical production are designed, planned and managed as one plan, with one coordinator staying with your event from the first meeting to the last guest leaving — instead of you being passed between separate vendors.',
+    a: 'We are a design and production company, not just a booking service. Décor, lighting and technical production are designed, planned and managed as one plan, and with 15+ years of experience our founder personally manages your event, supported by our team, instead of you being passed between separate vendors.',
     related: [
       { text: 'About Baraka Events', to: '/about' },
       { text: 'See our work', to: '/portfolio' },

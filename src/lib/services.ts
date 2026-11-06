@@ -29,6 +29,8 @@ export interface Service {
   slug: string;
   tag: string;
   title: string;
+  /** The page's H1 when it should differ from the title used in menus and schema. */
+  heading?: string;
   /**
    * The event noun used in the page's closing CTA ("Planning a {ctaSubject}?").
    * `tag` was used here previously, but it repeats across services and reads
@@ -52,10 +54,11 @@ export const services: Service[] = [
     slug: 'wedding-planning',
     tag: 'Weddings',
     title: 'Wedding Planning & Management in Lahore',
+    heading: 'Wedding Planner in Lahore: Planning & Management',
     ctaSubject: 'wedding',
     seoTitle: 'Luxury Wedding Planner in Lahore | Baraka Events',
     seoDescription:
-      'Luxury wedding planner and wedding event management company in Lahore — mehndi, baraat, nikkah and walima planned as one project, with a line-item quote.',
+      'Luxury wedding planner in Lahore with 15+ years of experience. Mehndi, baraat, nikkah and walima planned as one project and personally managed by our founder.',
     image: '/media/gallery/wedding-24.webp',
     imageAlt: 'Evening wedding stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns in Lahore',
     intro:
@@ -65,6 +68,8 @@ export const services: Service[] = [
       { h: 'Budget & Vendor Coordination', p: 'A line-item proposal before you commit to anything, and one team coordinating catering, decor, photography and entertainment instead of you managing each vendor separately.' },
       { h: 'Day-of Timeline Management', p: 'A run-of-show for every function, so arrivals, stage moments and meal service happen on schedule.' },
       { h: 'Design Direction Across Every Function', p: 'A consistent floral, lighting and stage language that carries from mehndi through walima, rather than each night looking unrelated to the last.' },
+      { h: 'Personally Managed by Our Founder', p: 'With 15+ years of experience, our founder personally manages your wedding, supported by our design, production and client team. You get one person accountable for the whole week, while the team handles the work on each function.' },
+      { h: 'Catering From Our Own Kitchen', p: 'Food comes from [our own kitchen and catering team](/catering), so the menu, the service timing and the rest of the run-of-show are planned together. If your family already has a caterer, we work with them instead.' },
       { h: 'What a Wedding Planner in Lahore Actually Costs', p: 'We charge for the work rather than as a percentage of what you spend, so the fee does not rise because you picked a more expensive venue. The proposal itemises venue, catering per head, decor, lighting, photography and our fee as separate lines. That structure matters more than the headline number, because it is what lets you move money between functions once you can see the totals side by side.' },
       { h: 'What a Luxury Wedding Means in Lahore', p: 'For us, a luxury wedding is a standard of control, not just a size of budget. The stage is designed to the venue\u2019s real dimensions, lighting is treated as part of the design, every function has its own run-of-show, and one team stays accountable for the whole week. The proposal itemises every line, and a more expensive venue does not raise our fee. If you are looking for a luxury wedding planner in Lahore, that is the standard to hold any planner to, including us.' },
       { h: 'Full Planning or a Single Function', p: 'You can book the whole week, or book one function and run the rest yourselves. The full week buys design consistency and one point of contact. A single function buys expertise exactly where you need it. Neither is the upsell, and we will say which one your situation actually calls for.' },
@@ -74,7 +79,7 @@ export const services: Service[] = [
     faqs: [
       { q: 'Do you plan single functions or only full weddings?', a: 'Both. We plan the full week, and we also plan individual functions — see our dedicated Nikkah, Mehndi, Baraat and Walima pages if that is what you need.' },
       { q: 'What does a luxury wedding planner in Lahore do?', a: 'A luxury wedding planner runs the whole wedding as one designed, itemised project rather than a set of separate bookings: venue and vendor selection, a stage and lighting design drawn to the venue before anything is ordered, a run-of-show for each function, and one point of contact from the first consultation to the last guest. We quote the fee for the work, separate from venue, catering and decor, so you can see where the money goes.' },
-      { q: 'How far in advance should we book?', a: 'Nine to twelve months out gives us the best choice of venues and vendors, especially in wedding season from October to March. Outside peak season, or for a single function rather than the full week, shorter timelines are usually workable.' },
+      { q: 'How far in advance should we book?', a: 'It depends on the type of event, your date and availability. A full wedding week needs more planning time than a single function, and dates in wedding season from October to March fill first. Send us your date and we will tell you what is possible.' },
       { q: 'Do you handle vendor payments or just coordination?', a: 'We coordinate and can manage vendor payments on your behalf as part of the planning agreement, with every cost itemised in your proposal.' },
       { q: 'How much does a wedding planner in Lahore cost?', a: 'We quote for the scope of work, not as a percentage of your budget, and the fee sits as its own line separate from venue, catering and decor. Whether you book the full week or a single function changes it far more than the size of the wedding does.' },
       { q: 'Can you work with vendors we have already booked?', a: 'Yes. If your venue, caterer or photographer is already confirmed we work with them rather than replacing them, and hold them to the same run-of-show as everyone else.' },
@@ -83,6 +88,7 @@ export const services: Service[] = [
     ],
     relatedServices: ['nikkah-events', 'mehndi-events', 'barat-events', 'walima-events', 'engagement-events', 'event-decoration', 'event-management'],
     relatedLinks: [
+      { text: 'Catering services in Lahore', to: '/catering' },
       { text: 'How to choose a wedding planner in Lahore', to: '/blog/how-to-choose-wedding-planner-lahore' },
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
       { text: 'Farmhouse weddings on Raiwind Road', to: '/blog/farmhouse-wedding-raiwind-road-lahore' },
@@ -96,6 +102,7 @@ export const services: Service[] = [
     slug: 'event-management',
     tag: 'Event Management',
     title: 'Event Management in Lahore',
+    heading: 'Event Management Company in Lahore',
     ctaSubject: 'event',
     seoTitle: 'Event Management Company in Lahore | Baraka Events',
     seoDescription:
@@ -111,7 +118,7 @@ export const services: Service[] = [
       { h: 'Contingency Planning', p: 'Backup plans for weather, technical issues or vendor delays, worked out before the event rather than improvised during it.' },
       { h: 'What Event Management Costs in Lahore', p: 'Management is quoted against scope rather than guest count alone: how many functions, how many venues, how many vendors we are supervising and for how many hours. A single evening at one venue is a different job from a four-function week across three. The figure appears as its own line in your proposal, separate from planning and decor, so you can see exactly what you are paying for and drop the parts you do not need.' },
       { h: 'Weddings, Corporate and Private Events, One Team', p: 'The same discipline covers a walima, a product launch and a fiftieth birthday. What changes is the paperwork: a wedding needs a family-facing timeline, a corporate event needs AV specs and branding approvals a marketing team can sign off, a private party needs neither. The crew, the run-of-show and the vendor supervision underneath are the same.' },
-      { h: 'What Happens When Something Goes Wrong', p: 'Vendors run late, power fails, weather turns, guest counts move in the last week. The point of hiring management is that you are not the one making those calls. Every event gets a named lead with authority to decide on the spot, a power and weather fallback agreed in advance, and every vendor contact held by us rather than by you.' },
+      { h: 'What Happens When Something Goes Wrong', p: 'Vendors run late, power fails, weather turns, guest counts move in the last week. The point of hiring management is that you are not the one making those calls. Our founder personally manages each event, with authority to decide on the spot, supported by the on-site team, a power and weather fallback agreed in advance, and every vendor contact held by us rather than by you.' },
       { h: 'Event Management Across Lahore', p: 'We manage events at hotels, marquees, banquet halls, farmhouses and private homes across Gulberg, DHA, Model Town, Johar Town, Bahria Town, Cantt and the Walled City, and at farmhouse venues along Raiwind and Bedian Road. Any venue our team has not worked before gets a site visit ahead of the date rather than on it.' },
     ],
     faqs: [
@@ -138,6 +145,7 @@ export const services: Service[] = [
     slug: 'event-decoration',
     tag: 'Design & Decor',
     title: 'Event Decoration & Design in Lahore',
+    heading: 'Wedding Decorators & Event Decoration in Lahore',
     ctaSubject: 'event',
     seoTitle: 'Wedding Decor & Event Decoration in Lahore | Baraka Events',
     seoDescription:
@@ -164,7 +172,7 @@ export const services: Service[] = [
       { q: 'Do you provide 3D design concepts before the event?', a: 'Yes, for stage and major decor elements we can produce a concept render in advance.' },
       { q: 'What events do you decorate?', a: 'Weddings and every individual wedding function, corporate events and private celebrations.' },
       { q: 'How much does event decoration cost in Lahore?', a: 'It scales with floral volume, stage size and the lighting rig rather than with guest count. We quote those as three separate lines so you can see where the money is going and trade between them.' },
-      { q: 'How far in advance should decor be booked?', a: 'Six to eight weeks suits most setups. Custom stage fabrication and large floral installations need longer, and peak wedding season compresses everything.' },
+      { q: 'How far in advance should decor be booked?', a: 'It depends on the type of event, your date and availability. Custom stage fabrication and large floral installations need longer, and peak wedding season compresses everything.' },
       { q: 'What should I ask a wedding decorator in Lahore before booking?', a: 'Ask for stage, floral and lighting to be quoted as separate lines, so you can see what each costs and trade one against another. Ask whether they will survey your venue before quoting, because rigging points, power and ambient light differ between a hall, a lawn and a heritage courtyard. If you are decorating more than one function, ask whether each is designed as part of a series or the same setup is repeated. We quote the three lines separately, survey the venue first and design the functions as a series.' },
     ],
     relatedServices: ['wedding-planning', 'walima-events', 'mehndi-events', 'event-management', 'corporate-events'],
@@ -178,6 +186,7 @@ export const services: Service[] = [
     slug: 'corporate-events',
     tag: 'Corporate',
     title: 'Corporate Event Management in Lahore',
+    heading: 'Corporate Event Planner & Management in Lahore',
     ctaSubject: 'corporate event',
     seoTitle: 'Corporate Event Management Company in Lahore | Baraka Events',
     seoDescription:
@@ -207,10 +216,11 @@ export const services: Service[] = [
       { q: 'How much does a corporate event planner in Lahore cost?', a: 'It depends on scope, not a fixed rate. We quote the event itself and show our fee as its own line, so finance can see what is planning and what is production; the headcount-driven and specification-driven costs are quoted separately, as set out above. What moves a quote most is the headcount range, the venue and its load-in constraints, the stage, AV and LED specification, branding fabrication, lead time and any travel.' },
       { q: 'Can you run an event outside Lahore?', a: 'Tell us the city, the dates and the venue and we will say whether we can take it on. Travel and accommodation for any team we send appear as their own line in the proposal rather than being absorbed into production cost.' },
       { q: 'What should we ask before hiring a corporate event management company in Lahore?', a: 'Ask who supplies the AV and technical crew and who is on site to run the rehearsal, how branding and approvals are signed off and when the cut-off falls, whether they can work to a purchase order with an itemised quotation, and what the power backup plan is for your venue. Then ask to see photographs of comparable work and how their proposal handled a similar brief.' },
-      { q: 'How far in advance should a corporate event be booked?', a: 'Six to eight weeks can work for a smaller conference or annual dinner outside peak wedding season (October to March). In the peak months, and for larger events, venue availability depends on the date far more than on notice, so it is worth asking early. Launches with custom stage builds or heavy branding need longer again, because of fabrication and approval cycles.' },
+      { q: 'How far in advance should a corporate event be booked?', a: 'It depends on the type of event, your date and availability. In peak wedding months (October to March), and for larger events, venue availability depends on the date far more than on notice, so it is worth asking early. Launches with custom stage builds or heavy branding need longer again, because of fabrication and approval cycles.' },
     ],
     relatedServices: ['event-management', 'event-decoration'],
     relatedLinks: [
+      { text: 'Catering services in Lahore', to: '/catering' },
       { text: 'Our corporate event checklist', to: '/blog/corporate-gala-lahore-checklist' },
       { text: 'How an event quote breaks down in Lahore', to: '/blog/event-planning-cost-budget-lahore' },
       { text: 'What a well-run corporate production looks like', to: '/blog/baraka-events-corporate-events-lahore' },
@@ -242,6 +252,7 @@ export const services: Service[] = [
     slug: 'nikkah-events',
     tag: 'Weddings',
     title: 'Nikkah Ceremony Planning in Lahore',
+    heading: 'Nikkah Event Planner in Lahore',
     ctaSubject: 'nikkah',
     seoTitle: 'Nikkah Ceremony Planning in Lahore | Baraka Events',
     seoDescription:
@@ -283,6 +294,7 @@ export const services: Service[] = [
     slug: 'mehndi-events',
     tag: 'Weddings',
     title: 'Mehndi Night Planning in Lahore',
+    heading: 'Mehndi Event Planner in Lahore',
     ctaSubject: 'mehndi',
     seoTitle: 'Mehndi Planner & Decoration in Lahore | Baraka Events',
     seoDescription:
@@ -310,7 +322,7 @@ export const services: Service[] = [
       { q: 'How much does mehndi decoration cost in Lahore?', a: 'It scales with floral volume and how much of the staging is custom-built rather than with guest count. Marigold-heavy traditional setups sit at the lower end; mirrorwork and imported florals at the higher.' },
       { q: 'Is an outdoor mehndi a good idea in Lahore?', a: 'It is the nicest option in the right months and a difficult one in the wrong ones. Outdoors works well from roughly mid-October to late November and again in late February and March, though smog season (October to February, per the Punjab Environmental Protection Agency) is a reason to keep an indoor fallback. Peak summer and monsoon are not realistic without a covered fallback.' },
       { q: 'Should the mehndi and the walima look different?', a: 'Yes. The mehndi is the loosest, most colourful night and the walima the most formal, so they should read as two different evenings. We design the functions as a series, with a shared palette and material set but deliberately different staging.' },
-      { q: 'How early should mehndi florals be booked?', a: 'Six to eight weeks for most setups. Specific or out-of-season flowers need longer because they are ordered in, and peak wedding season tightens supply across the whole city.' },
+      { q: 'How early should mehndi florals be booked?', a: 'It depends on the setup and your date. Specific or out-of-season flowers need longer because they are ordered in, and peak wedding season tightens supply across the whole city.' },
     ],
     relatedServices: ['barat-events', 'event-decoration', 'wedding-planning'],
     relatedLinks: [
@@ -324,6 +336,7 @@ export const services: Service[] = [
     slug: 'barat-events',
     tag: 'Weddings',
     title: 'Baraat Planning in Lahore',
+    heading: 'Baraat (Barat) Event Planner in Lahore',
     ctaSubject: 'baraat',
     seoTitle: 'Baraat (Barat) Planner in Lahore | Baraka Events',
     seoDescription:
@@ -364,10 +377,11 @@ export const services: Service[] = [
     slug: 'walima-events',
     tag: 'Weddings',
     title: 'Walima Reception Planning in Lahore',
+    heading: 'Walima Planner in Lahore',
     ctaSubject: 'walima',
     seoTitle: 'Walima Planner & Reception Planning Lahore | Baraka Events',
     seoDescription:
-      'Walima planner in Lahore for formal stage and floral design, catering coordination and guest flow for the wedding week’s largest, most photographed function.',
+      'Walima planner in Lahore for formal stage and floral design, in-house catering and guest flow for the wedding week’s largest, most photographed function.',
     image: '/media/gallery/wedding-30.webp',
     imageAlt: 'Stage and checkerboard dance floor under hanging crystal chandeliers and pink flower garlands, with floor cushions',
     intro:
@@ -375,7 +389,7 @@ export const services: Service[] = [
     included: [
       { h: 'Reception Staging & Seating', p: 'Seating and stage layout planned for the largest guest count of the week, with clear sightlines to the couple\'s stage.' },
       { h: 'Formal Lighting & Floral Design', p: 'A more refined floral and lighting register than mehndi or baraat, suited to the walima\'s formality.' },
-      { h: 'Catering Coordination', p: 'Meal service timed against the run-of-show so it doesn\'t compete with stage moments or speeches. Our [wedding catering guide](/blog/luxury-event-catering-menu-lahore) covers menus and live stations.' },
+      { h: 'Catering From Our Own Kitchen', p: 'Food from [our own kitchen and catering team](/catering), with meal service timed against the run-of-show so it doesn\'t compete with stage moments or speeches. Our [wedding catering guide](/blog/luxury-event-catering-menu-lahore) covers menus and live stations.' },
       { h: 'Guest Flow & Run-of-Show', p: 'Arrival, dinner and stage timing planned as one sequence for the evening\'s largest crowd.' },
       { h: 'Seating the Largest Guest List of the Week', p: 'The walima is where seating stops being decor and becomes logistics. Immediate family and elders need tables close to the stage, guests arriving late need somewhere obvious to go, and nobody should be seated behind a pillar or facing away from the couple. We build the table plan against the venue floor plan rather than a generic grid, and hold a small number of tables back for the arrivals nobody told you about.' },
       { h: 'Stage Setups: Sofa, Sweetheart or Elevated', p: 'A traditional sofa stage seats the couple with room for family photographs beside them. A sweetheart setup is more intimate and photographs tighter. An elevated stage is the right answer in a very large hall where guests at the back would otherwise see nothing. The choice is driven by guest count and sightlines more than by taste, and it is worth deciding before the floral concept rather than after.' },
@@ -387,14 +401,15 @@ export const services: Service[] = [
     faqs: [
       { q: 'How is walima decor different from baraat or mehndi decor?', a: 'It’s typically more formal and refined — the mehndi and baraat lean more festive and colourful, while the walima is styled for the week’s most formal function.' },
       { q: 'How many guests can you plan for?', a: 'Walima receptions we’ve planned have ranged from intimate gatherings to several hundred guests.' },
-      { q: 'Do you coordinate catering directly?', a: 'Yes, we coordinate catering as part of the run-of-show so meal service is timed against the rest of the evening.' },
-      { q: 'How much does a walima cost in Lahore?', a: 'Catering per head dominates, so guest count moves the total more than any design decision. We quote catering, venue, decor and lighting as separate lines so you can see which one to adjust. For reference, our Food Menu 2026–27 packages run from Rs. 2,200 to Rs. 6,700 per person for a minimum of 200 guests, excluding decor, DJ, diesel, heating and chilling, and the venue.' },
+      { q: 'Do you handle catering directly?', a: 'Yes. Baraka Events operates its own kitchen and catering team, and meal service is timed against the rest of the evening. If you already have a caterer, we can work with them instead.' },
+      { q: 'How much does a walima cost in Lahore?', a: 'Catering per head dominates, so guest count moves the total more than any design decision. We quote catering, venue, decor and lighting as separate lines so you can see which one to adjust. For reference, our Food Menu 2026–27 packages run from Rs. 2,200 to Rs. 6,700 per person, excluding decor, DJ, diesel, heating and chilling, and the venue.' },
       { q: 'What is the largest walima you can plan?', a: 'We plan across the full range Lahore venues support, from a few hundred guests to the largest marquee and hotel capacities. Above roughly five hundred the seating plan and guest flow become the hardest part of the job, not the decor.' },
       { q: 'When does a walima at a hall have to finish?', a: 'At a hall or other public place hired for a marriage, the Punjab Marriage Functions Act 2016 requires every ceremony connected with it to conclude by 10:00 pm, and notifications get revised. We confirm the closing time for your date with the venue in writing and put clock times against dinner, the couple’s entrance, cake and the closing cue, so the evening ends on a cue rather than trailing off.' },
-      { q: 'How early should a walima venue be booked?', a: 'Eight to ten months for a peak-season date. The largest halls and marquees are the first thing in the city to go, and the walima usually needs the biggest room of the week.' },
+      { q: 'How early should a walima venue be booked?', a: 'It depends on the type of event, your date and availability. In peak season the largest halls and marquees are the first thing in the city to go, and the walima usually needs the biggest room of the week, so it is worth asking early.' },
     ],
     relatedServices: ['nikkah-events', 'event-decoration', 'wedding-planning'],
     relatedLinks: [
+      { text: 'Catering services in Lahore', to: '/catering' },
       { text: 'How to plan a walima reception in Lahore', to: '/blog/walima-reception-planning-guide' },
       { text: 'Walima decor trends', to: '/blog/walima-decor-trends-2025' },
       { text: 'Wedding event timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },
@@ -446,6 +461,7 @@ export const services: Service[] = [
     slug: 'birthday-events',
     tag: 'Private Celebrations',
     title: 'Birthday Party Planning in Lahore',
+    heading: 'Birthday Event Planner in Lahore',
     ctaSubject: 'birthday',
     seoTitle: 'Birthday Event Planner in Lahore | Baraka Events',
     seoDescription:
