@@ -66,7 +66,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What does a typical Baraka Events production cost?',
-    a: 'It depends entirely on guest count, venue and how many functions are involved, so we do not quote a single number here. After a short consultation, you get a line-item proposal broken down by venue, decor, catering, lighting and staffing, so you know exactly what you are paying for before committing.',
+    a: 'It depends entirely on guest count, venue and how many functions are involved, so we do not quote a single number here. After a short consultation, you get a line-item proposal broken down by venue, catering, decor, lighting and our fee, so you know exactly what you are paying for before committing.',
     related: [
       { text: 'What event planning in Lahore costs', to: '/blog/event-planning-cost-budget-lahore' },
       { text: 'Request a line-item proposal', to: '/contact' },
@@ -79,6 +79,11 @@ export const faqs: Faq[] = [
       { text: 'How to choose the best event planner in Lahore', to: '/blog/top-event-planner-lahore-checklist-2026' },
       { text: 'How to choose a wedding planner in Lahore', to: '/blog/how-to-choose-wedding-planner-lahore' },
     ],
+  },
+  {
+    q: 'Who manages the event on the day, and how experienced is Baraka Events?',
+    a: 'Our founder personally manages your event, supported by our team. Baraka Events has 15+ years of experience planning weddings, corporate events and private celebrations in Lahore.',
+    related: [{ text: 'Meet the team', to: '/team' }],
   },
   {
     q: 'What makes Baraka Events different from other event planners in Lahore?',

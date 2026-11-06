@@ -49,8 +49,7 @@ export default function Process() {
           />
           <p className="mt-7 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
             Five stages, from the first conversation to the event itself. Nothing here
-            is improvised — it is the same process whether the guest count is fifty
-            or fifteen hundred.
+            is improvised — it is the same process whatever the size of the guest list.
           </p>
         </div>
 
