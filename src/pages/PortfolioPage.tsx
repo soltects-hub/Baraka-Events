@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
@@ -9,6 +9,7 @@ import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSch
 
 const projects = [
   {
+    group: 'Weddings',
     title: 'A Walima Floral Arch',
     category: 'Walima',
     location: '',
@@ -20,6 +21,7 @@ const projects = [
       'A walima floor built around a floral arch of white and blush roses, under hanging bead garlands and crystal chandeliers.',
   },
   {
+    group: 'Weddings',
     title: 'A Baraat Stage',
     category: 'Baraat',
     location: '',
@@ -31,6 +33,7 @@ const projects = [
       'A baraat stage under curtains of hanging crystal strands, with red roses, white urns and a white sofa.',
   },
   {
+    group: 'Weddings',
     title: 'A Mehndi Stage',
     category: 'Mehndi',
     location: '',
@@ -42,6 +45,43 @@ const projects = [
       'A mehndi stage of carved arches hung with marigold garlands, with white statues and yellow cushions.',
   },
   {
+    group: 'Weddings',
+    title: 'An Evening Walima Stage',
+    category: 'Walima',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-24.webp',
+    imageAlt: 'Evening walima stage under a draped pink and white ceiling with a crystal chandelier and tall floral urns',
+    stat: 'Draped ceiling · crystal chandelier · floral urns',
+    summary:
+      'An evening walima stage under a draped pink and white ceiling, with a crystal chandelier and tall floral urns.',
+  },
+  {
+    group: 'Weddings',
+    title: 'A Velvet Baraat Setting',
+    category: 'Baraat',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-8.webp',
+    imageAlt: 'Baraat setup of red velvet drapes, arched niches and a round tufted gold sofa under chandeliers',
+    stat: 'Red velvet drapes · arched niches · gold sofa',
+    summary:
+      'A baraat setting of red velvet drapes and arched niches, with a round tufted gold sofa under chandeliers.',
+  },
+  {
+    group: 'Weddings',
+    title: 'A Blush Mehndi Ceiling',
+    category: 'Mehndi',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-17.webp',
+    imageAlt: 'Mehndi stage under a ceiling of blush flowers and crystal garlands, with pink drapes and a lotus-pattern lit floor',
+    stat: 'Blush flowers · crystal garlands · lit floor',
+    summary:
+      'A mehndi stage under a ceiling of blush flowers and crystal garlands, with pink drapes and a lit floor.',
+  },
+  {
+    group: 'Corporate',
     title: 'A Branded LED Stage',
     category: 'Corporate Event',
     location: '',
@@ -53,6 +93,7 @@ const projects = [
       'A branded corporate hall with a truss-mounted lighting rig, LED screens and a central platform.',
   },
   {
+    group: 'Private',
     title: 'A Birthday Backdrop',
     category: 'Private Celebration',
     location: '',
@@ -66,6 +107,7 @@ const projects = [
       'A birthday backdrop built around a white flower wall, a Happy Birthday neon sign and two pink balloon columns.',
   },
   {
+    group: 'Corporate',
     title: 'A Conference Stage',
     category: 'Corporate Event',
     location: '',
@@ -77,6 +119,7 @@ const projects = [
       'A conference stage with a large LED screen, a branded lectern and a lit stage edge.',
   },
   {
+    group: 'Decor',
     title: 'A Draped Garden Canopy',
     category: 'Garden Set-Up',
     location: '',
@@ -88,6 +131,7 @@ const projects = [
       'An outdoor dining set-up under a draped cream canopy, with ivy-wrapped posts and string lights over the lawn.',
   },
   {
+    group: 'Decor',
     title: 'A Garden Banquet Table',
     category: 'Garden Set-Up',
     location: '',
@@ -100,7 +144,11 @@ const projects = [
   },
 ];
 
+const FILTERS = ['All', 'Weddings', 'Corporate', 'Private', 'Decor'] as const;
+
 export default function PortfolioPage() {
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]>('All');
+  const shown = filter === 'All' ? projects : projects.filter((p) => p.group === filter);
   const sectionNav = useSectionNav();
 
   useSEO({
@@ -164,8 +212,23 @@ export default function PortfolioPage() {
 
       {/* grid */}
       <section className="mx-auto max-w-[1200px] px-6 pb-24 md:px-10 md:pb-32">
+        <div role="group" aria-label="Filter portfolio by event type" className="mb-8 flex flex-wrap gap-2">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              type="button"
+              aria-pressed={filter === f}
+              onClick={() => setFilter(f)}
+              className={`min-h-[44px] rounded-full border px-5 py-2 text-[12px] uppercase tracking-[0.18em] transition-colors duration-300 ${
+                filter === f ? 'border-gold bg-gold text-ink' : 'border-champagne/25 text-mist hover:border-champagne/60 hover:text-cream'
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
         <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((p, i) => (
+          {shown.map((p, i) => (
             <motion.article
               key={p.title}
               initial={{ opacity: 0, y: 40 }}

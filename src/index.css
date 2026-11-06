@@ -474,6 +474,7 @@ body { background-color: #000000; }
 :is([data-scene^="02 "], [data-scene^="05 "], [data-scene^="07A "], [data-scene^="09 "], [data-scene^="11 "]) :is(.bg-ink-3, .bg-ink-4, .bg-ink-5, .plate) {
   color: #f4eee3;
   --color-cream: #f4eee3;
+  --heading-color: #ff960b;
   --color-ivory: #f3e4c7;
   --color-mist: #b9ae9d;
   --color-mist-dim: #847a6c;
@@ -520,6 +521,11 @@ body { background-color: #000000; }
    them (the logo rail) keep orange headings */
 [data-scene^="03A "], [data-scene^="10 "] { --heading-color: #121212; }
 [data-scene^="03A "] .bg-ink-2, [data-scene^="10 "] .bg-ink-2 { --heading-color: #ff960b; }
+
+/* the cream and white sections: #ff960b on them is about 2:1, too faint to read,
+   so headings use the deep orange these sections already use for links; dark
+   cards inside them keep the bright orange */
+[data-scene^="02 "], [data-scene^="05 "], [data-scene^="07A "], [data-scene^="09 "], [data-scene^="11 "] { --heading-color: #9a4a00; }
 
 /* ---------------------------------------------------------------------------
  * Food Menu stage (2026-10-23, second pass): a 3D deck of the eight menu cards.

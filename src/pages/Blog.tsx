@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import MagneticButton from '../components/MagneticButton';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 import { motion } from 'framer-motion';
 import { posts } from '../lib/posts';
 import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
@@ -141,6 +143,20 @@ export default function Blog() {
               </Link>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1200px] px-6 pb-24 text-center md:px-10 md:pb-32">
+        <p className="font-display text-2xl font-light md:text-3xl">Planning an event in Lahore?</p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <MagneticButton href="/contact">Book a Consultation</MagneticButton>
+          <MagneticButton
+            variant="ghost"
+            href={WHATSAPP_URL}
+            onClick={() => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'blog_index' })}
+          >
+            WhatsApp Us
+          </MagneticButton>
         </div>
       </section>
     </main>

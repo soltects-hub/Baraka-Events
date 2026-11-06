@@ -108,6 +108,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: ownerFactsLastmod },
   { path: routes.catering, changefreq: 'monthly', priority: '0.9', lastmod: ownerFactsLastmod },
+  { path: routes.privacy, changefreq: 'yearly', priority: '0.2', lastmod: ownerFactsLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: answerPassLastmod },
   { path: routes.gallery, changefreq: 'weekly', priority: '0.7', lastmod: functionPassLastmod },
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: ownerFactsLastmod },

@@ -74,6 +74,7 @@ export const routes = {
   experiences: '/experiences',
   portfolio: '/portfolio',
   catering: '/catering',
+  privacy: '/privacy',
   gallery: '/gallery',
   team: '/team',
   contact: '/contact',
