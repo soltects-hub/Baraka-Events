@@ -99,7 +99,8 @@ export default function Testimonials() {
           rel="noopener noreferrer"
           className="mt-2 inline-block py-3 text-xs font-light tracking-wide text-mist underline underline-offset-4"
         >
-          Read our reviews on Google
+          {/* Figures as shown on the Google listing, read 2026-11-06. Update them with the listing. */}
+          Rated 5.0 on Google from 40 reviews
         </a>
       </div>
     </section>
