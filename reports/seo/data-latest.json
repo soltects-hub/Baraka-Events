@@ -1,147 +1,5690 @@
 {
-  "generatedAt": "2026-09-02T03:13:00.660Z",
-  "siteUrl": "https://barakaevents.com/",
+  "generatedAt": "2026-11-14T09:55:28.774Z",
+  "siteUrl": "sc-domain:barakaevents.com",
   "periods": {
     "current": {
-      "startDate": "2026-08-03",
-      "endDate": "2026-08-30"
+      "startDate": "2026-10-15",
+      "endDate": "2026-11-11"
     },
     "previous": {
-      "startDate": "2026-07-06",
-      "endDate": "2026-08-02"
+      "startDate": "2026-09-17",
+      "endDate": "2026-10-14"
     }
   },
   "auth": {
     "ok": true
   },
   "errors": [],
-  "current": {
-    "totals": {
-      "clicks": 1,
-      "impressions": 15,
-      "ctr": 0.06666666666666667,
-      "position": 29.066666666666666
-    },
-    "topQueries": [
+  "property": {
+    "requested": "sc-domain:barakaevents.com",
+    "requestedFrom": "default",
+    "resolved": "sc-domain:barakaevents.com",
+    "usedFallback": false,
+    "accessible": [
       {
-        "query": "bf picture janwar wali",
-        "clicks": 1,
-        "impressions": 2,
-        "ctr": 0.5,
-        "position": 24.5
+        "siteUrl": "sc-domain:barakaevents.com",
+        "permissionLevel": "siteFullUser"
       },
       {
-        "query": "birthday events lahore",
-        "clicks": 0,
-        "impressions": 4,
-        "ctr": 0,
-        "position": 50
-      },
-      {
-        "query": "janwar wala bf picture",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 30
-      },
-      {
-        "query": "janwar wali bf picture",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 65
-      }
-    ],
-    "topPages": [
-      {
-        "page": "https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3",
-        "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 36
-      },
-      {
-        "page": "https://barakaevents.com/",
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0,
-        "position": 1
-      },
-      {
-        "page": "https://barakaevents.com/birthday-planners/",
-        "clicks": 0,
-        "impressions": 9,
-        "ctr": 0,
-        "position": 32.22222222222222
+        "siteUrl": "https://barakaevents.com/",
+        "permissionLevel": "siteFullUser"
       }
     ]
   },
-  "previous": {
+  "current": {
     "totals": {
-      "clicks": 0,
-      "impressions": 5,
-      "ctr": 0,
-      "position": 9.8
+      "clicks": 42,
+      "impressions": 2620,
+      "ctr": 0.01603053435114504,
+      "position": 19.576717557251907
     },
-    "topPages": [
+    "topQueries": [
       {
-        "page": "https://barakaevents.com/?JGNS=NOU277933373&amp%3Bg&amp%3Bm=3",
+        "query": "baraka events",
+        "clicks": 3,
+        "impressions": 34,
+        "ctr": 0.08823529411764706,
+        "position": 2.5882352941176467
+      },
+      {
+        "query": "wedding planner in lahore",
+        "clicks": 3,
+        "impressions": 18,
+        "ctr": 0.16666666666666666,
+        "position": 3.6666666666666665
+      },
+      {
+        "query": "best event planners in lahore",
+        "clicks": 2,
+        "impressions": 36,
+        "ctr": 0.05555555555555555,
+        "position": 7.833333333333333
+      },
+      {
+        "query": "event management companies in lahore",
+        "clicks": 2,
+        "impressions": 34,
+        "ctr": 0.058823529411764705,
+        "position": 18.264705882352942
+      },
+      {
+        "query": "event planner in lahore",
+        "clicks": 2,
+        "impressions": 59,
+        "ctr": 0.03389830508474576,
+        "position": 10.05084745762712
+      },
+      {
+        "query": "event planners in lahore",
+        "clicks": 2,
+        "impressions": 74,
+        "ctr": 0.02702702702702703,
+        "position": 18.594594594594593
+      },
+      {
+        "query": "best event planner in lahore",
+        "clicks": 1,
+        "impressions": 70,
+        "ctr": 0.014285714285714285,
+        "position": 14.342857142857143
+      },
+      {
+        "query": "can pay",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "query": "event management",
+        "clicks": 1,
+        "impressions": 43,
+        "ctr": 0.023255813953488372,
+        "position": 2.0697674418604652
+      },
+      {
+        "query": "event managers near me",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "query": "event planner",
+        "clicks": 1,
+        "impressions": 38,
+        "ctr": 0.02631578947368421,
+        "position": 4.947368421052632
+      },
+      {
+        "query": "event planners",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 1.5
+      },
+      {
+        "query": "events planner",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "query": "events planner in lahore",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 1.2727272727272727
+      },
+      {
+        "query": "wedding event planner in lahore",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr": 0.07142857142857142,
+        "position": 17.214285714285715
+      },
+      {
+        "query": "wedding planner lahore",
+        "clicks": 1,
+        "impressions": 12,
+        "ctr": 0.08333333333333333,
+        "position": 21.416666666666668
+      },
+      {
+        "query": "\"baraka\"",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "query": "abk events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 49.333333333333336
+      },
+      {
+        "query": "al baraka event complex",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "query": "al baraka events",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 7.2
+      },
+      {
+        "query": "al-baraka events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "query": "avari hotel banquet hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "query": "ballroom lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "query": "banquet halls in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "query": "baraka",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 4.909090909090909
+      },
+      {
+        "query": "baraka event",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "query": "barakah catering",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "barakah events",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.25
+      },
+      {
+        "query": "barat events lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "query": "best caterers in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 20.75
+      },
+      {
+        "query": "best conference planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
+      },
+      {
+        "query": "best corporate dinner planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 23.5
+      },
+      {
+        "query": "best corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 18.857142857142858
+      },
+      {
+        "query": "best event decor wale in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 69.5
+      },
+      {
+        "query": "best event management companies",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "best event management companies in lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 36.666666666666664
+      },
+      {
+        "query": "best event management company in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 42.25
+      },
+      {
+        "query": "best event management company near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 59
+      },
+      {
+        "query": "best event organizer in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 22.571428571428573
+      },
+      {
+        "query": "best event organizers in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "query": "best event planner",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "query": "best event planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 23.5
+      },
+      {
+        "query": "best event planners",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 81.2
+      },
+      {
+        "query": "best exhibition planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 18.75
+      },
+      {
+        "query": "best hybrid event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 99
+      },
+      {
+        "query": "best intimate wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 72
+      },
+      {
+        "query": "best networking event planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 37
+      },
+      {
+        "query": "best outdoor wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 47.333333333333336
+      },
+      {
+        "query": "best party planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 21.666666666666668
+      },
+      {
+        "query": "best pop-up event planner in lahore",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 48.8
+      },
+      {
+        "query": "best press conference planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55.5
+      },
+      {
+        "query": "best school event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "query": "best sports event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28.5
+      },
+      {
+        "query": "best virtual event planner in lahore",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
         "position": 28
       },
       {
-        "page": "https://barakaevents.com/corporate-event-planner/",
+        "query": "best wedding event planner in lahore",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 6,
         "ctr": 0,
-        "position": 5
+        "position": 6
       },
       {
-        "page": "https://barakaevents.com/index.php?JGNS=NOU125329123&amp;g=&amp;m=3",
+        "query": "best wedding halls in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 79.5
+      },
+      {
+        "query": "best wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "query": "bhai kaka party plot",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
-        "position": 7
+        "position": 82
       },
       {
-        "page": "https://barakaevents.com/index.php?JGNS=NOU265432883&g=&m=3",
+        "query": "birthday celebration",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
         "position": 6
       },
       {
-        "page": "https://barakaevents.com/wedding-planner/",
+        "query": "birthday celebration event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "query": "birthday celebration places in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 80
+      },
+      {
+        "query": "birthday celebration places in lahore gulberg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 39
+      },
+      {
+        "query": "birthday decor lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "query": "birthday decoration in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "query": "birthday event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 47
+      },
+      {
+        "query": "birthday event planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 51.75
+      },
+      {
+        "query": "birthday event planner lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "birthday event planners in lahore",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 63.705882352941174
+      },
+      {
+        "query": "birthday events lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 59.75
+      },
+      {
+        "query": "birthday party",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 60.5
+      },
+      {
+        "query": "birthday planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 29
+      },
+      {
+        "query": "birthday room booking",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "query": "book corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "query": "book event management company in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "book party planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 50.42857142857143
+      },
+      {
+        "query": "book wedding ceremony",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "query": "br events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 49
+      },
+      {
+        "query": "bridal shower",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "query": "budget friendly event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "business event planning services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 95
+      },
+      {
+        "query": "catering and event management near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "query": "cheap event planners in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 41.5
+      },
+      {
+        "query": "cheap event planners near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "query": "contact list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "corporate event management",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "corporate event management companies in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3.5
+      },
+      {
+        "query": "corporate event organisers",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "corporate event organizer in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 27
+      },
+      {
+        "query": "corporate event planner",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1.5
+      },
+      {
+        "query": "corporate event planner charges in lahore",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 66.22222222222223
+      },
+      {
+        "query": "corporate event planner cost in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 77.85714285714286
+      },
+      {
+        "query": "corporate event planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "corporate events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "corporate events in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "corporate events lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 72.2
+      },
+      {
+        "query": "decor events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "dholki decoration accessories",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "dynasty gulberg event complex",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "query": "event company",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event complex in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 43
+      }
+    ],
+    "topPages": [
+      {
+        "page": "https://www.barakaevents.com/",
+        "clicks": 37,
+        "impressions": 2097,
+        "ctr": 0.01764425369575584,
+        "position": 12.587029089175012
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "clicks": 2,
+        "impressions": 51,
+        "ctr": 0.0392156862745098,
+        "position": 48.6078431372549
+      },
+      {
+        "page": "https://www.barakaevents.com/about",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 5.375
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "clicks": 1,
+        "impressions": 36,
+        "ctr": 0.027777777777777776,
+        "position": 41.52777777777778
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "clicks": 1,
+        "impressions": 69,
+        "ctr": 0.014492753623188406,
+        "position": 51.89855072463768
+      },
+      {
+        "page": "http://barakaevents.com/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/blog",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 28.066666666666666
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 8.933333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-best-event-management-company-in-lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-decor-services-lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-venue-booking-guide",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/best-event-planner-in-lahore-guide",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/cheap-event-planners-in-lahore-gulberg",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
         "position": 8
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/corporate-event-floral-decor-lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/corporate-gala-lahore-checklist",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 39.54545454545455
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 19.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.75
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 18.833333333333332
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 13.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/mehndi-themes-lahore-loves",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 11.333333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/perfect-baraat-guide",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 4.25
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-decoration-trends-in-lahore-for-2026",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/ultimate-guide-event-planners-lahore-pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 6.666666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/walima-reception-planning-guide",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 9.333333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/contact",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "page": "https://www.barakaevents.com/disclaimer",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "clicks": 0,
+        "impressions": 106,
+        "ctr": 0,
+        "position": 60.5377358490566
+      },
+      {
+        "page": "https://www.barakaevents.com/gallery",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 5.526315789473684
+      },
+      {
+        "page": "https://www.barakaevents.com/portfolio",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 12.538461538461538
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "clicks": 0,
+        "impressions": 46,
+        "ctr": 0,
+        "position": 73.8695652173913
+      },
+      {
+        "page": "https://www.barakaevents.com/services/barat-events",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 14.076923076923077
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 54.63157894736842
+      },
+      {
+        "page": "https://www.barakaevents.com/services/corporate-events",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 64.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/engagement-events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-decoration",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 51.25
+      },
+      {
+        "page": "https://www.barakaevents.com/services/mehndi-events",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 14.25
+      },
+      {
+        "page": "https://www.barakaevents.com/services/walima-events",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "page": "https://www.barakaevents.com/team",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "position": 9.333333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "clicks": 0,
+        "impressions": 99,
+        "ctr": 0,
+        "position": 24.484848484848484
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/avari-lahore",
+        "clicks": 0,
+        "impressions": 22,
+        "ctr": 0,
+        "position": 17.90909090909091
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 49.7
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/the-nishat-hotel-gulberg",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 37.13333333333333
+      }
+    ],
+    "allQueries": [
+      {
+        "query": "baraka events",
+        "clicks": 3,
+        "impressions": 34,
+        "ctr": 0.08823529411764706,
+        "position": 2.5882352941176467
+      },
+      {
+        "query": "wedding planner in lahore",
+        "clicks": 3,
+        "impressions": 18,
+        "ctr": 0.16666666666666666,
+        "position": 3.6666666666666665
+      },
+      {
+        "query": "best event planners in lahore",
+        "clicks": 2,
+        "impressions": 36,
+        "ctr": 0.05555555555555555,
+        "position": 7.833333333333333
+      },
+      {
+        "query": "event management companies in lahore",
+        "clicks": 2,
+        "impressions": 34,
+        "ctr": 0.058823529411764705,
+        "position": 18.264705882352942
+      },
+      {
+        "query": "event planner in lahore",
+        "clicks": 2,
+        "impressions": 59,
+        "ctr": 0.03389830508474576,
+        "position": 10.05084745762712
+      },
+      {
+        "query": "event planners in lahore",
+        "clicks": 2,
+        "impressions": 74,
+        "ctr": 0.02702702702702703,
+        "position": 18.594594594594593
+      },
+      {
+        "query": "best event planner in lahore",
+        "clicks": 1,
+        "impressions": 70,
+        "ctr": 0.014285714285714285,
+        "position": 14.342857142857143
+      },
+      {
+        "query": "can pay",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "query": "event management",
+        "clicks": 1,
+        "impressions": 43,
+        "ctr": 0.023255813953488372,
+        "position": 2.0697674418604652
+      },
+      {
+        "query": "event managers near me",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "query": "event planner",
+        "clicks": 1,
+        "impressions": 38,
+        "ctr": 0.02631578947368421,
+        "position": 4.947368421052632
+      },
+      {
+        "query": "event planners",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 1.5
+      },
+      {
+        "query": "events planner",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "query": "events planner in lahore",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 1.2727272727272727
+      },
+      {
+        "query": "wedding event planner in lahore",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr": 0.07142857142857142,
+        "position": 17.214285714285715
+      },
+      {
+        "query": "wedding planner lahore",
+        "clicks": 1,
+        "impressions": 12,
+        "ctr": 0.08333333333333333,
+        "position": 21.416666666666668
+      },
+      {
+        "query": "\"baraka\"",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "query": "abk events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 49.333333333333336
+      },
+      {
+        "query": "al baraka event complex",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "query": "al baraka events",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 7.2
+      },
+      {
+        "query": "al-baraka events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "query": "avari hotel banquet hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "query": "ballroom lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "query": "banquet halls in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "query": "baraka",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 4.909090909090909
+      },
+      {
+        "query": "baraka event",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "query": "barakah catering",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "barakah events",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.25
+      },
+      {
+        "query": "barat events lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "query": "best caterers in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 20.75
+      },
+      {
+        "query": "best conference planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
+      },
+      {
+        "query": "best corporate dinner planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 23.5
+      },
+      {
+        "query": "best corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 18.857142857142858
+      },
+      {
+        "query": "best event decor wale in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 69.5
+      },
+      {
+        "query": "best event management companies",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "best event management companies in lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 36.666666666666664
+      },
+      {
+        "query": "best event management company in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 42.25
+      },
+      {
+        "query": "best event management company near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 59
+      },
+      {
+        "query": "best event organizer in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 22.571428571428573
+      },
+      {
+        "query": "best event organizers in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "query": "best event planner",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "query": "best event planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 23.5
+      },
+      {
+        "query": "best event planners",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 81.2
+      },
+      {
+        "query": "best exhibition planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 18.75
+      },
+      {
+        "query": "best hybrid event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 99
+      },
+      {
+        "query": "best intimate wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 72
+      },
+      {
+        "query": "best networking event planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 37
+      },
+      {
+        "query": "best outdoor wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 47.333333333333336
+      },
+      {
+        "query": "best party planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 21.666666666666668
+      },
+      {
+        "query": "best pop-up event planner in lahore",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 48.8
+      },
+      {
+        "query": "best press conference planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55.5
+      },
+      {
+        "query": "best school event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "query": "best sports event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28.5
+      },
+      {
+        "query": "best virtual event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "query": "best wedding event planner in lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "best wedding halls in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 79.5
+      },
+      {
+        "query": "best wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "query": "bhai kaka party plot",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 82
+      },
+      {
+        "query": "birthday celebration",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "birthday celebration event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "query": "birthday celebration places in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 80
+      },
+      {
+        "query": "birthday celebration places in lahore gulberg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 39
+      },
+      {
+        "query": "birthday decor lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "query": "birthday decoration in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "query": "birthday event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 47
+      },
+      {
+        "query": "birthday event planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 51.75
+      },
+      {
+        "query": "birthday event planner lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "birthday event planners in lahore",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 63.705882352941174
+      },
+      {
+        "query": "birthday events lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 59.75
+      },
+      {
+        "query": "birthday party",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 60.5
+      },
+      {
+        "query": "birthday planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 29
+      },
+      {
+        "query": "birthday room booking",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "query": "book corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "query": "book event management company in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "book party planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 50.42857142857143
+      },
+      {
+        "query": "book wedding ceremony",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "query": "br events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 49
+      },
+      {
+        "query": "bridal shower",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "query": "budget friendly event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "business event planning services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 95
+      },
+      {
+        "query": "catering and event management near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "query": "cheap event planners in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 41.5
+      },
+      {
+        "query": "cheap event planners near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "query": "contact list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "corporate event management",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "corporate event management companies in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3.5
+      },
+      {
+        "query": "corporate event organisers",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "corporate event organizer in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 27
+      },
+      {
+        "query": "corporate event planner",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1.5
+      },
+      {
+        "query": "corporate event planner charges in lahore",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 66.22222222222223
+      },
+      {
+        "query": "corporate event planner cost in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 77.85714285714286
+      },
+      {
+        "query": "corporate event planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "corporate events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "corporate events in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "corporate events lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 72.2
+      },
+      {
+        "query": "decor events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "dholki decoration accessories",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "dynasty gulberg event complex",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "query": "event company",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event complex in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 43
+      },
+      {
+        "query": "event coordinator",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "query": "event decor near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 35
+      },
+      {
+        "query": "event decoration items",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "query": "event decoration lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "query": "event decorators in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 60
+      },
+      {
+        "query": "event decorators near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 16
+      },
+      {
+        "query": "event management agencies",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event management companies",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 1.2
+      },
+      {
+        "query": "event management companies in pakistan",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event management companies lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event management companies near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 32
+      },
+      {
+        "query": "event management company",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 1.1
+      },
+      {
+        "query": "event management company ichhra lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 90
+      },
+      {
+        "query": "event management company in lahore",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "position": 29.523809523809526
+      },
+      {
+        "query": "event management company in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event management company lahore",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 21.923076923076923
+      },
+      {
+        "query": "event management company names",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "query": "event management company near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "query": "event management company pakistan price list",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 47.5
+      },
+      {
+        "query": "event management course",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 3.3333333333333335
+      },
+      {
+        "query": "event management courses",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "query": "event management courses in lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "event management courses near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event management in lahore",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 51.416666666666664
+      },
+      {
+        "query": "event management lahore",
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 18.391304347826086
+      },
+      {
+        "query": "event management near me",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 12.4
+      },
+      {
+        "query": "event management services list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "event manager",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "event manager near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "query": "event managment",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "query": "event mangment",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event office",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event organiser near me",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 3.3333333333333335
+      },
+      {
+        "query": "event organisers",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event organisers near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event organizer",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1.5
+      },
+      {
+        "query": "event organizer charges in lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "query": "event organizer in lahore",
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 16.217391304347828
+      },
+      {
+        "query": "event organizer in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event organizer lahore contact number",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "query": "event organizers",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event planner business",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event planner course",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "query": "event planner in pakistan",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event planner lahore",
+        "clicks": 0,
+        "impressions": 106,
+        "ctr": 0,
+        "position": 19.971698113207548
+      },
+      {
+        "query": "event planner lahore price list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "query": "event planner lahore reviews",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "query": "event planner management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event planner near me",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 10.11111111111111
+      },
+      {
+        "query": "event planner rates in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 55.285714285714285
+      },
+      {
+        "query": "event planner website",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "event planners in pakistan",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "event planners lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 9.333333333333334
+      },
+      {
+        "query": "event planners near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event planning",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event planning agency",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 12.157894736842104
+      },
+      {
+        "query": "event planning classes near me",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "event planning company",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "query": "event planning courses",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "event planning services",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 63
+      },
+      {
+        "query": "event services",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "event vendors",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "events decor near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28.5
+      },
+      {
+        "query": "events management company",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "events management services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "events organiser courses",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "query": "events planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "events planning services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 56
+      },
+      {
+        "query": "executive organiser",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "expensive country clubs near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 32
+      },
+      {
+        "query": "for social events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "golf clubs in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "query": "gulberg area",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "hire corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 52.6
+      },
+      {
+        "query": "hire event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 29
+      },
+      {
+        "query": "hire event planning company in lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 63.25
+      },
+      {
+        "query": "hire wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 45
+      },
+      {
+        "query": "international event agencies",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 4.25
+      },
+      {
+        "query": "khursheed mahal avari lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10.4
+      },
+      {
+        "query": "kids birthday celebration places in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "query": "lahore best wedding halls",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "query": "lahore event planner",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 11.666666666666666
+      },
+      {
+        "query": "list more",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "luxury event company names",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "luxury event organizer in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "luxury event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 52
+      },
+      {
+        "query": "luxury event planners in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 34
+      },
+      {
+        "query": "marquee in gulberg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "query": "mehndi events lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 47
+      },
+      {
+        "query": "more",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "naulakha banquet hall",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "naulakha marriage hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "nighat palace",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "query": "nikkah setup",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "query": "nishat hotel gulberg contact number",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 79.5
+      },
+      {
+        "query": "office event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "open air wedding venues in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "query": "outdoor event management companies",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "party planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "query": "party planner canal road",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "query": "party planning classes near me",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "premium event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "private celebration",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "private party planning",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21.5
+      },
+      {
+        "query": "professional event management company in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 41
+      },
+      {
+        "query": "professional event organizers in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 25.75
+      },
+      {
+        "query": "reasonable birthday party places in lahore with price for couples",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 63
+      },
+      {
+        "query": "royal palm club lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 98
+      },
+      {
+        "query": "royal palm golf and country club",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "query": "royal palm lahore owner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 91
+      },
+      {
+        "query": "royal palm marquee lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "scramble tournaments golf near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "query": "services offered by royal palm golf and country club",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "query": "shadi event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "small event organisers near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "small event venues in lahore with prices",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "query": "the ballroom event complex",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "the qube palace",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 49
+      },
+      {
+        "query": "top 10 wedding halls in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 32.5
+      },
+      {
+        "query": "top event management companies in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "top event planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "query": "top rated event organizers in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 27.5
+      },
+      {
+        "query": "top rated event planners in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 22
+      },
+      {
+        "query": "trusted event organizer in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 31
+      },
+      {
+        "query": "vendors",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "venue booking for birthday party",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "query": "venue for wedding reception near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "query": "venues in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 58
+      },
+      {
+        "query": "walima events lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "query": "wedding business for sale",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "query": "wedding decor lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "query": "wedding decoration near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "wedding event decor",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "wedding event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "wedding event management near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "query": "wedding event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "query": "wedding locations near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 43.5
+      },
+      {
+        "query": "wedding organizer in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 39.25
+      },
+      {
+        "query": "wedding planner",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "wedding planner lahore reviews",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "query": "wedding planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "wedding planner reviews in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 51.5
+      },
+      {
+        "query": "wedding planners",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "wedding planners in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 28.8
+      },
+      {
+        "query": "wedding planners in lahore prices",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 2.666666666666667
+      },
+      {
+        "query": "wedding planners lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "query": "wedding planning classes near me",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "wedding receptions near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "query": "wedding setup",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "wedding venue in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 48
+      },
+      {
+        "query": "wedding venues close to me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 26
+      },
+      {
+        "query": "wedding venues in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 33
+      },
+      {
+        "query": "wedding venues lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 46.5
+      },
+      {
+        "query": "zeenat banquet hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 70
+      }
+    ],
+    "pageQueries": [
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planner in lahore",
+        "clicks": 3,
+        "impressions": 18,
+        "ctr": 0.16666666666666666,
+        "position": 3.6666666666666665
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "baraka events",
+        "clicks": 2,
+        "impressions": 34,
+        "ctr": 0.058823529411764705,
+        "position": 2.5882352941176467
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event planners in lahore",
+        "clicks": 2,
+        "impressions": 36,
+        "ctr": 0.05555555555555555,
+        "position": 7.833333333333333
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management companies in lahore",
+        "clicks": 2,
+        "impressions": 30,
+        "ctr": 0.06666666666666667,
+        "position": 9.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner in lahore",
+        "clicks": 2,
+        "impressions": 59,
+        "ctr": 0.03389830508474576,
+        "position": 10.05084745762712
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planners in lahore",
+        "clicks": 2,
+        "impressions": 74,
+        "ctr": 0.02702702702702703,
+        "position": 18.594594594594593
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event planner in lahore",
+        "clicks": 1,
+        "impressions": 70,
+        "ctr": 0.014285714285714285,
+        "position": 14.342857142857143
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "can pay",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management",
+        "clicks": 1,
+        "impressions": 43,
+        "ctr": 0.023255813953488372,
+        "position": 2.0697674418604652
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event managers near me",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner",
+        "clicks": 1,
+        "impressions": 38,
+        "ctr": 0.02631578947368421,
+        "position": 4.947368421052632
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planners",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 1.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events planner",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events planner in lahore",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 1.2727272727272727
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding event planner in lahore",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr": 0.07142857142857142,
+        "position": 17.214285714285715
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planner lahore",
+        "clicks": 1,
+        "impressions": 12,
+        "ctr": 0.08333333333333333,
+        "position": 21.416666666666668
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "baraka events",
+        "clicks": 1,
+        "impressions": 15,
+        "ctr": 0.06666666666666667,
+        "position": 5.533333333333333
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "\"baraka\"",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "abk events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 49.333333333333336
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "al baraka event complex",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "al baraka events",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "al-baraka events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "baraka",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 4.909090909090909
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "baraka event",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "barakah catering",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "barakah events",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.25
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "barat events lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best caterers in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 20.75
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best conference planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best corporate dinner planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 23.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 18.857142857142858
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event management companies",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event management companies in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 29.2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event management company in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 31
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event organizer in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 22.571428571428573
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event organizers in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event planner",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 23.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best event planners",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 81.2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best exhibition planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 18.75
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best networking event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best outdoor wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 27.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best party planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 21.666666666666668
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best pop-up event planner in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 8.4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best press conference planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best school event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best sports event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best virtual event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best wedding event planner in lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "best wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "birthday celebration",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "birthday decor lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "birthday decoration in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "birthday event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "birthday planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 29
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "book corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "book event management company in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "book party planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 33
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "br events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 49
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "bridal shower",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "budget friendly event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "business event planning services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 95
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "catering and event management near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "cheap event planners in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 41.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "cheap event planners near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "contact list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event management",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event management companies in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event organisers",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event organizer in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 27
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event planner",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event planner charges in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 37.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event planner cost in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 85.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate event planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate events in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "corporate events lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 72.2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "decor events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "dholki decoration accessories",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event company",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event coordinator",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event decor near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 35
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event decoration items",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event decoration lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event decorators near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 16
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management agencies",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management companies",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 1.2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management companies in pakistan",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management companies lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management companies near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 32
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management company",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 1.1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management company ichhra lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 90
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management company in lahore",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 24.263157894736842
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management company in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management company lahore",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 21.923076923076923
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management company names",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management course",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 3.3333333333333335
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management courses",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management courses in lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management courses near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management in lahore",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 49.09090909090909
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management lahore",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "position": 12.380952380952381
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management near me",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event management services list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event manager",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event manager near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event managment",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event mangment",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event office",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organiser near me",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 3.3333333333333335
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organisers",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organisers near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organizer",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organizer in lahore",
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 16.217391304347828
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organizer in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event organizers",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner business",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner course",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner in pakistan",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner lahore",
+        "clicks": 0,
+        "impressions": 106,
+        "ctr": 0,
+        "position": 19.971698113207548
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner lahore price list",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner lahore reviews",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner near me",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 10.11111111111111
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner rates in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 33
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planner website",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planners in pakistan",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planners lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 9.333333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planners near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planning",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planning agency",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 12.157894736842104
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planning classes near me",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planning company",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 59.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planning courses",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event planning services",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 63
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event services",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "event vendors",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events decor near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events management company",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events management services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events organiser courses",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events planner near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "events planning services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 56
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "executive organiser",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "for social events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "gulberg area",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "hire corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "hire event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 29
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "hire event planning company in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 29
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "hire wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 32.66666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "international event agencies",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 4.25
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "lahore event planner",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 11.666666666666666
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "list more",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "luxury event company names",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "luxury event organizer in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "luxury event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 52
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "luxury event planners in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "marquee in gulberg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "more",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "nikkah setup",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "office event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "outdoor event management companies",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "party planner canal road",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "party planning classes near me",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "premium event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "professional event management company in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "professional event organizers in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 25.75
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "shadi event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "small event organisers near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "top event management companies in pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "top event planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "top rated event organizers in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 27.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "top rated event planners in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 22
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "trusted event organizer in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 31
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "vendors",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding business for sale",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding decor lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding decoration near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding event decor",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding event management near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding organizer in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 39.25
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planner",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planner lahore reviews",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planner near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planner reviews in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 51.5
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planners",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planners in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 28.8
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planners in lahore prices",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 2.666666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planners lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding planning classes near me",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/",
+        "query": "wedding setup",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog",
+        "query": "baraka events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday celebration event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday celebration places in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 80
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday celebration places in lahore gulberg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 39
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday event planner lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday event planners in lahore",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 63.705882352941174
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday events lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday party",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 60.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "birthday room booking",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "book party planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 25
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "kids birthday celebration places in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "party planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "private party planning",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "reasonable birthday party places in lahore with price for couples",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 63
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+        "query": "venue booking for birthday party",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+        "query": "corporate event planner charges in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 57
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+        "query": "corporate event planner cost in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+        "query": "event organizer charges in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 36.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+        "query": "event planner rates in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 48
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "best wedding halls in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 79.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "lahore best wedding halls",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "open air wedding venues in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "top 10 wedding halls in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 32.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "venue for wedding reception near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "wedding locations near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 43.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "wedding receptions near me",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "wedding venue in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 48
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "wedding venues close to me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 26
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "wedding venues in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 33
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "query": "wedding venues lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 46.5
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "baraka events",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0,
+        "position": 7.944444444444445
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "barat events lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 75
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "best hybrid event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 99
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "best intimate wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 72
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "best outdoor wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 87
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "best pop-up event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 95
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "bhai kaka party plot",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 82
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "book wedding ceremony",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "corporate event planner charges in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 91.33333333333333
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "corporate event planner cost in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 97.5
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "event organizer charges in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 94
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "event planner rates in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 91
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "hire event planning company in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 89
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "hire wedding planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 82
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "luxury event planners in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 81
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "query": "walima events lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 66
+      },
+      {
+        "page": "https://www.barakaevents.com/gallery",
+        "query": "baraka events",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 7.4
+      },
+      {
+        "page": "https://www.barakaevents.com/gallery",
+        "query": "event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "best networking event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "best pop-up event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "corporate event planner charges in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 83
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "corporate event planner cost in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "event organizer charges in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 75.66666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "event organizer lahore contact number",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "event planner rates in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 74.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "hire corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "query": "hire event planning company in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 80.33333333333333
+      },
+      {
+        "page": "https://www.barakaevents.com/services/barat-events",
+        "query": "barat events lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 60.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "query": "birthday event planner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 47
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "query": "birthday event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 62
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "query": "birthday event planners in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 69
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "query": "birthday events lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 66.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "query": "book party planner in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 81.66666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "query": "private celebration",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-decoration",
+        "query": "best event decor wale in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 69.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-decoration",
+        "query": "event decorators in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 60
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "best event management companies in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "best event management company in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 76
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "best event management company near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 59
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "best pop-up event planner in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 89
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management companies in lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 84
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management company in lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 79.8
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management company lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 88.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management company near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management company pakistan price list",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 47.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 77
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 81.5
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event management near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 58
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event organizer charges in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 80
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "event planning company",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 100
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "hire corporate event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 26
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "query": "professional event management company in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "page": "https://www.barakaevents.com/services/mehndi-events",
+        "query": "mehndi events lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 47
+      },
+      {
+        "page": "https://www.barakaevents.com/services/walima-events",
+        "query": "walima events lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://www.barakaevents.com/team",
+        "query": "baraka events",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 9.166666666666666
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "al baraka event complex",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "al baraka events",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "ballroom lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "banquet halls in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "baraka events",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0,
+        "position": 5.357142857142857
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "best event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "dynasty gulberg event complex",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 71
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "event complex in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 43
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "event management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "event management courses in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "event managers near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "event planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "events planner in lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "naulakha banquet hall",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "naulakha marriage hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "small event venues in lahore with prices",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "the ballroom event complex",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "the qube palace",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 49
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "query": "venues in lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 58
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/avari-lahore",
+        "query": "avari hotel banquet hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/avari-lahore",
+        "query": "khursheed mahal avari lahore",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10.4
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "expensive country clubs near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 32
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "golf clubs in lahore",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "royal palm club lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 98
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "royal palm golf and country club",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "royal palm lahore owner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 91
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "royal palm marquee lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "scramble tournaments golf near me",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "query": "services offered by royal palm golf and country club",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/the-nishat-hotel-gulberg",
+        "query": "nighat palace",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/the-nishat-hotel-gulberg",
+        "query": "nishat hotel gulberg contact number",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 79.5
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/the-nishat-hotel-gulberg",
+        "query": "zeenat banquet hall lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 70
+      }
+    ],
+    "pageQueriesMeta": {
+      "rowCount": 311,
+      "truncated": false,
+      "sumImpressions": 1329,
+      "windowTotalImpressions": 2620
+    }
+  },
+  "previous": {
+    "totals": {
+      "clicks": 37,
+      "impressions": 1440,
+      "ctr": 0.025694444444444443,
+      "position": 10.610416666666667
+    },
+    "topPages": [
+      {
+        "page": "https://www.barakaevents.com/",
+        "clicks": 31,
+        "impressions": 1263,
+        "ctr": 0.02454473475851148,
+        "position": 8.223277909738718
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+        "clicks": 1,
+        "impressions": 12,
+        "ctr": 0.08333333333333333,
+        "position": 16.833333333333336
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 5.666666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/services/engagement-events",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 12.8
+      },
+      {
+        "page": "https://www.barakaevents.com/services/walima-events",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 25
+      },
+      {
+        "page": "https://www.barakaevents.com/team",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 6
+      },
+      {
+        "page": "http://www.barakaevents.com/",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1.25
+      },
+      {
+        "page": "https://www.barakaevents.com/about",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 4.833333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/blog",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 5.6923076923076925
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 66
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-best-event-management-company-in-lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 19.375
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-decor-services-lahore",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.25
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/baraka-events-lahore-event-planner",
+        "clicks": 0,
+        "impressions": 40,
+        "ctr": 0,
+        "position": 7.675
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/best-event-management-company-lahore",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 9.11111111111111
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/cheap-event-planners-in-lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/cheap-event-planners-in-lahore-gulberg",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/event-season-in-pakistan-wedding-corporate-event-management-baraka-events",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21.5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/mehndi-themes-lahore-loves",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/perfect-baraat-guide",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-decoration-trends-in-lahore-for-2026",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "position": 44.80952380952381
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/ultimate-guide-event-planners-lahore-pakistan",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/walima-reception-planning-guide",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "page": "https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "page": "https://www.barakaevents.com/experiences",
+        "clicks": 0,
+        "impressions": 64,
+        "ctr": 0,
+        "position": 13.859375
+      },
+      {
+        "page": "https://www.barakaevents.com/gallery",
+        "clicks": 0,
+        "impressions": 46,
+        "ctr": 0,
+        "position": 8.58695652173913
+      },
+      {
+        "page": "https://www.barakaevents.com/portfolio",
+        "clicks": 0,
+        "impressions": 42,
+        "ctr": 0,
+        "position": 7.166666666666667
+      },
+      {
+        "page": "https://www.barakaevents.com/services",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "page": "https://www.barakaevents.com/services/barat-events",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 12.428571428571429
+      },
+      {
+        "page": "https://www.barakaevents.com/services/birthday-events",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 31.818181818181817
+      },
+      {
+        "page": "https://www.barakaevents.com/services/corporate-events",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 16.666666666666664
+      },
+      {
+        "page": "https://www.barakaevents.com/services/event-management",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 33.65
+      },
+      {
+        "page": "https://www.barakaevents.com/services/mehndi-events",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 43.166666666666664
+      },
+      {
+        "page": "https://www.barakaevents.com/services/wedding-planning",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "page": "https://www.barakaevents.com/venues",
+        "clicks": 0,
+        "impressions": 25,
+        "ctr": 0,
+        "position": 30.76
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/avari-lahore",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 9.333333333333334
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 50.333333333333336
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/sumbal-chak-farmhouse",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "page": "https://www.barakaevents.com/venues/the-nishat-hotel-gulberg",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 48.5
       }
     ]
   },
   "sitemaps": [
     {
-      "path": "https://barakaevents.com/wp-links-opmll.php?s=s&t=1&m=3&cn=37",
-      "lastSubmitted": "2025-11-20T06:33:55.746Z",
-      "lastDownloaded": "2025-11-23T08:30:38.382Z",
-      "isPending": false,
-      "isSitemapsIndex": false,
-      "warnings": 1,
-      "errors": 0,
-      "contents": [
-        {
-          "type": "web",
-          "submitted": 37,
-          "indexed": 0
-        }
-      ]
-    },
-    {
-      "path": "https://barakaevents.com/index.php?r=s&t=1&m=3&cn=32",
-      "lastSubmitted": "2025-11-20T02:26:43.384Z",
-      "lastDownloaded": "2025-11-30T05:40:52.270Z",
+      "path": "https://www.barakaevents.com/sitemap.xml",
+      "lastSubmitted": "2026-09-08T18:31:06.695Z",
+      "lastDownloaded": "2026-11-12T22:02:09.891Z",
       "isPending": false,
       "isSitemapsIndex": false,
       "warnings": 0,
@@ -149,23 +5692,7 @@
       "contents": [
         {
           "type": "web",
-          "submitted": 32,
-          "indexed": 0
-        }
-      ]
-    },
-    {
-      "path": "https://barakaevents.com/sitemap.xml",
-      "lastSubmitted": "2025-10-15T20:59:17.575Z",
-      "lastDownloaded": "2026-08-25T07:45:54.394Z",
-      "isPending": false,
-      "isSitemapsIndex": false,
-      "warnings": 0,
-      "errors": 0,
-      "contents": [
-        {
-          "type": "web",
-          "submitted": 8,
+          "submitted": 53,
           "indexed": 0
         }
       ]
@@ -173,224 +5700,466 @@
   ],
   "urlInspections": [
     {
-      "url": "https://barakaevents.com/",
-      "verdict": "NEUTRAL",
-      "coverageState": "Page with redirect",
+      "url": "https://www.barakaevents.com/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED",
-      "lastCrawlTime": "2026-09-01T02:09:51Z",
+      "lastCrawlTime": "2026-11-14T05:17:14Z",
       "pageFetchState": "SUCCESSFUL",
       "userCanonical": "https://www.barakaevents.com/",
       "googleCanonical": "https://www.barakaevents.com/"
     },
     {
-      "url": "https://barakaevents.com/blog",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T01:26:03Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services",
+      "googleCanonical": "https://www.barakaevents.com/services"
     },
     {
-      "url": "https://barakaevents.com/blog/best-event-planner-lahore-baraka-events",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/wedding-planning",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T20:20:56Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/wedding-planning",
+      "googleCanonical": "https://www.barakaevents.com/services/wedding-planning"
     },
     {
-      "url": "https://barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/event-management",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T20:38:43Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/event-management",
+      "googleCanonical": "https://www.barakaevents.com/services/event-management"
     },
     {
-      "url": "https://barakaevents.com/blog/baraka-events-management-how-we-work",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/event-decoration",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T15:29:33Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/event-decoration",
+      "googleCanonical": "https://www.barakaevents.com/services/event-decoration"
     },
     {
-      "url": "https://barakaevents.com/blog/baraka-events-corporate-events-lahore",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/corporate-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-12T12:35:30Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/corporate-events",
+      "googleCanonical": "https://www.barakaevents.com/services/corporate-events"
     },
     {
-      "url": "https://barakaevents.com/blog/baraka-events-venue-booking-guide",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/nikkah-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T18:58:10Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/nikkah-events",
+      "googleCanonical": "https://www.barakaevents.com/services/nikkah-events"
     },
     {
-      "url": "https://barakaevents.com/blog/baraka-events-decor-services-lahore",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/mehndi-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-30T03:38:44Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/mehndi-events",
+      "googleCanonical": "https://www.barakaevents.com/services/mehndi-events"
     },
     {
-      "url": "https://barakaevents.com/blog/baraka-events-lahore-gulberg",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/barat-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T23:57:50Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/barat-events",
+      "googleCanonical": "https://www.barakaevents.com/services/barat-events"
     },
     {
-      "url": "https://barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/walima-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T20:21:57Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/walima-events",
+      "googleCanonical": "https://www.barakaevents.com/services/walima-events"
     },
     {
-      "url": "https://barakaevents.com/blog/destination-style-shaadi-lahore-trend",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/engagement-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T04:54:58Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/engagement-events",
+      "googleCanonical": "https://www.barakaevents.com/services/engagement-events"
     },
     {
-      "url": "https://barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/services/birthday-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-12T22:50:38Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/services/birthday-events",
+      "googleCanonical": "https://www.barakaevents.com/services/birthday-events"
     },
     {
-      "url": "https://barakaevents.com/blog/top-wedding-venues-lahore-2025",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-27T23:14:26Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog",
+      "googleCanonical": "https://www.barakaevents.com/blog"
     },
     {
-      "url": "https://barakaevents.com/blog/mehndi-themes-lahore-loves",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-23T02:06:19Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore"
     },
     {
-      "url": "https://barakaevents.com/blog/luxury-shaadi-cost-lahore",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-14T05:56:47Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+      "googleCanonical": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide"
     },
     {
-      "url": "https://barakaevents.com/blog/walima-decor-trends-2025",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T19:48:45Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore"
     },
     {
-      "url": "https://barakaevents.com/blog/corporate-gala-lahore-checklist",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T20:18:00Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide",
+      "googleCanonical": "https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide"
     },
     {
-      "url": "https://barakaevents.com/blog/perfect-baraat-guide",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-11T10:18:42Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore"
     },
     {
-      "url": "https://barakaevents.com/blog/walima-reception-planning-guide",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-11T12:37:58Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore"
     },
     {
-      "url": "https://barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED",
-      "lastCrawlTime": null,
-      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
-      "userCanonical": null,
-      "googleCanonical": null
+      "url": "https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-10T19:15:01Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-11T13:59:18Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-26T12:40:16Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-11T07:30:26Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+      "googleCanonical": "https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T06:59:53Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-06T17:42:49Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events",
+      "googleCanonical": "https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T09:24:21Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
+      "googleCanonical": "https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/baraka-events-management-how-we-work",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T11:36:29Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/baraka-events-management-how-we-work",
+      "googleCanonical": "https://www.barakaevents.com/blog/baraka-events-management-how-we-work"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-11T13:59:05Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/baraka-events-venue-booking-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T19:07:05Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/baraka-events-venue-booking-guide",
+      "googleCanonical": "https://www.barakaevents.com/blog/baraka-events-venue-booking-guide"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/baraka-events-decor-services-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-10T23:57:10Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/baraka-events-decor-services-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/baraka-events-decor-services-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/baraka-events-lahore-gulberg",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T22:56:11Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/baraka-events-lahore-gulberg",
+      "googleCanonical": "https://www.barakaevents.com/blog/baraka-events-lahore-gulberg"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-01T02:59:57Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+      "googleCanonical": "https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T18:17:33Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend",
+      "googleCanonical": "https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-11T06:04:13Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
+      "googleCanonical": "https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T00:23:40Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "googleCanonical": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/mehndi-themes-lahore-loves",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-29T22:05:10Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/mehndi-themes-lahore-loves",
+      "googleCanonical": "https://www.barakaevents.com/blog/mehndi-themes-lahore-loves"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-08T20:32:12Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+      "googleCanonical": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/walima-decor-trends-2025",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-25T10:07:06Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/walima-decor-trends-2025",
+      "googleCanonical": "https://www.barakaevents.com/blog/walima-decor-trends-2025"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/corporate-gala-lahore-checklist",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T15:50:51Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/corporate-gala-lahore-checklist",
+      "googleCanonical": "https://www.barakaevents.com/blog/corporate-gala-lahore-checklist"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/perfect-baraat-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-09T18:14:42Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/perfect-baraat-guide",
+      "googleCanonical": "https://www.barakaevents.com/blog/perfect-baraat-guide"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/walima-reception-planning-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-11-07T20:24:23Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/walima-reception-planning-guide",
+      "googleCanonical": "https://www.barakaevents.com/blog/walima-reception-planning-guide"
+    },
+    {
+      "url": "https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-29T21:25:20Z",
+      "pageFetchState": "SUCCESSFUL",
+      "userCanonical": "https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
+      "googleCanonical": "https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima"
     }
   ]
 }
