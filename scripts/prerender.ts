@@ -109,6 +109,15 @@ const routePaths: string[] = [
   routes.home, // last — see outputPathFor note above
 ];
 
+async function isServerUp(url: string): Promise<boolean> {
+  try {
+    await fetch(url, { signal: AbortSignal.timeout(1500) });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function waitForServer(url: string, timeoutMs = 20000): Promise<void> {
   const start = Date.now();
   return new Promise((resolvePromise, reject) => {
@@ -190,6 +199,23 @@ async function stripLoopClones(page: import('puppeteer').Page) {
 }
 
 /**
+ * index.html loads the Google Fonts stylesheet with media="print" and swaps it to "all" on load, so text paints in
+ * the fallback font without waiting for fonts.googleapis.com and fonts.gstatic.com. By capture time that swap has
+ * run, and the snapshot saved media="all": every prerendered page then waited for Google Fonts before its first
+ * paint (Lighthouse, Nov 2026). Put the attribute back so the static page behaves like index.html.
+ */
+async function restoreNonBlockingFonts(page: import('puppeteer').Page) {
+  const fixed = await page.evaluate(() => {
+    const links = Array.from(
+      document.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"][href*="fonts.googleapis.com"][onload]'),
+    );
+    links.forEach((l) => l.setAttribute('media', 'print'));
+    return links.length;
+  });
+  if (fixed === 0) console.warn('    ! no swap-on-load Google Fonts stylesheet found; fonts may block first paint');
+}
+
+/**
  * On a route other than the homepage, list the JS chunks the page needed so the browser fetches them
  * alongside the main bundle instead of discovering them one by one after it has run. Called before the
  * scroll pass, so chunks that only load further down the page are left out. The homepage keeps its
@@ -220,6 +246,7 @@ async function prerenderRoute(browser: import('puppeteer').Browser, path: string
 
     await stripInjectedTagScripts(page);
     await stripLoopClones(page);
+    await restoreNonBlockingFonts(page);
 
     await page.evaluate((chunks) => {
       for (const href of chunks) {
@@ -254,11 +281,28 @@ async function main() {
   // falls back to today's normal client-rendered behavior, never a 404.
   const plainShell = readFileSync(shellPath, 'utf8');
 
+  // A server left on this port by an earlier run would serve an older dist/ and every page would be captured from it
+  // (seen in Nov 2026: five leftover servers, pages prerendered from the wrong build). Refuse rather than capture stale pages.
+  if (await isServerUp(ORIGIN)) {
+    throw new Error(`Port ${PORT} is already serving something. Stop that process (e.g. a leftover "serve -s dist") and build again.`);
+  }
+
   console.log(`Starting static server for dist/ on port ${PORT}...`);
+  // detached: the server gets its own process group, so the whole group (npx, its shell and serve) can be stopped below.
+  // server.kill() alone only stopped the npx wrapper and left serve running.
   const server: ChildProcess = spawn('npx', ['--yes', 'serve', '-s', 'dist', '-l', String(PORT)], {
     stdio: 'ignore',
     shell: true,
+    detached: process.platform !== 'win32',
   });
+  const stopServer = () => {
+    try {
+      if (process.platform !== 'win32' && server.pid) process.kill(-server.pid, 'SIGTERM');
+      else server.kill();
+    } catch {
+      server.kill();
+    }
+  };
 
   let browser: import('puppeteer').Browser | undefined;
   let succeeded = 0;
@@ -282,7 +326,7 @@ async function main() {
     console.warn(`Prerendering skipped entirely (falls back to plain client rendering for every route): ${(err as Error).message}`);
   } finally {
     if (browser) await browser.close();
-    server.kill();
+    stopServer();
   }
 
   // Final safety net: `vercel.json` rewrites every one of these paths

@@ -10,6 +10,7 @@
     "llms": "tsx scripts/generate-llms.ts",
     "prerender": "tsx scripts/prerender.ts",
     "verify:venues": "tsx scripts/verify-venues.ts",
+    "verify:prerender": "tsx scripts/verify-prerender.ts",
     "seo:keywords": "tsx scripts/seo-report/generate-keyword-map.ts",
     "seo:verify-sitemap": "tsx scripts/seo-report/verify-sitemap.ts",
     "seo:decide": "tsx scripts/seo-report/decide-action.ts",
