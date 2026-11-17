@@ -20,6 +20,7 @@ import {
   ExperiencesPage,
   PortfolioPage,
   CateringPage,
+  PrivacyPage,
   GalleryPage,
   TeamPage,
   ContactPage,
@@ -82,6 +83,7 @@ export default function App() {
                 <Route path="/experiences" element={<ExperiencesPage />} />
                 <Route path="/portfolio" element={<PortfolioPage />} />
                 <Route path="/catering" element={<CateringPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="/gallery" element={<GalleryPage />} />
                 <Route path="/team" element={<TeamPage />} />
                 <Route path="/contact" element={<ContactPage />} />

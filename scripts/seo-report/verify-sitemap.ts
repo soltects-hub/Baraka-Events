@@ -26,6 +26,7 @@ const staticRoutes = [
   routes.experiences,
   routes.portfolio,
   routes.catering,
+  routes.privacy,
   routes.gallery,
   routes.team,
   routes.contact,

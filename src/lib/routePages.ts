@@ -22,6 +22,7 @@ export const AboutPage = lazyRoute(() => import('../pages/AboutPage'));
 export const ExperiencesPage = lazyRoute(() => import('../pages/ExperiencesPage'));
 export const PortfolioPage = lazyRoute(() => import('../pages/PortfolioPage'));
 export const CateringPage = lazyRoute(() => import('../pages/CateringPage'));
+export const PrivacyPage = lazyRoute(() => import('../pages/PrivacyPage'));
 export const GalleryPage = lazyRoute(() => import('../pages/GalleryPage'));
 export const TeamPage = lazyRoute(() => import('../pages/TeamPage'));
 export const ContactPage = lazyRoute(() => import('../pages/ContactPage'));
@@ -41,6 +42,7 @@ const ROUTES: [RegExp, { preload: () => Promise<void> }][] = [
   [/^\/experiences$/, ExperiencesPage],
   [/^\/portfolio$/, PortfolioPage],
   [/^\/catering$/, CateringPage],
+  [/^\/privacy$/, PrivacyPage],
   [/^\/gallery$/, GalleryPage],
   [/^\/team$/, TeamPage],
   [/^\/contact$/, ContactPage],

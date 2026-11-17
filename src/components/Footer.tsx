@@ -14,6 +14,7 @@ const nav = [
   { label: 'Venues', href: '/venues' },
   { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '#faq' },
+  { label: 'Privacy', href: '/privacy' },
 ];
 
 const socials = [

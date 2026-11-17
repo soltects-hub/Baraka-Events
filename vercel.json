@@ -295,6 +295,10 @@
       "destination": "/catering.html"
     },
     {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
       "source": "/gallery",
       "destination": "/gallery.html"
     },
