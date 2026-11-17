@@ -88,6 +88,9 @@ function outputPathFor(path: string): string {
 
 const routePaths: string[] = [
   NOT_FOUND_ROUTE,
+  // "Lights up" Phase A review pages: noindex (meta tag and X-Robots-Tag header), not in the sitemap or llms.txt
+  '/design-system',
+  '/design-system/homepage',
   routes.about,
   routes.experiences,
   routes.portfolio,

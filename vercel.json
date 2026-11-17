@@ -295,6 +295,14 @@
       "destination": "/catering.html"
     },
     {
+      "source": "/design-system",
+      "destination": "/design-system.html"
+    },
+    {
+      "source": "/design-system/homepage",
+      "destination": "/design-system/homepage.html"
+    },
+    {
       "source": "/gallery",
       "destination": "/gallery.html"
     },
@@ -340,6 +348,12 @@
     }
   ],
   "headers": [
+    {
+      "source": "/design-system(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
     {
       "source": "/baraka-site.zip",
       "headers": [

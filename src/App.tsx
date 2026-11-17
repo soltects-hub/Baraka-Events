@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, type ReactNode } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { SmoothScrollProvider } from './lib/scroll';
@@ -33,6 +33,8 @@ import {
   VendorsIndexPage,
   VendorPage,
   NotFound,
+  DesignSystemPage,
+  HomeConceptPage,
 } from './lib/routePages';
 
 function ScrollRestore() {
@@ -60,6 +62,12 @@ function OrganizationSchema() {
   return null;
 }
 
+/** The live header, footer and WhatsApp bubble; the /design-system review pages bring their own prototype versions. */
+function SiteChrome({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  return pathname.startsWith('/design-system') ? null : <>{children}</>;
+}
+
 export default function App() {
   // After the first commit over the prerendered page, entrances animate again (see lib/bootEntrance.ts).
   useEffect(() => {
@@ -80,7 +88,9 @@ export default function App() {
           <ScrollRestore />
           <OrganizationSchema />
           <div>
-            <Navbar />
+            <SiteChrome>
+              <Navbar />
+            </SiteChrome>
             <Suspense fallback={<div className="min-h-screen bg-ink" />}>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -99,11 +109,15 @@ export default function App() {
                 <Route path="/venues/:slug" element={<VenuePage />} />
                 <Route path="/vendors" element={<VendorsIndexPage />} />
                 <Route path="/vendors/:slug" element={<VendorPage />} />
+                <Route path="/design-system" element={<DesignSystemPage />} />
+                <Route path="/design-system/homepage" element={<HomeConceptPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
-            <Footer />
-            <WhatsAppButton />
+            <SiteChrome>
+              <Footer />
+              <WhatsAppButton />
+            </SiteChrome>
           </div>
         </SmoothScrollProvider>
       </LazyMotion>

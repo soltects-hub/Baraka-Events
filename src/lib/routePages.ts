@@ -35,6 +35,9 @@ export const VenuePage = lazyRoute(() => import('../pages/VenuePage'));
 export const VendorsIndexPage = lazyRoute(() => import('../pages/VendorsIndexPage'));
 export const VendorPage = lazyRoute(() => import('../pages/VendorPage'));
 export const NotFound = lazyRoute(() => import('../pages/NotFound'));
+// "Lights up" redesign, Phase A review pages (noindex, not in the sitemap or llms.txt)
+export const DesignSystemPage = lazyRoute(() => import('../pages/design/DesignSystemPage'));
+export const HomeConceptPage = lazyRoute(() => import('../pages/design/HomeConceptPage'));
 
 const ROUTES: [RegExp, { preload: () => Promise<void> }][] = [
   [/^\/about$/, AboutPage],
@@ -52,6 +55,8 @@ const ROUTES: [RegExp, { preload: () => Promise<void> }][] = [
   [/^\/venues\/[^/]+$/, VenuePage],
   [/^\/vendors$/, VendorsIndexPage],
   [/^\/vendors\/[^/]+$/, VendorPage],
+  [/^\/design-system$/, DesignSystemPage],
+  [/^\/design-system\/homepage$/, HomeConceptPage],
 ];
 
 /** Loads the chunk for this path. Resolves at once for the homepage, which is in the main bundle. */
