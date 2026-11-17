@@ -2,25 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { seoConfig } from '../seo/seoConfig';
 import { entrance } from '../lib/bootEntrance';
+import { testimonials } from '../lib/testimonials';
 
-const testimonials = [
-  {
-    quote:
-      "My sister's wedding was recently, and although I checked many online event planners, my communication was with Baraka Events. They managed our Mehndi function as well as the Barat very professionally. We didn't face any kind of tension, and the decor was extremely beautiful.",
-    name: 'Noreiz Ahmad',
-    role: 'Google review — Mehndi & Barat, Lahore',
-  },
-  {
-    quote: 'My birthday experience with Baraka Events was excellent, they did an amazing job.',
-    name: 'Noman Khan',
-    role: 'Google review — birthday celebration',
-  },
-  {
-    quote: 'Had a great experience over here.',
-    name: 'Almas Kousar',
-    role: 'Google review',
-  },
-];
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
