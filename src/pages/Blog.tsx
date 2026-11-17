@@ -7,6 +7,7 @@ import { posts } from '../lib/posts';
 import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import RevealText from '../components/RevealText';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 export default function Blog() {
   useSEO({
@@ -42,7 +43,7 @@ export default function Blog() {
         />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={entrance({ opacity: 0, y: 16 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
@@ -55,7 +56,7 @@ export default function Blog() {
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={entrance({ opacity: 0, y: 20 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-xl text-sm font-light leading-relaxed text-mist md:text-base"
@@ -69,7 +70,7 @@ export default function Blog() {
       {/* featured post */}
       <section className="mx-auto max-w-[1200px] px-6 pb-16 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={entrance({ opacity: 0, y: 40 })}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -113,7 +114,7 @@ export default function Blog() {
           {rest.map((post, i) => (
             <motion.div
               key={post.slug}
-              initial={{ opacity: 0, y: 40 }}
+              initial={entrance({ opacity: 0, y: 40 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-8%' }}
               transition={{ duration: 0.8, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}

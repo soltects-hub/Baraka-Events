@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
+import { entrance } from '../lib/bootEntrance';
 
 const steps = [
   {
@@ -61,7 +62,7 @@ export default function Process() {
             {steps.map((step, i) => (
               <motion.div
                 key={step.n}
-                initial={{ opacity: 0, y: 40 }}
+                initial={entrance({ opacity: 0, y: 40 })}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-15%' }}
                 transition={{ duration: 0.85, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}

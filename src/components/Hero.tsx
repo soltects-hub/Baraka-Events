@@ -3,6 +3,7 @@ import { useLenis } from '../lib/useLenis';
 import MagneticButton from './MagneticButton';
 import RevealText from './RevealText';
 import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
+import { entrance } from '../lib/bootEntrance';
 
 // Real Baraka Events photography (client-supplied, 2026-09-24), replacing the
 // abstract HeroRibbon artwork as the hero's visual. Left-to-right order
@@ -153,7 +154,7 @@ export default function Hero() {
           <div className="mx-auto grid w-full max-w-[1500px] flex-1 grid-cols-1 items-center gap-8 px-6 pb-12 pt-8 sm:pt-32 md:gap-6 md:px-10 md:pb-14 md:pt-36 lg:gap-14">
             <div className="max-w-lg">
               <m.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={entrance({ opacity: 0, y: 20 })}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="flex items-center gap-4 text-[10px] uppercase tracking-[0.26em] text-champagne md:text-[11px] md:tracking-[0.32em]"
@@ -190,7 +191,7 @@ export default function Hero() {
               </h1>
 
               <m.p
-                initial={{ opacity: 0, y: 24 }}
+                initial={entrance({ opacity: 0, y: 24 })}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="mt-7 max-w-md text-[15px] font-light leading-relaxed text-mist md:max-w-[34ch] md:text-[16px]"
@@ -201,7 +202,7 @@ export default function Hero() {
               </m.p>
 
               <m.div
-                initial={{ opacity: 0, y: 24 }}
+                initial={entrance({ opacity: 0, y: 24 })}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.75 }}
                 className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center"
@@ -234,7 +235,7 @@ export default function Hero() {
 
         {/* scroll cue — a band of light running down a hairline */}
         <m.div
-          initial={{ opacity: 0 }}
+          initial={entrance({ opacity: 0 })}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.6 }}
           className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 sm:block"

@@ -19,6 +19,7 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 // Inline links inside a paragraph: [anchor text](/path) for same-site pages, and [anchor text](https://host/...) for the
 // few sources a post cites. Posts could only link from the "Related:" row under a paragraph, never from the sentence that
@@ -124,7 +125,7 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 via-35% to-ink/35" />
         </div>
         <div className="relative mx-auto w-full max-w-[900px] px-6 pb-14 md:px-10 md:pb-20">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div initial={entrance({ opacity: 0, y: 30 })} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <Link to="/blog" className="text-[10px] uppercase tracking-[0.3em] text-mist-dim transition-colors hover:text-champagne">
               &#10229; The Baraka Journal
             </Link>
@@ -145,7 +146,7 @@ export default function BlogPost() {
           b.h ? (
             <motion.h2
               key={i}
-              initial={{ opacity: 0, y: 24 }}
+              initial={entrance({ opacity: 0, y: 24 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -156,7 +157,7 @@ export default function BlogPost() {
           ) : (
             <Fragment key={i}>
               <motion.p
-                initial={{ opacity: 0, y: 24 }}
+                initial={entrance({ opacity: 0, y: 24 })}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

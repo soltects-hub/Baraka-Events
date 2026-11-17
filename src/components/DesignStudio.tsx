@@ -2,6 +2,7 @@ import { useRef, type MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
+import { entrance } from '../lib/bootEntrance';
 
 // Real productions from our own approved Gallery library (public/media/gallery).
 // This section previously showed three AI/stock-sourced "3D concept render"
@@ -63,7 +64,7 @@ function TiltCard({ d, i }: { d: typeof designs[0]; i: number }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
+      initial={entrance({ opacity: 0, y: 60 })}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-10%' }}
       transition={{ duration: 0.9, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}

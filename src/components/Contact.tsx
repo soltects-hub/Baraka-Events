@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import { WHATSAPP_URL, whatsAppUrl } from '../lib/whatsapp';
+import { entrance } from '../lib/bootEntrance';
 
 const inputClass =
   'w-full rounded-sm border border-champagne/12 bg-ink-4 px-5 py-4 text-base font-light md:text-sm text-cream placeholder:text-mist-dim transition-[border-color,box-shadow] duration-300 focus:border-champagne/70 focus:shadow-[0_0_0_3px_rgba(230,197,138,0.08)]';
@@ -152,7 +153,7 @@ export default function Contact() {
             {status === 'sent' ? (
               <motion.div
                 key="done"
-                initial={{ opacity: 0, y: 30 }}
+                initial={entrance({ opacity: 0, y: 30 })}
                 animate={{ opacity: 1, y: 0 }}
                 className="flex h-full min-h-[420px] flex-col items-center justify-center text-center"
               >

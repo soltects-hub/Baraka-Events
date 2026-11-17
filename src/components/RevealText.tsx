@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { m, useInView } from 'framer-motion';
+import { entrance } from '../lib/bootEntrance';
 
 interface Props {
   text: string;
@@ -40,7 +41,7 @@ export default function RevealText({
                 tall whatever font is loaded (gallery page CLS 0.23 -> 0.02). */}
             <m.span
               className={`block will-change-transform ${highlightWords.includes(i) ? highlightClass : ''}`}
-              initial={{ y: '110%', rotate: 4 }}
+              initial={entrance({ y: '110%', rotate: 4 })}
               animate={inView ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 4 }}
               transition={{ duration: 0.9, delay: delay + i * 0.045, ease: [0.22, 1, 0.36, 1] }}
             >

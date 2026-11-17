@@ -8,6 +8,7 @@ import VenueVisual from '../components/VenueVisual';
 import { useSectionNav } from '../lib/useSectionNav';
 import { publishedVenues } from '../lib/venues';
 import { useSEO, seoConfig, routes, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 /**
  * Independent venue guide index (Phase 2 pilot, approved 2026-09-29).
@@ -70,7 +71,7 @@ export default function VenuesIndexPage() {
           {publishedVenues.map((v) => (
             <motion.div
               key={v.slug}
-              initial={{ opacity: 0, y: 24 }}
+              initial={entrance({ opacity: 0, y: 24 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

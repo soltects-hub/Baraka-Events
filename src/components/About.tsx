@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motio
 import { Link } from 'react-router-dom';
 import RevealText from './RevealText';
 import HouseSignature from './HouseSignature';
+import { entrance } from '../lib/bootEntrance';
 
 const stats = [
   { value: 'Full-Service', label: 'Planning & Production' },
@@ -102,7 +103,7 @@ export default function About() {
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
-                initial={{ opacity: 0, y: 30 }}
+                initial={entrance({ opacity: 0, y: 30 })}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -111,7 +112,7 @@ export default function About() {
                 <motion.span
                   aria-hidden
                   className="hairline-flame mt-3 block w-12 origin-left"
-                  initial={{ scaleX: 0 }}
+                  initial={entrance({ scaleX: 0 })}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 1.1, delay: 0.25 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}

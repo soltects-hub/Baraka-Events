@@ -4,6 +4,7 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 import { SmoothScrollProvider } from './lib/scroll';
 import { useLenis } from './lib/useLenis';
 import { keepsBootPosition, clearBootPosition } from './lib/bootScroll';
+import { markBootRendered } from './lib/bootEntrance';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -60,6 +61,11 @@ function OrganizationSchema() {
 }
 
 export default function App() {
+  // After the first commit over the prerendered page, entrances animate again (see lib/bootEntrance.ts).
+  useEffect(() => {
+    markBootRendered();
+  }, []);
+
   return (
     <BrowserRouter>
       {/* Home's LCP-critical components (Hero, Preloader, RevealText,

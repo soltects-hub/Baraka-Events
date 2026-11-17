@@ -6,6 +6,7 @@ import MotionDrumGallery, { PANEL_SIZES, type DrumPhoto } from '../components/Mo
 import { Link } from 'react-router-dom';
 import { useSectionNav } from '../lib/useSectionNav';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 type Category = 'Weddings' | 'Corporate' | 'Celebrations' | 'Production';
 
@@ -155,7 +156,7 @@ function Lightbox({ items, index, onClose, onNav }: { items: LightboxPhoto[]; in
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={entrance({ opacity: 0 })}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
@@ -164,7 +165,7 @@ function Lightbox({ items, index, onClose, onNav }: { items: LightboxPhoto[]; in
       <AnimatePresence mode="wait">
         <motion.img
           key={photo.src}
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={entrance({ opacity: 0, scale: 0.96 })}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
@@ -403,7 +404,7 @@ export default function GalleryPage() {
         />
         <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={entrance({ opacity: 0, y: 16 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-3 text-[11px] uppercase tracking-[0.3em] text-champagne"
@@ -418,7 +419,7 @@ export default function GalleryPage() {
             highlightClass="accent-serif"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={entrance({ opacity: 0, y: 20 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-3 max-w-4xl text-sm font-light leading-relaxed text-mist md:text-[15px]"

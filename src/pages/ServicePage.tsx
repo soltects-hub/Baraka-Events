@@ -17,6 +17,7 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 // Service copy can link to a guide or a sister service with [text](/path); the
 // links use the same style as the "Related" line below the FAQs.
@@ -124,7 +125,7 @@ export default function ServicePage() {
       {/* intro + included */}
       <article className="mx-auto max-w-[900px] px-6 py-14 md:px-10 md:py-20">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={entrance({ opacity: 0, y: 20 })}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -143,7 +144,7 @@ export default function ServicePage() {
           {service.included.map((pt) => (
             <motion.div
               key={pt.h}
-              initial={{ opacity: 0, y: 20 }}
+              initial={entrance({ opacity: 0, y: 20 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

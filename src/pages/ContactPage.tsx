@@ -8,6 +8,7 @@ import MagneticButton from '../components/MagneticButton';
 import { useLenis } from '../lib/useLenis';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 const reasons = [
   { h: 'Reply Within One Business Day', p: 'A senior member of our atelier replies within one business day.' },
@@ -66,7 +67,7 @@ export default function ContactPage() {
         />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={entrance({ opacity: 0, y: 16 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
@@ -79,7 +80,7 @@ export default function ContactPage() {
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={entrance({ opacity: 0, y: 20 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
@@ -102,7 +103,7 @@ export default function ContactPage() {
             {reasons.map((r, i) => (
               <motion.div
                 key={r.h}
-                initial={{ opacity: 0, y: 20 }}
+                initial={entrance({ opacity: 0, y: 20 })}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.1 }}
               >

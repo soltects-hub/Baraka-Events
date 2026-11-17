@@ -7,6 +7,7 @@ import { useSectionNav } from '../lib/useSectionNav';
 import { services } from '../lib/services';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 import { useSEO, seoConfig, routes, generateWebsiteSchema, generateBreadcrumbSchema, applyStructuredData, composeSchemaGraph } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 const stats = [
   { value: 'Full-Service', label: 'Planning & Production' },
@@ -72,7 +73,7 @@ export default function AboutPage() {
         />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={entrance({ opacity: 0, y: 16 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
@@ -85,7 +86,7 @@ export default function AboutPage() {
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-6xl"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={entrance({ opacity: 0, y: 20 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
@@ -105,7 +106,7 @@ export default function AboutPage() {
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 24 }}
+              initial={entrance({ opacity: 0, y: 24 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -120,7 +121,7 @@ export default function AboutPage() {
       {/* story */}
       <section className="mx-auto grid max-w-[1200px] gap-14 px-6 pb-24 md:grid-cols-2 md:px-10 md:pb-32">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={entrance({ opacity: 0, y: 30 })}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -191,7 +192,7 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <motion.div
                 key={v.n}
-                initial={{ opacity: 0, y: 30 }}
+                initial={entrance({ opacity: 0, y: 30 })}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}

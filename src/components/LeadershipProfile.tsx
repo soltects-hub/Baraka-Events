@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { m, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import RevealText from './RevealText';
 import { members } from '../lib/team';
+import { entrance } from '../lib/bootEntrance';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -32,7 +33,7 @@ export default function LeadershipProfile({ headingAs = 'h3' }: { headingAs?: 'h
 
       {/* portrait */}
       <m.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={entrance({ opacity: 0, y: 30 })}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-10%' }}
         transition={{ duration: 0.9, ease: EASE }}
@@ -55,7 +56,7 @@ export default function LeadershipProfile({ headingAs = 'h3' }: { headingAs?: 'h
       {/* hierarchy: name -> role, company -> bio */}
       <div className="relative text-center md:text-left">
         <m.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={entrance({ opacity: 0, y: 16 })}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.6, ease: EASE }}
@@ -71,7 +72,7 @@ export default function LeadershipProfile({ headingAs = 'h3' }: { headingAs?: 'h
         />
 
         <m.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={entrance({ opacity: 0, y: 16 })}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
@@ -82,7 +83,7 @@ export default function LeadershipProfile({ headingAs = 'h3' }: { headingAs?: 'h
 
         <m.span
           aria-hidden
-          initial={{ scaleX: 0 }}
+          initial={entrance({ scaleX: 0 })}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
@@ -90,7 +91,7 @@ export default function LeadershipProfile({ headingAs = 'h3' }: { headingAs?: 'h
         />
 
         <m.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={entrance({ opacity: 0, y: 20 })}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.7, delay: 0.4, ease: EASE }}

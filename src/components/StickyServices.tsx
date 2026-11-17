@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import { entrance } from '../lib/bootEntrance';
 
 const services = [
   {
@@ -65,7 +66,7 @@ function StackedServices() {
           {services.map((s, i) => (
             <motion.article
               key={s.index}
-              initial={{ opacity: 0, y: 24 }}
+              initial={entrance({ opacity: 0, y: 24 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-8%' }}
               transition={{ duration: 0.8, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
@@ -127,7 +128,7 @@ function PinnedServices() {
               alt={s.imageAlt}
               loading="lazy"
               style={s.focus ? { objectPosition: s.focus } : undefined}
-              initial={{ opacity: 0, scale: 1.12, rotateY: 4 }}
+              initial={entrance({ opacity: 0, scale: 1.12, rotateY: 4 })}
               animate={{ opacity: 0.92, scale: 1, rotateY: 0 }}
               exit={{ opacity: 0, scale: 0.96, rotateY: -4 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -147,7 +148,7 @@ function PinnedServices() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={entrance({ opacity: 0, y: 50 })}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -50 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -160,7 +161,7 @@ function PinnedServices() {
                   <motion.span
                     aria-hidden
                     className="hairline-flame mt-3 block w-28 origin-left"
-                    initial={{ scaleX: 0 }}
+                    initial={entrance({ scaleX: 0 })}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   />
@@ -176,7 +177,7 @@ function PinnedServices() {
               <AnimatePresence mode="wait">
                 <motion.ul
                   key={active}
-                  initial="hidden"
+                  initial={entrance('hidden')}
                   animate="show"
                   exit="hidden"
                   variants={{ show: { transition: { staggerChildren: 0.08 } } }}

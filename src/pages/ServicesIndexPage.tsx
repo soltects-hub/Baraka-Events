@@ -16,6 +16,7 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 /**
  * This page carries the site's most valuable head terms ("event planner in
@@ -133,7 +134,7 @@ export default function ServicesIndexPage() {
         />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={entrance({ opacity: 0, y: 16 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
@@ -146,7 +147,7 @@ export default function ServicesIndexPage() {
             className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={entrance({ opacity: 0, y: 20 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"
@@ -170,7 +171,7 @@ export default function ServicesIndexPage() {
           {services.map((s) => (
             <motion.div
               key={s.slug}
-              initial={{ opacity: 0, y: 24 }}
+              initial={entrance({ opacity: 0, y: 24 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -220,7 +221,7 @@ export default function ServicesIndexPage() {
             {WHAT_WE_DO.map((pt) => (
               <motion.div
                 key={pt.h}
-                initial={{ opacity: 0, y: 20 }}
+                initial={entrance({ opacity: 0, y: 20 })}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

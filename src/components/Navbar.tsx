@@ -6,6 +6,7 @@ import { useSectionNav } from '../lib/useSectionNav';
 import { services } from '../lib/services';
 import MagneticButton from './MagneticButton';
 import { WHATSAPP_URL } from '../lib/whatsapp';
+import { entrance } from '../lib/bootEntrance';
 
 // Experiences, Portfolio and Gallery were removed from the primary nav
 // (2026-09-24) to keep it focused on the commercial path — Home, Services,
@@ -48,7 +49,7 @@ function ServicesMenu({ onNavigate }: { onNavigate: (href: string) => void }) {
 
   return (
     <m.div
-      initial={{ opacity: 0, y: -10, scale: 0.98 }}
+      initial={entrance({ opacity: 0, y: -10, scale: 0.98 })}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.98 }}
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -141,7 +142,7 @@ export default function Navbar() {
   return (
     <>
       <m.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={entrance({ y: -80, opacity: 0 })}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         // Unscrolled on the homepage, the bar insets by the same margin as
@@ -248,7 +249,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <m.div
-            initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+            initial={entrance({ clipPath: 'inset(0% 0% 100% 0%)' })}
             animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
             exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
@@ -275,7 +276,7 @@ export default function Navbar() {
                 l.label === 'Services' ? (
                   <div key={l.href} className="overflow-hidden">
                     <m.div
-                      initial={{ y: '110%' }}
+                      initial={entrance({ y: '110%' })}
                       animate={{ y: 0 }}
                       exit={{ y: '110%' }}
                       transition={{ duration: 0.6, delay: 0.15 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
@@ -305,7 +306,7 @@ export default function Navbar() {
                       <AnimatePresence initial={false}>
                         {mobileServicesOpen && (
                           <m.div
-                            initial={{ height: 0, opacity: 0 }}
+                            initial={entrance({ height: 0, opacity: 0 })}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -333,7 +334,7 @@ export default function Navbar() {
                   <div key={l.href} className="overflow-hidden">
                     <m.a
                       href={l.href.startsWith('#') ? '/' + l.href : l.href}
-                      initial={{ y: '110%' }}
+                      initial={entrance({ y: '110%' })}
                       animate={{ y: 0 }}
                       exit={{ y: '110%' }}
                       transition={{ duration: 0.6, delay: 0.15 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
@@ -350,7 +351,7 @@ export default function Navbar() {
               )}
             </div>
             <m.div
-              initial={{ opacity: 0 }}
+              initial={entrance({ opacity: 0 })}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.5 }}

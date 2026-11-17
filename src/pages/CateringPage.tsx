@@ -16,6 +16,7 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 const WHATSAPP = whatsAppUrl(
   'Assalam-o-Alaikum, I found Baraka Events through your website and would like to ask about catering for my event.'
@@ -207,7 +208,7 @@ export default function CateringPage() {
         <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-6 md:px-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={entrance({ opacity: 0, y: 20 })}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="mb-4 text-[11px] uppercase tracking-[0.3em] text-champagne"
@@ -220,7 +221,7 @@ export default function CateringPage() {
               className="font-display text-4xl font-light leading-[1.08] sm:text-5xl md:text-7xl"
             />
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={entrance({ opacity: 0, y: 20 })}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
               className="mt-6 max-w-2xl text-sm font-light leading-relaxed text-mist md:text-base"

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, m } from 'framer-motion';
 import { whatsAppUrl } from '../lib/whatsapp';
+import { entrance } from '../lib/bootEntrance';
 
 // The panel asks one question, then opens WhatsApp with a message the visitor only has to fill in,
 // so the first message already says what they need, when and where.
@@ -52,7 +53,7 @@ export default function WhatsAppButton() {
             ref={panelRef}
             role="dialog"
             aria-label="Chat with Baraka Events on WhatsApp"
-            initial={{ opacity: 0, y: 24, scale: 0.94 }}
+            initial={entrance({ opacity: 0, y: 24, scale: 0.94 })}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -125,7 +126,7 @@ export default function WhatsAppButton() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Chat with Baraka Events on WhatsApp"
         aria-expanded={open}
-        initial={{ opacity: 0, scale: 0.5, y: 20 }}
+        initial={entrance({ opacity: 0, scale: 0.5, y: 20 })}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 2.6, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ scale: 1.08 }}
@@ -145,7 +146,7 @@ export default function WhatsAppButton() {
             {open ? (
               <m.span
                 key="close"
-                initial={{ opacity: 0, rotate: -45 }}
+                initial={entrance({ opacity: 0, rotate: -45 })}
                 animate={{ opacity: 1, rotate: 0 }}
                 exit={{ opacity: 0, rotate: 45 }}
                 transition={{ duration: 0.2 }}
@@ -156,7 +157,7 @@ export default function WhatsAppButton() {
             ) : (
               <m.span
                 key="icon"
-                initial={{ opacity: 0, rotate: 45 }}
+                initial={entrance({ opacity: 0, rotate: 45 })}
                 animate={{ opacity: 1, rotate: 0 }}
                 exit={{ opacity: 0, rotate: -45 }}
                 transition={{ duration: 0.2 }}

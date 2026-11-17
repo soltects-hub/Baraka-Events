@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent } from 'react';
 import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useTransform, type MotionValue } from 'framer-motion';
+import { entrance } from '../lib/bootEntrance';
 
 interface ArchiveItem {
   src: string;
@@ -229,7 +230,7 @@ export default function DepthFlythrough() {
           <AnimatePresence mode="wait">
             <motion.div
               key={active.title}
-              initial={{ opacity: 0, y: 14 }}
+              initial={entrance({ opacity: 0, y: 14 })}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}

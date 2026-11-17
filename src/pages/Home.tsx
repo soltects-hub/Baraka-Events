@@ -9,6 +9,7 @@ import { faqs } from '../lib/faqs';
 import LazyMount from '../components/LazyMount';
 import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
 import { hasBootPosition } from '../lib/bootScroll';
+import { bootedOverPrerender } from '../lib/bootEntrance';
 
 // Everything below Hero is code-split: none of it is needed for the
 // initial paint, and splitting it into separate chunks breaks up what was
@@ -38,9 +39,10 @@ const LocationMap = lazy(() => import('../components/LocationMap'));
 let hasLoadedOnce = false;
 
 export default function Home() {
-  // The splash is for arrivals at the top; a visitor already scrolling the prerendered page goes straight to the content.
+  // The splash never covers a page the visitor can already see: on a direct visit the prerendered homepage is on screen
+  // before this runs, and the overlay hid it again for about 1.7 s (measured as the main LCP delay, Nov 2026).
   const [loaded, setLoaded] = useState(() => {
-    if (hasBootPosition()) hasLoadedOnce = true;
+    if (hasBootPosition() || bootedOverPrerender) hasLoadedOnce = true;
     return hasLoadedOnce;
   });
   const lenis = useLenis();

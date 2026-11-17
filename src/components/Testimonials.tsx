@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { seoConfig } from '../seo/seoConfig';
+import { entrance } from '../lib/bootEntrance';
 
 const testimonials = [
   {
@@ -56,7 +57,7 @@ export default function Testimonials() {
           <AnimatePresence mode="wait">
             <motion.figure
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={entrance({ opacity: 0, y: 40 })}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -40 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

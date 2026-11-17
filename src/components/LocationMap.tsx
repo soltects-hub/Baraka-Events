@@ -4,6 +4,7 @@ import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import { isStoreLocatorConfigured } from '../lib/storeLocatorConfig';
 import { seoConfig } from '../seo/seoConfig';
+import { entrance } from '../lib/bootEntrance';
 
 // Code-split: with no Maps key configured this chunk is never requested, so the
 // locator costs nothing on a page already carrying a heavy LCP.
@@ -54,7 +55,7 @@ export default function LocationMap() {
 
         {/* map frame */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={entrance({ opacity: 0, y: 50 })}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -106,7 +107,7 @@ export default function LocationMap() {
           ].map((f, i) => (
             <motion.div
               key={f.k}
-              initial={{ opacity: 0, y: 30 }}
+              initial={entrance({ opacity: 0, y: 30 })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}

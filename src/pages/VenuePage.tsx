@@ -20,6 +20,7 @@ import {
   applyStructuredData,
   composeSchemaGraph,
 } from '../seo';
+import { entrance } from '../lib/bootEntrance';
 
 /**
  * Baraka-as-Gateway FAQ (2026-10-01) — deliberately not "how do I contact
@@ -196,7 +197,7 @@ export default function VenuePage() {
             {otherVenues.map((v) => (
               <motion.div
                 key={v.slug}
-                initial={{ opacity: 0, y: 20 }}
+                initial={entrance({ opacity: 0, y: 20 })}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
