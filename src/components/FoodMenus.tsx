@@ -141,7 +141,8 @@ function MenuCard({
   );
 
   return (
-    <article
+    // a div, not an <article>: role="group" (needed for the carousel's slide semantics) is not allowed on <article>
+    <div
       data-menu-package={pkg.number}
       data-pos={pos}
       role="group"
@@ -194,7 +195,7 @@ function MenuCard({
           </div>
         </div>
       </div>
-    </article>
+    </div>
   );
 }
 
@@ -485,7 +486,8 @@ export default function FoodMenus() {
                   type="button"
                   onClick={() => go(i)}
                   aria-current={i === active}
-                  aria-label={`Show Menu ${pkg.number}, ${formatRs(pkg.pricePerPerson)} per person`}
+                  // starts with the visible text ("Menu 1", "Rs. 2,600") so voice-control users can say what they see
+                  aria-label={`Menu ${pkg.number}, ${formatRs(pkg.pricePerPerson)} per person`}
                   className="menu-tab"
                 >
                   <span className="menu-tab-name">Menu {pkg.number}</span>
