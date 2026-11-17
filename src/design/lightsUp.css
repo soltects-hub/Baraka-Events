@@ -298,7 +298,9 @@
 /* ---- hero scene ------------------------------------------------------ */
 .lu-hero { position: relative; min-height: min(100svh, 920px); display: grid; align-items: end; overflow: hidden; }
 .lu-hero .media { position: absolute; inset: 0; }
-.lu-hero .media img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
+.lu-hero .media picture { display: contents; }
+.lu-hero .media img { width: 100%; height: 100%; object-fit: cover; }
+/* the hero files are pre-darkened to 50% (same look as brightness(0.5)): darker pixels compress to about half the size */
 .lu-hero .scrim { position: absolute; inset: auto 0 0 0; height: 70%; background: linear-gradient(to top, rgba(6, 5, 4, 0.92), rgba(6, 5, 4, 0)); } /* photographic scrim for legibility, not decoration */
 .lu-hero .content { position: relative; padding-block: 140px clamp(48px, 7vw, 96px); width: 100%; }
 .lu-hero .pause { position: absolute; right: max(20px, env(safe-area-inset-right, 0px)); bottom: 24px; z-index: 2; }

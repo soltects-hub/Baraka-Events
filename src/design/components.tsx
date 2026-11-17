@@ -175,9 +175,9 @@ export function Transformation({ photo, ratio = '16 / 8' }: { photo: Photo; rati
   return (
     <figure className="lu-plate">
       <div className="lu-ba" style={{ aspectRatio: ratio, '--pos': `${pos}%` } as CSSProperties}>
-        <img src={photo.src} alt="" style={{ filter: 'grayscale(1) brightness(0.32)' }} />
+        <img src={photo.src} srcSet={srcSet(photo)} sizes="(min-width: 1240px) 1200px, 100vw" alt="" loading="lazy" decoding="async" style={{ filter: 'grayscale(1) brightness(0.32)' }} />
         <div className="after">
-          <img src={photo.src} alt={photo.alt} />
+          <img src={photo.src} srcSet={srcSet(photo)} sizes="(min-width: 1240px) 1200px, 100vw" alt={photo.alt} loading="lazy" decoding="async" />
         </div>
         <div className="handle" aria-hidden />
         <span className="tag" style={{ left: 22, top: 22 }}>

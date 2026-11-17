@@ -56,7 +56,19 @@ export default function HomeConceptPage() {
         {/* 01 — Arrival */}
         <section className="lu-hero" aria-labelledby="concept-h1">
           <div className="media">
-            <Img photo={photos.mehndiFloor} priority sizes="100vw" />
+            {/* Art-directed: a portrait crop of the same verified photo on phones (the hero is a tall screen there), a lighter
+                encode of the full frame elsewhere. Both are pre-darkened to 50% (the hero's look), which halves the file size. */}
+            <picture>
+              <source media="(max-width: 760px)" srcSet="/media/gallery/wedding-30-hero-portrait-600.webp 600w, /media/gallery/wedding-30-hero-portrait-800.webp 676w" sizes="100vw" />
+              <img
+                src="/media/gallery/wedding-30-hero-1200.webp"
+                alt={photos.mehndiFloor.alt}
+                width={1200}
+                height={902}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div className="scrim" aria-hidden />
           <div className="lu-wrap content lu-stack" style={{ '--gap': '26px' } as CSSProperties}>
