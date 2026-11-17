@@ -8,6 +8,7 @@ import { postSeoTitles } from '../lib/postSeoTitles';
 import { postSeoDescriptions } from '../lib/postSeoDescriptions';
 import { galleryImgProps, GALLERY_SIZES } from '../lib/galleryImages';
 import MagneticButton from '../components/MagneticButton';
+import { WHATSAPP_URL } from '../lib/whatsapp';
 import { useSectionNav } from '../lib/useSectionNav';
 import {
   useSEO,
@@ -203,11 +204,18 @@ export default function BlogPost() {
           <p className="mx-auto mt-3 max-w-md text-sm font-light leading-relaxed text-mist">
             Book a complimentary consultation with our atelier in Gulberg &mdash; we'll bring the venue intelligence, you bring the vision.
           </p>
-          <div className="mt-7">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <MagneticButton
               onClick={() => go('#contact')}
             >
               Book Consultation
+            </MagneticButton>
+            <MagneticButton
+              variant="ghost"
+              href={WHATSAPP_URL}
+              onClick={() => window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'blog_post', post: post.slug })}
+            >
+              WhatsApp Us
             </MagneticButton>
           </div>
         </div>

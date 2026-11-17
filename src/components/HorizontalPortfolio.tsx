@@ -3,6 +3,15 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 
 const projects = [
   {
+    title: 'A Walima Floral Arch',
+    category: 'Walima',
+    location: '',
+    year: '',
+    image: '/media/gallery/wedding-1.webp',
+    alt: 'Walima floral arch of white and blush roses under hanging bead garlands and crystal chandeliers',
+    stat: 'Rose arch · bead garlands · crystal chandeliers',
+  },
+  {
     title: 'A Branded LED Stage',
     category: 'Corporate Event',
     location: '',
@@ -19,15 +28,6 @@ const projects = [
     image: '/media/gallery/celebration-4.webp',
     alt: 'White flower wall with a Happy Birthday neon sign between two pink balloon columns',
     stat: 'Flower wall · neon sign · balloon columns',
-  },
-  {
-    title: 'A Conference Stage',
-    category: 'Corporate Event',
-    location: '',
-    year: '',
-    image: '/media/gallery/corporate-2.webp',
-    alt: 'Conference stage with a large LED screen, a branded lectern and a lit stage edge',
-    stat: 'LED screen · lectern · lit stage steps',
   },
 ];
 
@@ -100,7 +100,7 @@ export default function HorizontalPortfolio() {
               Three events,{' '}<br /><em className="accent-serif">one standard</em>
             </h2>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist md:text-base">
-              A branded LED stage, a birthday backdrop and a conference stage —
+              A walima floral arch, a branded LED stage and a birthday backdrop —
               different briefs from our archive.
             </p>
             <div className="mt-10 flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-mist-dim">

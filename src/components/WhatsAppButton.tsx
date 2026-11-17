@@ -1,6 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, m } from 'framer-motion';
-import { WHATSAPP_URL } from '../lib/whatsapp';
+import { whatsAppUrl } from '../lib/whatsapp';
+
+// The panel asks one question, then opens WhatsApp with a message the visitor only has to fill in,
+// so the first message already says what they need, when and where.
+const TOPICS = [
+  { label: 'A wedding', topic: 'wedding', text: 'I am planning a wedding.' },
+  { label: 'Catering', topic: 'catering', text: 'I would like to ask about catering for my event.' },
+  { label: 'A corporate event', topic: 'corporate', text: 'I am planning a corporate event.' },
+  { label: 'A private celebration', topic: 'private', text: 'I am planning a private celebration.' },
+  { label: 'A free consultation', topic: 'consultation', text: 'I would like to book a free consultation.' },
+];
+const topicUrl = (text: string) =>
+  whatsAppUrl(`Assalam-o-Alaikum, I found Baraka Events through your website. ${text}\n\nEvent date:\nLocation:\nGuest count:`);
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -66,7 +78,7 @@ export default function WhatsAppButton() {
 
             {/* chat body */}
             <div
-              className="px-5 py-6"
+              className="px-5 pt-5 pb-3"
               style={{
                 backgroundColor: '#e9e2d3',
                 backgroundImage: 'radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)',
@@ -74,32 +86,35 @@ export default function WhatsAppButton() {
               }}
             >
               <div className="max-w-[220px] rounded-2xl rounded-tl-sm bg-[#dcf8c6] px-4 py-3 text-[13px] leading-relaxed text-[#111]/80 shadow-sm">
-                Any questions related to Baraka Events?
+                What can we help you with?
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="bg-[#f5efe4] px-5 pb-5 pt-4">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  // Opens in a new tab, so the current page never unloads —
-                  // no need to delay navigation for the beacon to land.
-                  window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'floating' });
-                  window.gtag?.('event', 'conversion', {
-                    send_to: 'AW-669423654/zjY6CMLNpMwZEKawmr8C',
-                    value: 1.0,
-                    currency: 'PKR',
-                    transaction_id: '',
-                  });
-                }}
-                className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[13px] font-semibold text-white shadow-md transition-[filter] duration-300 hover:brightness-105"
-              >
-                <WhatsAppIcon className="h-4 w-4 fill-white" />
-                WhatsApp Us
-              </a>
+            {/* one tap opens WhatsApp with the right message */}
+            <div className="flex flex-col gap-2 bg-[#f5efe4] px-5 pb-5 pt-4">
+              {TOPICS.map((t) => (
+                <a
+                  key={t.topic}
+                  href={topicUrl(t.text)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    // Opens in a new tab, so the current page never unloads —
+                    // no need to delay navigation for the beacon to land.
+                    window.gtag?.('event', 'contact_click', { method: 'whatsapp', location: 'floating', topic: t.topic });
+                    window.gtag?.('event', 'conversion', {
+                      send_to: 'AW-669423654/zjY6CMLNpMwZEKawmr8C',
+                      value: 1.0,
+                      currency: 'PKR',
+                      transaction_id: '',
+                    });
+                  }}
+                  className="flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-[13px] font-semibold text-[#06281a] shadow-sm transition-[filter] duration-300 hover:brightness-105"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-[#06281a]" />
+                  {t.label}
+                </a>
+              ))}
             </div>
           </m.div>
         )}

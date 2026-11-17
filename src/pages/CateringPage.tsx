@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import RevealText from '../components/RevealText';
@@ -150,6 +150,11 @@ function MenuBody({ pkg }: { pkg: FoodPackage }) {
 
 export default function CateringPage() {
   const go = useSectionNav();
+  const [order, setOrder] = useState<'type' | 'price'>('type');
+  const groups =
+    order === 'type'
+      ? menuGroups
+      : [{ h: 'All Menus by Price', p: 'From the lowest price per person to the highest.', items: [...foodPackages].sort((a, b) => a.pricePerPerson - b.pricePerPerson) }];
 
   useSEO({
     title: 'Catering Services in Lahore | Baraka Events',
@@ -284,8 +289,28 @@ export default function CateringPage() {
           {foodPackages.length} set packages, listed exactly as printed. Prices are per person. Guest count is flexible, so send us
           your numbers and requirements and we will confirm your quote.
         </p>
+        <div role="group" aria-label="Choose how to view the menus" className="mt-6 flex flex-wrap gap-2">
+          {(
+            [
+              ['type', 'By type'],
+              ['price', 'Price: low to high'],
+            ] as const
+          ).map(([value, text]) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={order === value}
+              onClick={() => setOrder(value)}
+              className={`min-h-[44px] rounded-full border px-5 py-2 text-[12px] uppercase tracking-[0.18em] transition-colors duration-300 ${
+                order === value ? 'border-gold bg-gold text-ink' : 'border-champagne/25 text-mist hover:border-champagne/60 hover:text-cream'
+              }`}
+            >
+              {text}
+            </button>
+          ))}
+        </div>
         <div className="mt-10 space-y-12">
-          {menuGroups.map((g) => (
+          {groups.map((g) => (
             <div key={g.h}>
               <h3 className="font-display text-xl font-light text-gold-soft md:text-2xl">{g.h}</h3>
               <p className="mt-2 text-sm font-light text-mist">{g.p}</p>
