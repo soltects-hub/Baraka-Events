@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && tsx scripts/generate-sitemap.ts && vite build && tsx scripts/prerender.ts",
+    "build": "tsc -b && tsx scripts/generate-sitemap.ts && tsx scripts/generate-llms.ts && vite build && tsx scripts/prerender.ts",
     "sitemap": "tsx scripts/generate-sitemap.ts",
+    "llms": "tsx scripts/generate-llms.ts",
     "prerender": "tsx scripts/prerender.ts",
     "verify:venues": "tsx scripts/verify-venues.ts",
     "seo:keywords": "tsx scripts/seo-report/generate-keyword-map.ts",
