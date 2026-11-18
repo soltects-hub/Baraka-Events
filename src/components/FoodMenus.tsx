@@ -1,4 +1,4 @@
-import { Fragment, memo, useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
+import { memo, useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
 import { Link } from 'react-router-dom';
 import RevealText from './RevealText';
 import FoodMotion from './FoodMotion';
@@ -12,6 +12,7 @@ import {
   type FoodPackage,
 } from '../lib/foodMenu';
 import { whatsAppUrl } from '../lib/whatsapp';
+import { Lines, SoftSlashes } from './MenuText';
 
 const COUNT = foodPackages.length;
 /** Space the deck keeps around the cards: above them (shadow room) and below them (the stage's floor). Matches .menu-card top and .menu-floor in index.css. */
@@ -27,40 +28,8 @@ const BACKDROPS = [
   { src: '/media/gallery/detail-1.webp', srcSet: undefined, w: 675, h: 1200 },
 ];
 
-/**
- * Renders a line that may contain slashes ("Gulab Jamun/Jalebi/Kulfa/...") so that a long list can wrap
- * after any slash on a narrow screen. A <wbr> adds a break opportunity, not a character: the text stays
- * exactly as the menu prints it.
- */
-function SoftSlashes({ text }: { text: string }) {
-  return (
-    <>
-      {text.split('/').map((part, i) => (
-        <Fragment key={i}>
-          {i > 0 && (
-            <>
-              /<wbr />
-            </>
-          )}
-          {part}
-        </Fragment>
-      ))}
-    </>
-  );
-}
 
 /** Text that may carry deliberate line breaks ("\n") exactly where the printed menu has them. */
-function Lines({ text }: { text: string }) {
-  return (
-    <>
-      {text.split('\n').map((line, i) => (
-        <span key={i} className="block">
-          <SoftSlashes text={line} />
-        </span>
-      ))}
-    </>
-  );
-}
 
 const labelClass = 'text-[11px] font-medium uppercase tracking-[0.28em] text-champagne';
 const order = (i: number) => ({ '--i': i }) as CSSProperties;

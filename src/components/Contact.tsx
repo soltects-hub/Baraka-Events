@@ -27,7 +27,11 @@ const labelClass = 'mb-2 block text-[11px] uppercase tracking-[0.25em] text-mist
 
 const SERVICE_BY_PARAM: Record<string, string | undefined> = { catering: 'Catering' };
 
-export default function Contact() {
+/**
+ * `backdrop={false}` (the redesigned homepage) leaves out the candle photograph, whose source is not documented.
+ * The form, its fields, the WhatsApp handoff and the Formspree path with its conversion are identical either way.
+ */
+export default function Contact({ backdrop = true }: { backdrop?: boolean }) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error' | 'handoff'>('idle');
   const [handoffUrl, setHandoffUrl] = useState(WHATSAPP_URL);
   const [params] = useSearchParams();
@@ -39,6 +43,7 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={ref} data-scene="12 · FINAL FRAME — CONTACT" className="relative overflow-hidden py-20 md:py-40">
+      {backdrop && (
       <motion.div style={{ y: bgY }} className="absolute inset-[-15%]">
         <img src="/media/contact-candles.webp" alt="" aria-hidden width={940} height={1672} className="h-full w-full object-cover" loading="lazy" />
         {/* the photograph stays readable as a room; a bronze-tinted wash
@@ -47,6 +52,7 @@ export default function Contact() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
         <div className="vignette absolute inset-0" />
       </motion.div>
+      )}
 
       <div className="relative mx-auto grid max-w-[1400px] gap-16 px-6 md:px-10 lg:grid-cols-2 lg:gap-24">
         <div className="flex flex-col justify-center">

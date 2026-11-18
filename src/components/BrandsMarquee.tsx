@@ -1,23 +1,13 @@
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import RevealText from './RevealText';
+import { corporateEventTypes as brands } from '../lib/corporateEventTypes';
 
 /**
  * TODO: swap this list for Baraka's real named corporate clients once
  * supplied — this placeholder deliberately avoids inventing brand names.
  * Same scrolling-wordmark treatment either way.
  */
-const brands = [
-  'Product Launches',
-  'Award Nights',
-  'Annual Dinners',
-  'Conferences',
-  'Executive Summits',
-  'Leadership Offsites',
-  'AGMs',
-  'Client Dinners',
-  'Team Celebrations',
-];
 
 export default function BrandsMarquee() {
   const row = [...brands, ...brands];
