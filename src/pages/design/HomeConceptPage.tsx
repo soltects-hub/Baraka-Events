@@ -167,7 +167,7 @@ export default function HomeConceptPage() {
                 What does catering <em>cost?</em>
               </h2>
               <p className="lu-lede">
-                {foodPackages.length} set menus from {formatRs(lowestPrice)} to {formatRs(highestPrice)} per person, cooked and served by Baraka's own kitchen and team. Each menu is for at least {foodPackages[0].minimumGuests} guests.
+                {foodPackages.length} set menus from {formatRs(lowestPrice)} to {formatRs(highestPrice)} per person, cooked and served by Baraka's own kitchen and team. Guest count is flexible.
               </p>
               <div className="lu-row">
                 <Button href="/catering">See every menu</Button>

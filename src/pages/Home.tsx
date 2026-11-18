@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useLenis } from '../lib/useLenis';
 import { useSEO, routes, generateWebsiteSchema, generateFAQSchema, applyStructuredData, composeSchemaGraph } from '../seo';
 import Preloader from '../components/Preloader';
-import Hero from '../components/Hero';
+import HomeHero from '../components/home/HomeHero';
 import { faqs } from '../lib/faqs';
 import LazyMount from '../components/LazyMount';
 import { revealAllLazyMounts } from '../lib/lazyMountRegistry';
@@ -18,21 +18,14 @@ import { bootedOverPrerender } from '../lib/bootEntrance';
 // bundled eagerly with Hero (no stated reason) — pulling them into this
 // list shrank the main chunk further, since none of them are above the
 // fold.
-const Marquee = lazy(() => import('../components/Marquee'));
-const About = lazy(() => import('../components/About'));
-const FAQ = lazy(() => import('../components/FAQ'));
-const StickyServices = lazy(() => import('../components/StickyServices'));
-const BrandsMarquee = lazy(() => import('../components/BrandsMarquee'));
-const FoodMenus = lazy(() => import('../components/FoodMenus'));
-const TextStrips = lazy(() => import('../components/TextStrips'));
-const DollyZoom = lazy(() => import('../components/DollyZoom'));
-const HorizontalPortfolio = lazy(() => import('../components/HorizontalPortfolio'));
-const DesignStudio = lazy(() => import('../components/DesignStudio'));
-const DepthFlythrough = lazy(() => import('../components/DepthFlythrough'));
-const Gallery = lazy(() => import('../components/Gallery'));
-const Process = lazy(() => import('../components/Process'));
-const Team = lazy(() => import('../components/Team'));
-const Testimonials = lazy(() => import('../components/Testimonials'));
+// Phase B ("Lights up", approved 18 Nov 2026): the homepage is told in scenes. The former sections' text, links and
+// anchors move into them word for word (see each scene's header comment); items whose photos have no documented
+// source are held back until the owner confirms them. Contact and LocationMap are the same components as before.
+const ScenePlanning = lazy(() => import('../components/home/ScenePlanning'));
+const SceneWork = lazy(() => import('../components/home/SceneWork'));
+const SceneFood = lazy(() => import('../components/home/SceneFood'));
+const SceneHow = lazy(() => import('../components/home/SceneHow'));
+const SceneQuestions = lazy(() => import('../components/home/SceneQuestions'));
 const Contact = lazy(() => import('../components/Contact'));
 const LocationMap = lazy(() => import('../components/LocationMap'));
 
@@ -61,13 +54,20 @@ export default function Home() {
     applyStructuredData(composeSchemaGraph([generateWebsiteSchema(), generateFAQSchema(faqs)]));
   }, []);
 
-  // arriving from another page with a #section target
+  // Arriving with a #section target (a direct link, or the footer's FAQ link from another page). The sections above
+  // the target are lazy and grow as their code arrives, so a single scroll could stop short (before Phase B this
+  // already happened for #portfolio, #faq and #contact). Scroll once, then correct the position until it settles.
   useEffect(() => {
-    if (loaded && hash && lenis) {
-      revealAllLazyMounts();
-      const t = setTimeout(() => lenis.scrollTo(hash, { duration: 1.4 }), 350);
-      return () => clearTimeout(t);
-    }
+    if (!(loaded && hash && lenis)) return;
+    revealAllLazyMounts();
+    const timers = [350, 1100, 1900, 2800].map((ms, i) =>
+      window.setTimeout(() => {
+        const el = document.querySelector<HTMLElement>(hash);
+        if (!el) return;
+        if (i === 0 || Math.abs(el.getBoundingClientRect().top) > 120) lenis.scrollTo(el, { duration: i === 0 ? 1.4 : 0.6, offset: -90 });
+      }, ms),
+    );
+    return () => timers.forEach((t) => window.clearTimeout(t));
   }, [loaded, hash, lenis]);
 
   return (
@@ -82,87 +82,35 @@ export default function Home() {
           />
         )}
       </AnimatePresence>
-      <main>
-        <Hero />
-        <LazyMount rootMargin="300% 0px">
+      <main className="lu home">
+        <HomeHero />
+        <LazyMount anchorId="experiences" rootMargin="300% 0px">
           <Suspense fallback={null}>
-            <Marquee />
+            <ScenePlanning />
           </Suspense>
         </LazyMount>
-        <LazyMount anchorId="about" rootMargin="300% 0px">
-          <Suspense fallback={null}>
-            <About />
-          </Suspense>
-        </LazyMount>
-        <LazyMount anchorId="experiences">
-          <Suspense fallback={null}>
-            <StickyServices />
-          </Suspense>
-        </LazyMount>
-        <LazyMount>
-          <Suspense fallback={null}>
-            <BrandsMarquee />
-          </Suspense>
-        </LazyMount>
-        <LazyMount>
-          <Suspense fallback={null}>
-            <FoodMenus />
-          </Suspense>
-        </LazyMount>
-        <LazyMount>
-          <Suspense fallback={null}>
-            <DollyZoom />
-          </Suspense>
-        </LazyMount>
-        {/* Not lazy-mounted: Hero's "See Our Work" button jumps straight to
-            #portfolio the instant the page loads, before any scrolling. */}
+        {/* Not lazy-mounted: "See Our Work" jumps straight to #portfolio the instant the page loads. */}
         <Suspense fallback={null}>
-          <HorizontalPortfolio />
+          <SceneWork />
         </Suspense>
-        <LazyMount>
+        <LazyMount anchorId="menu">
           <Suspense fallback={null}>
-            <DesignStudio />
+            <SceneFood />
           </Suspense>
         </LazyMount>
-        <LazyMount>
+        <LazyMount anchorId="about">
           <Suspense fallback={null}>
-            <TextStrips />
-          </Suspense>
-        </LazyMount>
-        <LazyMount>
-          <Suspense fallback={null}>
-            <DepthFlythrough />
-          </Suspense>
-        </LazyMount>
-        <LazyMount anchorId="gallery">
-          <Suspense fallback={null}>
-            <Gallery />
-          </Suspense>
-        </LazyMount>
-        <LazyMount anchorId="process">
-          <Suspense fallback={null}>
-            <Process />
-          </Suspense>
-        </LazyMount>
-        <LazyMount anchorId="team">
-          <Suspense fallback={null}>
-            <Team />
+            <SceneHow />
           </Suspense>
         </LazyMount>
         <LazyMount anchorId="testimonials">
           <Suspense fallback={null}>
-            <Testimonials />
+            <SceneQuestions />
           </Suspense>
         </LazyMount>
-        <LazyMount anchorId="faq">
-          <Suspense fallback={null}>
-            <FAQ />
-          </Suspense>
-        </LazyMount>
-        {/* Not lazy-mounted: Hero and Navbar's "Book Consultation" buttons
-            jump straight to #contact the instant the page loads. */}
+        {/* Not lazy-mounted: "Plan Your Event" and "Book Consultation" jump straight to #contact the instant the page loads. */}
         <Suspense fallback={null}>
-          <Contact />
+          <Contact backdrop={false} />
         </Suspense>
         <LazyMount>
           <Suspense fallback={null}>

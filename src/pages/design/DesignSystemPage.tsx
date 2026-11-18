@@ -375,7 +375,7 @@ export default function DesignSystemPage() {
             <div className="lu-stack" style={{ '--gap': '16px' } as CSSProperties}>
               <h3 className="lu-h3">What does catering cost?</h3>
               <p className="lu-lede">
-                {foodPackages.length} set menus from {formatRs(lowestPrice)} to {formatRs(highestPrice)} per person, cooked by Baraka's own kitchen. Each menu is for at least {foodPackages[0].minimumGuests} guests.
+                {foodPackages.length} set menus from {formatRs(lowestPrice)} to {formatRs(highestPrice)} per person, cooked by Baraka's own kitchen. Guest count is flexible.
               </p>
             </div>
             <div style={{ borderTop: '1px solid var(--lu-ivory-rule)' }}>
