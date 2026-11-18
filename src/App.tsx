@@ -5,8 +5,8 @@ import { SmoothScrollProvider } from './lib/scroll';
 import { useLenis } from './lib/useLenis';
 import { keepsBootPosition, clearBootPosition } from './lib/bootScroll';
 import { markBootRendered } from './lib/bootEntrance';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import SiteHeader from './components/site/SiteHeader';
+import SiteFooter from './components/site/SiteFooter';
 import WhatsAppButton from './components/WhatsAppButton';
 // SmokeCursor (WebGL fluid cursor trail) is intentionally not mounted: it was
 // measured on production as the cause of 100% of main-thread long tasks
@@ -89,7 +89,7 @@ export default function App() {
           <OrganizationSchema />
           <div>
             <SiteChrome>
-              <Navbar />
+              <SiteHeader />
             </SiteChrome>
             <Suspense fallback={<div className="min-h-screen bg-ink" />}>
               <Routes>
@@ -115,7 +115,7 @@ export default function App() {
               </Routes>
             </Suspense>
             <SiteChrome>
-              <Footer />
+              <SiteFooter />
               <WhatsAppButton />
             </SiteChrome>
           </div>

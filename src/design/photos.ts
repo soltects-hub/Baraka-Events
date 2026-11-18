@@ -38,6 +38,8 @@ export const photos = {
   bachelorette: g('celebration-6', 'Bachelorette party backdrop with a sequin wall, neon sign, pink and silver balloons and copper tables', 1200, 1038, ['Birthdays']),
   baraatLounge: g('wedding-13', 'Baraat lounge seating on a patterned carpet facing a stage of hanging chandeliers and greenery between red drapes', 1200, 560, ['Weddings', 'Baraat']),
   baraatCanopy: g('wedding-9', 'Baraat lounge under a fairy-light canopy with crystal chandeliers, red velvet drapes and candlelit cabinets', 1200, 560, ['Weddings', 'Baraat']),
+  corporateStage: g('corporate-4', 'Corporate celebration stage with a large LED screen, truss lighting and red balloon decor', 1200, 540, ['Corporate']),
+  birthdayWall: g('celebration-4', 'Birthday backdrop of a white flower wall with a Happy Birthday neon sign and pink balloons', 960, 1200, ['Birthdays']),
   cateringCounter: g('detail-1', 'Catering counter with stacked colourful bowls on gold stands and hammered steel serving dishes', 675, 1200, ['Event Details'], false),
   founder: {
     src: '/media/team-bilal.webp',
