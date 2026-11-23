@@ -44,7 +44,7 @@ Every box must be ticked before a piece goes to the owner for approval. Any ❌ 
 
 ## F. Technical (after implementation on a branch)
 
-- [ ] `npm run lint`, `npm run build`, `npm run seo:verify-sitemap`, `npm run seo:qa` pass
+- [ ] `npm run lint`, `npm run build` and `npm run seo:verify-sitemap` pass (`seo:qa` applies only to automation-generated proposals)
 - [ ] Prerendered HTML has the correct title, description, canonical and H1
 - [ ] Preview checked on phone and desktop. Layout and design unchanged.
 - [ ] SEO parity vs `main`: only the intended page differs

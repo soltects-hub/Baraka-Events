@@ -1,5 +1,7 @@
 # 17 · Prioritised action plan
 
+> Ordering note: [doc 19](19-search-console-action-plan.md) re-ranks the website work strictly by Search Console data, and [doc 20](20-seo-only-implementation-plan.md) replaces C3's outline with the detailed SEO-only plan.
+
 Who: **Owner** = Baraka Events. **Claude** = prepares on a separate branch or in documents, preview only, never merges or deploys. Every Claude item needs approval first.
 
 ## 🔴 Critical

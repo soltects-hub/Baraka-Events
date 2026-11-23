@@ -1,6 +1,6 @@
 # Baraka Events — SEO Growth Operating System
 
-Created 23 November 2026. Planning documents only: nothing in this folder changes the website, DNS, Business Profile, analytics, Ads or tracking.
+Created 23 November 2026. Verified and extended the same day (docs 18–20, first draft). Planning documents only: nothing in this folder changes the website, DNS, Business Profile, analytics, Ads or tracking.
 
 ## How to use this folder
 
@@ -23,6 +23,10 @@ Created 23 November 2026. Planning documents only: nothing in this folder change
 | 15 | [Competitor analysis framework](15-competitor-analysis-framework.md) | Who we compete with and how we track them |
 | 16 | [Weekly KPI report template](16-weekly-kpi-report-template.md) | The weekly report format |
 | 17 | [Prioritised action plan](17-prioritised-action-plan.md) | Critical / High / Medium / Low with owners and approvals |
+| 18 | [Existing SEO work summary](18-existing-seo-work-summary.md) | Completed and live vs built-not-live vs recommendation only |
+| 19 | [Search Console action plan](19-search-console-action-plan.md) | Priorities and refresh queue driven only by Search Console data |
+| 20 | [SEO-only implementation plan](20-seo-only-implementation-plan.md) | How to release the SEO work without redesign, form, WhatsApp, tracking or DNS changes |
+| — | [Drafts](drafts/) | Content drafts awaiting owner review (never published from here) |
 | — | [Evidence, 23 Nov 2026](evidence/2026-11-23-evidence.md) | The raw measurements behind every claim |
 
 ## Ground rules (apply to every document)

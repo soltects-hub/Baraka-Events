@@ -65,7 +65,7 @@ Use the Profile's exact name, address and phone everywhere:
 | Clutch (Pakistan event agencies) | B2B directory (corporate) | Not found | Medium |
 | Mustakbil company directory | Pakistan business directory | Not found | Medium |
 | Apple Business Connect (Apple Maps) | Maps | Unknown | Medium |
-| Bing Places | Maps (feeds some AI assistants) | Unknown | Medium |
+| Bing Places | Maps (Bing's index is also used by some AI search products) | Unknown | Medium |
 | Venue partner pages | Earned | Ask venues you genuinely work with to list Baraka as a planner/decorator | High value, slow |
 
 Avoid paid link directories, blog networks and "guest post" sellers.
