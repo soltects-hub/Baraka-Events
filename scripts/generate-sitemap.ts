@@ -57,7 +57,7 @@ const rankingPassLastmod = '2026-10-12';
 const corporatePassLastmod = '2026-10-16';
 // 2026-10-20: owner-approved photo swaps. The homepage (Weddings panel photo, birthday card and archive ring) and /portfolio (birthday card, whose
 // unverified guest count, venue, year and programme details were removed) changed visibly. UTC date of the content commit, never a predicted one.
-const photoPassLastmod = '2026-10-20';
+// (The homepage's lastmod has since moved to sprint1Lastmod, so this date is no longer used by any route.)
 // 2026-10-20: unsupported in-house / own-team staffing and equipment claims were reworded to what Baraka designs, plans and manages. Pages whose visible
 // text changed: /team, /experiences and /services/event-decoration (the homepage already moved with the photo pass; the two guides carry updatedISO).
 const claimsPassLastmod = '2026-10-20';
@@ -73,16 +73,19 @@ const functionPassLastmod = '2026-10-25';
 // 2026-11-02: /about gained the "at a glance" fact sheet (services, address, founder, hours, how to enquire). UTC date of the
 // content commit, never a predicted one. The homepage heading spacing and two title tags are not content changes.
 const aboutPassLastmod = '2026-11-02';
+// 2026-11-24 SEO sprint 1: owner-confirmed booking wording (homepage FAQ, /services and five service pages),
+// wedding-planning H1, answer-first intro and owner facts. Posts carry their own updatedISO.
+const sprint1Lastmod = '2026-11-24';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'event-management': rankingPassLastmod,
-  'corporate-events': corporatePassLastmod,
-  'wedding-planning': seoPassLastmod,
-  'mehndi-events': functionPassLastmod,
-  'event-decoration': seoPassLastmod,
+  'corporate-events': sprint1Lastmod,
+  'wedding-planning': sprint1Lastmod,
+  'mehndi-events': sprint1Lastmod,
+  'event-decoration': sprint1Lastmod,
   'birthday-events': functionPassLastmod,
   'nikkah-events': functionPassLastmod,
   'barat-events': functionPassLastmod,
-  'walima-events': functionPassLastmod,
+  'walima-events': sprint1Lastmod,
   'engagement-events': functionPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
@@ -102,7 +105,7 @@ const EDITED_SERVICE_SLUGS = new Set([
 ]);
 
 const staticRoutes: SitemapUrl[] = [
-  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: photoPassLastmod },
+  { path: routes.home, changefreq: 'weekly', priority: '1.0', lastmod: sprint1Lastmod },
   { path: routes.experiences, changefreq: 'weekly', priority: '0.9', lastmod: claimsPassLastmod },
   { path: routes.about, changefreq: 'monthly', priority: '0.8', lastmod: aboutPassLastmod },
   { path: routes.portfolio, changefreq: 'weekly', priority: '0.8', lastmod: seoPassLastmod },
@@ -110,7 +113,7 @@ const staticRoutes: SitemapUrl[] = [
   { path: routes.team, changefreq: 'monthly', priority: '0.6', lastmod: seoPassLastmod },
   { path: routes.contact, changefreq: 'monthly', priority: '0.8', lastmod: seoPassLastmod },
   { path: routes.blog, changefreq: 'weekly', priority: '0.8', lastmod: corporatePassLastmod },
-  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: corporatePassLastmod },
+  { path: routes.services, changefreq: 'weekly', priority: '0.9', lastmod: sprint1Lastmod },
   // /venues and /vendors are deliberately left out while they carry no real
   // listings (both index pages are `noindex` until Phase 2 — see
   // VenuesIndexPage.tsx / VendorsIndexPage.tsx). A sitemap entry for a

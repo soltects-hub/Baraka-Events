@@ -2,6 +2,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/blog/top-wedding-decoration-trends-in-lahore-for-2026",
+      "destination": "/blog/viral-pakistani-wedding-trends-2026",
+      "statusCode": 301
+    },
+    {
       "source": "/wedding-planner",
       "destination": "/services/wedding-planning",
       "statusCode": 301

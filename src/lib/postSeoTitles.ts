@@ -14,7 +14,7 @@
 export const postSeoTitles: Record<string, string> = {
   'how-to-choose-wedding-planner-lahore': 'How to Choose a Wedding Planner in Lahore | Baraka Events',
   'birthday-party-planning-lahore-guide': 'Birthday Party Planning in Lahore | Baraka Events',
-  'event-planning-cost-budget-lahore': 'What Event Planning in Lahore Costs | Baraka Events',
+  'event-planning-cost-budget-lahore': 'Event Planner Charges & Costs in Lahore | Baraka Events',
   'outdoor-garden-wedding-lahore-guide': 'Outdoor Weddings in Lahore: Month and Setup | Baraka Events',
   'rukhsati-ceremony-planning-lahore': 'Rukhsati Ceremony Planning in Lahore | Baraka Events',
   'destination-multi-day-shaadi-lahore': 'Destination & Multi-Day Shaadi Planning | Baraka Events',
