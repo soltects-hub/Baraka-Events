@@ -1,0 +1,20 @@
+date,version,category,score,coverage_pct,status,evidence,note
+2026-11-24,v1-subjective,SEO,34,,superseded,baseline/SEO-AEO-GEO-LLMO-baseline-audit.md §5,Subjective; replaced by v2
+2026-11-24,v1-subjective,Local SEO,38,,superseded,baseline audit §5,Subjective
+2026-11-24,v1-subjective,AEO,52,,superseded,baseline audit §5,Subjective
+2026-11-24,v1-subjective,GEO,30,,superseded,baseline audit §5,Subjective
+2026-11-24,v1-subjective,LLMO,40,,superseded,baseline audit §5,Subjective
+2026-11-24,v1-subjective,Technical SEO,66,,superseded,baseline audit §5,Subjective
+2026-11-24,v1-subjective,Content authority,42,,superseded,baseline audit §5,Subjective
+2026-11-24,v1-subjective,Brand trust,28,,superseded,baseline audit §5,Subjective
+2026-11-24,v2,SEO,29,100,live,scoring-framework.md §1,GSC 24 Oct-20 Nov
+2026-11-24,v2,Local SEO,35,100,live,scoring-framework.md §2,Maps 18 Nov; reviews via ChatGPT 24 Nov
+2026-11-24,v2,AEO,49,85,live,scoring-framework.md §3,Snippets/PAA unmeasured
+2026-11-24,v2,GEO,30,100,live,scoring-framework.md §4,4 AI platforms untested
+2026-11-24,v2,LLMO,44,100,live,scoring-framework.md §5,
+2026-11-24,v2,Technical SEO,69,100,live,scoring-framework.md §6,
+2026-11-24,v2,Content authority,50,100,live,scoring-framework.md §7,
+2026-11-24,v2,Brand trust,21,100,live,scoring-framework.md §8,
+2026-11-24,v2-pending,AEO,70,85,pending (branch seo/sprint-1-2026-11-24 not deployed),sprints/sprint-1-2026-11-24.md,A1 5.8->7.1; A2 1.4->3.2; A3 4->10. Counts only after deploy + re-crawl
+2026-11-24,v2-pending,Technical SEO,73,100,pending (branch not deployed),sprints/sprint-1-2026-11-24.md,T2 4->6 (404 redirect); apex still failing
+2026-11-24,v2-pending,Content authority,55,100,pending (branch not deployed),sprints/sprint-1-2026-11-24.md,C6 5->10 (booking wording consistent)
