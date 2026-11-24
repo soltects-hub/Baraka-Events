@@ -1,55 +1,80 @@
-# Google review system (ready to use)
+# Google review system — ready to use after every event
 
-Why: ChatGPT ranks Lahore planners by "ratings, review counts and service information" (captured 24 Nov). Baraka has 5.0 from **40 reviews**; the listed competitors have 63–199. Review volume is the single measured lever for both Maps and ChatGPT ordering.
+**Why:** on 24 Nov, ChatGPT listed Lahore planners "shortlisted using available business ratings, review counts and service information". Baraka was last: 5.0 from **40 reviews**, against 63–199 for the others. Reviews are the measured lever for both Google Maps and ChatGPT ordering.
 
-**Rules (never break them):** genuine clients only · ask everyone, not only happy clients · no discounts or gifts for reviews · never write or edit a review for a client · no reviews from staff or family · never ask for specific wording or keywords.
+**Rules, always:**
+- genuine clients only;
+- ask every client, not just the happy ones;
+- no discounts, gifts or favours for reviews;
+- never write, edit or suggest wording;
+- no reviews from staff, friends or family;
+- never post reviews from the business's own devices.
 
-## 1. Get the review link (one time, owner)
+## 1. One-time setup (owner, 10 minutes)
 
-Google Business Profile → **Ask for reviews** → copy the short link. Save it as a WhatsApp quick reply (WhatsApp Business → Settings → Business tools → Quick replies → shortcut `/review`).
+1. Google Business Profile → **Ask for reviews** → copy the short link.
+2. WhatsApp Business → Settings → Business tools → **Quick replies**. Add `/review` (Message A English), `/reviewur` (Roman Urdu) and `/review2` (follow-up).
+3. Open the tracker sheet ([review-tracker.csv](review-tracker.csv)) in Google Sheets.
 
-## 2. Workflow after every completed event
+## 2. After every event: the workflow
 
-| When | Who | Action |
-|---|---|---|
-| Day of event | Event lead | Note the client contact who made decisions (they write the most detailed reviews) |
-| Day 2–3 after the event | Owner / client lead | Send **Message A** (personal, from the number the client knows) |
-| Day 7, if no review | Same person | Send **Message B** (once only, never a third time) |
-| When a review appears | Owner | Reply within 48 hours using §4 |
-| Every Monday | Owner | Update the tracker (§5) |
+| Day | Who | Action | Time |
+|---|---|---|---|
+| Event day | Event lead | Write the decision-maker's name and number in the tracker | 1 min |
+| Day 2–3 | Owner or client lead | Send **Message A** (English or Roman Urdu) from the number the client already knows | 1 min |
+| Day 7 | Same person | If no review yet, send the **follow-up**. Once only. | 1 min |
+| When a review appears | Owner | Reply within 48 hours (library below) | 3 min |
+| Every Monday | Owner | Update the tracker and note the total review count | 5 min |
 
-## 3. WhatsApp messages (personalise the brackets)
+**Past clients:** send Message A once to genuine clients from the last 12 months who were never asked.
 
-**Message A — English**
-> Assalam-o-Alaikum [Name], thank you for trusting us with [event, e.g. Ayesha's walima]. It was an honour to be part of it. If you have a minute, a short Google review about your experience would really help other families find us: [review link]. JazakAllah, [your name], Baraka Events
+## 3. Messages
 
-**Message A — Roman Urdu**
-> Assalam-o-Alaikum [Name], [event] mein humein shamil karne ka bohat shukriya. Agar aap ke paas ek minute ho to Google par apna tajurba likh dein, is se doosri families ko humein dhoondne mein madad milti hai: [review link]. JazakAllah, [aap ka naam], Baraka Events
+**Message A — English (natural, short)**
+> Assalam-o-Alaikum [Name]! Thank you for letting us be part of [the walima / your event]. We hope everyone had a wonderful time. If you have a minute, would you share a short Google review of your experience? It really helps other families find us: [review link]. JazakAllah — [Your name], Baraka Events
 
-**Message B — follow-up (once, day 7)**
-> Assalam-o-Alaikum [Name], just a gentle reminder in case the last message got buried. Here is the review link if you'd like to share your experience: [review link]. No pressure at all. Thank you again!
+**Message A — Roman Urdu (warm)**
+> Assalam-o-Alaikum [Name]! [Walima / aap ki event] mein humein shamil karne ka bohat shukriya, umeed hai sab ko bohat acha laga hoga. Agar aap ke paas ek minute ho to Google par apna tajurba zaroor likhiye, is se doosri families ko humein dhoondne mein bohat madad milti hai: [review link]. JazakAllah — [Aap ka naam], Baraka Events
 
-**Tip for richer reviews (allowed):** You can suggest *what* to mention, but never the wording:
-> If it helps, you could mention which function we handled and what stood out for you.
+**Follow-up (day 7, once only)**
+> Assalam-o-Alaikum [Name], just a gentle reminder in case my last message got lost in the wedding chats 😊 Here's the link if you'd like to share your experience: [review link]. No pressure at all. Thank you again for trusting us!
 
-## 4. Reply templates (reply to every review; vary the wording)
+**Allowed tip (if a client asks what to write):**
+> Whatever you honestly felt. If it helps, you could mention which function we handled and what stood out for you.
 
-**5-star**
-> Thank you, [Name]! Planning [function] for your family was a privilege. We're so glad [specific detail they mentioned] came together the way you imagined. Wishing you both every happiness. — Team Baraka
+## 4. Review-response library (vary the wording; never copy-paste the same reply)
 
-**4-star / mixed**
-> Thank you for the honest feedback, [Name]. We're glad [positive point] worked well, and we've taken your note about [issue] to the team so it's better next time. Please call us on 0313 9999039 if you'd like to talk it through.
+**5★, detailed**
+> Thank you so much, [Name]! Planning [the mehndi / your walima] was a privilege, and we're so happy [the detail they mentioned] came together the way you imagined. Wishing you both a lifetime of happiness. — Team Baraka
 
-**Negative**
-> [Name], we're sorry your experience fell short. We'd like to understand what happened and put it right. Please call us on 0313 9999039 or reply here with a good time to talk. — [Owner name], Baraka Events
+**5★, short**
+> JazakAllah, [Name]! It was a pleasure working with your family. We'd love to be part of your next celebration. — Team Baraka
 
-Never argue, never share private details, never offer anything in exchange for changing a review.
+**5★, corporate**
+> Thank you, [Name], and the [company] team. It was great working with you on [the conference / annual dinner]. We'd be glad to support your next event. — Baraka Events
 
-## 5. Tracker (keep in a sheet)
+**4★, mixed**
+> Thank you for the honest feedback, [Name]. We're glad [positive point] went well, and we've shared your note about [issue] with the team so we do better next time. If you'd like to talk it through, please call us on +92 313 9999039.
 
-| Event date | Client | Function | Msg A sent | Msg B sent | Review received (Y/N, date) | Rating | Replied (date) |
-|---|---|---|---|---|---|---|---|
+**1–3★, negative**
+> [Name], we're sorry your experience fell short of what you expected. We'd like to understand what happened and put it right. Please call us on +92 313 9999039 or reply here with a good time to talk. — [Owner name], Baraka Events
 
-**Weekly KPI:** total reviews (start: 40 on 24 Nov), new this week, average rating, reply rate. Re-check the ChatGPT "best event planners in Lahore" position monthly (method: `baseline/ai-visibility-tests.md`).
+**Review that doesn't match any client**
+> We can't find a booking under this name. Could you contact us on +92 313 9999039 so we can look into it?
 
-**Past clients:** it's legitimate to send Message A once to genuine clients from the last 12 months who were never asked.
+*(Then flag it in Google if it's clearly not a real customer. Never argue publicly.)*
+
+**Never:**
+- argue or mention private details;
+- offer anything in exchange for changing a review;
+- reply with copy-pasted text.
+
+## 5. KPIs (weekly)
+
+- Total reviews (baseline **40** on 24 Nov 2026)
+- New reviews this week
+- Ask-to-review conversion (reviews ÷ requests sent)
+- Average rating
+- Reply rate (target 100% within 48 hours)
+
+Monthly: re-test ChatGPT "Best event planners in Lahore" with the same method (`../sprint-2/6-ai-visibility-tracker.csv`).

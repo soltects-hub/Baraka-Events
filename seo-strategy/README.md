@@ -30,6 +30,7 @@ Created 23 November 2026. Verified and extended the same day (docs 18–20, firs
 | — | [Scoring framework v2](scoring/scoring-framework.md) | Evidence-based weighted scores; [history](scoring/score-history.csv) |
 | — | [Sprint 1 report (24 Nov)](sprints/sprint-1-2026-11-24.md) | Work completed on branch `seo/sprint-1-2026-11-24`, with before/after |
 | — | [Review system](execution/review-system.md) · [Listing pack](execution/local-authority-listings.md) | Ready-to-use templates for reviews and directory listings |
+| — | **Sprint 2 (24 Nov)**: [directories](sprint-2/1-directory-listings.md) · [outreach](sprint-2/3-authority-outreach.md) · [case studies](sprint-2/4-case-studies.md) · [GBP package](sprint-2/5-gbp-package.md) · [AI tracker](sprint-2/6-ai-visibility-tracker.csv) ([method](sprint-2/6-ai-visibility-method.md)) · [summary](sprint-2/7-summary.md) | Ready-to-use local authority, review and AI-visibility assets |
 | — | [Drafts](drafts/) | Content drafts awaiting owner review (never published from here) |
 | — | [Evidence, 23 Nov 2026](evidence/2026-11-23-evidence.md) | The raw measurements behind every claim |
 

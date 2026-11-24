@@ -18,3 +18,6 @@ date,version,category,score,coverage_pct,status,evidence,note
 2026-11-24,v2-pending,AEO,70,85,pending (branch seo/sprint-1-2026-11-24 not deployed),sprints/sprint-1-2026-11-24.md,A1 5.8->7.1; A2 1.4->3.2; A3 4->10. Counts only after deploy + re-crawl
 2026-11-24,v2-pending,Technical SEO,73,100,pending (branch not deployed),sprints/sprint-1-2026-11-24.md,T2 4->6 (404 redirect); apex still failing
 2026-11-24,v2-pending,Content authority,55,100,pending (branch not deployed),sprints/sprint-1-2026-11-24.md,C6 5->10 (booking wording consistent)
+2026-11-24,v2-recheck,GEO,30,100,live,sprint-2/6-ai-visibility-tracker.csv,"Re-verified: G2 sample widened from 6 to 20 Claude web-search queries, still 0/20 -> sub-score unchanged (0). ChatGPT Q4-Q9 untested (login wall). No change."
+2026-11-24,v2-recheck,Local SEO,35,100,live,sprint-2/1-directory-listings.md,"No listing submitted yet (owner approval pending) -> L5 stays 0/8. Wezoree verified as paid/global; target set unchanged otherwise. No change."
+2026-11-24,v2-recheck,Brand trust,21,100,live,sprint-2/3-authority-outreach.md,"Outreach drafted, none sent -> B3/B4 unchanged. No change."
