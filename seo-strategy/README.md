@@ -26,6 +26,7 @@ Created 23 November 2026. Verified and extended the same day (docs 18–20, firs
 | 18 | [Existing SEO work summary](18-existing-seo-work-summary.md) | Completed and live vs built-not-live vs recommendation only |
 | 19 | [Search Console action plan](19-search-console-action-plan.md) | Priorities and refresh queue driven only by Search Console data |
 | 20 | [SEO-only implementation plan](20-seo-only-implementation-plan.md) | How to release the SEO work without redesign, form, WhatsApp, tracking or DNS changes |
+| — | [Baseline audit (24 Nov)](baseline/SEO-AEO-GEO-LLMO-baseline-audit.md) | SEO/AEO/GEO/LLMO baseline, scorecard; plus [competitors](baseline/competitor-benchmark.md), [AI tests](baseline/ai-visibility-tests.md), [roadmap](baseline/opportunity-roadmap.md) |
 | — | [Drafts](drafts/) | Content drafts awaiting owner review (never published from here) |
 | — | [Evidence, 23 Nov 2026](evidence/2026-11-23-evidence.md) | The raw measurements behind every claim |
 

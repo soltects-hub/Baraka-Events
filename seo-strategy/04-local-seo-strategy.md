@@ -41,7 +41,7 @@ Method limit: this is a data-centre view with no searcher location, so Google ra
 - **Not website quality.** Moments & Memories and Lamhey have no website. Lajpal's homepage has 139 words. All outrank Baraka.
 - **Not location.** Tulips, a2z, Lajpal and Peony are in Gulberg like Baraka.
 - **Category alignment matters.** Wedding-planner-category listings rank higher for "wedding planner lahore". Baraka ranks best on the term matching its own category.
-- **Likely review volume and recency** (unmeasured: counts are hidden in the public view). Ratings are similar everywhere (4.6–5.0).
+- **Review volume** (measured 24 Nov via ChatGPT's map data): Baraka 40 vs Tulips 199, a2z 173, Black Tie 195, HJ 70, H&K 65. ChatGPT states it ranks by ratings and review counts. Ratings are similar everywhere (4.6–5.0).
 - **Keyword-stuffed names** ("Event Planner Lahore", "Best Party Planner in Lahore", "Best Event Planner", "Kids Birthday Planner") break Google's guidelines but currently rank. Reporting clear violations through "Suggest an edit" or the Business Redressal Complaint form is legitimate. Claude prepares a shortlist with evidence, and the owner decides.
 
 ## 4.4 Genuine review programme

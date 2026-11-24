@@ -1,5 +1,7 @@
 # 14 · Internal linking strategy
 
+> **Correction (baseline audit, 24 Nov):** a crawl of `<main>` content shows the service pages already receive 10–33 contextual internal links each, with descriptive anchors. Internal links remain good practice, but they are **not** the primary lever. External authority is (see `baseline/SEO-AEO-GEO-LLMO-baseline-audit.md` §1.3).
+
 ## 14.1 Why it's the highest-leverage on-site fix
 
 Search Console shows Google ranks the **homepage** for service-level queries while the service pages sit 40–80 positions lower (doc 06 §6.4). Internal links with descriptive anchors are the clearest on-site signal of which page owns which topic. They need no design change: they're links inside existing body text and content data.

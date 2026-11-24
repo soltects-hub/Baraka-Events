@@ -4,7 +4,7 @@
 
 | Business | Maps category | Rating | Area | Website | Sitemap URLs | Business schema | Home words | Maps rank: event planner / wedding planner / event mgmt co. |
 |---|---|--:|---|---|--:|---|--:|---|
-| Tulips Events | Wedding planner | 4.8 | Gulberg III | tulipsevents.com | 6 | Organization | 1,546 | 1 / 1 / 3 |
+| Tulips Events | Wedding planner | 4.8 | Gulberg III | tulipsevents.com | 439 (corrected 24 Nov; was miscounted as 6) | Organization | 1,546 | 1 / 1 / 3 |
 | a2z Events Solutions | Event management co. | 4.6 | Gulberg | a2zeventssolutionz.com | 9 | Organization | 1,512 | 2 / 2 / 1 |
 | Lajpal Events | Event management co. | 4.7 | Gulberg III | lajpalevents.com | 4 | none | 139 | 5 / 13 / 4 |
 | Moments & Memories | Event planner | 4.9 | Cantt | none | — | — | — | 6 / 5 / — |
@@ -15,7 +15,7 @@
 | Black Tie Events & Caters | Event management co. | 4.9 | Iqbal Avenue | blacktieeventsandcaters.com | 0 | none | 1,094 | 7 / — / 17 |
 | **Baraka Events** | Event management co. | 5.0 | Gulberg III | barakaevents.com | 53 | LocalBusiness, Service, FAQ | 2,775 | 17 / 19 / 10 |
 
-Review counts aren't visible in Google's public limited view for any listing. Capture them manually while signed in.
+Review counts aren't visible in Google's public limited view. As shown by ChatGPT on 24 Nov: Tulips 199, a2z 173, Black Tie 195, HJ 70, Baraka 40. See `baseline/competitor-benchmark.md`.
 
 ## 15.2 What we track (monthly)
 
