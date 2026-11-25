@@ -18,6 +18,7 @@ Updated: 25 Nov 2026. Status: ✅ done · 🔄 in progress · ⏳ waiting on own
 | O10 | Reconfirm **menu prices** Rs. 2,200–6,700 per person | Used in the cost guide, walima FAQ, listings | ⏳ |
 | O11 | Apply the **Business Profile package** | Category, services, description, photos, posts | 📋 `sprint-2/5-gbp-package.md` |
 | O12 | **Connect Gmail** (if email reports are wanted) and re-authorise **Vercel** | Weekly email; preview testing | ⏳ |
+| O14 | In claude.ai → Routines, attach the **repo (push)** and the **AdvisorPPC connector** to "Baraka Events Daily Growth Routine" | Both test firings failed without them; the routine cannot save work | ⏳ blocks the automation |
 | O13 | Manual AI tests from Lahore: Gemini, Perplexity, AI Overviews | Untestable from the cloud | ⏳ `sprint-2/6-ai-visibility-method.md` |
 
 ## Prepared on working branches (not live)
