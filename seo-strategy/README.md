@@ -2,6 +2,10 @@
 
 Created 23 November 2026. Verified and extended the same day (docs 18–20, first draft). Planning documents only: nothing in this folder changes the website, DNS, Business Profile, analytics, Ads or tracking.
 
+## Operating system (daily routine)
+
+Start at [ops/README.md](ops/README.md): daily log, task board, weekly reports and the scheduled routine.
+
 ## How to use this folder
 
 | # | Document | Use it for |

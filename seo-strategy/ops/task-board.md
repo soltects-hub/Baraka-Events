@@ -1,0 +1,35 @@
+# Task board
+
+Updated: 25 Nov 2026. Status: ✅ done · 🔄 in progress · ⏳ waiting on owner · 🟠 blocked · 📋 ready for approval
+
+## Waiting on the owner
+
+| # | Item | Why it matters | Status |
+|---|---|---|---|
+| O1 | Confirm true **business hours** | Blocks every directory listing and the Profile fix; conflicts today | ⏳ |
+| O2 | Start the **review routine** (`execution/review-system.md`) | ChatGPT ranks by review count; Baraka 40 vs 63–199 | ⏳ |
+| O3 | Add **Search Console TXT** record, then Verify | Business ownership of Search Console | ⏳ |
+| O4 | **Fix the bare domain** (Vercel + 2 A records) | Stale old-site pages in AI indexes; broken apex links | ⏳ |
+| O5 | Review and **approve the Sprint 1 branch** for release | Cost guide + wedding page + booking wording + 404 fix | 📋 `seo/sprint-1-2026-11-24` |
+| O6 | Review the **AEO branch** (builds on Sprint 1) | 8 service pages: H1s, answer-first intros, owner FAQs | 📋 `seo/aeo-2026-11-25` |
+| O7 | Approve **directory listings** (Shadiyana Décor + Catering, Bing, Apple, Clutch) | Citations AI already reads | 📋 `sprint-2/1-directory-listings.md` |
+| O8 | Approve **outreach** #1–#10, one at a time | Third-party mentions | 📋 `sprint-2/3-authority-outreach.md` |
+| O9 | Answer the **7 case-study questions** (mehndi set) | Proof content | ⏳ `sprint-2/4-case-studies.md` |
+| O10 | Reconfirm **menu prices** Rs. 2,200–6,700 per person | Used in the cost guide, walima FAQ, listings | ⏳ |
+| O11 | Apply the **Business Profile package** | Category, services, description, photos, posts | 📋 `sprint-2/5-gbp-package.md` |
+| O12 | **Connect Gmail** (if email reports are wanted) and re-authorise **Vercel** | Weekly email; preview testing | ⏳ |
+| O13 | Manual AI tests from Lahore: Gemini, Perplexity, AI Overviews | Untestable from the cloud | ⏳ `sprint-2/6-ai-visibility-method.md` |
+
+## Prepared on working branches (not live)
+
+| Branch | Contents | Verified |
+|---|---|---|
+| `seo/sprint-1-2026-11-24` | Cost guide refresh · wedding page H1/intro/owner facts · booking wording in 15 places · 404 → 301 | lint, build, sitemap, SEO parity vs main, render check |
+| `seo/aeo-2026-11-25` (on top of Sprint 1) | 8 service pages: keyword H1s, answer-first intros, owner booking/catering FAQs, 2 unverifiable walima claims removed | lint, build (55 routes), sitemap, H1 render check, tracking guard |
+
+## Next for the routine
+
+- Thu 26 Nov (GEO): re-check the Shadiyana and Bing citation gap. Look for new third-party mentions of competitors.
+- Fri 27 Nov (LLMO): re-run Claude web search for Q01–Q20. Try logged-out ChatGPT Q04–Q06.
+- Sat 28 Nov (content): prepare the venues-article refresh (`/blog/top-wedding-venues-lahore-2025`; 66 impressions at position 30) on a working branch.
+- Sun 29 Nov: first weekly report.
