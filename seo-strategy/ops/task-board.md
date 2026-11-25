@@ -1,6 +1,6 @@
 # Task board
 
-Updated: 25 Nov 2026. Status: ✅ done · 🔄 in progress · ⏳ waiting on owner · 🟠 blocked · 📋 ready for approval
+Updated: 25 Nov 2026 (after the scheduler tests). Status: ✅ done · 🔄 in progress · ⏳ waiting on owner · 🟠 blocked · 📋 ready for approval
 
 ## Waiting on the owner
 
@@ -17,9 +17,11 @@ Updated: 25 Nov 2026. Status: ✅ done · 🔄 in progress · ⏳ waiting on own
 | O9 | Answer the **7 case-study questions** (mehndi set) | Proof content | ⏳ `sprint-2/4-case-studies.md` |
 | O10 | Reconfirm **menu prices** Rs. 2,200–6,700 per person | Used in the cost guide, walima FAQ, listings | ⏳ |
 | O11 | Apply the **Business Profile package** | Category, services, description, photos, posts | 📋 `sprint-2/5-gbp-package.md` |
-| O12 | **Connect Gmail** (if email reports are wanted) and re-authorise **Vercel** | Weekly email; preview testing | ⏳ |
-| O14 | In claude.ai → Routines, attach the **repo (push)** and the **AdvisorPPC connector** to "Baraka Events Daily Growth Routine" | Both test firings failed without them; the routine cannot save work | ⏳ blocks the automation |
+| O12 | Re-authorise **Vercel** (Gmail sending is optional now: the Sunday email notification carries the report) | Preview testing | ⏳ |
 | O13 | Manual AI tests from Lahore: Gemini, Perplexity, AI Overviews | Untestable from the cloud | ⏳ `sprint-2/6-ai-visibility-method.md` |
+| O14 | ~~Attach repo + connectors to the routine~~ | Solved 25 Nov: the routine now runs in a home session that has both (end-to-end test passed) | ✅ |
+| O15 | Check your inbox for the **TEST** weekly-report email sent 25 Nov (subject starts "TEST — Baraka Events") | Confirms the email path; nothing else can confirm delivery | ⏳ |
+| O16 | **Do not archive** the session "Baraka Events — Daily Growth Routine (home session)" | It holds the routine's repo and connector access | ℹ️ |
 
 ## Prepared on working branches (not live)
 

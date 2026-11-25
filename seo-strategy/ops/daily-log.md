@@ -55,3 +55,37 @@ Fired by the one-shot scheduled task "Baraka Events — scheduled E2E test" at 1
    - (d) ❌ ToolSearch "gmail": no Gmail send tool exists. Only monday.com integration helpers (connect widget, connection status) matched.
 3. ✅ This entry was committed on `automation/e2e-2026-11-25` and pushed.
 4. The commit was cherry-picked onto `claude/busy-tesla-7dnqam` and pushed. Hashes are reported in the push notification and the session reply.
+
+## 2026-11-25 — automation fixed and verified (interactive session)
+
+- **Scheduler test #3 (fresh session, after GitHub was reconnected): ❌.** `add_repo` reported "No such tool available". The push dry-run was refused (403, "not in this session's authorized repository set"). Conclusion: fresh-session scheduled tasks cannot get repo credentials or connectors.
+- **Fix:**
+  - Created the home session `session_01CuZiw22smVqG1onXUgyX67`, with this repo attached (push access) and AdvisorPPC.
+  - Created the daily task `trig_01PLPz1DgaFVcxiQsHP62ZMT` (`CRON_TZ=Asia/Karachi 58 8 * * *`, every day, next run 2026-11-26 03:58 UTC = 08:58 PKT), bound to that session.
+  - Disabled the old fresh-session task `trig_01DUP8Dx9kVCiVcr1FjWkyes`.
+- **Finding:** "Run now" on a session-bound task starts a new fresh session (test session `session_01CuZivx52PGy6EJiaNnF2UD`, which had no repo). Only timed firings reach the home session.
+- **End-to-end scheduled test ✅:** a one-shot task timed for 14:17 UTC, bound to the home session, did the following (entry above):
+  - repo sync ✅, instructions read ✅;
+  - Search Console report ✅ (31 clicks / 3,295 impressions / position 20.04, 26 Oct–22 Nov);
+  - GA4 via AdvisorPPC ✅; AdvisorPPC Search Console ⚠️ siteUnverifiedUser;
+  - WebSearch ✅; Gmail ❌;
+  - pushed `automation/e2e-2026-11-25` @ `0196f09` ✅ (remote = local), cherry-picked to the docs branch @ `b925b1f` ✅ (verified here with `git ls-remote`);
+  - push notification sent ✅ (receipt on the phone not verifiable from here).
+- **Email path:** created the Sunday task `trig_01EYLZiPimYdmKUQTja1rG2s` (10:47 PKT, fresh session, email + push notifications on; it clones the public repo read-only). A test firing (`cse_01CuZiw14TjqfzqP26GhNTTe`) produced an accurate "NOT AVAILABLE — no weekly report yet" summary. **Delivery to the inbox is unconfirmed** (owner item O15).
+- **AEO branch `seo/aeo-2026-11-25` @ `fa9801f` re-verified:**
+  - lint ✅, build ✅ (55 routes), sitemap ✅ (53 URLs);
+  - all 8 service H1s render; FAQPage present;
+  - diff vs Sprint 1 touches only `src/lib/services.ts`, `scripts/generate-sitemap.ts`, `public/sitemap.xml`;
+  - no tracking, WhatsApp or form lines.
+  - Not merged, not deployed.
+- **Files:**
+  - renamed `weekly-report-template.md` → `weekly-report.md` and `daily-routine-prompt.md` → `routine-instructions.md`;
+  - `routine-instructions.md` now has the home-session setup, failure handling and the Gmail/email rule;
+  - README access table, task board, `weekly-reports/README.md`.
+- **Blockers:**
+  - Gmail send tool: none (email goes via the notification instead);
+  - Search Console ownership TXT (O3);
+  - Vercel re-auth;
+  - Perplexity, Gemini and AI Overviews untestable;
+  - Business Profile no access.
+- **Next:** Thu 26 Nov 08:58 PKT, first real scheduled GEO run.

@@ -31,19 +31,32 @@ The daily routine reads this folder first and writes to it last.
 - **No fabrication:** no invented prices, claims, reviews, rankings or AI results. If a platform can't be tested, record "UNTESTED" and the reason.
 - **Scores move only on live, verified evidence.**
 
-## Access as of 25 Nov 2026
+## How the automation runs (verified 25 Nov 2026)
+
+| Scheduled task | When | Where it runs | Verified |
+|---|---|---|---|
+| **Baraka Events Daily Growth Routine** (`trig_01PLPz1DgaFVcxiQsHP62ZMT`) | Daily at 08:58 Asia/Karachi (`CRON_TZ=Asia/Karachi 58 8 * * *`) | Messages the home session "Baraka Events — Daily Growth Routine (home session)" (`session_01CuZiw22smVqG1onXUgyX67`), which has this repo with push access plus AdvisorPPC | ✅ A scheduled one-shot into that session synced the repo, read the instructions, read Search Console + GA4, searched the web, pushed `automation/e2e-2026-11-25` @ `0196f09` and the docs branch @ `b925b1f`, and sent a push notification |
+| **Weekly AI Growth Report email** (`trig_01EYLZiPimYdmKUQTja1rG2s`) | Sundays at 10:47 Asia/Karachi | A fresh session that clones the public repo (read-only) and replies with the week's report. The reply goes out as the task's email and push notification | See the daily log |
+| Old fresh-session routine (`trig_01DUP8Dx9kVCiVcr1FjWkyes`) | Disabled | A fresh session with no repo credentials | ❌ 3 tests: no `add_repo` tool, push refused (403) |
+
+**Platform limits found:**
+1. Scheduled tasks that start a fresh session get no repo credentials and no connectors from this tool. That's why the routine runs in a dedicated home session.
+2. "Run now" (a manual fire) of a session-bound task starts a separate fresh session. Only real timed firings reach the home session. To test, create a one-shot task bound to `session_01CuZiw22smVqG1onXUgyX67`.
+3. Do not archive or delete the home session, or the daily routine loses its repo access.
+
+## Access as of 25 Nov 2026 (tested inside the scheduled home session)
 
 | Capability | Status | How |
 |---|---|---|
-| Search Console | ✅ | Daily repo automation reports on `origin/seo-report/YYYY-MM-DD` (service account, Full user) |
-| GA4 (property 544826662) | ✅ interactive sessions · ❌ scheduled runs | AdvisorPPC connector. The scheduled task stores no connectors (the platform refused the connectors setting). The owner can add AdvisorPPC to the routine in claude.ai → Routines. |
-| Keyword Planner | ✅ interactive sessions · ❌ scheduled runs | AdvisorPPC (Ads account 9407463054), same limitation |
-| Repository and branches | ✅ | This repo; push to working and docs branches only |
-| Web research | ✅ | Web search, direct fetches, headless browser |
+| Repository read + push (docs, `seo/*`, `automation/*`) | ✅ | Home session source. Never push to main. |
+| Search Console data | ✅ | Daily repo automation reports on `origin/seo-report/YYYY-MM-DD` (service account, Full user) |
+| Search Console via AdvisorPPC | ⚠️ | Lists `sc-domain:barakaevents.com` as **siteUnverifiedUser**, so no data until the owner verifies (task O3) |
+| GA4 (property 544826662) | ✅ | AdvisorPPC `advisor_read` works in the home session |
+| Keyword Planner | ✅ connector present | AdvisorPPC (Ads account 9407463054) |
+| Web research | ✅ | WebSearch, direct fetches, headless browser |
+| Push notifications | ✅ | PushNotification from the home session |
 | ChatGPT (logged-out) | ⚠️ partial | About 3 queries per session before a login wall |
-| Claude web search | ✅ | 20-query baseline recorded |
 | Perplexity / Gemini / AI Overviews / Copilot | ❌ | Blocked or need sign-in. Owner tests manually. |
-| Google Business Profile | ❌ | No API access. The public Maps view only. |
-| Gmail | ❌ | **Not connected.** Weekly reports are saved here and delivered via the scheduled task's push notification. |
+| Google Business Profile | ❌ | No API access |
+| Gmail (sending mail) | ❌ | No Gmail tool in any session. The weekly report is emailed via the Sunday task's email notification instead. |
 | Vercel previews | ❌ | Connector sign-in refused. The owner needs to re-authorise. |
-| Owner's Search Console ownership | ❌ | TXT record not yet added |
