@@ -36,8 +36,8 @@ The daily routine reads this folder first and writes to it last.
 | Capability | Status | How |
 |---|---|---|
 | Search Console | ✅ | Daily repo automation reports on `origin/seo-report/YYYY-MM-DD` (service account, Full user) |
-| GA4 (property 544826662) | ✅ read-only | AdvisorPPC connector |
-| Keyword Planner | ✅ read-only | AdvisorPPC (Ads account 9407463054) |
+| GA4 (property 544826662) | ✅ interactive sessions · ❌ scheduled runs | AdvisorPPC connector. The scheduled task stores no connectors (the platform refused the connectors setting). The owner can add AdvisorPPC to the routine in claude.ai → Routines. |
+| Keyword Planner | ✅ interactive sessions · ❌ scheduled runs | AdvisorPPC (Ads account 9407463054), same limitation |
 | Repository and branches | ✅ | This repo; push to working and docs branches only |
 | Web research | ✅ | Web search, direct fetches, headless browser |
 | ChatGPT (logged-out) | ⚠️ partial | About 3 queries per session before a login wall |
