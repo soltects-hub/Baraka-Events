@@ -6,9 +6,9 @@ The daily routine reads this folder first and writes to it last.
 |---|---|
 | [daily-log.md](daily-log.md) | Append-only log: one entry per day (task, research, findings, actions, files, results, blockers, next) |
 | [task-board.md](task-board.md) | Current state of every open item: owner, status, approval needed |
-| [weekly-report-template.md](weekly-report-template.md) | Sunday executive report format |
+| [weekly-report.md](weekly-report.md) | Sunday executive report format |
 | [weekly-reports/](weekly-reports/) | One file per Sunday: `YYYY-MM-DD.md` |
-| [daily-routine-prompt.md](daily-routine-prompt.md) | The exact instruction the scheduled task runs each day |
+| [routine-instructions.md](routine-instructions.md) | The exact instruction the scheduled task runs each day |
 | `../sprint-2/6-ai-visibility-tracker.csv` | AI visibility history (append rows; never edit past rows) |
 | `../scoring/score-history.csv` | Score history (append rows; scores change only on verified evidence) |
 
