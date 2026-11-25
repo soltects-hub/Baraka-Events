@@ -49,7 +49,7 @@ const editedLastmod = '2026-09-09';
 // (related link), /services/mehndi-events (outdoor FAQ), /services/nikkah-events (booking-pattern claim removed from an FAQ), /contact (snippet + heading), /about and /experiences (scale wording),
 // and /blog (several titles and excerpts shown in the index changed). The posts carry their own updatedISO. UTC date of the last
 // content commit, never a predicted one; the venue entries and every page not listed here keep the date they had.
-const rankingPassLastmod = '2026-10-12';
+// (No route uses the 2026-10-12 ranking-pass date any more; /services/event-management moved to aeoLastmod.)
 // 2026-10-16: the corporate growth pass. /services/corporate-events (rewritten sections, FAQs and enquiry path), the /services hub (renders each
 // service intro, so the corporate intro moved it), /experiences (corporate section), /portfolio and the homepage (the two corporate cards and the
 // brands-strip caption), and /blog (two corporate post titles and excerpts shown in the index changed). The two corporate posts carry their own
@@ -76,16 +76,18 @@ const aboutPassLastmod = '2026-11-02';
 // 2026-11-24 SEO sprint 1: owner-confirmed booking wording (homepage FAQ, /services and five service pages),
 // wedding-planning H1, answer-first intro and owner facts. Posts carry their own updatedISO.
 const sprint1Lastmod = '2026-11-24';
+// 2026-11-25 AEO pass: owner-confirmed keyword H1s, answer-first intros and booking/catering FAQs on eight service pages.
+const aeoLastmod = '2026-11-25';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
-  'event-management': rankingPassLastmod,
-  'corporate-events': sprint1Lastmod,
+  'event-management': aeoLastmod,
+  'corporate-events': aeoLastmod,
   'wedding-planning': sprint1Lastmod,
-  'mehndi-events': sprint1Lastmod,
-  'event-decoration': sprint1Lastmod,
-  'birthday-events': functionPassLastmod,
-  'nikkah-events': functionPassLastmod,
-  'barat-events': functionPassLastmod,
-  'walima-events': sprint1Lastmod,
+  'mehndi-events': aeoLastmod,
+  'event-decoration': aeoLastmod,
+  'birthday-events': aeoLastmod,
+  'nikkah-events': aeoLastmod,
+  'barat-events': aeoLastmod,
+  'walima-events': aeoLastmod,
   'engagement-events': functionPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
