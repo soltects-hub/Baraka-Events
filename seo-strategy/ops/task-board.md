@@ -22,10 +22,10 @@ Updated: 25 Nov 2026 (after the scheduler tests). Status: ✅ done · 🔄 in pr
 | O14 | ~~Attach repo + connectors to the routine~~ | Solved 25 Nov: the routine now runs in a home session that has both (end-to-end test passed) | ✅ |
 | O15 | Check your inbox for the **TEST** weekly-report email sent 25 Nov (subject starts "TEST — Baraka Events") | Confirms the email path; nothing else can confirm delivery | ⏳ |
 | O16 | **Do not archive** the session "Baraka Events — Daily Growth Routine (home session)" | It holds the routine's repo and connector access | ℹ️ |
-
 | O17 | Approve the **catering page** release candidate (PR #90: Sprint 1 + AEO + `/services/catering-services`) and confirm the menu prices (O10) | "catering services lahore": 1,000 searches/mo, 0 impressions today | 📋 draft PR #90 (Vercel preview needs your Vercel login) |
 | O18 | **Tracking decision (needs approval):** send the WhatsApp button and tel: clicks to GA4 as events, not only to Google Ads | GA4 sees WhatsApp only through generic outbound clicks; calls are not measured at all | 📋 proposal only, nothing changed |
 | O19 | **GA4 bot traffic:** about 97% of recorded sessions are bot-pattern "Direct" (worldwide, no engagement). Consider a GA4 data filter or Vercel bot protection | Inflated traffic hides real performance; reports exclude Direct for now | 📋 owner decision |
+
 ## Prepared on working branches (not live)
 
 | Branch | Contents | Verified |
