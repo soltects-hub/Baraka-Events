@@ -79,7 +79,7 @@ const SERVICES_FAQS = [
   },
   {
     q: 'How far in advance should we book?',
-    a: 'Nine to twelve months gives you the first choice of venues and dates. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
+    a: 'It depends on the type of event, your date and availability. Peak wedding season in Lahore compresses everything, and the best marquees and farmhouses go first. We do take shorter timelines, but the shortlist gets narrower the closer you are to the date.',
   },
   {
     q: 'Do you handle the venue booking, or do we?',

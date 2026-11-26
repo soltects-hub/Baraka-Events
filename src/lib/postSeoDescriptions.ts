@@ -5,6 +5,8 @@
  * use these. A post missing from this map uses its excerpt.
  */
 export const postSeoDescriptions: Record<string, string> = {
+  'event-planning-cost-budget-lahore':
+    'What event planners and event management companies in Lahore charge for, what sits inside a quote, and how to compare two quotes line by line before you book.',
   'viral-pakistani-wedding-trends-2026':
     'The shaadi trends spreading across Pakistani Instagram and TikTok in 2026, from drone reveal shots to AI-designed invitation films, and which are worth doing.',
   'destination-style-shaadi-lahore-trend':

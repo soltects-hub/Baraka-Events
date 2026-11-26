@@ -17,7 +17,7 @@ export interface Faq {
 export const faqs: Faq[] = [
   {
     q: 'How early should I book a wedding planner in Lahore?',
-    a: 'For a full multi-function wedding — mehndi, baraat, nikkah and walima — book 9 to 12 months ahead if you want your first choice of venue and date, especially in wedding season (October to March). For a single function or a smaller private event, 2 to 4 months is usually enough. If your date is closer than that, contact us anyway — we can often still make it work.',
+    a: 'It depends on the type of event, your date and availability. A full multi-function wedding needs more planning time than a single function or a small private event, and dates in wedding season (October to March) fill first. Send us your date and we will tell you what is possible.',
     related: [
       { text: 'Wedding planning in Lahore', to: '/services/wedding-planning' },
       { text: 'Wedding timeline: mehndi to walima', to: '/blog/wedding-timeline-mehndi-to-walima' },

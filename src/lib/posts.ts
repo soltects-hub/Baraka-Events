@@ -53,7 +53,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: '21 September 2026',
     publishedISO: '2026-09-21',
-    updatedISO: '2026-10-20',
+    updatedISO: '2026-11-24',
     readTime: '8 min read',
     image: '/media/gallery/wedding-8.webp',
     imageAlt: 'Red velvet drapes, arched niches and a round tufted gold sofa at a baraat setup by Baraka Events in Lahore',
@@ -95,7 +95,7 @@ export const posts: Post[] = [
       },
       { h: 'Book earlier than you think, especially across four functions' },
       {
-        p: 'Because a full wedding needs four venues, or one venue held across four separate days, a date gets harder to hold the closer you are to wedding season. In Lahore that season runs roughly October through March, and for a complete mehndi-to-walima week we tell families to start nine to twelve months out if they want their first choice of venues on consecutive or near-consecutive dates. A single function on its own is more forgiving — two to four months is usually workable. If you are already inside that window, it is still worth calling; venues cancel and dates open up more often than people assume.',
+        p: 'Because a full wedding needs four venues, or one venue held across four separate days, a date gets harder to hold the closer you are to wedding season. In Lahore that season runs roughly October through March, and a complete mehndi-to-walima week needs more planning time than a single function, especially if you want consecutive or near-consecutive dates. There is no single rule: it depends on the type of event, your date and availability. If your date feels close, it is still worth calling; venues cancel and dates open up more often than people assume.',
       },
       { h: 'Where Baraka fits into that choice' },
       {
@@ -109,7 +109,7 @@ export const posts: Post[] = [
       },
       { h: 'How far ahead should I book a wedding planner in Lahore?' },
       {
-        p: 'For a full multi-function wedding — mehndi, baraat, nikkah and walima — nine to twelve months ahead gives you the best chance at your first choice of venues and dates, especially in wedding season from October to March. A single function on its own is more flexible, usually two to four months. If your date is closer than that, ask anyway; availability changes.',
+        p: 'It depends on the type of event, your date and availability. A full multi-function wedding needs more planning time than a single function, and dates in wedding season, from October to March, fill first. Ask us about your date; availability changes.',
       },
       { h: 'Can a wedding planner work with vendors we have already booked?' },
       {
@@ -180,17 +180,36 @@ export const posts: Post[] = [
     slug: 'event-planning-cost-budget-lahore',
     title: 'What Event Planning in Lahore Costs, and How to Spend Less',
     excerpt:
-      'Why we do not publish an event planner price list in Lahore, what a very cheap quote usually means, and where the money in a quote really goes.',
+      'What event planners in Lahore actually charge for, why a single price list misleads, what corporate events add to a quote, and how to compare two quotes properly.',
     category: 'Planning',
     date: '9 September 2026',
     publishedISO: '2026-09-09',
-    updatedISO: '2026-10-12',
-    readTime: '9 min read',
+    updatedISO: '2026-11-24',
+    readTime: '10 min read',
     image: '/media/gallery/wedding-4.webp',
     imageAlt: 'Walkway lined with white rose stands under draped white fabric and a crystal chandelier at a Lahore walima',
     blocks: [
       {
+        p: 'Event planner charges in Lahore are not one number, because you can buy very different things: full planning across several functions, management on the day only, decoration on its own, or catering. A fair quote breaks the total into separate lines (venue, catering per head, decor, lighting and sound, and the planner’s own fee) so you can see what each part costs and compare like with like. At Baraka Events our fee is charged for the work and appears as its own line, not as a percentage of what you spend.',
+      },
+      {
         p: 'Almost everyone searching for an affordable event planner in Lahore is really asking two questions at once: what does this normally cost, and am I about to be overcharged. Both are fair. The problem is that the honest answer to the first one is a range wide enough to be useless on its own, and the only way to make it useful is to break the number apart. This is what actually sits inside an event quote in Lahore, which parts move, and where cutting genuinely works versus where it just makes the day look thinner.',
+      },
+      { h: 'What you are paying for at each level of service' },
+      {
+        p: 'Full planning: the brief, a budget plan, the venue and vendor shortlist, the design, contracts, the run-of-show and management on the day. You still pay separately for the venue, catering, the decor build, lighting and sound, and photography.',
+      },
+      {
+        p: 'Management on the day: the run-of-show, vendor supervision and timing on the day itself, for a venue and vendors you have already chosen. Everything you have already booked stays as its own cost.',
+      },
+      {
+        p: 'Decor only: stage, floral, furniture and lighting design and build. The venue, catering and coordination are outside it.',
+      },
+      {
+        p: 'Catering: food per person, with the service set-up listed on the menu. The venue, decor and anything the menu lists as excluded are outside it.',
+      },
+      {
+        p: 'Whether you speak to us or to another [event planner in Lahore](/), the fee for planning is a different thing from the cost of the event. A planner who quotes one lump sum is mixing the two, which is why the first thing to ask for is the split.',
       },
       { h: 'Why we do not publish an event planner price list' },
       {
@@ -203,9 +222,29 @@ export const posts: Post[] = [
           { text: 'Lahore Wedding Budget: Where to Spend and Where to Save', slug: 'luxury-shaadi-cost-lahore' },
         ],
       },
+      { h: 'What catering costs on our published menus' },
+      {
+        p: 'Catering is usually the largest single line, so it is the one figure worth seeing early. Our eight set food menus are priced per person, from Rs. 2,200 to Rs. 6,700, and each menu lists exactly what is included (seating, buffet stations, crockery and cutlery, waiters, lighting and a generator among them) and what is not (decor, DJ, diesel, heating or cooling, and the venue). You can [compare all eight menus](/#menu) and their full dish lists before you speak to us.',
+      },
       { h: 'Guest count moves the total more than most decisions' },
       {
         p: 'Catering is per head, so every extra fifty guests is a fixed multiplier on the largest single line in the budget. Guest count also drags the venue up a tier once you cross what a room can hold, and it pushes seating, service staff and washroom provision with it. Cutting a guest list by fifty moves the total by more than most decor decisions will, and it is a lever families often leave until last. If the budget genuinely does not work, look here before you cut decor.',
+      },
+      { h: 'Corporate event planner charges in Lahore: what drives the number' },
+      {
+        p: 'A corporate quote is built from the same lines as a wedding, with a different weighting. Food usually matters less than it does at a walima, and three things matter more.',
+      },
+      {
+        p: 'Technical production: sound, stage lighting, screens or projection, microphones for speakers and panels, and a technical rehearsal. This line grows fastest with the number of speakers and screens.',
+      },
+      {
+        p: 'Branding and approvals: stage backdrops, signage and printed material, and the rounds of sign-off they need. Late approvals cost more than the print itself, because they compress production time.',
+      },
+      {
+        p: 'Hours on site: corporate events often need a set-up the day before, a rehearsal, and crew through registration, sessions and dinner. Crew hours are a real cost, so a quote should state them.',
+      },
+      {
+        p: 'If your finance team needs it, ask for an itemised quotation that can be matched to a purchase order, with the planner’s fee on its own line. See how we approach [corporate event management in Lahore](/services/corporate-events).',
       },
       { h: 'Where you can genuinely save' },
       {
@@ -248,7 +287,7 @@ export const posts: Post[] = [
       },
       { h: 'What to send us for a line-item quote' },
       {
-        p: 'Which functions you want planned, a guest-count range, your dates or a date window, whether a venue is already fixed, and which parts you would rather run yourself. With those we can send an itemised proposal.',
+        p: 'Which functions you want planned, a guest-count range, your dates or a date window, whether a venue is already fixed, and which parts you would rather run yourself. With those we can send an itemised proposal, with our fee on its own line. The quickest way is to send those details on WhatsApp using the button on this page, or through our contact page.',
         related: [
           { text: 'Request a line-item proposal', to: '/contact' },
         ],
@@ -257,6 +296,14 @@ export const posts: Post[] = [
       { h: 'How much does an event planner in Lahore charge?' },
       {
         p: 'It depends on whether you are buying full planning, day-of management or decor alone, and on how many functions are involved. Most planners quote against your actual brief rather than publishing a package price. What you should insist on is that the fee appears as its own line, separate from venue, catering and decor, so you can see what the planning itself costs. At Baraka Events the fee is charged for the work, not as a percentage of what you spend, so it does not rise because you chose a more expensive venue.',
+      },
+      { h: 'How much does a corporate event planner charge in Lahore?' },
+      {
+        p: 'The planner’s fee depends on scope and hours: whether you need full production or management on the day, how many sessions and speakers there are, and whether set-up and rehearsal fall on a separate day. The event itself is usually driven more by technical production (sound, lighting, screens) and branding than by food. Ask for an itemised quotation with the fee on its own line, so it can be matched to a purchase order.',
+      },
+      { h: 'Why do event management companies in Lahore quote such different prices?' },
+      {
+        p: 'Usually because they are quoting different scopes, not different prices for the same thing. One quote may include the decor build and lighting design, another may assume your venue’s in-house lighting. One may include crew through the whole day, another only a coordinator. Split both quotes into the same lines and the gap usually explains itself.',
       },
       { h: 'Is it cheaper to plan the event myself?' },
       {
@@ -270,7 +317,7 @@ export const posts: Post[] = [
       {
         p: 'Yes, and it is easier than working to a vague one. Give us the number you actually have rather than a number you hope to negotiate down from, and we will show you what it buys across the five lines and where the trade-offs sit. A fixed budget stated up front is not a constraint on the design; it is what makes the design decisions obvious.',
         related: [
-          { text: 'Why Baraka Events Is the Best Event Planner in Lahore', slug: 'best-event-planner-lahore-baraka-events' },
+          { text: 'Wedding Planning & Management in Lahore', to: '/services/wedding-planning' },
         ],
       },
     ],
@@ -591,7 +638,7 @@ export const posts: Post[] = [
     category: 'Venues',
     date: 'September 4, 2026',
     publishedISO: '2026-09-04',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-11-24',
     readTime: '7 min read',
     image: '/media/gallery/wedding-22.webp',
     imageAlt: 'Outdoor wedding stage with a white tufted sofa, a white floral garland and a greenery arch with a bead curtain',
@@ -613,7 +660,7 @@ export const posts: Post[] = [
       { h: 'Questions to ask before you sign' },
       { p: 'Get the cancellation and rescheduling terms in writing, not described verbally during the tour. Ask what happens if a load-shedding outage or monsoon downpour disrupts an outdoor function — is there a covered fallback included, or is that the family’s problem to solve. Confirm whether outside decor and lighting vendors are permitted, since some venues restrict this to push their own in-house teams. And walk the space at the actual time of day your function will run, not during a daytime site visit, since a hall that looks perfect at 11am can read completely differently under evening lighting.' },
       { h: 'FAQs: Choosing a Wedding Venue in Lahore' },
-      { p: 'How far in advance should we book a wedding venue in Lahore? Eight to twelve months out for winter weekends (October to March), which is when Lahore’s best venues sell out first. Summer dates and weekdays can often still be booked two to four months out.' },
+      { p: 'How far in advance should we book a wedding venue in Lahore? It depends on the type of event, your date and availability. Winter weekends (October to March) are when Lahore’s best venues fill first, while summer dates and weekdays are usually easier.' },
       { p: 'How many guests can a typical Lahore marquee or banquet hall hold? It varies enormously by venue — from intimate halls seating under two hundred to purpose-built marquees in DHA and Bahria Town that comfortably handle over a thousand. Always confirm actual seated capacity against your guest list rather than relying on a venue’s advertised maximum.' },
       { p: 'Is an outdoor garden venue a safe choice for a Lahore wedding? Yes for heat and monsoon risk, from October through March, with one caveat: smog season (October to February) means an indoor fallback is worth confirming even in the cool months. Outside October to March, an outdoor venue needs a real covered and cooled fallback plan, not an assumption that the weather will cooperate.' },
       {
@@ -706,7 +753,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-11-24',
     readTime: '6 min read',
     image: '/media/showreel-5.webp',
     imageAlt: 'Pastel draped ceiling with tassels and fairy lights above pink velvet lounge sofas at a Baraka Events mehndi in Lahore',
@@ -738,7 +785,7 @@ export const posts: Post[] = [
       { h: '7. Read the contract before you pay the deposit' },
       { p: 'Check what is included and what is not, who holds each vendor contract, what the payment schedule is, and what happens if you change the date or the guest count. Ask when final numbers are locked and what happens if a vendor does not turn up. A clear contract is a good sign; a verbal promise is not a substitute for one.' },
       { h: 'How early should you book an event planner in Lahore?' },
-      { p: 'For a full multi-function wedding, nine to twelve months ahead gives you the best choice of venue and date, especially in wedding season from October to March. For a single function or a smaller private event, two to four months is usually enough. A conference or annual dinner is comfortable at six to eight weeks, and launches with custom stage builds need longer because of fabrication and approvals. If your date is closer than that, ask anyway: availability depends on the date far more than on the notice.' },
+      { p: 'It depends on the type of event, your date and availability. A full multi-function wedding needs more planning time than a single function, dates in wedding season from October to March fill first, and launches with custom stage builds need longer because of fabrication and approvals. Whatever your date, ask anyway: availability depends on the date far more than on the notice.' },
       { h: 'What does an event planner in Lahore cost?' },
       { p: 'It depends on guest count, venue, how many functions are involved and how much of the work you hand over, which is why a serious planner will not quote a single number before a consultation. What you can insist on is the structure: a line-item proposal that shows venue, decor, catering, lighting, staffing and the planner’s fee separately. Our [guide to what event planning in Lahore costs](/blog/event-planning-cost-budget-lahore) explains where the money goes and where it is sensible to save.' },
       { h: 'Red flags worth walking away from' },
@@ -986,14 +1033,14 @@ export const posts: Post[] = [
     category: 'Venues',
     date: 'March 2025',
     publishedISO: '2025-03',
-    updatedISO: '2026-10-16',
+    updatedISO: '2026-11-24',
     readTime: '7 min read',
     image: '/media/gallery/wedding-9.webp',
     imageAlt: 'Wide lounge under a fairy-light canopy with crystal chandeliers, red velvet drapes and candlelit cabinets',
     blocks: [
       { p: 'Lahore does not lack beautiful venues \u2014 it lacks honest guidance about them. Before you commit, check whether the courtyard floods in monsoon season, whether the ceiling is tall enough for a proper stage reveal, and whether the space photographs well.' },
       { h: 'The Walled City: havelis with history' },
-      { p: 'For families who want their shaadi to feel rooted in Lahore\u2019s soul, nothing rivals a restored haveli in the Androon Shehr. Courtyard acoustics carry the dhol beautifully, brick facades glow under amber uplighting, and the rooftop views toward Badshahi Mosque are unrepeatable anywhere else in Pakistan. Book 10\u201312 months ahead \u2014 winter weekends disappear first.' },
+      { p: 'For families who want their shaadi to feel rooted in Lahore\u2019s soul, nothing rivals a restored haveli in the Androon Shehr. Courtyard acoustics carry the dhol beautifully, brick facades glow under amber uplighting, and the rooftop views toward Badshahi Mosque are unrepeatable anywhere else in Pakistan. Winter weekends disappear first, so ask early.' },
       { h: 'Gulberg & MM Alam: the convenient classics' },
       { p: 'When guest convenience matters \u2014 elderly relatives, tight schedules, out-of-town mehmaan \u2014 Gulberg\u2019s banquet complexes and five-star ballrooms remain the sensible crown. The best of them offer generous ceiling height, proper loading docks for stage builds, and in-house catering flexible enough to accept your family\u2019s trusted caterer.' },
       { h: 'DHA & Bahria: marquee country' },
@@ -1012,7 +1059,7 @@ export const posts: Post[] = [
       },
       { h: 'FAQs: Choosing Among Lahore\u2019s Wedding Venues' },
       { p: 'Which area is best for a large guest list? DHA, Bahria Town and Valencia Town\u2019s purpose-built marquees handle the biggest lists most comfortably; Johar Town and Wapda Town\u2019s banquet halls suit a more moderate count without feeling empty.' },
-      { p: 'How far ahead should we book a Walled City haveli? Ten to twelve months out for a winter weekend \u2014 this is the tier that sells out first every season.' },
+      { p: 'How far ahead should we book a Walled City haveli? It depends on your date and availability. Winter weekends at these venues are the first to go, so ask early.' },
       { p: 'Is an outdoor garden venue reliable year-round? No. October through March is the most dependable window for heat and monsoon risk, but smog season (October to February, per the [Punjab Environmental Protection Agency](https://aqi.punjab.gov.pk/lahore)) means an indoor fallback is worth planning even then; outside that window, an outdoor booking needs a real covered, cooled fallback rather than an assumption the weather will hold.' },
       {
         p: 'Do you have anything outside a hall or marquee entirely? Yes \u2014 see our dedicated guide to farmhouse weddings on Raiwind Road if even the largest marquee does not feel like enough space.',
@@ -1178,7 +1225,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',
-    updatedISO: '2026-10-12',
+    updatedISO: '2026-11-24',
     readTime: '7 min read',
     image: '/media/gallery/wedding-3.webp',
     imageAlt: 'Candles in tall glass holders on a hand-painted floral cabinet with elephant figures under hanging greenery',
@@ -1190,9 +1237,9 @@ export const posts: Post[] = [
       {
         p: 'Walima guest lists in Lahore are frequently larger than the baraat\u2019s \u2014 colleagues, extended family and family friends who were not part of the smaller functions are invited here specifically. Lock a realistic number before touring a single hall. A venue chosen for its looks and then found to seat two hundred fewer than the actual list is an easy walima planning mistake to make.',
       },
-      { h: 'Lock the venue eight to ten months out' },
+      { h: 'Lock the venue early' },
       {
-        p: 'Winter weekends \u2014 October through March \u2014 are Lahore\u2019s walima season, and the halls with real capacity and backup power book that far ahead. Booking eight to ten months out gives a wider choice of halls and dates than a family arranging the same venue six weeks before.',
+        p: 'Winter weekends \u2014 October through March \u2014 are Lahore\u2019s walima season, and the halls with real capacity and backup power fill first. How early you need to book depends on your date and availability, but asking early gives a wider choice of halls and dates.',
       },
       { h: 'Build the evening around a real run of show' },
       {
@@ -1221,7 +1268,7 @@ export const posts: Post[] = [
     category: 'Planning',
     date: 'August 2026',
     publishedISO: '2026-08',
-    updatedISO: '2026-10-26',
+    updatedISO: '2026-11-24',
     readTime: '8 min read',
     image: '/media/gallery/wedding-17.webp',
     imageAlt: 'Stage under a ceiling of blush flowers and crystal garlands with pink drapes and a lotus-pattern lit floor',
@@ -1229,7 +1276,7 @@ export const posts: Post[] = [
       {
         p: 'A full Pakistani wedding is not one event with several parts \u2014 it is four separate productions, each with its own vendors, decor and mood, run inside a single week. The hardest part of planning one is rarely any individual function; it is the sequencing, and the handoffs between nights that get missed when each function is planned in isolation.',
       },
-      { h: 'Twelve months out: lock the skeleton first' },
+      { h: 'First: lock the skeleton' },
       {
         p: 'Set dates for every function together \u2014 mehndi, baraat and nikkah, walima, and any separate dholki, [engagement ceremony](/services/engagement-events) or nikkah-only night \u2014 before booking any single venue. Families who lock the baraat date first and then scramble to fit a walima hall around it routinely end up with a longer, more expensive gap between functions than planned.',
       },
