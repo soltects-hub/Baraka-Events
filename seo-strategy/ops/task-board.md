@@ -32,7 +32,7 @@ Updated: 25 Nov 2026 (after the scheduler tests). Status: ✅ done · 🔄 in pr
 
 ## Next for the routine
 
-- Thu 26 Nov (GEO): re-check the Shadiyana and Bing citation gap. Look for new third-party mentions of competitors.
-- Fri 27 Nov (LLMO): re-run Claude web search for Q01–Q20. Try logged-out ChatGPT Q04–Q06.
+- ✅ Thu 26 Nov (GEO): done. Baraka 0/5 in Claude. The brand query does not return barakaevents.com. Shadiyana is still missing Baraka (see the daily log).
+- Fri 27 Nov (LLMO): re-run Claude web search for Q01–Q20. Try logged-out ChatGPT Q04–Q06. Also run the brand query `"Baraka Events" Lahore`.
 - Sat 28 Nov (content): prepare the venues-article refresh (`/blog/top-wedding-venues-lahore-2025`; 66 impressions at position 30) on a working branch.
 - Sun 29 Nov: first weekly report.

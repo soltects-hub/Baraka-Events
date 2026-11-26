@@ -89,3 +89,45 @@ Fired by the one-shot scheduled task "Baraka Events — scheduled E2E test" at 1
   - Perplexity, Gemini and AI Overviews untestable;
   - Business Profile no access.
 - **Next:** Thu 26 Nov 08:58 PKT, first real scheduled GEO run.
+
+
+## 2026-11-26 (Thu) — GEO: AI citation sources (scheduled run)
+
+- **Task:** Thursday GEO mission. Ran in the home session from the 08:58 PKT scheduled task. Docs branch at start: `9dd8d1b`.
+- **Research:**
+  - Claude web search for 5 of the 20 tracker queries (Q01, Q03, Q06, Q12, Q20), plus a brand query `"Baraka Events" Lahore`.
+  - Direct checks of the newly cited pages with curl, and of the Shadiyana Lahore décor and catering listings with headless Chromium.
+  - Evidence: `sprint-2/evidence/geo-2026-11-26-claude-citations.md`.
+- **Findings (measured):**
+  - **Baraka appears in 0 of 5 Claude answers.** This matches the 24 Nov baseline (0 of 20). Score item G4 is still 0 of 8 cited domains carrying Baraka.
+  - **Brand query gap:** for `"Baraka Events" Lahore`, Claude did not return barakaevents.com. Its only source was d7leadfinder (5.0, 40 reviews), and it said "I found no official website". Baraka's own entity is not reaching this search index, so it is the most important GEO problem found today. The site itself returns HTTP 200.
+  - Still the most-cited sources: brandsynario.com (4 of 5 queries), tribune.com.pk (5 of 5), wezoree.com, shadiyana.pk, peonyeventsplanner.com.pk, medium.com.
+  - **New third-party pages naming competitors, not in the baseline:**
+    - Serene Event Complex, via a Medium article and a cvent.com supplier listing. It claims "only company in Lahore offering exclusive in-house premium private catering" (their claim).
+    - Parfaire Events, via a Tribune "The Planner" feature.
+    - Encore by Zafar Group and Qasar e Noor, on Shadiyana venue pages.
+    - Darbar Catering, on hirespace.com.
+    - The Friday Times feature on Topline PR (a Karachi firm, so not a direct competitor).
+  - **Shadiyana gap still open:**
+    - Lahore décor shows 256 results and Lahore catering shows 68.
+    - Baraka is not on the rendered first pages. That is expected, since it has not been submitted (O7).
+    - The Grazers (Gulberg III, same area as Baraka) is cited for Q06 from its Shadiyana caterer page.
+  - Q12 (pricing): no AI source had Lahore planner prices. Once Sprint 1 is live, its cost guide could fill this gap (hypothesis, not measured).
+- **Actions:**
+  - Wrote the evidence file.
+  - Made **no change** to `sprint-2/3-authority-outreach.md`. None of the new sources had a verified contact route that fits (venue listings, a Karachi feature, international directories), and the rule allows only verified URLs and contacts.
+- **Recommendations (not done; owner decisions):**
+  1. Approve the Shadiyana Décor and Catering listings (O7). Shadiyana is cited in 3 of 5 answers today.
+  2. Fixing the bare domain (O4) and Bing Places (O7) may help the brand query surface barakaevents.com. Re-test on Friday.
+- **Files and branches:**
+  - new `sprint-2/evidence/geo-2026-11-26-claude-citations.md`;
+  - this log;
+  - `ops/task-board.md` "Next" section.
+  - Docs branch only. No website change.
+- **Verification:** every cited URL in the evidence table was fetched today (HTTP codes recorded there).
+- **Blockers:**
+  - Bing / Bing Places is UNTESTED (bot-degraded from the cloud).
+  - d7leadfinder returned 403.
+  - ChatGPT, Perplexity and Gemini were not part of today's mission.
+  - GA4 and Keyword Planner were not needed today.
+- **Next:** Fri 27 Nov LLMO: all 20 queries in Claude, plus logged-out ChatGPT Q04–Q06. Add the brand query `"Baraka Events" Lahore` as an extra check.
