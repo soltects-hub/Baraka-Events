@@ -1,3 +1,7 @@
+import { lowestPrice, highestPrice, foodPackages } from './foodMenu';
+
+const minimumGuests = Math.min(...foodPackages.map((p) => p.minimumGuests));
+
 export interface ServiceFaq {
   q: string;
   a: string;
@@ -406,7 +410,7 @@ export const services: Service[] = [
       { q: 'When does a walima at a hall have to finish?', a: 'At a hall or other public place hired for a marriage, the Punjab Marriage Functions Act 2016 requires every ceremony connected with it to conclude by 10:00 pm, and notifications get revised. We confirm the closing time for your date with the venue in writing and put clock times against dinner, the couple’s entrance, cake and the closing cue, so the evening ends on a cue rather than trailing off.' },
       { q: 'How early should a walima venue be booked?', a: 'It depends on the type of event, your date and availability. In peak season the largest halls and marquees are the first thing in the city to go, and the walima usually needs the biggest room of the week, so it is worth asking early.' },
     ],
-    relatedServices: ['nikkah-events', 'event-decoration', 'wedding-planning'],
+    relatedServices: ['nikkah-events', 'event-decoration', 'wedding-planning', 'catering-services'],
     relatedLinks: [
       { text: 'Our set food menus', to: '/#menu' },
       { text: 'How to plan a walima reception in Lahore', to: '/blog/walima-reception-planning-guide' },
@@ -499,6 +503,40 @@ export const services: Service[] = [
       { text: 'Birthday party planning in Lahore: home, rooftop or venue', to: '/blog/birthday-party-planning-lahore-guide' },
       { text: 'Browse real Lahore venues (independent guide)', to: '/venues' },
       { text: 'See our gallery', to: '/gallery' },
+    ],
+  },
+  {
+    slug: 'catering-services',
+    tag: 'Catering',
+    title: 'Event & Wedding Catering in Lahore',
+    heading: 'Catering Services in Lahore',
+    ctaSubject: 'catered event',
+    seoTitle: 'Catering Services in Lahore | Baraka Events',
+    seoDescription: `Wedding and event catering in Lahore from our own kitchen: eight set menus from Rs. ${lowestPrice.toLocaleString('en-PK')} to Rs. ${highestPrice.toLocaleString('en-PK')} per person, minimum ${minimumGuests} guests.`,
+    image: '/media/gallery/detail-2.webp',
+    imageAlt: 'Buffet line of gold-framed serving dishes with small flower arrangements on patterned table linen',
+    intro: `Baraka Events provides catering services in Lahore from its own kitchen and catering team. Our Food Menu 2026–27 has eight set menus priced from Rs. ${lowestPrice.toLocaleString('en-PK')} to Rs. ${highestPrice.toLocaleString('en-PK')} per person, with a minimum of ${minimumGuests} guests, and each menu includes the buffet setup and waiters. Catering can be booked with our planning and decor or as part of a single function, and meal service is timed against the rest of the event.`,
+    included: [
+      { h: 'Eight Set Menus With Per-Person Prices', p: `Every package is a fixed menu with its price per person printed on it, from Rs. ${lowestPrice.toLocaleString('en-PK')} to Rs. ${highestPrice.toLocaleString('en-PK')}. You can [compare all eight menus dish by dish](/#menu) before you speak to us, so the first conversation starts from a real number rather than a guess.` },
+      { h: 'What Each Menu Includes', p: 'The per-person price covers more than the food. Each package includes wall-to-wall carpet, round tables and banquet chairs, buffet stations, crockery and cutlery, waiters, lighting and a genset, with sofa seating for a quarter of the guests and head tables for 20.' },
+      { h: 'What Is Quoted Separately', p: 'Decor, DJ, diesel, heating or chilling and the venue are not part of a menu price. We list them as their own lines in the proposal, so you can see exactly what the catering costs and what the rest of the function costs.' },
+      { h: 'Wedding Catering for Every Function', p: 'The walima usually carries the largest guest list of the week, so catering per head is often its biggest single cost. The mehndi and baraat have their own pace. Because the food comes from our own kitchen, the menu and the service timing are planned with the run-of-show, so dinner does not open in the middle of the stage moments. Our [walima planning service](/services/walima-events) and [wedding catering guide](/blog/luxury-event-catering-menu-lahore) go further.' },
+      { h: 'Corporate and Private Event Catering', p: 'The same kitchen caters corporate dinners and private celebrations. For corporate events, venue and catering scale with headcount, which is why we quote them separately from stage, AV and lighting. See [corporate event planning](/services/corporate-events) for how those budgets are built.' },
+      { h: 'How Catering Fits the Budget', p: 'Catering per head is usually the line that moves a budget most, because it multiplies by the guest count. Confirming the guest count first and choosing the menu second keeps the total predictable. Our [guide to event planner charges in Lahore](/blog/event-planning-cost-budget-lahore) shows how catering sits next to venue, decor and the planning fee.' },
+      { h: 'Already Have a Caterer?', p: 'If your family already has a caterer it trusts, we can work with them instead and coordinate their service timing with the rest of the event.' },
+    ],
+    faqs: [
+      { q: 'How much does catering cost per person in Lahore?', a: `Our Food Menu 2026–27 packages run from Rs. ${lowestPrice.toLocaleString('en-PK')} to Rs. ${highestPrice.toLocaleString('en-PK')} per person. Each price includes the buffet setup and waiters, and excludes decor, DJ, diesel, heating and chilling, and the venue.` },
+      { q: 'What is the minimum number of guests for catering?', a: `Each set menu has a minimum of ${minimumGuests} guests.` },
+      { q: 'What is included in the per-person price?', a: 'Wall-to-wall carpet, round tables and banquet chairs, buffet stations, crockery and cutlery, waiters, lighting and a genset, with sofa seating for a quarter of the guests and head tables for 20.' },
+      { q: 'Do you cook the food yourselves?', a: 'Yes. Baraka Events operates its own kitchen and catering team. If you already have a caterer, we can work with them instead.' },
+      { q: 'Can we see the menus before booking?', a: 'Yes. All eight set menus, with every dish and the price per person, are on our homepage under Food Menus.' },
+    ],
+    relatedServices: ['walima-events', 'wedding-planning', 'corporate-events'],
+    relatedLinks: [
+      { text: 'Our set food menus', to: '/#menu' },
+      { text: 'Luxury wedding catering in Lahore: menus and live stations', to: '/blog/luxury-event-catering-menu-lahore' },
+      { text: 'Event planner charges in Lahore', to: '/blog/event-planning-cost-budget-lahore' },
     ],
   },
 ];

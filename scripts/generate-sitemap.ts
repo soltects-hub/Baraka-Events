@@ -78,7 +78,10 @@ const aboutPassLastmod = '2026-11-02';
 const sprint1Lastmod = '2026-11-24';
 // 2026-11-25 AEO pass: owner-confirmed keyword H1s, answer-first intros and booking/catering FAQs on eight service pages.
 const aeoLastmod = '2026-11-25';
+// 2026-11-26 content pass: new /services/catering-services page (facts from src/lib/foodMenu.ts) and a walima related-service link.
+const contentLastmod = '2026-11-26';
 const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
+  'catering-services': contentLastmod,
   'event-management': aeoLastmod,
   'corporate-events': aeoLastmod,
   'wedding-planning': sprint1Lastmod,
@@ -87,7 +90,7 @@ const SERVICE_LASTMOD_OVERRIDES: Record<string, string> = {
   'birthday-events': aeoLastmod,
   'nikkah-events': aeoLastmod,
   'barat-events': aeoLastmod,
-  'walima-events': aeoLastmod,
+  'walima-events': contentLastmod,
   'engagement-events': functionPassLastmod,
 };
 // All ten now carry day-precision: the first four were expanded on the
