@@ -23,11 +23,15 @@ Updated: 25 Nov 2026 (after the scheduler tests). Status: ✅ done · 🔄 in pr
 | O15 | Check your inbox for the **TEST** weekly-report email sent 25 Nov (subject starts "TEST — Baraka Events") | Confirms the email path; nothing else can confirm delivery | ⏳ |
 | O16 | **Do not archive** the session "Baraka Events — Daily Growth Routine (home session)" | It holds the routine's repo and connector access | ℹ️ |
 
+| O17 | Approve the **catering page** release candidate (PR #90: Sprint 1 + AEO + `/services/catering-services`) and confirm the menu prices (O10) | "catering services lahore": 1,000 searches/mo, 0 impressions today | 📋 draft PR #90 (Vercel preview needs your Vercel login) |
+| O18 | **Tracking decision (needs approval):** send the WhatsApp button and tel: clicks to GA4 as events, not only to Google Ads | GA4 sees WhatsApp only through generic outbound clicks; calls are not measured at all | 📋 proposal only, nothing changed |
+| O19 | **GA4 bot traffic:** about 97% of recorded sessions are bot-pattern "Direct" (worldwide, no engagement). Consider a GA4 data filter or Vercel bot protection | Inflated traffic hides real performance; reports exclude Direct for now | 📋 owner decision |
 ## Prepared on working branches (not live)
 
 | Branch | Contents | Verified |
 |---|---|---|
 | `seo/sprint-1-2026-11-24` | Cost guide refresh · wedding page H1/intro/owner facts · booking wording in 15 places · 404 → 301 | lint, build, sitemap, SEO parity vs main, render check |
+| `seo/content-2026-11-26` (on top of AEO) | New `/services/catering-services` from foodMenu.ts facts; walima related link | lint, build (56 routes), sitemap (54 URLs), render + schema check, 390 px check, tracking guard · draft PR #90 |
 | `seo/aeo-2026-11-25` (on top of Sprint 1) | 8 service pages: keyword H1s, answer-first intros, owner booking/catering FAQs, 2 unverifiable walima claims removed | lint, build (55 routes), sitemap, H1 render check, tracking guard |
 
 ## Next for the routine

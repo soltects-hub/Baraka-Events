@@ -31,6 +31,10 @@ The daily routine reads this folder first and writes to it last.
 - **No fabrication:** no invented prices, claims, reviews, rankings or AI results. If a platform can't be tested, record "UNTESTED" and the reason.
 - **Scores move only on live, verified evidence.**
 
+## Data collectors
+
+`seo-strategy/tools/` (see its README) runs every morning before the day mission and writes evidence to `seo-strategy/data/`. Verified in a scheduled home-session run on 26 Nov 2026 (commit `17de693`, all modules OK).
+
 ## How the automation runs (verified 25 Nov 2026)
 
 | Scheduled task | When | Where it runs | Verified |
@@ -51,8 +55,8 @@ The daily routine reads this folder first and writes to it last.
 | Repository read + push (docs, `seo/*`, `automation/*`) | ✅ | Home session source. Never push to main. |
 | Search Console data | ✅ | Daily repo automation reports on `origin/seo-report/YYYY-MM-DD` (service account, Full user) |
 | Search Console via AdvisorPPC | ⚠️ | Lists `sc-domain:barakaevents.com` as **siteUnverifiedUser**, so no data until the owner verifies (task O3) |
-| GA4 (property 544826662) | ✅ | AdvisorPPC `advisor_read` works in the home session |
-| Keyword Planner | ✅ connector present | AdvisorPPC (Ads account 9407463054) |
+| GA4 (property 544826662) | ✅ tested in a scheduled run 26 Nov | AdvisorPPC `advisor_read`. About 97% of sessions are bot-pattern Direct, so reports use non-Direct channels. WhatsApp leads come from outbound wa.me clicks; calls are not measured. |
+| Keyword Planner | ✅ tested 26 Nov (Pakistan volumes) · ⚠️ monthly API allowance used up after one call; refresh on the 1st of the month | AdvisorPPC (Ads account 9407463054) |
 | Web research | ✅ | WebSearch, direct fetches, headless browser |
 | Push notifications | ✅ | PushNotification from the home session |
 | ChatGPT (logged-out) | ⚠️ partial | About 3 queries per session before a login wall |

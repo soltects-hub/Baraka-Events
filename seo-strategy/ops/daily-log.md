@@ -146,3 +146,28 @@ Fired by the one-shot scheduled task "Baraka Events — scheduled E2E test" at 1
   - analytics **OK**: **162 human sessions** of 5,930 (bot-pattern Direct excluded); **46 WhatsApp clicks**; 3 form starts; 5 high-demand keywords with a visibility gap (catering services lahore: 1,000/mo, not visible).
   - The runner ran twice (the second time only to read its status lines), so `data/run-log.jsonl` has 2 entries for this test.
 - **Blockers:** none for the collectors. The apex 503 is still the owner's to fix (O4).
+
+## 2026-11-26 — growth engine completion (interactive session)
+
+- **Audit:**
+  - Already working: the scheduler (home session, daily 08:58 PKT), the repo Action's daily Search Console pull (keyword history, query analysis, indexing, decisions), the daily log, the task board and push notifications.
+  - Docs only until today: competitors, AEO question research, technical/conversion/NAP checks, leads, keyword demand, weekly data.
+- **Built (`seo-strategy/tools/`, docs branch `a676ff3`):** `seo-insights`, `site-audit`, `competitors`, `aeo-questions`, `analytics-summary`, `weekly-pack`, and `run.mjs` (per-module failure isolation plus `data/run-log.jsonl`). `routine-instructions.md` gained the COLLECTORS step, and `weekly-report.md` now has the 12 sections the owner asked for.
+- **Tested:**
+  - Every module ran here (`run.mjs all` → OK).
+  - Failure isolation tested: an unknown module was recorded as FAILED and the next module still ran.
+  - Scheduled home-session run at 06:30 UTC → all OK, committed as `17de693`.
+- **Measured findings:**
+  - GA4: 162 human sessions of 5,930 (Direct is bot-pattern); 46 WhatsApp clicks; 3 form starts; calls are not measured.
+  - Keyword Planner (Pakistan): "catering services lahore" 1,000/mo and "event planner in lahore" 880/mo.
+  - Search Console: catering 0 impressions; "event planner in lahore" at position 10.5.
+  - Live site: 53 pages all 200, NAP consistent, 4 title/description length issues, bare domain 503.
+  - Competitors: 1,561 sitemap URLs saved as the diff baseline.
+  - AEO: 161 buyer questions, 50 unanswered.
+- **Content:**
+  - New branch `seo/content-2026-11-26` @ `0591c91` adds `/services/catering-services`, with every fact imported from `foodMenu.ts`.
+  - Checks: lint ✅, build ✅ (56 routes), sitemap ✅ (54 URLs), render and schema ✅, 390 px ✅, tracking guard ✅.
+  - Draft PR #90 previews Sprint 1 + AEO + catering together. The Vercel preview needs the owner's Vercel login. Not merged, not deployed.
+- **Email:** still no Gmail send tool. The Sunday email task now falls back to the data pack if the written report is missing.
+- **Blockers / owner:** O4 (bare domain 503), O10/O17 (approve PR #90, confirm menu prices), O18 (tracking proposal), O19 (bot traffic), O3 (Search Console ownership), Business Profile access, Perplexity/Gemini manual tests.
+- **Next:** Fri 27 Nov LLMO run (collectors run first automatically).
