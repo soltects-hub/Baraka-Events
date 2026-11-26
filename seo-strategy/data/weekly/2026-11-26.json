@@ -1,0 +1,380 @@
+{
+  "generatedAt": "2026-11-26T06:16:53.464Z",
+  "week": {
+    "from": "2026-11-20",
+    "to": "2026-11-26"
+  },
+  "seo": {
+    "source": "origin/seo-report/2026-11-25",
+    "totals": {
+      "clicks": 31,
+      "impressions": 3295,
+      "ctr": 0.009408194233687404,
+      "position": 20.03854324734446
+    },
+    "totalsWeekAgo": {
+      "clicks": 38,
+      "impressions": 2997,
+      "ctr": 0.012679346012679346,
+      "position": 20.018351685018352
+    },
+    "totalsBaseline": {
+      "clicks": 31,
+      "impressions": 3180,
+      "ctr": 0.009748427672955974,
+      "position": 19.174842767295598
+    }
+  },
+  "targets": [
+    {
+      "query": "event planner in lahore",
+      "position": 10.507042253521126,
+      "impressions": 71,
+      "clicks": 2,
+      "positionWeekAgo": 11.117647058823529,
+      "positionBaseline": 10.642857142857142,
+      "change": 0.6,
+      "page": "/"
+    },
+    {
+      "query": "event planners in lahore",
+      "position": 16.728395061728396,
+      "impressions": 81,
+      "clicks": 2,
+      "positionWeekAgo": 17.44047619047619,
+      "positionBaseline": 15.951807228915662,
+      "change": 0.7,
+      "page": "/"
+    },
+    {
+      "query": "best event planner in lahore",
+      "position": 12.770114942528735,
+      "impressions": 87,
+      "clicks": 1,
+      "positionWeekAgo": 13.318181818181818,
+      "positionBaseline": 12.593023255813954,
+      "change": 0.5,
+      "page": "/"
+    },
+    {
+      "query": "event planner lahore",
+      "position": 21.23148148148148,
+      "impressions": 108,
+      "clicks": 0,
+      "positionWeekAgo": 21.738317757009344,
+      "positionBaseline": 22.009615384615383,
+      "change": 0.5,
+      "page": "/"
+    },
+    {
+      "query": "event management company in lahore",
+      "position": 44.05263157894737,
+      "impressions": 19,
+      "clicks": 0,
+      "positionWeekAgo": 35.75,
+      "positionBaseline": 44.05263157894737,
+      "change": -8.3,
+      "page": "/"
+    },
+    {
+      "query": "event management companies in lahore",
+      "position": 22.914893617021278,
+      "impressions": 47,
+      "clicks": 2,
+      "positionWeekAgo": 22.627906976744185,
+      "positionBaseline": 22.914893617021278,
+      "change": -0.3,
+      "page": "/"
+    },
+    {
+      "query": "wedding planner in lahore",
+      "position": 17.11111111111111,
+      "impressions": 9,
+      "clicks": 0,
+      "positionWeekAgo": 8.071428571428571,
+      "positionBaseline": 13,
+      "change": -9,
+      "page": "/"
+    },
+    {
+      "query": "wedding planner lahore",
+      "position": 19,
+      "impressions": 10,
+      "clicks": 1,
+      "positionWeekAgo": 21.416666666666668,
+      "positionBaseline": 18.4,
+      "change": 2.4,
+      "page": "/"
+    },
+    {
+      "query": "wedding event planner in lahore",
+      "position": 23.41176470588235,
+      "impressions": 17,
+      "clicks": 1,
+      "positionWeekAgo": 22.27777777777778,
+      "positionBaseline": 24.8125,
+      "change": -1.1,
+      "page": "/"
+    },
+    {
+      "query": "wedding decorators lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    },
+    {
+      "query": "wedding decorators in lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    },
+    {
+      "query": "corporate event planner lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    },
+    {
+      "query": "birthday event planner lahore",
+      "position": 43.5,
+      "impressions": 2,
+      "clicks": 0,
+      "positionWeekAgo": 86,
+      "positionBaseline": 43.5,
+      "change": 42.5,
+      "page": "/"
+    },
+    {
+      "query": "catering services lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    }
+  ],
+  "movers": [
+    {
+      "query": "book party planner in lahore",
+      "from": 45.5,
+      "to": 30.6,
+      "impressions": 17
+    },
+    {
+      "query": "best event management company in lahore",
+      "from": 45.3,
+      "to": 32.1,
+      "impressions": 16
+    },
+    {
+      "query": "event management in lahore",
+      "from": 50.4,
+      "to": 40.7,
+      "impressions": 20
+    },
+    {
+      "query": "barat events lahore",
+      "from": 65,
+      "to": 57.3,
+      "impressions": 16
+    },
+    {
+      "query": "event planner rates in lahore",
+      "from": 50.9,
+      "to": 43.4,
+      "impressions": 10
+    },
+    {
+      "query": "wedding venues in lahore",
+      "from": 30.4,
+      "to": 24.3,
+      "impressions": 11
+    },
+    {
+      "query": "best event management companies in lahore",
+      "from": 35,
+      "to": 29.1,
+      "impressions": 10
+    },
+    {
+      "query": "best pop-up event planner in lahore",
+      "from": 29.7,
+      "to": 23.9,
+      "impressions": 29
+    },
+    {
+      "query": "luxury event planners in lahore",
+      "from": 23.5,
+      "to": 18.5,
+      "impressions": 11
+    },
+    {
+      "query": "event planning agency",
+      "from": 12.8,
+      "to": 9.3,
+      "impressions": 31
+    },
+    {
+      "query": "wedding planner lahore",
+      "from": 21.4,
+      "to": 19,
+      "impressions": 10
+    },
+    {
+      "query": "event management company lahore",
+      "from": 24.1,
+      "to": 22.1,
+      "impressions": 17
+    },
+    {
+      "query": "event organizer in lahore",
+      "from": 18.2,
+      "to": 21.2,
+      "impressions": 21
+    },
+    {
+      "query": "wedding planning classes near me",
+      "from": 2,
+      "to": 5.3,
+      "impressions": 21
+    },
+    {
+      "query": "best cultural event planner in lahore",
+      "from": 1.8,
+      "to": 5.2,
+      "impressions": 12
+    },
+    {
+      "query": "book event planning company in lahore",
+      "from": 3,
+      "to": 6.6,
+      "impressions": 18
+    },
+    {
+      "query": "event management company in lahore",
+      "from": 35.8,
+      "to": 44.1,
+      "impressions": 19
+    },
+    {
+      "query": "best wedding planner in lahore",
+      "from": 19.7,
+      "to": 28.8,
+      "impressions": 12
+    }
+  ],
+  "technical": {
+    "pages": 53,
+    "non200": 0,
+    "withIssues": 4,
+    "faqPages": 16,
+    "noLeadPath": 0,
+    "noTel": 0,
+    "phoneMissing": 0,
+    "addressMissing": 0,
+    "apexDomain": "HTTP 503 → https://barakaevents.com/",
+    "robotsTxt": "OK"
+  },
+  "newTechnicalIssues": [
+    "/: title 61 chars (>60)",
+    "/venues/the-nishat-hotel-gulberg: title 61 chars (>60)",
+    "/venues/royal-palm-golf-country-club: title 67 chars (>60)",
+    "/venues/sumbal-chak-farmhouse: meta description 167 chars"
+  ],
+  "fixedTechnicalIssues": [],
+  "leads": {
+    "whatsappClicks": 46,
+    "mapsClicks": 7,
+    "formStarts": 3,
+    "whatsappPerHumanSession": 0.284,
+    "whatsappByChannel": [
+      {
+        "channel": "Referral",
+        "clicks": 27
+      },
+      {
+        "channel": "Paid Search",
+        "clicks": 9
+      }
+    ]
+  },
+  "humanSessions": 162,
+  "aiVisibility": {
+    "ChatGPT (logged-out search)": {
+      "tested": 3,
+      "mentioned": 2,
+      "untested": 5
+    },
+    "Claude web search": {
+      "tested": 20,
+      "mentioned": 0,
+      "untested": 0
+    },
+    "Perplexity": {
+      "tested": 0,
+      "mentioned": 0,
+      "untested": 1
+    },
+    "Gemini": {
+      "tested": 0,
+      "mentioned": 0,
+      "untested": 1
+    },
+    "Google AI Overviews": {
+      "tested": 0,
+      "mentioned": 0,
+      "untested": 1
+    },
+    "Copilot": {
+      "tested": 0,
+      "mentioned": 0,
+      "untested": 1
+    }
+  },
+  "aiRows": 32,
+  "reviewsThisWeek": 0,
+  "competitorNewPages": [],
+  "contentCommits": [
+    {
+      "hash": "fa9801f",
+      "date": "2026-11-25",
+      "subject": "AEO pass: owner-confirmed H1s, answer-first intros and FAQs on eight service pages",
+      "refs": "origin/seo/aeo-2026-11-25, seo/aeo-2026-11-25"
+    },
+    {
+      "hash": "61740c0",
+      "date": "2026-11-24",
+      "subject": "SEO sprint 1: cost guide refresh, wedding page relevance, consistent booking answers, 404 redirect",
+      "refs": "origin/seo/sprint-1-2026-11-24, seo/sprint-1-2026-11-24"
+    }
+  ],
+  "logEntries": [
+    "2026-11-25 (Wed) — setup + AEO",
+    "2026-11-25 — scheduler tests (2 manual firings of the daily routine)",
+    "2026-11-25 — end-to-end scheduled test (home session)",
+    "2026-11-25 — automation fixed and verified (interactive session)",
+    "2026-11-26 (Thu) — GEO: AI citation sources (scheduled run)"
+  ],
+  "collectorRuns": 0,
+  "collectorFailures": [],
+  "outreachOpportunities": 20,
+  "priorities": [
+    "Demand gap: \"catering services lahore\" has 1000 searches/month in Pakistan; we have 0 impressions.",
+    "Page-1 push: \"best event planner in lahore\" at position 12.8 with 87 impressions (28 days).",
+    "Unanswered question with real impressions: \"best party planner in lahore\" (9 impressions, position 23)."
+  ]
+}
