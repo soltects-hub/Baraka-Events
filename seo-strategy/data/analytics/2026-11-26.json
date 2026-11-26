@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T06:16:53.449Z",
+  "generatedAt": "2026-11-26T06:31:54.479Z",
   "ga4Source": "raw-2026-11-26.json",
   "keywordSource": "2026-11-26.json",
   "seoSource": "2026-11-26.json",
@@ -20,6 +20,22 @@
       {
         "channel": "Paid Search",
         "clicks": 9
+      },
+      {
+        "channel": "Organic Search",
+        "clicks": 5
+      },
+      {
+        "channel": "AI Assistant",
+        "clicks": 2
+      },
+      {
+        "channel": "Organic Social",
+        "clicks": 2
+      },
+      {
+        "channel": "Direct",
+        "clicks": 1
       }
     ]
   },

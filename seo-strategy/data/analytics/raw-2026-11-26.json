@@ -1,28 +1,163 @@
 {
-  "source": "GA4 property 544826662 via AdvisorPPC advisor_read ga4_run_report_tool, fetched 2026-11-26T06:08Z",
+  "source": "GA4 property 544826662 via AdvisorPPC advisor_read ga4_run_report_tool, fetched 2026-11-26T06:31Z (scheduled collectors test; 3 reports re-run)",
   "dateRange": "28daysAgo..yesterday",
   "channels": [
-    {"channel": "Direct", "sessions": 5748, "engagedSessions": 5748, "users": 5763},
-    {"channel": "Paid Search", "sessions": 43, "engagedSessions": 43, "users": 41},
-    {"channel": "Referral", "sessions": 40, "engagedSessions": 40, "users": 40},
-    {"channel": "Organic Search", "sessions": 37, "engagedSessions": 37, "users": 32},
-    {"channel": "AI Assistant", "sessions": 30, "engagedSessions": 30, "users": 20},
-    {"channel": "Unassigned", "sessions": 20, "engagedSessions": 1, "users": 20},
-    {"channel": "Organic Social", "sessions": 12, "engagedSessions": 12, "users": 11}
+    {
+      "channel": "Direct",
+      "sessions": 5748,
+      "engagedSessions": 5748,
+      "users": 5763
+    },
+    {
+      "channel": "Paid Search",
+      "sessions": 43,
+      "engagedSessions": 43,
+      "users": 41
+    },
+    {
+      "channel": "Referral",
+      "sessions": 40,
+      "engagedSessions": 40,
+      "users": 40
+    },
+    {
+      "channel": "Organic Search",
+      "sessions": 37,
+      "engagedSessions": 37,
+      "users": 32
+    },
+    {
+      "channel": "AI Assistant",
+      "sessions": 30,
+      "engagedSessions": 30,
+      "users": 20
+    },
+    {
+      "channel": "Unassigned",
+      "sessions": 20,
+      "engagedSessions": 1,
+      "users": 20
+    },
+    {
+      "channel": "Organic Social",
+      "sessions": 12,
+      "engagedSessions": 12,
+      "users": 11
+    }
   ],
   "outboundClicks": [
-    {"domain": "wa.me", "clicks": 46}, {"domain": "maps.app.goo.gl", "clicks": 7}, {"domain": "instagram.com", "clicks": 6},
-    {"domain": "linkedin.com", "clicks": 6}, {"domain": "facebook.com", "clicks": 1}, {"domain": "youtube.com", "clicks": 1}
+    {
+      "domain": "wa.me",
+      "clicks": 46
+    },
+    {
+      "domain": "maps.app.goo.gl",
+      "clicks": 7
+    },
+    {
+      "domain": "instagram.com",
+      "clicks": 6
+    },
+    {
+      "domain": "linkedin.com",
+      "clicks": 6
+    },
+    {
+      "domain": "facebook.com",
+      "clicks": 1
+    },
+    {
+      "domain": "youtube.com",
+      "clicks": 1
+    }
   ],
-  "whatsappClicksByChannel": [{"channel": "Referral", "clicks": 27}, {"channel": "Paid Search", "clicks": 9}],
+  "whatsappClicksByChannel": [
+    {
+      "channel": "Referral",
+      "clicks": 27
+    },
+    {
+      "channel": "Paid Search",
+      "clicks": 9
+    },
+    {
+      "channel": "Organic Search",
+      "clicks": 5
+    },
+    {
+      "channel": "AI Assistant",
+      "clicks": 2
+    },
+    {
+      "channel": "Organic Social",
+      "clicks": 2
+    },
+    {
+      "channel": "Direct",
+      "clicks": 1
+    }
+  ],
   "events": [
-    {"event": "page_view", "count": 15060}, {"event": "session_start", "count": 5999}, {"event": "first_visit", "count": 5906},
-    {"event": "user_engagement", "count": 122}, {"event": "scroll", "count": 76}, {"event": "click", "count": 67}, {"event": "form_start", "count": 3}
+    {
+      "event": "page_view",
+      "count": 15060
+    },
+    {
+      "event": "session_start",
+      "count": 5999
+    },
+    {
+      "event": "first_visit",
+      "count": 5906
+    },
+    {
+      "event": "user_engagement",
+      "count": 122
+    },
+    {
+      "event": "scroll",
+      "count": 76
+    },
+    {
+      "event": "click",
+      "count": 67
+    },
+    {
+      "event": "form_start",
+      "count": 3
+    }
   ],
   "directTopCountries": [
-    {"country": "United States", "browser": "Chrome", "sessions": 1391}, {"country": "United States", "browser": "Edge", "sessions": 462},
-    {"country": "Germany", "browser": "Chrome", "sessions": 259}, {"country": "India", "browser": "Chrome", "sessions": 238},
-    {"country": "Pakistan", "browser": "Chrome", "sessions": 224}, {"country": "Singapore", "browser": "Chrome", "sessions": 167}
+    {
+      "country": "United States",
+      "browser": "Chrome",
+      "sessions": 1391
+    },
+    {
+      "country": "United States",
+      "browser": "Edge",
+      "sessions": 462
+    },
+    {
+      "country": "Germany",
+      "browser": "Chrome",
+      "sessions": 259
+    },
+    {
+      "country": "India",
+      "browser": "Chrome",
+      "sessions": 238
+    },
+    {
+      "country": "Pakistan",
+      "browser": "Chrome",
+      "sessions": 224
+    },
+    {
+      "country": "Singapore",
+      "browser": "Chrome",
+      "sessions": 167
+    }
   ],
-  "notes": "Direct traffic shows bot signatures (global countries, 100% 'engaged', almost no scroll/user_engagement). Lead counts use outbound wa.me clicks from enhanced measurement; contact_click (service pages) recorded 0 events; the WhatsApp button's 'conversion' event is sent to Google Ads, not GA4."
+  "notes": "Direct traffic shows bot signatures (global countries, 100% 'engaged', almost no scroll/user_engagement). Lead counts use outbound wa.me clicks from enhanced measurement; contact_click (service pages) recorded 0 events; the WhatsApp button's 'conversion' event is sent to Google Ads, not GA4. whatsappClicksByChannel now lists all 6 channels (total 46 = outbound wa.me clicks). directTopCountries was carried over from the 06:08Z fetch; it is not one of the 3 collector reports."
 }

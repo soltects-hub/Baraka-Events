@@ -131,3 +131,18 @@ Fired by the one-shot scheduled task "Baraka Events — scheduled E2E test" at 1
   - ChatGPT, Perplexity and Gemini were not part of today's mission.
   - GA4 and Keyword Planner were not needed today.
 - **Next:** Fri 27 Nov LLMO: all 20 queries in Claude, plus logged-out ChatGPT Q04–Q06. Add the brand query `"Baraka Events" Lahore` as an extra check.
+
+
+## 2026-11-26 — collectors scheduled test (home session)
+
+- **Trigger:** the one-shot scheduled task "collectors E2E test", 06:30 UTC. The GEO mission was not repeated. Docs branch at start: `a676ff3`.
+- **Step 1, GA4 (AdvisorPPC `advisor_read` `ga4_run_report_tool`, 28daysAgo..yesterday):** ✅ all 3 reports returned. I overwrote `data/analytics/raw-2026-11-26.json` with the 06:31Z numbers:
+  - Channels and events are identical to the 06:08Z fetch.
+  - `whatsappClicksByChannel` is now complete: Referral 27, Paid Search 9, Organic Search 5, AI Assistant 2, Organic Social 2, Direct 1 (total 46). Before, only 2 channels were listed.
+  - Keyword Planner was not called, because this is not the month's first run. AdvisorPPC also reports that the Google Ads API allowance is unavailable this month.
+- **Step 2, `node seo-strategy/tools/run.mjs auto`:** overall **OK**.
+  - seo **OK**: 31 clicks, 3,295 impressions, position 20.0; 14 page-1 opportunities; 0 indexing problems; 3 cannibalised queries.
+  - site-audit **OK**: 53 pages, 0 non-200, 4 with SEO issues, 0 without a lead path. ⚠️ **The apex `https://barakaevents.com/` returned HTTP 503** (owner item O4).
+  - analytics **OK**: **162 human sessions** of 5,930 (bot-pattern Direct excluded); **46 WhatsApp clicks**; 3 form starts; 5 high-demand keywords with a visibility gap (catering services lahore: 1,000/mo, not visible).
+  - The runner ran twice (the second time only to read its status lines), so `data/run-log.jsonl` has 2 entries for this test.
+- **Blockers:** none for the collectors. The apex 503 is still the owner's to fix (O4).
