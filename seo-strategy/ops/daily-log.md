@@ -171,3 +171,42 @@ Fired by the one-shot scheduled task "Baraka Events — scheduled E2E test" at 1
 - **Email:** still no Gmail send tool. The Sunday email task now falls back to the data pack if the written report is missing.
 - **Blockers / owner:** O4 (bare domain 503), O10/O17 (approve PR #90, confirm menu prices), O18 (tracking proposal), O19 (bot traffic), O3 (Search Console ownership), Business Profile access, Perplexity/Gemini manual tests.
 - **Next:** Fri 27 Nov LLMO run (collectors run first automatically).
+
+
+## 2026-11-27 (Fri) — LLMO tests (scheduled run)
+
+- **Task:** Friday LLMO mission. Ran in the home session from the 08:58 PKT scheduled task. Docs branch at start: `859d65f`.
+- **Collectors: OK.**
+  - GA4 via `advisor_read`: 3 reports, saved to `data/analytics/raw-2026-11-27.json`.
+  - `run.mjs auto`: seo OK, site-audit OK, analytics OK.
+  - Search Console (`seo-report/2026-11-26`): 29 clicks, 3,459 impressions, position 21.3. Previous report: 31 / 3,295 / 20.0. That's -2 clicks, +164 impressions and 1.3 positions lower over the rolling 28 days. Also: 14 page-1 opportunities, 4 cannibalised queries (was 3), 0 indexing problems.
+  - Site audit: 53 pages all 200; **the bare domain still returns 503** (O4).
+  - GA4: 163 human sessions of 5,933. **38 WhatsApp clicks** (46 yesterday): the rolling window dropped older Referral clicks, with Referral wa.me going 27 → 19. 3 form starts.
+  - Keyword Planner was not called (not the month's first run).
+- **Research:**
+  - Claude web search for all 20 tracker queries, plus the brand query `"Baraka Events" Lahore`.
+  - Logged-out ChatGPT (headless, `chatgpt.com/?q=…&hints=search`, 45 s wait) for Q04, Q05 and Q06, then Q01. Q01 hit the login wall.
+- **Results (measured):**
+  - **Claude: Baraka in 0 of 20 answers** (24 Nov: 0 of 20). The brand query again did not return barakaevents.com; its only source was d7leadfinder (5.0 · 40 reviews). The most-returned domains were wezoree, tribune, brandsynario, a2zeventssolutionz, peonyeventsplanner, shadiyana and olx. Evidence: `sprint-2/evidence/ai-2026-11-27-claude-web-search.md`.
+  - **ChatGPT, 3 queries tested before the wall** (on 24 Nov these 3 were UNTESTED):
+    - Q04 corporate: Baraka absent. Listed: Evenement, a2z, The Event Circles, Exact Expo, Winninggo, UV-Impressions, PRO Exhibitions.
+    - **Q05 birthday: Baraka #4 of 7** (map pin plus list: "5.0 · 40 reviews · Gulberg III, Liberty · Premium décor, lighting and complete event management"). The planners ahead of it have 175, 199 and 58 reviews.
+    - Q06 catering: Baraka absent. Listed: AL-Tuaam, Lahore Catering & Decor, G.N Caterers, Black Tie, Sadiq Sons, Wazir Royal, Anayat.
+    - Q01: login wall (4th query in the session, same as 24 Nov).
+  - Across the 6 ChatGPT queries tested so far (24 + 27 Nov), Baraka is listed in 3 (Q01 #7, Q03 #3, Q05 #4), map-only in 1 (Q02), and absent in 2 (Q04, Q06).
+  - ChatGPT ranks from map/review data and Claude from web pages. Baraka shows up only where map data is used.
+- **Files:**
+  - `sprint-2/6-ai-visibility-tracker.csv`: +24 rows (20 Claude, 4 ChatGPT).
+  - `sprint-2/evidence/ai-2026-11-27-claude-web-search.md`.
+  - `sprint-2/evidence/ai-2026-11-27-chatgpt-Q01/Q04/Q05/Q06.{txt,png}`.
+  - `data/*/2026-11-27.*`, this log, the task board.
+  - Docs branch only. No website change.
+- **Verification:** every ChatGPT row has a text capture and a screenshot. Claude rows reference the evidence table (answer text and returned domains as captured).
+- **Recommendations (not done; owner decisions):**
+  - The catering gap shows on both platforms (ChatGPT Q06 absent; Claude Q06/Q13 cite Shadiyana caterers). That supports O17 (the catering page, PR #90) and the Shadiyana catering listing (O7).
+  - The review gap (O2) is the clearest lever for ChatGPT: Baraka has 40 reviews against 58–199 for the planners ranked above it.
+- **Blockers:**
+  - ChatGPT login wall after 3 queries.
+  - Perplexity, Gemini, AI Overviews and Copilot are untestable (O13).
+  - d7leadfinder is still the only third-party source Claude finds for Baraka.
+- **Next:** Sat 28 Nov content: the venues-article refresh (`/blog/top-wedding-venues-lahore-2025`) on a working branch.
