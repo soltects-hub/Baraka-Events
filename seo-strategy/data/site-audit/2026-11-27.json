@@ -1,0 +1,2229 @@
+{
+  "generatedAt": "2026-11-27T03:58:52.338Z",
+  "site": "https://www.barakaevents.com",
+  "summary": {
+    "pages": 53,
+    "non200": 0,
+    "withIssues": 4,
+    "faqPages": 16,
+    "noLeadPath": 0,
+    "noTel": 0,
+    "phoneMissing": 0,
+    "addressMissing": 0,
+    "apexDomain": "HTTP 503 → https://barakaevents.com/",
+    "robotsTxt": "OK"
+  },
+  "comparedWith": "2026-11-26",
+  "newIssues": [],
+  "fixedIssues": [],
+  "pages": [
+    {
+      "url": "/",
+      "status": 200,
+      "title": "Baraka Events Lahore — Best Event Planner for Luxury Weddings",
+      "titleLength": 61,
+      "description": "Baraka Events Lahore — the best event planner in Lahore for luxury weddings, corporate events, decor services and venue booking, based in Gulberg III.",
+      "descriptionLength": 150,
+      "h1s": [
+        "Event Planners in Lahore. Weddings, corporate, private."
+      ],
+      "canonical": "https://www.barakaevents.com/",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "faq": true,
+      "words": 2775,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 11,
+        "tel": 2,
+        "form": true,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [
+        "title 61 chars (>60)"
+      ],
+      "conversion": []
+    },
+    {
+      "url": "/experiences",
+      "status": 200,
+      "title": "Wedding & Corporate Event Planning in Lahore | Baraka Events",
+      "titleLength": 60,
+      "description": "Event planner in Lahore for weddings (mehndi, baraat, nikkah, walima), corporate events, private celebrations and live entertainment, from Gulberg to DHA.",
+      "descriptionLength": 154,
+      "h1s": [
+        "Weddings, corporate events and private celebrations in Lahore."
+      ],
+      "canonical": "https://www.barakaevents.com/experiences",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "Service"
+      ],
+      "faq": false,
+      "words": 854,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/about",
+      "status": 200,
+      "title": "About Baraka Events — Event Planning Company in Lahore",
+      "titleLength": 54,
+      "description": "Baraka Events is an event planning and management company in Gulberg, Lahore, producing weddings, corporate events and private celebrations across the city.",
+      "descriptionLength": 156,
+      "h1s": [
+        "An event planning company built on design and follow-through."
+      ],
+      "canonical": "https://www.barakaevents.com/about",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 643,
+      "internalLinks": 20,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/portfolio",
+      "status": 200,
+      "title": "Lahore Event Portfolio: Corporate & Private | Baraka Events",
+      "titleLength": 59,
+      "description": "Selected corporate, private-celebration and garden set-up work by Baraka Events in Lahore: LED stages, a birthday backdrop and draped garden canopies.",
+      "descriptionLength": 150,
+      "h1s": [
+        "A sample of what we've planned and produced."
+      ],
+      "canonical": "https://www.barakaevents.com/portfolio",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 537,
+      "internalLinks": 20,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/gallery",
+      "status": 200,
+      "title": "Lahore Wedding, Mehndi & Event Photo Gallery | Baraka Events",
+      "titleLength": 60,
+      "description": "Real wedding, mehndi, baraat, walima, corporate and private celebration photography from Baraka Events — our own production archive across Lahore.",
+      "descriptionLength": 146,
+      "h1s": [
+        "Real events, produced by Baraka."
+      ],
+      "canonical": "https://www.barakaevents.com/gallery",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 378,
+      "internalLinks": 20,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/team",
+      "status": 200,
+      "title": "Meet the Team — Baraka Events Lahore",
+      "titleLength": 36,
+      "description": "Meet Malik Bilal, founder and CEO of Baraka Events, the person behind every wedding, corporate event and private celebration the company produces in Lahore.",
+      "descriptionLength": 156,
+      "h1s": [
+        "The person behind every Baraka production."
+      ],
+      "canonical": "https://www.barakaevents.com/team",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 431,
+      "internalLinks": 20,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/contact",
+      "status": 200,
+      "title": "Contact Baraka Events — Hire an Event Planner in Lahore",
+      "titleLength": 55,
+      "description": "Book a free consultation with Baraka Events, an event planner in Gulberg III, Lahore. Call +92 313 9999039, Mon–Sat 2:00 PM–11:00 PM.",
+      "descriptionLength": 133,
+      "h1s": [
+        "Hire an event planner in Lahore who answers."
+      ],
+      "canonical": "https://www.barakaevents.com/contact",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 508,
+      "internalLinks": 20,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": true,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog",
+      "status": 200,
+      "title": "The Baraka Journal — Wedding & Event Insights from Lahore",
+      "titleLength": 57,
+      "description": "Venue intelligence, design direction and honest planning advice for Lahore’s weddings and events, written by the Baraka Events production team.",
+      "descriptionLength": 143,
+      "h1s": [
+        "Notes from the atelier"
+      ],
+      "canonical": "https://www.barakaevents.com/blog",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1275,
+      "internalLinks": 49,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services",
+      "status": 200,
+      "title": "Event Planner & Management Company in Lahore | Baraka Events",
+      "titleLength": 60,
+      "description": "Event planner in Lahore and full-service event management company — wedding planning, decoration, corporate events, and every individual wedding function.",
+      "descriptionLength": 154,
+      "h1s": [
+        "Every service, from one event planner in Lahore."
+      ],
+      "canonical": "https://www.barakaevents.com/services",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BreadcrumbList",
+        "ListItem",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "faq": true,
+      "words": 1635,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/venues",
+      "status": 200,
+      "title": "Lahore Venue Guide (Independent Listings) — Baraka Events",
+      "titleLength": 57,
+      "description": "A publicly sourced guide to real Lahore event venues, independently compiled by Baraka Events — not an endorsement or partnership directory.",
+      "descriptionLength": 140,
+      "h1s": [
+        "Real Lahore venues, plainly described."
+      ],
+      "canonical": "https://www.barakaevents.com/venues",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 439,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/how-to-choose-wedding-planner-lahore",
+      "status": 200,
+      "title": "How to Choose a Wedding Planner in Lahore | Baraka Events",
+      "titleLength": 57,
+      "description": "Mehndi, baraat, nikkah and walima are four separate builds under one name. What separates a planner who can run all four from one coordinating four vendors.",
+      "descriptionLength": 156,
+      "h1s": [
+        "How to Choose a Wedding Planner in Lahore When the Wedding Is Actually Four Events"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/how-to-choose-wedding-planner-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1505,
+      "internalLinks": 29,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/birthday-party-planning-lahore-guide",
+      "status": 200,
+      "title": "Birthday Party Planning in Lahore | Baraka Events",
+      "titleLength": 49,
+      "description": "How to plan a birthday party in Lahore: home, rooftop, lawn or venue, what to settle first, and the power, weather and timing details that shape the day.",
+      "descriptionLength": 153,
+      "h1s": [
+        "Birthday Party Planning in Lahore: Home, Rooftop or Venue?"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/birthday-party-planning-lahore-guide",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1731,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/event-planning-cost-budget-lahore",
+      "status": 200,
+      "title": "What Event Planning in Lahore Costs | Baraka Events",
+      "titleLength": 51,
+      "description": "Why we do not publish an event planner price list in Lahore, what a very cheap quote usually means, and where the money in a quote really goes.",
+      "descriptionLength": 143,
+      "h1s": [
+        "What Event Planning in Lahore Costs, and How to Spend Less"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/event-planning-cost-budget-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1618,
+      "internalLinks": 29,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/outdoor-garden-wedding-lahore-guide",
+      "status": 200,
+      "title": "Outdoor Weddings in Lahore: Month and Setup | Baraka Events",
+      "titleLength": 59,
+      "description": "Which months suit an open-air wedding in Lahore, what a draped garden setup actually needs, and the logistics most couples only find out about too late.",
+      "descriptionLength": 152,
+      "h1s": [
+        "Outdoor Weddings in Lahore: Picking the Right Month and Setup"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/outdoor-garden-wedding-lahore-guide",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1761,
+      "internalLinks": 26,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/rukhsati-ceremony-planning-lahore",
+      "status": 200,
+      "title": "Rukhsati Ceremony Planning in Lahore | Baraka Events",
+      "titleLength": 52,
+      "description": "A practical, respectful guide to planning a rukhsati in Lahore — timing it against the baraat or walima, staging the farewell, and what most families overlook.",
+      "descriptionLength": 159,
+      "h1s": [
+        "Rukhsati Planning in Lahore: Timing, Staging and What to Expect"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/rukhsati-ceremony-planning-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1044,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/destination-multi-day-shaadi-lahore",
+      "status": 200,
+      "title": "Destination & Multi-Day Shaadi Planning | Baraka Events",
+      "titleLength": 55,
+      "description": "Planning a wedding week away from Lahore — hill-station venues, real travel logistics, and what changes when the celebration leaves the city.",
+      "descriptionLength": 141,
+      "h1s": [
+        "Destination & Multi-Day Shaadi Planning: A Practical Guide"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/destination-multi-day-shaadi-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1007,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/anniversary-celebration-ideas-lahore",
+      "status": 200,
+      "title": "Anniversary Parties and Mehfils in Lahore | Baraka Events",
+      "titleLength": 57,
+      "description": "A practical guide to hosting an anniversary party, garden mehfil or rooftop dinner in Lahore — venue choice, scale and styling for a grown-up guest list.",
+      "descriptionLength": 153,
+      "h1s": [
+        "Anniversary Parties, Garden Mehfils and Rooftop Dinners in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/anniversary-celebration-ideas-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1021,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/aqeeqah-celebration-planning-lahore",
+      "status": 200,
+      "title": "Aqeeqah Celebration Planning in Lahore | Baraka Events",
+      "titleLength": 54,
+      "description": "A practical guide to hosting an Aqeeqah in Lahore — timing, guest-list size, catering and decor, and keeping the celebration personal, not just decorative.",
+      "descriptionLength": 155,
+      "h1s": [
+        "Aqeeqah Celebration Planning in Lahore: What to Know"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/aqeeqah-celebration-planning-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1071,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/farmhouse-wedding-raiwind-road-lahore",
+      "status": 200,
+      "title": "Farmhouse Weddings on Raiwind Road | Baraka Events",
+      "titleLength": 50,
+      "description": "Space, cost and the logistics that are different on a farmhouse lawn — a practical guide to planning a Raiwind Road wedding.",
+      "descriptionLength": 124,
+      "h1s": [
+        "Farmhouse Weddings on Raiwind Road: What to Know Before You Book"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/farmhouse-wedding-raiwind-road-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1194,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/how-to-choose-wedding-venue-lahore-guide",
+      "status": 200,
+      "title": "How to Choose a Wedding Venue in Lahore | Baraka Events",
+      "titleLength": 55,
+      "description": "Guest count, season, budget and the questions to ask before you sign — a practical framework for choosing a wedding venue in Lahore.",
+      "descriptionLength": 132,
+      "h1s": [
+        "How to Choose the Perfect Wedding Venue in Lahore: A Complete Guide"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/how-to-choose-wedding-venue-lahore-guide",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1181,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/luxury-event-catering-menu-lahore",
+      "status": 200,
+      "title": "Luxury Wedding Catering in Lahore | Baraka Events",
+      "titleLength": 49,
+      "description": "A practical guide to wedding catering in Lahore: menu structure, live stations, and what to ask a caterer before you book.",
+      "descriptionLength": 122,
+      "h1s": [
+        "Luxury Wedding Catering in Lahore: Menus and Live Stations"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/luxury-event-catering-menu-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1127,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/best-event-planner-lahore-baraka-events",
+      "status": 200,
+      "title": "Why Baraka Events Is the Best Event Planner in Lahore",
+      "titleLength": 53,
+      "description": "What “best event planner in Lahore” has to earn, and what Baraka Events puts in writing: a line-item proposal, a named coordinator and a run-of-show.",
+      "descriptionLength": 149,
+      "h1s": [
+        "Why Baraka Events Is the Best Event Planner in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/best-event-planner-lahore-baraka-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 738,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/top-event-planner-lahore-checklist-2026",
+      "status": 200,
+      "title": "Event Planner in Lahore: 2026 Checklist | Baraka Events",
+      "titleLength": 55,
+      "description": "How to choose the best event planner in Lahore: the questions to ask, what a line-item proposal should show, red flags to avoid, and how early to book.",
+      "descriptionLength": 151,
+      "h1s": [
+        "How to Choose the Best Event Planner in Lahore: A 2026 Buyer’s Checklist"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/top-event-planner-lahore-checklist-2026",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1589,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/baraka-events-management-how-we-work",
+      "status": 200,
+      "title": "Inside Baraka Events Management: How We Run an Event",
+      "titleLength": 52,
+      "description": "How Baraka Events structures a single event, from first consultation to final vendor payment, across weddings, corporate events and private celebrations.",
+      "descriptionLength": 153,
+      "h1s": [
+        "Inside Baraka Events Management: How We Run an Event"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/baraka-events-management-how-we-work",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 493,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/baraka-events-corporate-events-lahore",
+      "status": 200,
+      "title": "Corporate Event Production in Lahore | Baraka Events",
+      "titleLength": 52,
+      "description": "What a well-run corporate event in Lahore needs, from the brief and the power plan to rehearsal and hosts, and what to ask any provider.",
+      "descriptionLength": 136,
+      "h1s": [
+        "Corporate Events in Lahore: What a Well-Run Production Looks Like"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/baraka-events-corporate-events-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 533,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/baraka-events-venue-booking-guide",
+      "status": 200,
+      "title": "Baraka Events Venue Booking: How It Works",
+      "titleLength": 41,
+      "description": "From shortlist to signed contract: how Baraka Events venue booking works for weddings and corporate events in Lahore, and why booking early widens your choice.",
+      "descriptionLength": 159,
+      "h1s": [
+        "Baraka Events Venue Booking: How the Process Actually Works"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/baraka-events-venue-booking-guide",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 519,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/baraka-events-decor-services-lahore",
+      "status": 200,
+      "title": "Wedding & Event Decor Services in Lahore | Baraka Events",
+      "titleLength": 56,
+      "description": "From genda phool maximalism to pastel minimal walima florals: the decor Baraka Events Lahore clients request most, and how each look is built.",
+      "descriptionLength": 142,
+      "h1s": [
+        "Baraka Events Decor Services in Lahore: Every Style We Design"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/baraka-events-decor-services-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 494,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/baraka-events-lahore-gulberg",
+      "status": 200,
+      "title": "Event Planner in Gulberg, Lahore | Baraka Events",
+      "titleLength": 48,
+      "description": "Liberty Roundabout, Main Boulevard, MM Alam — why Baraka Events chose Gulberg III as its head office, and what that location means for clients across Lahore.",
+      "descriptionLength": 157,
+      "h1s": [
+        "Baraka Events in Gulberg: Why Lahore’s Event Capital Is Our Home Turf"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/baraka-events-lahore-gulberg",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 466,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/viral-pakistani-wedding-trends-2026",
+      "status": 200,
+      "title": "Pakistani Wedding Trends Going Viral in 2026 | Baraka Events",
+      "titleLength": 60,
+      "description": "The shaadi trends spreading across Pakistani Instagram and TikTok in 2026, from drone reveal shots to AI-designed invitation films, and which are worth doing.",
+      "descriptionLength": 158,
+      "h1s": [
+        "The Pakistani Wedding Trends Going Viral in 2026"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/viral-pakistani-wedding-trends-2026",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 510,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/destination-style-shaadi-lahore-trend",
+      "status": 200,
+      "title": "Destination-Style Shaadis in Lahore | Baraka Events",
+      "titleLength": 51,
+      "description": "Why more Lahore families want a “destination wedding” feel inside the city itself, and how Baraka Events designs that experience without the travel budget.",
+      "descriptionLength": 155,
+      "h1s": [
+        "Destination-Style Shaadis Without Leaving Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/destination-style-shaadi-lahore-trend",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 466,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/micro-weddings-intimate-celebrations-pakistan",
+      "status": 200,
+      "title": "Micro-Weddings and Intimate Celebrations | Baraka Events",
+      "titleLength": 56,
+      "description": "Guest lists of fifty replacing five hundred: why intimate celebrations are trending across Pakistan, and why the production standard gets harder, not easier.",
+      "descriptionLength": 157,
+      "h1s": [
+        "The Rise of Micro-Weddings and Intimate Celebrations in Pakistan"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/micro-weddings-intimate-celebrations-pakistan",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 510,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/top-wedding-venues-lahore-2025",
+      "status": 200,
+      "title": "Wedding Venues in Lahore by Area | Baraka Events",
+      "titleLength": 48,
+      "description": "What each part of Lahore offers a wedding, from Walled City havelis to DHA and Bahria marquees and outdoor gardens, and what to check before you book.",
+      "descriptionLength": 150,
+      "h1s": [
+        "Lahore Wedding Venues by Area: Havelis, Marquees, Gardens"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/top-wedding-venues-lahore-2025",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1039,
+      "internalLinks": 27,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/mehndi-themes-lahore-loves",
+      "status": 200,
+      "title": "Seven Mehndi Themes Lahore Loves | Baraka Events",
+      "titleLength": 48,
+      "description": "Genda phool maximalism, vintage truck-art brights, monochrome ivory — the mehndi moods defining this wedding season, from our design floor.",
+      "descriptionLength": 139,
+      "h1s": [
+        "Seven Mehndi Themes Lahore Cannot Get Enough Of"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/mehndi-themes-lahore-loves",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 452,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/luxury-shaadi-cost-lahore",
+      "status": 200,
+      "title": "Lahore Wedding Budget: Spend and Save | Baraka Events",
+      "titleLength": 53,
+      "description": "A line-item look at how a Lahore wedding budget is built — venue, decor, catering, film — and where smart families spend versus save.",
+      "descriptionLength": 133,
+      "h1s": [
+        "Lahore Wedding Budget: Where to Spend and Where to Save"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/luxury-shaadi-cost-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 443,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/walima-decor-trends-2025",
+      "status": 200,
+      "title": "Walima Decor in 2025: Pastel to Mughal | Baraka Events",
+      "titleLength": 54,
+      "description": "The reception is the finale — the night of the couple’s first entrance as a married pair. Here is how Lahore is staging it this season.",
+      "descriptionLength": 135,
+      "h1s": [
+        "Walima Decor in 2025: From Pastel Minimal to Mughal Maximal"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/walima-decor-trends-2025",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 405,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/corporate-gala-lahore-checklist",
+      "status": 200,
+      "title": "Corporate Gala in Lahore: Planning Checklist | Baraka Events",
+      "titleLength": 60,
+      "description": "Launches, summits and award nights: a working checklist for venues, AV, guest flow and the details that make executives look brilliant.",
+      "descriptionLength": 135,
+      "h1s": [
+        "A Corporate Gala in Lahore: Venue, Run-of-Show and Hospitality Checklist"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/corporate-gala-lahore-checklist",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 814,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/perfect-baraat-guide",
+      "status": 200,
+      "title": "The Perfect Baraat: Timing, Dhol, Entrance | Baraka Events",
+      "titleLength": 58,
+      "description": "The groom’s procession is pure theatre — and theatre rewards direction. How we choreograph baraats that stop traffic and start tears.",
+      "descriptionLength": 133,
+      "h1s": [
+        "The Perfect Baraat: Timing, Dhol and the Grand Entrance"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/perfect-baraat-guide",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 442,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/walima-reception-planning-guide",
+      "status": 200,
+      "title": "How to Plan a Walima Reception in Lahore | Baraka Events",
+      "titleLength": 56,
+      "description": "The walima is the last function and the most photographed. The guest list, venue, catering and run-of-show order that keep it from feeling like an afterthought.",
+      "descriptionLength": 160,
+      "h1s": [
+        "How to Plan a Walima Reception in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/walima-reception-planning-guide",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 673,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/blog/wedding-timeline-mehndi-to-walima",
+      "status": 200,
+      "title": "Wedding Timeline: Mehndi to Walima | Baraka Events",
+      "titleLength": 50,
+      "description": "A Pakistani wedding is four productions run back to back. The week-by-week and night-by-night timeline that keeps a multi-function shaadi from colliding.",
+      "descriptionLength": 153,
+      "h1s": [
+        "Wedding Event Timeline: From Mehndi to Walima"
+      ],
+      "canonical": "https://www.barakaevents.com/blog/wedding-timeline-mehndi-to-walima",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "BlogPosting",
+        "ImageObject",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": false,
+      "words": 1130,
+      "internalLinks": 26,
+      "leadPaths": {
+        "whatsapp": 1,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/wedding-planning",
+      "status": 200,
+      "title": "Luxury Wedding Planner in Lahore | Baraka Events",
+      "titleLength": 48,
+      "description": "Luxury wedding planner and wedding event management company in Lahore — mehndi, baraat, nikkah and walima planned as one project, with a line-item quote.",
+      "descriptionLength": 153,
+      "h1s": [
+        "Wedding Planning & Management in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/wedding-planning",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1120,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/event-management",
+      "status": 200,
+      "title": "Event Management Company in Lahore | Baraka Events",
+      "titleLength": 50,
+      "description": "Event management company in Lahore: full planning or day-of coordination, run-of-show and vendor supervision for weddings, corporate and private events.",
+      "descriptionLength": 152,
+      "h1s": [
+        "Event Management in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/event-management",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1131,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/event-decoration",
+      "status": 200,
+      "title": "Wedding Decor & Event Decoration in Lahore | Baraka Events",
+      "titleLength": 58,
+      "description": "Wedding decorators and event decoration in Lahore — stage design, florals and lighting, planned as one visual system before a single flower is ordered.",
+      "descriptionLength": 151,
+      "h1s": [
+        "Event Decoration & Design in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/event-decoration",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1054,
+      "internalLinks": 22,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/corporate-events",
+      "status": 200,
+      "title": "Corporate Event Management Company in Lahore | Baraka Events",
+      "titleLength": 60,
+      "description": "Corporate event planner and management company in Lahore for product launches, conferences, annual dinners and AGMs, with itemised proposals.",
+      "descriptionLength": 141,
+      "h1s": [
+        "Corporate Event Management in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/corporate-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1655,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/nikkah-events",
+      "status": 200,
+      "title": "Nikkah Ceremony Planning in Lahore | Baraka Events",
+      "titleLength": 50,
+      "description": "Nikkah ceremony planning in Lahore: stage and seating design, guest logistics, and timing coordinated with the baraat arrival beforehand.",
+      "descriptionLength": 137,
+      "h1s": [
+        "Nikkah Ceremony Planning in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/nikkah-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1082,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/mehndi-events",
+      "status": 200,
+      "title": "Mehndi Planner & Decoration in Lahore | Baraka Events",
+      "titleLength": 53,
+      "description": "Mehndi planner in Lahore for floral and dholki staging, colour palette and evening lighting design that sets the tone for the rest of the wedding week.",
+      "descriptionLength": 151,
+      "h1s": [
+        "Mehndi Night Planning in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/mehndi-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1095,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/barat-events",
+      "status": 200,
+      "title": "Baraat (Barat) Planner in Lahore | Baraka Events",
+      "titleLength": 48,
+      "description": "Baraat (barat) planner in Lahore for groom’s arrival timing, dhol and procession coordination, and guest parking logistics, so the entrance runs on schedule.",
+      "descriptionLength": 157,
+      "h1s": [
+        "Baraat Planning in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/barat-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1115,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/walima-events",
+      "status": 200,
+      "title": "Walima Planner & Reception Planning Lahore | Baraka Events",
+      "titleLength": 58,
+      "description": "Walima planner in Lahore for formal stage and floral design, catering coordination and guest flow for the wedding week’s largest, most photographed function.",
+      "descriptionLength": 157,
+      "h1s": [
+        "Walima Reception Planning in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/walima-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1118,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/engagement-events",
+      "status": 200,
+      "title": "Engagement Event Planning in Lahore | Baraka Events",
+      "titleLength": 51,
+      "description": "Engagement event planning in Lahore, styled between a family gathering and full wedding formality, with decor that can set the tone for the wedding to follow.",
+      "descriptionLength": 158,
+      "h1s": [
+        "Engagement Event Planning in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/engagement-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 974,
+      "internalLinks": 23,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/services/birthday-events",
+      "status": 200,
+      "title": "Birthday Event Planner in Lahore | Baraka Events",
+      "titleLength": 48,
+      "description": "Birthday event planner in Lahore, from themed children’s parties to milestone adult birthdays, with decor, entertainment and catering handled as one plan.",
+      "descriptionLength": 154,
+      "h1s": [
+        "Birthday Party Planning in Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/services/birthday-events",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Service",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 1139,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 2,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/venues/the-nishat-hotel-gulberg",
+      "status": 200,
+      "title": "The Nishat Hotel Gulberg — Lahore Venue Guide | Baraka Events",
+      "titleLength": 61,
+      "description": "Public venue information for The Nishat Hotel Gulberg — halls, capacity and facilities, as part of Baraka Events' independently compiled Lahore venue guide.",
+      "descriptionLength": 156,
+      "h1s": [
+        "The Nishat Hotel Gulberg"
+      ],
+      "canonical": "https://www.barakaevents.com/venues/the-nishat-hotel-gulberg",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Place",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 470,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [
+        "title 61 chars (>60)"
+      ],
+      "conversion": []
+    },
+    {
+      "url": "/venues/royal-palm-golf-country-club",
+      "status": 200,
+      "title": "Royal Palm Golf & Country Club — Lahore Venue Guide | Baraka Events",
+      "titleLength": 67,
+      "description": "Public venue information for Royal Palm Golf & Country Club — marquees, halls and capacity, as part of Baraka Events' independently compiled Lahore venue guide.",
+      "descriptionLength": 160,
+      "h1s": [
+        "Royal Palm Golf & Country Club"
+      ],
+      "canonical": "https://www.barakaevents.com/venues/royal-palm-golf-country-club",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Place",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 497,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [
+        "title 67 chars (>60)"
+      ],
+      "conversion": []
+    },
+    {
+      "url": "/venues/avari-lahore",
+      "status": 200,
+      "title": "Avari Lahore — Lahore Venue Guide | Baraka Events",
+      "titleLength": 49,
+      "description": "Public venue information for Avari Lahore — event halls and capacity, as part of Baraka Events' independently compiled Lahore venue guide.",
+      "descriptionLength": 138,
+      "h1s": [
+        "Avari Lahore"
+      ],
+      "canonical": "https://www.barakaevents.com/venues/avari-lahore",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Place",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 441,
+      "internalLinks": 24,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [],
+      "conversion": []
+    },
+    {
+      "url": "/venues/sumbal-chak-farmhouse",
+      "status": 200,
+      "title": "Sumbal Chak Farmhouse — Lahore Venue Guide | Baraka Events",
+      "titleLength": 58,
+      "description": "Public venue information for Sumbal Chak Farmhouse on Raiwind Road — lawn capacity and facilities, as part of Baraka Events' independently compiled Lahore venue guide.",
+      "descriptionLength": 167,
+      "h1s": [
+        "Sumbal Chak Farmhouse"
+      ],
+      "canonical": "https://www.barakaevents.com/venues/sumbal-chak-farmhouse",
+      "robots": "index, follow",
+      "ldTypes": [
+        "LocalBusiness",
+        "PostalAddress",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "ContactPoint",
+        "Person",
+        "Place",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "faq": true,
+      "words": 470,
+      "internalLinks": 25,
+      "leadPaths": {
+        "whatsapp": 2,
+        "tel": 1,
+        "form": false,
+        "contactLink": true
+      },
+      "nap": {
+        "phone": true,
+        "address": true
+      },
+      "issues": [
+        "meta description 167 chars"
+      ],
+      "conversion": []
+    }
+  ]
+}
