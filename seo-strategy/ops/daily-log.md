@@ -210,3 +210,36 @@ Fired by the one-shot scheduled task "Baraka Events — scheduled E2E test" at 1
   - Perplexity, Gemini, AI Overviews and Copilot are untestable (O13).
   - d7leadfinder is still the only third-party source Claude finds for Baraka.
 - **Next:** Sat 28 Nov content: the venues-article refresh (`/blog/top-wedding-venues-lahore-2025`) on a working branch.
+
+
+## 2026-11-28 (Sat) — content: venues article refresh (scheduled run)
+
+- **Task:** Saturday content mission. This was the item listed under "Next for the routine": `/blog/top-wedding-venues-lahore-2025`. Ran in the home session from the 08:58 PKT scheduled task.
+- **Collectors: OK.**
+  - GA4: `data/analytics/raw-2026-11-28.json`.
+  - seo OK: Search Console `seo-report/2026-11-27` shows 31 clicks, 3,578 impressions, position 21.5; 15 page-1 opportunities; 5 cannibalised queries (was 4); 0 indexing problems.
+  - site-audit OK: 53 pages all 200; **the bare domain still returns 503**.
+  - analytics OK: 159 human sessions of 6,170; 34 WhatsApp clicks (38 yesterday, again older Referral clicks leaving the rolling window, 19 → 15); 3 form starts.
+  - Keyword Planner was not called.
+- **Research (Search Console to 27 Nov):**
+  - The article has 83 impressions, position 28.0, 0 clicks.
+  - Its queries: "wedding venues in lahore" 12 impressions at 23.5, "wedding locations near me" 9, "best venue booking in lahore" 8 at 23, "best wedding halls in lahore" 4 at 71, "top 10 wedding halls in lahore" 2 at 32.5, plus several "near me" variants.
+  - `/venues` has 125 impressions at 21.8.
+- **Opportunity and intent:** informational and commercial ("which venue / which area"). The page opened with general prose and had no direct answer or capacity comparison, which is what "best/top wedding halls" searchers and AI answers look for (Claude cites Bloom Pakistan for this on Q16).
+- **Actions (working branch `seo/content-2026-11-28` @ `98323a6`, stacked on `seo/content-2026-11-26`; draft PR #93):**
+  1. An answer-first opening paragraph: the five venue types by area and what each suits. It is a summary of the article's own sections and FAQ.
+  2. A new FAQ, "Which Lahore wedding halls state the largest capacity?". It gives Nishat Gulberg (1,200 at round tables / 1,600 theatre-style), Avari (up to 1,200) and Royal Palm Silverbells (up to 1,000), all from `src/lib/venues.ts`, labelled as the venues' own figures, with links to each venue page.
+  3. `updatedISO` set to 2026-11-28; the sitemap lastmod was regenerated.
+  - Title and H1 are unchanged. No prices, rankings or claims were added.
+- **Verification:**
+  - `npm run lint` ✅, `npm run build` ✅ (56 routes), `npm run seo:verify-sitemap` ✅ (54 URLs).
+  - In `dist/`, the title and H1 are unchanged, the intro and FAQ render, the 4 venue links are present, and `dateModified` is 2026-11-28.
+  - Tracking guard: no gtag, onClick, WhatsApp or form lines.
+  - Not merged, not deployed.
+- **Note:** the post's FAQ is rendered as paragraphs, so no FAQPage schema is emitted for this post. That was already true before this change, and adding schema would need a template change (owner decision).
+- **Files:** `src/lib/posts.ts`, `public/sitemap.xml` (working branch); `data/*/2026-11-28.*`, this log, the task board (docs branch).
+- **Blockers:**
+  - Bare domain 503 (O4).
+  - The release chain now waits on the owner: PR #90 → #93.
+  - The Vercel preview needs the owner's login (O12).
+- **Next:** Sun 29 Nov, the first weekly report (`weekly-reports/2026-11-29.md` from the data pack).
