@@ -1,0 +1,16 @@
+{
+  "source": "Google Ads Keyword Planner historical metrics via AdvisorPPC ga_keyword_research_tool, customer 9407463054, location Pakistan (2586), English, fetched 2026-11-26T06:09Z",
+  "note": "After this call AdvisorPPC reported google_ads_api_requests available=false for 2026-11 (monthly allowance). Refresh monthly, not daily.",
+  "keywords": [
+    {"keyword": "catering services lahore", "searches": 1000, "competition": "LOW", "cpcPKR": [5.99, 28.94]},
+    {"keyword": "event planner in lahore", "searches": 880, "competition": "LOW", "cpcPKR": [113.68, 202.65]},
+    {"keyword": "wedding planner in lahore", "searches": 140, "competition": "LOW"},
+    {"keyword": "event management company in lahore", "searches": 140, "competition": "LOW"},
+    {"keyword": "best event planner in lahore", "searches": 110, "competition": "LOW", "cpcPKR": [153.86, 156.74]},
+    {"keyword": "birthday event planner lahore", "searches": 50, "competition": "LOW"},
+    {"keyword": "wedding decorators in lahore", "searches": 40, "competition": "LOW"},
+    {"keyword": "event planners lahore", "searches": 30, "competition": "LOW"},
+    {"keyword": "corporate event planner lahore", "searches": 0},
+    {"keyword": "mehndi decoration lahore", "searches": 0}
+  ]
+}

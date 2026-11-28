@@ -1,0 +1,131 @@
+{
+  "source": "GA4 property 544826662 via AdvisorPPC advisor_read ga4_run_report_tool, fetched 2026-11-27T03:58Z (daily routine collectors)",
+  "dateRange": "28daysAgo..yesterday",
+  "channels": [
+    {
+      "channel": "Direct",
+      "sessions": 5750,
+      "engagedSessions": 5750,
+      "users": 5764
+    },
+    {
+      "channel": "Paid Search",
+      "sessions": 43,
+      "engagedSessions": 43,
+      "users": 41
+    },
+    {
+      "channel": "Organic Search",
+      "sessions": 37,
+      "engagedSessions": 37,
+      "users": 32
+    },
+    {
+      "channel": "Referral",
+      "sessions": 36,
+      "engagedSessions": 36,
+      "users": 36
+    },
+    {
+      "channel": "AI Assistant",
+      "sessions": 32,
+      "engagedSessions": 32,
+      "users": 21
+    },
+    {
+      "channel": "Unassigned",
+      "sessions": 20,
+      "engagedSessions": 1,
+      "users": 20
+    },
+    {
+      "channel": "Organic Social",
+      "sessions": 15,
+      "engagedSessions": 15,
+      "users": 14
+    }
+  ],
+  "outboundClicks": [
+    {
+      "domain": "wa.me",
+      "clicks": 38
+    },
+    {
+      "domain": "maps.app.goo.gl",
+      "clicks": 7
+    },
+    {
+      "domain": "linkedin.com",
+      "clicks": 6
+    },
+    {
+      "domain": "instagram.com",
+      "clicks": 5
+    },
+    {
+      "domain": "facebook.com",
+      "clicks": 1
+    },
+    {
+      "domain": "youtube.com",
+      "clicks": 1
+    }
+  ],
+  "whatsappClicksByChannel": [
+    {
+      "channel": "Referral",
+      "clicks": 19
+    },
+    {
+      "channel": "Paid Search",
+      "clicks": 9
+    },
+    {
+      "channel": "Organic Search",
+      "clicks": 5
+    },
+    {
+      "channel": "AI Assistant",
+      "clicks": 2
+    },
+    {
+      "channel": "Organic Social",
+      "clicks": 2
+    },
+    {
+      "channel": "Direct",
+      "clicks": 1
+    }
+  ],
+  "events": [
+    {
+      "event": "page_view",
+      "count": 15063
+    },
+    {
+      "event": "session_start",
+      "count": 6002
+    },
+    {
+      "event": "first_visit",
+      "count": 5907
+    },
+    {
+      "event": "user_engagement",
+      "count": 117
+    },
+    {
+      "event": "scroll",
+      "count": 76
+    },
+    {
+      "event": "click",
+      "count": 58
+    },
+    {
+      "event": "form_start",
+      "count": 3
+    }
+  ],
+  "notes": "Same 3 collector reports as raw-2026-11-26.json. 'click' = sum of outbound click rows (38+7+6+5+1+1). directTopCountries was not re-fetched today (not a collector report). Direct traffic remains bot-pattern. wa.me clicks fell 46 -> 38 because the rolling 28-day window dropped older Referral clicks (Referral wa.me 27 -> 19)."
+}

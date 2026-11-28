@@ -1,0 +1,499 @@
+{
+  "generatedAt": "2026-11-28T03:58:58.227Z",
+  "source": "origin/seo-report/2026-11-27",
+  "comparedWith": "origin/seo-report/2026-11-20",
+  "window": {
+    "startDate": "2026-10-28",
+    "endDate": "2026-11-24"
+  },
+  "totals": {
+    "clicks": 31,
+    "impressions": 3578,
+    "ctr": 0.008664058133035215,
+    "position": 21.542481833426496
+  },
+  "totalsWeekAgo": {
+    "clicks": 32,
+    "impressions": 3051,
+    "ctr": 0.010488364470665356,
+    "position": 19.712881022615537
+  },
+  "totalsBaseline": {
+    "clicks": 31,
+    "impressions": 3180,
+    "ctr": 0.009748427672955974,
+    "position": 19.174842767295598
+  },
+  "targets": [
+    {
+      "query": "event planner in lahore",
+      "position": 11.472972972972974,
+      "impressions": 74,
+      "clicks": 2,
+      "positionWeekAgo": 10.318840579710145,
+      "positionBaseline": 10.642857142857142,
+      "change": -1.2,
+      "page": "/"
+    },
+    {
+      "query": "event planners in lahore",
+      "position": 16.746835443037973,
+      "impressions": 79,
+      "clicks": 2,
+      "positionWeekAgo": 16.83529411764706,
+      "positionBaseline": 15.951807228915662,
+      "change": 0.1,
+      "page": "/"
+    },
+    {
+      "query": "best event planner in lahore",
+      "position": 13.195402298850574,
+      "impressions": 87,
+      "clicks": 1,
+      "positionWeekAgo": 12.741573033707866,
+      "positionBaseline": 12.593023255813954,
+      "change": -0.5,
+      "page": "/"
+    },
+    {
+      "query": "event planner lahore",
+      "position": 20.605504587155963,
+      "impressions": 109,
+      "clicks": 1,
+      "positionWeekAgo": 22.346534653465348,
+      "positionBaseline": 22.009615384615383,
+      "change": 1.7,
+      "page": "/"
+    },
+    {
+      "query": "event management company in lahore",
+      "position": 42.05263157894737,
+      "impressions": 19,
+      "clicks": 0,
+      "positionWeekAgo": 41.9,
+      "positionBaseline": 44.05263157894737,
+      "change": -0.2,
+      "page": "/"
+    },
+    {
+      "query": "event management companies in lahore",
+      "position": 24,
+      "impressions": 48,
+      "clicks": 1,
+      "positionWeekAgo": 22.288888888888888,
+      "positionBaseline": 22.914893617021278,
+      "change": -1.7,
+      "page": "/"
+    },
+    {
+      "query": "wedding planner in lahore",
+      "position": 13.625,
+      "impressions": 8,
+      "clicks": 0,
+      "positionWeekAgo": 9.727272727272727,
+      "positionBaseline": 13,
+      "change": -3.9,
+      "page": "/"
+    },
+    {
+      "query": "wedding planner lahore",
+      "position": 13.88888888888889,
+      "impressions": 9,
+      "clicks": 1,
+      "positionWeekAgo": 16.81818181818182,
+      "positionBaseline": 18.4,
+      "change": 2.9,
+      "page": "/"
+    },
+    {
+      "query": "wedding event planner in lahore",
+      "position": 30.526315789473685,
+      "impressions": 19,
+      "clicks": 1,
+      "positionWeekAgo": 26.4,
+      "positionBaseline": 24.8125,
+      "change": -4.1,
+      "page": "/"
+    },
+    {
+      "query": "wedding decorators lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    },
+    {
+      "query": "wedding decorators in lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    },
+    {
+      "query": "corporate event planner lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    },
+    {
+      "query": "birthday event planner lahore",
+      "position": 43.5,
+      "impressions": 2,
+      "clicks": 0,
+      "positionWeekAgo": 43.5,
+      "positionBaseline": 43.5,
+      "change": 0,
+      "page": "/"
+    },
+    {
+      "query": "catering services lahore",
+      "position": null,
+      "impressions": 0,
+      "clicks": 0,
+      "positionWeekAgo": null,
+      "positionBaseline": null,
+      "change": null,
+      "page": "—"
+    }
+  ],
+  "opportunities": [
+    {
+      "query": "best event planner in lahore",
+      "clicks": 1,
+      "impressions": 87,
+      "ctr": 0.011494252873563218,
+      "position": 13.195402298850574
+    },
+    {
+      "query": "event planners in lahore",
+      "clicks": 2,
+      "impressions": 79,
+      "ctr": 0.02531645569620253,
+      "position": 16.746835443037973
+    },
+    {
+      "query": "event planner in lahore",
+      "clicks": 2,
+      "impressions": 74,
+      "ctr": 0.02702702702702703,
+      "position": 11.472972972972974
+    },
+    {
+      "query": "event planning agency",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 9.533333333333333
+    },
+    {
+      "query": "best event planners in lahore",
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 8.444444444444445
+    },
+    {
+      "query": "event management lahore",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 13.625
+    },
+    {
+      "query": "event planner",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 4.583333333333334
+    },
+    {
+      "query": "wedding planning classes near me",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 5.545454545454546
+    },
+    {
+      "query": "al baraka events",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 7.15
+    },
+    {
+      "query": "book event planning company in lahore",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 9.45
+    },
+    {
+      "query": "best event organizer in lahore",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 18.8
+    },
+    {
+      "query": "best cultural event planner in lahore",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 6.428571428571429
+    },
+    {
+      "query": "luxury event planners in lahore",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 18.5
+    },
+    {
+      "query": "corporate event planner in lahore",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 12.454545454545455
+    },
+    {
+      "query": "party planner packages in lahore",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 19.8
+    }
+  ],
+  "ctrGaps": [
+    {
+      "query": "event management",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0,
+      "position": 3.0638297872340425
+    },
+    {
+      "query": "event planning agency",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 9.533333333333333
+    },
+    {
+      "query": "event planning classes near me",
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "best event planners in lahore",
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 8.444444444444445
+    },
+    {
+      "query": "event planner",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 4.583333333333334
+    },
+    {
+      "query": "wedding planning classes near me",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 5.545454545454546
+    },
+    {
+      "query": "al baraka events",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 7.15
+    },
+    {
+      "query": "book event planning company in lahore",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 9.45
+    }
+  ],
+  "movers": [
+    {
+      "query": "ballroom lahore",
+      "from": 43,
+      "to": 29.7,
+      "impressions": 10
+    },
+    {
+      "query": "best event management company in lahore",
+      "from": 41.3,
+      "to": 30.3,
+      "impressions": 21
+    },
+    {
+      "query": "event management in lahore",
+      "from": 53.7,
+      "to": 45.5,
+      "impressions": 21
+    },
+    {
+      "query": "wedding venues in lahore",
+      "from": 29,
+      "to": 23.5,
+      "impressions": 12
+    },
+    {
+      "query": "best event management companies in lahore",
+      "from": 31.9,
+      "to": 26.5,
+      "impressions": 11
+    },
+    {
+      "query": "event organizer charges in lahore",
+      "from": 71,
+      "to": 65.7,
+      "impressions": 10
+    },
+    {
+      "query": "luxury event planners in lahore",
+      "from": 23.5,
+      "to": 18.5,
+      "impressions": 12
+    },
+    {
+      "query": "book party planner in lahore",
+      "from": 33.4,
+      "to": 28.7,
+      "impressions": 19
+    },
+    {
+      "query": "event planning agency",
+      "from": 12.4,
+      "to": 9.5,
+      "impressions": 30
+    },
+    {
+      "query": "best pop-up event planner in lahore",
+      "from": 26.9,
+      "to": 24.5,
+      "impressions": 31
+    },
+    {
+      "query": "event management lahore",
+      "from": 15.9,
+      "to": 13.6,
+      "impressions": 24
+    },
+    {
+      "query": "event management company lahore",
+      "from": 19.8,
+      "to": 22.1,
+      "impressions": 17
+    },
+    {
+      "query": "event organizer in lahore",
+      "from": 19.2,
+      "to": 23.2,
+      "impressions": 23
+    },
+    {
+      "query": "wedding event planner in lahore",
+      "from": 26.4,
+      "to": 30.5,
+      "impressions": 19
+    },
+    {
+      "query": "best cultural event planner in lahore",
+      "from": 1.7,
+      "to": 6.4,
+      "impressions": 14
+    },
+    {
+      "query": "best party planner in lahore",
+      "from": 17.1,
+      "to": 22.8,
+      "impressions": 10
+    },
+    {
+      "query": "book event planning company in lahore",
+      "from": 2.9,
+      "to": 9.4,
+      "impressions": 20
+    },
+    {
+      "query": "party planner packages in lahore",
+      "from": 12.7,
+      "to": 19.8,
+      "impressions": 10
+    },
+    {
+      "query": "corporate event planner in lahore",
+      "from": 3.9,
+      "to": 12.5,
+      "impressions": 11
+    },
+    {
+      "query": "best wedding planner in lahore",
+      "from": 19.7,
+      "to": 29.1,
+      "impressions": 13
+    }
+  ],
+  "cannibalisation": [
+    {
+      "query": "baraka events",
+      "pages": [
+        "/ (28 impr, pos 3.0)",
+        "/services/event-management (9 impr, pos 5.4)",
+        "/about (6 impr, pos 10.3)",
+        "/experiences (10 impr, pos 6.9)",
+        "/team (6 impr, pos 9.2)",
+        "/venues (13 impr, pos 5.9)"
+      ]
+    },
+    {
+      "query": "event management companies in lahore",
+      "pages": [
+        "/ (37 impr, pos 13.6)",
+        "/services/event-management (8 impr, pos 60.4)"
+      ]
+    },
+    {
+      "query": "barat events lahore",
+      "pages": [
+        "/ (5 impr, pos 31.8)",
+        "/experiences (9 impr, pos 62.9)"
+      ]
+    },
+    {
+      "query": "best event management company in lahore",
+      "pages": [
+        "/ (15 impr, pos 19.0)",
+        "/services/event-management (5 impr, pos 68.2)"
+      ]
+    },
+    {
+      "query": "event management company in lahore",
+      "pages": [
+        "/ (13 impr, pos 33.9)",
+        "/services/event-management (7 impr, pos 63.1)"
+      ]
+    }
+  ],
+  "indexingProblems": [],
+  "apiErrors": []
+}

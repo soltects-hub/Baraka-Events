@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-11-28T03:59:00.014Z",
+  "ga4Source": "raw-2026-11-28.json",
+  "keywordSource": "2026-11-26.json",
+  "seoSource": "2026-11-28.json",
+  "dateRange": "28daysAgo..yesterday",
+  "humanSessions": 159,
+  "allSessions": 6170,
+  "botShare": 0.974,
+  "leads": {
+    "whatsappClicks": 34,
+    "mapsClicks": 5,
+    "formStarts": 3,
+    "whatsappPerHumanSession": 0.214,
+    "whatsappByChannel": [
+      {
+        "channel": "Referral",
+        "clicks": 15
+      },
+      {
+        "channel": "Paid Search",
+        "clicks": 9
+      },
+      {
+        "channel": "Organic Search",
+        "clicks": 5
+      },
+      {
+        "channel": "AI Assistant",
+        "clicks": 2
+      },
+      {
+        "channel": "Organic Social",
+        "clicks": 2
+      },
+      {
+        "channel": "Direct",
+        "clicks": 1
+      }
+    ]
+  },
+  "channels": [
+    {
+      "channel": "Direct",
+      "sessions": 5991,
+      "engagedSessions": 5991,
+      "users": 5962
+    },
+    {
+      "channel": "Paid Search",
+      "sessions": 43,
+      "engagedSessions": 43,
+      "users": 41
+    },
+    {
+      "channel": "Organic Search",
+      "sessions": 38,
+      "engagedSessions": 38,
+      "users": 33
+    },
+    {
+      "channel": "Referral",
+      "sessions": 32,
+      "engagedSessions": 32,
+      "users": 32
+    },
+    {
+      "channel": "AI Assistant",
+      "sessions": 31,
+      "engagedSessions": 31,
+      "users": 20
+    },
+    {
+      "channel": "Unassigned",
+      "sessions": 20,
+      "engagedSessions": 1,
+      "users": 20
+    },
+    {
+      "channel": "Organic Social",
+      "sessions": 15,
+      "engagedSessions": 15,
+      "users": 14
+    }
+  ],
+  "demand": [
+    {
+      "keyword": "catering services lahore",
+      "searches": 1000,
+      "impressions": 0,
+      "position": null,
+      "gap": "NOT VISIBLE"
+    },
+    {
+      "keyword": "event planner in lahore",
+      "searches": 880,
+      "impressions": 74,
+      "position": 11.472972972972974,
+      "gap": "page 2+"
+    },
+    {
+      "keyword": "wedding planner in lahore",
+      "searches": 140,
+      "impressions": 8,
+      "position": 13.625,
+      "gap": "page 2+"
+    },
+    {
+      "keyword": "event management company in lahore",
+      "searches": 140,
+      "impressions": 19,
+      "position": 42.05263157894737,
+      "gap": "page 2+"
+    },
+    {
+      "keyword": "best event planner in lahore",
+      "searches": 110,
+      "impressions": 87,
+      "position": 13.195402298850574,
+      "gap": "page 2+"
+    },
+    {
+      "keyword": "birthday event planner lahore",
+      "searches": 50,
+      "impressions": 2,
+      "position": 43.5,
+      "gap": ""
+    },
+    {
+      "keyword": "wedding decorators in lahore",
+      "searches": 40,
+      "impressions": 0,
+      "position": null,
+      "gap": ""
+    },
+    {
+      "keyword": "event planners lahore",
+      "searches": 30,
+      "impressions": null,
+      "position": null,
+      "gap": ""
+    },
+    {
+      "keyword": "corporate event planner lahore",
+      "searches": 0,
+      "impressions": 0,
+      "position": null,
+      "gap": ""
+    },
+    {
+      "keyword": "mehndi decoration lahore",
+      "searches": 0,
+      "impressions": null,
+      "position": null,
+      "gap": ""
+    }
+  ]
+}
