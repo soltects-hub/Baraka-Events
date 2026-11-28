@@ -1033,11 +1033,12 @@ export const posts: Post[] = [
     category: 'Venues',
     date: 'March 2025',
     publishedISO: '2025-03',
-    updatedISO: '2026-11-24',
+    updatedISO: '2026-11-28',
     readTime: '7 min read',
     image: '/media/gallery/wedding-9.webp',
     imageAlt: 'Wide lounge under a fairy-light canopy with crystal chandeliers, red velvet drapes and candlelit cabinets',
     blocks: [
+      { p: 'The short answer: wedding venues in Lahore fall into five types by area. Walled City havelis suit a heritage shaadi. Gulberg and MM Alam ballrooms and banquet complexes are the most convenient for elderly and out-of-town guests. DHA, Bahria Town and Valencia Town marquees handle the largest guest lists and the most custom stage builds. Johar Town, Wapda Town and Cantt halls cover a mid-to-large wedding closer to home. Garden venues are an October-to-March option that always needs an indoor fallback. Choosing between them comes down to three questions: how many guests, which season, and what story you want the night to tell.' },
       { p: 'Lahore does not lack beautiful venues \u2014 it lacks honest guidance about them. Before you commit, check whether the courtyard floods in monsoon season, whether the ceiling is tall enough for a proper stage reveal, and whether the space photographs well.' },
       { h: 'The Walled City: havelis with history' },
       { p: 'For families who want their shaadi to feel rooted in Lahore\u2019s soul, nothing rivals a restored haveli in the Androon Shehr. Courtyard acoustics carry the dhol beautifully, brick facades glow under amber uplighting, and the rooftop views toward Badshahi Mosque are unrepeatable anywhere else in Pakistan. Winter weekends disappear first, so ask early.' },
@@ -1059,6 +1060,7 @@ export const posts: Post[] = [
       },
       { h: 'FAQs: Choosing Among Lahore\u2019s Wedding Venues' },
       { p: 'Which area is best for a large guest list? DHA, Bahria Town and Valencia Town\u2019s purpose-built marquees handle the biggest lists most comfortably; Johar Town and Wapda Town\u2019s banquet halls suit a more moderate count without feeling empty.' },
+      { p: 'Which Lahore wedding halls state the largest capacity? Among the venues in [our venue guide](/venues), [The Nishat Hotel Gulberg](/venues/the-nishat-hotel-gulberg) states its Grand Ballroom seats up to 1,200 across round tables (1,600 theatre-style), [Avari Lahore](/venues/avari-lahore) states events of up to 1,200 guests, and [Royal Palm](/venues/royal-palm-golf-country-club) lists its Silverbells marquee at up to 1,000. These are the venues’ own published figures, not tested capacities, so confirm the seated layout for your date.' },
       { p: 'How far ahead should we book a Walled City haveli? It depends on your date and availability. Winter weekends at these venues are the first to go, so ask early.' },
       { p: 'Is an outdoor garden venue reliable year-round? No. October through March is the most dependable window for heat and monsoon risk, but smog season (October to February, per the [Punjab Environmental Protection Agency](https://aqi.punjab.gov.pk/lahore)) means an indoor fallback is worth planning even then; outside that window, an outdoor booking needs a real covered, cooled fallback rather than an assumption the weather will hold.' },
       {
